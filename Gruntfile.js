@@ -143,8 +143,8 @@ module.exports = function(grunt) {
 			dist: {
 				options: {
 					port: 9005,
-					base: 'build/',
-					open: 'http://<%= connect.dist.options.hostname %>:<%= connect.dist.options.port %>',
+					base: '',
+					open: 'http://<%= connect.dist.options.hostname %>:<%= connect.dist.options.port %>/build',
 					hostname: 'localhost',
 					livereload: true
 				}

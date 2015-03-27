@@ -2,18 +2,10 @@ body {
 	margin: 0;
 	padding: 10px;
 }
-.main {
-	width: 60%;
-	margin: 200px auto 0;
+.test {
 	background-image: linear-gradient(#eee, #ddd);
-	border-radius: 15px;
-	transform: rotate(-7deg);
-	padding: 10px;
-	text-align: center;
 
 	& > p {
-		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-		font-size: 50px;
 		color: #333;
 	}
 }
