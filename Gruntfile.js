@@ -1,81 +1,40 @@
 module.exports = function(grunt) {
 
-  // initializes all grunt tasks, no need to load every task by itself
+	// initializes all grunt tasks, no need to load every task by itself
 	require('load-grunt-tasks')(grunt);
 	
 	// create some nice statistics for time consumation of every task
 	require('time-grunt')(grunt);
 	
+	var jsFiles = [
+		'src/js/file1.js',
+		'src/js/file2.js'
+	];
+	
 	grunt.initConfig({
 
-    // reads the package.json and provide e.g. the package name
+		// reads the package.json and provide e.g. the package name
 		pkg: grunt.file.readJSON('package.json'),
 
-		minifyHtml: {
-			options: {
-				empty: true,
-				loose: true,
-				conditionals: true,
-				quotes: true
-			},
-			prod: {
-				files: [{
-					expand: true,
-					cwd: 'src/html/',
-					src: ['*.html'],
-					dest: 'tmp/html-not-concat',
-				}]
-			}
+		// removes all files from the specified folders
+		clean: {
+			build: ['build/'],
+			tmp: ['tmp/']
 		},
-
-		htmlConvert: {
-			options: {
-				quoteChar: '\'',
-				module: 'htmlTemplate',
-				indentString: '	',
-				rename: function(moduleName) {
-					return moduleName.replace('.html', '');
-				}
-			},
-			dev: {
-				options: {
-					base: 'src/html/'
-				},
-				src: ['src/html/*.html'],
-				dest: 'tmp/html/geochart.tpl.js'
-			},
-			prod: {
-				options: {
-					base: 'tmp/html-not-concat/'
-				},
-				src: ['tmp/html-not-concat/*.html'],
-				dest: 'tmp/html/geochart.tpl.js'
-			}
-		},
-
+		
+		// concatenates files to one single file
 		concat: {
-			jsCustom: {
-				options: {
-					process: function(src, filepath) {
-						if(filepath !== 'src/js/head.js' && filepath !== 'src/js/tail.js') {
-							var lines = [];
-							src.split('\n').forEach(function(line) {
-								return lines.push((line.length > 0 ? '	' : '') + line);
-							});
-							src = lines.join('\n');
-						}
-						return src;
-					}
-				},
-				src: jsCustom,
-				dest: 'tmp/js/<%= pkg.name %>.js'
+			js: {
+				src: jsFiles,
+				dest: 'build/client.js'
 			},
 			css: {
-				src: ['tmp/styles/*.css'],
-				dest: 'dist/<%= pkg.name %>.css'
+				src: ['tmp/css/*.css'],
+				dest: 'build/client.css'
 			}
 		},
 
+		// checks the style of the javascript files
 		jshint: {
 			options: {
 				curly: true,
@@ -85,6 +44,17 @@ module.exports = function(grunt) {
 				forin: true,
 				freeze: true,
 				undef: true,
+				globals: {
+					window: true,
+					document: true,
+					d3: true,
+					jQuery: true,
+					topojson: true,
+					moment: true
+				}
+			},
+			prod: {
+				src: ['<%= concat.js.dest %>']
 			},
 			dev: {
 				options: {
@@ -99,169 +69,111 @@ module.exports = function(grunt) {
 						moment: true
 					}
 				},
-				src: ['<%= concat.jsCustom.dest %>']
-			},
-			dist: {
-				options: {
-					globals: {
-						window: true,
-						document: true,
-						d3: true,
-						jQuery: true,
-						topojson: true,
-						moment: true
-					}
-				},
-				src: ['<%= concat.jsCustom.dest %>']
+				src: ['<%= concat.js.dest %>']
 			}
-
 		},
 
+		// compiles the sass code to css code
 		sass: {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'src/scss',
+					cwd: 'src/sass',
 					src: ['*.{scss,sass}'],
-					dest: 'tmp/styles',
+					dest: 'tmp/css',
 					ext: '.css'
 				}]
 			}
 		},
-
+		
+		// copies the specified files
 		copy: {
-			jsCustom: {
-				src: '<%= concat.jsCustom.dest %>',
-				dest: 'dist/<%= pkg.name %>.js'
-			},
-			libraries: {
+			html: {
 				expand: true,
 				flatten: true,
-				src: libraries,
-				dest: 'dist/lib/'
-			},
-			json: {
-				expand: true,
-				flatten: true,
-				rename: function(dest, src) {
-					var nameAndVersion = grunt.template.process('<%= pkg.name %>-');
-					return dest + nameAndVersion + src;
-				},
-				src: ['src/json/*.json'],
-				dest: 'dist/'
-			},
-			htmlExample: {
-				expand: true,
-				flatten: true,
-				src: 'src/example/*',
-				dest: 'dist/example/'
+				src: 'src/html/*.html',
+				dest: 'build/'
 			}
 		},
 
-		clean: {
-			dist: ['dist/'],
-			tmp: ['tmp/']
-		},
-
-		uglify: {
-			dist: {
-				files: {
-					'dist/<%= pkg.name %>.min.js': '<%= concat.jsCustom.dest %>'
-				}
-			}
-		},
-
+		// adds some necessary css prefixes like -webkit-
 		autoprefixer: {
 			options: {
 				browsers: '> 2% in CH'
 			},
 			css: {
-				src: 'dist/<%= pkg.name %>.css'
+				src: 'build/client.css'
 			}
 		},
 
-		csslint: {
-			options: {
-				"adjoining-classes": false,
-				"box-model": false,
-				"box-sizing": false,
-				"compatible-vendor-prefixes": false,
-				"fallback-colors": false,
-				"vendor-prefix": false,
-				"namespaced": false,
-				"important": false,
-				"font-sizes": false,
-				"universal-selector": false,
-				"qualified-headings": false,
-				"outline-none": false
-			},
+		// minifies and renames the javascript code for best space usage
+		uglify: {
 			dist: {
-				src: ['dist/*.css']
+				files: {
+					'build/client.min.js': 'build/client.js'
+				}
 			}
 		},
 
+		// minifies the css code
 		cssmin: {
 			options: {
 				keepSpecialComments: 0
 			},
 			target: {
 				files: {
-					'dist/<%= pkg.name %>.min.css': 'dist/<%= pkg.name %>.css'
+					'build/client.min.css': 'build/client.css'
 				}
 			}
 		},
 
+		// process, which monitors all source files and recompiles after a change
 		watch: {
 			options: {
 				livereload: true
 			},
 			all: {
-				files: ['src/**/*.*', 'example/*'],
+				files: ['src/**/*.*'],
 				tasks: ['default']
 			}
 		},
 
+		// starts a server and deploys the specified files
 		connect: {
 			dist: {
 				options: {
-					port: 9000,
-					base: 'dist/',
-					open: 'http://<%= connect.dist.options.hostname %>:<%= connect.dist.options.port %>/example',
+					port: 9005,
+					base: 'build/',
+					open: 'http://<%= connect.dist.options.hostname %>:<%= connect.dist.options.port %>',
 					hostname: 'localhost',
 					livereload: true
 				}
 			}
 		}
-
+		
 	});
 
+	// the default process, which can be started by calling "grunt"
 	grunt.registerTask('default', [
 		'clean',
-		'htmlConvert:dev',
-		'concat:jsCustom',
+		'concat:js',
 		'jshint:dev',
-		'copy:jsCustom',
-		'copy:libraries',
 		'sass',
 		'concat:css',
 		'autoprefixer',
-		'csslint',
-		'copy:htmlExample',
-		'copy:json',
+		'copy:html',
 		'clean:tmp'
 	]);
-
-	grunt.registerTask('productive', [
+	
+	// the productive process, which also minifies. it can be started by calling "grunt prod"
+	grunt.registerTask('prod', [
 		'default',
-		'minifyHtml:prod',
-		'htmlConvert:prod',
-		'concat:jsCustom',
-		'jshint:dist',
+		'jshint:prod',
 		'uglify',
-		'cssmin',
-		'clean:tmp'
+		'cssmin'
 	]);
 
+	// starts a server instance with live deployment. it can be started by calling "grunt serve"
 	grunt.registerTask('serve', [
 		'default',
 		'connect',
