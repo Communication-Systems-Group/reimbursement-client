@@ -2,15 +2,15 @@ module.exports = function(grunt) {
 
 	// initializes all grunt tasks, no need to load every task by itself
 	require('load-grunt-tasks')(grunt);
-	
+
 	// create some nice statistics for time consumation of every task
 	require('time-grunt')(grunt);
-	
+
 	var jsFiles = [
 		'src/js/file1.js',
 		'src/js/file2.js'
 	];
-	
+
 	grunt.initConfig({
 
 		// reads the package.json and provide e.g. the package name
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 			build: ['build/'],
 			tmp: ['tmp/']
 		},
-		
+
 		// concatenates files to one single file
 		concat: {
 			js: {
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
-		
+
 		// copies the specified files
 		copy: {
 			html: {
@@ -150,7 +150,7 @@ module.exports = function(grunt) {
 				}
 			}
 		}
-		
+
 	});
 
 	// the default process, which can be started by calling "grunt"
@@ -164,7 +164,7 @@ module.exports = function(grunt) {
 		'copy:html',
 		'clean:tmp'
 	]);
-	
+
 	// the productive process, which also minifies. it can be started by calling "grunt prod"
 	grunt.registerTask('prod', [
 		'default',
