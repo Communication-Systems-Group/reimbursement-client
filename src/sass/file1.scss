@@ -9,3 +9,14 @@ body {
 		color: #333;
 	}
 }
+canvas#signaturePad {
+	display: block;
+	margin: 0 auto;
+	border: 2px solid #EEE;
+	border-radius: 6px;
+	cursor: default;
+}
+.clearSignaturePad {
+	display: block;
+	margin: 0 auto;
+}

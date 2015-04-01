@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 
 	var jsFiles = [
 		'src/js/file1.js',
-		'src/js/file2.js'
+		'src/js/signature.js'
 	];
 
 	grunt.initConfig({
@@ -50,7 +50,8 @@ module.exports = function(grunt) {
 					d3: true,
 					jQuery: true,
 					topojson: true,
-					moment: true
+					moment: true,
+					SignaturePad: true
 				}
 			},
 			prod: {
@@ -66,7 +67,8 @@ module.exports = function(grunt) {
 						d3: true,
 						jQuery: true,
 						topojson: true,
-						moment: true
+						moment: true,
+						SignaturePad: true
 					}
 				},
 				src: ['<%= concat.js.dest %>']
