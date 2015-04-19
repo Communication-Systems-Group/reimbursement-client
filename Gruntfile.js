@@ -7,8 +7,7 @@ module.exports = function(grunt) {
 	require('time-grunt')(grunt);
 
 	var jsFiles = [
-		'src/js/file1.js',
-		'src/js/signature.js'
+		'src/js/app.js'
 	];
 
 	grunt.initConfig({
@@ -26,7 +25,7 @@ module.exports = function(grunt) {
 		concat: {
 			js: {
 				src: jsFiles,
-				dest: 'build/client.js'
+				dest: 'build/app.js'
 			},
 			css: {
 				src: ['tmp/css/*.css'],
@@ -68,7 +67,8 @@ module.exports = function(grunt) {
 						jQuery: true,
 						topojson: true,
 						moment: true,
-						SignaturePad: true
+						SignaturePad: true,
+						angular: true
 					}
 				},
 				src: ['<%= concat.js.dest %>']
@@ -93,8 +93,14 @@ module.exports = function(grunt) {
 			html: {
 				expand: true,
 				flatten: true,
-				src: 'src/html/*.html',
+				src: ['src/**/*'],
 				dest: 'build/'
+			},
+			bower_components: {
+				expand: true,
+				flatten: true,
+				src: 'bower_components/*',
+				dest: 'bower_components/'
 			}
 		},
 
@@ -151,7 +157,7 @@ module.exports = function(grunt) {
 					livereload: true
 				}
 			}
-		}
+		},
 
 	});
 
@@ -181,4 +187,5 @@ module.exports = function(grunt) {
 		'connect',
 		'watch'
 	]);
+
 };
