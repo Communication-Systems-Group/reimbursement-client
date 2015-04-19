@@ -95,12 +95,6 @@ module.exports = function(grunt) {
 				flatten: true,
 				src: ['src/**/*'],
 				dest: 'build/'
-			},
-			bower_components: {
-				expand: true,
-				flatten: true,
-				src: 'bower_components/*',
-				dest: 'bower_components/'
 			}
 		},
 
