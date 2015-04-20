@@ -3,42 +3,50 @@
  */
 
 // Declare app level module which depends on views, and components
-var app = angular.module('myApp', ['ui.router', 'ui.bootstrap', 'pascalprecht.translate']);
+var app = angular.module('myApp', [ 'ui.router', 'ui.bootstrap',
+		'pascalprecht.translate' ]);
 
-app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', function($stateProvider, $urlRouterProvider, $translateProvider) {
-    $translateProvider.useStaticFilesLoader({
-        prefix: '/build/',
-        suffix: '.json'
-    });
-    $translateProvider.preferredLanguage('de');
+app.config([ '$stateProvider', '$urlRouterProvider', '$translateProvider',
+		function($stateProvider, $urlRouterProvider, $translateProvider) {
+			"use strict";
 
-    $stateProvider
-        .state('login', {
-          url: "/login",
-          templateUrl: "login.html",
-          controller: "LoginCtrl"
-        })
-        .state('sign', {
-            url: "/sign",
-            templateUrl: "sign.html",
-            controller: "SignCtrl"
-        });
+			$translateProvider.useStaticFilesLoader({
+				prefix : '/build/',
+				suffix : '.json'
+			});
+			$translateProvider.preferredLanguage('de');
 
-    $urlRouterProvider.otherwise('/login');
-}]);
+			$stateProvider.state('login', {
+				url : "/login",
+				templateUrl : "login.html",
+				controller : "LoginCtrl"
+			}).state('sign', {
+				url : "/sign",
+				templateUrl : "sign.html",
+				controller : "SignCtrl"
+			});
 
-app.controller('LoginCtrl',function($scope, $state) {
+			$urlRouterProvider.otherwise('/login');
+		} ]);
 
-    $scope.submit = function() {
-        $state.go('sign');
-    };
+app.controller('LoginCtrl', function($scope, $state) {
+	"use strict";
+
+	$scope.submit = function() {
+		$state.go('sign');
+	};
 });
 
-app.controller('SignCtrl',function($scope) {
+app.controller('SignCtrl', function($scope) {
+	"use strict";
 
-    $scope.tabs = [
-        { title:'Dynamic Title 1', content:'Dynamic content 1' },
-        { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: true }
-    ];
+	$scope.tabs = [ {
+		title : 'Dynamic Title 1',
+		content : 'Dynamic content 1'
+	}, {
+		title : 'Dynamic Title 2',
+		content : 'Dynamic content 2',
+		disabled : true
+	} ];
 
 });

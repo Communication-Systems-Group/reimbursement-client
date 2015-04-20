@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+	"use strict";
+
 	// initializes all grunt tasks, no need to load every task by itself
 	require('load-grunt-tasks')(grunt);
 
@@ -43,6 +45,7 @@ module.exports = function(grunt) {
 				forin: true,
 				freeze: true,
 				undef: true,
+				strict: true,
 				globals: {
 					window: true,
 					document: true,
@@ -50,7 +53,8 @@ module.exports = function(grunt) {
 					jQuery: true,
 					topojson: true,
 					moment: true,
-					SignaturePad: true
+					SignaturePad: true,
+					angular: true
 				}
 			},
 			prod: {
@@ -72,6 +76,16 @@ module.exports = function(grunt) {
 					}
 				},
 				src: ['<%= concat.js.dest %>']
+			},
+			gruntfile: {
+				options: {
+					strict: true,
+					globals: {
+						require: true,
+						module: true
+					}
+				},
+				src: ['Gruntfile.js']
 			}
 		},
 
@@ -93,7 +107,13 @@ module.exports = function(grunt) {
 			html: {
 				expand: true,
 				flatten: true,
-				src: ['src/**/*'],
+				src: ['src/html/**/*.html'],
+				dest: 'build/'
+			},
+			languages: {
+				expand: true,
+				flatten: true,
+				src: ['src/languages/**/*.json'],
 				dest: 'build/'
 			}
 		},
@@ -151,7 +171,7 @@ module.exports = function(grunt) {
 					livereload: true
 				}
 			}
-		},
+		}
 
 	});
 
@@ -159,11 +179,13 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', [
 		'clean',
 		'concat:js',
+		'jshint:gruntfile',
 		'jshint:dev',
 		'sass',
 		'concat:css',
 		'autoprefixer',
 		'copy:html',
+		'copy:languages',
 		'clean:tmp'
 	]);
 
