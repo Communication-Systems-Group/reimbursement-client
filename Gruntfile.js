@@ -9,7 +9,9 @@ module.exports = function(grunt) {
 	require('time-grunt')(grunt);
 
 	var jsFiles = [
-		'src/js/app.js'
+		'src/js/app.js',
+		'src/js/signature/signature.controller.js',
+		'src/js/cropping/cropping.controller.js'
 	];
 
 	grunt.initConfig({
@@ -54,7 +56,8 @@ module.exports = function(grunt) {
 					topojson: true,
 					moment: true,
 					SignaturePad: true,
-					angular: true
+					angular: true,
+					Modernizr: true
 				}
 			},
 			prod: {
@@ -72,7 +75,8 @@ module.exports = function(grunt) {
 						topojson: true,
 						moment: true,
 						SignaturePad: true,
-						angular: true
+						angular: true,
+						Modernizr: true
 					}
 				},
 				src: ['<%= concat.js.dest %>']
@@ -106,15 +110,15 @@ module.exports = function(grunt) {
 		copy: {
 			html: {
 				expand: true,
-				flatten: true,
-				src: ['src/html/**/*.html'],
+				cwd: 'src/html/',
+				src: ['**/*.html'],
 				dest: 'build/'
 			},
 			languages: {
 				expand: true,
 				flatten: true,
 				src: ['src/languages/**/*.json'],
-				dest: 'build/'
+				dest: 'build/languages/'
 			}
 		},
 

@@ -12,15 +12,16 @@
 		<!-- Inclusion of the reimbursement module styles -->
 		<link rel="stylesheet" type="text/css" href="client.css">
 
+		<base href="/build/"></base>
+
 	</head>
 
-	<body ng-app="myApp">
+	<body ng-app="reimbursement">
 
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -29,18 +30,14 @@
 					<a class="navbar-brand" href="#">Reimbursement UZH</a>
 				</div>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="#">{{ "REGISTER" | translate }}</a>
-						</li>
-						<li>
-							<a href="#">{{ "LOGIN" | translate }}</a>
+						<li class="active">
+							<a href="#"><i class="fa fa-sign-in"></i> {{ 'reimbursement.tabs.login' | translate }}</a>
 						</li>
 					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
+				</div>
+			</div>
 		</nav>
 
 		<div class="container">
@@ -55,9 +52,13 @@
 		<script src="/bower_components/angular-translate/angular-translate.js"></script>
 		<script src="/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 
+		<script src="/bower_components/qrcode-generator/js/qrcode.js"></script>
+		<script src="/bower_components/angular-qrcode/qrcode.js"></script>
+
 		<script src="/bower_components/jquery/dist/jquery.js"></script>
 		<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 		<script src="/bower_components/signature_pad/signature_pad.js"></script>
+		<script src="/bower_components/modernizr/modernizr.js"></script>
 
 		<!-- Inclusion of the reimbursement module javascript -->
 		<script src="app.js"></script>

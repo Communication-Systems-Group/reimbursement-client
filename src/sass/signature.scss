@@ -1,0 +1,72 @@
+#signatureCapture {
+
+	#signatureCaptureImage,
+	#signatureCaptureTouch {
+		margin: 20px 0 20px 0;
+	}
+
+	#signatureCaptureImage {
+		.image-upload {
+			$color: #337AB7;
+			border: 5px dashed $color;
+			height: 200px;
+			border-radius: 35px;
+			position: relative;
+
+			.center {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				color: $color;
+				font-size: 40px;
+				font-weight: 300;
+				cursor: pointer;
+				user-select: none;
+			}
+		}
+	}
+
+	#signatureCaptureTouch {
+		text-align: center;
+
+		#signaturePad {
+			display: block;
+			margin: 0 auto;
+			width: 100%;
+			border: 2px solid #DFDFDF;
+			border-radius: 6px;
+			cursor: default;
+		}
+		qrcode {
+			display: block;
+			canvas {
+				display: inline-block;
+			}
+		}
+		.currentURL {
+			font-family: Consolas, monospace;
+			font-size: 14px;
+		}
+		.forceSignature {
+			margin-top: 10px;
+		}
+		.resetForceSignature {
+			position: absolute;
+			display: block;
+			margin-left: 10px;
+			margin-top: 10px;
+			cursor: pointer;
+			padding: 2px;
+			border: 1px solid #aaa;
+			qrcode {
+				line-height: 0;
+			}
+		}
+		.buttons {
+			margin-top: 10px;
+			text-align: right;
+		}
+	}
+
+}

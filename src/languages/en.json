@@ -1,4 +1,13 @@
-{
-    "REGISTER": "Register",
-    "LOGIN": "Login"
+﻿{
+	"reimbursement.mainTitle": "Reimbursement IFI",
+	"reimbursement.tabs.login": "Login",
+	"reimbursement.captureSignature.title": "Capture Signature",
+	"reimbursement.captureSignature.info": "You have been successfully logged in. To finish your registration, you are kindly asked to capture your signature. You can upload an image containing the signature or use the the touch screen input and capture it directly online.",
+	"reimbursement.captureSignature.nextStep": "Submit",
+	"reimbursement.captureSignature.upload.tab": "Image Upload",
+	"reimbursement.captureSignature.upload.centerText": "Upload Image",
+	"reimbursement.captureSignature.touch.tab": "Touch Screen Entry",
+	"reimbursement.captureSignature.touch.warning": "According to our recogintion patterns, you are using a device without a touch screen. For capturing the signature, you need to have a device with a touch screen. Use a mobile phone or tablet to enter your signature. Scan the following QR code on your mobile device.",
+	"reimbursement.captureSignature.touch.forceButton": "Capture Signature Nevertheless",
+	"reimbursement.captureSignature.touch.reset": "Reset"
 }
