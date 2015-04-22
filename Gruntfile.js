@@ -57,7 +57,8 @@ module.exports = function(grunt) {
 					moment: true,
 					SignaturePad: true,
 					angular: true,
-					Modernizr: true
+					Modernizr: true,
+					deferredBootstrapper: true
 				}
 			},
 			prod: {
@@ -76,7 +77,8 @@ module.exports = function(grunt) {
 						moment: true,
 						SignaturePad: true,
 						angular: true,
-						Modernizr: true
+						Modernizr: true,
+						deferredBootstrapper: true
 					}
 				},
 				src: ['<%= concat.js.dest %>']

@@ -1,0 +1,28 @@
+﻿{
+	"de": {
+		"reimbursement.mainTitle": "Reimbursement IFI",
+		"reimbursement.tabs.login": "Einloggen",
+		"reimbursement.captureSignature.title": "Unterschrift erfassen",
+		"reimbursement.captureSignature.info": "Sie haben sich erfolgreich eingeloggt. Um Ihre Registrierung abschliessen zu können, müssen Sie noch Ihre Unterschrift digital erfassen. Sie können die Unterschrift entweder über einen Touch-Screen direkt online erfassen oder eine Bilddatei mit Ihrer Unterschrift hochladen.",
+		"reimbursement.captureSignature.nextStep": "Speichern",
+		"reimbursement.captureSignature.upload.tab": "Bildupload",
+		"reimbursement.captureSignature.upload.centerText": "Bild hochladen",
+		"reimbursement.captureSignature.touch.tab": "Touch-Screen Eingabe",
+		"reimbursement.captureSignature.touch.warning": "Nach unserer Erkenntnis verwenden Sie ein Gerät, das keine Toucheingabe ermöglicht. Für die Unterschrift benötigen Sie ein touchfähiges Eingabegerät. Verwenden Sie ein Mobilgerät (Smartphone, Tablet) für die Eingabe, indem Sie folgenden QR-Code einscannen.",
+		"reimbursement.captureSignature.touch.forceButton": "Unterschrift trotzdem erfassen",
+		"reimbursement.captureSignature.touch.reset": "Zurücksetzen"
+	},
+	"en": {
+		"reimbursement.mainTitle": "Reimbursement IFI",
+		"reimbursement.tabs.login": "Login",
+		"reimbursement.captureSignature.title": "Capture Signature",
+		"reimbursement.captureSignature.info": "You have been successfully logged in. To finish your registration, you are kindly asked to capture your signature. You can upload an image containing the signature or use the the touch screen input and capture it directly online.",
+		"reimbursement.captureSignature.nextStep": "Submit",
+		"reimbursement.captureSignature.upload.tab": "Image Upload",
+		"reimbursement.captureSignature.upload.centerText": "Upload Image",
+		"reimbursement.captureSignature.touch.tab": "Touch Screen Entry",
+		"reimbursement.captureSignature.touch.warning": "According to our recogintion patterns, you are using a device without a touch screen. For capturing the signature, you need to have a device with a touch screen. Use a mobile phone or tablet to enter your signature. Scan the following QR code on your mobile device.",
+		"reimbursement.captureSignature.touch.forceButton": "Capture Signature Nevertheless",
+		"reimbursement.captureSignature.touch.reset": "Reset"
+	}
+}

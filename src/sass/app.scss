@@ -2,3 +2,6 @@ body {
 	margin: 0;
 	padding: 50px 0 0 0;
 }
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}

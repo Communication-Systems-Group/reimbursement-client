@@ -1,30 +1,56 @@
+(function initializeLanguagesBeforeApplicationStart() {
+	"use strict";
+
+	deferredBootstrapper.bootstrap({
+		element : document.body,
+		module : 'reimbursement',
+		resolve : {
+			LANGUAGES : [ '$http', function($http) {
+				return $http.get('/build/languages/languages.json');
+			} ]
+		}
+	});
+})();
+
 var app = angular.module('reimbursement', [ 'ui.router', 'ui.bootstrap',
 		'pascalprecht.translate', 'monospaced.qrcode' ]);
 
 app.constant("Modernizr", Modernizr);
 
-app.config([ '$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider',
-		function($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider) {
+app.config([
+		'$stateProvider',
+		'$urlRouterProvider',
+		'$translateProvider',
+		'$locationProvider',
+		'LANGUAGES',
+
+		function($stateProvider, $urlRouterProvider, $translateProvider,
+				$locationProvider, LANGUAGES) {
+
 			"use strict";
 
-			$translateProvider.useStaticFilesLoader({
-				prefix : '/build/languages/',
-				suffix : '.json'
-			});
-			$translateProvider.preferredLanguage('de');
+			(function addLanguages() {
+				for ( var key in LANGUAGES) {
+					if (LANGUAGES.hasOwnProperty(key)) {
+						$translateProvider.translations(key, LANGUAGES[key]);
+					}
+				}
+				$translateProvider.preferredLanguage('en');
+			})();
 
-			$stateProvider.state('signature', {
-				url : "/signature",
-				templateUrl : "templates/signature.html",
-				controller : "SignatureController"
-			}).state('cropping', {
-				url : "/cropping",
-				templateUrl : "templates/cropping.html",
-				controller : "CroppingController"
-			});
+			(function addStates() {
+				$stateProvider.state('signature', {
+					url : "/signature",
+					templateUrl : "templates/signature.html",
+					controller : "SignatureController"
+				}).state('cropping', {
+					url : "/cropping",
+					templateUrl : "templates/cropping.html",
+					controller : "CroppingController"
+				});
+				$urlRouterProvider.otherwise('/signature');
+			})();
 
-			$urlRouterProvider.otherwise('/signature');
-			
 			$locationProvider.hashPrefix("!");
 		}
 
