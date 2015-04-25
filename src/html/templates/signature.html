@@ -13,10 +13,20 @@
 		</ul>
 
 		<form id="signatureCaptureImage" ng-show="showUploadImage">
-			<div class="image-upload">
-				<div class="center">
-					<i class="fa fa-plus"></i> {{ 'reimbursement.captureSignature.upload.centerText' | translate }}
+			<div flow-init="{
+				target: 'http://localhost:8080/user/test-uuid/signature',
+				testChunks: false,
+				singleFile: true,
+				simultaneousUploads: 1
+			}" flow-name="flow.image" flow-files-submitted="$flow.upload()" flow-upload-started="uploadStarted = true" flow-complete="goToNextPage()">
+				<div class="image-upload">
+					<div flow-drop flow-btn ng-class="dropClass" flow-drag-enter="dropClass='dragOver'" flow-drag-leave="dropClass=''">
+						<div class="center uploadButton">
+							<i class="fa fa-plus-circle"></i> {{ 'reimbursement.captureSignature.upload.centerText' | translate }}
+						</div>
+					</div>
 				</div>
+				<pre>uploadStarted: {{uploadStarted}}</pre>
 			</div>
 		</form>
 
@@ -34,15 +44,14 @@
 				<div class="resetForceSignature" ng-show="forceSignaturePad" ng-click="forceSignaturePad = false">
 					<qrcode data="1" size="26" version="2"></qrcode>
 				</div>
-				<canvas id="signaturePad"></canvas>
-				<div class="buttons">
-					<button class="btn btn-default" ng-click="resetSignaturePad()">
-						<i class="fa fa-ban"></i>
-						{{ 'reimbursement.captureSignature.touch.reset' | translate }}
-					</button>
-					<button class="btn btn-primary" ng-click="submitTouch()">
-						{{ 'reimbursement.captureSignature.nextStep' | translate }}
-					</button>
+				<signature-pad submit="submitTouch"></signature-pad>
+				<div flow-init="{
+					target: 'http://localhost:8080/user/test-uuid/signature',
+					testChunks: false,
+					singleFile: true,
+					simultaneousUploads: 1
+				}" flow-name="flow.touch" flow-upload-started="uploadStarted = true" flow-complete="goToNextPage()">
+				<pre>uploadStarted: {{uploadStarted}}</pre>
 				</div>
 			</div>
 		</form>

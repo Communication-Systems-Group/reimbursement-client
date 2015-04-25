@@ -12,6 +12,16 @@
 			height: 200px;
 			border-radius: 35px;
 			position: relative;
+			padding: 7px;
+
+			div[flow-drop] {
+				width: 100%;
+				height: 100%;
+				border-radius: 28px;
+				&.dragOver {
+					background: #C5E4FF;
+				}
+			}
 
 			.center {
 				position: absolute;
@@ -19,10 +29,20 @@
 				top: 50%;
 				transform: translate(-50%,-50%);
 				color: $color;
-				font-size: 40px;
+				font-size: 30px;
 				font-weight: 300;
-				cursor: pointer;
 				user-select: none;
+				text-align: center;
+
+				&.uploadBar {
+					width: 40%;
+				}
+				&.uploadButton {
+					cursor: pointer;
+				}
+				.progress {
+					margin: 0;
+				}
 			}
 		}
 	}
@@ -30,13 +50,31 @@
 	#signatureCaptureTouch {
 		text-align: center;
 
-		#signaturePad {
+		.signaturePad {
+			.pad {
+				display: block;
+				margin: 0 auto;
+				width: 100%;
+				border: 2px solid #DFDFDF;
+				border-radius: 6px;
+				cursor: default;
+			}
+			.buttons {
+				margin-top: 10px;
+				text-align: right;
+			}
+		}
+		.resetForceSignature {
+			position: absolute;
 			display: block;
-			margin: 0 auto;
-			width: 100%;
-			border: 2px solid #DFDFDF;
-			border-radius: 6px;
-			cursor: default;
+			margin-left: 10px;
+			margin-top: 10px;
+			cursor: pointer;
+			padding: 2px;
+			border: 1px solid #aaa;
+			qrcode {
+				line-height: 0;
+			}
 		}
 		qrcode {
 			display: block;
@@ -51,22 +89,5 @@
 		.forceSignature {
 			margin-top: 10px;
 		}
-		.resetForceSignature {
-			position: absolute;
-			display: block;
-			margin-left: 10px;
-			margin-top: 10px;
-			cursor: pointer;
-			padding: 2px;
-			border: 1px solid #aaa;
-			qrcode {
-				line-height: 0;
-			}
-		}
-		.buttons {
-			margin-top: 10px;
-			text-align: right;
-		}
 	}
-
 }

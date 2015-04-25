@@ -12,6 +12,7 @@
     "angular-bootstrap": "~0.12.1",
     "modernizr": "~2.8.3",
     "angular-qrcode": "~5.1.0",
-    "angular-deferred-bootstrap": "~0.1.6"
+    "angular-deferred-bootstrap": "~0.1.6",
+    "ng-flow": "~2.6.1"
   }
 }

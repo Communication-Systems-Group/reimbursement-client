@@ -1,0 +1,14 @@
+<div class="signaturePad">
+	<div class="pad">
+		<canvas ng-style="{width: signatureWidth, height: signatureHeight}"></canvas>
+	</div>
+
+	<div class="buttons">
+		<button class="btn btn-default" ng-click="clearSignature()">
+			<i class="fa fa-ban"></i> {{ "reimbursement.captureSignature.touch.reset" | translate }}
+		</button>
+		<button class="btn btn-primary" ng-click="submitSignature()">
+			{{ "reimbursement.captureSignature.nextStep" | translate }}
+		</button>
+	</div>
+</div>

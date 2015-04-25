@@ -13,7 +13,7 @@
 })();
 
 var app = angular.module('reimbursement', [ 'ui.router', 'ui.bootstrap',
-		'pascalprecht.translate', 'monospaced.qrcode' ]);
+		'pascalprecht.translate', 'monospaced.qrcode', 'flow' ]);
 
 app.constant("Modernizr", Modernizr);
 
