@@ -35,6 +35,7 @@ app.directive('signaturePad', function($window, $timeout) {
 			function convertBase64ToFile(dataBase64) {
 				var type = dataBase64.split(',')[0].split(':')[1].split(";base64")[0];
 
+				// taken from: http://stackoverflow.com/a/14988118/3233827
 				var binaryData = window.atob(dataBase64.split(',')[1]);
 				var binaryLength = binaryData.length;
 				var arrayBuffer = new window.ArrayBuffer(binaryLength);
@@ -44,7 +45,7 @@ app.directive('signaturePad', function($window, $timeout) {
 					uint8Array[i] = binaryData.charCodeAt(i);
 				}
 
-				var blob = new window.Blob([binaryData], {type: type});
+				var blob = new window.Blob([uint8Array], {type: type});
 				blob.lastModifiedDate = new Date();
 				blob.name = new Date().toUTCString()+".png";
 
