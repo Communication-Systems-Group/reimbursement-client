@@ -14,6 +14,7 @@
 
 		<form id="signatureCaptureImage" ng-show="showUploadImage">
 			<spinner id="spinnerSignatureImage" label="{{ 'reimbursement.captureSignature.spinnerUploading' | translate }}"></spinner>
+
 			<div flow-init="{
 				target: 'http://localhost:8080/user/test-uuid/signature',
 				testChunks: false,
@@ -28,22 +29,31 @@
 					</div>
 				</div>
 			</div>
+
 		</form>
 
 		<form id="signatureCaptureTouch" ng-show="showTouchInput">
 			<spinner id="spinnerSignatureTouch" label="{{ 'reimbursement.captureSignature.spinnerUploading' | translate }}"></spinner>
+
 			<div ng-show="!Modernizr.touch && !forceSignaturePad">
-				<div class="alert alert-warning">{{ 'reimbursement.captureSignature.touch.warning' | translate }}</div>
-				<qrcode data="{{currentURL}}" size="300"></qrcode>
-				<div class="currentURL">{{currentURL}}</div>
-				<button class="btn btn-warning forceSignature" ng-click="forceSignaturePad = true">
-					<i class="fa fa-exclamation-circle"></i>
-					{{ 'reimbursement.captureSignature.touch.forceButton' | translate }}
-				</button>
+				<div class="alert alert-warning">
+					{{ 'reimbursement.captureSignature.touch.warning' | translate }}
+					<div class="buttons">
+						<button class="btn btn-warning" ng-click="forceSignaturePad = true">
+							<i class="fa fa-exclamation-circle"></i>
+							{{ 'reimbursement.captureSignature.touch.tryAnyway' | translate }}
+						</button>
+						<button class="btn btn-primary" ng-click="showQR()">
+							<i class="fa fa-tablet"></i>
+							{{ 'reimbursement.captureSignature.touch.tryMobile' | translate }}
+						</button>
+					</div>
+				</div>
 			</div>
+
 			<div ng-show="Modernizr.touch || forceSignaturePad">
 				<div class="resetForceSignature" ng-show="forceSignaturePad" ng-click="forceSignaturePad = false">
-					<qrcode data="1" size="26" version="2"></qrcode>
+					<i class="fa fa-mobile"></i>
 				</div>
 				<signature-pad submit="submitTouch"></signature-pad>
 				<div flow-init="{
@@ -54,6 +64,7 @@
 				}" flow-name="flow.touch" flow-upload-started="showSpinner('spinnerSignatureTouch')" flow-complete="goToNextPage()">
 				</div>
 			</div>
+
 		</form>
 
 	</div>

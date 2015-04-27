@@ -51,7 +51,6 @@
 
 	#signatureCaptureTouch {
 		padding-bottom: 20px;
-		text-align: center;
 
 		.signaturePad {
 			.pad {
@@ -73,24 +72,47 @@
 			margin-left: 10px;
 			margin-top: 10px;
 			cursor: pointer;
-			padding: 2px;
-			border: 1px solid #aaa;
-			qrcode {
-				line-height: 0;
-			}
-		}
-		qrcode {
-			display: block;
-			canvas {
-				display: inline-block;
-			}
-		}
-		.currentURL {
-			font-family: Consolas, monospace;
-			font-size: 14px;
+			padding: 0 7px;
+			font-size: 38px;
+			line-height: 0;
+			user-select: none;
 		}
 		.forceSignature {
 			margin-top: 10px;
 		}
+		.alert .buttons {
+			text-align: center;
+			margin-top: 15px;
+			.btn + .btn {
+				margin-left: 2px;
+			}
+		}
+	}
+}
+
+#signatureCaptureQR {
+	.qrCodeWrapper {
+		margin-top: 15px;
+		text-align: center;
+	}
+	qrcode {
+		display: block;
+		canvas {
+			display: inline-block;
+		}
+	}
+	.or {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		font-size: 30px;
+		font-weight: 300;
+	}
+	.qrUrl {
+		font-family: Consolas, monospace;
+		font-size: 16px;
+		display: inline-block;
+		padding: 2px 9px;
+		border-radius: 3px;
+		border: 1px solid #aaa;
 	}
 }

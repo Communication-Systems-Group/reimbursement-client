@@ -1,10 +1,9 @@
-app.controller('SignatureController', function($scope, $state, Modernizr, spinnerService) {
+app.controller('SignatureController', function($scope, $state, Modernizr, spinnerService, $modal) {
 	"use strict";
 
 	$scope.Modernizr = Modernizr;
 	$scope.showUploadImage = false;
 	$scope.showTouchInput = true;
-	$scope.currentURL = window.location.href;
 	$scope.forceSignaturePad = false;
 	$scope.flow = {};
 
@@ -30,6 +29,17 @@ app.controller('SignatureController', function($scope, $state, Modernizr, spinne
 		spinnerService.hide('spinnerSignatureImage');
 		spinnerService.hide('spinnerSignatureTouch');
 		$state.go('cropping');
+	};
+
+	$scope.showQR = function() {
+		var modalInstance = $modal.open({
+			templateUrl: 'templates/signature-qr.html',
+			controller: 'SignatureQRController'
+		});
+
+		modalInstance.result.then(function() {
+			$scope.goToNextPage();
+		});
 	};
 
 });
