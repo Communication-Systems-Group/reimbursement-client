@@ -1,6 +1,7 @@
-app.controller('SignatureController', function($scope, $state, Modernizr, spinnerService, $modal) {
+app.controller('SignatureController', function($scope, $state, $modal, Modernizr, spinnerService, signatureRESTService) {
 	"use strict";
 
+	$scope.postSignaturePath = signatureRESTService.postSignaturePath();
 	$scope.Modernizr = Modernizr;
 	$scope.showUploadImage = false;
 	$scope.showTouchInput = true;

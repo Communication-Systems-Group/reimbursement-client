@@ -1,11 +1,21 @@
-app.controller('SignatureQRController', function($scope,$modalInstance) {
+app.controller('SignatureQRController', function($scope, $modalInstance, $modal, signatureRESTService) {
 	"use strict";
 	
 	$scope.qrUrl = window.location.href;
 	$scope.dismiss = $modalInstance.dismiss;
 	
 	$scope.checkAndClose = function() {
-		// TODO sebi | check before closing
-		$modalInstance.close();
+		
+		var promise = signatureRESTService.getSignature();
+		promise.then(function() {
+			$modalInstance.close();
+		}, function() {
+			$modal.open({
+				templateUrl: 'templates/signature-qr-error.html',
+				controller: 'SignatureQRErrorController',
+				size: 'sm'
+			});
+		});
+		
 	};
 });
