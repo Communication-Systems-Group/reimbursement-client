@@ -1,4 +1,4 @@
-app.controller('SignatureController', function($scope, $state, Modernizr) {
+app.controller('SignatureController', function($scope, $state, Modernizr, spinnerService) {
 	"use strict";
 
 	$scope.Modernizr = Modernizr;
@@ -6,7 +6,6 @@ app.controller('SignatureController', function($scope, $state, Modernizr) {
 	$scope.showTouchInput = true;
 	$scope.currentURL = window.location.href;
 	$scope.forceSignaturePad = false;
-	$scope.uploadStarted = false;
 	$scope.flow = {};
 
 	$scope.selectTouchTab = function() {
@@ -23,7 +22,13 @@ app.controller('SignatureController', function($scope, $state, Modernizr) {
 		$scope.flow.touch.upload();
 	};
 
+	$scope.showSpinner = function(spinnerId) {
+		spinnerService.show(spinnerId);
+	};
+
 	$scope.goToNextPage = function() {
+		spinnerService.hide('spinnerSignatureImage');
+		spinnerService.hide('spinnerSignatureTouch');
 		$state.go('cropping');
 	};
 

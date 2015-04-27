@@ -1,0 +1,81 @@
+.spinner {
+	$transitionDuration: 0.3s;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	opacity: 0;
+	transition: visibility 0s $transitionDuration, opacity $transitionDuration linear;
+	visibility: hidden;
+
+	&.showSpinner {
+		transition: opacity $transitionDuration linear;
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.whiteBackground {
+		background: #fff;
+		opacity: 0.92;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.spin {
+		$spinnerHeight: 60px;
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		white-space: nowrap;
+		font-size: 0;
+
+		.textLabel {
+			font-weight: 300;
+			color: #000;
+			font-size: 26px;
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 20px;
+		}
+
+		.rect {
+			display: inline-block;
+			vertical-align: middle;
+			background-color: #333;
+			height: $spinnerHeight;
+			width: 6px;
+			animation: spinner-stretchdelay 1.2s infinite ease-in-out;
+			& + .rect {
+				margin-left: 3px;
+			}
+		}
+		.rect2 {
+			animation-delay: -1.1s;
+		}
+		.rect3 {
+			animation-delay: -1.0s;
+		}
+		.rect4 {
+			animation-delay: -0.9s;
+		}
+		.rect5 {
+			animation-delay: -0.8s;
+		}
+	}
+}
+@keyframes spinner-stretchdelay {
+	0%, 40%, 100% {
+		transform: scaleY(0.4);
+	}
+	20% {
+		transform: scaleY(1.0);
+	}
+}

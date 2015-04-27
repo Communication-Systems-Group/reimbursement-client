@@ -2,14 +2,16 @@
 
 	#signatureCaptureImage,
 	#signatureCaptureTouch {
-		margin: 20px 0 20px 0;
+		margin: 20px 0 0 0;
 	}
 
 	#signatureCaptureImage {
+		padding-bottom: 60px;
+
 		.image-upload {
 			$color: #337AB7;
 			border: 5px dashed $color;
-			height: 200px;
+			height: 260px;
 			border-radius: 35px;
 			position: relative;
 			padding: 7px;
@@ -48,6 +50,7 @@
 	}
 
 	#signatureCaptureTouch {
+		padding-bottom: 20px;
 		text-align: center;
 
 		.signaturePad {

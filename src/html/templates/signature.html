@@ -5,20 +5,21 @@
 
 		<ul class="nav nav-tabs">
 			<li role="captureMethod" ng-class="{active: showTouchInput}">
-				<a href="#" ng-click="selectTouchTab()">{{ 'reimbursement.captureSignature.touch.tab' | translate }}</a>
+				<a href ng-click="selectTouchTab()">{{ 'reimbursement.captureSignature.touch.tab' | translate }}</a>
 			</li>
 			<li role="captureMethod" ng-class="{active: showUploadImage}">
-				<a href="#" ng-click="selectUploadTab()">{{ 'reimbursement.captureSignature.upload.tab' | translate }}</a>
+				<a href ng-click="selectUploadTab()">{{ 'reimbursement.captureSignature.upload.tab' | translate }}</a>
 			</li>
 		</ul>
 
 		<form id="signatureCaptureImage" ng-show="showUploadImage">
+			<spinner id="spinnerSignatureImage" label="{{ 'reimbursement.captureSignature.spinnerUploading' | translate }}"></spinner>
 			<div flow-init="{
 				target: 'http://localhost:8080/user/test-uuid/signature',
 				testChunks: false,
 				singleFile: true,
 				simultaneousUploads: 1
-			}" flow-name="flow.image" flow-files-submitted="$flow.upload()" flow-upload-started="uploadStarted = true" flow-complete="goToNextPage()">
+			}" flow-name="flow.image" flow-files-submitted="$flow.upload()" flow-upload-started="showSpinner('spinnerSignatureImage')" flow-complete="goToNextPage()">
 				<div class="image-upload">
 					<div flow-drop flow-btn ng-class="dropClass" flow-drag-enter="dropClass='dragOver'" flow-drag-leave="dropClass=''">
 						<div class="center uploadButton">
@@ -26,11 +27,11 @@
 						</div>
 					</div>
 				</div>
-				<pre>uploadStarted: {{uploadStarted}}</pre>
 			</div>
 		</form>
 
 		<form id="signatureCaptureTouch" ng-show="showTouchInput">
+			<spinner id="spinnerSignatureTouch" label="{{ 'reimbursement.captureSignature.spinnerUploading' | translate }}"></spinner>
 			<div ng-show="!Modernizr.touch && !forceSignaturePad">
 				<div class="alert alert-warning">{{ 'reimbursement.captureSignature.touch.warning' | translate }}</div>
 				<qrcode data="{{currentURL}}" size="300"></qrcode>
@@ -50,8 +51,7 @@
 					testChunks: false,
 					singleFile: true,
 					simultaneousUploads: 1
-				}" flow-name="flow.touch" flow-upload-started="uploadStarted = true" flow-complete="goToNextPage()">
-				<pre>uploadStarted: {{uploadStarted}}</pre>
+				}" flow-name="flow.touch" flow-upload-started="showSpinner('spinnerSignatureTouch')" flow-complete="goToNextPage()">
 				</div>
 			</div>
 		</form>
