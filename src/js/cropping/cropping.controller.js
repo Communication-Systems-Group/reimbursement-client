@@ -1,6 +1,10 @@
-app.controller('CroppingController', function($scope) {
+app.controller('CroppingController', function($scope, $stateParams) {
 	"use strict";
 
-	$scope.cropping = 123;
+	if($stateParams.imageUri === null) {
+		// TODO sebi | download image when not transmitted
+		throw new Error('Cropping needs an image as parameter.');
+	}
 
+	$scope.imageUri = $stateParams.imageUri;
 });

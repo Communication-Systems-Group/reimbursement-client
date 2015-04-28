@@ -29,7 +29,7 @@
 		"reimbursement.captureSignature.title": "Signature Capturing",
 		"reimbursement.captureSignature.info": "You have been successfully logged in. To finish your registration, you are kindly asked to capture your signature. You can upload an image containing the signature or use the the touch screen input and capture it directly online.",
 		"reimbursement.captureSignature.nextStep": "Submit",
-		"reimbursement.captureSignature.spinnerUploading": "uploading...",
+		"reimbursement.captureSignature.spinnerUploading": "Uploading...",
 		"reimbursement.captureSignature.upload.tab": "Image Upload",
 		"reimbursement.captureSignature.upload.centerText": "Upload Image",
 		"reimbursement.captureSignature.touch.tab": "Touch Screen Entry",

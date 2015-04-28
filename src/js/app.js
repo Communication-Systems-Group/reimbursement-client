@@ -45,6 +45,9 @@ app.config([
 					controller : "SignatureController"
 				}).state('cropping', {
 					url : "/cropping",
+					params: {
+						imageUri: null
+					},
 					templateUrl : "templates/cropping.html",
 					controller : "CroppingController"
 				});

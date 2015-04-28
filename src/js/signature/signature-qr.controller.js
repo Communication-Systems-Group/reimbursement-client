@@ -7,8 +7,8 @@ app.controller('SignatureQRController', function($scope, $modalInstance, $modal,
 	$scope.checkAndClose = function() {
 		
 		var promise = signatureRESTService.getSignature();
-		promise.then(function() {
-			$modalInstance.close();
+		promise.then(function(image) {
+			$modalInstance.close(image);
 		}, function() {
 			$modal.open({
 				templateUrl: 'templates/signature-qr-error.html',

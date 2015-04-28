@@ -26,21 +26,35 @@ app.controller('SignatureController', function($scope, $state, $modal, Modernizr
 		spinnerService.show(spinnerId);
 	};
 
-	$scope.goToNextPage = function() {
-		spinnerService.hide('spinnerSignatureImage');
-		spinnerService.hide('spinnerSignatureTouch');
-		$state.go('cropping');
-	};
-
 	$scope.showQR = function() {
 		var modalInstance = $modal.open({
 			templateUrl: 'templates/signature-qr.html',
 			controller: 'SignatureQRController'
 		});
 
-		modalInstance.result.then(function() {
-			$scope.goToNextPage();
-		});
+		modalInstance.result.then(parseBinaryDataAndGoToNextPage);
 	};
+
+	$scope.getImageAndGoToNextPage = function() {
+		// TODO sebi | get image from flow instead as from server.
+		signatureRESTService.getSignature().then(parseBinaryDataAndGoToNextPage);
+	};
+
+	function parseBinaryDataAndGoToNextPage(response) {
+		// TODO sebi | move to utility service
+		var fileReader = new window.FileReader();
+		fileReader.onload = function() {
+			goToNextPage(fileReader.result);
+		};
+		fileReader.readAsDataURL(response.data);
+	}
+
+	function goToNextPage(base64Image) {
+		spinnerService.hide('spinnerSignatureImage');
+		spinnerService.hide('spinnerSignatureTouch');
+
+		$state.go('cropping', {imageUri: base64Image});
+	}
+
 
 });
