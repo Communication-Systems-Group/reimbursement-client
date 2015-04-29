@@ -1,10 +1,11 @@
-app.controller('SignatureQRController', function($scope, $modalInstance, $modal, signatureRestService) {
+app.controller('SignatureQRController', function($scope, $modalInstance, $modal, signatureRestService, spinnerService) {
 	"use strict";
 	
 	$scope.qrUrl = window.location.href;
 	$scope.dismiss = $modalInstance.dismiss;
 	
 	$scope.checkAndClose = function() {
+		spinnerService.show('spinnerSignatureQR');
 		
 		var promise = signatureRestService.getSignature();
 		promise.then(function(image) {
@@ -15,6 +16,8 @@ app.controller('SignatureQRController', function($scope, $modalInstance, $modal,
 				controller: 'SignatureQRErrorController',
 				size: 'sm'
 			});
+		})['finally'](function() {
+			spinnerService.hide('spinnerSignatureQR');
 		});
 		
 	};
