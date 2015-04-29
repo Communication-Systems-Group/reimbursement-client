@@ -1,4 +1,4 @@
-app.controller('SignatureQRController', function($scope, $modalInstance, $modal, signatureRESTService) {
+app.controller('SignatureQRController', function($scope, $modalInstance, $modal, signatureRestService) {
 	"use strict";
 	
 	$scope.qrUrl = window.location.href;
@@ -6,7 +6,7 @@ app.controller('SignatureQRController', function($scope, $modalInstance, $modal,
 	
 	$scope.checkAndClose = function() {
 		
-		var promise = signatureRESTService.getSignature();
+		var promise = signatureRestService.getSignature();
 		promise.then(function(image) {
 			$modalInstance.close(image);
 		}, function() {

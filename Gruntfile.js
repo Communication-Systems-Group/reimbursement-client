@@ -10,6 +10,7 @@ module.exports = function(grunt) {
 
 	var jsFiles = [
 		'src/js/app.js',
+		'src/js/utility/base64BinaryConverter.service.js',
 		'src/js/spinner/spinner.service.js',
 		'src/js/spinner/spinner.directive.js',
 		'src/js/signature/signature.restservice.js',

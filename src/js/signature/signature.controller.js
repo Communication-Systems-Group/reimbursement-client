@@ -1,7 +1,7 @@
-app.controller('SignatureController', function($scope, $state, $modal, Modernizr, spinnerService, signatureRESTService) {
+app.controller('SignatureController', function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService) {
 	"use strict";
 
-	$scope.postSignaturePath = signatureRESTService.postSignaturePath();
+	$scope.postSignaturePath = signatureRestService.postSignaturePath();
 	$scope.Modernizr = Modernizr;
 	$scope.showUploadImage = false;
 	$scope.showTouchInput = true;
@@ -32,22 +32,15 @@ app.controller('SignatureController', function($scope, $state, $modal, Modernizr
 			controller: 'SignatureQRController'
 		});
 
-		modalInstance.result.then(parseBinaryDataAndGoToNextPage);
+		modalInstance.result.then(function(response) {
+			base64BinaryConverterService.toBase64(response.data, goToNextPage);
+		});
 	};
 
 	$scope.getImageAndGoToNextPage = function() {
-		// TODO sebi | get image from flow instead as from server.
-		signatureRESTService.getSignature().then(parseBinaryDataAndGoToNextPage);
+		var fileWrapper = $scope.flow.image.files[0] || $scope.flow.touch.files[0];
+		base64BinaryConverterService.toBase64(fileWrapper.file, goToNextPage);
 	};
-
-	function parseBinaryDataAndGoToNextPage(response) {
-		// TODO sebi | move to utility service
-		var fileReader = new window.FileReader();
-		fileReader.onload = function() {
-			goToNextPage(fileReader.result);
-		};
-		fileReader.readAsDataURL(response.data);
-	}
 
 	function goToNextPage(base64Image) {
 		spinnerService.hide('spinnerSignatureImage');

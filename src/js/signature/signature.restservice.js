@@ -1,4 +1,4 @@
-app.factory("signatureRESTService", function($http) {
+app.factory("signatureRestService", function($http) {
 	"use strict";
 	
 	return {
