@@ -12,7 +12,7 @@ app.controller('SignatureQRController', function($scope, $modalInstance, $modal,
 			$modalInstance.close(image);
 		}, function() {
 			$modal.open({
-				templateUrl: 'templates/signature-qr-error.html',
+				templateUrl: 'templates/signature/signature-qr-error.tpl.html',
 				controller: 'SignatureQRErrorController',
 				size: 'sm'
 			});

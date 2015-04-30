@@ -18,7 +18,10 @@ module.exports = function(grunt) {
 		'src/js/signature/signature-qr.controller.js',
 		'src/js/signature/signature-pad.directive.js',
 		'src/js/signature/signature.controller.js',
-		'src/js/cropping/cropping.controller.js'
+		'src/js/cropping/crop.directive.js',
+		'src/js/cropping/cropping.restservice.js',
+		'src/js/cropping/cropping.controller.js',
+		'src/js/dashboard/dashboard.controller.js'
 	];
 
 	grunt.initConfig({

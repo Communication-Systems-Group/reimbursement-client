@@ -28,7 +28,7 @@ app.controller('SignatureController', function($scope, $state, $modal, Modernizr
 
 	$scope.showQR = function() {
 		var modalInstance = $modal.open({
-			templateUrl: 'templates/signature-qr.html',
+			templateUrl: 'templates/signature/signature-qr.tpl.html',
 			controller: 'SignatureQRController'
 		});
 

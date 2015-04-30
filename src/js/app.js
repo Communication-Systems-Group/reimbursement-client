@@ -41,15 +41,19 @@ app.config([
 			(function addStates() {
 				$stateProvider.state('signature', {
 					url : "/signature",
-					templateUrl : "templates/signature.html",
+					templateUrl : "templates/signature/signature.tpl.html",
 					controller : "SignatureController"
 				}).state('cropping', {
 					url : "/cropping",
 					params: {
 						imageUri: null
 					},
-					templateUrl : "templates/cropping.html",
+					templateUrl : "templates/cropping/cropping.tpl.html",
 					controller : "CroppingController"
+				}).state('dashboard', {
+					url: "/dashboard",
+					templateUrl : "templates/dashboard/dashboard.tpl.html",
+					controller: "DashboardController"
 				});
 				$urlRouterProvider.otherwise('/signature');
 			})();

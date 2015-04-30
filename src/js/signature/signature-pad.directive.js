@@ -4,7 +4,7 @@ app.directive('signaturePad', function($window, $timeout, base64BinaryConverterS
 	return {
 		restrict : 'E',
 		replace : false,
-		templateUrl : 'templates/signature-pad.directive.html',
+		templateUrl : 'templates/signature/signature-pad.directive.tpl.html',
 		scope : {
 			submit : "="
 		},

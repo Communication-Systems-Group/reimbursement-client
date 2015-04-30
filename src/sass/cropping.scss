@@ -1,0 +1,19 @@
+#signatureCrop {
+	.page {
+		padding-top: 3px;
+		position: relative;
+		padding-bottom: 3px;
+	}
+	.jcrop-holder {
+		margin: 0 auto;
+		outline: 1px solid #ddd;
+
+		img {
+			background-color: white;
+		}
+	}
+	.buttons {
+		margin-top: 20px;
+		text-align: center;
+	}
+}

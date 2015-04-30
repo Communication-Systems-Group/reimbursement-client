@@ -4,7 +4,7 @@ app.directive('spinner', function() {
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'templates/spinner.directive.html',
+		templateUrl: 'templates/spinner/spinner.directive.tpl.html',
 		scope: {
 			id: '@',
 			label: "@?",

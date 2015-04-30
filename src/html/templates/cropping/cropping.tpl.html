@@ -1,0 +1,21 @@
+<div id="signatureCrop">
+	<h1 class="page-header">
+		<i class="fa fa-crop"></i>
+		{{ 'reimbursement.cropSignature.title' | translate }}
+	</h1>
+
+	<div class="page">
+		<spinner id="spinnerCroppingSubmit" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
+
+		<div>
+			<img crop id="croppingImage" dimensions="dimensions" ng-src="{{ imageUri }}">
+		</div>
+
+		<div class="buttons">
+			<button class="btn btn-primary" ng-click="submit()" ng-disabled="!hasDimensions">
+				<i class="fa fa-check"></i>
+				{{ 'reimbursement.cropSignature.submit' | translate }}
+			</button>
+		</div>
+	</div>
+</div>
