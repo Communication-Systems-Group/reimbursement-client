@@ -224,7 +224,7 @@ module.exports = function(grunt) {
 			},
 			dev: {
 				files: ['src/**/*.*'],
-				tasks: ['default']
+				tasks: ['default-no-bower']
 			},
 			prod: {
 				files: ['src/**/*.*'],
@@ -249,8 +249,7 @@ module.exports = function(grunt) {
 
 	// the default process, which can be started by calling "grunt"
 	// PROD SHOULD BE VERY SIMILAR!
-	grunt.registerTask('default', [
-		'bower:install',
+	grunt.registerTask('default-no-bower', [
 		'clean',
 		'sass',
 		'useminPrepare',
@@ -263,6 +262,11 @@ module.exports = function(grunt) {
 		'copy',
 		'usemin',
 		'clean:tmp'
+	]);
+
+	grunt.registerTask('default', [
+		'bower:install',
+		'default-no-bower'
 	]);
 
 	// the productive process, which also minifies. it can be started by calling "grunt prod"
