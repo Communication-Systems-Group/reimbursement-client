@@ -6,7 +6,7 @@ function($window, $timeout, base64BinaryConverterService) {
 	return {
 		restrict : 'E',
 		replace : false,
-		templateUrl : 'templates/signature/signature-pad.directive.tpl.html',
+		templateUrl : 'signature/signature-pad.directive.tpl.html',
 		scope : {
 			submit : "="
 		},

@@ -14,7 +14,7 @@
 	});
 })();
 
-var app = angular.module('reimbursement', ['ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'monospaced.qrcode', 'flow']);
+var app = angular.module('reimbursement', ['reimbursement.templates', 'ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'monospaced.qrcode', 'flow']);
 
 app.constant("Modernizr", Modernizr);
 
@@ -31,18 +31,18 @@ function($stateProvider, $urlRouterProvider, $translateProvider, $locationProvid
 
 	$stateProvider.state('signature', {
 		url : "/signature",
-		templateUrl : "templates/signature/signature.tpl.html",
+		templateUrl : "signature/signature.tpl.html",
 		controller : "SignatureController"
 	}).state('cropping', {
 		url : "/cropping",
 		params : {
 			imageUri : null
 		},
-		templateUrl : "templates/cropping/cropping.tpl.html",
+		templateUrl : "cropping/cropping.tpl.html",
 		controller : "CroppingController"
 	}).state('dashboard', {
 		url : "/dashboard",
-		templateUrl : "templates/dashboard/dashboard.tpl.html",
+		templateUrl : "dashboard/dashboard.tpl.html",
 		controller : "DashboardController"
 	});
 	$urlRouterProvider.otherwise('/signature');

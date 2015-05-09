@@ -14,7 +14,7 @@ function($scope, $modalInstance, $modal, signatureRestService, spinnerService) {
 			$modalInstance.close(image);
 		}, function() {
 			$modal.open({
-				templateUrl: 'templates/signature/signature-qr-error.tpl.html',
+				templateUrl: 'signature/signature-qr-error.tpl.html',
 				controller: 'SignatureQRErrorController',
 				size: 'sm'
 			});

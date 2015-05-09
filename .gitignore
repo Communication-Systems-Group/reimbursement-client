@@ -22,6 +22,9 @@ build/Release
 # Build folder of Grunt
 dist
 
+# Temp folder of Grunt
+.tmp
+
 # Bower components
 bower_components
 

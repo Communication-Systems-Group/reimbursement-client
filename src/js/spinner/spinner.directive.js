@@ -6,7 +6,7 @@ function() {
 	return {
 		restrict : 'E',
 		replace : true,
-		templateUrl : 'templates/spinner/spinner.directive.tpl.html',
+		templateUrl : 'spinner/spinner.directive.tpl.html',
 		scope : {
 			id : '@',
 			label : "@?",

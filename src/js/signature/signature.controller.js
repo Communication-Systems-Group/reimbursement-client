@@ -30,7 +30,7 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 
 	$scope.showQR = function() {
 		var modalInstance = $modal.open({
-			templateUrl : 'templates/signature/signature-qr.tpl.html',
+			templateUrl : 'signature/signature-qr.tpl.html',
 			controller : 'SignatureQRController'
 		});
 

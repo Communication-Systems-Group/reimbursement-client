@@ -107,7 +107,7 @@ module.exports = function(grunt) {
 			html: {
 				expand: true,
 				cwd: 'src/html/',
-				src: ['**/*.html'],
+				src: ['index.html'],
 				dest: 'dist/'
 			},
 			languages: {
@@ -183,6 +183,40 @@ module.exports = function(grunt) {
 			dev: ['dist/index.html']
 		},
 
+		// concats only the app.js with templates.js (from html2js)
+		concat: {
+			appWithTemplates: {
+				files: {
+					'dist/javascript/app.js': ['.tmp/concat/templates.js', 'dist/javascript/app.js']
+				}
+			}
+		},
+
+		// converts all the html files to one single js template file
+		html2js: {
+			options: {
+				base: 'src/html/templates/',
+				module: 'reimbursement.templates',
+				quoteChar: '\''
+			},
+			dev: {
+				src: [ 'src/html/templates/**/*.tpl.html' ],
+				dest: '.tmp/concat/templates.js'
+			},
+			prod: {
+				options: {
+					htmlmin: {
+						collapseBooleanAttributes: true,
+						collapseWhitespace: true,
+						conservativeCollapse: true,
+						removeComments: true
+					}
+				},
+				src: [ 'src/html/templates/**/*.tpl.html' ],
+				dest: '.tmp/concat/templates.js'
+			}
+		},
+
 		// process, which monitors all source files and recompiles after a change
 		watch: {
 			options: {
@@ -214,26 +248,40 @@ module.exports = function(grunt) {
 	});
 
 	// the default process, which can be started by calling "grunt"
+	// PROD SHOULD BE VERY SIMILAR!
 	grunt.registerTask('default', [
+		'bower:install',
+		'clean',
+		'sass',
+		'useminPrepare',
+		'concat:generated',
+		'jshint:gruntfile',
+		'jshint:dev',
+		'html2js:dev',
+		'concat:appWithTemplates',
+		'autoprefixer',
+		'copy',
+		'usemin',
+		'clean:tmp'
+	]);
+
+	// the productive process, which also minifies. it can be started by calling "grunt prod"
+	grunt.registerTask('prod', [
 		'bower:install',
 		'clean',
 		'useminPrepare',
 		'sass',
 		'concat:generated',
 		'jshint:gruntfile',
-		'jshint:dev',
+		'jshint:prod',
+		'html2js:prod',
+		'concat:appWithTemplates',
 		'autoprefixer',
 		'copy',
 		'usemin',
-	 	'clean:tmp'
-	]);
-
-	// the productive process, which also minifies. it can be started by calling "grunt prod"
-	grunt.registerTask('prod', [
-		'default',
-		'jshint:prod',
 		'uglify',
-		'cssmin'
+		'cssmin',
+		'clean:tmp'
 	]);
 
 	// starts a server instance with live deployment. it can be started by calling "grunt serve"
