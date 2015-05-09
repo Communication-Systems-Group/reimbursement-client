@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 				}
 			},
 			prod: {
-				src: ['dist/app.js']
+				src: ['dist/javascript/app.js']
 			},
 			dev: {
 				options: {
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 						deferredBootstrapper: true
 					}
 				},
-				src: ['dist/app.js']
+				src: ['dist/javascript/app.js']
 			},
 			gruntfile: {
 				options: {
@@ -102,7 +102,7 @@ module.exports = function(grunt) {
 				expand: true,
 				flatten: true,
 				src: ['bower_components/jcrop/css/*.gif'],
-				dest: 'dist/'
+				dest: 'dist/styles/'
 			},
 			html: {
 				expand: true,
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
 				browsers: '> 2% in CH'
 			},
 			css: {
-				src: 'dist/app.css'
+				src: 'dist/styles/app.css'
 			}
 		},
 
@@ -135,12 +135,12 @@ module.exports = function(grunt) {
 			},
 			target: {
 				files:{
-					'dist/app.css': 'dist/app.css',
-					'dist/libraries.css': 'dist/libraries.css'
+					'dist/styles/app.css': 'dist/styles/app.css',
+					'dist/styles/libraries.css': 'dist/styles/libraries.css'
 				}
 			}
 		},
-		
+
 		// has to be defined although it's empty, otherwise there is an
 		// error in the build: reguired config missing
 		bower : {
@@ -155,8 +155,8 @@ module.exports = function(grunt) {
 		uglify: {
 			js: {
 				files: {
-					'dist/app.js': 'dist/app.js',
-					'dist/libraries.js': 'dist/libraries.js'
+					'dist/javascript/app.js': 'dist/javascript/app.js',
+					'dist/javascript/libraries.js': 'dist/javascript/libraries.js'
 				}
 			}
 		},
