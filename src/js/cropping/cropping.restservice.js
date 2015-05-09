@@ -1,11 +1,12 @@
-app.factory('croppingRestService', function($http) {
+app.factory('croppingRestService', ['$http',
+
+function($http) {
 	"use strict";
 
 	return {
-
-		postSignatureCropping: function(dimensions) {
+		postSignatureCropping : function(dimensions) {
 			return $http.post("http://localhost:8080/user/test-uuid/signature/crop", dimensions);
 		}
-
 	};
-});
+
+}]);

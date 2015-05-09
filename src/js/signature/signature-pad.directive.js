@@ -1,4 +1,6 @@
-app.directive('signaturePad', function($window, $timeout, base64BinaryConverterService) {
+app.directive('signaturePad', ['$window', '$timeout', 'base64BinaryConverterService',
+
+function($window, $timeout, base64BinaryConverterService) {
 	"use strict";
 
 	return {
@@ -49,8 +51,10 @@ app.directive('signaturePad', function($window, $timeout, base64BinaryConverterS
 				$scope.signatureHeight = height;
 			}
 
+
 			$window.addEventListener("resize", $scope.clearSignature, false);
 			$window.addEventListener("orientationchange", $scope.clearSignature, false);
 		}
 	};
-});
+
+}]);

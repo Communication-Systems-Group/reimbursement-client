@@ -1,6 +1,8 @@
-app.factory('base64BinaryConverterService', function() {
+app.factory('base64BinaryConverterService', [
+
+function() {
 	"use strict";
-	
+
 	return {
 		toBase64: function(binary, callback) {
 			var fileReader = new window.FileReader();
@@ -12,7 +14,7 @@ app.factory('base64BinaryConverterService', function() {
 		toBinary: function(base64) {
 			var type = base64.split(',')[0].split(':')[1].split(";base64")[0];
 			var fileEnding = type.split('image/')[1];
-			
+
 			// taken from: http://stackoverflow.com/a/14988118/3233827
 			var binaryData = window.atob(base64.split(',')[1]);
 			var binaryLength = binaryData.length;
@@ -31,4 +33,5 @@ app.factory('base64BinaryConverterService', function() {
 			return file;
 		}
 	};
-});
+
+}]);

@@ -1,8 +1,10 @@
-app.factory('spinnerService', function() {
+app.factory('spinnerService', [
+
+function() {
 	"use strict";
-	
+
 	var cache = {};
-	
+
 	return {
 		// private method for spinner directive
 		_register: function(spinnerScope) {
@@ -11,21 +13,21 @@ app.factory('spinnerService', function() {
 			}
 			cache[spinnerScope.id] = spinnerScope;
 		},
-		
+
 		show: function(spinnerId) {
 			if(cache.hasOwnProperty(spinnerId)) {
 				var spinnerScope = cache[spinnerId];
 				spinnerScope.showSpinner = true;
 			}
 		},
-		
+
 		hide: function(spinnerId) {
 			if(cache.hasOwnProperty(spinnerId)) {
 				var spinnerScope = cache[spinnerId];
 				spinnerScope.showSpinner = false;
 			}
 		},
-		
+
 		// useful for global error handler
 		hideAll: function() {
 			for(var spinnerId in cache) {
@@ -36,4 +38,5 @@ app.factory('spinnerService', function() {
 			}
 		}
 	};
-});
+
+}]);

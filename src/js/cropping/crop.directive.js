@@ -1,4 +1,6 @@
-app.directive('crop', function() {
+app.directive('crop', [
+
+function() {
 	"use strict";
 
 	return {
@@ -20,11 +22,12 @@ app.directive('crop', function() {
 				$scope.$apply();
 			}
 
-			jQuery('#'+attrs.id).Jcrop({
+
+			jQuery('#' + attrs.id).Jcrop({
 				onChange: storeCoords,
 				onSelect: storeCoords
 			});
 		}
 	};
-	
-});
+
+}]);

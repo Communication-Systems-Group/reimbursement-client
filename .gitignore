@@ -20,7 +20,7 @@ coverage
 build/Release
 
 # Build folder of Grunt
-build
+dist
 
 # Bower components
 bower_components

@@ -1,4 +1,6 @@
-app.controller('SignatureController', function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService) {
+app.controller('SignatureController', ['$scope', '$state', '$modal', 'Modernizr', 'spinnerService', 'signatureRestService', 'base64BinaryConverterService',
+
+function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService) {
 	"use strict";
 
 	$scope.postSignaturePath = signatureRestService.postSignaturePath();
@@ -28,8 +30,8 @@ app.controller('SignatureController', function($scope, $state, $modal, Modernizr
 
 	$scope.showQR = function() {
 		var modalInstance = $modal.open({
-			templateUrl: 'templates/signature/signature-qr.tpl.html',
-			controller: 'SignatureQRController'
+			templateUrl : 'templates/signature/signature-qr.tpl.html',
+			controller : 'SignatureQRController'
 		});
 
 		modalInstance.result.then(function(response) {
@@ -46,8 +48,9 @@ app.controller('SignatureController', function($scope, $state, $modal, Modernizr
 		spinnerService.hide('spinnerSignatureImage');
 		spinnerService.hide('spinnerSignatureTouch');
 
-		$state.go('cropping', {imageUri: base64Image});
+		$state.go('cropping', {
+			imageUri : base64Image
+		});
 	}
 
-
-});
+}]);

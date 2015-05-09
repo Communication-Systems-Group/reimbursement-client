@@ -1,9 +1,13 @@
-app.controller('CroppingController', function($scope, $stateParams, $state, spinnerService, croppingRestService) {
+app.controller('CroppingController', ['$scope', '$stateParams', '$state', 'spinnerService', 'croppingRestService',
+
+function($scope, $stateParams, $state, spinnerService, croppingRestService) {
 	"use strict";
 
-	if($stateParams.imageUri === null) {
+	if ($stateParams.imageUri === null) {
 		// Illegal state: Cropping needs an image as parameter.
-		$state.go("signature", {}, { location: "replace" });
+		$state.go("signature", {}, {
+			location : "replace"
+		});
 	}
 	$scope.imageUri = $stateParams.imageUri;
 
@@ -11,22 +15,21 @@ app.controller('CroppingController', function($scope, $stateParams, $state, spin
 	$scope.hasDimensions = false;
 
 	$scope.$watch('dimensions', function() {
-		if(typeof $scope.dimensions.width === "undefined" || $scope.dimensions.width < 40 || $scope.dimensions.height < 30) {
+		if ( typeof $scope.dimensions.width === "undefined" || $scope.dimensions.width < 40 || $scope.dimensions.height < 30) {
 			$scope.hasDimensions = false;
-		}
-		else {
+		} else {
 			$scope.hasDimensions = true;
 		}
 	});
 
 	$scope.submit = function() {
-		if($scope.hasDimensions) {
+		if ($scope.hasDimensions) {
 			spinnerService.show('spinnerCroppingSubmit');
 
 			croppingRestService.postSignatureCropping($scope.dimensions).then(function() {
-				goToNextPage();
+			goToNextPage();
 			}, function() {
-				// TODO sebi | exception?
+			// TODO sebi | exception?
 			})['finally'](function() {
 				spinnerService.hide('spinnerCroppingSubmit');
 			});
@@ -36,4 +39,5 @@ app.controller('CroppingController', function($scope, $stateParams, $state, spin
 	function goToNextPage() {
 		$state.go('dashboard');
 	}
-});
+
+}]);

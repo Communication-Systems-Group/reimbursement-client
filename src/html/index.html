@@ -5,13 +5,20 @@
 		<title>Test Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-		<!-- Inclusion of the style libraries -->
+		<!-- build:css(.) libraries.css -->
+		<!-- Style Libraries -->
 		<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="/bower_components/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="/bower_components/jcrop/css/jquery.Jcrop.min.css">
+		<!-- endbuild -->
 
-		<!-- Inclusion of the reimbursement module styles -->
-		<link rel="stylesheet" type="text/css" href="client.css">
+		<!-- build:css(.tmp) app.css -->
+		<!-- Custom Styles -->
+		<link rel="stylesheet" type="text/css" href="styles/app.css">
+		<link rel="stylesheet" type="text/css" href="styles/cropping.css">
+		<link rel="stylesheet" type="text/css" href="styles/signature.css">
+		<link rel="stylesheet" type="text/css" href="styles/spinner.css">
+		<!-- endbuild -->
 
 	</head>
 
@@ -42,7 +49,8 @@
 			<div ui-view></div>
 		</div>
 
-		<!-- Inclusion of the javascript libraries -->
+		<!-- build:js(.) libraries.js -->
+		<!-- JavaScript Libraries -->
 		<script src="/bower_components/jquery/dist/jquery.js"></script>
 		<script src="/bower_components/angular/angular.js"></script>
 
@@ -62,9 +70,28 @@
 		<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 		<script src="/bower_components/signature_pad/signature_pad.js"></script>
 		<script src="/bower_components/modernizr/modernizr.js"></script>
+		<!-- endbuild -->
 
-		<!-- Inclusion of the reimbursement module javascript -->
-		<script src="app.js"></script>
+		<!-- build:js(.) app.js -->
+		<!-- Custom JavaScript -->
+		<script src="src/js/app.js"></script>
+		<script src="src/js/utility/base64BinaryConverter.service.js"></script>
+
+		<script src="src/js/spinner/spinner.service.js"></script>
+		<script src="src/js/spinner/spinner.directive.js"></script>
+
+		<script src="src/js/signature/signature.restservice.js"></script>
+		<script src="src/js/signature/signature-qr-error.controller.js"></script>
+		<script src="src/js/signature/signature-qr.controller.js"></script>
+		<script src="src/js/signature/signature-pad.directive.js"></script>
+		<script src="src/js/signature/signature.controller.js"></script>
+
+		<script src="src/js/cropping/crop.directive.js"></script>
+		<script src="src/js/cropping/cropping.restservice.js"></script>
+		<script src="src/js/cropping/cropping.controller.js"></script>
+
+		<script src="src/js/dashboard/dashboard.controller.js"></script>
+		<!-- endbuild -->
 
 	</body>
 </html>
