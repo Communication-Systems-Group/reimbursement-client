@@ -22,10 +22,12 @@ function() {
 				$scope.$apply();
 			}
 
+			var boxWidth = parseInt(jQuery($element).parent().css('width'), 10);
 
 			jQuery('#' + attrs.id).Jcrop({
 				onChange: storeCoords,
-				onSelect: storeCoords
+				onSelect: storeCoords,
+				boxWidth: boxWidth
 			});
 		}
 	};
