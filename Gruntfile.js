@@ -247,8 +247,6 @@ module.exports = function(grunt) {
 
 	});
 
-	// the default process, which can be started by calling "grunt"
-	// PROD SHOULD BE VERY SIMILAR!
 	grunt.registerTask('default-no-bower', [
 		'clean',
 		'sass',
@@ -264,6 +262,8 @@ module.exports = function(grunt) {
 		'clean:tmp'
 	]);
 
+	// the default process, which can be started by calling "grunt"
+	// PROD SHOULD BE VERY SIMILAR!
 	grunt.registerTask('default', [
 		'bower:install',
 		'default-no-bower'
@@ -295,10 +295,18 @@ module.exports = function(grunt) {
 		'watch:dev'
 	]);
 
+	// starts a server instance with live deployment. it always takes the minified and uglified resources.
 	grunt.registerTask('prod-serve', [
 		'prod',
 		'connect',
 		'watch:prod'
+	]);
+
+	// deploys the application to the tomcat
+	grunt.registerTask('deploy', [
+		'prod'
+		// build war from /dist folder
+		// upload war to tomcat
 	]);
 
 };
