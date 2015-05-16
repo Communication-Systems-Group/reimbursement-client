@@ -8,7 +8,70 @@ module.exports = function(grunt) {
 	// create some nice statistics for time consumation of every task
 	require('time-grunt')(grunt);
 
+	grunt.loadNpmTasks('grunt-ssh');
+	grunt.loadNpmTasks('grunt-contrib-compress');
+
 	grunt.initConfig({
+
+		// be aware to not store credentials in a public git repository!
+		secret: grunt.file.readJSON('secret.json'),
+
+		compress: {
+		  main: {
+				options: {
+		      archive: 'public/archive.tar'
+		    },
+		    files: [
+		      {src: ['dist/*'], dest: '/', filter: 'isFile'}, // includes files in path
+		      {flatten: true, src: ['dist/**'], dest: '/', filter: 'isFile'} // flattens results to a single level
+		    ]
+			}
+		},
+		sftp: {
+		  upload: {
+		    files: {
+		      "./": "public/*"
+		    },
+		    options: {
+					privateKey: '<%= grunt.file.read(secret.rsa_private_key) %>',
+  				passphrase: '<%= secret.passphrase %>',
+		      host: '<%= secret.host %>',
+					username: '<%= secret.username %>',
+		      showProgress: true,
+					srcBasePath: "public/",
+					path: 'client',
+					createDirectories: false
+		    }
+		  }
+		},
+		sshconfig: {
+			"vm_ifi": {
+				privateKey: '<%= grunt.file.read(secret.rsa_private_key) %>',
+				passphrase: '<%= secret.passphrase %>',
+				host: '<%= secret.host %>',
+				username: '<%= secret.username %>'
+			}
+		},
+		sshexec: {
+			extract: {
+		    command: 'echo <%= secret.password %> | sudo -S tar -xf /home/<%= secret.username %>/client/archive.tar -C /var/www/html/client/ --strip-components=1',
+		    options: {
+					config: 'vm_ifi'
+		    }
+		  },
+			clean: {
+		    command: 'echo <%= secret.password %> | sudo -S rm /home/<%= secret.username %>/client/archive.tar',
+		    options: {
+					config: 'vm_ifi'
+		    }
+		  },
+			prepare: {
+		    command: 'echo <%= secret.password %> | sudo -S rm -rf /var/www/html/client && echo <%= secret.password %> | sudo -S mkdir /var/www/html/client',
+		    options: {
+					config: 'vm_ifi'
+		    }
+		  }
+		},
 
 		// reads the package.json and provide e.g. the package name
 		pkg: grunt.file.readJSON('package.json'),
@@ -304,9 +367,12 @@ module.exports = function(grunt) {
 
 	// deploys the application to the tomcat
 	grunt.registerTask('deploy', [
-		'prod'
-		// build war from /dist folder
-		// upload war to tomcat
+		'prod',
+		'compress:main',
+		'sftp:upload',
+		'sshexec:prepare',
+		'sshexec:extract',
+		'sshexec:clean'
 	]);
 
 };
