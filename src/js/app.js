@@ -44,6 +44,10 @@ function($stateProvider, $urlRouterProvider, $translateProvider, $locationProvid
 		url : "/dashboard",
 		templateUrl : "dashboard/dashboard.tpl.html",
 		controller : "DashboardController"
+	}).state('login', {
+		url : "/login",
+		templateUrl : "login/login.tpl.html",
+		controller: 'LoginController'
 	});
 	$urlRouterProvider.otherwise('/signature');
 
