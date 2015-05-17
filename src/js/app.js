@@ -48,6 +48,10 @@ function($stateProvider, $urlRouterProvider, $translateProvider, $locationProvid
 		url : "/login",
 		templateUrl : "login/login.tpl.html",
 		controller: 'LoginController'
+	}).state('csrfTestingPage', {
+		url : "/csrfTestingPage",
+		templateUrl : "csrfTestingPage/csrfTestingPage.tpl.html",
+		controller: 'CsrfTestingPageController'
 	});
 	$urlRouterProvider.otherwise('/signature');
 
