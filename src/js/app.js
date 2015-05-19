@@ -7,7 +7,7 @@
 		resolve : {
 			LANGUAGES : ['$http',
 			function($http) {
-				return $http.get('/languages/languages.json');
+				return $http.get('./languages/languages.json');
 			}]
 
 		}
