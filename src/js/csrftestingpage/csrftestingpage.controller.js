@@ -8,7 +8,7 @@ function($scope, csrfTestingPageRestService) {
 		password: null
 	};
 	
-	$scope.stringForm = {
+	$scope.stringform = {
 		string: null
 	};
 	
@@ -60,7 +60,7 @@ function($scope, csrfTestingPageRestService) {
 	$scope.sendStringSent = false;
 	$scope.sendStringSuccess = false;
 	$scope.sendString = function (){
-		csrfTestingPageRestService.sendString($scope.stringForm).then(function() {
+		csrfTestingPageRestService.sendString($scope.stringform).then(function() {
 			$scope.sendStringSuccess = true; 
 		}, function() {
 			$scope.sendStringSuccess = false;

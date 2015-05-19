@@ -26,8 +26,9 @@ function($http) {
 		},
 		sendString: function(data) {
 			return $http({
+				params: data,
 				method: 'POST',
-				url: 'http://localhost:8080/testingpublic/string?'+jQuery.param(data)
+				url: 'http://localhost:8080/testingpublic/string'
 			});
 		},
 		sendCroppingDto: function(data) {
