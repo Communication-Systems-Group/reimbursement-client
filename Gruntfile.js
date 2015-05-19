@@ -155,29 +155,39 @@ module.exports = function(grunt) {
 
 		// copies the specified files
 		copy: {
-			fonts: {
-				expand: true,
-				flatten: true,
-				src: ['bower_components/font-awesome/fonts/*.*'],
-				dest: 'dist/fonts/'
+			prod: {
+				files: [{//fonts
+					expand: true,
+					flatten: true,
+					src: ['bower_components/font-awesome/fonts/*.*'],
+					dest: 'dist/fonts/'
+				},
+				{//styles
+					expand: true,
+					flatten: true,
+					src: ['bower_components/jcrop/css/*.gif'],
+					dest: 'dist/styles/'
+				},
+				{//index.html
+					expand: true,
+					cwd: 'src/html/',
+					src: ['index.html'],
+					dest: 'dist/'
+				},
+				{//languages
+					expand: true,
+					flatten: true,
+					src: ['src/languages/**/*.json'],
+					dest: 'dist/languages/'
+				}]
 			},
-			images: {
-				expand: true,
-				flatten: true,
-				src: ['bower_components/jcrop/css/*.gif'],
-				dest: 'dist/styles/'
-			},
-			html: {
-				expand: true,
-				cwd: 'src/html/',
-				src: ['index.html'],
-				dest: 'dist/'
-			},
-			languages: {
-				expand: true,
-				flatten: true,
-				src: ['src/languages/**/*.json'],
-				dest: 'dist/languages/'
+			localdeploy: {
+				files: [{
+					cwd: 'dist',
+					src: '**/*',
+					dest: '../reimbursement-server/src/main/webapp/static/',
+					expand: true
+					}]
 			}
 		},
 
@@ -344,7 +354,7 @@ module.exports = function(grunt) {
 		'html2js:prod',
 		'concat:appWithTemplates',
 		'autoprefixer',
-		'copy',
+		'copy:prod',
 		'usemin',
 		'uglify',
 		'cssmin',
@@ -363,6 +373,12 @@ module.exports = function(grunt) {
 		'prod',
 		'connect',
 		'watch:prod'
+	]);
+	
+	// deploys the application to the local reimbursement-server project
+	grunt.registerTask('localdeploy', [
+		'prod',
+		'copy:localdeploy'
 	]);
 
 	// deploys the application to the tomcat
