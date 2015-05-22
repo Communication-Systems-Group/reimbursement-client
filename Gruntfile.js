@@ -8,42 +8,53 @@ module.exports = function(grunt) {
 	// create some nice statistics for time consumation of every task
 	require('time-grunt')(grunt);
 
-	grunt.loadNpmTasks('grunt-ssh');
-	grunt.loadNpmTasks('grunt-contrib-compress');
-
 	grunt.initConfig({
+
+		// reads the package.json and provide e.g. the package name
+		pkg: grunt.file.readJSON('package.json'),
 
 		// be aware to not store credentials in a public git repository!
 		secret: grunt.file.readJSON('secret.json'),
 
 		compress: {
-		  main: {
+			main: {
 				options: {
-		      archive: 'public/archive.tar'
-		    },
-		    files: [
-		      {src: ['dist/*'], dest: '/', filter: 'isFile'}, // includes files in path
-		      {flatten: true, src: ['dist/**'], dest: '/', filter: 'isFile'} // flattens results to a single level
-		    ]
+					archive: 'public/archive.tar'
+				},
+				files: [{
+						// includes files in path
+						src: ['dist/*'],
+						dest: '/',
+						filter: 'isFile'
+					}, {
+						// flattens results to a single level
+						flatten: true,
+						src: ['dist/**'],
+						dest: '/',
+						filter: 'isFile'
+					}
+				]
 			}
 		},
+
 		sftp: {
-		  upload: {
-		    files: {
-		      "./": "public/*"
-		    },
-		    options: {
+			upload: {
+				files: {
+					"./": "public/*"
+				},
+				options: {
 					privateKey: '<%= grunt.file.read(secret.rsa_private_key) %>',
-  				passphrase: '<%= secret.passphrase %>',
-		      host: '<%= secret.host %>',
+					passphrase: '<%= secret.passphrase %>',
+					host: '<%= secret.host %>',
 					username: '<%= secret.username %>',
-		      showProgress: true,
+					showProgress: true,
 					srcBasePath: "public/",
 					path: 'client',
 					createDirectories: false
-		    }
-		  }
+				}
+			}
 		},
+
 		sshconfig: {
 			"vm_ifi": {
 				privateKey: '<%= grunt.file.read(secret.rsa_private_key) %>',
@@ -52,29 +63,28 @@ module.exports = function(grunt) {
 				username: '<%= secret.username %>'
 			}
 		},
+
 		sshexec: {
 			extract: {
-		    command: 'echo <%= secret.password %> | sudo -S tar -xf /home/<%= secret.username %>/client/archive.tar -C /var/www/html/client/ --strip-components=1',
-		    options: {
+				command: 'echo <%= secret.password %> | sudo -S tar -xf /home/<%= secret.username %>/client/archive.tar -C /var/www/html/client/ --strip-components=1',
+				options: {
 					config: 'vm_ifi'
-		    }
-		  },
-			clean: {
-		    command: 'echo <%= secret.password %> | sudo -S rm /home/<%= secret.username %>/client/archive.tar',
-		    options: {
-					config: 'vm_ifi'
-		    }
-		  },
-			prepare: {
-		    command: 'echo <%= secret.password %> | sudo -S rm -rf /var/www/html/client && echo <%= secret.password %> | sudo -S mkdir /var/www/html/client',
-		    options: {
-					config: 'vm_ifi'
-		    }
-		  }
-		},
+				}
+			},
 
-		// reads the package.json and provide e.g. the package name
-		pkg: grunt.file.readJSON('package.json'),
+			clean: {
+				command: 'echo <%= secret.password %> | sudo -S rm /home/<%= secret.username %>/client/archive.tar',
+				options: {
+					config: 'vm_ifi'
+				}
+			},
+			prepare: {
+				command: 'echo <%= secret.password %> | sudo -S rm -rf /var/www/html/client && echo <%= secret.password %> | sudo -S mkdir /var/www/html/client',
+				options: {
+					config: 'vm_ifi'
+				}
+			}
+		},
 
 		// removes all files from the specified folders
 		clean: {
@@ -155,26 +165,27 @@ module.exports = function(grunt) {
 
 		// copies the specified files
 		copy: {
-			prod: {
-				files: [{//fonts
+			regular: {
+				files: [{
+					//fonts
 					expand: true,
 					flatten: true,
 					src: ['bower_components/font-awesome/fonts/*.*'],
 					dest: 'dist/fonts/'
-				},
-				{//styles
+				}, {
+					//images
 					expand: true,
 					flatten: true,
 					src: ['bower_components/jcrop/css/*.gif'],
 					dest: 'dist/styles/'
-				},
-				{//index.html
+				}, {
+					//index.html
 					expand: true,
 					cwd: 'src/html/',
 					src: ['index.html'],
 					dest: 'dist/'
-				},
-				{//languages
+				}, {
+					//languages
 					expand: true,
 					flatten: true,
 					src: ['src/languages/**/*.json'],
@@ -187,7 +198,7 @@ module.exports = function(grunt) {
 					src: '**/*',
 					dest: '../reimbursement-server/src/main/webapp/static/',
 					expand: true
-					}]
+				}]
 			}
 		},
 
@@ -330,7 +341,7 @@ module.exports = function(grunt) {
 		'html2js:dev',
 		'concat:appWithTemplates',
 		'autoprefixer',
-		'copy',
+		'copy:regular',
 		'usemin',
 		'clean:tmp'
 	]);
@@ -354,7 +365,7 @@ module.exports = function(grunt) {
 		'html2js:prod',
 		'concat:appWithTemplates',
 		'autoprefixer',
-		'copy:prod',
+		'copy:regular',
 		'usemin',
 		'uglify',
 		'cssmin',
@@ -374,7 +385,7 @@ module.exports = function(grunt) {
 		'connect',
 		'watch:prod'
 	]);
-	
+
 	// deploys the application to the local reimbursement-server project
 	grunt.registerTask('localdeploy', [
 		'prod',
