@@ -1,0 +1,68 @@
+<div id="expense">
+    <h1 class="page-header">{{ 'reimbursement.expense.title' | translate }}</h1>
+
+    <div class="alert alert-info" ng-show="alert.info.state"><i class="fa fa-info"></i> {{alert.info.value}}</div>
+    <div class="alert alert-success" ng-show="alert.success.state"><i class="fa fa-thumbs-o-up"></i> {{alert.success.value}}</div>
+    <div class="alert alert-danger" ng-show="alert.danger.state"><i class="fa fa-thumbs-o-down"></i> {{alert.danger.value}}</div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ 'reimbursement.expense.contact' | translate }}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="name">Vor- / Nachname</label>
+                        <input type="text" class="form-control" id="name" placeholder="Vor- / Nachname">
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeId">Telefonnummer</label>
+                        <input type="tel" class="form-control" id="employeeId" placeholder="Telefonnummer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Bemerkung / Ruückmeldung</h3>
+                </div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Buchungsinformationen</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="accounting">Buchungstext (sichtbar in SAP)</label>
+                        <input type="text" class="form-control" id="accounting" placeholder="Buchungstext (sichtbar in SAP)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Detailansicht Belege</h2>
+    <table class="table table-striped">
+        <tr>
+            <th>#</th>
+            <th>Datum Beleg</th>
+            <th>Kategorie / Konto</th>
+            <th>Reisegrund / Erklärung<br><small>(Ort und Geschäftszweck)</small></th>
+            <th>Betrag<br><small>(in CHF)</small></th>
+            <th>Kostenstelle<br><small>(Projekt)</small></th>
+            <th>fdgdsfgsdfdfg</th>
+            <th>dfgdfgdfgdfg</th>
+        </tr>
+    </table>
+
+</div>

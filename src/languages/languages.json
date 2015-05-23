@@ -35,7 +35,13 @@
 		"reimbursement.cropSignature.title": "Unterschrift zuschneiden",
 		"reimbursement.cropSignature.submit": "Zuschneiden",
 
-		"reimbursement.dashboard.title": "Dashboard"
+		"reimbursement.dashboard.title": "Dashboard",
+
+        "reimbursement.expense.title": "Spesen erfassen",
+        "reimbursement.expense.cancel": "Abbrechen",
+        "reimbursement.expense.recipent": "Spesenempfänger / in",
+        "reimbursement.expense.contact": "Kontaktperson"
+
 	},
 	"en": {
 		"reimbursement.mainTitle": "Reimbursement IFI",
@@ -73,6 +79,11 @@
 		"reimbursement.cropSignature.title": "Crop Signature",
 		"reimbursement.cropSignature.submit": "Crop it",
 
-		"reimbursement.dashboard.title": "Dashboard"
+		"reimbursement.dashboard.title": "Dashboard",
+
+        "reimbursement.expense.title": "Enter expense",
+        "reimbursement.expense.cancel": "Cancel",
+        "reimbursement.expense.recipent": "Expense recipent",
+        "reimbursement.expense.contact": "Contact"
 	}
 }
