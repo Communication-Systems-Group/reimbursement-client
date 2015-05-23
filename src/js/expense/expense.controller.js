@@ -19,6 +19,8 @@ app.controller('ExpenseController', ['$scope', function($scope) {
         }
     };
 
+    $scope.accounts = [306020, 306900, 310010, 310040, 310050, 312000, 313000, 313010, 313020, 320240, 320250, 321200, 322000, 322020, 322040, 325050, 325060, 325070, 326000, 329000, 329100, 330000];
+
     $scope.expense = {
         id: 1,
         creator: {
@@ -51,21 +53,21 @@ app.controller('ExpenseController', ['$scope', function($scope) {
         receipts: [{
             id: 1,
             date_receipt: '2015-01-13T18:00:00.000+02:00',
-            account: 'receipt_account_excursion',
+            account: '310050',
             description: 'Ausflug im Hudson',
             amount: '220.20',
             cost_center: 'E-10000-01-01',
         },{
             id: 2,
             date_receipt: '2015-01-10T18:00:00.000+02:00',
-            account: 'receipt_account_travel',
+            account: '329100',
             description: 'Flight ZRH => JFK',
             amount: '1210.20',
             cost_center: 'E-10000-01-01',
         },{
             id: 3,
             date_receipt: '2015-01-14T18:00:00.000+02:00',
-            account: 'receipt_account_travel',
+            account: '329100',
             description: 'Flight JFK => ZRH',
             amount: '1210.20',
             cost_center: 'E-10000-01-01',

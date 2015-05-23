@@ -40,7 +40,30 @@
         "reimbursement.expense.title": "Spesen erfassen",
         "reimbursement.expense.cancel": "Abbrechen",
         "reimbursement.expense.recipent": "Spesenempfänger / in",
-        "reimbursement.expense.contact": "Kontaktperson"
+        "reimbursement.expense.contact": "Kontaktperson",
+
+        "reimbursement.expense.account.306020": "Aus- und Weiterbildung",
+        "reimbursement.expense.account.306900": "Verschiedenen personalkosten",
+        "reimbursement.expense.account.310010": "Technik- und Hilfsmaterial",
+        "reimbursement.expense.account.310040": "IT-Betriebs/Verbrauchsmaterial",
+        "reimbursement.expense.account.310050": "Büromaterial",
+        "reimbursement.expense.account.312000": "Drucksachen, Publikationen, Kartenmaterial",
+        "reimbursement.expense.account.313000": "Fachliteratur",
+        "reimbursement.expense.account.313010": "Zeitschriften",
+        "reimbursement.expense.account.313020": "Elektronische Medien und Datenbanken",
+        "reimbursement.expense.account.320240": "Unterhalt EDV Hardware",
+        "reimbursement.expense.account.320250": "Unterhalt EDV Software",
+        "reimbursement.expense.account.321200": "Gebühren / Bewilligungen / Abgaben",
+        "reimbursement.expense.account.322000": "Reisekosten Mitarbeitende",
+        "reimbursement.expense.account.322020": "Repräsentationsspesen",
+        "reimbursement.expense.account.322040": "Reisekosten Dritte",
+        "reimbursement.expense.account.325050": "Anschaffung audiovisuelle & übrige Bürogeräte",
+        "reimbursement.expense.account.325060": "Anschaffung EDV Hardware",
+        "reimbursement.expense.account.325070": "Anschaffung EDV Netzwerkausrüstung",
+        "reimbursement.expense.account.325000": "Anschaffung EDV Software",
+        "reimbursement.expense.account.329000": "Telefon und Fax",
+        "reimbursement.expense.account.329100": "Versand- / Transportkosten und Zoll",
+        "reimbursement.expense.account.330000": "Mitgliederbeiträge"
 
 	},
 	"en": {
@@ -84,6 +107,29 @@
         "reimbursement.expense.title": "Enter expense",
         "reimbursement.expense.cancel": "Cancel",
         "reimbursement.expense.recipent": "Expense recipent",
-        "reimbursement.expense.contact": "Contact"
+        "reimbursement.expense.contact": "Contact",
+
+        "reimbursement.expense.account.306020": "Registration fees for conferences/workshops",
+        "reimbursement.expense.account.306900": "Apero",
+        "reimbursement.expense.account.310010": "Technical and supportive material",
+        "reimbursement.expense.account.310040": "IT consumables",
+        "reimbursement.expense.account.310050": "Stationary",
+        "reimbursement.expense.account.312000": "Print shops",
+        "reimbursement.expense.account.313000": "Books",
+        "reimbursement.expense.account.313010": "Printed media",
+        "reimbursement.expense.account.313020": "Electronic media (DVDs, CDs, ...)",
+        "reimbursement.expense.account.320240": "Maintenance hardware",
+        "reimbursement.expense.account.320250": "Maintenance software",
+        "reimbursement.expense.account.321200": "Fees (not registration fees)",
+        "reimbursement.expense.account.322000": "All travel costs (ZVV, train, bus, flight, meals)",
+        "reimbursement.expense.account.322020": "Meals with invited guests",
+        "reimbursement.expense.account.322040": "Travel costs for third party members",
+        "reimbursement.expense.account.325050": "A/V material",
+        "reimbursement.expense.account.325060": "IT hardware",
+        "reimbursement.expense.account.325070": "Networking hardware",
+        "reimbursement.expense.account.325000": "IT software",
+        "reimbursement.expense.account.329000": "Phone and fax",
+        "reimbursement.expense.account.329100": "Transport and postal fees, duties",
+        "reimbursement.expense.account.330000": "Memberships"
 	}
 }

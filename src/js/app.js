@@ -29,30 +29,41 @@ function($stateProvider, $urlRouterProvider, $translateProvider, $locationProvid
 	}
 	$translateProvider.preferredLanguage('en');
 
-	$stateProvider.state('signature', {
-		url : "/signature",
-		templateUrl : "signature/signature.tpl.html",
-		controller : "SignatureController"
-	}).state('cropping', {
-		url : "/cropping",
-		params : {
-			imageUri : null
-		},
-		templateUrl : "cropping/cropping.tpl.html",
-		controller : "CroppingController"
-	}).state('dashboard', {
-		url : "/dashboard",
-		templateUrl : "dashboard/dashboard.tpl.html",
-		controller : "DashboardController"
-	}).state('login', {
-		url : "/login",
-		templateUrl : "login/login.tpl.html",
-		controller: 'LoginController'
-	}).state('csrfTestingPage', {
-		url : "/csrfTestingPage",
-		templateUrl : "csrfTestingPage/csrfTestingPage.tpl.html",
-		controller: 'CsrfTestingPageController'
-	});
+	$stateProvider
+        .state('login', {
+            url : "/login",
+            templateUrl : "login/login.tpl.html",
+            controller: 'LoginController'
+        })
+        .state('signature', {
+            url : "/signature",
+            templateUrl : "signature/signature.tpl.html",
+            controller : "SignatureController"
+        })
+        .state('cropping', {
+            url : "/cropping",
+            params : {
+                imageUri : null
+            },
+            templateUrl : "cropping/cropping.tpl.html",
+            controller : "CroppingController"
+        })
+        .state('dashboard', {
+            url : "/dashboard",
+            templateUrl : "dashboard/dashboard.tpl.html",
+            controller : "DashboardController"
+        })
+        .state('expense', {
+            url : "/expense",
+            templateUrl : "expense/expense.tpl.html",
+            controller : "ExpenseController"
+        })
+
+        .state('csrfTestingPage', {
+            url : "/csrfTestingPage",
+            templateUrl : "csrfTestingPage/csrfTestingPage.tpl.html",
+            controller: 'CsrfTestingPageController'
+        });
 	$urlRouterProvider.otherwise('/signature');
 
 	$locationProvider.hashPrefix("!");
