@@ -56,21 +56,28 @@ app.controller('ExpenseController', ['$scope', function($scope) {
             account: '310050',
             description: 'Ausflug im Hudson',
             amount: '220.20',
-            cost_center: 'E-10000-01-01',
+            cost_center: 'E-10000-01-01'
         },{
             id: 2,
             date_receipt: '2015-01-10T18:00:00.000+02:00',
             account: '329100',
             description: 'Flight ZRH => JFK',
             amount: '1210.20',
-            cost_center: 'E-10000-01-01',
+            cost_center: 'E-10000-01-01'
         },{
             id: 3,
             date_receipt: '2015-01-14T18:00:00.000+02:00',
             account: '329100',
             description: 'Flight JFK => ZRH',
             amount: '1210.20',
-            cost_center: 'E-10000-01-01',
+            cost_center: 'E-10000-01-01'
+        },{
+            id: 4,
+            date_receipt: '2015-01-14T19:00:00.000+02:00',
+            account: '313020',
+            description: 'Zeichenblock',
+            amount: '10.20',
+            cost_center: 'E-10000-01-01'
         }],
         documents: [{
             url: 'url_to_pdf_doc',
@@ -79,6 +86,15 @@ app.controller('ExpenseController', ['$scope', function($scope) {
             url: 'url_to_pdf_doc',
             belongs_to_receipt: [1]
         }]
+    };
+
+    $scope.documentExistsForExpense = function(receipt_id) {
+        for(var i=0; i<$scope.expense.documents.length; i++) {
+            if($scope.expense.documents[i].belongs_to_receipt.indexOf(receipt_id) !== -1) {
+                return true;
+            }
+        }
+        return false;
     };
 
 }]);

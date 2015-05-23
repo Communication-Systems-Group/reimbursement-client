@@ -13,12 +13,12 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="name">Vor- / Nachname</label>
-                        <input type="text" class="form-control" id="name" placeholder="Vor- / Nachname">
+                        <label for="name">{{ 'reimbursement.expense.first_lastname' | translate }}</label>
+                        <input type="text" class="form-control" id="name" placeholder="{{ 'reimbursement.expense.first_lastname' | translate }}">
                     </div>
                     <div class="form-group">
-                        <label for="employeeId">Telefonnummer</label>
-                        <input type="tel" class="form-control" id="employeeId" placeholder="Telefonnummer">
+                        <label for="employeeId">{{ 'reimbursement.expense.phone' | translate }}</label>
+                        <input type="tel" class="form-control" id="employeeId" placeholder="{{ 'reimbursement.expense.phone' | translate }}">
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Bemerkung / Ruückmeldung</h3>
+                    <h3 class="panel-title">{{ 'reimbursement.expense.notes' | translate }}</h3>
                 </div>
                 <div class="panel-body">
 
@@ -39,30 +39,42 @@
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Buchungsinformationen</h3>
+                    <h3 class="panel-title">{{ 'reimbursement.expense.booking_info' | translate }}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="accounting">Buchungstext (sichtbar in SAP)</label>
-                        <input type="text" class="form-control" id="accounting" placeholder="Buchungstext (sichtbar in SAP)">
+                        <label for="accounting">{{ 'reimbursement.expense.accounting_text' | translate }}</label>
+                        <input type="text" class="form-control" id="accounting" placeholder="{{ 'reimbursement.expense.accounting_text' | translate }}">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <h2>Detailansicht Belege</h2>
+    <h2>{{ 'reimbursement.expense.receipts_detail' | translate }}</h2>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Datum Beleg</th>
-                <th>Kategorie / Konto</th>
-                <th>Reisegrund / Erklärung<br><small>(Ort und Geschäftszweck)</small></th>
-                <th>Betrag<br><small>(in CHF)</small></th>
-                <th>Kostenstelle<br><small>(Projekt)</small></th>
-                <th>fdgdsfgsdfdfg</th>
-                <th>dfgdfgdfgdfg</th>
+                <th>{{ 'reimbursement.expense.date_receipt' | translate }}</th>
+                <th>{{ 'reimbursement.expense.category' | translate }}</th>
+                <th>
+                    {{ 'reimbursement.expense.travel_purpose' | translate }}
+                    <br>
+                    <small>{{ 'reimbursement.expense.location_purpose' | translate }}</small>
+                </th>
+                <th>
+                    {{ 'reimbursement.expense.amount' | translate }}
+                    <br>
+                    <small>{{ 'reimbursement.expense.in_chf' | translate }}</small>
+                </th>
+                <th>
+                    {{ 'reimbursement.expense.cost_centre' | translate }}
+                    <br>
+                    <small>{{ 'reimbursement.expense.project' | translate }}</small>
+                </th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -74,7 +86,7 @@
                 <td style="text-align: right;">{{r.amount | currency:'':2}}</td>
                 <td>{{r.cost_center}}</td>
                 <td>
-                    <span class="label label-success">{{'reimbursement.expense.document_available' | translate }}</span>
+                    <span ng-show="documentExistsForExpense(r.id)" class="label label-success">{{'reimbursement.expense.document_available' | translate }}</span>
                 </td>
                 <td>
                     <div class="dropdown">
