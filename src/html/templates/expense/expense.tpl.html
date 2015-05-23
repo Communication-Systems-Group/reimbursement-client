@@ -53,16 +53,44 @@
 
     <h2>Detailansicht Belege</h2>
     <table class="table table-striped">
-        <tr>
-            <th>#</th>
-            <th>Datum Beleg</th>
-            <th>Kategorie / Konto</th>
-            <th>Reisegrund / Erklärung<br><small>(Ort und Geschäftszweck)</small></th>
-            <th>Betrag<br><small>(in CHF)</small></th>
-            <th>Kostenstelle<br><small>(Projekt)</small></th>
-            <th>fdgdsfgsdfdfg</th>
-            <th>dfgdfgdfgdfg</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Datum Beleg</th>
+                <th>Kategorie / Konto</th>
+                <th>Reisegrund / Erklärung<br><small>(Ort und Geschäftszweck)</small></th>
+                <th>Betrag<br><small>(in CHF)</small></th>
+                <th>Kostenstelle<br><small>(Projekt)</small></th>
+                <th>fdgdsfgsdfdfg</th>
+                <th>dfgdfgdfgdfg</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="r in expense.receipts">
+                <td>{{r.id}}</td>
+                <td>{{r.date_receipt | date:'dd.MM.yyyy'}}</td>
+                <td>{{'reimbursement.expense.account.'+r.account | translate}}</td>
+                <td>{{r.description | limitTo:20}}</td>
+                <td style="text-align: right;">{{r.amount | currency:'':2}}</td>
+                <td>{{r.cost_center}}</td>
+                <td>
+                    <span class="label label-success">{{'reimbursement.expense.document_available' | translate }}</span>
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="action_button_{{r.id}}" data-toggle="dropdown" aria-expanded="true">
+                            {{'reimbursement.expense.action' | translate}}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="action_button_{{r.id}}">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{'reimbursement.expense.edit' | translate}}</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{'reimbursement.expense.delete' | translate}}</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
     </table>
 
 </div>

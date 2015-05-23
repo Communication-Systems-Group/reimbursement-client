@@ -41,6 +41,10 @@
         "reimbursement.expense.cancel": "Abbrechen",
         "reimbursement.expense.recipent": "Spesenempfänger / in",
         "reimbursement.expense.contact": "Kontaktperson",
+        "reimbursement.expense.action": "Aktion",
+        "reimbursement.expense.edit": "Editieren",
+        "reimbursement.expense.delete": "Löschen",
+        "reimbursement.expense.document_available": "Dokument vorhanden",
 
         "reimbursement.expense.account.306020": "Aus- und Weiterbildung",
         "reimbursement.expense.account.306900": "Verschiedenen personalkosten",
@@ -108,6 +112,10 @@
         "reimbursement.expense.cancel": "Cancel",
         "reimbursement.expense.recipent": "Expense recipent",
         "reimbursement.expense.contact": "Contact",
+        "reimbursement.expense.action": "Action",
+        "reimbursement.expense.edit": "Edit",
+        "reimbursement.expense.delete": "Delete",
+        "reimbursement.expense.document_available": "Document available",
 
         "reimbursement.expense.account.306020": "Registration fees for conferences/workshops",
         "reimbursement.expense.account.306900": "Apero",
