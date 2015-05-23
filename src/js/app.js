@@ -54,7 +54,7 @@ function($stateProvider, $urlRouterProvider, $translateProvider, $locationProvid
             controller : "DashboardController"
         })
         .state('expense', {
-            url : "/expense",
+            url : "/expense/:id",
             templateUrl : "expense/expense.tpl.html",
             controller : "ExpenseController"
         })

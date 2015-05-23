@@ -127,7 +127,7 @@
 		"reimbursement.dashboard.title": "Dashboard",
 
         "reimbursement.expense.info": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend.",
-        "reimbursement.expense.title": "Enter expense",
+        "reimbursement.expense.title": "Expense",
         "reimbursement.expense.save": "Save",
         "reimbursement.expense.cancel": "Cancel",
         "reimbursement.expense.recipent": "Expense recipent",

@@ -1,5 +1,5 @@
 <div id="expense">
-    <h1 class="page-header">{{ 'reimbursement.expense.title' | translate }}</h1>
+    <h1 class="page-header">{{ 'reimbursement.expense.title' | translate }}&nbsp;<i>{{expenseId | idFormatting:'E'}}</i></h1>
 
     <div class="alert alert-info" ng-show="alert.info.state"><i class="fa fa-info"></i> {{alert.info.value}}</div>
     <div class="alert alert-success" ng-show="alert.success.state"><i class="fa fa-thumbs-o-up"></i> {{alert.success.value}}</div>
@@ -25,6 +25,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="row">
             <div class="col-md-6">
@@ -52,7 +53,6 @@
             </div>
         </div>
 
-        <h2>{{ 'reimbursement.expense.receipts_detail' | translate }}</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -80,7 +80,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="r in expense.receipts">
-                    <td>{{r.id}}</td>
+                    <td>{{r.id | idFormatting:'R'}}</td>
                     <td>{{r.date_receipt | date:'dd.MM.yyyy'}}</td>
                     <td>{{'reimbursement.expense.account.'+r.account | translate}}</td>
                     <td>{{r.description | limitTo:20}}</td>
@@ -112,4 +112,5 @@
             </div>
         </div>
     </form>
+
 </div>

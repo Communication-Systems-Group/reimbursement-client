@@ -1,14 +1,16 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ExpenseController', ['$scope', '$filter', function($scope, $filter, $state) {
+app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', function($scope, $filter, $state, $stateParams) {
     "use strict";
 
+    $scope.expenseId = $stateParams.id;
     $scope.receiptChanges = false;
 
     $scope.$watch(function() {
         console.log("digest called");
     });
+
 
     function find(obj,id) {
         for(var i=0; i<obj.length; i++) {
