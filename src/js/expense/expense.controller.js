@@ -1,8 +1,14 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ExpenseController', ['$scope', '$filter', function($scope, $filter) {
+app.controller('ExpenseController', ['$scope', '$filter', function($scope, $filter, $state) {
     "use strict";
+
+    $scope.receiptChanges = false;
+
+    $scope.$watch(function() {
+        console.log("digest called");
+    });
 
     function find(obj,id) {
         for(var i=0; i<obj.length; i++) {
@@ -15,7 +21,7 @@ app.controller('ExpenseController', ['$scope', '$filter', function($scope, $filt
     $scope.alert = {
         info: {
             state: true,
-            value: 'blabla'
+            value: $filter('translate')('reimbursement.expense.info')
         },
         success: {
             state: false,
@@ -110,7 +116,25 @@ app.controller('ExpenseController', ['$scope', '$filter', function($scope, $filt
         var confirm = window.confirm($filter('translate')('reimbursement.expense.delete_text',{name:receipt[1].description.substr(0,25)}));
 
         if(confirm) {
+            $scope.receiptChanges = true;
             $scope.expense.receipts.splice(receipt[0],1);
+        }
+    };
+
+    $scope.saveExpense = function(form) {
+        if(form.$dirty) {
+            $scope.alert.danger.state = true;
+            $scope.alert.danger.value = $filter('translate')('reimbursement.expense.dirty_form');
+        }
+    };
+
+    $scope.cancel = function(form) {
+        if(!form.$pristine || $scope.receiptChanges) {
+            var confirm = confirm($filter('transalte')('reimbursement.expense.confirm_cancel_unsaved_changes'));
+
+            if(confirm) {
+                $state.go('dashboard');
+            }
         }
     };
 

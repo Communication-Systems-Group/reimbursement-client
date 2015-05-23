@@ -37,7 +37,9 @@
 
 		"reimbursement.dashboard.title": "Dashboard",
 
+        "reimbursement.expense.info": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend.",
         "reimbursement.expense.title": "Spesen erfassen",
+        "reimbursement.expense.save": "Speichern",
         "reimbursement.expense.cancel": "Abbrechen",
         "reimbursement.expense.recipent": "Spesenempfänger / in",
         "reimbursement.expense.contact": "Kontaktperson",
@@ -59,6 +61,8 @@
         "reimbursement.expense.in_chf": "(in CHF)",
         "reimbursement.expense.cost_centre": "Kostenstelle",
         "reimbursement.expense.project": "(Projekt)",
+        "reimbursement.expense.confirm_cancel_unsaved_changes": "Wollen Sie ihre ungesicherten Änderungen verwerfen?",
+        "reimbursement.expense.dirty_form": "Bitte überprüfen Sie ihre Eingabe!",
 
         "reimbursement.expense.account.306020": "Aus- und Weiterbildung",
         "reimbursement.expense.account.306900": "Verschiedenen personalkosten",
@@ -122,7 +126,9 @@
 
 		"reimbursement.dashboard.title": "Dashboard",
 
+        "reimbursement.expense.info": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend.",
         "reimbursement.expense.title": "Enter expense",
+        "reimbursement.expense.save": "Save",
         "reimbursement.expense.cancel": "Cancel",
         "reimbursement.expense.recipent": "Expense recipent",
         "reimbursement.expense.contact": "Contact",
@@ -145,6 +151,8 @@
         "reimbursement.expense.cost_centre": "Cost centre",
         "reimbursement.expense.project": "(Project)",
         "reimbursement.expense.delete_text": "Are you sure you want to delete the expense with the description: {{name}}",
+        "reimbursement.expense.confirm_cancel_unsaved_changes": "Do you really want to cancel your unsaved changes?",
+        "reimbursement.expense.dirty_form": "Please validate your input.",
 
         "reimbursement.expense.account.306020": "Registration fees for conferences/workshops",
         "reimbursement.expense.account.306900": "Apero",
