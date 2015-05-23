@@ -1,8 +1,16 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ExpenseController', ['$scope', function($scope) {
+app.controller('ExpenseController', ['$scope', '$filter', function($scope, $filter) {
     "use strict";
+
+    function find(obj,id) {
+        for(var i=0; i<obj.length; i++) {
+            if(obj[i].id === id) {
+                return [i,obj[i]];
+            }
+        }
+    }
 
     $scope.alert = {
         info: {
@@ -54,7 +62,7 @@ app.controller('ExpenseController', ['$scope', function($scope) {
             id: 1,
             date_receipt: '2015-01-13T18:00:00.000+02:00',
             account: '310050',
-            description: 'Ausflug im Hudson',
+            description: 'Schwimmen im Hudson',
             amount: '220.20',
             cost_center: 'E-10000-01-01'
         },{
@@ -95,6 +103,15 @@ app.controller('ExpenseController', ['$scope', function($scope) {
             }
         }
         return false;
+    };
+
+    $scope.deleteReceipt = function(receipt_id) {
+        var receipt = find($scope.expense.receipts,receipt_id);
+        var confirm = window.confirm($filter('translate')('reimbursement.expense.delete_text',{name:receipt[1].description.substr(0,25)}));
+
+        if(confirm) {
+            $scope.expense.receipts.splice(receipt[0],1);
+        }
     };
 
 }]);

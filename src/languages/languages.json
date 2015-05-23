@@ -144,6 +144,7 @@
         "reimbursement.expense.in_chf": "(in CHF)",
         "reimbursement.expense.cost_centre": "Cost centre",
         "reimbursement.expense.project": "(Project)",
+        "reimbursement.expense.delete_text": "Are you sure you want to delete the expense with the description: {{name}}",
 
         "reimbursement.expense.account.306020": "Registration fees for conferences/workshops",
         "reimbursement.expense.account.306900": "Apero",

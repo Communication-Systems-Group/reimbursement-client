@@ -97,7 +97,7 @@
                         <ul class="dropdown-menu" role="menu" aria-labelledby="action_button_{{r.id}}">
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{'reimbursement.expense.edit' | translate}}</a></li>
                             <li class="divider"></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{'reimbursement.expense.delete' | translate}}</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="deleteReceipt(r.id)">{{'reimbursement.expense.delete' | translate}}</a></li>
                         </ul>
                     </div>
                 </td>
