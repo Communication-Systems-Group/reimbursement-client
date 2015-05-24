@@ -1,14 +1,8 @@
-.table {
-  thead {
-    tr {
-      th {
-        vertical-align: top;
-        small {
-          color: lightgray;
-          font-weight: normal;
-        }
-      }
-    }
-  }
-}
+.table thead th {
+	vertical-align: top;
 
+	small {
+		color: lightgray;
+		font-weight: normal;
+	}
+}
