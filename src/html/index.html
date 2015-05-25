@@ -1,121 +1,122 @@
 <!doctype html>
 <html>
 
-	<head>
-		<title>Test Page</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<head>
+	<title>Test Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-		<!-- build:css(.) styles/libraries.css -->
-		<!-- Style Libraries -->
-		<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="/bower_components/font-awesome/css/font-awesome.css">
-		<link rel="stylesheet" type="text/css" href="/bower_components/jcrop/css/jquery.Jcrop.min.css">
-		<!-- endbuild -->
+	<!-- build:css(.) styles/libraries.css -->
+	<!-- Style Libraries -->
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/bower_components/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="/bower_components/jcrop/css/jquery.Jcrop.min.css">
+	<!-- endbuild -->
 
-		<!-- build:css(.tmp) styles/app.css -->
-		<!-- Custom Styles -->
-		<link rel="stylesheet" type="text/css" href="styles/app.css">
-		<link rel="stylesheet" type="text/css" href="styles/cropping.css">
-		<link rel="stylesheet" type="text/css" href="styles/signature.css">
-		<link rel="stylesheet" type="text/css" href="styles/spinner.css">
-        <link rel="stylesheet" type="text/css" href="styles/expense.css">
-		<!-- endbuild -->
+	<!-- build:css(.tmp) styles/app.css -->
+	<!-- Custom Styles -->
+	<link rel="stylesheet" type="text/css" href="styles/app.css">
+	<link rel="stylesheet" type="text/css" href="styles/cropping.css">
+	<link rel="stylesheet" type="text/css" href="styles/signature.css">
+	<link rel="stylesheet" type="text/css" href="styles/spinner.css">
+	<link rel="stylesheet" type="text/css" href="styles/expense.css">
+	<!-- endbuild -->
 
-	</head>
+</head>
 
-	<body ng-cloak flow-prevent-drop>
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" ui-sref="dashboard">Reimbursement UZH</a>
-				</div>
-
-				<div id="navbar" class="collapse navbar-collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li ui-sref-active="active">
-							<a ui-sref="dashboard"><i class="fa fa-tachometer"></i> {{ 'reimbursement.tabs.dashboard' | translate }}</a>
-						</li>
-						<li ui-sref-active="active">
-							<a ui-sref="signature"><i class="fa fa-pencil-square-o"></i> {{ 'reimbursement.tabs.signature' | translate }}</a>
-						</li>
-						<li ui-sref-active="active">
-							<a ui-sref="csrfTestingPage"><i class="fa fa-bug"></i> {{ 'reimbursement.tabs.csrftestingpage' | translate }}</a>
-						</li>
-						<li ui-sref-active="active">
-							<a ui-sref="login"><i class="fa fa-sign-in"></i> {{ 'reimbursement.tabs.login' | translate }}</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-
-		<div class="container">
-			<div ui-view autoscroll="true"></div>
+<body ng-cloak flow-prevent-drop>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+							aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" ui-sref="dashboard">Reimbursement UZH</a>
 		</div>
 
-		<!-- build:js(.) javascript/libraries.js -->
-		<!-- JavaScript Libraries -->
-		<script src="/bower_components/jquery/dist/jquery.js"></script>
-		<script src="/bower_components/angular/angular.js"></script>
+		<div id="navbar" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li ui-sref-active="active">
+					<a ui-sref="dashboard"><i class="fa fa-tachometer"></i> {{ 'reimbursement.tabs.dashboard' | translate }}</a>
+				</li>
+				<li ui-sref-active="active">
+					<a ui-sref="signature"><i class="fa fa-pencil-square-o"></i> {{ 'reimbursement.tabs.signature' | translate }}</a>
+				</li>
+				<li ui-sref-active="active">
+					<a ui-sref="csrfTestingPage"><i class="fa fa-bug"></i> {{ 'reimbursement.tabs.csrftestingpage' | translate }}</a>
+				</li>
+				<li ui-sref-active="active">
+					<a ui-sref="login"><i class="fa fa-sign-in"></i> {{ 'reimbursement.tabs.login' | translate }}</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-		<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-		<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-		<script src="/bower_components/angular-translate/angular-translate.js"></script>
-		<script src="/bower_components/angular-deferred-bootstrap/angular-deferred-bootstrap.min.js"></script>
+<div class="container">
+	<div ui-view autoscroll="true"></div>
+</div>
 
-		<script src="/bower_components/qrcode-generator/js/qrcode.js"></script>
-		<script src="/bower_components/angular-qrcode/qrcode.js"></script>
+<!-- build:js(.) javascript/libraries.js -->
+<!-- JavaScript Libraries -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
 
-		<script src="/bower_components/flow.js/dist/flow.min.js"></script>
-		<script src="/bower_components/ng-flow/dist/ng-flow.min.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="/bower_components/angular-translate/angular-translate.js"></script>
+<script src="/bower_components/angular-deferred-bootstrap/angular-deferred-bootstrap.min.js"></script>
 
-		<script src="/bower_components/jcrop/js/jquery.Jcrop.min.js"></script>
+<script src="/bower_components/qrcode-generator/js/qrcode.js"></script>
+<script src="/bower_components/angular-qrcode/qrcode.js"></script>
 
-		<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-		<script src="/bower_components/signature_pad/signature_pad.js"></script>
-		<script src="/bower_components/modernizr/modernizr.js"></script>
+<script src="/bower_components/flow.js/dist/flow.min.js"></script>
+<script src="/bower_components/ng-flow/dist/ng-flow.min.js"></script>
 
-        <script src="/bower_components/angular-input-masks/angular-input-masks.br.min.js"/>
-		<!-- endbuild -->
+<script src="/bower_components/jcrop/js/jquery.Jcrop.min.js"></script>
 
-		<!-- build:js(.) javascript/app.js -->
-		<!-- Custom JavaScript -->
-		<script src="src/js/app.js"></script>
-		<script src="src/js/utility/base64BinaryConverter.service.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/bower_components/signature_pad/signature_pad.js"></script>
+<script src="/bower_components/modernizr/modernizr.js"></script>
 
-		<script src="src/js/login/login.restservice.js"></script>
-		<script src="src/js/login/login.controller.js"></script>
+<script src="/bower_components/angular-input-masks/angular-input-masks.br.min.js"/>
+<!-- endbuild -->
 
-		<script src="src/js/csrftestingpage/csrftestingpage.restservice.js"></script>
-		<script src="src/js/csrftestingpage/csrftestingpage.controller.js"></script>
+<!-- build:js(.) javascript/app.js -->
+<!-- Custom JavaScript -->
+<script src="src/js/app.js"></script>
+<script src="src/js/utility/base64BinaryConverter.service.js"></script>
 
-		<script src="src/js/spinner/spinner.service.js"></script>
-		<script src="src/js/spinner/spinner.directive.js"></script>
+<script src="src/js/login/login.restservice.js"></script>
+<script src="src/js/login/login.controller.js"></script>
 
-		<script src="src/js/signature/signature.restservice.js"></script>
-		<script src="src/js/signature/signature-qr-error.controller.js"></script>
-		<script src="src/js/signature/signature-qr.controller.js"></script>
-		<script src="src/js/signature/signature-pad.directive.js"></script>
-		<script src="src/js/signature/signature.controller.js"></script>
+<script src="src/js/csrftestingpage/csrftestingpage.restservice.js"></script>
+<script src="src/js/csrftestingpage/csrftestingpage.controller.js"></script>
 
-		<script src="src/js/cropping/crop.directive.js"></script>
-		<script src="src/js/cropping/cropping.restservice.js"></script>
-		<script src="src/js/cropping/cropping.controller.js"></script>
+<script src="src/js/spinner/spinner.service.js"></script>
+<script src="src/js/spinner/spinner.directive.js"></script>
 
-		<script src="src/js/dashboard/dashboard.controller.js"></script>
+<script src="src/js/signature/signature.restservice.js"></script>
+<script src="src/js/signature/signature-qr-error.controller.js"></script>
+<script src="src/js/signature/signature-qr.controller.js"></script>
+<script src="src/js/signature/signature-pad.directive.js"></script>
+<script src="src/js/signature/signature.controller.js"></script>
 
-        <script src="src/js/expense/expense.controller.js"></script>
-        <script src="src/js/expense/receipt.controller.js"></script>
+<script src="src/js/cropping/crop.directive.js"></script>
+<script src="src/js/cropping/cropping.restservice.js"></script>
+<script src="src/js/cropping/cropping.controller.js"></script>
 
-        <script src="src/js/filters/id-formatting.filter.js"></script>
-        <script src="src/js/utility/currencies.service.js"></script>
-		<!-- endbuild -->
+<script src="src/js/dashboard/dashboard.controller.js"></script>
 
-	</body>
+<script src="src/js/expense/expense.controller.js"></script>
+<script src="src/js/expense/receipt.controller.js"></script>
+
+<script src="src/js/filters/id-formatting.filter.js"></script>
+<script src="src/js/utility/currencies.service.js"></script>
+<!-- endbuild -->
+
+</body>
 </html>
