@@ -1,0 +1,100 @@
+<div id="receiptView">
+    <div class="modal-header">
+        <a class="close" ng-click="dismiss()">&times;</a>
+        <h3 class="modal-title">{{ 'reimbursement.expense.add_receipt' | translate }}</h3>
+    </div>
+    <form name="form2">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-info" ng-show="alert.info.state"><i class="fa fa-info"></i> {{alert.info.value}}</div>
+                    <div class="alert alert-success" ng-show="alert.success.state"><i class="fa fa-thumbs-o-up"></i> {{alert.success.value}}</div>
+                    <div class="alert alert-danger" ng-show="alert.danger.state"><i class="fa fa-thumbs-o-down"></i><ul ng-bind-html="alert.danger.value"></ul></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="dateReceipt">{{ 'reimbursement.expense.date_receipt' | translate }}&nbsp;*</label>
+                        <div class="input-group">
+                            <input type="text" name="dateReceipt" id="dateReceipt" class="form-control" datepicker-popup="dd.MM.yyyy" ng-model="receipt.date_receipt" is-open="opened" ng-required="true" close-text="Close" />
+                            <div class="input-group-addon" ng-click="open($event)"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin-top-10">
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <label for="account">{{'reimbursement.expense.category' | translate}}&nbsp;*</label>
+                        <button id="account" class="btn btn-default dropdown-toggle" type="button" id="category" data-toggle="dropdown" aria-expanded="true">
+                            <span ng-if="receipt.account != null">{{'reimbursement.expense.account.'+receipt.account | translate}}</span>
+                            <span ng-if="receipt.account == null">{{'reimbursement.expense.category' | translate}}</span>
+
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="category">
+                            <li ng-repeat="a in accounts" role="presentation"><a role="menuitem" tabindex="-1" ng-click="receipt.account = a">{{'reimbursement.expense.account.'+a | translate}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin-top-15">
+                <div class="col-md-2">
+                    <label for="amountOriginal">{{'reimbursement.expense.amount' | translate }}&nbsp;*</label>
+                    <input type="text" name="original" id="amountOriginal" class="form-control" ng-class="{'red-border': !receipt.amount.original && !form2.original.$pristine}" ng-model="receipt.amount.original" ui-number-mask="2" ng-disabled="receipt.date_receipt == null" ng-blur="calculateAmount()" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="amount" style="font-weight:100;">{{'reimbursement.expense.select_currency' | translate }}&nbsp;*</label>
+                    <input type="text" name="currency" ng-model="receipt.amount.currency" typeahead-on-select='onSelect($item)' ng-class="{'red-border': (receipt.amount.currency.cc == undefined && !form2.currency.$pristine)}" typeahead="c.cc for c in currencies | filter:$viewValue | limitTo:8" class="form-control" ng-disabled="receipt.date_receipt == null" ng-blur="calculateAmount()" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="exchangeRate" style="font-weight:100;">{{'reimbursement.expense.exchange_course' | translate }}</label>
+                    <input type="text" id="exchangeRate" class="form-control" name="field" ng-model="receipt.amount.exchange_rate" ui-number-mask="2" ng-disabled="receipt.date_receipt == null">
+                </div>
+                <div class="col-md-3">
+                    <label for="amount" style="font-weight:100;">{{'reimbursement.expense.amount_in_chf' | translate }}</label>
+                    <input type="text" id="amount" class="form-control" name="field" ng-model="receipt.amount.value" ui-number-mask="2" disabled>
+                </div>
+            </div>
+
+            <div class="row margin-top-10">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="costCentre">{{'reimbursement.expense.cost_centre' | translate }}&nbsp;*</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">{{receipt.cost_center.prefix}}</div>
+                            <input type="text" id="costCentre" class="form-control" name="costCentre" ng-model="receipt.cost_centre.value">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin-top-10">
+                <div class="col-md-11">
+                    <label for="description">{{'reimbursement.expense.travel_purpose' | translate }}&nbsp;*</label>
+                    <textarea name="description" id="description" ng-model="receipt.description" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="row margin-top-10">
+                <div class="col-md-6">
+                    <label for="upload">{{'reimbursement.expense.document_upload' | translate }}</label>
+                    <input type="text" id="upload" class="form-control" name="field" ng-model="receipt.upload">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" ng-click="dismiss()">
+                <i class="fa fa-times"></i>
+                {{ 'reimbursement.expense.cancel' | translate }}
+            </button>
+            <button class="btn btn-primary" ng-click="checkAndClose(form2)">
+                <i class="fa fa-check"></i>
+                {{ 'reimbursement.expense.save' | translate }}
+            </button>
+        </div>
+    </form>
+</div>

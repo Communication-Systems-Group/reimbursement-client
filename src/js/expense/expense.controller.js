@@ -1,16 +1,11 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', function($scope, $filter, $state, $stateParams) {
+app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal', function($scope, $filter, $state, $stateParams, $modal) {
     "use strict";
 
     $scope.expenseId = $stateParams.id;
     $scope.receiptChanges = false;
-
-    $scope.$watch(function() {
-        console.log("digest called");
-    });
-
 
     function find(obj,id) {
         for(var i=0; i<obj.length; i++) {
@@ -18,6 +13,16 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
                 return [i,obj[i]];
             }
         }
+    }
+
+    function getTotal() {
+        var total = 0;
+
+        for(var i=0; i<$scope.expense.receipts.length; i++) {
+            total += parseFloat($scope.expense.receipts[i].amount);
+        }
+
+        $scope.total = total;
     }
 
     $scope.alert = {
@@ -35,8 +40,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
         }
     };
 
-    $scope.accounts = [306020, 306900, 310010, 310040, 310050, 312000, 313000, 313010, 313020, 320240, 320250, 321200, 322000, 322020, 322040, 325050, 325060, 325070, 326000, 329000, 329100, 330000];
-
+    // ToDo this needs to be sent from the server
     $scope.expense = {
         id: 1,
         creator: {
@@ -71,28 +75,48 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
             date_receipt: '2015-01-13T18:00:00.000+02:00',
             account: '310050',
             description: 'Schwimmen im Hudson',
-            amount: '220.20',
+            amount: {
+                amount_original: '150.75',
+                amount_currency: 'USD',
+                exchange_rate: '1.01',
+                amount: '155.80'
+            },
             cost_center: 'E-10000-01-01'
         },{
             id: 2,
             date_receipt: '2015-01-10T18:00:00.000+02:00',
             account: '329100',
             description: 'Flight ZRH => JFK',
-            amount: '1210.20',
+            amount: {
+                amount_original: '150.75',
+                amount_currency: 'USD',
+                exchange_rate: '1.01',
+                amount: '155.80'
+            },
             cost_center: 'E-10000-01-01'
         },{
             id: 3,
             date_receipt: '2015-01-14T18:00:00.000+02:00',
             account: '329100',
             description: 'Flight JFK => ZRH',
-            amount: '1210.20',
+            amount: {
+                amount_original: '150.75',
+                amount_currency: 'USD',
+                exchange_rate: '1.01',
+                amount: '155.80'
+            },
             cost_center: 'E-10000-01-01'
         },{
             id: 4,
             date_receipt: '2015-01-14T19:00:00.000+02:00',
             account: '313020',
             description: 'Zeichenblock',
-            amount: '10.20',
+            amount: {
+                amount_original: '150.75',
+                amount_currency: 'USD',
+                exchange_rate: '1.01',
+                amount: '155.80'
+            },
             cost_center: 'E-10000-01-01'
         }],
         documents: [{
@@ -102,6 +126,41 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
             url: 'url_to_pdf_doc',
             belongs_to_receipt: [1]
         }]
+    };
+
+    getTotal();
+
+    $scope.uploadReceipt = function() {
+        // ToDo
+    };
+
+    $scope.addNewReceipt = function() {
+        $scope.receipt = {
+            id: 0,
+            date_receipt: null,
+            account: null,
+            description: '',
+            amount: {
+                original: '',
+                currency: 'CHF',
+                exchange_rate: '1.00',
+                value: ''
+            },
+            cost_center: {
+                prefix: 'E-1000',
+                value: ''
+            }
+        };
+
+        var modalInstance = $modal.open({
+            templateUrl : 'expense/receipt.tpl.html',
+            controller : 'ReceiptController',
+            scope: $scope
+        });
+
+        modalInstance.result.then(function(response) {
+            console.log(response);
+        });
     };
 
     $scope.documentExistsForExpense = function(receipt_id) {
@@ -120,6 +179,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
         if(confirm) {
             $scope.receiptChanges = true;
             $scope.expense.receipts.splice(receipt[0],1);
+            getTotal();
         }
     };
 

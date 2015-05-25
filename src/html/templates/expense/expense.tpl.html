@@ -1,4 +1,4 @@
-<div id="expense">
+<div id="expenseView">
     <h1 class="page-header">{{ 'reimbursement.expense.title' | translate }}&nbsp;<i>{{expenseId | idFormatting:'E'}}</i></h1>
 
     <div class="alert alert-info" ng-show="alert.info.state"><i class="fa fa-info"></i> {{alert.info.value}}</div>
@@ -26,7 +26,6 @@
             </div>
         </div>
 
-
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-default">
@@ -50,6 +49,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary" ng-click="uploadReceipt()"><i class="fa fa-plus-circle"></i>&nbsp;Beleg hochladen</button>
+                <button class="btn btn-primary" ng-click="addNewReceipt()"><i class="fa fa-plus-circle"></i>&nbsp;Neuen Beleg erfassen</button>
             </div>
         </div>
 
@@ -104,11 +110,29 @@
                     </td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>{{total | currency:'':2}}</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
         </table>
         <div class="row">
             <div class="col-md-12">
-                <button class="btn btn-primary" ng-click="saveExpense(form1)" ng-disabled="form1.$pristine && !receiptChanges">{{'reimbursement.expense.save' | translate}}</button>
-                <button class="btn btn-default" ng-click="cancel(form1)">{{'reimbursement.expense.cancel' | translate}}</button>
+                <button class="btn btn-primary" ng-click="saveExpense(form1)" ng-disabled="form1.$pristine && !receiptChanges">
+                    <i class="fa fa-check"></i>
+                    {{'reimbursement.expense.save' | translate}}
+                </button>
+                <button class="btn btn-default" ng-click="cancel(form1)">
+                    <i class="fa fa-times"></i>
+                    {{'reimbursement.expense.cancel' | translate}}
+                </button>
             </div>
         </div>
     </form>

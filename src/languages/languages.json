@@ -63,6 +63,16 @@
         "reimbursement.expense.project": "(Projekt)",
         "reimbursement.expense.confirm_cancel_unsaved_changes": "Wollen Sie ihre ungesicherten Änderungen verwerfen?",
         "reimbursement.expense.dirty_form": "Bitte überprüfen Sie ihre Eingabe!",
+        "reimbursement.expense.add_receipt": "Neuen Beleg hinzufügen",
+        "reimbursement.expense.select_currency": "Währung wählen",
+        "reimbursement.expense.exchange_course": "Wechselkurs",
+        "reimbursement.expense.amount_in_chf": "Wert in CHF",
+        "reimbursement.expense.document_upload": "Dokument hochladen (optional):",
+
+        "reimbursement.expense.validation.date_receipt": "Das Belegdatum muss gewählt werden!",
+        "reimbursement.expense.validation.amount": "Der Betrag muss erfasst werden.",
+        "reimbursement.expense.validation.cost_centre": "Die Kostenstelle muss erfasst werden.",
+        "reimbursement.expense.validation.description": "Eine Beschreibung muss hinzugefügt werden!",
 
         "reimbursement.expense.account.306020": "Aus- und Weiterbildung",
         "reimbursement.expense.account.306900": "Verschiedenen personalkosten",
@@ -153,6 +163,16 @@
         "reimbursement.expense.delete_text": "Are you sure you want to delete the expense with the description: {{name}}",
         "reimbursement.expense.confirm_cancel_unsaved_changes": "Do you really want to cancel your unsaved changes?",
         "reimbursement.expense.dirty_form": "Please validate your input.",
+        "reimbursement.expense.add_receipt": "Add new receipt",
+        "reimbursement.expense.select_currency": "Select currency",
+        "reimbursement.expense.exchange_course": "Exchange",
+        "reimbursement.expense.amount_in_chf": "Amount in CHF",
+        "reimbursement.expense.document_upload": "Upload document (optional):",
+
+        "reimbursement.expense.validation.date_receipt": "Please enter a receipt date.",
+        "reimbursement.expense.validation.amount": "Please enter an amount.",
+        "reimbursement.expense.validation.cost_centre": "Die Kostenstelle muss erfasst werden.",
+        "reimbursement.expense.validation.description": "Eine Beschreibung muss hinzugefügt werden.",
 
         "reimbursement.expense.account.306020": "Registration fees for conferences/workshops",
         "reimbursement.expense.account.306900": "Apero",
