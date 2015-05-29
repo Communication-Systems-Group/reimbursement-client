@@ -5,7 +5,7 @@ function($http) {
 
 	return {
 		postSignatureCropping : function(dimensions) {
-			return $http.post("http://localhost:8080/user/test-uuid/signature/crop", dimensions);
+			return $http.post("http://localhost:8080/api/user/test-uuid/signature/crop", dimensions);
 		}
 	};
 
