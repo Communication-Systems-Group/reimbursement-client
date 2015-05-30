@@ -55,13 +55,7 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 
 	$scope.validateFile = function($file) {
 		if(typeof $file !== "undefined" && typeof $file.name !== "undefined" && $file.name !== "") {
-			var ext = fileExtensionService.fromFilename($file.name);
-			if(ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "gif") {
-				return true;
-			}
-			else {
-				return false;
-			}
+			return fileExtensionService.isImageFile($file.name);
 		}
 		else {
 			return false;
