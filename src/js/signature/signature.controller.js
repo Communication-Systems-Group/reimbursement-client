@@ -1,6 +1,6 @@
-app.controller('SignatureController', ['$scope', '$state', '$modal', 'Modernizr', 'spinnerService', 'signatureRestService', 'base64BinaryConverterService', 'fileExtensionService',
+app.controller('SignatureController', ['$scope', '$state', '$modal', 'Modernizr', 'spinnerService', 'signatureRestService', 'base64BinaryConverterService', 'fileExtensionService', 'globalMessagesService',
 
-function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService, fileExtensionService) {
+function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService, fileExtensionService, globalMessagesService) {
 	"use strict";
 
 	$scope.postSignaturePath = signatureRestService.postSignaturePath();
@@ -44,8 +44,7 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 
 		// file was not accepted by the validator
 		if(typeof fileWrapper === "undefined" || typeof fileWrapper.file === "undefined") {
-			// TODO sebi | show message in a global error modal instead of alert
-			window.alert("Not a valid image.");
+			globalMessagesService.showWarning("reimbursement.globalMessage.title.notAnImage", "reimbursement.globalMessage.message.notAnImage");
 			spinnerService.hide("spinnerSignatureImage");
 		}
 		else {

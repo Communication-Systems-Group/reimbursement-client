@@ -6,6 +6,9 @@
 		"reimbursement.tabs.dashboard": "Dashboard",
 		"reimbursement.tabs.csrftestingpage": "CSRF Test",
 		"reimbursement.loading.label": "Bitte warten...",
+		"reimbursement.globalMessage.okayButton": "Okay",
+		"reimbursement.globalMessage.title.notAnImage": "Unbekannter Dateityp",
+		"reimbursement.globalMessage.message.notAnImage": "Die Datei, die Sie hochgeladen wurde, wurde nicht als gültiges Bild erkannt. Bitte versuchen Sie es erneut und laden Sie eine gültige Bilddatei hoch.",
 
 		"reimbursement.login.title": "Login",
 		"reimbursement.login.usernameLabel": "Benutzername",
@@ -98,12 +101,15 @@
 		"reimbursement.expense.account.330000": "Mitgliederbeiträge"
 	},
 	"en": {
-				"reimbursement.mainTitle": "Reimbursement IFI",
+		"reimbursement.mainTitle": "Reimbursement IFI",
 		"reimbursement.tabs.login": "Login",
 		"reimbursement.tabs.signature": "Add Signature",
 		"reimbursement.tabs.dashboard": "Dashboard",
 		"reimbursement.tabs.csrftestingpage": "CSRF Test",
 		"reimbursement.loading.label": "Please wait...",
+		"reimbursement.globalMessage.okayButton": "Okay",
+		"reimbursement.globalMessage.title.notAnImage": "Not an image",
+		"reimbursement.globalMessage.message.notAnImage": "The uploaded file was not recognized as an image. Please try it again and upload a proper image file.",
 
 		"reimbursement.login.title": "Login",
 		"reimbursement.login.usernameLabel": "User Name",
