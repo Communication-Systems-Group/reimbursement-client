@@ -8,7 +8,9 @@ function($window, $timeout, base64BinaryConverterService) {
 		replace : false,
 		templateUrl : 'signature/signature-pad.directive.tpl.html',
 		scope : {
-			submit : "="
+			submit : "=",
+			parents: "=",
+			full: "="
 		},
 		link : function($scope, $element) {
 			var canvas = $element.find("canvas");
@@ -39,18 +41,50 @@ function($window, $timeout, base64BinaryConverterService) {
 			}
 
 			function setCanvasSize() {
-				var width1 = parseInt(jQuery('#signatureCaptureImage').css('width'), 10);
-				var width2 = parseInt(jQuery('#signatureCaptureTouch').css('width'), 10);
+				var width = 0;
+				var height = 0;
 
-				var width = Math.max(width1, width2);
-				var height = width * 1 / 3;
+				// if $scope.parents is an array
+				if(typeof $scope.parents === "object") {
+					for(var i=0; i<$scope.parents.length; i++) {
+						var newWidth = parseInt(jQuery($scope.parents[i]).css('width'), 10);
+						if(newWidth > width) {
+							width = newWidth;
+						}
+					}
+					if($scope.full) {
+						for(var j=0; i<$scope.parents.length; j++) {
+							var newHeight = parseInt(jQuery($scope.parents[j]).css('height'), 10);
+							if(newHeight > height) {
+								height = newHeight;
+							}
+						}
+					}
+					else {
+						height = width * (1 / 3);
+					}
+				}
+				// if $scope.parents is not an array
+				else {
+					width = parseInt(jQuery($scope.parents).css('width'), 10);
+					if($scope.full) {
+						height = parseInt(jQuery($scope.parents).css('height'), 10);
+					}
+					else {
+						height = width * (1 / 3);
+					}
+				}
 
 				canvas.attr('width', width);
 				canvas.attr('height', height);
 				$scope.signatureWidth = width;
 				$scope.signatureHeight = height;
-			}
 
+				// not every digest cycle needs this and causes error
+				$timeout(function() {
+					$scope.$apply();
+				});
+			}
 
 			$window.addEventListener("resize", $scope.clearSignature, false);
 			$window.addEventListener("orientationchange", $scope.clearSignature, false);

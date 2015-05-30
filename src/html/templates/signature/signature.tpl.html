@@ -55,7 +55,7 @@
 				<div class="resetForceSignature" ng-show="forceSignaturePad" ng-click="forceSignaturePad = false">
 					<i class="fa fa-mobile"></i>
 				</div>
-				<signature-pad submit="submitTouch"></signature-pad>
+				<signature-pad submit="submitTouch" full="false" parents="['#signatureCaptureTouch','#signatureCaptureImage']"></signature-pad>
 				<div flow-init="{
 					target: postSignaturePath,
 					testChunks: false,
