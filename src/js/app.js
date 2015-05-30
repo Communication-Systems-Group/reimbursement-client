@@ -2,17 +2,18 @@
 	"use strict";
 
 	deferredBootstrapper.bootstrap({
-		element: document.body,
-		module: 'reimbursement',
-		resolve: {
-			LANGUAGES: ['$http',
-				function ($http) {
-					return $http.get('http://localhost:8080/static/languages/languages.json');
-				}]
-
+		element : document.body,
+		module : 'reimbursement',
+		resolve : {
+			LANGUAGES : ['$http',
+			function($http) {
+				return $http.get('/languages/languages.json');
+			}]
 		}
 	});
 })();
+
+
 
 var app = angular.module('reimbursement', ['reimbursement.templates', 'ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'monospaced.qrcode', 'flow', 'ui.utils.masks']);
 
@@ -69,18 +70,14 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 
 		$locationProvider.hashPrefix("!");
 
-
 		// ng-Flow flow.js configuration
-		var cookies;
-		angular.injector(['ngCookies']).invoke(function(_$cookies_) {
-			cookies = _$cookies_;
-		});
 		flowFactoryProvider.defaults = {
-			headers : function() {//file, chunk, isTest
+			headers : function() {
 				return {
 					'X-XSRF-TOKEN' : document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1")
 				};
-			}
+			},
+			withCredentials: true
 		};
 
 
@@ -88,6 +85,10 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 
 app.run(function run($http) {
 	'use strict';
+
+	//Make a first get to get the csrf Token
+	$http.get('http://localhost:8080/api/user/test-uuid/');
+
 	// For CSRF token compatibility with Spring Security via CORS
 	$http.defaults.headers.post['X-XSRF-TOKEN'] = function () {
 		return document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1");
