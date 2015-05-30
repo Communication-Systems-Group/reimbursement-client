@@ -1,10 +1,9 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams',
+app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal',
 
-
-	function ($scope, $filter, $state, $stateParams) {
+	function ($scope, $filter, $state, $stateParams, $modal) {
 		"use strict";
 
 		function find(obj, id) {
@@ -62,7 +61,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 						ldap_id: 20,
 						name: 'Burkhard Stiller'
 					},
-					text: 'Es fehlen noch die Belege für das Abendessen im Fridays!'
+					text: 'Es fehlen noch die Belege fÃ¼r das Abendessen im Fridays!'
 				},
 				{
 					date: '2015-03-12T16:30:00.000+02:00',
@@ -70,7 +69,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 						ldap_id: 23,
 						name: 'Jens Meier'
 					},
-					text: 'Habe die Belege hinzugefügt'
+					text: 'Habe die Belege hinzugefÃ¼gt'
 				}
 			],
 			receipts: [
@@ -190,14 +189,6 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			console.log("digest called");
 		});
 
-		function find(obj, id) {
-			for (var i = 0; i < obj.length; i++) {
-				if (obj[i].id === id) {
-					return [i, obj[i]];
-				}
-			}
-		}
-
 		$scope.alert = {
 			info: {
 				state: true,
@@ -236,7 +227,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 						ldap_id: 20,
 						name: 'Burkhard Stiller'
 					},
-					text: 'Es fehlen noch die Belege fÃ¼r das Abendessen im Fridays!'
+					text: 'Es fehlen noch die Belege fÃƒÂ¼r das Abendessen im Fridays!'
 				},
 				{
 					date: '2015-03-12T16:30:00.000+02:00',
@@ -244,7 +235,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 						ldap_id: 23,
 						name: 'Jens Meier'
 					},
-					text: 'Habe die Belege hinzugefÃ¼gt'
+					text: 'Habe die Belege hinzugefÃƒÂ¼gt'
 				}
 			],
 			receipts: [
