@@ -7,7 +7,7 @@
 		resolve: {
 			LANGUAGES: ['$http',
 				function ($http) {
-					return $http.get('./languages/languages.json');
+					return $http.get('http://localhost:8080/static/languages/languages.json');
 				}]
 
 		}
@@ -18,8 +18,8 @@ var app = angular.module('reimbursement', ['reimbursement.templates', 'ui.router
 
 app.constant("Modernizr", Modernizr);
 
-app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', 'LANGUAGES',
-	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, LANGUAGES) {
+app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider','LANGUAGES',
+	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, LANGUAGES) {
 		"use strict";
 
 		for (var key in LANGUAGES) {
@@ -28,6 +28,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}
 		}
 		$translateProvider.preferredLanguage('en');
+
+		$httpProvider.defaults.withCredentials = true;
 
 		$stateProvider.state('login', {
 			url: "/login",
@@ -68,3 +70,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		$locationProvider.hashPrefix("!");
 
 	}]);
+
+app.run(function run($http) {
+	'use strict';
+	// For CSRF token compatibility with Spring Security via CORS
+	$http.defaults.headers.post['X-XSRF-TOKEN'] = function () {
+		return document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+	};
+});
