@@ -3,30 +3,32 @@
 		<i class="fa fa-sign-in"></i> CSRF Testing Page
 	</h1>
 
-	<h3>Login</h3>
-	<div class="alert alert-success" ng-show="loginSent && loginSuccess"><i class="fa fa-thumbs-o-up"></i> Very good Sir!</div>
-	<div class="alert alert-danger" ng-show="loginSent && !loginSuccess"><i class="fa fa-thumbs-o-down"></i> Not good, duckhead...</div>
-	<form class="form-horizontal">
-		<div class="form-group">
-			<label for="inputUsername" class="col-sm-4 control-label">{{ 'reimbursement.login.usernameLabel' | translate }}</label>
-			<div class="col-sm-5">
-				<input type="text" class="form-control" id="inputUsername" ng-model="form.username" placeholder="{{ 'reimbursement.login.usernameLabel' | translate }}">
+	<div ng-controller="LoginController">
+		<h3>Login</h3>
+		<div class="alert alert-success" ng-show="loginSent && loginSuccess"><i class="fa fa-thumbs-o-up"></i> Very good Sir!</div>
+		<div class="alert alert-danger" ng-show="loginSent && !loginSuccess"><i class="fa fa-thumbs-o-down"></i> Not good, duckhead...</div>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label for="inputUsername" class="col-sm-4 control-label">{{ 'reimbursement.login.usernameLabel' | translate }}</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="inputUsername" ng-model="form.username" placeholder="{{ 'reimbursement.login.usernameLabel' | translate }}">
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label for="inputPassword" class="col-sm-4 control-label">{{ 'reimbursement.login.passwordLabel' | translate }}</label>
-			<div class="col-sm-5">
-				<input type="password" class="form-control" id="inputPassword" ng-model="form.password" placeholder="{{ 'reimbursement.login.passwordLabel' | translate }}">
+			<div class="form-group">
+				<label for="inputPassword" class="col-sm-4 control-label">{{ 'reimbursement.login.passwordLabel' | translate }}</label>
+				<div class="col-sm-5">
+					<input type="password" class="form-control" id="inputPassword" ng-model="form.password" placeholder="{{ 'reimbursement.login.passwordLabel' | translate }}">
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-9">
-				<button class="btn btn-primary pull-right" ng-click="submit()">
-					{{ 'reimbursement.login.submitLabel' | translate }}
-				</button>
+			<div class="form-group">
+				<div class="col-sm-9">
+					<button class="btn btn-primary pull-right" ng-click="submit()">
+						{{ 'reimbursement.login.submitLabel' | translate }}
+					</button>
+				</div>
 			</div>
-		</div>
-	</form>
+		</form>
+	</div>
 
 <h3>Public getUsers</h3>
 	<div class="alert alert-success" ng-show="getUsersSent && getUsersSuccess"><i class="fa fa-thumbs-o-up"></i> Very good Sir!</div>
