@@ -18,8 +18,8 @@ var app = angular.module('reimbursement', ['reimbursement.templates', 'ui.router
 
 app.constant("Modernizr", Modernizr);
 
-app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider','LANGUAGES',
-	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, LANGUAGES) {
+app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider','LANGUAGES','flowFactoryProvider',
+	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, LANGUAGES, flowFactoryProvider) {
 		"use strict";
 
 		for (var key in LANGUAGES) {
@@ -68,6 +68,21 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		$urlRouterProvider.otherwise('/signature');
 
 		$locationProvider.hashPrefix("!");
+
+
+		// ng-Flow flow.js configuration
+		var cookies;
+		angular.injector(['ngCookies']).invoke(function(_$cookies_) {
+			cookies = _$cookies_;
+		});
+		flowFactoryProvider.defaults = {
+			headers : function() {//file, chunk, isTest
+				return {
+					'X-XSRF-TOKEN' : document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1")
+				};
+			}
+		};
+
 
 	}]);
 
