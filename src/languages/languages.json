@@ -34,7 +34,7 @@
 		"reimbursement.captureSignature.qr.error.title": "Fehler aufgetreten",
 		"reimbursement.captureSignature.qr.error.message": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut die Signatur von Ihrem Mobilgerät abzuschicken.",
 		"reimbursement.captureSignature.qr.error.okayButton": "OK",
-		"reimbursement.captureSignature.mobile.complete": "Unterschrift erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät mit der Registrierung weiter.",
+		"reimbursement.captureSignature.mobile.complete": "Unterschrift erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät mit der Registrierung weiter indem Sie auf den Button 'Signatur erfasst' klicken.",
 
 		"reimbursement.cropSignature.title": "Unterschrift zuschneiden",
 		"reimbursement.cropSignature.submit": "Zuschneiden",
@@ -136,7 +136,7 @@
 		"reimbursement.captureSignature.qr.error.title": "Error occured",
 		"reimbursement.captureSignature.qr.error.message": "Make sure, you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device.",
 		"reimbursement.captureSignature.qr.error.okayButton": "OK",
-		"reimbursement.captureSignature.mobile.complete": "The signature was successfully uploaded. Please continue on your desktop device.",
+		"reimbursement.captureSignature.mobile.complete": "The signature was successfully uploaded. Please continue on your desktop device by clicking the button 'Signature Captured'.",
 
 		"reimbursement.cropSignature.title": "Crop Signature",
 		"reimbursement.cropSignature.submit": "Crop it",
