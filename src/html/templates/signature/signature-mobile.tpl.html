@@ -1,0 +1,16 @@
+<div id="signatureCaptureMobile">
+	<div class="complete" ng-class="{isComplete: isComplete}">
+		<div class="text">
+			<div><i class="fa fa-check-circle"></i></div>
+			{{ 'reimbursement.captureSignature.mobile.complete' | translate }}
+		</div>
+	</div>
+	<spinner id="spinnerSignatureTouchMobile" label="{{ 'reimbursement.captureSignature.spinnerUploading' | translate }}"></spinner>
+	<signature-pad submit="submit" full="true" parents="'#signatureCaptureMobile'"></signature-pad>
+	<div flow-init="{
+		target: postSignaturePath,
+		testChunks: false,
+		singleFile: true,
+		simultaneousUploads: 1
+	}" flow-name="flow.touchMobile" flow-upload-started="showSpinner('spinnerSignatureTouchMobile')" flow-complete="complete()"
+</div>

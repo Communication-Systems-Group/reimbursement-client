@@ -20,7 +20,7 @@
 				testChunks: false,
 				singleFile: true,
 				simultaneousUploads: 1
-			}" flow-name="flow.image" flow-files-submitted="$flow.upload()" flow-upload-started="showSpinner('spinnerSignatureImage')" flow-complete="getImageAndGoToNextPage()">
+			}" flow-name="flow.image" flow-file-added="validateFile($file)" flow-files-submitted="$flow.upload()" flow-upload-started="showSpinner('spinnerSignatureImage')" flow-complete="getImageAndGoToNextPage()">
 				<div class="image-upload">
 					<div flow-drop flow-btn ng-class="dropClass" flow-drag-enter="dropClass='dragOver'" flow-drag-leave="dropClass=''">
 						<div class="center uploadButton">
@@ -55,7 +55,7 @@
 				<div class="resetForceSignature" ng-show="forceSignaturePad" ng-click="forceSignaturePad = false">
 					<i class="fa fa-mobile"></i>
 				</div>
-				<signature-pad submit="submitTouch"></signature-pad>
+				<signature-pad submit="submitTouch" full="false" parents="['#signatureCaptureTouch','#signatureCaptureImage']"></signature-pad>
 				<div flow-init="{
 					target: postSignaturePath,
 					testChunks: false,

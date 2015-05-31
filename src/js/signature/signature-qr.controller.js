@@ -3,7 +3,7 @@ app.controller('SignatureQRController', ['$scope', '$modalInstance', '$modal', '
 function($scope, $modalInstance, $modal, signatureRestService, spinnerService) {
 	"use strict";
 
-	$scope.qrUrl = window.location.href;
+	$scope.qrUrl = "http://localhost:9005/#!signature-mobile";
 	$scope.dismiss = $modalInstance.dismiss;
 
 	$scope.checkAndClose = function() {

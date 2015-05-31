@@ -1,6 +1,6 @@
-app.controller('SignatureController', ['$scope', '$state', '$modal', 'Modernizr', 'spinnerService', 'signatureRestService', 'base64BinaryConverterService',
+app.controller('SignatureController', ['$scope', '$state', '$modal', 'Modernizr', 'spinnerService', 'signatureRestService', 'base64BinaryConverterService', 'fileExtensionService', 'globalMessagesService',
 
-function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService) {
+function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService, fileExtensionService, globalMessagesService) {
 	"use strict";
 
 	$scope.postSignaturePath = signatureRestService.postSignaturePath();
@@ -41,7 +41,24 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 
 	$scope.getImageAndGoToNextPage = function() {
 		var fileWrapper = $scope.flow.image.files[0] || $scope.flow.touch.files[0];
-		base64BinaryConverterService.toBase64(fileWrapper.file, goToNextPage);
+
+		// file was not accepted by the validator
+		if(typeof fileWrapper === "undefined" || typeof fileWrapper.file === "undefined") {
+			globalMessagesService.showWarning("reimbursement.globalMessage.title.notAnImage", "reimbursement.globalMessage.message.notAnImage");
+			spinnerService.hide("spinnerSignatureImage");
+		}
+		else {
+			base64BinaryConverterService.toBase64(fileWrapper.file, goToNextPage);
+		}
+	};
+
+	$scope.validateFile = function($file) {
+		if(typeof $file !== "undefined" && typeof $file.name !== "undefined" && $file.name !== "") {
+			return fileExtensionService.isImageFile($file.name);
+		}
+		else {
+			return false;
+		}
 	};
 
 	function goToNextPage(base64Image) {
