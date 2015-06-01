@@ -72,7 +72,11 @@ function($modal, $translate) {
 		showError: showError,
 		showWarning: showWarning,
 		showInfo: showInfo,
-		hideMessages: hideMessages
+		hideMessages: hideMessages,
+		showGeneralError: function() {
+			showError("reimbursement.globalMessage.ServiceException.title",
+				"reimbursement.globalMessage.ServiceException.message");
+		}
 	};
 
 }]);

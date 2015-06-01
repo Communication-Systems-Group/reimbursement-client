@@ -9,7 +9,6 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 	$scope.showTouchInput = true;
 	$scope.forceSignaturePad = false;
 	$scope.flow = {};
-	$scope.uploadError = false;
 
 	$scope.selectTouchTab = function() {
 		$scope.showUploadImage = false;
@@ -41,10 +40,9 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 	};
 
 	$scope.showUploadError = function(type) {
-		$scope.uploadError = true;
 		spinnerService.hide('spinnerSignatureImage');
 		spinnerService.hide('spinnerSignatureTouch');
-		globalMessagesService.showError("reimbursement.globalMessage.ServiceException.title", "reimbursement.globalMessage.ServiceException.message");
+		globalMessagesService.showGeneralError();
 		if(type === 'image') {
 			$scope.flow.image.cancel();
 		}
@@ -54,10 +52,6 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 	};
 
 	$scope.getImageAndGoToNextPage = function() {
-		if($scope.uploadError) {
-			return;
-		}
-
 		var fileWrapper = $scope.flow.image.files[0] || $scope.flow.touch.files[0];
 
 		// file was not accepted by the validator
