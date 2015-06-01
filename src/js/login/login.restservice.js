@@ -10,11 +10,10 @@ function($http) {
 				url: 'http://localhost:8080/api/login',
 				data: jQuery.param(data),
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-			})["finally"](function(){
-				//make update the csrf Token
-				//TODO make this gather the user's initial data set and save it
-				$http.get('http://localhost:8080/api/user/test-uuid/');
 			});
+		},
+		getUsername: function(){
+			return $http.get('http://localhost:8080/api/user/current');
 		}
 	};
 }]);
