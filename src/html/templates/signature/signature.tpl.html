@@ -15,12 +15,11 @@
 		<form id="signatureCaptureImage" ng-show="showUploadImage">
 			<spinner id="spinnerSignatureImage" label="{{ 'reimbursement.captureSignature.spinnerUploading' | translate }}"></spinner>
 
-			<div flow-init="{
-				target: postSignaturePath,
-				testChunks: false,
-				singleFile: true,
-				simultaneousUploads: 1
-			}" flow-name="flow.image" flow-file-added="validateFile($file)" flow-files-submitted="$flow.upload()" flow-upload-started="showSpinner('spinnerSignatureImage')" flow-complete="getImageAndGoToNextPage()">
+			<div flow-init="{target: postSignaturePath, testChunks: false, singleFile: true, simultaneousUploads: 1}"
+				flow-name="flow.image" flow-file-added="validateFile($file)" flow-files-submitted="uploadError=false; $flow.upload()"
+				flow-upload-started="showSpinner('spinnerSignatureImage')" flow-complete="getImageAndGoToNextPage()"
+				flow-file-error="showUploadError('image')">
+
 				<div class="image-upload">
 					<div flow-drop flow-btn ng-class="dropClass" flow-drag-enter="dropClass='dragOver'" flow-drag-leave="dropClass=''">
 						<div class="center uploadButton">
@@ -56,16 +55,12 @@
 					<i class="fa fa-mobile"></i>
 				</div>
 				<signature-pad submit="submitTouch" full="false" parents="['#signatureCaptureTouch','#signatureCaptureImage']"></signature-pad>
-				<div flow-init="{
-					target: postSignaturePath,
-					testChunks: false,
-					singleFile: true,
-					simultaneousUploads: 1
-				}" flow-name="flow.touch" flow-upload-started="showSpinner('spinnerSignatureTouch')" flow-complete="getImageAndGoToNextPage()">
+				<div flow-init="{target: postSignaturePath, testChunks: false, singleFile: true, simultaneousUploads: 1}"
+					flow-name="flow.touch" flow-files-submitted="uploadError = false" flow-upload-started="showSpinner('spinnerSignatureTouch')"
+					flow-complete="getImageAndGoToNextPage()" flow-file-error="showUploadError('touch')">
 				</div>
 			</div>
 
 		</form>
-
 	</div>
 </div>
