@@ -7,8 +7,10 @@
 		"reimbursement.tabs.csrftestingpage": "CSRF Test",
 		"reimbursement.loading.label": "Bitte warten...",
 		"reimbursement.globalMessage.okayButton": "Okay",
-		"reimbursement.globalMessage.title.notAnImage": "Unbekannter Dateityp",
-		"reimbursement.globalMessage.message.notAnImage": "Die Datei, die Sie hochgeladen wurde, wurde nicht als gültiges Bild erkannt. Bitte versuchen Sie es erneut und laden Sie eine gültige Bilddatei hoch.",
+		"reimbursement.globalMessage.notAnImage.title": "Unbekannter Dateityp",
+		"reimbursement.globalMessage.notAnImage.message": "Die Datei, die Sie hochgeladen wurde, wurde nicht als gültiges Bild erkannt. Bitte versuchen Sie es erneut und laden Sie eine gültige Bilddatei hoch.",
+		"reimbursement.globalMessage.signatureQrNoImage.title": "Fehler aufgetreten",
+		"reimbursement.globalMessage.signatureQrNoImage.message": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut die Signatur von Ihrem Mobilgerät abzuschicken.",
 
 		"reimbursement.login.title": "Login",
 		"reimbursement.login.usernameLabel": "Benutzername",
@@ -31,8 +33,6 @@
 		"reimbursement.captureSignature.qr.capturedOnMobile": "Signatur erfasst",
 		"reimbursement.captureSignature.qr.info": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet). Sie gelangen danach auf eine Seite in Ihrem mobile Browser, in welchem Sie die Signatur mit dem Touch Screen erfassen können. Bestätigen Sie die Unterschrift und fahren Sie auf dieser Seite hier fort.",
 		"reimbursement.captureSignature.qr.or": "ODER",
-		"reimbursement.captureSignature.qr.error.title": "Fehler aufgetreten",
-		"reimbursement.captureSignature.qr.error.message": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut die Signatur von Ihrem Mobilgerät abzuschicken.",
 		"reimbursement.captureSignature.qr.error.okayButton": "OK",
 		"reimbursement.captureSignature.mobile.complete": "Unterschrift erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät mit der Registrierung weiter indem Sie auf den Button 'Signatur erfasst' klicken.",
 
@@ -109,8 +109,10 @@
 		"reimbursement.tabs.csrftestingpage": "CSRF Test",
 		"reimbursement.loading.label": "Please wait...",
 		"reimbursement.globalMessage.okayButton": "Okay",
-		"reimbursement.globalMessage.title.notAnImage": "Not an image",
-		"reimbursement.globalMessage.message.notAnImage": "The uploaded file was not recognized as an image. Please try it again and upload a proper image file.",
+		"reimbursement.globalMessage.notAnImage.title": "Not an image",
+		"reimbursement.globalMessage.notAnImage.message": "The uploaded file was not recognized as an image. Please try it again and upload a proper image file.",
+		"reimbursement.globalMessage.signatureQrNoImage.title": "Error occured",
+		"reimbursement.globalMessage.signatureQrNoImage.message": "Make sure, you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device.",
 
 		"reimbursement.login.title": "Login",
 		"reimbursement.login.usernameLabel": "User Name",
@@ -133,8 +135,6 @@
 		"reimbursement.captureSignature.qr.capturedOnMobile": "Signature Captured",
 		"reimbursement.captureSignature.qr.info": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can enter your signature using the touch screen is opened in your mobile device's  browser. Confirm the signature on the mobile device and continue on this page here.",
 		"reimbursement.captureSignature.qr.or": "OR",
-		"reimbursement.captureSignature.qr.error.title": "Error occured",
-		"reimbursement.captureSignature.qr.error.message": "Make sure, you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device.",
 		"reimbursement.captureSignature.qr.error.okayButton": "OK",
 		"reimbursement.captureSignature.mobile.complete": "The signature was successfully uploaded. Please continue on your desktop device by clicking the button 'Signature Captured'.",
 

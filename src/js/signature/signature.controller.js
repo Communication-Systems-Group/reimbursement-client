@@ -44,7 +44,7 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 
 		// file was not accepted by the validator
 		if(typeof fileWrapper === "undefined" || typeof fileWrapper.file === "undefined") {
-			globalMessagesService.showWarning("reimbursement.globalMessage.title.notAnImage", "reimbursement.globalMessage.message.notAnImage");
+			globalMessagesService.showWarning("reimbursement.globalMessage.notAnImage.title", "reimbursement.globalMessage.notAnImage.message");
 			spinnerService.hide("spinnerSignatureImage");
 		}
 		else {

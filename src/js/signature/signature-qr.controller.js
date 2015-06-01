@@ -1,6 +1,6 @@
-app.controller('SignatureQRController', ['$scope', '$modalInstance', '$modal', 'signatureRestService', 'spinnerService',
+app.controller('SignatureQRController', ['$scope', '$modalInstance', '$modal', 'signatureRestService', 'spinnerService', 'globalMessagesService',
 
-function($scope, $modalInstance, $modal, signatureRestService, spinnerService) {
+function($scope, $modalInstance, $modal, signatureRestService, spinnerService, globalMessagesService) {
 	"use strict";
 
 	$scope.qrUrl = "http://localhost:9005/#!signature-mobile";
@@ -13,11 +13,10 @@ function($scope, $modalInstance, $modal, signatureRestService, spinnerService) {
 		promise.then(function(image) {
 			$modalInstance.close(image);
 		}, function() {
-			$modal.open({
-				templateUrl: 'signature/signature-qr-error.tpl.html',
-				controller: 'SignatureQRErrorController',
-				size: 'sm'
-			});
+
+			globalMessagesService.showError("reimbursement.globalMessage.signatureQrNoImage.title",
+				"reimbursement.globalMessage.signatureQrNoImage.message");
+
 		})['finally'](function() {
 			spinnerService.hide('spinnerSignatureQR');
 		});
