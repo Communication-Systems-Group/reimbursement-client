@@ -197,6 +197,7 @@ module.exports = function(grunt) {
 			}
 		},
 
+		// converts language.json into productive form
 		convert_language_json: {
 			json: {
 				options: {
