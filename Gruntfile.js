@@ -185,12 +185,6 @@ module.exports = function(grunt) {
 					cwd: 'src/html/',
 					src: ['index.html'],
 					dest: 'dist/'
-				}, {
-					//languages
-					expand: true,
-					flatten: true,
-					src: ['src/languages/**/*.json'],
-					dest: 'dist/languages/'
 				}]
 			},
 			localdeploy: {
@@ -199,6 +193,19 @@ module.exports = function(grunt) {
 					src: '**/*',
 					dest: '../reimbursement-server/src/main/webapp/static/',
 					expand: true
+				}]
+			}
+		},
+
+		convert_language_json: {
+			json: {
+				options: {
+					prefix: "reimbursement."
+				},
+				files: [{
+					src: 'src/languages/languages.json',
+					dest: 'dist/languages/languages.json',
+					destType: 'file'
 				}]
 			}
 		},
@@ -343,6 +350,7 @@ module.exports = function(grunt) {
 		'concat:appWithTemplates',
 		'autoprefixer',
 		'copy:regular',
+		'convert_language_json',
 		'usemin',
 		'clean:tmp'
 	]);
@@ -367,6 +375,7 @@ module.exports = function(grunt) {
 		'concat:appWithTemplates',
 		'autoprefixer',
 		'copy:regular',
+		'convert_language_json',
 		'usemin',
 		'uglify',
 		'cssmin',
