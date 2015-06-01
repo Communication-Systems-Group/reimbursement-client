@@ -1,6 +1,6 @@
-app.controller('LoginController', ['$rootScope','$scope', 'loginRestService',
+app.controller('LoginController', ['$rootScope','$scope', 'loginRestService','$state',
 
-function($rootScope, $scope, loginRestService) {
+function($rootScope, $scope, loginRestService, $state) {
 	"use strict";
 
 	$scope.form = {
@@ -20,6 +20,7 @@ function($rootScope, $scope, loginRestService) {
 			//make update the csrf Token
 			loginRestService.getUsername().then(function(result){
 				 $rootScope.username = result.data.uid.toUpperCase();
+				 $state.go('dashboard');
 			});
 		});
 	};
