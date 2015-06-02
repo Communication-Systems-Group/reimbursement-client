@@ -198,7 +198,7 @@ module.exports = function(grunt) {
 		},
 
 		// converts language.json into productive form
-		convert_language_json: {
+		convertLanguageJson: {
 			json: {
 				options: {
 					prefix: "reimbursement."
@@ -351,7 +351,7 @@ module.exports = function(grunt) {
 		'concat:appWithTemplates',
 		'autoprefixer',
 		'copy:regular',
-		'convert_language_json',
+		'convertLanguageJson',
 		'usemin',
 		'clean:tmp'
 	]);
@@ -376,7 +376,7 @@ module.exports = function(grunt) {
 		'concat:appWithTemplates',
 		'autoprefixer',
 		'copy:regular',
-		'convert_language_json',
+		'convertLanguageJson',
 		'usemin',
 		'uglify',
 		'cssmin',
