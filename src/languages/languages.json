@@ -43,6 +43,14 @@
 		"de": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut die Signatur von Ihrem Mobilgerät abzuschicken.",
 		"en": "Make sure, you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device."
 	},
+	"globalMessage.loginError.title": {
+		"de": "Login fehlgeschlagen",
+		"en": "Login failed"
+	},
+	"globalMessage.loginError.message": {
+		"de": "Das eingegebene Passwort oder der Benutzername sind inkorrekt. Bitte versuchen Sie es erneut.",
+		"en": "The entered password or username was incorrect. Please try again."
+	},
 	"globalMessage.ServiceException.title": {
 		"de": "Allgemeiner Fehler",
 		"en": "General error"
