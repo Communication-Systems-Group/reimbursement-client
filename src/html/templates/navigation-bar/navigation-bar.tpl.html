@@ -21,9 +21,6 @@
 					<a ui-sref="dashboard"><i class="fa fa-tachometer"></i> {{ 'reimbursement.tabs.dashboard' | translate }}</a>
 				</li>
 				<li ui-sref-active="active" ng-show="USER.loggedIn">
-					<a ui-sref="signature"><i class="fa fa-pencil-square-o"></i> {{ 'reimbursement.tabs.signature' | translate }}</a>
-				</li>
-				<li ui-sref-active="active" ng-show="USER.loggedIn">
 					<a ui-sref="csrfTestingPage"><i class="fa fa-bug"></i> {{ 'reimbursement.tabs.csrftestingpage' | translate }}</a>
 				</li>
 				<li class="dropdown" ng-show="USER.loggedIn">
@@ -44,13 +41,16 @@
 						</li>
 						<li class="divider"></li>
 						<li>
-							<a href>Not yet defined link</a>
+							<a href ui-sref="signature">
+								<i class="fa fa-pencil-square-o"></i>
+								{{ 'reimbursement.tabs.signature' | translate }}
+							</a>
 						</li>
 						<li class="divider"></li>
 						<li>
 							<a href ui-sref="logout">
 								<i class="fa fa-sign-out"></i>
-								Logout
+								{{ 'reimbursement.tabs.logout' | translate }}
 							</a>
 						</li>
 					</ul>

@@ -4,12 +4,16 @@
 		"en": "Reimbursement IFI"
 	},
 	"tabs.login": {
-		"de": "Einloggen",
+		"de": "Login",
 		"en": "Login"
 	},
+	"tabs.logout": {
+		"de": "Logout",
+		"en": "Logout"
+	},
 	"tabs.signature": {
-		"de": "Unterschrift",
-		"en": "Add Signature"
+		"de": "Unterschrift ändern",
+		"en": "Change Signature"
 	},
 	"tabs.dashboard": {
 		"de": "Dashboard",
@@ -89,7 +93,7 @@
 	},
 	"captureSignature.title": {
 		"de": "Unterschrift erfassen",
-		"en": "Signature Capturing"
+		"en": "Capture Signature"
 	},
 	"captureSignature.info": {
 		"de": "Sie haben sich erfolgreich eingeloggt. Um Ihre Registrierung abschliessen zu können, müssen Sie noch Ihre Unterschrift digital erfassen. Sie können die Unterschrift entweder über einen Touch-Screen direkt online erfassen oder eine Bilddatei mit Ihrer Unterschrift hochladen.",
