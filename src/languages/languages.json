@@ -75,6 +75,18 @@
 		"de": "Login",
 		"en": "Login"
 	},
+	"logout.title": {
+		"de": "Logout",
+		"en": "Logout"
+	},
+	"logout.spinner": {
+		"de": "Sie werden ausgeloggt...",
+		"en": "You are going to be logged out..."
+	},
+	"logout.successMessage": {
+		"de": "Sie wurden erfolgreich ausgeloggt. Beehren Sie uns bald wieder mit Ihren Spesen.",
+		"en": "You were successfully logged out."
+	},
 	"captureSignature.title": {
 		"de": "Unterschrift erfassen",
 		"en": "Signature Capturing"

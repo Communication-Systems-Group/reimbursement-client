@@ -57,6 +57,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "login/login.tpl.html",
 			controller: 'LoginController'
 
+		}).state('logout', {
+			// no url, because the logout should not be opened manually
+			templateUrl: "logout/logout.tpl.html",
+			controller: 'LogoutController'
+
 		}).state('signature', {
 			url: "/signature",
 			templateUrl: "signature/signature.tpl.html",
