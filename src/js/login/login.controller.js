@@ -1,6 +1,6 @@
-app.controller('LoginController', ['$rootScope', '$scope', '$state', 'loginRestService', 'globalMessagesService',
+app.controller('LoginController', ['$scope', '$state', 'loginRestService', 'globalMessagesService',
 
-function($rootScope, $scope, $state, loginRestService, globalMessagesService) {
+function($scope, $state, loginRestService, globalMessagesService) {
 	"use strict";
 
 	$scope.form = {
@@ -10,15 +10,7 @@ function($rootScope, $scope, $state, loginRestService, globalMessagesService) {
 
 	$scope.submit = function() {
 		loginRestService.postLogin($scope.form).then(function() {
-
-			//make update the csrf Token
-			loginRestService.getUsername().then(function(result){
-				$rootScope.username = result.data.uid.toUpperCase();
-				$state.go('dashboard');
-			}, function() {
-				globalMessagesService.showGeneralError();
-			});
-
+			window.location.reload();
 		}, function() {
 			globalMessagesService.showError("reimbursement.globalMessage.loginError.title", "reimbursement.globalMessage.loginError.message");
 		});

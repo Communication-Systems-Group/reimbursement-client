@@ -8,12 +8,24 @@
 			LANGUAGES : ['$http',
 			function($http) {
 				return $http.get('/languages/languages.json');
+			}],
+			USER: ['$q', '$http',
+			function($q, $http) {
+				var deferred = $q.defer();
+				$http.get("http://localhost:8080/api/user/current", {withCredentials: true}).then(
+				function(response) {
+					var data = response.data;
+					data.loggedIn = true;
+					deferred.resolve(data);
+				}, function() {
+					var data = {loggedIn: false};
+					deferred.resolve(data);
+				});
+				return deferred.promise;
 			}]
 		}
 	});
 })();
-
-
 
 var app = angular.module('reimbursement', ['reimbursement.templates', 'ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'monospaced.qrcode', 'flow', 'ui.utils.masks']);
 
@@ -32,15 +44,24 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 
 		$httpProvider.defaults.withCredentials = true;
 
+		function requireAuthentication() {
+			return ['$state', 'USER', function($state, USER) {
+				if(!USER.loggedIn) {
+					$state.go('login');
+				}
+			}];
+		}
+
 		$stateProvider.state('login', {
-			url: "/login",
+			// no url, because the login should not be opened manually
 			templateUrl: "login/login.tpl.html",
 			controller: 'LoginController'
 
 		}).state('signature', {
 			url: "/signature",
 			templateUrl: "signature/signature.tpl.html",
-			controller: "SignatureController"
+			controller: "SignatureController",
+			onEnter: requireAuthentication()
 
 		}).state('signatureMobile', {
 			url: "/signature-mobile",
@@ -53,17 +74,20 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 				imageUri: null
 			},
 			templateUrl: "cropping/cropping.tpl.html",
-			controller: "CroppingController"
+			controller: "CroppingController",
+			onEnter: requireAuthentication()
 
 		}).state('dashboard', {
 			url: "/dashboard",
 			templateUrl: "dashboard/dashboard.tpl.html",
-			controller: "DashboardController"
+			controller: "DashboardController",
+			onEnter: requireAuthentication()
 
 		}).state('expense', {
 			url: "/expense/:id",
 			templateUrl: "expense/expense.tpl.html",
-			controller: "ExpenseController"
+			controller: "ExpenseController",
+			onEnter: requireAuthentication()
 
 		}).state('csrfTestingPage', {
 			url: "/csrfTestingPage",
@@ -85,7 +109,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			withCredentials: true
 		};
 
-
 	}]);
 
 app.run(function run($http) {
@@ -94,8 +117,8 @@ app.run(function run($http) {
 	//Make a first get to get the csrf Token
 	$http.get('http://localhost:8080/api/user/test-uuid/');
 
-	// For CSRF token compatibility with Spring Security via CORS
 	$http.defaults.headers.post['X-XSRF-TOKEN'] = function () {
 		return document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 	};
+
 });
