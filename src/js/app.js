@@ -119,8 +119,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 app.run(function run($http) {
 	'use strict';
 
-	//Make a first get to get the csrf Token
-	$http.get('http://localhost:8080/api/user/test-uuid/');
+	//TODO Chrigi probably not used anymore
+	// $http.get('http://localhost:8080/api/user/test-uuid/');
 
 	$http.defaults.headers.post['X-XSRF-TOKEN'] = function () {
 		return document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1");

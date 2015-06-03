@@ -1,16 +1,16 @@
-app.factory("signatureRestService", ['$http',
+app.factory("signatureRestService", ['$http', 'USER',
 
-function($http) {
+function($http, USER) {
 	"use strict";
 
 	return {
 		getSignature : function() {
-			return $http.get("http://localhost:8080/api/user/test-uuid/signature", {
+			return $http.get("http://localhost:8080/api/user/"+USER.uid+"/signature", {
 				responseType : 'blob'
 			});
 		},
 		postSignaturePath : function() {
-			return "http://localhost:8080/api/user/test-uuid/signature";
+			return "http://localhost:8080/api/user/"+USER.uid+"/signature";
 		}
 	};
 
