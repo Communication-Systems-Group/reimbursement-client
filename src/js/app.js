@@ -74,7 +74,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "SignatureMobileController"
 
 		}).state('cropping', {
-			url: "/cropping",
+			// no url, because the cropping should not be opened manually
 			params: {
 				imageUri: null
 			},
