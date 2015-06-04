@@ -1,6 +1,6 @@
-app.factory('csrfTestingPageRestService', ['$http',
+app.factory('csrfTestingPageRestService', ['$http','USER',
 
-function($http) {
+function($http, USER) {
 	"use strict";
 
 	return {
@@ -29,6 +29,20 @@ function($http) {
 				url: 'http://localhost:8080/testingpublic/croppingdto',
 				data: data,
 				headers: {'Content-Type': "application/json"}
+			});
+		},
+		getSignature: function() {
+			return $http({
+				method: 'GET',
+				url: 'http://localhost:8080/api/user/'+USER.uid+'/signature',
+				transformResponse: null
+			});
+		},
+		getSignatureFailure: function() {
+			return $http({
+				method: 'GET',
+				url: 'http://localhost:8080/api/user/blub/signature',
+				transformResponse: null
 			});
 		}
 

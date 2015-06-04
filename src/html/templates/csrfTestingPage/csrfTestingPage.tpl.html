@@ -43,6 +43,40 @@
 		</div>
 	</form>
 
+<h3>Public getSignature</h3>
+	<div class="alert alert-success" ng-show="getSignatureSent && getSignatureSuccess"><i class="fa fa-thumbs-o-up"></i> Very good Sir!</div>
+	<div class="alert alert-danger" ng-show="getSignatureSent && !getSignatureSuccess"><i class="fa fa-thumbs-o-down"></i> Not good, duckhead...</div>
+	<form class="form-horizontal">
+		<div class="form-group">
+			<div class="col-sm-9">
+				<button class="btn btn-primary pull-right" ng-click="getSignature()">
+					get getSignature
+				</button>
+			</div>
+		</div>
+	</form>
+	<div class = "panel panel-info" ng-show="image">
+	<div class="panel-heading"><h4>Result</h4></div>
+	<img ng-src="data:image/PNG;base64,{{image}}">
+	</div>
+
+	<h3>Public getSignatureFailure</h3>
+	<div class="alert alert-success" ng-show="getSignatureFailureSent && getSignatureFailureSuccess"><i class="fa fa-thumbs-o-up"></i> Very good Sir!</div>
+	<div class="alert alert-danger" ng-show="getSignatureFailureSent && !getSignatureFailureSuccess"><i class="fa fa-thumbs-o-down"></i> Not good, duckhead...</div>
+	<form class="form-horizontal">
+		<div class="form-group">
+			<div class="col-sm-9">
+				<button class="btn btn-primary pull-right" ng-click="getSignatureFailure()">
+					get getSignatureFailure
+				</button>
+			</div>
+		</div>
+	</form>
+	<div class = "panel panel-info" ng-show="imageFailure">
+	<div class="panel-heading"><h4>Result</h4></div>
+	<pre>{{imageFailure}}"></pre>
+	</div>
+
 	<h3>Private getUsers</h3>
 	<div class="alert alert-success" ng-show="getPrivateUsersSent && getPrivateUsersSuccess"><i class="fa fa-thumbs-o-up"></i> Very good Sir!</div>
 	<div class="alert alert-danger" ng-show="getPrivateUsersSent && !getPrivateUsersSuccess"><i class="fa fa-thumbs-o-down"></i> Not good, duckhead...</div>
