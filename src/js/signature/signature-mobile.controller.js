@@ -19,7 +19,6 @@ function($scope, $stateParams, signatureRestService, spinnerService) {
 
 	$scope.success = function() {
 		spinnerService.hide("spinnerSignatureTouchMobile");
-		console.log(123);
 		$scope.isComplete = true;
 	};
 
