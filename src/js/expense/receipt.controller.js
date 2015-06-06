@@ -61,7 +61,7 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 	$scope.calculateAmount = function () {
 
 		if (!!$scope.receipt.amount.original && $scope.receipt.amount.currency.cc !== undefined) {
-			// ToDo load exchange rates via server => use fixer.io: GET: http://api.fixer.io/2015-03-10?base=<selected_currency>
+			// ToDo load exchange rates via server => use localhost:8080/api/public/exchange-rate/
 			var dummy_exchange = 1.05;
 
 			$scope.receipt.amount.exchange_rate = dummy_exchange;

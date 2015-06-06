@@ -13,7 +13,7 @@ function($http) {
 			});
 		},
 		getUsername: function(){
-			return $http.get('http://localhost:8080/api/user/current');
+			return $http.get('http://localhost:8080/api/user');
 		}
 	};
 }]);

@@ -12,7 +12,7 @@
 			USER: ['$q', '$http',
 			function($q, $http) {
 				var deferred = $q.defer();
-				$http.get("http://localhost:8080/api/user/current", {withCredentials: true}).then(
+				$http.get("http://localhost:8080/api/user", {withCredentials: true}).then(
 				function(response) {
 					var data = response.data;
 					data.loggedIn = true;
