@@ -163,6 +163,10 @@
 		"de": "Unterschrift erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät mit der Registrierung weiter indem Sie auf den Button 'Signatur erfasst' klicken.",
 		"en": "The signature was successfully uploaded. Please continue on your desktop device by clicking the button 'Signature Captured'."
 	},
+	"captureSignature.mobile.error": {
+		"de": "Es ist ein Fehler beim Hochladen aufgetreten. Bitte schliessen Sie dieses Browserfenster auf Ihrem Mobilgerät, aktualisieren die Seite auf Ihrem Desktop-Gerät und probieren es erneut.",
+		"en": "An error occured while uploading the signature. Please close this browser window on your mobile device, refresh the page on the desktop device and try it again."
+	},
 	"cropSignature.title": {
 		"de": "Unterschrift zuschneiden",
 		"en": "Crop Signature"

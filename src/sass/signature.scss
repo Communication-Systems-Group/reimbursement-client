@@ -128,16 +128,17 @@
 	background: white;
 	overflow: hidden;
 
-	.complete {
+	.complete,
+	.error {
 		opacity: 0;
 		visibility: hidden;
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background: #192550;
 		z-index: 10000;
 
-		&.isComplete {
+		&.isComplete,
+		&.isError {
 			visibility: visible;
 			opacity: 1;
 			transition: opacity 0.5s linear;
@@ -154,6 +155,15 @@
 			.fa {
 				font-size: 2em;
 			}
+		}
+	}
+	.complete {
+		background: #178322;
+	}
+	.error {
+		background: #D1322E;
+		.text {
+			font-size: 1.5em;
 		}
 	}
 
