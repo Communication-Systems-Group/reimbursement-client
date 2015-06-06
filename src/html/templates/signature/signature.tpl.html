@@ -52,7 +52,7 @@
 
 			<div ng-show="Modernizr.touch || forceSignaturePad">
 				<div class="resetForceSignature" ng-show="forceSignaturePad" ng-click="forceSignaturePad = false">
-					<i class="fa fa-mobile"></i>
+					<i class="fa fa-arrow-circle-left"></i>
 				</div>
 				<signature-pad submit="submitTouch" full="false" parents="['#signatureCaptureTouch','#signatureCaptureImage']"></signature-pad>
 				<div flow-init="{target: postSignaturePath, testChunks: false, singleFile: true, simultaneousUploads: 1}"
