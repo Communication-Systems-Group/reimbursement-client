@@ -69,7 +69,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			onEnter: requireAuthentication()
 
 		}).state('signatureMobile', {
-			url: "/signature-mobile",
+			url: "/signature-mobile/:token",
 			templateUrl: "signature/signature-mobile.tpl.html",
 			controller: "SignatureMobileController"
 

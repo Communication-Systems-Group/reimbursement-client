@@ -10,8 +10,14 @@ function($http, USER) {
 				responseType : 'blob'
 			});
 		},
+		postSignatureMobileToken : function() {
+			return $http.post("http://localhost:8080/api/user/signature/token");
+		},
 		postSignaturePath : function() {
 			return "http://localhost:8080/api/user/"+USER.uid+"/signature";
+		},
+		postSignatureMobilePath: function(token) {
+			return "http://localhost:8080/api/mobile/"+token+"/signature";
 		}
 	};
 

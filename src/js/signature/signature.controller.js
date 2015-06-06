@@ -29,13 +29,22 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 	};
 
 	$scope.showQR = function() {
-		var modalInstance = $modal.open({
-			templateUrl : 'signature/signature-qr.tpl.html',
-			controller : 'SignatureQRController'
-		});
+		signatureRestService.postSignatureMobileToken().then(function(response) {
+			var modalInstance = $modal.open({
+				templateUrl : 'signature/signature-qr.tpl.html',
+				controller : 'SignatureQRController',
+				resolve : {
+					token : function() {
+						return response.data.uid;
+					}
+				}
+			});
 
-		modalInstance.result.then(function(response) {
-			base64BinaryConverterService.toBase64(response.data, goToNextPage);
+			modalInstance.result.then(function(response) {
+				base64BinaryConverterService.toBase64(response.data, goToNextPage);
+			});
+		}, function() {
+			globalMessagesService.showGeneralError();
 		});
 	};
 

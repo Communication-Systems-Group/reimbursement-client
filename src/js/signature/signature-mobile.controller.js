@@ -1,9 +1,9 @@
-app.controller('SignatureMobileController', ['$scope', 'signatureRestService', 'spinnerService',
+app.controller('SignatureMobileController', ['$scope', '$stateParams', 'signatureRestService', 'spinnerService',
 
-function($scope, signatureRestService, spinnerService) {
+function($scope, $stateParams, signatureRestService, spinnerService) {
 	"use strict";
 
-	$scope.postSignaturePath = signatureRestService.postSignaturePath();
+	$scope.postSignaturePath = signatureRestService.postSignatureMobilePath($stateParams.token);
 	$scope.flow = {};
 	$scope.isComplete = false;
 
