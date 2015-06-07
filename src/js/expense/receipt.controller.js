@@ -76,7 +76,7 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 
 	$scope.checkAndClose = function (form) {
 		if (validation(form)) {
-			console.log('go thru');
+			//console.log('go thru');
 		}
 	};
 

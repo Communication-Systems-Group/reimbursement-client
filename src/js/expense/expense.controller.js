@@ -168,8 +168,8 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				scope: $scope
 			});
 
-			modalInstance.result.then(function (response) {
-				console.log(response);
+			modalInstance.result.then(function (/*response*/) {
+				//console.log(response);
 			});
 		};
 
@@ -186,7 +186,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		$scope.receiptChanges = false;
 
 		$scope.$watch(function () {
-			console.log("digest called");
+			//console.log("digest called");
 		});
 
 		$scope.alert = {

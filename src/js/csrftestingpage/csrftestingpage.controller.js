@@ -48,8 +48,8 @@ function($scope, csrfTestingPageRestService) {
 	$scope.getSignatureSuccess = false;
 	$scope.getSignature = function (){
 		csrfTestingPageRestService.getSignature().then(function(result) {
-			console.log(result);
-			console.log(result.data);
+			//console.log(result);
+			//console.log(result.data);
 			$scope.getSignatureSuccess = true;
 			$scope.image = result.data;
 		}, function() {
