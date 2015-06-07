@@ -12,7 +12,8 @@
 			USER: ['$q', '$http',
 			function($q, $http) {
 				var deferred = $q.defer();
-				$http.get("http://localhost:8080/api/user", {withCredentials: true}).then(
+				var host = "//" + window.location.host.split(':')[0];
+				$http.get(host + "/api/user", {withCredentials: true}).then(
 				function(response) {
 					var data = response.data;
 					data.loggedIn = true;
@@ -30,6 +31,7 @@
 var app = angular.module('reimbursement', ['reimbursement.templates', 'ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'monospaced.qrcode', 'flow', 'ui.utils.masks']);
 
 app.constant("Modernizr", Modernizr);
+app.constant("HOST", "//" + window.location.host.split(":")[0]);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider','LANGUAGES','flowFactoryProvider',
 	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, LANGUAGES, flowFactoryProvider) {

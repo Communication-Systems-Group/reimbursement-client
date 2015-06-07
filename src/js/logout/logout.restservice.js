@@ -1,13 +1,13 @@
-app.factory('logoutRestService', ['$http',
+app.factory('logoutRestService', ['$http', 'HOST',
 
-function($http) {
+function($http, HOST) {
 	"use strict";
 
 	return {
 		postLogout: function() {
 			return $http({
 				method: 'POST',
-				url: 'http://localhost:8080/api/logout',
+				url: HOST + '/api/logout',
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			});
 		}

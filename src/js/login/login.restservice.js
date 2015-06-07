@@ -1,19 +1,19 @@
-app.factory('loginRestService', ['$http',
+app.factory('loginRestService', ['$http', 'HOST',
 
-function($http) {
+function($http, HOST) {
 	"use strict";
 
 	return {
 		postLogin: function(data) {
 			return $http({
 				method: 'POST',
-				url: 'http://localhost:8080/api/login',
+				url: HOST + '/api/login',
 				data: jQuery.param(data),
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			});
 		},
 		getUsername: function(){
-			return $http.get('http://localhost:8080/api/user');
+			return $http.get(HOST + '/api/user');
 		}
 	};
 }]);

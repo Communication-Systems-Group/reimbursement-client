@@ -1,23 +1,23 @@
-app.factory("signatureRestService", ['$http',
+app.factory("signatureRestService", ['$http', 'HOST',
 
-function($http) {
+function($http, HOST) {
 	"use strict";
 
 	return {
 		//TODO SEBI here is a base64 string returned. Probably FLOW .js has to be changed? See testing page...
 		getSignature : function() {
-			return $http.get("http://localhost:8080/api/user/signature", {
+			return $http.get(HOST + "/api/user/signature", {
 				responseType : 'blob'
 			});
 		},
 		postSignatureMobileToken : function() {
-			return $http.post("http://localhost:8080/api/user/signature/token");
+			return $http.post(HOST + "/api/user/signature/token");
 		},
 		postSignaturePath : function() {
-			return "http://localhost:8080/api/user/signature";
+			return HOST + "/api/user/signature";
 		},
 		postSignatureMobilePath: function(token) {
-			return "http://localhost:8080/api/public/mobile/"+token+"/signature";
+			return HOST + "/api/public/mobile/" + token + "/signature";
 		}
 	};
 
