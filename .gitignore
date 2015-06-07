@@ -36,7 +36,7 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 /.project
-secret.json
+deploy.json
 
 # IDE's
 .idea
