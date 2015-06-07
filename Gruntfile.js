@@ -14,78 +14,8 @@ module.exports = function(grunt) {
 		// reads the package.json and provide e.g. the package name
 		pkg: grunt.file.readJSON('package.json'),
 
-		// be aware to not store credentials in a public git repository!
-		secret: grunt.file.readJSON('secret.json'),
-
-		compress: {
-			main: {
-				options: {
-					archive: 'public/archive.tar'
-				},
-				files: [{
-						// includes files in path
-						src: ['dist/*'],
-						dest: '/',
-						filter: 'isFile'
-					}, {
-						// flattens results to a single level
-						flatten: true,
-						src: ['dist/**'],
-						dest: '/',
-						filter: 'isFile'
-					}
-				]
-			}
-		},
-
-		sftp: {
-			upload: {
-				files: {
-					"./": "public/*"
-				},
-				options: {
-					privateKey: '<%= grunt.file.read(secret.rsa_private_key) %>',
-					passphrase: '<%= secret.passphrase %>',
-					host: '<%= secret.host %>',
-					username: '<%= secret.username %>',
-					showProgress: true,
-					srcBasePath: "public/",
-					path: 'client',
-					createDirectories: false
-				}
-			}
-		},
-
-		sshconfig: {
-			"vm_ifi": {
-				privateKey: '<%= grunt.file.read(secret.rsa_private_key) %>',
-				passphrase: '<%= secret.passphrase %>',
-				host: '<%= secret.host %>',
-				username: '<%= secret.username %>'
-			}
-		},
-
-		sshexec: {
-			extract: {
-				command: 'echo <%= secret.password %> | sudo -S tar -xf /home/<%= secret.username %>/client/archive.tar -C /var/www/html/client/ --strip-components=1',
-				options: {
-					config: 'vm_ifi'
-				}
-			},
-
-			clean: {
-				command: 'echo <%= secret.password %> | sudo -S rm /home/<%= secret.username %>/client/archive.tar',
-				options: {
-					config: 'vm_ifi'
-				}
-			},
-			prepare: {
-				command: 'echo <%= secret.password %> | sudo -S rm -rf /var/www/html/client && echo <%= secret.password %> | sudo -S mkdir /var/www/html/client',
-				options: {
-					config: 'vm_ifi'
-				}
-			}
-		},
+		// reads the deploy paramenters username, password
+		deploy: grunt.file.readJSON('deploy.json'),
 
 		// removes all files from the specified folders
 		clean: {
@@ -185,14 +115,6 @@ module.exports = function(grunt) {
 					cwd: 'src/html/',
 					src: ['index.html'],
 					dest: 'dist/'
-				}]
-			},
-			localdeploy: {
-				files: [{
-					cwd: 'dist',
-					src: '**/*',
-					dest: '../reimbursement-server/src/main/webapp/static/',
-					expand: true
 				}]
 			}
 		},
@@ -310,6 +232,36 @@ module.exports = function(grunt) {
 			}
 		},
 
+		war: {
+			target: {
+				options: {
+					war_dist_folder: 'dist',
+					war_name: 'reimbursement-frontend',
+					webxml_welcome: 'index.html',
+					webxml_display_name: 'Reimbursement Front-End'
+				},
+				files: [{
+					expand: true,
+					cwd: 'dist',
+					src: ['**'],
+					dest: ''
+				}]
+			}
+		},
+
+		// upload the built war file
+		http_upload: {
+			deploy: {
+				options: {
+					url: 'http://<%=deploy.username%>:<%=deploy.password%>@192.41.136.228/manager/text/deploy?path=&update=true',
+					method: 'PUT',
+					rejectUnauthorized: true
+				},
+				src: 'dist/reimbursement-frontend.war',
+				dest: 'reimbursement-frontend'
+			}
+		},
+
 		// process, which monitors all source files and recompiles after a change
 		watch: {
 			options: {
@@ -350,7 +302,7 @@ module.exports = function(grunt) {
 		'html2js:dev',
 		'concat:appWithTemplates',
 		'autoprefixer',
-		'copy:regular',
+		'copy',
 		'convertLanguageJson',
 		'usemin',
 		'clean:tmp'
@@ -375,7 +327,7 @@ module.exports = function(grunt) {
 		'html2js:prod',
 		'concat:appWithTemplates',
 		'autoprefixer',
-		'copy:regular',
+		'copy',
 		'convertLanguageJson',
 		'usemin',
 		'uglify',
@@ -397,20 +349,11 @@ module.exports = function(grunt) {
 		'watch:prod'
 	]);
 
-	// deploys the application to the local reimbursement-server project
-	grunt.registerTask('localdeploy', [
-		'prod',
-		'copy:localdeploy'
-	]);
-
 	// deploys the application to the tomcat
 	grunt.registerTask('deploy', [
 		'prod',
-		'compress:main',
-		'sftp:upload',
-		'sshexec:prepare',
-		'sshexec:extract',
-		'sshexec:clean'
+		'war',
+		'http_upload'
 	]);
 
 };
