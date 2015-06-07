@@ -118,7 +118,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 
 	}]);
 
-app.run(function run($http) {
+app.run(['$http', function($http) {
 	'use strict';
 
 	//TODO Chrigi probably not used anymore
@@ -128,4 +128,4 @@ app.run(function run($http) {
 		return document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 	};
 
-});
+}]);
