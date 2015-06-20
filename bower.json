@@ -16,6 +16,7 @@
     "flow.js": "^2.9.0",
     "ng-flow": "~2.6.1",
     "jcrop": "^0.9.12",
-    "angular-input-masks": "~1.4.2"
+    "angular-input-masks": "~1.4.2",
+    "angular-strap": "~2.2.4"
   }
 }

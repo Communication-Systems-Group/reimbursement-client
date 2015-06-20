@@ -185,10 +185,6 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		$scope.expenseId = $stateParams.id;
 		$scope.receiptChanges = false;
 
-		$scope.$watch(function () {
-			console.log("digest called");
-		});
-
 		$scope.alert = {
 			info: {
 				state: true,
@@ -318,6 +314,8 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			if (!form.$pristine || $scope.receiptChanges) {
 				var confirm = confirm($filter('transalte')('reimbursement.expense.confirm_cancel_unsaved_changes'));
 
+				var myModal = $modal({title: 'My Title', content: 'My Content', show: true});
+				myModal.show();
 				if (confirm) {
 					$state.go('dashboard');
 				}
