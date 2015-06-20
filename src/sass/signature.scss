@@ -69,13 +69,14 @@
 		.resetForceSignature {
 			position: absolute;
 			display: block;
-			margin-left: 10px;
-			margin-top: 10px;
+			margin-left: 8px;
+			margin-top: 12px;
 			cursor: pointer;
 			padding: 0 7px;
-			font-size: 38px;
+			font-size: 32px;
 			line-height: 0;
 			user-select: none;
+			color: #666;
 		}
 		.forceSignature {
 			margin-top: 10px;
@@ -114,6 +115,7 @@
 		padding: 2px 9px;
 		border-radius: 3px;
 		border: 1px solid #aaa;
+		width: 65%;
 	}
 }
 
@@ -127,16 +129,17 @@
 	background: white;
 	overflow: hidden;
 
-	.complete {
+	.complete,
+	.error {
 		opacity: 0;
 		visibility: hidden;
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background: #192550;
 		z-index: 10000;
 
-		&.isComplete {
+		&.isComplete,
+		&.isError {
 			visibility: visible;
 			opacity: 1;
 			transition: opacity 0.5s linear;
@@ -153,6 +156,15 @@
 			.fa {
 				font-size: 2em;
 			}
+		}
+	}
+	.complete {
+		background: #178322;
+	}
+	.error {
+		background: #D1322E;
+		.text {
+			font-size: 1.5em;
 		}
 	}
 

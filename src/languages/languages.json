@@ -1,206 +1,414 @@
-﻿{
-	"de": {
-		"reimbursement.mainTitle": "Reimbursement IFI",
-		"reimbursement.tabs.login": "Einloggen",
-		"reimbursement.tabs.signature": "Unterschrift",
-		"reimbursement.tabs.dashboard": "Dashboard",
-		"reimbursement.tabs.csrftestingpage": "CSRF Test",
-		"reimbursement.loading.label": "Bitte warten...",
-		"reimbursement.globalMessage.okayButton": "Okay",
-		"reimbursement.globalMessage.title.notAnImage": "Unbekannter Dateityp",
-		"reimbursement.globalMessage.message.notAnImage": "Die Datei, die Sie hochgeladen wurde, wurde nicht als gültiges Bild erkannt. Bitte versuchen Sie es erneut und laden Sie eine gültige Bilddatei hoch.",
-
-		"reimbursement.login.title": "Login",
-		"reimbursement.login.usernameLabel": "Benutzername",
-		"reimbursement.login.passwordLabel": "Passwort",
-		"reimbursement.login.submitLabel": "Login",
-
-		"reimbursement.captureSignature.title": "Unterschrift erfassen",
-		"reimbursement.captureSignature.info": "Sie haben sich erfolgreich eingeloggt. Um Ihre Registrierung abschliessen zu können, müssen Sie noch Ihre Unterschrift digital erfassen. Sie können die Unterschrift entweder über einen Touch-Screen direkt online erfassen oder eine Bilddatei mit Ihrer Unterschrift hochladen.",
-		"reimbursement.captureSignature.nextStep": "Speichern",
-		"reimbursement.captureSignature.spinnerUploading": "Wird hochgeladen...",
-		"reimbursement.captureSignature.upload.tab": "Bildupload",
-		"reimbursement.captureSignature.upload.centerText": "Bild hochladen",
-		"reimbursement.captureSignature.touch.tab": "Touch-Screen Eingabe",
-		"reimbursement.captureSignature.touch.warning": "Nach unserer Erkenntnis verwenden Sie ein Gerät, das keine Toucheingabe ermöglicht. Für die Unterschrift benötigen Sie ein touchfähiges Eingabegerät. Verwenden Sie ein Mobilgerät (Smartphone, Tablet) für die Eingabe, indem Sie folgenden QR-Code einscannen.",
-		"reimbursement.captureSignature.touch.tryMobile": "Mobilgerät verwenden",
-		"reimbursement.captureSignature.touch.tryAnyway": "Trotzdem erfassen",
-		"reimbursement.captureSignature.touch.reset": "Zurücksetzen",
-		"reimbursement.captureSignature.qr.title": "Signatur auf Mobilgerät erfassen",
-		"reimbursement.captureSignature.qr.cancel": "Abbrechen",
-		"reimbursement.captureSignature.qr.capturedOnMobile": "Signatur erfasst",
-		"reimbursement.captureSignature.qr.info": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet). Sie gelangen danach auf eine Seite in Ihrem mobile Browser, in welchem Sie die Signatur mit dem Touch Screen erfassen können. Bestätigen Sie die Unterschrift und fahren Sie auf dieser Seite hier fort.",
-		"reimbursement.captureSignature.qr.or": "ODER",
-		"reimbursement.captureSignature.qr.error.title": "Fehler aufgetreten",
-		"reimbursement.captureSignature.qr.error.message": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut die Signatur von Ihrem Mobilgerät abzuschicken.",
-		"reimbursement.captureSignature.qr.error.okayButton": "OK",
-		"reimbursement.captureSignature.mobile.complete": "Unterschrift erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät mit der Registrierung weiter indem Sie auf den Button 'Signatur erfasst' klicken.",
-
-		"reimbursement.cropSignature.title": "Unterschrift zuschneiden",
-		"reimbursement.cropSignature.submit": "Zuschneiden",
-
-		"reimbursement.dashboard.title": "Dashboard",
-
-		"reimbursement.expense.validation.date_receipt": "Das Belegdatum muss gewählt werden!",
-		"reimbursement.expense.validation.amount": "Der Betrag muss erfasst werden.",
-		"reimbursement.expense.validation.cost_centre": "Die Kostenstelle muss erfasst werden.",
-		"reimbursement.expense.validation.description": "Eine Beschreibung muss hinzugefügt werden!",
-		"reimbursement.expense.info": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend.",
-		"reimbursement.expense.title": "Spesen erfassen",
-		"reimbursement.expense.save": "Speichern",
-		"reimbursement.expense.cancel": "Abbrechen",
-		"reimbursement.expense.recipent": "Spesenempfänger / in",
-		"reimbursement.expense.contact": "Kontaktperson",
-		"reimbursement.expense.action": "Aktion",
-		"reimbursement.expense.edit": "Editieren",
-		"reimbursement.expense.delete": "Löschen",
-		"reimbursement.expense.document_available": "Dokument vorhanden",
-		"reimbursement.expense.first_lastname": "Vor- / Nachname",
-		"reimbursement.expense.phone": "Telefonnummer",
-		"reimbursement.expense.notes": "Bemerkung / Rückmeldung",
-		"reimbursement.expense.booking_info": "Buchungsinformationen",
-		"reimbursement.expense.accounting_text": "Buchungstext (sichtbar in SAP)",
-		"reimbursement.expense.receipts_detail": "Detailansicht Belege",
-		"reimbursement.expense.date_receipt": "Datum Beleg",
-		"reimbursement.expense.category": "Kategorie / Konto",
-		"reimbursement.expense.travel_purpose": "Reisegrund / Erklärung",
-		"reimbursement.expense.location_purpose": "(Ort und Geschäftszweck)",
-		"reimbursement.expense.amount": "Betrag",
-		"reimbursement.expense.in_chf": "(in CHF)",
-		"reimbursement.expense.cost_centre": "Kostenstelle",
-		"reimbursement.expense.project": "(Projekt)",
-		"reimbursement.expense.delete_text": "Sind Sie sicher, dass Sie die Spese mit der folgenden Beschreibung löschen möchten? {{name}}",
-		"reimbursement.expense.confirm_cancel_unsaved_changes": "Wollen Sie ihre ungesicherten Änderungen verwerfen?",
-		"reimbursement.expense.dirty_form": "Bitte überprüfen Sie ihre Eingabe!",
-		"reimbursement.expense.add_receipt": "Neuen Beleg hinzufügen",
-		"reimbursement.expense.select_currency": "Währung wählen",
-		"reimbursement.expense.exchange_course": "Wechselkurs",
-		"reimbursement.expense.amount_in_chf": "Wert in CHF",
-		"reimbursement.expense.document_upload": "Dokument hochladen (optional):",
-
-		"reimbursement.expense.account.306020": "Aus- und Weiterbildung",
-		"reimbursement.expense.account.306900": "Verschiedenen personalkosten",
-		"reimbursement.expense.account.310010": "Technik- und Hilfsmaterial",
-		"reimbursement.expense.account.310040": "IT-Betriebs/Verbrauchsmaterial",
-		"reimbursement.expense.account.310050": "Büromaterial",
-		"reimbursement.expense.account.312000": "Drucksachen, Publikationen, Kartenmaterial",
-		"reimbursement.expense.account.313000": "Fachliteratur",
-		"reimbursement.expense.account.313010": "Zeitschriften",
-		"reimbursement.expense.account.313020": "Elektronische Medien und Datenbanken",
-		"reimbursement.expense.account.320240": "Unterhalt EDV Hardware",
-		"reimbursement.expense.account.320250": "Unterhalt EDV Software",
-		"reimbursement.expense.account.321200": "Gebühren / Bewilligungen / Abgaben",
-		"reimbursement.expense.account.322000": "Reisekosten Mitarbeitende",
-		"reimbursement.expense.account.322020": "Repräsentationsspesen",
-		"reimbursement.expense.account.322040": "Reisekosten Dritte",
-		"reimbursement.expense.account.325050": "Anschaffung audiovisuelle & übrige Bürogeräte",
-		"reimbursement.expense.account.325060": "Anschaffung EDV Hardware",
-		"reimbursement.expense.account.325070": "Anschaffung EDV Netzwerkausrüstung",
-		"reimbursement.expense.account.325000": "Anschaffung EDV Software",
-		"reimbursement.expense.account.329000": "Telefon und Fax",
-		"reimbursement.expense.account.329100": "Versand- / Transportkosten und Zoll",
-		"reimbursement.expense.account.330000": "Mitgliederbeiträge"
+{
+	"mainTitle": {
+		"de": "Reimbursement IFI",
+		"en": "Reimbursement IFI"
 	},
-	"en": {
-		"reimbursement.mainTitle": "Reimbursement IFI",
-		"reimbursement.tabs.login": "Login",
-		"reimbursement.tabs.signature": "Add Signature",
-		"reimbursement.tabs.dashboard": "Dashboard",
-		"reimbursement.tabs.csrftestingpage": "CSRF Test",
-		"reimbursement.loading.label": "Please wait...",
-		"reimbursement.globalMessage.okayButton": "Okay",
-		"reimbursement.globalMessage.title.notAnImage": "Not an image",
-		"reimbursement.globalMessage.message.notAnImage": "The uploaded file was not recognized as an image. Please try it again and upload a proper image file.",
-
-		"reimbursement.login.title": "Login",
-		"reimbursement.login.usernameLabel": "User Name",
-		"reimbursement.login.passwordLabel": "Password",
-		"reimbursement.login.submitLabel": "Login",
-
-		"reimbursement.captureSignature.title": "Signature Capturing",
-		"reimbursement.captureSignature.info": "You have been successfully logged in. To finish your registration, you are kindly asked to capture your signature. You can upload an image containing the signature or use the the touch screen input and capture it directly online.",
-		"reimbursement.captureSignature.nextStep": "Submit",
-		"reimbursement.captureSignature.spinnerUploading": "Uploading...",
-		"reimbursement.captureSignature.upload.tab": "Image Upload",
-		"reimbursement.captureSignature.upload.centerText": "Upload Image",
-		"reimbursement.captureSignature.touch.tab": "Touch Screen Entry",
-		"reimbursement.captureSignature.touch.warning": "According to our recognition patterns, you are using a device without a touch screen. For capturing the signature, you need to have a device with a touch screen. Use a mobile phone or tablet to enter your signature. Scan the following QR code on your mobile device.",
-		"reimbursement.captureSignature.touch.tryMobile": "Use mobile device",
-		"reimbursement.captureSignature.touch.tryAnyway": "Try it anyway",
-		"reimbursement.captureSignature.touch.reset": "Reset",
-		"reimbursement.captureSignature.qr.title": "Capture Signature on Mobile Device",
-		"reimbursement.captureSignature.qr.cancel": "Cancel",
-		"reimbursement.captureSignature.qr.capturedOnMobile": "Signature Captured",
-		"reimbursement.captureSignature.qr.info": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can enter your signature using the touch screen is opened in your mobile device's  browser. Confirm the signature on the mobile device and continue on this page here.",
-		"reimbursement.captureSignature.qr.or": "OR",
-		"reimbursement.captureSignature.qr.error.title": "Error occured",
-		"reimbursement.captureSignature.qr.error.message": "Make sure, you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device.",
-		"reimbursement.captureSignature.qr.error.okayButton": "OK",
-		"reimbursement.captureSignature.mobile.complete": "The signature was successfully uploaded. Please continue on your desktop device by clicking the button 'Signature Captured'.",
-
-		"reimbursement.cropSignature.title": "Crop Signature",
-		"reimbursement.cropSignature.submit": "Crop it",
-
-		"reimbursement.dashboard.title": "Dashboard",
-
-		"reimbursement.expense.validation.date_receipt": "Please enter a receipt date.",
-		"reimbursement.expense.validation.amount": "Please enter an amount.",
-		"reimbursement.expense.validation.cost_centre": "Die Kostenstelle muss erfasst werden.",
-		"reimbursement.expense.validation.description": "Eine Beschreibung muss hinzugefügt werden.",
-		"reimbursement.expense.info": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend.",
-		"reimbursement.expense.title": "Expense",
-		"reimbursement.expense.save": "Save",
-		"reimbursement.expense.cancel": "Cancel",
-		"reimbursement.expense.recipent": "Expense recipent",
-		"reimbursement.expense.contact": "Contact",
-		"reimbursement.expense.action": "Action",
-		"reimbursement.expense.edit": "Edit",
-		"reimbursement.expense.delete": "Delete",
-		"reimbursement.expense.document_available": "Document available",
-		"reimbursement.expense.first_lastname": "First- / lastname",
-		"reimbursement.expense.phone": "Phone",
-		"reimbursement.expense.notes": "Notes / feedback",
-		"reimbursement.expense.booking_info": "Account information",
-		"reimbursement.expense.accounting_text": "Account value (visual in SAP)",
-		"reimbursement.expense.receipts_detail": "Added receipts",
-		"reimbursement.expense.date_receipt": "Date receipt",
-		"reimbursement.expense.category": "Category / account",
-		"reimbursement.expense.travel_purpose": "Travel purpose",
-		"reimbursement.expense.location_purpose": "(location and business purpose",
-		"reimbursement.expense.amount": "Amount",
-		"reimbursement.expense.in_chf": "(in CHF)",
-		"reimbursement.expense.cost_centre": "Cost centre",
-		"reimbursement.expense.project": "(Project)",
-		"reimbursement.expense.delete_text": "Are you sure you want to delete the expense with the description: {{name}}",
-		"reimbursement.expense.confirm_cancel_unsaved_changes": "Do you really want to cancel your unsaved changes?",
-		"reimbursement.expense.dirty_form": "Please validate your input.",
-		"reimbursement.expense.add_receipt": "Add new receipt",
-		"reimbursement.expense.select_currency": "Select currency",
-		"reimbursement.expense.exchange_course": "Exchange",
-		"reimbursement.expense.amount_in_chf": "Amount in CHF",
-		"reimbursement.expense.document_upload": "Upload document (optional):",
-
-		"reimbursement.expense.account.306020": "Registration fees for conferences/workshops",
-		"reimbursement.expense.account.306900": "Apero",
-		"reimbursement.expense.account.310010": "Technical and supportive material",
-		"reimbursement.expense.account.310040": "IT consumables",
-		"reimbursement.expense.account.310050": "Stationary",
-		"reimbursement.expense.account.312000": "Print shops",
-		"reimbursement.expense.account.313000": "Books",
-		"reimbursement.expense.account.313010": "Printed media",
-		"reimbursement.expense.account.313020": "Electronic media (DVDs, CDs, ...)",
-		"reimbursement.expense.account.320240": "Maintenance hardware",
-		"reimbursement.expense.account.320250": "Maintenance software",
-		"reimbursement.expense.account.321200": "Fees (not registration fees)",
-		"reimbursement.expense.account.322000": "All travel costs (ZVV, train, bus, flight, meals)",
-		"reimbursement.expense.account.322020": "Meals with invited guests",
-		"reimbursement.expense.account.322040": "Travel costs for third party members",
-		"reimbursement.expense.account.325050": "A/V material",
-		"reimbursement.expense.account.325060": "IT hardware",
-		"reimbursement.expense.account.325070": "Networking hardware",
-		"reimbursement.expense.account.325000": "IT software",
-		"reimbursement.expense.account.329000": "Phone and fax",
-		"reimbursement.expense.account.329100": "Transport and postal fees, duties",
-		"reimbursement.expense.account.330000": "Memberships"
+	"tabs.login": {
+		"de": "Login",
+		"en": "Login"
+	},
+	"tabs.logout": {
+		"de": "Logout",
+		"en": "Logout"
+	},
+	"tabs.signature": {
+		"de": "Unterschrift ändern",
+		"en": "Change Signature"
+	},
+	"tabs.dashboard": {
+		"de": "Dashboard",
+		"en": "Dashboard"
+	},
+	"tabs.csrftestingpage": {
+		"de": "CSRF Test",
+		"en": "CSRF Test"
+	},
+	"loading.label": {
+		"de": "Bitte warten...",
+		"en": "Please wait..."
+	},
+	"globalMessage.okayButton": {
+		"de": "Okay",
+		"en": "Okay"
+	},
+	"globalMessage.notAnImage.title": {
+		"de": "Unbekannter Dateityp",
+		"en": "Not an image"
+	},
+	"globalMessage.notAnImage.message": {
+		"de": "Die Datei, die Sie hochgeladen wurde, wurde nicht als gültiges Bild erkannt. Bitte versuchen Sie es erneut und laden Sie eine gültige Bilddatei hoch.",
+		"en": "The uploaded file was not recognized as an image. Please try it again and upload a proper image file."
+	},
+	"globalMessage.signatureQrNoImage.title": {
+		"de": "Fehler aufgetreten",
+		"en": "Error occured"
+	},
+	"globalMessage.signatureQrNoImage.message": {
+		"de": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut die Signatur von Ihrem Mobilgerät abzuschicken.",
+		"en": "Make sure, you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device."
+	},
+	"globalMessage.loginError.title": {
+		"de": "Login fehlgeschlagen",
+		"en": "Login failed"
+	},
+	"globalMessage.loginError.message": {
+		"de": "Das eingegebene Passwort oder der Benutzername sind inkorrekt. Bitte versuchen Sie es erneut.",
+		"en": "The entered password or username was incorrect. Please try again."
+	},
+	"globalMessage.ServiceException.title": {
+		"de": "Allgemeiner Fehler",
+		"en": "General error"
+	},
+	"globalMessage.ServiceException.message": {
+		"de": "Ein allgemeiner Fehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
+		"en": "A general error occured while transfering the data. Please try it again later."
+	},
+	"login.title": {
+		"de": "Login",
+		"en": "Login"
+	},
+	"login.usernameLabel": {
+		"de": "Benutzername",
+		"en": "User Name"
+	},
+	"login.passwordLabel": {
+		"de": "Passwort",
+		"en": "Password"
+	},
+	"login.submitLabel": {
+		"de": "Login",
+		"en": "Login"
+	},
+	"logout.title": {
+		"de": "Logout",
+		"en": "Logout"
+	},
+	"logout.spinner": {
+		"de": "Sie werden ausgeloggt...",
+		"en": "You are going to be logged out..."
+	},
+	"logout.successMessage": {
+		"de": "Sie wurden erfolgreich ausgeloggt. Beehren Sie uns bald wieder mit Ihren Spesen.",
+		"en": "You were successfully logged out."
+	},
+	"captureSignature.title": {
+		"de": "Unterschrift erfassen",
+		"en": "Capture Signature"
+	},
+	"captureSignature.info": {
+		"de": "Sie haben sich erfolgreich eingeloggt. Um Ihre Registrierung abschliessen zu können, müssen Sie noch Ihre Unterschrift digital erfassen. Sie können die Unterschrift entweder über einen Touch-Screen direkt online erfassen oder eine Bilddatei mit Ihrer Unterschrift hochladen.",
+		"en": "You have been successfully logged in. To finish your registration, you are kindly asked to capture your signature. You can upload an image containing the signature or use the the touch screen input and capture it directly online."
+	},
+	"captureSignature.nextStep": {
+		"de": "Speichern",
+		"en": "Submit"
+	},
+	"captureSignature.spinnerUploading": {
+		"de": "Wird hochgeladen...",
+		"en": "Uploading..."
+	},
+	"captureSignature.upload.tab": {
+		"de": "Bildupload",
+		"en": "Image Upload"
+	},
+	"captureSignature.upload.centerText": {
+		"de": "Bild hochladen",
+		"en": "Upload Image"
+	},
+	"captureSignature.touch.tab": {
+		"de": "Touch-Screen Eingabe",
+		"en": "Touch Screen Entry"
+	},
+	"captureSignature.touch.warning": {
+		"de": "Nach unserer Erkenntnis verwenden Sie ein Gerät, das keine Toucheingabe ermöglicht. Für die Unterschrift benötigen Sie ein touchfähiges Eingabegerät. Verwenden Sie ein Mobilgerät (Smartphone, Tablet) für die Eingabe, indem Sie folgenden QR-Code einscannen.",
+		"en": "According to our recognition patterns, you are using a device without a touch screen. For capturing the signature, you need to have a device with a touch screen. Use a mobile phone or tablet to enter your signature. Scan the following QR code on your mobile device."
+	},
+	"captureSignature.touch.tryMobile": {
+		"de": "Mobilgerät verwenden",
+		"en": "Use mobile device"
+	},
+	"captureSignature.touch.tryAnyway": {
+		"de": "Trotzdem erfassen",
+		"en": "Try it anyway"
+	},
+	"captureSignature.touch.reset": {
+		"de": "Zurücksetzen",
+		"en": "Reset"
+	},
+	"captureSignature.qr.title": {
+		"de": "Signatur auf Mobilgerät erfassen",
+		"en": "Capture Signature on Mobile Device"
+	},
+	"captureSignature.qr.cancel": {
+		"de": "Abbrechen",
+		"en": "Cancel"
+	},
+	"captureSignature.qr.capturedOnMobile": {
+		"de": "Signatur erfasst",
+		"en": "Signature Captured"
+	},
+	"captureSignature.qr.info": {
+		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet). Sie gelangen danach auf eine Seite in Ihrem mobile Browser, in welchem Sie die Signatur mit dem Touch Screen erfassen können. Bestätigen Sie die Unterschrift und fahren Sie auf dieser Seite hier fort.",
+		"en": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can enter your signature using the touch screen is opened in your mobile device's  browser. Confirm the signature on the mobile device and continue on this page here."
+	},
+	"captureSignature.qr.or": {
+		"de": "ODER",
+		"en": "OR"
+	},
+	"captureSignature.qr.error.okayButton": {
+		"de": "OK",
+		"en": "OK"
+	},
+	"captureSignature.mobile.complete": {
+		"de": "Unterschrift erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät mit der Registrierung weiter indem Sie auf den Button 'Signatur erfasst' klicken.",
+		"en": "The signature was successfully uploaded. Please continue on your desktop device by clicking the button 'Signature Captured'."
+	},
+	"captureSignature.mobile.error": {
+		"de": "Es ist ein Fehler beim Hochladen aufgetreten. Bitte schliessen Sie dieses Browserfenster auf Ihrem Mobilgerät, aktualisieren die Seite auf Ihrem Desktop-Gerät und probieren es erneut.",
+		"en": "An error occured while uploading the signature. Please close this browser window on your mobile device, refresh the page on the desktop device and try it again."
+	},
+	"cropSignature.title": {
+		"de": "Unterschrift zuschneiden",
+		"en": "Crop Signature"
+	},
+	"cropSignature.submit": {
+		"de": "Zuschneiden",
+		"en": "Crop it"
+	},
+	"dashboard.title": {
+		"de": "Dashboard",
+		"en": "Dashboard"
+	},
+	"expense.validation.date_receipt": {
+		"de": "Das Belegdatum muss gewählt werden!",
+		"en": "Please enter a receipt date."
+	},
+	"expense.validation.amount": {
+		"de": "Der Betrag muss erfasst werden.",
+		"en": "Please enter an amount."
+	},
+	"expense.validation.cost_centre": {
+		"de": "Die Kostenstelle muss erfasst werden.",
+		"en": "Die Kostenstelle muss erfasst werden."
+	},
+	"expense.validation.description": {
+		"de": "Eine Beschreibung muss hinzugefügt werden!",
+		"en": "Eine Beschreibung muss hinzugefügt werden."
+	},
+	"expense.info": {
+		"de": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend.",
+		"en": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend."
+	},
+	"expense.title": {
+		"de": "Spesen erfassen",
+		"en": "Expense"
+	},
+	"expense.save": {
+		"de": "Speichern",
+		"en": "Save"
+	},
+	"expense.cancel": {
+		"de": "Abbrechen",
+		"en": "Cancel"
+	},
+	"expense.recipent": {
+		"de": "Spesenempfänger / in",
+		"en": "Expense recipent"
+	},
+	"expense.contact": {
+		"de": "Kontaktperson",
+		"en": "Contact"
+	},
+	"expense.action": {
+		"de": "Aktion",
+		"en": "Action"
+	},
+	"expense.edit": {
+		"de": "Editieren",
+		"en": "Edit"
+	},
+	"expense.delete": {
+		"de": "Löschen",
+		"en": "Delete"
+	},
+	"expense.document_available": {
+		"de": "Dokument vorhanden",
+		"en": "Document available"
+	},
+	"expense.first_lastname": {
+		"de": "Vor- / Nachname",
+		"en": "First- / lastname"
+	},
+	"expense.phone": {
+		"de": "Telefonnummer",
+		"en": "Phone"
+	},
+	"expense.notes": {
+		"de": "Bemerkung / Rückmeldung",
+		"en": "Notes / feedback"
+	},
+	"expense.booking_info": {
+		"de": "Buchungsinformationen",
+		"en": "Account information"
+	},
+	"expense.accounting_text": {
+		"de": "Buchungstext (sichtbar in SAP)",
+		"en": "Account value (visual in SAP)"
+	},
+	"expense.receipts_detail": {
+		"de": "Detailansicht Belege",
+		"en": "Added receipts"
+	},
+	"expense.date_receipt": {
+		"de": "Datum Beleg",
+		"en": "Date receipt"
+	},
+	"expense.category": {
+		"de": "Kategorie / Konto",
+		"en": "Category / account"
+	},
+	"expense.travel_purpose": {
+		"de": "Reisegrund / Erklärung",
+		"en": "Travel purpose"
+	},
+	"expense.location_purpose": {
+		"de": "(Ort und Geschäftszweck)",
+		"en": "(location and business purpose"
+	},
+	"expense.amount": {
+		"de": "Betrag",
+		"en": "Amount"
+	},
+	"expense.in_chf": {
+		"de": "(in CHF)",
+		"en": "(in CHF)"
+	},
+	"expense.cost_centre": {
+		"de": "Kostenstelle",
+		"en": "Cost centre"
+	},
+	"expense.project": {
+		"de": "(Projekt)",
+		"en": "(Project)"
+	},
+	"expense.delete_text": {
+		"de": "Sind Sie sicher, dass Sie die Spese mit der folgenden Beschreibung löschen möchten? {{name}}",
+		"en": "Are you sure you want to delete the expense with the description: {{name}}"
+	},
+	"expense.confirm_cancel_unsaved_changes": {
+		"de": "Wollen Sie ihre ungesicherten Änderungen verwerfen?",
+		"en": "Do you really want to cancel your unsaved changes?"
+	},
+	"expense.dirty_form": {
+		"de": "Bitte überprüfen Sie ihre Eingabe!",
+		"en": "Please validate your input."
+	},
+	"expense.add_receipt": {
+		"de": "Neuen Beleg hinzufügen",
+		"en": "Add new receipt"
+	},
+	"expense.select_currency": {
+		"de": "Währung wählen",
+		"en": "Select currency"
+	},
+	"expense.exchange_course": {
+		"de": "Wechselkurs",
+		"en": "Exchange"
+	},
+	"expense.amount_in_chf": {
+		"de": "Wert in CHF",
+		"en": "Amount in CHF"
+	},
+	"expense.document_upload": {
+		"de": "Dokument hochladen (optional):",
+		"en": "Upload document (optional):"
+	},
+	"expense.account.306020": {
+		"de": "Aus- und Weiterbildung",
+		"en": "Registration fees for conferences/workshops"
+	},
+	"expense.account.306900": {
+		"de": "Verschiedenen personalkosten",
+		"en": "Apero"
+	},
+	"expense.account.310010": {
+		"de": "Technik- und Hilfsmaterial",
+		"en": "Technical and supportive material"
+	},
+	"expense.account.310040": {
+		"de": "IT-Betriebs/Verbrauchsmaterial",
+		"en": "IT consumables"
+	},
+	"expense.account.310050": {
+		"de": "Büromaterial",
+		"en": "Stationary"
+	},
+	"expense.account.312000": {
+		"de": "Drucksachen, Publikationen, Kartenmaterial",
+		"en": "Print shops"
+	},
+	"expense.account.313000": {
+		"de": "Fachliteratur",
+		"en": "Books"
+	},
+	"expense.account.313010": {
+		"de": "Zeitschriften",
+		"en": "Printed media"
+	},
+	"expense.account.313020": {
+		"de": "Elektronische Medien und Datenbanken",
+		"en": "Electronic media (DVDs, CDs, ...)"
+	},
+	"expense.account.320240": {
+		"de": "Unterhalt EDV Hardware",
+		"en": "Maintenance hardware"
+	},
+	"expense.account.320250": {
+		"de": "Unterhalt EDV Software",
+		"en": "Maintenance software"
+	},
+	"expense.account.321200": {
+		"de": "Gebühren / Bewilligungen / Abgaben",
+		"en": "Fees (not registration fees)"
+	},
+	"expense.account.322000": {
+		"de": "Reisekosten Mitarbeitende",
+		"en": "All travel costs (ZVV, train, bus, flight, meals)"
+	},
+	"expense.account.322020": {
+		"de": "Repräsentationsspesen",
+		"en": "Meals with invited guests"
+	},
+	"expense.account.322040": {
+		"de": "Reisekosten Dritte",
+		"en": "Travel costs for third party members"
+	},
+	"expense.account.325050": {
+		"de": "Anschaffung audiovisuelle & übrige Bürogeräte",
+		"en": "A/V material"
+	},
+	"expense.account.325060": {
+		"de": "Anschaffung EDV Hardware",
+		"en": "IT hardware"
+	},
+	"expense.account.325070": {
+		"de": "Anschaffung EDV Netzwerkausrüstung",
+		"en": "Networking hardware"
+	},
+	"expense.account.325000": {
+		"de": "Anschaffung EDV Software",
+		"en": "IT software"
+	},
+	"expense.account.329000": {
+		"de": "Telefon und Fax",
+		"en": "Phone and fax"
+	},
+	"expense.account.329100": {
+		"de": "Versand- / Transportkosten und Zoll",
+		"en": "Transport and postal fees, duties"
+	},
+	"expense.account.330000": {
+		"de": "Mitgliederbeiträge",
+		"en": "Memberships"
 	}
 }

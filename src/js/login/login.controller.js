@@ -1,6 +1,6 @@
-app.controller('LoginController', ['$scope', 'loginRestService',
+app.controller('LoginController', ['$scope', '$state', 'loginRestService', 'globalMessagesService',
 
-function($scope, loginRestService) {
+function($scope, $state, loginRestService, globalMessagesService) {
 	"use strict";
 
 	$scope.form = {
@@ -8,15 +8,11 @@ function($scope, loginRestService) {
 		password: null
 	};
 
-	$scope.loginSent = false;
-	$scope.loginSuccess = false;
 	$scope.submit = function() {
 		loginRestService.postLogin($scope.form).then(function() {
-			$scope.loginSuccess = true;
+			window.location.reload();
 		}, function() {
-			$scope.loginSuccess = false;
-		})['finally'](function() {
-			$scope.loginSent = true;
+			globalMessagesService.showError("reimbursement.globalMessage.loginError.title", "reimbursement.globalMessage.loginError.message");
 		});
 	};
 

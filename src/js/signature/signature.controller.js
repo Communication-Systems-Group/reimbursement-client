@@ -29,14 +29,35 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 	};
 
 	$scope.showQR = function() {
-		var modalInstance = $modal.open({
-			templateUrl : 'signature/signature-qr.tpl.html',
-			controller : 'SignatureQRController'
-		});
+		signatureRestService.postSignatureMobileToken().then(function(response) {
+			var modalInstance = $modal.open({
+				templateUrl : 'signature/signature-qr.tpl.html',
+				controller : 'SignatureQRController',
+				resolve : {
+					token : function() {
+						return response.data.uid;
+					}
+				}
+			});
 
-		modalInstance.result.then(function(response) {
-			base64BinaryConverterService.toBase64(response.data, goToNextPage);
+			modalInstance.result.then(function(response) {
+				base64BinaryConverterService.toBase64(response.data, goToNextPage);
+			});
+		}, function() {
+			globalMessagesService.showGeneralError();
 		});
+	};
+
+	$scope.showUploadError = function(type) {
+		spinnerService.hide('spinnerSignatureImage');
+		spinnerService.hide('spinnerSignatureTouch');
+		globalMessagesService.showGeneralError();
+		if(type === 'image') {
+			$scope.flow.image.cancel();
+		}
+		else {
+			$scope.flow.touch.cancel();
+		}
 	};
 
 	$scope.getImageAndGoToNextPage = function() {
@@ -44,7 +65,7 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 
 		// file was not accepted by the validator
 		if(typeof fileWrapper === "undefined" || typeof fileWrapper.file === "undefined") {
-			globalMessagesService.showWarning("reimbursement.globalMessage.title.notAnImage", "reimbursement.globalMessage.message.notAnImage");
+			globalMessagesService.showWarning("reimbursement.globalMessage.notAnImage.title", "reimbursement.globalMessage.notAnImage.message");
 			spinnerService.hide("spinnerSignatureImage");
 		}
 		else {

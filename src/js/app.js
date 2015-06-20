@@ -2,24 +2,39 @@
 	"use strict";
 
 	deferredBootstrapper.bootstrap({
-		element : document.body,
-		module : 'reimbursement',
-		resolve : {
-			LANGUAGES : ['$http',
-			function($http) {
-				return $http.get('/languages/languages.json');
-			}]
+		element: document.body,
+		module: 'reimbursement',
+		resolve: {
+			LANGUAGES: ['$http',
+				function ($http) {
+					return $http.get('/languages/languages.json');
+				}],
+			USER: ['$q', '$http',
+				function ($q, $http) {
+					var deferred = $q.defer();
+					var host = "//" + window.location.host.split(':')[0];
+					$http.get(host + "/api/user", {withCredentials: true}).then(
+						function (response) {
+							var data = response.data;
+							data.loggedIn = true;
+							deferred.resolve(data);
+						}, function () {
+							var data = {loggedIn: false};
+							deferred.resolve(data);
+						});
+					return deferred.promise;
+				}]
 		}
 	});
 })();
 
 
-
 var app = angular.module('reimbursement', ['reimbursement.templates', 'ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'monospaced.qrcode', 'flow', 'ui.utils.masks', 'mgcrea.ngStrap.datepicker']);
 
 app.constant("Modernizr", Modernizr);
+app.constant("HOST", "//" + window.location.host.split(":")[0]);
 
-app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider','LANGUAGES','flowFactoryProvider',
+app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', 'LANGUAGES', 'flowFactoryProvider',
 	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, LANGUAGES, flowFactoryProvider) {
 		"use strict";
 
@@ -32,44 +47,61 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 
 		$httpProvider.defaults.withCredentials = true;
 
+		function requireAuthentication() {
+			return ['$state', 'USER', function ($state, USER) {
+				if (!USER.loggedIn) {
+					$state.go('login');
+				}
+			}];
+		}
+
 		$stateProvider.state('login', {
-			url: "/login",
+			// no url, because the login should not be opened manually
 			templateUrl: "login/login.tpl.html",
 			controller: 'LoginController'
 
-		}).state('signature', {
-			url: "/signature",
-			templateUrl: "signature/signature.tpl.html",
-			controller: "SignatureController"
+		}).state('logout', {
+				// no url, because the logout should not be opened manually
+				templateUrl: "logout/logout.tpl.html",
+				controller: 'LogoutController'
 
-		}).state('signatureMobile', {
-			url: "/signature-mobile",
-			templateUrl: "signature/signature-mobile.tpl.html",
-			controller: "SignatureMobileController"
+			}).state('signature', {
+				url: "/signature",
+				templateUrl: "signature/signature.tpl.html",
+				controller: "SignatureController",
+				onEnter: requireAuthentication()
 
-		}).state('cropping', {
-			url: "/cropping",
-			params: {
-				imageUri: null
-			},
-			templateUrl: "cropping/cropping.tpl.html",
-			controller: "CroppingController"
+			}).state('signatureMobile', {
+				url: "/signature-mobile/:token",
+				templateUrl: "signature/signature-mobile.tpl.html",
+				controller: "SignatureMobileController"
 
-		}).state('dashboard', {
-			url: "/dashboard",
-			templateUrl: "dashboard/dashboard.tpl.html",
-			controller: "DashboardController"
+			}).state('cropping', {
+				// no url, because the cropping should not be opened manually
+				params: {
+					imageUri: null
+				},
+				templateUrl: "cropping/cropping.tpl.html",
+				controller: "CroppingController",
+				onEnter: requireAuthentication()
 
-		}).state('expense', {
-			url: "/expense/:id",
-			templateUrl: "expense/expense.tpl.html",
-			controller: "ExpenseController"
+			}).state('dashboard', {
+				url: "/dashboard",
+				templateUrl: "dashboard/dashboard.tpl.html",
+				controller: "DashboardController",
+				onEnter: requireAuthentication()
 
-		}).state('csrfTestingPage', {
-			url: "/csrfTestingPage",
-			templateUrl: "csrfTestingPage/csrfTestingPage.tpl.html",
-			controller: 'CsrfTestingPageController'
-		});
+			}).state('expense', {
+				url: "/expense/:id",
+				templateUrl: "expense/expense.tpl.html",
+				controller: "ExpenseController",
+				onEnter: requireAuthentication()
+
+			}).state('csrfTestingPage', {
+				url: "/csrfTestingPage",
+				templateUrl: "csrfTestingPage/csrfTestingPage.tpl.html",
+				controller: 'CsrfTestingPageController'
+			});
 
 		$urlRouterProvider.otherwise('/signature');
 
@@ -77,25 +109,24 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 
 		// ng-Flow flow.js configuration
 		flowFactoryProvider.defaults = {
-			headers : function() {
+			headers: function () {
 				return {
-					'X-XSRF-TOKEN' : document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1")
+					'X-XSRF-TOKEN': document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1")
 				};
 			},
 			withCredentials: true
 		};
 
-
 	}]);
 
-app.run(function run($http) {
+app.run(['$http', function ($http) {
 	'use strict';
 
-	//Make a first get to get the csrf Token
-	$http.get('http://localhost:8080/api/user/test-uuid/');
+	//TODO Chrigi probably not used anymore
+	// $http.get('http://localhost:8080/api/user/test-uuid/');
 
-	// For CSRF token compatibility with Spring Security via CORS
 	$http.defaults.headers.post['X-XSRF-TOKEN'] = function () {
 		return document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 	};
-});
+
+}]);

@@ -1,11 +1,12 @@
-app.controller('SignatureMobileController', ['$scope', 'signatureRestService', 'spinnerService',
+app.controller('SignatureMobileController', ['$scope', '$stateParams', 'signatureRestService', 'spinnerService',
 
-function($scope, signatureRestService, spinnerService) {
+function($scope, $stateParams, signatureRestService, spinnerService) {
 	"use strict";
 
-	$scope.postSignaturePath = signatureRestService.postSignaturePath();
+	$scope.postSignaturePath = signatureRestService.postSignatureMobilePath($stateParams.token);
 	$scope.flow = {};
 	$scope.isComplete = false;
+	$scope.isError = false;
 
 	$scope.submit = function(file) {
 		$scope.flow.touchMobile.addFile(file);
@@ -16,9 +17,14 @@ function($scope, signatureRestService, spinnerService) {
 		spinnerService.show(spinnerId);
 	};
 
-	$scope.complete = function() {
+	$scope.success = function() {
 		spinnerService.hide("spinnerSignatureTouchMobile");
 		$scope.isComplete = true;
+	};
+
+	$scope.error = function() {
+		spinnerService.hide("spinnerSignatureTouchMobile");
+		$scope.isError = true;
 	};
 
 }]);
