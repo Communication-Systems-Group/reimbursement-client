@@ -1,8 +1,6 @@
 module.exports = function(grunt) {
 	"use strict";
 
-	//TODO if it is sure that the localdeploy task is not used anymore (after mid Junde weeks or so^^ ) - remove it.
-
 	// initializes all grunt tasks, no need to load every task by itself
 	require('load-grunt-tasks')(grunt);
 
