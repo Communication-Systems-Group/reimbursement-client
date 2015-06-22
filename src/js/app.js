@@ -96,10 +96,10 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "ExpenseController",
 			onEnter: requireAuthentication()
 
-		}).state('csrfTestingPage', {
-			url: "/csrfTestingPage",
-			templateUrl: "csrfTestingPage/csrfTestingPage.tpl.html",
-			controller: 'CsrfTestingPageController'
+		}).state('testingPage', {
+			url: "/testingPage",
+			templateUrl: "testingPage/testingPage.tpl.html",
+			controller: 'TestingPageController'
 		});
 
 		$urlRouterProvider.otherwise('/signature');
@@ -120,9 +120,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 
 app.run(['$http', function($http) {
 	'use strict';
-
-	//TODO Chrigi probably not used anymore
-	// $http.get('http://localhost:8080/api/user/test-uuid/');
 
 	$http.defaults.headers.post['X-XSRF-TOKEN'] = function () {
 		return document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1");

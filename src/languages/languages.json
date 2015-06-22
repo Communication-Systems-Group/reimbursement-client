@@ -19,9 +19,9 @@
 		"de": "Dashboard",
 		"en": "Dashboard"
 	},
-	"tabs.csrftestingpage": {
-		"de": "CSRF Test",
-		"en": "CSRF Test"
+	"tabs.testingpage": {
+		"de": "Test",
+		"en": "Test"
 	},
 	"loading.label": {
 		"de": "Bitte warten...",

@@ -1,15 +1,11 @@
-app.controller('CsrfTestingPageController', ['$scope', 'csrfTestingPageRestService',
+app.controller('TestingPageController', ['$scope', 'testingPageRestService',
 
-function($scope, csrfTestingPageRestService) {
+function($scope, testingPageRestService) {
 	"use strict";
 
 	$scope.form = {
 		username: null,
 		password: null
-	};
-
-	$scope.stringform = {
-		string: null
 	};
 
 	$scope.croppingDtoForm = {
@@ -22,7 +18,7 @@ function($scope, csrfTestingPageRestService) {
 	$scope.loginSent = false;
 	$scope.loginSuccess = false;
 	$scope.submit = function() {
-		csrfTestingPageRestService.postLogin($scope.form).then(function() {
+		testingPageRestService.postLogin($scope.form).then(function() {
 			$scope.loginSuccess = true;
 		}, function() {
 			$scope.loginSuccess = false;
@@ -31,12 +27,10 @@ function($scope, csrfTestingPageRestService) {
 		});
 	};
 
-
-
 	$scope.getUsersSent = false;
 	$scope.getUsersSuccess = false;
 	$scope.getUsers = function (){
-		csrfTestingPageRestService.getUsers().then(function() {
+		testingPageRestService.getUsers().then(function() {
 			$scope.getUsersSuccess = true;
 		}, function() {
 			$scope.getUsersSuccess = false;
@@ -47,9 +41,7 @@ function($scope, csrfTestingPageRestService) {
 	$scope.getSignatureSent = false;
 	$scope.getSignatureSuccess = false;
 	$scope.getSignature = function (){
-		csrfTestingPageRestService.getSignature().then(function(result) {
-			//console.log(result);
-			//console.log(result.data);
+		testingPageRestService.getSignature().then(function(result) {
 			$scope.getSignatureSuccess = true;
 			$scope.image = result.data;
 		}, function() {
@@ -61,7 +53,7 @@ function($scope, csrfTestingPageRestService) {
 	$scope.getSignatureFailureSent = false;
 	$scope.getSignatureFailureSuccess = false;
 	$scope.getSignatureFailure = function (){
-		csrfTestingPageRestService.getSignatureFailure().then(function(result) {
+		testingPageRestService.getSignatureFailure().then(function(result) {
 			$scope.getSignatureFailureSuccess = false;
 			$scope.imageFailure = result.data;
 		}, function(reason) {
@@ -72,34 +64,10 @@ function($scope, csrfTestingPageRestService) {
 		});
 	};
 
-	$scope.	getPrivateUsersSent = false;
-	$scope.	getPrivateUsersSuccess = false;
-	$scope.	getPrivateUsers = function (){
-		csrfTestingPageRestService.	getPrivateUsers().then(function() {
-			$scope.getPrivateUsersSuccess = true;
-		}, function() {
-			$scope.getPrivateUsersSuccess = false;
-		})['finally'](function() {
-			$scope.getPrivateUsersSent = true;
-		});
-	};
-
-	$scope.sendStringSent = false;
-	$scope.sendStringSuccess = false;
-	$scope.sendString = function (){
-		csrfTestingPageRestService.sendString($scope.stringform).then(function() {
-			$scope.sendStringSuccess = true;
-		}, function() {
-			$scope.sendStringSuccess = false;
-		})['finally'](function() {
-			$scope.sendStringSent = true;
-		});
-	};
-
 	$scope.sendCroppingDtoSent = false;
 	$scope.sendCroppingDtoSuccess = false;
 	$scope.sendCroppingDto = function (){
-		csrfTestingPageRestService.sendCroppingDto($scope.croppingDtoForm).then(function() {
+		testingPageRestService.sendCroppingDto($scope.croppingDtoForm).then(function() {
 			$scope.sendCroppingDtoSuccess = true;
 		}, function() {
 			$scope.sendCroppingDtoSuccess = false;
