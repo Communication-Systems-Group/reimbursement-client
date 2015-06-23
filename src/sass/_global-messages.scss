@@ -11,7 +11,7 @@
 
 .global-error {
 	.modal-header {
-		background-color: #D1322E;
+		background-color: $default-color-error;
 		@extend %modal-header;
 	}
 	.modal-footer {
@@ -21,7 +21,7 @@
 
 .global-warning {
 	.modal-header {
-		background-color: #FF7F00;
+		background-color: $default-color-warning;
 		@extend %modal-header;
 	}
 	.modal-footer {
@@ -31,7 +31,7 @@
 
 .global-info  {
 	.modal-header {
-		background-color: #6797E6;
+		background-color: $default-color-info;
 		@extend %modal-header;
 	}
 	.modal-footer {
