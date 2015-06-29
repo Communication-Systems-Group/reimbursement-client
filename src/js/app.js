@@ -43,6 +43,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}
 		}
 		$translateProvider.preferredLanguage('en');
+		$translateProvider.useSanitizeValueStrategy('escape');
 
 		$httpProvider.defaults.withCredentials = true;
 
