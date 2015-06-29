@@ -9,9 +9,6 @@ body {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
 	display: none !important;
 }
-.cursorDefault {
-	cursor: default;
-}
 
 .margin-top-05 { margin-top: $default-margin-top-05; }
 .margin-top-10 { margin-top: $default-margin-top-10; }
