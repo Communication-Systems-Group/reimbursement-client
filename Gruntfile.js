@@ -154,16 +154,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// has to be defined although it's empty, otherwise there is an
-		// error in the build: reguired config missing
-		bower : {
-			install : {
-				options : {
-					copy : false
-				}
-			}
-		},
-
 		// uglifies the javascript code
 		uglify: {
 			js: {
@@ -267,7 +257,7 @@ module.exports = function(grunt) {
 			},
 			dev: {
 				files: ['src/**/*.*'],
-				tasks: ['default-no-bower']
+				tasks: ['default']
 			},
 			prod: {
 				files: ['src/**/*.*'],
