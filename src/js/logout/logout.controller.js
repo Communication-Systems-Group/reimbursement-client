@@ -1,6 +1,6 @@
-app.controller('LogoutController', ['$scope', '$timeout', 'logoutRestService', 'globalMessagesService', 'spinnerService',
+app.controller('LogoutController', ['$scope', '$timeout', 'USER', 'logoutRestService', 'globalMessagesService', 'spinnerService',
 
-function($scope, $timeout, logoutRestService, globalMessagesService, spinnerService) {
+function($scope, $timeout, USER, logoutRestService, globalMessagesService, spinnerService) {
 	"use strict";
 
 	$scope.success = false;
@@ -11,6 +11,7 @@ function($scope, $timeout, logoutRestService, globalMessagesService, spinnerServ
 
 	logoutRestService.postLogout().then(function() {
 		$scope.success = true;
+		USER.loggedIn = false;
 	}, function() {
 		globalMessagesService.showGeneralError();
 	})['finally'](function() {
