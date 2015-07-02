@@ -97,6 +97,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 				controller: "ExpenseController",
 				onEnter: requireAuthentication()
 
+			}).state('newExpense', {
+				url: "/expense",
+				templateUrl: "expense/expense.tpl.html",
+				controller: "ExpenseController",
+				onEnter: requireAuthentication()
+
 			}).state('csrfTestingPage', {
 				url: "/csrfTestingPage",
 				templateUrl: "csrfTestingPage/csrfTestingPage.tpl.html",
