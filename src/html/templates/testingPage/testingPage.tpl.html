@@ -1,6 +1,6 @@
 <div id="login">
 	<h1 class="page-header">
-		<i class="fa fa-sign-in"></i> CSRF Testing Page
+		<i class="fa fa-sign-in"></i>Testing Page
 	</h1>
 
 	<div ng-controller="LoginController">
@@ -76,38 +76,6 @@
 	<div class="panel-heading"><h4>Result</h4></div>
 	<pre>{{imageFailure}}"></pre>
 	</div>
-
-	<h3>Private getUsers</h3>
-	<div class="alert alert-success" ng-show="getPrivateUsersSent && getPrivateUsersSuccess"><i class="fa fa-thumbs-o-up"></i> Very good Sir!</div>
-	<div class="alert alert-danger" ng-show="getPrivateUsersSent && !getPrivateUsersSuccess"><i class="fa fa-thumbs-o-down"></i> Not good, duckhead...</div>
-	<form class="form-horizontal">
-		<div class="form-group">
-			<div class="col-sm-9">
-				<button class="btn btn-primary pull-right" ng-click="getPrivateUsers()">
-					get Private Users
-				</button>
-			</div>
-		</div>
-	</form>
-
-	<h3>Public sendString</h3>
-	<div class="alert alert-success" ng-show="sendStringSent && sendStringSuccess"><i class="fa fa-thumbs-o-up"></i> Very good Sir!</div>
-	<div class="alert alert-danger" ng-show="sendStringSent && !sendStringSuccess"><i class="fa fa-thumbs-o-down"></i> Not good, duckhead...</div>
-	<form class="form-horizontal">
-		<div class="form-group">
-			<label for="inputString" class="col-sm-4 control-label">String: </label>
-			<div class="col-sm-5">
-				<input type="text" class="form-control" id="inputString" ng-model="stringform.string" placeholder="some random string">
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-9">
-				<button class="btn btn-primary pull-right" ng-click="sendString()">
-					send String
-				</button>
-			</div>
-		</div>
-	</form>
 
 	<h3>Public send CroppingDto</h3>
 	<div class="alert alert-success" ng-show="sendCroppingDtoSent && sendCroppingDtoSuccess"><i class="fa fa-thumbs-o-up"></i> Very good Sir!</div>

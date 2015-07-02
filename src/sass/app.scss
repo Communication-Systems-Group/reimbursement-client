@@ -1,56 +1,11 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400');
-
-body, html {
-	height: 100%;
-}
-
-body {
-	margin: 0;
-	padding: 50px 0 0 0;
-	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-	display: none !important;
-}
-
-.cursorDefault {
-	cursor: default;
-}
-
-.margin-top-05 {
-	margin-top: 0.5em;
-}
-
-.margin-top-10 {
-	margin-top: 1.0em;
-}
-
-.margin-top-15 {
-	margin-top: 1.5em;
-}
-
-.margin-top-20 {
-	margin-top: 2.0em;
-}
-
-.margin-top-25 {
-	margin-top: 2.5em;
-}
-
-.margin-top-30 {
-	margin-top: 3.0em;
-}
-
-.row-centered {
-	text-align: center;
-}
-
-.col-centered {
-	display: inline-block;
-	float: none;
-	/* reset the text-align */
-	text-align: left;
-	/* inline-block space fix */
-	margin-right: -4px;
-}
+// google font
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400');
+// global variables
+@import "variables";
+// include partials
+@import "general";
+@import "cropping";
+@import "expense";
+@import "global-messages";
+@import "signature";
+@import "spinner";

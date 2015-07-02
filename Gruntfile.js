@@ -1,12 +1,10 @@
 module.exports = function(grunt) {
 	"use strict";
 
-	//TODO if it is sure that the localdeploy task is not used anymore (after mid Junde weeks or so^^ ) - remove it.
-
 	// initializes all grunt tasks, no need to load every task by itself
 	require('load-grunt-tasks')(grunt);
 
-	// create some nice statistics for time consumation of every task
+	// create some nice statistics for time consumption of every task
 	require('time-grunt')(grunt);
 
 	grunt.initConfig({
@@ -14,7 +12,7 @@ module.exports = function(grunt) {
 		// reads the package.json and provide e.g. the package name
 		pkg: grunt.file.readJSON('package.json'),
 
-		// reads the deploy paramenters username, password
+		// reads the deploy parameters username, password
 		deploy: grunt.file.readJSON('deploy.json'),
 
 		// removes all files from the specified folders
@@ -156,16 +154,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// has to be defined although it's empty, otherwise there is an
-		// error in the build: reguired config missing
-		bower : {
-			install : {
-				options : {
-					copy : false
-				}
-			}
-		},
-
 		// uglifies the javascript code
 		uglify: {
 			js: {
@@ -269,7 +257,7 @@ module.exports = function(grunt) {
 			},
 			dev: {
 				files: ['src/**/*.*'],
-				tasks: ['default-no-bower']
+				tasks: ['default']
 			},
 			prod: {
 				files: ['src/**/*.*'],
@@ -292,7 +280,8 @@ module.exports = function(grunt) {
 
 	});
 
-	grunt.registerTask('default-no-bower', [
+	// the default grunt task, just call "grunt" and it will be executed
+	grunt.registerTask('default', [
 		'clean',
 		'sass',
 		'useminPrepare',
@@ -308,19 +297,11 @@ module.exports = function(grunt) {
 		'clean:tmp'
 	]);
 
-	// the default process, which can be started by calling "grunt"
-	// PROD SHOULD BE VERY SIMILAR!
-	grunt.registerTask('default', [
-		'bower:install',
-		'default-no-bower'
-	]);
-
 	// the productive process, which also minifies. it can be started by calling "grunt prod"
 	grunt.registerTask('prod', [
-		'bower:install',
 		'clean',
-		'useminPrepare',
 		'sass',
+		'useminPrepare',
 		'concat:generated',
 		'jshint:gruntfile',
 		'jshint:prod',

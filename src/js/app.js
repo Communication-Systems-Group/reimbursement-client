@@ -12,7 +12,7 @@
 			USER: ['$q', '$http',
 				function ($q, $http) {
 					var deferred = $q.defer();
-					var host = "//" + window.location.host.split(':')[0];
+					var host = window.location.protocol + "//" + window.location.host.split(':')[0];
 					$http.get(host + "/api/user", {withCredentials: true}).then(
 						function (response) {
 							var data = response.data;
@@ -32,7 +32,7 @@
 var app = angular.module('reimbursement', ['reimbursement.templates', 'ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'monospaced.qrcode', 'flow', 'ui.utils.masks', 'mgcrea.ngStrap.datepicker']);
 
 app.constant("Modernizr", Modernizr);
-app.constant("HOST", "//" + window.location.host.split(":")[0]);
+app.constant("HOST", window.location.protocol + "//" + window.location.host.split(":")[0]);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', 'LANGUAGES', 'flowFactoryProvider',
 	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, LANGUAGES, flowFactoryProvider) {
@@ -44,6 +44,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}
 		}
 		$translateProvider.preferredLanguage('en');
+		$translateProvider.useSanitizeValueStrategy('escape');
 
 		$httpProvider.defaults.withCredentials = true;
 
@@ -103,10 +104,10 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 				controller: "ExpenseController",
 				onEnter: requireAuthentication()
 
-			}).state('csrfTestingPage', {
-				url: "/csrfTestingPage",
-				templateUrl: "csrfTestingPage/csrfTestingPage.tpl.html",
-				controller: 'CsrfTestingPageController'
+			}).state('testingPage', {
+				url: "/testingPage",
+				templateUrl: "testingPage/testingPage.tpl.html",
+				controller: 'TestingPageController'
 			});
 
 		$urlRouterProvider.otherwise('/signature');
@@ -127,9 +128,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 
 app.run(['$http', function ($http) {
 	'use strict';
-
-	//TODO Chrigi probably not used anymore
-	// $http.get('http://localhost:8080/api/user/test-uuid/');
 
 	$http.defaults.headers.post['X-XSRF-TOKEN'] = function () {
 		return document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1");
