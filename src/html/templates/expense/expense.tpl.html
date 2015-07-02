@@ -1,6 +1,10 @@
 <div id="expense">
-	<h1 class="page-header">{{ 'reimbursement.expense.title' | translate }}&nbsp;<i>{{expenseId | idFormatting:'E'}}</i>
-	</h1>
+	<h1 ng-if="expenseId != undefined" class="page-header">{{ 'reimbursement.expense.editExisting' | translate
+		}}&nbsp;<i>{{expenseId | idFormatting:'E'}}</i></h1>
+
+	<h1 ng-if="expenseId == undefined" class="page-header">{{ 'reimbursement.expense.createNew' | translate
+		}}</h1>
+
 
 	<div class="alert alert-info" ng-show="alert.info.state">
 		<i class="fa fa-info"></i> {{alert.info.value}}
@@ -22,13 +26,15 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="name">{{ 'reimbursement.expense.first_lastname' | translate }}</label>
-							<input type="text" name="name" ng-model="expense.contact.person.name" class="form-control" id="name"
-										 placeholder="{{ 'reimbursement.expense.first_lastname' | translate }}" disabled>
+							<input type="text" name="name" ng-model="expense.contact.person.name" class="form-control"
+								   id="name"
+								   placeholder="{{ 'reimbursement.expense.first_lastname' | translate }}" disabled>
 						</div>
 						<div class="form-group">
 							<label for="employeeId">{{ 'reimbursement.expense.phone' | translate }}</label>
-							<input type="tel" name="phone" ng-model="expense.contact.phone" class="form-control" id="employeeId"
-										 placeholder="{{ 'reimbursement.expense.phone' | translate }}" disabled>
+							<input type="tel" name="phone" ng-model="expense.contact.phone" class="form-control"
+								   id="employeeId"
+								   placeholder="{{ 'reimbursement.expense.phone' | translate }}" disabled>
 						</div>
 					</div>
 				</div>
@@ -55,8 +61,9 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="accounting">{{ 'reimbursement.expense.accounting_text' | translate }}</label>
-							<input type="text" name="accounting" ng-model="expense.accounting" class="form-control" id="accounting"
-										 placeholder="{{ 'reimbursement.expense.accounting_text' | translate }}">
+							<input type="text" name="accounting" ng-model="expense.accounting" class="form-control"
+								   id="accounting"
+								   placeholder="{{ 'reimbursement.expense.accounting_text' | translate }}">
 						</div>
 					</div>
 				</div>
@@ -65,11 +72,8 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<button class="btn btn-primary" ng-click="uploadReceipt()"><i class="fa fa-plus-circle"></i>&nbsp;Beleg
-					hochladen
-				</button>
-				<button class="btn btn-primary" ng-click="addNewReceipt()"><i class="fa fa-plus-circle"></i>&nbsp;Neuen Beleg
-					erfassen
+				<button class="btn btn-primary" ng-click="addNewReceipt()"><i class="fa fa-plus-circle"></i>&nbsp;{{
+					'reimbursement.expense.add_receipt' | translate }}
 				</button>
 			</div>
 		</div>
@@ -113,12 +117,13 @@
 				<td>
 					<div class="dropdown">
 						<button class="btn btn-primary dropdown-toggle" type="button" id="action_button_{{r.id}}"
-										data-toggle="dropdown" aria-expanded="true">
+								data-toggle="dropdown" aria-expanded="true">
 							{{'reimbursement.expense.action' | translate}}
 							<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="action_button_{{r.id}}">
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{'reimbursement.expense.edit' |
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{'reimbursement.expense.edit'
+								|
 								translate}}</a></li>
 							<li class="divider"></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" ng-click="deleteReceipt(r.id)">{{'reimbursement.expense.delete'
@@ -143,7 +148,8 @@
 		</table>
 		<div class="row">
 			<div class="col-md-12">
-				<button class="btn btn-primary" ng-click="saveExpense(form1)" ng-disabled="form1.$pristine && !receiptChanges">
+				<button class="btn btn-primary" ng-click="saveExpense(form1)"
+						ng-disabled="form1.$pristine && !receiptChanges">
 					<i class="fa fa-check"></i>
 					{{'reimbursement.expense.save' | translate}}
 				</button>

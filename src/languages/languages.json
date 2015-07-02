@@ -63,6 +63,18 @@
 		"de": "Ein allgemeiner Fehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
 		"en": "A general error occured while transfering the data. Please try it again later."
 	},
+	"globalMessage.ServerException.title": {
+		"de": "Serverfehler",
+		"en": "Server error"
+	},
+	"globalMessage.ServerException.message": {
+		"de": "Ein Serverfehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
+		"en": "A server error occured while transfering the data. Please try it again later."
+	},
+	"globalMessage.ExpenseNotFoundException.title": {
+		"de": "Keine Spesen gefunden",
+		"en": "No expenses found"
+	},
 	"login.title": {
 		"de": "Login",
 		"en": "Login"
@@ -179,6 +191,38 @@
 		"de": "Dashboard",
 		"en": "Dashboard"
 	},
+	"dashboard.myExpenses": {
+		"de": "Meine Spesen",
+		"en": "My expenses"
+	},
+	"dashboard.table.id": {
+		"de": "ID",
+		"en": "ID"
+	},
+	"dashboard.table.date": {
+		"de": "Datum",
+		"en": "Date"
+	},
+	"dashboard.table.totalCosts": {
+		"de": "Totale Kosten",
+		"en": "Total costs"
+	},
+	"dashboard.table.status": {
+		"de": "Status",
+		"en": "State"
+	},
+	"dashboard.table.options": {
+		"de": "Optionen",
+		"en": "Options"
+	},
+	"dashboard.table.noContent": {
+		"de": "Keine Daten vorhanden!",
+		"en": "No content present!"
+	},
+	"dashboard.table.addExpense": {
+		"de": "Neue Spese erstellen",
+		"en": "Create new expense"
+	},
 	"expense.validation.date_receipt": {
 		"de": "Das Belegdatum muss gewählt werden!",
 		"en": "Please enter a receipt date."
@@ -199,9 +243,13 @@
 		"de": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend.",
 		"en": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend."
 	},
-	"expense.title": {
-		"de": "Spesen erfassen",
-		"en": "Expense"
+	"expense.editExisting": {
+		"de": "Spesen editieren",
+		"en": "Edit expense"
+	},
+	"expense.createNew": {
+		"de": "Neue Spese erfassen",
+		"en": "Create new expense"
 	},
 	"expense.save": {
 		"de": "Speichern",
