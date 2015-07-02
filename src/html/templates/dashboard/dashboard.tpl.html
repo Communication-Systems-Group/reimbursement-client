@@ -1,5 +1,45 @@
 <div id="dashboard">
 	<h1 class="page-header">{{ 'reimbursement.dashboard.title' | translate }}</h1>
 
-	{{ dashboard }}
+	<h2 class="page-header">{{ 'reimbursement.dashboard.myExpenses' | translate }}</h2>
+
+	<table class="table table-striped">
+		<thead>
+		<tr>
+			<th>{{ 'reimbursement.dashboard.table.id' | translate }}</th>
+			<th>{{ 'reimbursement.dashboard.table.date' | translate }}</th>
+			<th>{{ 'reimbursement.expense.accounting_text' | translate }}</th>
+			<th>{{ 'reimbursement.dashboard.table.totalCosts' | translate }}</th>
+			<th>{{ 'reimbursement.dashboard.table.status' | translate }}</th>
+			<th>{{ 'reimbursement.dashboard.table.options' | translate }}</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="e in expenses">
+			<td>{{e.id}}</td>
+			<td>{{e.date | date:'dd.MM.yyyy'}}</td>
+			<td>{{e.accounting}}</td>
+			<td>{{e.total_costs}}</td>
+			<td ng-if="e.state === 'CREATED'"><span class="label label-info">erstellt</span></td>
+			<td ng-if="e.state === 'ACCEPTED'"><span class="label label-success">akzeptiert</span></td>
+			<td ng-if="e.state === 'REJECTED'"><span class="label label-danger">fehlerhaft</span></td>
+			<td></td>
+		</tr>
+		</tbody>
+
+		</tr>
+	</table>
+	<div class="row row-centered">
+		<div class="col-md-12 col-centered">
+			{{ 'reimbursement.dashboard.table.noContent' | translate }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<button type="button" class="btn btn-primary" ng-click="go('newExpense')"><i class="fa fa-plus-circle"></i>&nbsp;{{
+				'reimbursement.dashboard.table.addExpense' | translate }}
+			</button>
+		</div>
+		<div class="col-md-9"></div>
+	</div>
 </div>

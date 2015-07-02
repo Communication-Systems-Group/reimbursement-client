@@ -355,5 +355,4 @@ module.exports = function(grunt) {
 		'war',
 		'http_upload'
 	]);
-
 };
