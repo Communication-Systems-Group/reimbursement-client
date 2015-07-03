@@ -43,6 +43,8 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		$scope.expenseId = $stateParams.id;
 		$scope.receiptChanges = false;
 
+		$scope.note = '';
+
 		/**
 		 * Initalize empty expense object
 		 * @type {{id: number, creator: {name: string}, contact: {person: {name: string}, phone: string}, accounting: string, note: Array, receipts: Array}}
