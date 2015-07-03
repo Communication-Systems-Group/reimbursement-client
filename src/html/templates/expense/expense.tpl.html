@@ -67,6 +67,21 @@
 			<div class="col-md-6" ng-if="expense.note.length > 0">
 				<div class="panel panel-default">
 					<div class="panel-heading">
+						<h3 class="panel-title">{{ 'reimbursement.expense.note_add' | translate }}</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-12">
+								<textarea class="form-control" ng-model="note" rows="2" maxlength="250"></textarea>
+								<small class="float-right">{{note.length}}{{'reimbursement.expense.max_length' | translate:'{ max_length: 250
+									}'}}
+								</small>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
 						<h3 class="panel-title">{{ 'reimbursement.expense.notes' | translate }}</h3>
 					</div>
 					<div class="panel-body note-feedback">
@@ -82,22 +97,17 @@
 						</div>
 					</div>
 				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Add new note</h3>
-					</div>
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-12">
-								<textarea class="form-control" ng-model="note" rows="2" maxlength="250"></textarea>
-								<small class="float-right">{{note.length}} von 250 Zeichen</small>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn btn-primary" ng-click="addNewReceipt()">
+					<i class="fa fa-plus-circle"></i>
+					{{'reimbursement.expense.add_receipt' | translate}}
+				</button>
+			</div>
+		</div>
 		<table class="table table-striped">
 			<thead>
 			<tr>

@@ -203,6 +203,7 @@
 		"de": "Datum",
 		"en": "Date"
 	},
+
 	"dashboard.table.totalCosts": {
 		"de": "Totale Kosten",
 		"en": "Total costs"
@@ -227,18 +228,31 @@
 		"de": "Das Belegdatum muss gewählt werden!",
 		"en": "Please enter a receipt date."
 	},
+	"expense.validation.account": {
+		"de": "Ein Kategorie / Konto muss gewählt werden.",
+		"en": "Please select a category / account."
+	},
 	"expense.validation.amount": {
 		"de": "Der Betrag muss erfasst werden.",
 		"en": "Please enter an amount."
 	},
+	"expense.validation.select_currency": {
+		"de": "Eine Währung muss gewählt werden (bsp. CHF).",
+		"en": "Please enter a currency (i.e CHF)."
+	},
 	"expense.validation.cost_centre": {
 		"de": "Die Kostenstelle muss erfasst werden.",
-		"en": "Die Kostenstelle muss erfasst werden."
+		"en": "Please add a cost center."
 	},
 	"expense.validation.description": {
 		"de": "Eine Beschreibung muss hinzugefügt werden!",
-		"en": "Eine Beschreibung muss hinzugefügt werden."
+		"en": "Please add a travel purpose."
 	},
+	"expense.max_length": {
+		"de": " von {{max_length}} Zeichen.",
+		"en": " characters used of {{max_length}}."
+	},
+
 	"expense.info": {
 		"de": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend.",
 		"en": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend."
@@ -294,6 +308,10 @@
 	"expense.notes": {
 		"de": "Bemerkung / Rückmeldung",
 		"en": "Notes / feedback"
+	},
+	"expense.note_add": {
+		"de": "Bemerkung hinzufuügen",
+		"en": "Add note"
 	},
 	"expense.booking_info": {
 		"de": "Buchungsinformationen",
@@ -458,5 +476,13 @@
 	"expense.account.330000": {
 		"de": "Mitgliederbeiträge",
 		"en": "Memberships"
+	},
+	"expense.error.title": {
+		"de": "Ein Fehler ist aufgetreten",
+		"en": "An error has occured"
+	},
+	"expense.error.loading_exchange_rate": {
+		"de": "Leider konnte der Wechselkurs nicht geladen werden. Bitte versuchen Sie es nochmals.",
+		"en": "Exchange rate could not be loaded. Please retry."
 	}
 }
