@@ -14,15 +14,15 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			}
 		}
 
-		function getTotal() {
+		$scope.getTotal = function () {
 			var total = 0;
 
 			for (var i = 0; i < $scope.expense.receipts.length; i++) {
-				total += parseFloat($scope.expense.receipts[i].amount);
+				total += parseFloat($scope.expense.receipts[i].amount.value);
 			}
 
 			$scope.total = total;
-		}
+		};
 
 		// ToDo refactor with globalmessageservice
 		$scope.alert = {
@@ -59,19 +59,49 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				phone: ''
 			},
 			accounting: '',
-			note: [],
+			note: [
+				{
+					date: '2015-05-11T18:00:00.000+02:00',
+					person: {
+						ldap_id: 20,
+						name: 'Burkhard Stiller'
+					},
+					text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+				},
+
+				{
+					date: '2015-03-12T15:12:00.000+02:00',
+					person: {
+						ldap_id: 23,
+						name: 'Jens Meier'
+					},
+					text: 'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+				},
+				{
+					date: '2015-05-12T16:30:00.000+02:00',
+					person: {
+						ldap_id: 23,
+						name: 'Jens Meier'
+					},
+					text: 'At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+				}
+			],
 			receipts: []
 		};
 
-		getTotal();
+		$scope.getTotal();
 
 		$scope.uploadReceipt = function () {
 			// ToDo
 		};
 
 		$scope.addNewReceipt = function () {
+			var receipt_id = 1;
+			if ($scope.expense.receipts.length > 0) {
+				receipt_id = $scope.expense.receipts[($scope.expense.receipts.length - 1)].id + 1;
+			}
 			$scope.receipt = {
-				id: 0,
+				id: receipt_id,
 				date_receipt: null,
 				account: null,
 				description: '',
@@ -87,14 +117,10 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				}
 			};
 
-			var modalInstance = $modal.open({
+			$scope.modalReceipt = $modal.open({
 				templateUrl: 'expense/receipt.tpl.html',
 				controller: 'ReceiptController',
 				scope: $scope
-			});
-
-			modalInstance.result.then(function (/*response*/) {
-				//console.log(response);
 			});
 		};
 
@@ -203,15 +229,6 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 //			]
 //		};
 
-		$scope.documentExistsForExpense = function (receipt_id) {
-			for (var i = 0; i < $scope.expense.documents.length; i++) {
-				if ($scope.expense.documents[i].belongs_to_receipt.indexOf(receipt_id) !== -1) {
-					return true;
-				}
-			}
-			return false;
-		};
-
 		$scope.deleteReceipt = function (receipt_id) {
 			var receipt = find($scope.expense.receipts, receipt_id);
 			var confirm = window.confirm($filter('translate')('reimbursement.expense.delete_text', {
@@ -222,7 +239,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			if (confirm) {
 				$scope.receiptChanges = true;
 				$scope.expense.receipts.splice(receipt[0], 1);
-				getTotal();
+				$scope.getTotal();
 			}
 		};
 
@@ -230,6 +247,8 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			if (form.$dirty) {
 				$scope.alert.danger.state = true;
 				$scope.alert.danger.value = $filter('translate')('reimbursement.expense.dirty_form');
+			} else {
+				//ToDo save expense
 			}
 		};
 

@@ -6,3 +6,18 @@ table thead th {
 		font-weight: normal;
 	}
 }
+
+.align-right {
+	text-align: right;
+}
+
+.title-date-right {
+	float: right;
+	font-size: 10px;
+	margin-top: 7px;
+}
+
+.note-feedback {
+	max-height: 340px;
+	overflow-y: scroll;
+}
