@@ -74,7 +74,7 @@
 						}}&nbsp;*</label>
 					<input type="text" name="currency" ng-model="receipt.amount.currency"
 						   typeahead-on-select='onSelect($item)'
-						   ng-class="{'red-border': (receipt.amount.currency.cc == undefined && !form2.currency.$pristine)}"
+						   ng-class="{'red-border': (receipt.amount.currency.cc === undefined && !form2.currency.$pristine)}"
 						   typeahead="c.cc for c in currencies | filter:$viewValue | limitTo:8" class="form-control"
 						   ng-disabled="receipt.date_receipt == null" ng-blur="calculateAmount()" required>
 				</div>

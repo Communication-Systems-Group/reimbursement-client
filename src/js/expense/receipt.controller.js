@@ -76,7 +76,6 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 					// Do not load exchange rate if the currency used is CHF
 					if ($scope.receipt.amount.currency.cc !== 'CHF') {
 						expenseRestService.getExchangeRates($scope.receipt.date_receipt).then(function (result) {
-							console.log(result);
 
 							if (result.status === 200) {
 								$scope.receipt.amount.exchange_rate = result.data.rates[$scope.receipt.amount.currency.cc];
