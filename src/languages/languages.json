@@ -224,6 +224,10 @@
 		"de": "Neue Spese erstellen",
 		"en": "Create new expense"
 	},
+	"expense.validation.bookingText": {
+		"de": "Bitte fuüge eine Buchungsinformation hinzu.",
+		"en": "Please add an account value"
+	},
 	"expense.validation.date_receipt": {
 		"de": "Das Belegdatum muss gewählt werden!",
 		"en": "Please enter a receipt date."
@@ -364,6 +368,10 @@
 	"expense.confirm_cancel_unsaved_changes": {
 		"de": "Wollen Sie ihre ungesicherten Änderungen verwerfen?",
 		"en": "Do you really want to cancel your unsaved changes?"
+	},
+	"expense.dirty_form_title": {
+		"de": "Validierungsfehler",
+		"en": "Validation error"
 	},
 	"expense.dirty_form": {
 		"de": "Bitte überprüfen Sie ihre Eingabe!",
