@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 	"use strict";
 
 	// initializes all grunt tasks, no need to load every task by itself
@@ -82,38 +82,44 @@ module.exports = function(grunt) {
 		// compiles the sass code to css code
 		sass: {
 			dist: {
-				files: [{
-					expand: true,
-					cwd: 'src/sass',
-					src: ['*.{scss,sass}'],
-					dest: '.tmp/styles',
-					ext: '.css'
-				}]
+				files: [
+					{
+						expand: true,
+						cwd: 'src/sass',
+						src: ['*.{scss,sass}'],
+						dest: '.tmp/styles',
+						ext: '.css'
+					}
+				]
 			}
 		},
 
 		// copies the specified files
 		copy: {
 			regular: {
-				files: [{
-					//fonts
-					expand: true,
-					flatten: true,
-					src: ['bower_components/font-awesome/fonts/*.*'],
-					dest: 'dist/fonts/'
-				}, {
-					//images
-					expand: true,
-					flatten: true,
-					src: ['bower_components/jcrop/css/*.gif'],
-					dest: 'dist/styles/'
-				}, {
-					//index.html
-					expand: true,
-					cwd: 'src/html/',
-					src: ['index.html'],
-					dest: 'dist/'
-				}]
+				files: [
+					{
+						//fonts
+						expand: true,
+						flatten: true,
+						src: ['bower_components/font-awesome/fonts/*.*', 'bower_components/bootstrap/fonts/*.*'],
+						dest: 'dist/fonts/'
+					},
+					{
+						//images
+						expand: true,
+						flatten: true,
+						src: ['bower_components/jcrop/css/*.gif'],
+						dest: 'dist/styles/'
+					},
+					{
+						//index.html
+						expand: true,
+						cwd: 'src/html/',
+						src: ['index.html'],
+						dest: 'dist/'
+					}
+				]
 			}
 		},
 
@@ -123,11 +129,13 @@ module.exports = function(grunt) {
 				options: {
 					prefix: "reimbursement."
 				},
-				files: [{
-					src: 'src/languages/languages.json',
-					dest: 'dist/languages/languages.json',
-					destType: 'file'
-				}]
+				files: [
+					{
+						src: 'src/languages/languages.json',
+						dest: 'dist/languages/languages.json',
+						destType: 'file'
+					}
+				]
 			}
 		},
 
@@ -144,10 +152,10 @@ module.exports = function(grunt) {
 		// minifies the css code
 		cssmin: {
 			options: {
-				keepSpecialComments : 0
+				keepSpecialComments: 0
 			},
 			target: {
-				files:{
+				files: {
 					'dist/styles/app.css': 'dist/styles/app.css',
 					'dist/styles/libraries.css': 'dist/styles/libraries.css'
 				}
@@ -228,12 +236,14 @@ module.exports = function(grunt) {
 					webxml_welcome: 'index.html',
 					webxml_display_name: 'Reimbursement Front-End'
 				},
-				files: [{
-					expand: true,
-					cwd: 'dist',
-					src: ['**'],
-					dest: ''
-				}]
+				files: [
+					{
+						expand: true,
+						cwd: 'dist',
+						src: ['**'],
+						dest: ''
+					}
+				]
 			}
 		},
 
