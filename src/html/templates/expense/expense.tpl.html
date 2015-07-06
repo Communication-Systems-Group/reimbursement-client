@@ -73,7 +73,8 @@
 						<div class="row">
 							<div class="col-md-12">
 								<textarea class="form-control" ng-model="note" rows="2" maxlength="250"></textarea>
-								<small class="float-right">{{note.length}}{{'reimbursement.expense.max_length' | translate:'{ max_length: 250
+								<small class="float-right">{{note.length}}{{'reimbursement.expense.max_length' |
+									translate:'{ max_length: 250
 									}'}}
 								</small>
 							</div>
@@ -148,7 +149,8 @@
 							<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="action_button_{{r.id}}">
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{'reimbursement.expense.edit'
+							<li role="presentation"><a role="menuitem" tabindex="-1" ng-click="editReceipt(r.id)"
+													   href="#">{{'reimbursement.expense.edit'
 								| translate}}</a></li>
 							<li class="divider"></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" ng-click="deleteReceipt(r.id)">{{'reimbursement.expense.delete'

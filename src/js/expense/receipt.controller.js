@@ -27,6 +27,12 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 		// ToDo Define account numbers. Should be loaded from server or stored somewhere locally => are linked with the translation
 		$scope.accounts = [306020, 306900, 310010, 310040, 310050, 312000, 313000, 313010, 313020, 320240, 320250, 321200, 322000, 322020, 322040, 325050, 325060, 325070, 326000, 329000, 329100, 330000];
 
+		/**
+		 * Validates inputs and stores error messages into an array. Returns true if there are no
+		 * validation errors and false if there are.
+		 * @param f form object
+		 * @returns {boolean}
+		 */
 		function validation(f) {
 			var errorMsg = [];
 
@@ -68,12 +74,15 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 			$scope.opened = true;
 		};
 
+		/**
+		 * Calculates the total amount of all receipt elements.
+		 */
 		$scope.calculateAmount = function () {
 
 			if ($scope.receipt.amount.currency !== undefined) {
 				if (!!$scope.receipt.amount.original && $scope.receipt.amount.currency.cc !== undefined) {
 
-					// Do not load exchange rate if the currency used is CHF
+					// Do not load exchange rate if the selected currency is CHF
 					if ($scope.receipt.amount.currency.cc !== 'CHF') {
 						expenseRestService.getExchangeRates($scope.receipt.date_receipt).then(function (result) {
 
@@ -99,10 +108,23 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 			this.calculateAmount();
 		};
 
-		$scope.checkAndClose = function (form) {
+		/**
+		 * Save the receipt on the server if validation passed
+		 * and close the modal.
+		 * @param form
+		 */
+		$scope.saveReceipt = function (form) {
 			if (validation(form)) {
-				$scope.expense.receipts.push($scope.receipt);
+				if ($scope.receipt.isNew) {
+					$scope.expense.receipts.push($scope.receipt);
+				} else {
+					var id = $scope.find($scope.expense.receipts, $scope.receipt.id);
+					$scope.expense.receipts[id[0]] = $scope.receipt;
+				}
+
 				$scope.getTotal();
+
+				// ToDo store receipt on server, close it only if receipt has been stored successfully
 				$scope.modalReceipt.close();
 			}
 		};
