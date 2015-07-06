@@ -44,10 +44,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 				$translateProvider.translations(key, LANGUAGES[key]);
 			}
 		}
+
 		$translateProvider.preferredLanguage('en');
 		$translateProvider.useSanitizeValueStrategy('escape');
 
 		$httpProvider.defaults.withCredentials = true;
+		$httpProvider.interceptors.push('httpInterceptor');
 
 		function requireAuthentication() {
 			return ['$state', 'USER', function ($state, USER) {

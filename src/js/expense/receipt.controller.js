@@ -129,4 +129,8 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 			}
 		};
 
+		$scope.dismiss = function () {
+			$modalInstance.dismiss();
+		};
+
 	}]);
