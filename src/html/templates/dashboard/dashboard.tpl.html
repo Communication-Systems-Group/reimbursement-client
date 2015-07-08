@@ -6,34 +6,55 @@
 	<table class="table table-striped">
 		<thead>
 		<tr>
-			<th>{{ 'reimbursement.dashboard.table.id' | translate }}</th>
 			<th>{{ 'reimbursement.dashboard.table.date' | translate }}</th>
 			<th>{{ 'reimbursement.expense.accounting_text' | translate }}</th>
 			<th>{{ 'reimbursement.dashboard.table.totalCosts' | translate }}</th>
 			<th>{{ 'reimbursement.dashboard.table.status' | translate }}</th>
-			<th>{{ 'reimbursement.dashboard.table.options' | translate }}</th>
+			<th></th>
 		</tr>
 		</thead>
 		<tbody>
-		<tr ng-repeat="e in expenses">
-			<td>{{e.id}}</td>
+		<tr ng-repeat="e in expenses.myExpenseItems">
 			<td>{{e.date | date:'dd.MM.yyyy'}}</td>
-			<td>{{e.accounting}}</td>
-			<td>{{e.total_costs}}</td>
-			<td ng-if="e.state === 'CREATED'"><span class="label label-info">erstellt</span></td>
-			<td ng-if="e.state === 'ACCEPTED'"><span class="label label-success">akzeptiert</span></td>
-			<td ng-if="e.state === 'REJECTED'"><span class="label label-danger">fehlerhaft</span></td>
-			<td></td>
+			<td>{{e.account}}</td>
+			<td>{{e.amount}}</td>
+			<td ng-if="e.state === 'CREATED'"><span class="label label-info">{{ 'reimbursement.expense.state.created' | translate }}</span>
+			</td>
+			<td ng-if="e.state === 'ACCEPTED'"><span class="label label-success">{{ 'reimbursement.expense.state.accepted' | translate }}</span>
+			</td>
+			<td ng-if="e.state === 'REJECTED'"><span class="label label-danger">{{ 'reimbursement.expense.state.rejected' | translate }}</span>
+			</td>
+			<td>
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
+						Action <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li ng-if="e.state === 'CREATED' || e.state === 'REJECTED'"><a href="#"
+																					   ng-click="go('newExpense',{id:e.uid})"><i
+							class="fa fa-pencil"></i>&nbsp;Editieren</a>
+						</li>
+						<li ng-if="e.state === 'CREATED'"><a href="#" ng-click="deleteExpense(e.uid)"><i
+							class="fa fa-trash"></i>&nbsp;Löschen</a>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li ng-if="e.state === 'CREATED' || e.state === 'REJECTED'"><a href="#"> <i
+							class="fa fa-paper-plane-o"></i>&nbsp;Absenden</a></li>
+					</ul>
+				</div>
+			</td>
 		</tr>
 		</tbody>
 
 		</tr>
 	</table>
-	<div class="row row-centered">
+	<div class="row row-centered" ng-if="expenses.myExpenseItems.length < 1">
 		<div class="col-md-12 col-centered">
 			{{ 'reimbursement.dashboard.table.noContent' | translate }}
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="col-md-3">
 			<button type="button" class="btn btn-primary" ng-click="go('newExpense')"><i class="fa fa-plus-circle"></i>&nbsp;{{
@@ -42,4 +63,49 @@
 		</div>
 		<div class="col-md-9"></div>
 	</div>
+
+	<div>
+		<h2 class="page-header">{{ 'reimbursement.dashboard.myReviewExpenseItems' | translate }}</h2>
+
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>{{ 'reimbursement.dashboard.table.date' | translate }}</th>
+				<th>{{ 'reimbursement.expense.accounting_text' | translate }}</th>
+				<th>{{ 'reimbursement.dashboard.table.totalCosts' | translate }}</th>
+				<th>{{ 'reimbursement.dashboard.table.status' | translate }}</th>
+				<th></th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="e in expenses.myReviewExpenseItems">
+				<td>{{e.date | date:'dd.MM.yyyy'}}</td>
+				<td>{{e.account}}</td>
+				<td>{{e.amount}}</td>
+				<td ng-if="e.state === 'CREATED'"><span class="label label-info">{{ 'reimbursement.expense.state.created' | translate }}</span>
+				</td>
+				<td ng-if="e.state === 'ACCEPTED'"><span class="label label-success">{{ 'reimbursement.expense.state.accepted' | translate }}</span>
+				</td>
+				<td ng-if="e.state === 'REJECTED'"><span class="label label-danger">{{ 'reimbursement.expense.state.rejected' | translate }}</span>
+				</td>
+				<td>
+					<div class="btn-group">
+						<button type="button" class="btn btn-primary">
+							<i class="fa fa-eye"></i>&nbsp;Validate
+						</button>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+
+			</tr>
+		</table>
+		<div class="row row-centered"
+			 ng-if="expenses.myReviewExpenseItems.length < 1 || expenses.myReviewExpenseItems === null">
+			<div class="col-md-12 col-centered">
+				{{ 'reimbursement.dashboard.table.noContent' | translate }}
+			</div>
+		</div>
+	</div>
+
 </div>

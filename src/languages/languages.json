@@ -195,15 +195,14 @@
 		"de": "Meine Spesen",
 		"en": "My expenses"
 	},
-	"dashboard.table.id": {
-		"de": "ID",
-		"en": "ID"
-	},
 	"dashboard.table.date": {
 		"de": "Datum",
 		"en": "Date"
 	},
-
+	"dashboard.myReviewExpenseItems": {
+		"de": "Spesen überprüfen",
+		"en": "Expenses for review"
+	},
 	"dashboard.table.totalCosts": {
 		"de": "Totale Kosten",
 		"en": "Total costs"
@@ -224,9 +223,21 @@
 		"de": "Neue Spese erstellen",
 		"en": "Create new expense"
 	},
+	"expense.state.created": {
+		"de": "erstellt",
+		"en": "created"
+	},
+	"expense.state.rejected": {
+		"de": "abgelehnt",
+		"en": "rejected"
+	},
+	"expense.state.accepted": {
+		"de": "akzeptiert",
+		"en": "accepted"
+	},
 	"expense.validation.bookingText": {
-		"de": "Bitte fuüge eine Buchungsinformation hinzu.",
-		"en": "Please add an account value"
+		"de": "Bitte füge eine Buchungsinformation hinzu.",
+		"en": "On the Panel «Account information» needs an account value needs to be set before receipts can be added."
 	},
 	"expense.validation.date_receipt": {
 		"de": "Das Belegdatum muss gewählt werden!",
