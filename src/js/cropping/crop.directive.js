@@ -1,6 +1,6 @@
-app.directive('crop', [
+app.directive('crop', ['$timeout',
 
-function() {
+function($timeout) {
 	"use strict";
 
 	return {
@@ -24,10 +24,12 @@ function() {
 
 			var boxWidth = parseInt(jQuery($element).parent().css('width'), 10);
 
-			jQuery('#' + attrs.id).Jcrop({
-				onChange: storeCoords,
-				onSelect: storeCoords,
-				boxWidth: boxWidth
+			$timeout(function() {
+				jQuery('#' + attrs.id).Jcrop({
+					onChange: storeCoords,
+					onSelect: storeCoords,
+					boxWidth: boxWidth
+				});
 			});
 		}
 	};
