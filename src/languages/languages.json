@@ -1,4 +1,12 @@
 {
+	"success": {
+		"de": "Erfolg",
+		"en": "Success"
+	},
+	"error": {
+		"de": "Verarbeitungsfehler",
+		"en": "Error occured"
+	},
 	"mainTitle": {
 		"de": "Reimbursement IFI",
 		"en": "Reimbursement IFI"
@@ -307,6 +315,22 @@
 	"expense.delete": {
 		"de": "Löschen",
 		"en": "Delete"
+	},
+	"expense.delete.success": {
+		"de": "Das Spesenelement wurde erfolgreich gelöscht.",
+		"en": "The expense has been deleted successfully."
+	},
+	"expense.delete.error": {
+		"de": "Das Spesenelement konnte nicht gelöscht werden. Bitte versuch es nochmal!",
+		"en": "The expense could not be deleted successfully. Please retry!"
+	},
+	"expense.send": {
+		"de": "Absenden",
+		"en": "Send"
+	},
+	"expense.validate": {
+		"de": "Validieren",
+		"en": "Validate"
 	},
 	"expense.document_available": {
 		"de": "Dokument vorhanden",
