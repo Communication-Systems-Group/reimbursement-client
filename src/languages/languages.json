@@ -3,9 +3,13 @@
 		"de": "Erfolg",
 		"en": "Success"
 	},
-	"error": {
+	"error.title": {
 		"de": "Verarbeitungsfehler",
 		"en": "Error occured"
+	},
+	"error.body": {
+		"de": "Ein Verarbeitungsfehler ist aufgetreten. Falls dieser weiterhin auftritt kontaktieren Sie den Support.",
+		"en": "An error occured. If the error continue to appear please contact our customer support."
 	},
 	"mainTitle": {
 		"de": "Reimbursement IFI",
@@ -245,7 +249,7 @@
 	},
 	"expense.validation.bookingText": {
 		"de": "Bitte füge eine Buchungsinformation hinzu.",
-		"en": "On the Panel «Account information» needs an account value needs to be set before receipts can be added."
+		"en": "Please enter a value on the panel «Account information» to proceed."
 	},
 	"expense.validation.date_receipt": {
 		"de": "Das Belegdatum muss gewählt werden!",
@@ -352,6 +356,14 @@
 		"de": "Bemerkung hinzufuügen",
 		"en": "Add note"
 	},
+	"expense.not_found.title": {
+		"de": "Nicht gefunden",
+		"en": "Not found"
+	},
+	"expense.not_found.body": {
+		"de": "Die Spese konnte leider nicht gefunden werden.",
+		"en": "The expense could not be found."
+	},
 	"expense.booking_info": {
 		"de": "Buchungsinformationen",
 		"en": "Account information"
@@ -384,9 +396,9 @@
 		"de": "Betrag",
 		"en": "Amount"
 	},
-	"expense.in_chf": {
-		"de": "(in CHF)",
-		"en": "(in CHF)"
+	"expense.in_currency": {
+		"de": "(in {{currency}})",
+		"en": "(in {{currency}})"
 	},
 	"expense.cost_centre": {
 		"de": "Kostenstelle",

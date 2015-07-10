@@ -17,7 +17,7 @@
 		<tr ng-repeat="e in expenses.myExpenseItems">
 			<td>{{e.date | date:'dd.MM.yyyy'}}</td>
 			<td>{{e.account}}</td>
-			<td>{{e.amount}}</td>
+			<td>{{e.amount | currency:'CHF ':2}}</td>
 			<td ng-if="e.state === 'CREATED'"><span class="label label-info">{{ 'reimbursement.expense.state.created' | translate }}</span>
 			</td>
 			<td ng-if="e.state === 'ACCEPTED'"><span class="label label-success">{{ 'reimbursement.expense.state.accepted' | translate }}</span>
@@ -39,7 +39,8 @@
 							class="fa fa-trash"></i>&nbsp;{{ 'reimbursement.expense.delete' | translate }}</a>
 						</li>
 						<li role="separator" class="divider"></li>
-						<li ng-click="sendExpense(e.uid)" ng-if="e.state === 'CREATED' || e.state === 'REJECTED'"><a href="#"> <i
+						<li ng-click="sendExpense(e.uid)" ng-if="e.state === 'CREATED' || e.state === 'REJECTED'"><a
+							href="#"> <i
 							class="fa fa-paper-plane-o"></i>&nbsp;{{ 'reimbursement.expense.send' | translate }}</a>
 						</li>
 					</ul>

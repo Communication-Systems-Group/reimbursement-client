@@ -11,9 +11,9 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 
 		$scope.note = '';
 
-		$scope.find = function (obj, id) {
+		$scope.find = function (obj, uid) {
 			for (var i = 0; i < obj.length; i++) {
-				if (obj[i].id === id) {
+				if (obj[i].uid === uid) {
 					return [i, obj[i]];
 				}
 			}
@@ -22,63 +22,59 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		$scope.getTotal = function () {
 			var total = 0;
 
-			for (var i = 0; i < $scope.expense.receipts.length; i++) {
-				total += parseFloat($scope.expense.receipts[i].amount.value);
+			for (var i = 0; i < $scope.expense.expenseItems.length; i++) {
+				total += parseFloat($scope.expense.expenseItems[i].amount);
 			}
 
 			$scope.total = total;
 		};
 
-		/**
-		 * Initalize empty expense object
-		 * @type {{id: number, creator: {name: string}, contact: {person: {name: string}, phone: string}, accounting: string, note: Array, receipts: Array}}
-		 */
-		$scope.expense = {
-			id: 1,
-			creator: {
-				name: ''
-			},
-			contact: {
-				person: {
-					name: ''
-				},
-				phone: ''
-			},
-			bookingText: '',
-			note: [
-				{
-					date: '2015-05-11T18:00:00.000+02:00',
-					person: {
-						ldap_id: 20,
-						name: 'Burkhard Stiller'
-					},
-					text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
-				},
-
-				{
-					date: '2015-03-12T15:12:00.000+02:00',
-					person: {
-						ldap_id: 23,
-						name: 'Jens Meier'
-					},
-					text: 'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-				},
-				{
-					date: '2015-05-12T16:30:00.000+02:00',
-					person: {
-						ldap_id: 23,
-						name: 'Jens Meier'
-					},
-					text: 'At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-				}
-			],
-			receipts: []
-		};
-
-		$scope.getTotal();
-
 		$scope.uploadReceipt = function () {
 			// ToDo
+		};
+
+		$scope.prepareEmptyExpense = function () {
+			$scope.expense = {
+				id: 1,
+				creator: {
+					name: ''
+				},
+				contact: {
+					person: {
+						name: ''
+					},
+					phone: ''
+				},
+				bookingText: '',
+				note: [
+					{
+						date: '2015-05-11T18:00:00.000+02:00',
+						person: {
+							ldap_id: 20,
+							name: 'Burkhard Stiller'
+						},
+						text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+					},
+
+					{
+						date: '2015-03-12T15:12:00.000+02:00',
+						person: {
+							ldap_id: 23,
+							name: 'Jens Meier'
+						},
+						text: 'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+					},
+					{
+						date: '2015-05-12T16:30:00.000+02:00',
+						person: {
+							ldap_id: 23,
+							name: 'Jens Meier'
+						},
+						text: 'At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+					}
+				],
+				expenseItems: []
+			};
 		};
 
 		/**
@@ -92,10 +88,10 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 					$filter('translate')('reimbursement.expense.dirty_form_title'),
 					$filter('translate')('reimbursement.expense.validation.bookingText'));
 			} else {
-				if ($scope.expense.receipts.length > 0) {
-					receipt_id = $scope.expense.receipts[($scope.expense.receipts.length - 1)].id + 1;
+				if ($scope.expense.expenseItems.length > 0) {
+					receipt_id = $scope.expense.expenseItems[($scope.expense.expenseItems.length - 1)].id + 1;
 				} else {
-					expenseRestService.getExpense('POST', {bookingText: 'jhgjh'})
+					expenseRestService.getExpense('POST', {bookingText: ''})
 						.success(function (response) {
 							// store expense id created
 							console.log(response);
@@ -132,12 +128,12 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		};
 
 		$scope.getCostCategories = function () {
-			expenseRestService.getCostCategories.then(function (result) {
-				$scope.costCategories = result;
-			});
-		};
+//			expenseRestService.getCostCategories.then(function (result) {
+//				$scope.costCategories = result;
+//			});
 
-		$scope.accounts = [306020, 306900, 310010, 310040, 310050, 312000, 313000, 313010, 313020, 320240, 320250, 321200, 322000, 322020, 322040, 325050, 325060, 325070, 326000, 329000, 329100, 330000];
+			$scope.costCategories = expenseRestService.getCostCategories();
+		};
 
 		$scope.deleteReceipt = function (receipt_id) {
 			var receipt = $scope.find($scope.expense.receipts, receipt_id);
@@ -157,7 +153,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		 * @param receipt_id
 		 */
 		$scope.editReceipt = function (receipt_id) {
-			var receipt = $scope.find($scope.expense.receipts, receipt_id);
+			var receipt = $scope.find($scope.expense.expenseItems, receipt_id);
 
 			$scope.receipt = angular.copy(receipt[1]);
 			$scope.receipt.isNew = false;
@@ -184,6 +180,37 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			}
 		};
 
+		/**
+		 * Download an existing expense from the server based on the uid.
+		 * @param uid
+		 */
+		$scope.downloadExpense = function (uid) {
+			expenseRestService.getExpense('GET', {uid: uid})
+				.success(function (response) {
+					if (response[0] !== undefined) {
+						$scope.expense = response[0].expense;
+						$scope.getTotal();
+					} else {
+						$scope.prepareEmptyExpense();
+					}
+				})
+				.error(function (response) {
+					if (response.type === "ExpenseNotFoundException") {
+						globalMessagesService.showError(
+							$filter('translate')('reimbursement.expense.not_found.title'),
+							$filter('translate')('reimbursement.expense.not_found.body'));
+
+						$state.go($state.previous.name);
+					} else {
+						globalMessagesService.showInfo(
+							$filter('translate')('reimbursement.error.title'),
+							$filter('translate')('reimbursement.error.body'));
+
+						$state.go($state.previous.name);
+					}
+				});
+		};
+
 		$scope.cancel = function (form) {
 			if (!form.$pristine || $scope.receiptChanges) {
 				var confirm = confirm($filter('transalte')('reimbursement.expense.confirm_cancel_unsaved_changes'));
@@ -195,5 +222,18 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				}
 			}
 		};
+
+
+		/**
+		 * Initalize empty expense object
+		 * @type {{id: number, creator: {name: string}, contact: {person: {name: string}, phone: string}, accounting: string, note: Array, receipts: Array}}
+		 */
+		if ($scope.expenseId !== undefined) {
+			$scope.downloadExpense($scope.expenseId);
+		} else {
+			$scope.prepareEmptyExpense();
+		}
+
+		$scope.getCostCategories();
 
 	}]);
