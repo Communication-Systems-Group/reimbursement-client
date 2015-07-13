@@ -56,7 +56,7 @@ app.factory("expenseRestService", ['$http', 'HOST',
 		}
 
 		/**
-		 *
+		 * Uploads a new expense item and returns the http promise.
 		 * @param data {bookingText, assignedManagerUid, state}
 		 * @returns {HttpPromise}
 		 */
@@ -69,7 +69,7 @@ app.factory("expenseRestService", ['$http', 'HOST',
 		}
 
 		/**
-		 *
+		 * Returns an expense item for the specified uid and returns the http promise.
 		 * @param data {uid}
 		 * @returns {HttpPromise}
 		 */
@@ -82,8 +82,8 @@ app.factory("expenseRestService", ['$http', 'HOST',
 		}
 
 		/**
-		 *
-		 * @param data {uid, bookingText, assignedManagerUid, state}
+		 * Updates an existing expense item and returns the http promise.
+		 * @param data [uid, bookingText, assignedManagerUid, state]
 		 * @returns {HttpPromise}
 		 */
 		function putExpense(data) {
@@ -123,6 +123,15 @@ app.factory("expenseRestService", ['$http', 'HOST',
 			});
 		}
 
+		/**
+		 * Returns the url for the expense attachment upload directory.
+		 * @param expenseItem_uid {String}
+		 * @returns {*}
+		 */
+		function expenseItemAttachmentPath(expenseItem_uid) {
+			return HOST + '/api/user/expenses/expense-items/' + expenseItem_uid + '/attachments';
+		}
+
 		return {
 			getExchangeRates: getExchangeRates,
 			getCostCategories: getCostCategories,
@@ -130,7 +139,8 @@ app.factory("expenseRestService", ['$http', 'HOST',
 			postExpense: postExpense,
 			putExpense: putExpense,
 			postExpenseItem: postExpenseItem,
-			putExpenseItem: putExpenseItem
+			putExpenseItem: putExpenseItem,
+			expenseItemAttachmentPath: expenseItemAttachmentPath
 		};
 
 	}]);

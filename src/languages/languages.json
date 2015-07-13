@@ -11,6 +11,10 @@
 		"de": "Ein Verarbeitungsfehler ist aufgetreten. Falls dieser weiterhin auftritt kontaktieren Sie den Support.",
 		"en": "An error occured. If the error continue to appear please contact our customer support."
 	},
+	"error.body_message": {
+		"de": "Ein Verarbeitungsfehler ist aufgetreten. Falls dieser weiterhin auftritt kontaktieren Sie den Support. Fehlermeldung: {{message}}",
+		"en": "An error occured. If the error continue to appear please contact our customer support. Message: {{message}}"
+	},
 	"mainTitle": {
 		"de": "Reimbursement IFI",
 		"en": "Reimbursement IFI"

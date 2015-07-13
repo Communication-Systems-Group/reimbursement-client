@@ -7,6 +7,7 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 
 		$scope.dismiss = $modalInstance.dismiss;
 		$scope.currencies = Currencies.get();
+		$scope.expenseItemAttachmentPath = false;
 
 		if ($scope.expenseItem.uid !== undefined) {
 			$scope.amount_original = Math.ceil($scope.expenseItem.amount / $scope.expenseItem.exchangeRate);
@@ -129,10 +130,11 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 		 */
 		$scope.saveExpenseItem = function (form) {
 			$scope.alert.danger.state = false;
+			var data = {};
 
 			if (validation(form)) {
 				if ($scope.expenseItem.isNew) {
-					var d = {
+					data = {
 						"expenseUid": $scope.expenseItem.uid,
 						"date": $scope.expenseItem.date,
 						"costCategoryUid": $scope.expenseItem.costCategory.uid,
@@ -142,23 +144,29 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 						"amount": $scope.expenseItem.amount,
 						"project": $scope.expenseItem.project
 					};
-					expenseRestService.postExpenseItem(d)
+					expenseRestService.postExpenseItem(data)
 						.success(function (response, status) {
 							if (status === 201) {
+								$scope.expenseItem.uid = response.expenseItemUid;
 								$scope.expense.expenseItems.push($scope.expenseItem);
 								$scope.getTotal();
 
-								$scope.modalExpenseItem.close();
+								$scope.expenseItemAttachmentPath = expenseRestService.expenseItemAttachmentPath(response.expenseItemUid);
 							} else {
 								$scope.alert.danger.state = true;
 								$scope.alert.danger.value = $filter('translate')('expense.error.body');
+
+								$scope.expenseItemAttachmentPath = false;
 							}
 						})
 						.error(function (response) {
-							console.log(response);
+							$scope.alert.danger.state = true;
+							$scope.alert.danger.value = $filter('translate')('expense.error.body_message', {message: response.message});
+
+							$scope.expenseItemAttachmentPath = false;
 						});
 				} else {
-					var dd = {
+					data = {
 						"expenseUid": $scope.expense.uid,
 						"date": $scope.expenseItem.date,
 						"costCategoryUid": $scope.expenseItem.costCategory.uid,
@@ -168,21 +176,26 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 						"amount": $scope.expenseItem.amount,
 						"project": $scope.expenseItem.project
 					};
-					expenseRestService.putExpenseItem(dd, $scope.expenseItem.uid)
+					expenseRestService.putExpenseItem(data, $scope.expenseItem.uid)
 						.success(function (response, status) {
 							if (status === 201) {
 								var id = $scope.find($scope.expense.expenseItems, $scope.expenseItem.id);
 								$scope.expense.expenseItems[id[0]] = $scope.expenseItem;
 								$scope.getTotal();
 
-								$scope.modalExpenseItem.close();
+								$scope.expenseItemAttachmentPath = expenseRestService.expenseItemAttachmentPath(response.expenseItemUid);
 							} else {
 								$scope.alert.danger.state = true;
 								$scope.alert.danger.value = $filter('translate')('expense.error.body');
+
+								$scope.expenseItemAttachmentPath = false;
 							}
 						})
 						.error(function (response) {
-							console.log(response);
+							$scope.alert.danger.state = true;
+							$scope.alert.danger.value = $filter('translate')('expense.error.body_message', {message: response.message});
+
+							$scope.expenseItemAttachmentPath = false;
 						});
 
 				}
