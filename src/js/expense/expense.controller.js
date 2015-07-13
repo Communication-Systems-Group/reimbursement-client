@@ -7,7 +7,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		"use strict";
 
 		$scope.expenseId = $stateParams.id;
-		$scope.receiptChanges = false;
+		$scope.expenseItemChanges = false;
 
 		$scope.note = '';
 
@@ -19,6 +19,41 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			}
 		};
 
+		/**
+		 * Initializes an expenseItem object and opens the expense modal.
+		 * @param item
+		 * @param expenseItem_uid
+		 */
+		function initExpenseItem(item, expenseItem_uid) {
+			if (item !== undefined) {
+				$scope.expenseItem = item;
+			} else {
+				$scope.expenseItem = {
+					uid: expenseItem_uid,
+					date_expenseItem: null,
+					account: null,
+					description: '',
+					amount: {
+						original: '',
+						currency: 'CHF',
+						exchange_rate: '1.00',
+						value: ''
+					},
+					cost_center: {
+						prefix: 'E-1000',
+						value: ''
+					},
+					isNew: true
+				};
+			}
+
+			$scope.modalExpenseItem = $modal.open({
+				templateUrl: 'expense/expenseItem.tpl.html',
+				controller: 'ExpenseItemController',
+				scope: $scope
+			});
+		}
+
 		$scope.getTotal = function () {
 			var total = 0;
 
@@ -29,7 +64,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			$scope.total = total;
 		};
 
-		$scope.uploadReceipt = function () {
+		$scope.uploadExpenseItem = function () {
 			// ToDo
 		};
 
@@ -78,10 +113,10 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		};
 
 		/**
-		 * Creates an empty receipt element and opens the receipt modal.
+		 * Creates an empty expenseItem element and opens the expenseItem modal.
 		 */
-		$scope.addNewReceipt = function () {
-			var receipt_id = 1;
+		$scope.addNewExpenseItem = function () {
+			var expenseItem_uid = 1;
 
 			if ($scope.expense.bookingText.length === 0) {
 				globalMessagesService.showWarning(
@@ -89,41 +124,22 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 					$filter('translate')('reimbursement.expense.validation.bookingText'));
 			} else {
 				if ($scope.expense.expenseItems.length > 0) {
-					receipt_id = $scope.expense.expenseItems[($scope.expense.expenseItems.length - 1)].id + 1;
+					expenseItem_uid = $scope.expense.expenseItems[($scope.expense.expenseItems.length - 1)].uid + 1;
+					initExpenseItem(undefined, expenseItem_uid);
 				} else {
-					expenseRestService.getExpense('POST', {bookingText: ''})
-						.success(function (response) {
-							// store expense id created
-							console.log(response);
-						})
-						.error(function (response) {
-							console.log(response);
-						});
+//					expenseRestService.postExpense({bookingText: $scope.expense.bookingText, assignedManagerUid: 'jtyutyu', state: 'CREATED'})
+//						.success(function (response) {
+//							expenseItem_uid = response.expenseUid;
+//							initExpenseItem(undefined, expenseItem_uid);
+//						})
+//						.error(function () {
+//							$filter('translate')('reimbursement.error.title');
+//							$filter('translate')('reimbursement.error.body');
+//						});
+					expenseItem_uid = 'dd9b3c5f-eb4d-4ece-96ed-9645355278f6';
+					initExpenseItem(undefined, expenseItem_uid);
 				}
-				$scope.receipt = {
-					id: receipt_id,
-					uid: 0,
-					date_receipt: null,
-					account: null,
-					description: '',
-					amount: {
-						original: '',
-						currency: 'CHF',
-						exchange_rate: '1.00',
-						value: ''
-					},
-					cost_center: {
-						prefix: 'E-1000',
-						value: ''
-					},
-					isNew: true
-				};
 
-				$scope.modalReceipt = $modal.open({
-					templateUrl: 'expense/receipt.tpl.html',
-					controller: 'ReceiptController',
-					scope: $scope
-				});
 			}
 		};
 
@@ -135,32 +151,32 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			$scope.costCategories = expenseRestService.getCostCategories();
 		};
 
-		$scope.deleteReceipt = function (receipt_id) {
-			var receipt = $scope.find($scope.expense.receipts, receipt_id);
+		$scope.deleteExpenseItem = function (expenseItem_id) {
+			var expenseItem = $scope.find($scope.expense.expenseItems, expenseItem_id);
 			var confirm = window.confirm($filter('translate')('reimbursement.expense.delete_text', {
-				name: receipt[1].description.substr(0, 25)
+				name: expenseItem[1].description.substr(0, 25)
 			}));
 
 			if (confirm) {
-				$scope.receiptChanges = true;
-				$scope.expense.receipts.splice(receipt[0], 1);
+				$scope.expenseItemChanges = true;
+				$scope.expense.expenseItems.splice(expenseItem[0], 1);
 				$scope.getTotal();
 			}
 		};
 
 		/**
-		 * Opens the modal view to edit an existing receipt.
-		 * @param receipt_id
+		 * Opens the modal view to edit an existing expenseItem.
+		 * @param expenseItem_id
 		 */
-		$scope.editReceipt = function (receipt_id) {
-			var receipt = $scope.find($scope.expense.expenseItems, receipt_id);
+		$scope.editExpenseItem = function (expenseItem_id) {
+			var expenseItem = $scope.find($scope.expense.expenseItems, expenseItem_id);
 
-			$scope.receipt = angular.copy(receipt[1]);
-			$scope.receipt.isNew = false;
+			$scope.expenseItem = angular.copy(expenseItem[1]);
+			$scope.expenseItem.isNew = false;
 
-			$scope.modalReceipt = $modal.open({
-				templateUrl: 'expense/receipt.tpl.html',
-				controller: 'ReceiptController',
+			$scope.modalExpenseItem = $modal.open({
+				templateUrl: 'expense/expenseItem.tpl.html',
+				controller: 'ExpenseItemController',
 				scope: $scope
 			});
 		};
@@ -170,11 +186,12 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		 * responsible for the next processing step.
 		 * @param form
 		 */
-		$scope.saveExpense = function (form) {
+		$scope.saveExpenseItem = function (form) {
 			if (form.$dirty) {
 				globalMessagesService.showWarning(
 					$filter('translate')('reimbursement.expense.dirty_form_title'),
-					$filter('translate')('reimbursement.expense.dirty_form'));
+					$filter('translate')('reimbursement.expense.dirty_form')
+				);
 			} else {
 				//ToDo save expense
 			}
@@ -212,7 +229,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		};
 
 		$scope.cancel = function (form) {
-			if (!form.$pristine || $scope.receiptChanges) {
+			if (!form.$pristine || $scope.expenseItemChanges) {
 				var confirm = confirm($filter('transalte')('reimbursement.expense.confirm_cancel_unsaved_changes'));
 
 				var myModal = $modal({title: 'My Title', content: 'My Content', show: true});
@@ -226,7 +243,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 
 		/**
 		 * Initalize empty expense object
-		 * @type {{id: number, creator: {name: string}, contact: {person: {name: string}, phone: string}, accounting: string, note: Array, receipts: Array}}
+		 * @type {{id: number, creator: {name: string}, contact: {person: {name: string}, phone: string}, accounting: string, note: Array, expenseItems: Array}}
 		 */
 		if ($scope.expenseId !== undefined) {
 			$scope.downloadExpense($scope.expenseId);

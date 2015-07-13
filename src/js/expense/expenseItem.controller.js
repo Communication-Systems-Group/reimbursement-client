@@ -1,15 +1,15 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalInstance', 'expenseRestService', 'globalMessagesService',
+app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$modalInstance', 'expenseRestService', 'globalMessagesService',
 	function ($scope, $filter, Currencies, $modalInstance, expenseRestService, globalMessagesService) {
 		"use strict";
 
 		$scope.dismiss = $modalInstance.dismiss;
 		$scope.currencies = Currencies.get();
 
-		if ($scope.receipt.uid !== undefined) {
-			$scope.amount_original = Math.ceil($scope.receipt.amount / $scope.receipt.exchangeRate);
+		if ($scope.expenseItem.uid !== undefined) {
+			$scope.amount_original = Math.ceil($scope.expenseItem.amount / $scope.expenseItem.exchangeRate);
 		} else {
 			$scope.amount_original = '0';
 		}
@@ -48,16 +48,16 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 		function validation(f) {
 			var errorMsg = [];
 
-			if (!f.dateReceipt.$valid) {
-				errorMsg.push($filter('translate')('reimbursement.expense.validation.date_receipt'));
+			if (!f.dateExpenseItem.$valid) {
+				errorMsg.push($filter('translate')('reimbursement.expense.validation.date_expense_item'));
 			}
-			if ($scope.receipt.costCategory === null || $scope.receipt.costCategory === undefined) {
+			if ($scope.expenseItem.costCategory === null || $scope.expenseItem.costCategory === undefined) {
 				errorMsg.push($filter('translate')('reimbursement.expense.validation.account'));
 			}
 			if (!f.original.$valid || !f.currency.$valid) {
 				errorMsg.push($filter('translate')('reimbursement.expense.validation.amount'));
 			}
-			if ($scope.receipt.currency === undefined || $scope.receipt.currency === null || $scope.receipt.currency === '') {
+			if ($scope.expenseItem.currency === undefined || $scope.expenseItem.currency === null || $scope.expenseItem.currency === '') {
 				errorMsg.push($filter('translate')('reimbursement.expense.validation.select_currency'));
 			}
 			if (!f.project.$valid) {
@@ -87,20 +87,20 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 		};
 
 		/**
-		 * Calculates the total amount of all receipt elements.
+		 * Calculates the total amount of all expenseItems elements.
 		 */
 		$scope.calculateAmount = function () {
 
-			if ($scope.receipt.currency !== undefined) {
-				if ($scope.amount_original !== '0' && $scope.receipt.currency !== undefined) {
+			if ($scope.expenseItem.currency !== undefined) {
+				if ($scope.amount_original !== '0') {
 
 					// Do not load exchange rate if the selected currency is CHF
-					if ($scope.receipt.currency !== 'CHF') {
-						expenseRestService.getExchangeRates($scope.receipt.date).then(function (result) {
+					if ($scope.expenseItem.currency !== 'CHF') {
+						expenseRestService.getExchangeRates($scope.expenseItem.date).then(function (result) {
 
 							if (result.status === 200) {
-								$scope.receipt.exchangeRate = result.data.rates[$scope.receipt.currency];
-								$scope.receipt.amount = Math.ceil($scope.amount_original * $scope.receipt.exchangeRate);
+								$scope.expenseItem.exchangeRate = result.data.rates[$scope.expenseItem.currency];
+								$scope.expenseItem.amount = Math.ceil($scope.amount_original * $scope.expenseItem.exchangeRate);
 							} else {
 								globalMessagesService.showError(
 									$filter('translate')('expense.error.title'),
@@ -109,8 +109,8 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 
 						});
 					} else {
-						$scope.receipt.exchangeRate = 1;
-						$scope.receipt.amount = Math.ceil($scope.amount_original * $scope.receipt.exchangeRate);
+						$scope.expenseItem.exchangeRate = 1;
+						$scope.expenseItem.amount = Math.ceil($scope.amount_original * $scope.expenseItem.exchangeRate);
 					}
 
 				}
@@ -118,37 +118,37 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 		};
 
 		$scope.onSelect = function ($item) {
-			$scope.receipt.currency = $item.cc;
+			$scope.expenseItem.currency = $item.cc;
 			this.calculateAmount();
 		};
 
 		/**
-		 * Save the receipt on the server if validation passed
+		 * Save the expenseItem on the server if validation passed
 		 * and close the modal.
 		 * @param form
 		 */
-		$scope.saveReceipt = function (form) {
+		$scope.saveExpenseItem = function (form) {
 			$scope.alert.danger.state = false;
 
 			if (validation(form)) {
-				if ($scope.receipt.isNew) {
+				if ($scope.expenseItem.isNew) {
 					var d = {
-						"expenseUid": $scope.expense.uid,
-						"date": $scope.receipt.date,
-						"costCategoryUid": $scope.receipt.costCategory.uid,
-						"reason": $scope.receipt.reason,
-						"currency": $scope.receipt.currency,
-						"exchangeRate": $scope.receipt.exchangeRate,
-						"amount": $scope.receipt.amount,
-						"project": $scope.receipt.project
+						"expenseUid": $scope.expenseItem.uid,
+						"date": $scope.expenseItem.date,
+						"costCategoryUid": $scope.expenseItem.costCategory.uid,
+						"reason": $scope.expenseItem.reason,
+						"currency": $scope.expenseItem.currency,
+						"exchangeRate": $scope.expenseItem.exchangeRate,
+						"amount": $scope.expenseItem.amount,
+						"project": $scope.expenseItem.project
 					};
 					expenseRestService.postExpenseItem(d)
 						.success(function (response, status) {
 							if (status === 201) {
-								$scope.expense.expenseItems.push($scope.receipt);
+								$scope.expense.expenseItems.push($scope.expenseItem);
 								$scope.getTotal();
 
-								$scope.modalReceipt.close();
+								$scope.modalExpenseItem.close();
 							} else {
 								$scope.alert.danger.state = true;
 								$scope.alert.danger.value = $filter('translate')('expense.error.body');
@@ -160,22 +160,22 @@ app.controller('ReceiptController', ['$scope', '$filter', 'Currencies', '$modalI
 				} else {
 					var dd = {
 						"expenseUid": $scope.expense.uid,
-						"date": $scope.receipt.date,
-						"costCategoryUid": $scope.receipt.costCategory.uid,
-						"reason": $scope.receipt.reason,
-						"currency": $scope.receipt.currency,
-						"exchangeRate": $scope.receipt.exchangeRate,
-						"amount": $scope.receipt.amount,
-						"project": $scope.receipt.project
+						"date": $scope.expenseItem.date,
+						"costCategoryUid": $scope.expenseItem.costCategory.uid,
+						"reason": $scope.expenseItem.reason,
+						"currency": $scope.expenseItem.currency,
+						"exchangeRate": $scope.expenseItem.exchangeRate,
+						"amount": $scope.expenseItem.amount,
+						"project": $scope.expenseItem.project
 					};
-					expenseRestService.putExpenseItem(dd, $scope.receipt.uid)
+					expenseRestService.putExpenseItem(dd, $scope.expenseItem.uid)
 						.success(function (response, status) {
 							if (status === 201) {
-								var id = $scope.find($scope.expense.expenseItems, $scope.receipt.id);
-								$scope.expense.expenseItems[id[0]] = $scope.receipt;
+								var id = $scope.find($scope.expense.expenseItems, $scope.expenseItem.id);
+								$scope.expense.expenseItems[id[0]] = $scope.expenseItem;
 								$scope.getTotal();
 
-								$scope.modalReceipt.close();
+								$scope.modalExpenseItem.close();
 							} else {
 								$scope.alert.danger.state = true;
 								$scope.alert.danger.value = $filter('translate')('expense.error.body');

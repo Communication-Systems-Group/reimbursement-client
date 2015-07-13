@@ -57,13 +57,38 @@ app.factory("expenseRestService", ['$http', 'HOST',
 
 		/**
 		 *
-		 * @param method {POST, GET, PUT, DELETE}
-		 * @param data
+		 * @param data {bookingText, assignedManagerUid, state}
 		 * @returns {HttpPromise}
 		 */
-		function getExpense(method, data) {
+		function postExpense(data) {
 			return $http({
-				method: method,
+				method: 'POST',
+				url: HOST + '/api/user/expenses',
+				data: data
+			});
+		}
+
+		/**
+		 *
+		 * @param data {uid}
+		 * @returns {HttpPromise}
+		 */
+		function getExpense(data) {
+			return $http({
+				method: 'GET',
+				url: HOST + '/api/user/expenses/' + data.uid + '/expense-items',
+				data: data
+			});
+		}
+
+		/**
+		 *
+		 * @param data {uid, bookingText, assignedManagerUid, state}
+		 * @returns {HttpPromise}
+		 */
+		function putExpense(data) {
+			return $http({
+				method: 'PUT',
 				url: HOST + '/api/user/expenses/' + data.uid + '/expense-items',
 				data: data
 			});
@@ -78,7 +103,7 @@ app.factory("expenseRestService", ['$http', 'HOST',
 		function postExpenseItem(data) {
 			return $http({
 				method: 'POST',
-				url: HOST + '/api/user/expenses/expense-items',
+				url: HOST + '/api/user/expenses/' + data.expenseUid + '/expense-items',
 				data: data
 			});
 		}
@@ -102,6 +127,8 @@ app.factory("expenseRestService", ['$http', 'HOST',
 			getExchangeRates: getExchangeRates,
 			getCostCategories: getCostCategories,
 			getExpense: getExpense,
+			postExpense: postExpense,
+			putExpense: putExpense,
 			postExpenseItem: postExpenseItem,
 			putExpenseItem: putExpenseItem
 		};

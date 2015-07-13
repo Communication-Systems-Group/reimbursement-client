@@ -109,9 +109,9 @@
 
 		<div class="row">
 			<div class="col-md-3">
-				<button class="btn btn-primary" ng-click="addNewReceipt()">
+				<button class="btn btn-primary" ng-click="addNewExpenseItem()">
 					<i class="fa fa-plus-circle"></i>
-					{{'reimbursement.expense.add_receipt' | translate}}
+					{{'reimbursement.expense.add_expense_item' | translate}}
 				</button>
 			</div>
 		</div>
@@ -119,7 +119,7 @@
 			<thead>
 			<tr>
 				<th>#</th>
-				<th>{{ 'reimbursement.expense.date_receipt' | translate }}</th>
+				<th>{{ 'reimbursement.expense.date_expense_item' | translate }}</th>
 				<th>{{ 'reimbursement.expense.category' | translate }}</th>
 				<th>
 					{{ 'reimbursement.expense.travel_purpose' | translate }}
@@ -155,11 +155,12 @@
 							<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="action_button_{{r.uid}}">
-							<li role="presentation"><a role="menuitem" tabindex="-1" ng-click="editReceipt(r.uid)"
+							<li role="presentation"><a role="menuitem" tabindex="-1" ng-click="editExpenseItem(r.uid)"
 													   href="#">{{'reimbursement.expense.edit'
 								| translate}}</a></li>
 							<li class="divider"></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" ng-click="deleteReceipt(r.uid)">{{'reimbursement.expense.delete'
+							<li role="presentation"><a role="menuitem" tabindex="-1"
+													   ng-click="deleteExpenseItem(r.uid)">{{'reimbursement.expense.delete'
 								| translate}}</a></li>
 						</ul>
 					</div>
@@ -180,7 +181,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<button class="btn btn-primary" ng-click="saveExpense(form1)"
-						ng-disabled="form1.$pristine && !receiptChanges">
+						ng-disabled="form1.$pristine && !expenseItemChanges">
 					<i class="fa fa-check"></i>
 					{{'reimbursement.expense.save' | translate}}
 				</button>

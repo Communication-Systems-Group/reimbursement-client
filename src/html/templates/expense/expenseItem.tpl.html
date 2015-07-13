@@ -1,8 +1,8 @@
-<div id="receipt">
+<div id="expensItem">
 	<div class="modal-header">
 		<a class="close" ng-click="dismiss()">&times;</a>
 
-		<h3 class="modal-title">{{ 'reimbursement.expense.add_receipt' | translate }}</h3>
+		<h3 class="modal-title">{{ 'reimbursement.expense.add_expense_item' | translate }}</h3>
 	</div>
 	<form name="form2">
 		<div class="modal-body">
@@ -22,12 +22,13 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="dateReceipt">{{ 'reimbursement.expense.date_receipt' | translate }}&nbsp;*</label>
+						<label for="dateExpenseItem">{{ 'reimbursement.expense.date_expense_item' | translate
+							}}&nbsp;*</label>
 
 						<div class="input-group">
-							<input type="text" name="dateReceipt" id="dateReceipt" class="form-control"
+							<input type="text" name="dateExpenseItem" id="dateExpenseItem" class="form-control"
 								   datepicker-popup="dd.MM.yyyy"
-								   ng-model="receipt.date"
+								   ng-model="expenseItem.date"
 								   is-open="opened"
 								   ng-required="true"
 								   ng-change="calculateAmount()"
@@ -45,15 +46,16 @@
 						<label for="account">{{'reimbursement.expense.category' | translate}}&nbsp;*</label>
 						<button id="account" class="btn btn-default dropdown-toggle" type="button" id="category"
 								data-toggle="dropdown" aria-expanded="true">
-							<span ng-if="receipt.costCategory.name != null">{{receipt.costCategory.name.de}}</span>
 							<span
-								ng-if="receipt.costCategory.name == null">{{'reimbursement.expense.category' | translate}}</span>
+								ng-if="expenseItem.costCategory.name != null">{{expenseItem.costCategory.name.de}}</span>
+							<span
+								ng-if="expenseItem.costCategory.name == null">{{'reimbursement.expense.category' | translate}}</span>
 
 							<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="category">
 							<li ng-repeat="a in costCategories" role="presentation"><a role="menuitem" tabindex="-1"
-																					   ng-click="receipt.costCategory = a">{{a.name.de}}</a>
+																					   ng-click="expenseItem.costCategory = a">{{a.name.de}}</a>
 							</li>
 						</ul>
 					</div>
@@ -66,30 +68,30 @@
 					<input type="text" name="original" id="amountOriginal" class="form-control"
 						   ng-class="{'red-border': !amount_original && !form2.original.$pristine}"
 						   ng-model="amount_original" ui-number-mask="2"
-						   ng-disabled="receipt.date == null"
+						   ng-disabled="expenseItem.date == null"
 						   ng-blur="calculateAmount()" required>
 				</div>
 				<div class="col-md-3">
 					<label for="amount" style="font-weight:100;">{{'reimbursement.expense.select_currency' | translate
 						}}&nbsp;*</label>
-					<input type="text" name="currency" ng-model="receipt.currency"
+					<input type="text" name="currency" ng-model="expenseItem.currency"
 						   typeahead-on-select='onSelect($item)'
-						   ng-class="{'red-border': (receipt.currency === undefined && !form2.currency.$pristine)}"
+						   ng-class="{'red-border': (expenseItem.currency === undefined && !form2.currency.$pristine)}"
 						   typeahead="c.cc for c in currencies | filter:$viewValue | limitTo:8" class="form-control"
-						   ng-disabled="receipt.date == null" ng-blur="calculateAmount()" required>
+						   ng-disabled="expenseItem.date == null" ng-blur="calculateAmount()" required>
 				</div>
 				<div class="col-md-2">
 					<label for="exchangeRate" style="font-weight:100;">{{'reimbursement.expense.exchange_course' |
 						translate
 						}}</label>
 					<input type="text" id="exchangeRate" class="form-control" name="field"
-						   ng-model="receipt.exchangeRate"
-						   ui-number-mask="2" ng-disabled="receipt.date == null">
+						   ng-model="expenseItem.exchangeRate"
+						   ui-number-mask="2" ng-disabled="expenseItem.date == null">
 				</div>
 				<div class="col-md-3">
 					<label for="amount" style="font-weight:100;">{{'reimbursement.expense.amount_in_chf' | translate
 						}}</label>
-					<input type="text" id="amount" class="form-control" name="field" ng-model="receipt.amount"
+					<input type="text" id="amount" class="form-control" name="field" ng-model="expenseItem.amount"
 						   ui-number-mask="2" disabled>
 				</div>
 			</div>
@@ -100,9 +102,9 @@
 						<label for="project">{{'reimbursement.expense.cost_centre' | translate }}&nbsp;*</label>
 
 						<div class="input-group">
-							<div class="input-group-addon">{{receipt.cost_center.prefix}}</div>
+							<div class="input-group-addon">{{expense_item.cost_center.prefix}}</div>
 							<input type="text" id="project" class="form-control" name="project"
-								   ng-model="receipt.project" required>
+								   ng-model="expenseItem.project" required>
 						</div>
 					</div>
 				</div>
@@ -111,9 +113,9 @@
 			<div class="row margin-top-10">
 				<div class="col-md-11">
 					<label for="reason">{{'reimbursement.expense.travel_purpose' | translate }}&nbsp;*</label>
-					<textarea name="reason" id="reason" ng-model="receipt.reason" class="form-control"
+					<textarea name="reason" id="reason" ng-model="expenseItem.reason" class="form-control"
 							  rows="3" maxlength="250" required></textarea>
-					<small class="float-right">{{receipt.reason.length}}{{'reimbursement.expense.max_length' |
+					<small class="float-right">{{expense_item.reason.length}}{{'reimbursement.expense.max_length' |
 						translate:'{ max_length:
 						250 }'}}
 					</small>
@@ -123,7 +125,7 @@
 			<div class="row margin-top-10">
 				<div class="col-md-6">
 					<label for="upload">{{'reimbursement.expense.document_upload' | translate }}</label>
-					<input type="text" id="upload" class="form-control" name="field" ng-model="receipt.upload">
+					<input type="text" id="upload" class="form-control" name="field" ng-model="expenseItem.upload">
 				</div>
 			</div>
 		</div>
@@ -132,7 +134,7 @@
 				<i class="fa fa-times"></i>
 				{{ 'reimbursement.expense.cancel' | translate }}
 			</button>
-			<button class="btn btn-primary" ng-click="saveReceipt(form2)">
+			<button class="btn btn-primary" ng-click="saveExpenseItem(form2)">
 				<i class="fa fa-check"></i>
 				{{ 'reimbursement.expense.save' | translate }}
 			</button>

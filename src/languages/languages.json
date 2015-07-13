@@ -251,9 +251,9 @@
 		"de": "Bitte füge eine Buchungsinformation hinzu.",
 		"en": "Please enter a value on the panel «Account information» to proceed."
 	},
-	"expense.validation.date_receipt": {
+	"expense.validation.date_expense_item": {
 		"de": "Das Belegdatum muss gewählt werden!",
-		"en": "Please enter a receipt date."
+		"en": "Please enter a expense item date."
 	},
 	"expense.validation.account": {
 		"de": "Ein Kategorie / Konto muss gewählt werden.",
@@ -372,13 +372,13 @@
 		"de": "Buchungstext (sichtbar in SAP)",
 		"en": "Account value (visual in SAP)"
 	},
-	"expense.receipts_detail": {
+	"expense.expense_items_detail": {
 		"de": "Detailansicht Belege",
-		"en": "Added receipts"
+		"en": "Added expense items"
 	},
-	"expense.date_receipt": {
+	"expense.date_expense_item": {
 		"de": "Datum Beleg",
-		"en": "Date receipt"
+		"en": "Date expense item"
 	},
 	"expense.category": {
 		"de": "Kategorie / Konto",
@@ -424,9 +424,9 @@
 		"de": "Bitte überprüfen Sie ihre Eingabe!",
 		"en": "Please validate your input."
 	},
-	"expense.add_receipt": {
+	"expense.add_expense_item": {
 		"de": "Neuen Beleg hinzufügen",
-		"en": "Add new receipt"
+		"en": "Add new expense item"
 	},
 	"expense.select_currency": {
 		"de": "Währung wählen",
