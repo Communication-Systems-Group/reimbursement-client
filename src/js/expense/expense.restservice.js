@@ -69,14 +69,14 @@ app.factory("expenseRestService", ['$http', 'HOST',
 		}
 
 		/**
-		 * Returns an expense item for the specified uid and returns the http promise.
+		 * Downloads an expense for the specified uid and returns the http promise.
 		 * @param data {uid}
 		 * @returns {HttpPromise}
 		 */
 		function getExpense(data) {
 			return $http({
 				method: 'GET',
-				url: HOST + '/api/user/expenses/' + data.uid + '/expense-items',
+				url: HOST + '/api/user/expenses/' + data.uid,
 				data: data
 			});
 		}
@@ -90,6 +90,19 @@ app.factory("expenseRestService", ['$http', 'HOST',
 			return $http({
 				method: 'PUT',
 				url: HOST + '/api/user/expenses/' + data.uid + '/expense-items',
+				data: data
+			});
+		}
+
+		/**
+		 * Sends a comment to the server and returns a http promise.
+		 * @param data [uid, text]
+		 * @returns {HttpPromise}
+		 */
+		function postComment(data) {
+			return $http({
+				method: 'POST',
+				url: HOST + '/api/user/expenses/' + data.uid + '/comments',
 				data: data
 			});
 		}
@@ -138,6 +151,7 @@ app.factory("expenseRestService", ['$http', 'HOST',
 			getExpense: getExpense,
 			postExpense: postExpense,
 			putExpense: putExpense,
+			postComment: postComment,
 			postExpenseItem: postExpenseItem,
 			putExpenseItem: putExpenseItem,
 			expenseItemAttachmentPath: expenseItemAttachmentPath

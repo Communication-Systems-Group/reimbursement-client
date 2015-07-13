@@ -32,6 +32,7 @@
 								   is-open="opened"
 								   ng-required="true"
 								   ng-change="calculateAmount()"
+								   ng-disabled="expenseItemAttachmentPath"
 								   close-text="Close"/>
 
 							<div class="input-group-addon" ng-click="open($event)"><i class="fa fa-calendar"></i></div>
@@ -45,7 +46,9 @@
 					<div class="dropdown">
 						<label for="account">{{'reimbursement.expense.category' | translate}}&nbsp;*</label>
 						<button id="account" class="btn btn-default dropdown-toggle" type="button" id="category"
-								data-toggle="dropdown" aria-expanded="true">
+								data-toggle="dropdown"
+								aria-expanded="true"
+								ng-disabled="expenseItemAttachmentPath">
 							<span
 								ng-if="expenseItem.costCategory.name != null">{{expenseItem.costCategory.name.de}}</span>
 							<span
@@ -68,7 +71,7 @@
 					<input type="text" name="original" id="amountOriginal" class="form-control"
 						   ng-class="{'red-border': !amount_original && !form2.original.$pristine}"
 						   ng-model="amount_original" ui-number-mask="2"
-						   ng-disabled="expenseItem.date == null"
+						   ng-disabled="expenseItem.date == null || expenseItemAttachmentPath"
 						   ng-blur="calculateAmount()" required>
 				</div>
 				<div class="col-md-3">
@@ -78,7 +81,8 @@
 						   typeahead-on-select='onSelect($item)'
 						   ng-class="{'red-border': (expenseItem.currency === undefined && !form2.currency.$pristine)}"
 						   typeahead="c.cc for c in currencies | filter:$viewValue | limitTo:8" class="form-control"
-						   ng-disabled="expenseItem.date == null" ng-blur="calculateAmount()" required>
+						   ng-disabled="expenseItem.date == null || expenseItemAttachmentPath"
+						   ng-blur="calculateAmount()" required>
 				</div>
 				<div class="col-md-2">
 					<label for="exchangeRate" style="font-weight:100;">{{'reimbursement.expense.exchange_course' |
@@ -86,7 +90,8 @@
 						}}</label>
 					<input type="text" id="exchangeRate" class="form-control" name="field"
 						   ng-model="expenseItem.exchangeRate"
-						   ui-number-mask="2" ng-disabled="expenseItem.date == null">
+						   ui-number-mask="2"
+						   ng-disabled="expenseItem.date == null || expenseItemAttachmentPath">
 				</div>
 				<div class="col-md-3">
 					<label for="amount" style="font-weight:100;">{{'reimbursement.expense.amount_in_chf' | translate
@@ -104,7 +109,8 @@
 						<div class="input-group">
 							<div class="input-group-addon">{{expense_item.cost_center.prefix}}</div>
 							<input type="text" id="project" class="form-control" name="project"
-								   ng-model="expenseItem.project" required>
+								   ng-model="expenseItem.project"
+								   ng-disabled="expenseItemAttachmentPath" required>
 						</div>
 					</div>
 				</div>
@@ -113,8 +119,10 @@
 			<div class="row margin-top-10">
 				<div class="col-md-11">
 					<label for="reason">{{'reimbursement.expense.travel_purpose' | translate }}&nbsp;*</label>
-					<textarea name="reason" id="reason" ng-model="expenseItem.reason" class="form-control"
-							  rows="3" maxlength="250" required></textarea>
+					<textarea name="reason" id="reason"
+							  ng-model="expenseItem.reason"
+							  ng-disabled="expenseItemAttachmentPath"
+							  class="form-control" rows="3" maxlength="250" required></textarea>
 					<small class="float-right">{{expense_item.reason.length}}{{'reimbursement.expense.max_length' |
 						translate:'{ max_length:
 						250 }'}}
@@ -122,23 +130,38 @@
 				</div>
 			</div>
 
-			<div class="row margin-top-10" ng-show="expenseItemAttachmentPath">
+			<div class="row margin-top-10" ng-if="!expenseItemAttachmentPath">
+				<div class="col-md-11">
+					<div class="alert alert-info"><i class="fa fa-info"></i>
+						{{'reimbursement.expense.save_first' | translate}}
+					</div>
+				</div>
+			</div>
+			<div class="row margin-top-10" ng-if="expenseItemAttachmentPath">
 				<div class="col-md-6">
 					<div
+						flow-name="flow.attachment"
 						flow-init="{target: expenseItemAttachmentPath, testChunks: false, singleFile: true, simultaneousUploads: 1}"
 						flow-files-submitted="$flow.upload()"
-						flow-file-success="$file.msg = $message">
+						flow-upload-started="initUpload()"
+						flow-file-success="showUploadResult(true)"
+						flow-file-error="showUploadResult(false)">
 
 						<label for="upload">{{'reimbursement.expense.document_upload' | translate }}</label>
-						<input type="file" id="upload" class="form-control" name="field" flow-btn/>
-
-						<table>
-							<tr ng-repeat="file in $flow.files">
-								<td>{{$index+1}}</td>
-								<td>{{file.name}}</td>
-								<td>{{file.msg}}</td>
-							</tr>
-						</table>
+						<!--<input type="file" id="upload" class="form-control" name="field" flow-btn/>-->
+						<button ng-if="!expenseItemUploadSucceeded || filename === undefined" type="file"
+								class="btn btn-primary" name="field" ng-disabled="expenseItemUploading"
+								flow-btn>
+							<i ng-if="!expenseItemUploading" class="fa fa-plus-circle"></i>
+							<i ng-if="expenseItemUploading" class="fa fa-circle-o-notch fa-spin"></i>
+							{{'reimbursement.expense.document_upload.button' | translate }}
+						</button>
+						<button ng-if="expenseItemUploadSucceeded && filename !== undefined"
+								class="btn btn-danger" name="field">
+							<i class="fa fa-times-circle-o"></i>
+							{{'reimbursement.expense.document_upload.button_remove' | translate:'{document: filename}'
+							}}{{filename}}
+						</button>
 					</div>
 				</div>
 			</div>

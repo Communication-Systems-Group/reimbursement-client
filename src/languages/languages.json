@@ -251,6 +251,10 @@
 		"de": "akzeptiert",
 		"en": "accepted"
 	},
+	"expense.validation.note": {
+		"de": "Bitte geben Sie eine Nachricht von mindestens drei Zeichen ein!",
+		"en": "Your message is to short. There need to be at least three characters."
+	},
 	"expense.validation.bookingText": {
 		"de": "Bitte füge eine Buchungsinformation hinzu.",
 		"en": "Please enter a value on the panel «Account information» to proceed."
@@ -448,6 +452,22 @@
 		"de": "Dokument hochladen (optional):",
 		"en": "Upload document (optional):"
 	},
+	"expense.document_upload.button": {
+		"de": "Dokument hinzufügen",
+		"en": "Add document"
+	},
+	"expense.document_upload.button_remove": {
+		"de": "Dokument {{document}} entfernen",
+		"en": "Remove {{document}}"
+	},
+	"expense.document_upload.succeeded": {
+		"de": "Das Dokument wurde erfolgreich hochgeladen.",
+		"en": "The document upload was successful."
+	},
+	"expense.document_upload.error": {
+		"de": "Das Dokument konnte leider nicht hochgeladen werden. Bitte versuchen Sie es nochmals.",
+		"en": "The document upload did not succeed. Please try again."
+	},
 	"expense.account.306020": {
 		"de": "Aus- und Weiterbildung",
 		"en": "Registration fees for conferences/workshops"
@@ -543,5 +563,9 @@
 	"expense.error.loading_exchange_rate": {
 		"de": "Leider konnte der Wechselkurs nicht geladen werden. Bitte versuchen Sie es nochmals.",
 		"en": "Exchange rate could not be loaded. Please retry."
+	},
+	"expense.save_first": {
+		"de": "Um ein Belegdokument wie bspw. PDF's hochzuladen, musst du zuerst speichern.",
+		"en": "You have to save the expense-item first before you can upload any documents."
 	}
 }

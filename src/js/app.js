@@ -12,8 +12,8 @@
 			USER: ['$q', '$http',
 				function ($q, $http) {
 					var deferred = $q.defer();
-					//var host = window.location.protocol + "//" + window.location.host.split(':')[0];
-					var host = '//localhost:8080';
+					var host = window.location.protocol + "//" + window.location.host.split(':')[0];
+					//var host = '//localhost:8080';
 					$http.get(host + "/api/user", {withCredentials: true}).then(
 						function (response) {
 							var data = response.data;
@@ -32,8 +32,8 @@
 var app = angular.module('reimbursement', ['reimbursement.templates', 'ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'monospaced.qrcode', 'flow', 'ui.utils.masks']);
 
 app.constant("Modernizr", Modernizr);
-//app.constant("HOST", window.location.protocol + "//" + window.location.host.split(":")[0]);
-app.constant("HOST", "//localhost:8080");
+app.constant("HOST", window.location.protocol + "//" + window.location.host.split(":")[0]);
+//app.constant("HOST", "//localhost:8080");
 
 app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', 'LANGUAGES', 'flowFactoryProvider',
 	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, LANGUAGES, flowFactoryProvider) {

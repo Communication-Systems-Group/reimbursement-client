@@ -6,6 +6,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 	function ($scope, $filter, $state, $stateParams, $modal, expenseRestService, globalMessagesService) {
 		"use strict";
 
+		$scope.expense = {};
 		$scope.expenseId = $stateParams.id;
 		$scope.expenseItemChanges = false;
 
@@ -20,32 +21,29 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		};
 
 		/**
-		 * Initializes an expenseItem object and opens the expense modal.
+		 * Initializes a new expenseItem object and opens the expense modal.
 		 * @param item
 		 * @param expenseItem_uid
 		 */
-		function initExpenseItem(item, expenseItem_uid) {
-			if (item !== undefined) {
-				$scope.expenseItem = item;
-			} else {
-				$scope.expenseItem = {
-					uid: expenseItem_uid,
-					date_expenseItem: null,
-					account: null,
-					description: '',
-					amount: {
-						original: '',
-						currency: 'CHF',
-						exchange_rate: '1.00',
-						value: ''
-					},
-					cost_center: {
-						prefix: 'E-1000',
-						value: ''
-					},
-					isNew: true
-				};
-			}
+		function initNewExpenseItem(expense_uid) {
+			$scope.expenseItem = {
+				uid: null,
+				expense_uid: expense_uid,
+				date: null,
+				account: null,
+				description: '',
+				amount: {
+					original: '',
+					currency: 'CHF',
+					exchange_rate: '1.00',
+					value: ''
+				},
+				cost_center: {
+					prefix: 'E-1000',
+					value: ''
+				},
+				isNew: true
+			};
 
 			$scope.modalExpenseItem = $modal.open({
 				templateUrl: 'expense/expenseItem.tpl.html',
@@ -54,11 +52,16 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			});
 		}
 
+		/**
+		 * Calculate the total value of the expenseItems.
+		 */
 		$scope.getTotal = function () {
 			var total = 0;
 
-			for (var i = 0; i < $scope.expense.expenseItems.length; i++) {
-				total += parseFloat($scope.expense.expenseItems[i].amount);
+			if ($scope.expense !== undefined) {
+				for (var i = 0; i < $scope.expense.expenseItems.length; i++) {
+					total += parseFloat($scope.expense.expenseItems[i].amount);
+				}
 			}
 
 			$scope.total = total;
@@ -70,7 +73,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 
 		$scope.prepareEmptyExpense = function () {
 			$scope.expense = {
-				id: 1,
+				uid: 1,
 				creator: {
 					name: ''
 				},
@@ -81,33 +84,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 					phone: ''
 				},
 				bookingText: '',
-				note: [
-					{
-						date: '2015-05-11T18:00:00.000+02:00',
-						person: {
-							ldap_id: 20,
-							name: 'Burkhard Stiller'
-						},
-						text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
-					},
-
-					{
-						date: '2015-03-12T15:12:00.000+02:00',
-						person: {
-							ldap_id: 23,
-							name: 'Jens Meier'
-						},
-						text: 'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-					},
-					{
-						date: '2015-05-12T16:30:00.000+02:00',
-						person: {
-							ldap_id: 23,
-							name: 'Jens Meier'
-						},
-						text: 'At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-					}
-				],
+				note: [],
 				expenseItems: []
 			};
 		};
@@ -116,30 +93,20 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		 * Creates an empty expenseItem element and opens the expenseItem modal.
 		 */
 		$scope.addNewExpenseItem = function () {
-			var expenseItem_uid = 1;
-
 			if ($scope.expense.bookingText.length === 0) {
 				globalMessagesService.showWarning(
 					$filter('translate')('reimbursement.expense.dirty_form_title'),
 					$filter('translate')('reimbursement.expense.validation.bookingText'));
 			} else {
-				if ($scope.expense.expenseItems.length > 0) {
-					expenseItem_uid = $scope.expense.expenseItems[($scope.expense.expenseItems.length - 1)].uid + 1;
-					initExpenseItem(undefined, expenseItem_uid);
-				} else {
-//					expenseRestService.postExpense({bookingText: $scope.expense.bookingText, assignedManagerUid: 'jtyutyu', state: 'CREATED'})
-//						.success(function (response) {
-//							expenseItem_uid = response.expenseUid;
-//							initExpenseItem(undefined, expenseItem_uid);
-//						})
-//						.error(function () {
-//							$filter('translate')('reimbursement.error.title');
-//							$filter('translate')('reimbursement.error.body');
-//						});
-					expenseItem_uid = 'dd9b3c5f-eb4d-4ece-96ed-9645355278f6';
-					initExpenseItem(undefined, expenseItem_uid);
-				}
-
+				expenseRestService.postExpense({bookingText: $scope.expense.bookingText, assignedManagerUid: 'jtyutyu', state: 'CREATED'})
+					.success(function (response) {
+						$scope.expense.uid = response.uid;
+						initNewExpenseItem($scope.expense.uid);
+					})
+					.error(function () {
+						$filter('translate')('reimbursement.error.title');
+						$filter('translate')('reimbursement.error.body');
+					});
 			}
 		};
 
@@ -202,14 +169,10 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		 * @param uid
 		 */
 		$scope.downloadExpense = function (uid) {
-			expenseRestService.getExpense('GET', {uid: uid})
+			expenseRestService.getExpense({uid: uid})
 				.success(function (response) {
-					if (response[0] !== undefined) {
-						$scope.expense = response[0].expense;
-						$scope.getTotal();
-					} else {
-						$scope.prepareEmptyExpense();
-					}
+					$scope.expense = response;
+					$scope.getTotal();
 				})
 				.error(function (response) {
 					if (response.type === "ExpenseNotFoundException") {
@@ -237,6 +200,28 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				if (confirm) {
 					$state.go('dashboard');
 				}
+			}
+		};
+
+
+		$scope.saveComment = function () {
+			if ($scope.note.length > 3) {
+				expenseRestService.postComment({text: $scope.note, uid: $scope.expense.uid})
+					.success(function () {
+						if ($scope.expenseId !== undefined) {
+							$scope.downloadExpense($scope.expenseId);
+						}
+						$scope.note = '';
+					})
+					.error(function () {
+						globalMessagesService.showError(
+							$filter('translate')('reimbursement.error.title'),
+							$filter('translate')('reimbursement.error.body'));
+					});
+			} else {
+				globalMessagesService.showError(
+					$filter('translate')('reimbursement.expense.dirty_form_title'),
+					$filter('translate')('reimbursement.expense.validation.note'));
 			}
 		};
 
