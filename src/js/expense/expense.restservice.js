@@ -94,6 +94,13 @@ app.factory("expenseRestService", ['$http', 'HOST',
 			});
 		}
 
+		function deleteExpense(uid) {
+			return $http({
+				method: 'DELETE',
+				url: HOST + '/api/user/expenses/expense-item/' + uid
+			});
+		}
+
 		/**
 		 * Sends a comment to the server and returns a http promise.
 		 * @param data [uid, text]
@@ -151,6 +158,7 @@ app.factory("expenseRestService", ['$http', 'HOST',
 			getExpense: getExpense,
 			postExpense: postExpense,
 			putExpense: putExpense,
+			deleteExpense: deleteExpense,
 			postComment: postComment,
 			postExpenseItem: postExpenseItem,
 			putExpenseItem: putExpenseItem,

@@ -70,7 +70,7 @@
 					<label for="amountOriginal">{{'reimbursement.expense.amount' | translate }}&nbsp;*</label>
 					<input type="text" name="original" id="amountOriginal" class="form-control"
 						   ng-class="{'red-border': !amount_original && !form2.original.$pristine}"
-						   ng-model="amount_original" ui-number-mask="2"
+						   ng-model="expenseItem.amount.original" ui-number-mask="2"
 						   ng-disabled="expenseItem.date == null || expenseItemAttachmentPath"
 						   ng-blur="calculateAmount()" required>
 				</div>
@@ -79,7 +79,7 @@
 						}}&nbsp;*</label>
 					<input type="text" name="currency" ng-model="expenseItem.currency"
 						   typeahead-on-select='onSelect($item)'
-						   ng-class="{'red-border': (expenseItem.currency === undefined && !form2.currency.$pristine)}"
+						   ng-class="{'red-border': (expenseItem.amount.currency === undefined && !form2.currency.$pristine)}"
 						   typeahead="c.cc for c in currencies | filter:$viewValue | limitTo:8" class="form-control"
 						   ng-disabled="expenseItem.date == null || expenseItemAttachmentPath"
 						   ng-blur="calculateAmount()" required>
@@ -89,14 +89,14 @@
 						translate
 						}}</label>
 					<input type="text" id="exchangeRate" class="form-control" name="field"
-						   ng-model="expenseItem.exchangeRate"
+						   ng-model="expenseItem.amount.exchange_rate"
 						   ui-number-mask="2"
 						   ng-disabled="expenseItem.date == null || expenseItemAttachmentPath">
 				</div>
 				<div class="col-md-3">
 					<label for="amount" style="font-weight:100;">{{'reimbursement.expense.amount_in_chf' | translate
 						}}</label>
-					<input type="text" id="amount" class="form-control" name="field" ng-model="expenseItem.amount"
+					<input type="text" id="amount" class="form-control" name="field" ng-model="expenseItem.amount.value"
 						   ui-number-mask="2" disabled>
 				</div>
 			</div>
@@ -120,7 +120,7 @@
 				<div class="col-md-11">
 					<label for="reason">{{'reimbursement.expense.travel_purpose' | translate }}&nbsp;*</label>
 					<textarea name="reason" id="reason"
-							  ng-model="expenseItem.reason"
+							  ng-model="expenseItem.description"
 							  ng-disabled="expenseItemAttachmentPath"
 							  class="form-control" rows="3" maxlength="250" required></textarea>
 					<small class="float-right">{{expense_item.reason.length}}{{'reimbursement.expense.max_length' |

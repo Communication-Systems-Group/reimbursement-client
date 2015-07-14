@@ -149,7 +149,7 @@
 		<tr ng-repeat="r in expense.expenseItems">
 			<td>{{r.uid | idFormatting:'R'}}</td>
 			<td>{{r.date | date:'dd.MM.yyyy'}}</td>
-			<td>{{r.costCategory}}</td>
+			<td>{{r.costCategory.name.de}}</td>
 			<td>{{r.description | limitTo:20}}</td>
 			<td class="align-right">{{r.currency}} {{r.amount.original | currency:'':2}}</td>
 			<!--<td>{{r.cost_center.prefix}}{{r.cost_center.value}}</td>-->
@@ -161,16 +161,21 @@
 						<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="action_button_{{r.uid}}">
-						<li role="presentation"><a role="menuitem" tabindex="-1" ng-click="editExpenseItem(r.uid)"
-												   href="#">{{'reimbursement.expense.edit'
-							| translate}}</a></li>
+						<li role="presentation">
+							<a role="menuitem" tabindex="-1" ng-click="editExpenseItem(r.uid)" href="#">
+								<i class="fa fa-pencil"></i>&nbsp;{{'reimbursement.expense.edit' | translate}}
+							</a>
+						</li>
 						<li class="divider"></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1"
-												   ng-click="deleteExpenseItem(r.uid)">{{'reimbursement.expense.delete'
-							| translate}}</a></li>
+						<li role="presentation">
+							<a role="menuitem" tabindex="-1" ng-click="deleteExpenseItem(r.uid)">
+								<i class="fa fa-trash"></i>&nbsp;{{'reimbursement.expense.delete' | translate}}
+							</a>
+						</li>
 					</ul>
 				</div>
 			</td>
+			{{r}}
 		</tr>
 		</tbody>
 		<tfoot>

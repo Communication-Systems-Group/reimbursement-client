@@ -97,16 +97,16 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 		 */
 		$scope.calculateAmount = function () {
 
-			if ($scope.expenseItem.currency !== undefined) {
-				if ($scope.amount_original !== '0') {
+			if ($scope.expenseItem.amount.currency !== undefined) {
+				if ($scope.expenseItem.amount.original !== '0') {
 
 					// Do not load exchange rate if the selected currency is CHF
-					if ($scope.expenseItem.currency !== 'CHF') {
+					if ($scope.expenseItem.amount.currency !== 'CHF') {
 						expenseRestService.getExchangeRates($scope.expenseItem.date).then(function (result) {
 
 							if (result.status === 200) {
-								$scope.expenseItem.exchangeRate = result.data.rates[$scope.expenseItem.currency];
-								$scope.expenseItem.amount = Math.ceil($scope.amount_original * $scope.expenseItem.exchangeRate);
+								$scope.expenseItem.amount.exchange_rate = result.data.rates[$scope.expenseItem.amount.currency];
+								$scope.expenseItem.amount.value = Math.ceil($scope.expenseItem.amount.original * $scope.expenseItem.amount.exchange_rate);
 							} else {
 								globalMessagesService.showError(
 									$filter('translate')('reimbursement.expense.error.title'),
@@ -115,8 +115,8 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 
 						});
 					} else {
-						$scope.expenseItem.exchangeRate = 1;
-						$scope.expenseItem.amount = Math.ceil($scope.amount_original * $scope.expenseItem.exchangeRate);
+						$scope.expenseItem.amount.exchange_rate = 1;
+						$scope.expenseItem.amount.value = Math.ceil($scope.expenseItem.amount.original * $scope.expenseItem.amount.exchange_rate);
 					}
 
 				}
@@ -178,16 +178,16 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 							"expenseUid": $scope.expense.uid,
 							"date": $scope.expenseItem.date,
 							"costCategoryUid": $scope.expenseItem.costCategory.uid,
-							"reason": $scope.expenseItem.reason,
-							"currency": $scope.expenseItem.currency,
-							"exchangeRate": $scope.expenseItem.exchangeRate,
-							"amount": $scope.expenseItem.amount,
+							"reason": $scope.expenseItem.description,
+							"currency": $scope.expenseItem.amount.currency,
+							"exchangeRate": $scope.expenseItem.amount.exchange_rate,
+							"amount": $scope.expenseItem.amount.value,
 							"project": $scope.expenseItem.project
 						};
 						expenseRestService.postExpenseItem(data)
 							.success(function (response, status) {
 								if (status === 201) {
-									$scope.expenseItem.uid = response.expenseItemUid;
+									$scope.expenseItem.uid = response.uid;
 									$scope.expense.expenseItems.push($scope.expenseItem);
 									$scope.getTotal();
 
@@ -211,9 +211,9 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 							"date": $scope.expenseItem.date,
 							"costCategoryUid": $scope.expenseItem.costCategory.uid,
 							"reason": $scope.expenseItem.reason,
-							"currency": $scope.expenseItem.currency,
-							"exchangeRate": $scope.expenseItem.exchangeRate,
-							"amount": $scope.expenseItem.amount,
+							"currency": $scope.expenseItem.amount.currency,
+							"exchangeRate": $scope.expenseItem.amount.exchange_rate,
+							"amount": $scope.expenseItem.amount.value,
 							"project": $scope.expenseItem.project
 						};
 						expenseRestService.putExpenseItem(data, $scope.expenseItem.uid)

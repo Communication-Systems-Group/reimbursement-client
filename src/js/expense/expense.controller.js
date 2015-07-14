@@ -1,9 +1,9 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal', 'expenseRestService', 'globalMessagesService',
+app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal', 'expenseRestService', 'globalMessagesService', '$timeout',
 
-	function ($scope, $filter, $state, $stateParams, $modal, expenseRestService, globalMessagesService) {
+	function ($scope, $filter, $state, $stateParams, $modal, expenseRestService, globalMessagesService, $timeout) {
 		"use strict";
 
 		$scope.expense = {};
@@ -60,7 +60,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 
 			if ($scope.expense !== undefined) {
 				for (var i = 0; i < $scope.expense.expenseItems.length; i++) {
-					total += parseFloat($scope.expense.expenseItems[i].amount);
+					total += parseFloat($scope.expense.expenseItems[i].amount.value);
 				}
 			}
 
@@ -93,20 +93,29 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		 * Creates an empty expenseItem element and opens the expenseItem modal.
 		 */
 		$scope.addNewExpenseItem = function () {
-			if ($scope.expense.bookingText.length === 0) {
-				globalMessagesService.showWarning(
-					$filter('translate')('reimbursement.expense.dirty_form_title'),
-					$filter('translate')('reimbursement.expense.validation.bookingText'));
+			if ($scope.expenseId === undefined) {
+				if ($scope.expense.accounting.length === 0) {
+					globalMessagesService.showWarning(
+						$filter('translate')('reimbursement.expense.dirty_form_title'),
+						$filter('translate')('reimbursement.expense.validation.bookingText'));
+				} else {
+					expenseRestService.postExpense({bookingText: $scope.expense.accounting, assignedManagerUid: 'jtyutyu', state: 'CREATED'})
+						.success(function (response) {
+							$scope.expenseId = response.uid;
+
+							$timeout(function () {
+								$scope.expense.uid = response.uid;
+								initNewExpenseItem($scope.expense.uid);
+							}, 800);
+						})
+						.error(function () {
+							$filter('translate')('reimbursement.error.title');
+							$filter('translate')('reimbursement.error.body');
+						});
+				}
 			} else {
-				expenseRestService.postExpense({bookingText: $scope.expense.bookingText, assignedManagerUid: 'jtyutyu', state: 'CREATED'})
-					.success(function (response) {
-						$scope.expense.uid = response.uid;
-						initNewExpenseItem($scope.expense.uid);
-					})
-					.error(function () {
-						$filter('translate')('reimbursement.error.title');
-						$filter('translate')('reimbursement.error.body');
-					});
+				$scope.expense.uid = $scope.expenseId;
+				initNewExpenseItem($scope.expense.uid);
 			}
 		};
 
@@ -125,9 +134,19 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			}));
 
 			if (confirm) {
-				$scope.expenseItemChanges = true;
-				$scope.expense.expenseItems.splice(expenseItem[0], 1);
-				$scope.getTotal();
+				expenseRestService.deleteExpense(expenseItem_id)
+					.success(function () {
+						$scope.expenseItemChanges = true;
+						$scope.expense.expenseItems.splice(expenseItem[0], 1);
+						$scope.getTotal();
+					})
+					.error(function () {
+						globalMessagesService.showError(
+							$filter('translate')('reimbursement.error.title'),
+							$filter('translate')('reimbursement.error.body')
+						);
+					});
+
 			}
 		};
 
@@ -146,22 +165,6 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				controller: 'ExpenseItemController',
 				scope: $scope
 			});
-		};
-
-		/**
-		 * Save the complete expense on the server and forward it to the corresponsding persion who is
-		 * responsible for the next processing step.
-		 * @param form
-		 */
-		$scope.saveExpenseItem = function (form) {
-			if (form.$dirty) {
-				globalMessagesService.showWarning(
-					$filter('translate')('reimbursement.expense.dirty_form_title'),
-					$filter('translate')('reimbursement.expense.dirty_form')
-				);
-			} else {
-				//ToDo save expense
-			}
 		};
 
 		/**
@@ -224,7 +227,6 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 					$filter('translate')('reimbursement.expense.validation.note'));
 			}
 		};
-
 
 		/**
 		 * Initalize empty expense object
