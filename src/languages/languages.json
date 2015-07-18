@@ -203,21 +203,30 @@
 		"de": "Zuschneiden",
 		"en": "Crop it"
 	},
+
+	"dashboard.myExpenses": {
+		"de": "Meine Spesen",
+		"en": "My expenses"
+	},
+	"dashboard.myReviewExpenseItems": {
+		"de": "Spesen überprüfen",
+		"en": "Expenses for review"
+	},
 	"dashboard.title": {
 		"de": "Dashboard",
 		"en": "Dashboard"
 	},
-	"dashboard.myExpenses": {
-		"de": "Meine Spesen",
-		"en": "My expenses"
+	"dashboard.table.addExpense": {
+		"de": "Neue Spese erstellen",
+		"en": "Create new expense"
 	},
 	"dashboard.table.date": {
 		"de": "Datum",
 		"en": "Date"
 	},
-	"dashboard.myReviewExpenseItems": {
-		"de": "Spesen überprüfen",
-		"en": "Expenses for review"
+	"dashboard.table.noContent": {
+		"de": "Keine Daten vorhanden!",
+		"en": "No content present!"
 	},
 	"dashboard.table.totalCosts": {
 		"de": "Totale Kosten",
@@ -231,226 +240,93 @@
 		"de": "Optionen",
 		"en": "Options"
 	},
-	"dashboard.table.noContent": {
-		"de": "Keine Daten vorhanden!",
-		"en": "No content present!"
-	},
-	"dashboard.table.addExpense": {
-		"de": "Neue Spese erstellen",
-		"en": "Create new expense"
-	},
-	"expense.state.created": {
-		"de": "erstellt",
-		"en": "created"
-	},
-	"expense.state.rejected": {
-		"de": "abgelehnt",
-		"en": "rejected"
-	},
-	"expense.state.accepted": {
-		"de": "akzeptiert",
-		"en": "accepted"
-	},
-	"expense.validation.note": {
-		"de": "Bitte geben Sie eine Nachricht von mindestens drei Zeichen ein!",
-		"en": "Your message is to short. There need to be at least three characters."
-	},
-	"expense.validation.bookingText": {
-		"de": "Bitte füge eine Buchungsinformation hinzu.",
-		"en": "Please enter a value on the panel «Account information» to proceed."
-	},
-	"expense.validation.date_expense_item": {
-		"de": "Das Belegdatum muss gewählt werden!",
-		"en": "Please enter a expense item date."
-	},
-	"expense.validation.account": {
-		"de": "Ein Kategorie / Konto muss gewählt werden.",
-		"en": "Please select a cost category."
-	},
-	"expense.validation.amount": {
-		"de": "Der Betrag muss erfasst werden.",
-		"en": "Please enter an amount."
-	},
-	"expense.validation.select_currency": {
-		"de": "Eine Währung muss gewählt werden (bsp. CHF).",
-		"en": "Please enter a currency (i.e CHF)."
-	},
-	"expense.validation.cost_centre": {
-		"de": "Die Kostenstelle muss erfasst werden.",
-		"en": "Please add a cost center."
-	},
-	"expense.validation.description": {
-		"de": "Eine Beschreibung muss hinzugefügt werden!",
-		"en": "Please add a travel purpose."
-	},
-	"expense.max_length": {
-		"de": " von {{max_length}} Zeichen.",
-		"en": " characters used of {{max_length}}."
-	},
-
-	"expense.info": {
-		"de": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend.",
-		"en": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend."
-	},
-	"expense.editExisting": {
-		"de": "Spesen editieren",
-		"en": "Edit expense"
-	},
-	"expense.createNew": {
-		"de": "Neue Spese erfassen",
-		"en": "Create new expense"
-	},
-	"expense.save": {
-		"de": "Speichern",
-		"en": "Save"
-	},
-	"expense.cancel": {
-		"de": "Abbrechen",
-		"en": "Cancel"
-	},
-	"expense.recipent": {
-		"de": "Spesenempfänger / in",
-		"en": "Expense recipent"
-	},
-	"expense.contact": {
-		"de": "Kontaktperson",
-		"en": "Contact"
+	"expense.accounting_text": {
+		"de": "Buchungstext (sichtbar in SAP)",
+		"en": "Account value (visual in SAP)"
 	},
 	"expense.action": {
 		"de": "Aktion",
 		"en": "Action"
 	},
-	"expense.edit": {
-		"de": "Editieren",
-		"en": "Edit"
-	},
-	"expense.delete": {
-		"de": "Löschen",
-		"en": "Delete"
-	},
-	"expense.delete.success": {
-		"de": "Das Spesenelement wurde erfolgreich gelöscht.",
-		"en": "The expense has been deleted successfully."
-	},
-	"expense.delete.error": {
-		"de": "Das Spesenelement konnte nicht gelöscht werden. Bitte versuch es nochmal!",
-		"en": "The expense could not be deleted successfully. Please retry!"
-	},
-	"expense.send": {
-		"de": "Absenden",
-		"en": "Send"
-	},
-	"expense.validate": {
-		"de": "Validieren",
-		"en": "Validate"
-	},
-	"expense.document_available": {
-		"de": "Dokument vorhanden",
-		"en": "Document available"
-	},
-	"expense.first_lastname": {
-		"de": "Vor- / Nachname",
-		"en": "First- / lastname"
-	},
-	"expense.phone": {
-		"de": "Telefonnummer",
-		"en": "Phone"
-	},
-	"expense.notes": {
-		"de": "Bemerkung / Rückmeldung",
-		"en": "Notes / feedback"
-	},
-	"expense.note_add": {
-		"de": "Bemerkung hinzufuügen",
-		"en": "Add note"
-	},
-	"expense.not_found.title": {
-		"de": "Nicht gefunden",
-		"en": "Not found"
-	},
-	"expense.not_found.body": {
-		"de": "Die Spese konnte leider nicht gefunden werden.",
-		"en": "The expense could not be found."
-	},
-	"expense.booking_info": {
-		"de": "Buchungsinformationen",
-		"en": "Account information"
-	},
-	"expense.accounting_text": {
-		"de": "Buchungstext (sichtbar in SAP)",
-		"en": "Account value (visual in SAP)"
-	},
-	"expense.expense_items_detail": {
-		"de": "Detailansicht Belege",
-		"en": "Added expense items"
-	},
-	"expense.date_expense_item": {
-		"de": "Datum Beleg",
-		"en": "Date expense item"
-	},
-	"expense.category": {
-		"de": "Kostenstelle",
-		"en": "Cost category"
-	},
-	"expense.travel_purpose": {
-		"de": "Reisegrund / Erklärung",
-		"en": "Travel purpose"
-	},
-	"expense.location_purpose": {
-		"de": "(Ort und Geschäftszweck)",
-		"en": "(location and business purpose"
-	},
-	"expense.amount": {
-		"de": "Betrag",
-		"en": "Amount"
-	},
-	"expense.in_currency": {
-		"de": "(in {{currency}})",
-		"en": "(in {{currency}})"
-	},
-	"expense.cost_centre": {
-		"de": "Account",
-		"en": "Account"
-	},
-	"expense.creator": {
-		"de": "Ersteller",
-		"en": "Creator"
-	},
-	"expense.project": {
-		"de": "(Projekt)",
-		"en": "(Project)"
-	},
-	"expense.delete_text": {
-		"de": "Sind Sie sicher, dass Sie die Spese mit der folgenden Beschreibung löschen möchten? {{name}}",
-		"en": "Are you sure you want to delete the expense with the description: {{name}}"
-	},
-	"expense.confirm_cancel_unsaved_changes": {
-		"de": "Wollen Sie ihre ungesicherten Änderungen verwerfen?",
-		"en": "Do you really want to cancel your unsaved changes?"
-	},
-	"expense.dirty_form_title": {
-		"de": "Validierungsfehler",
-		"en": "Validation error"
-	},
-	"expense.dirty_form": {
-		"de": "Bitte überprüfen Sie ihre Eingabe!",
-		"en": "Please validate your input."
+	"expense.add_document": {
+		"de": "Document hinzufügen",
+		"en": "Add docuement"
 	},
 	"expense.add_expense_item": {
 		"de": "Neuen Beleg hinzufügen",
 		"en": "Add new expense item"
 	},
-	"expense.select_currency": {
-		"de": "Währung wählen",
-		"en": "Select currency"
-	},
-	"expense.exchange_course": {
-		"de": "Wechselkurs",
-		"en": "Exchange"
+	"expense.amount": {
+		"de": "Betrag",
+		"en": "Amount"
 	},
 	"expense.amount_in_chf": {
 		"de": "Wert in CHF",
 		"en": "Amount in CHF"
+	},
+	"expense.booking_info": {
+		"de": "Buchungsinformationen",
+		"en": "Account information"
+	},
+	"expense.cancel": {
+		"de": "Abbrechen",
+		"en": "Cancel"
+	},
+	"expense.category": {
+		"de": "Kostenstelle",
+		"en": "Cost category"
+	},
+	"expense.confirm_cancel_unsaved_changes": {
+		"de": "Wollen Sie ihre ungesicherten Änderungen verwerfen?",
+		"en": "Do you really want to cancel your unsaved changes?"
+	},
+	"expense.contact": {
+		"de": "Kontaktperson",
+		"en": "Contact"
+	},
+	"expense.cost_centre": {
+		"de": "Account",
+		"en": "Account"
+	},
+	"expense.createNew": {
+		"de": "Neue Spese erfassen",
+		"en": "Create new expense"
+	},
+	"expense.creator": {
+		"de": "Ersteller",
+		"en": "Creator"
+	},
+	"expense.date_expense_item": {
+		"de": "Datum Beleg",
+		"en": "Date expense item"
+	},
+	"expense.delete": {
+		"de": "Löschen",
+		"en": "Delete"
+	},
+	"expense.delete.error": {
+		"de": "Das Spesenelement konnte nicht gelöscht werden. Bitte versuch es nochmal!",
+		"en": "The expense could not be deleted successfully. Please retry!"
+	},
+	"expense.delete.success": {
+		"de": "Das Spesenelement wurde erfolgreich gelöscht.",
+		"en": "The expense has been deleted successfully."
+	},
+	"expense.delete_text": {
+		"de": "Sind Sie sicher, dass Sie die Spese mit der folgenden Beschreibung löschen möchten? {{name}}",
+		"en": "Are you sure you want to delete the expense with the description: {{name}}"
+	},
+	"expense.dirty_form": {
+		"de": "Bitte überprüfen Sie ihre Eingabe!",
+		"en": "Please validate your input."
+	},
+	"expense.dirty_form_title": {
+		"de": "Validierungsfehler",
+		"en": "Validation error"
+	},
+	"expense.document_available": {
+		"de": "Dokument vorhanden",
+		"en": "Document available"
 	},
 	"expense.document_upload": {
 		"de": "Dokument hochladen (optional):",
@@ -464,116 +340,152 @@
 		"de": "Dokument {{document}} ersetzen",
 		"en": "Replace {{document}}"
 	},
-	"expense.document_upload.succeeded": {
-		"de": "Das Dokument wurde erfolgreich hochgeladen.",
-		"en": "The document upload was successful."
-	},
 	"expense.document_upload.error": {
 		"de": "Das Dokument konnte leider nicht hochgeladen werden. Bitte versuchen Sie es nochmals.",
 		"en": "The document upload did not succeed. Please try again."
 	},
-	"expense.add_document": {
-		"de": "Document hinzufügen",
-		"en": "Add docuement"
+	"expense.document_upload.succeeded": {
+		"de": "Das Dokument wurde erfolgreich hochgeladen.",
+		"en": "The document upload was successful."
 	},
-	"expense.account.306020": {
-		"de": "Aus- und Weiterbildung",
-		"en": "Registration fees for conferences/workshops"
+	"expense.edit": {
+		"de": "Editieren",
+		"en": "Edit"
 	},
-	"expense.account.306900": {
-		"de": "Verschiedenen personalkosten",
-		"en": "Apero"
-	},
-	"expense.account.310010": {
-		"de": "Technik- und Hilfsmaterial",
-		"en": "Technical and supportive material"
-	},
-	"expense.account.310040": {
-		"de": "IT-Betriebs/Verbrauchsmaterial",
-		"en": "IT consumables"
-	},
-	"expense.account.310050": {
-		"de": "Büromaterial",
-		"en": "Stationary"
-	},
-	"expense.account.312000": {
-		"de": "Drucksachen, Publikationen, Kartenmaterial",
-		"en": "Print shops"
-	},
-	"expense.account.313000": {
-		"de": "Fachliteratur",
-		"en": "Books"
-	},
-	"expense.account.313010": {
-		"de": "Zeitschriften",
-		"en": "Printed media"
-	},
-	"expense.account.313020": {
-		"de": "Elektronische Medien und Datenbanken",
-		"en": "Electronic media (DVDs, CDs, ...)"
-	},
-	"expense.account.320240": {
-		"de": "Unterhalt EDV Hardware",
-		"en": "Maintenance hardware"
-	},
-	"expense.account.320250": {
-		"de": "Unterhalt EDV Software",
-		"en": "Maintenance software"
-	},
-	"expense.account.321200": {
-		"de": "Gebühren / Bewilligungen / Abgaben",
-		"en": "Fees (not registration fees)"
-	},
-	"expense.account.322000": {
-		"de": "Reisekosten Mitarbeitende",
-		"en": "All travel costs (ZVV, train, bus, flight, meals)"
-	},
-	"expense.account.322020": {
-		"de": "Repräsentationsspesen",
-		"en": "Meals with invited guests"
-	},
-	"expense.account.322040": {
-		"de": "Reisekosten Dritte",
-		"en": "Travel costs for third party members"
-	},
-	"expense.account.325050": {
-		"de": "Anschaffung audiovisuelle & übrige Bürogeräte",
-		"en": "A/V material"
-	},
-	"expense.account.325060": {
-		"de": "Anschaffung EDV Hardware",
-		"en": "IT hardware"
-	},
-	"expense.account.325070": {
-		"de": "Anschaffung EDV Netzwerkausrüstung",
-		"en": "Networking hardware"
-	},
-	"expense.account.325000": {
-		"de": "Anschaffung EDV Software",
-		"en": "IT software"
-	},
-	"expense.account.329000": {
-		"de": "Telefon und Fax",
-		"en": "Phone and fax"
-	},
-	"expense.account.329100": {
-		"de": "Versand- / Transportkosten und Zoll",
-		"en": "Transport and postal fees, duties"
-	},
-	"expense.account.330000": {
-		"de": "Mitgliederbeiträge",
-		"en": "Memberships"
-	},
-	"expense.error.title": {
-		"de": "Ein Fehler ist aufgetreten",
-		"en": "An error has occured"
+	"expense.editExisting": {
+		"de": "Spesen editieren",
+		"en": "Edit expense"
 	},
 	"expense.error.loading_exchange_rate": {
 		"de": "Leider konnte der Wechselkurs nicht geladen werden. Bitte versuchen Sie es nochmals.",
 		"en": "Exchange rate could not be loaded. Please retry."
 	},
+	"expense.error.title": {
+		"de": "Ein Fehler ist aufgetreten",
+		"en": "An error has occured"
+	},
+	"expense.exchange_course": {
+		"de": "Wechselkurs",
+		"en": "Exchange"
+	},
+	"expense.expense_items_detail": {
+		"de": "Detailansicht Belege",
+		"en": "Added expense items"
+	},
+	"expense.first_lastname": {
+		"de": "Vor- / Nachname",
+		"en": "First- / lastname"
+	},
+	"expense.info": {
+		"de": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend.",
+		"en": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend."
+	},
+	"expense.in_currency": {
+		"de": "(in {{currency}})",
+		"en": "(in {{currency}})"
+	},
+	"expense.location_purpose": {
+		"de": "(Ort und Geschäftszweck)",
+		"en": "(location and business purpose"
+	},
+	"expense.max_length": {
+		"de": " von {{max_length}} Zeichen.",
+		"en": " characters used of {{max_length}}."
+	},
+	"expense.notes": {
+		"de": "Bemerkung / Rückmeldung",
+		"en": "Notes / feedback"
+	},
+	"expense.note_add": {
+		"de": "Bemerkung hinzufuügen",
+		"en": "Add note"
+	},
+	"expense.not_found.body": {
+		"de": "Die Spese konnte leider nicht gefunden werden.",
+		"en": "The expense could not be found."
+	},
+	"expense.not_found.title": {
+		"de": "Nicht gefunden",
+		"en": "Not found"
+	},
+	"expense.phone": {
+		"de": "Telefonnummer",
+		"en": "Phone"
+	},
+	"expense.project": {
+		"de": "(Projekt)",
+		"en": "(Project)"
+	},
+	"expense.recipent": {
+		"de": "Spesenempfänger / in",
+		"en": "Expense recipent"
+	},
+	"expense.save": {
+		"de": "Speichern",
+		"en": "Save"
+	},
 	"expense.save_first": {
 		"de": "Um ein Belegdokument wie bspw. PDF's hochzuladen, musst du zuerst speichern.",
 		"en": "You have to save the expense-item first before you can upload any documents."
+	},
+	"expense.select_currency": {
+		"de": "Währung wählen",
+		"en": "Select currency"
+	},
+	"expense.send": {
+		"de": "Absenden",
+		"en": "Send"
+	},
+	"expense.state.accepted": {
+		"de": "akzeptiert",
+		"en": "accepted"
+	},
+	"expense.state.created": {
+		"de": "erstellt",
+		"en": "created"
+	},
+	"expense.state.rejected": {
+		"de": "abgelehnt",
+		"en": "rejected"
+	},
+	"expense.travel_purpose": {
+		"de": "Reisegrund / Erklärung",
+		"en": "Travel purpose"
+	},
+	"expense.validate": {
+		"de": "Validieren",
+		"en": "Validate"
+	},
+	"expense.validation.account": {
+		"de": "Ein Kategorie / Konto muss gewählt werden.",
+		"en": "Please select a cost category."
+	},
+	"expense.validation.amount": {
+		"de": "Der Betrag muss erfasst werden.",
+		"en": "Please enter an amount."
+	},
+	"expense.validation.bookingText": {
+		"de": "Bitte füge eine Buchungsinformation hinzu.",
+		"en": "Please enter a value on the panel «Account information» to proceed."
+	},
+	"expense.validation.cost_centre": {
+		"de": "Die Kostenstelle muss erfasst werden.",
+		"en": "Please add a cost center."
+	},
+	"expense.validation.date_expense_item": {
+		"de": "Das Belegdatum muss gewählt werden!",
+		"en": "Please enter a expense item date."
+	},
+	"expense.validation.description": {
+		"de": "Eine Beschreibung muss hinzugefügt werden!",
+		"en": "Please add a travel purpose."
+	},
+	"expense.validation.note": {
+		"de": "Bitte geben Sie eine Nachricht von mindestens drei Zeichen ein!",
+		"en": "Your message is to short. There need to be at least three characters."
+	},
+	"expense.validation.select_currency": {
+		"de": "Eine Währung muss gewählt werden (bsp. CHF).",
+		"en": "Please enter a currency (i.e CHF)."
 	}
 }
