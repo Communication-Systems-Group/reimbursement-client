@@ -34,8 +34,8 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				description: '',
 				amount: {
 					original: '',
-					currency: 'CHF',
-					exchange_rate: '1.00',
+					currency: '',
+					exchange_rate: '',
 					value: ''
 				},
 				cost_center: {
@@ -120,11 +120,11 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		};
 
 		$scope.getCostCategories = function () {
-//			expenseRestService.getCostCategories.then(function (result) {
-//				$scope.costCategories = result;
-//			});
+			expenseRestService.getCostCategories().success(function (result) {
+				$scope.costCategories = result;
+			});
 
-			$scope.costCategories = expenseRestService.getCostCategories();
+			//$scope.costCategories = expenseRestService.getCostCategories();
 		};
 
 		$scope.deleteExpenseItem = function (expenseItem_id) {

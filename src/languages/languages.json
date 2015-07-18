@@ -265,7 +265,7 @@
 	},
 	"expense.validation.account": {
 		"de": "Ein Kategorie / Konto muss gewählt werden.",
-		"en": "Please select a category / account."
+		"en": "Please select a cost category."
 	},
 	"expense.validation.amount": {
 		"de": "Der Betrag muss erfasst werden.",
@@ -389,8 +389,8 @@
 		"en": "Date expense item"
 	},
 	"expense.category": {
-		"de": "Kategorie / Konto",
-		"en": "Category / account"
+		"de": "Kostenstelle",
+		"en": "Cost category"
 	},
 	"expense.travel_purpose": {
 		"de": "Reisegrund / Erklärung",
@@ -409,8 +409,8 @@
 		"en": "(in {{currency}})"
 	},
 	"expense.cost_centre": {
-		"de": "Kostenstelle",
-		"en": "Cost centre"
+		"de": "Account",
+		"en": "Account"
 	},
 	"expense.project": {
 		"de": "(Projekt)",
@@ -456,9 +456,9 @@
 		"de": "Dokument hinzufügen",
 		"en": "Add document"
 	},
-	"expense.document_upload.button_remove": {
-		"de": "Dokument {{document}} entfernen",
-		"en": "Remove {{document}}"
+	"expense.document_upload.button_replace": {
+		"de": "Dokument {{document}} ersetzen",
+		"en": "Replace {{document}}"
 	},
 	"expense.document_upload.succeeded": {
 		"de": "Das Dokument wurde erfolgreich hochgeladen.",

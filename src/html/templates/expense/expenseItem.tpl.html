@@ -157,9 +157,9 @@
 							{{'reimbursement.expense.document_upload.button' | translate }}
 						</button>
 						<button ng-if="expenseItemUploadSucceeded && filename !== undefined"
-								class="btn btn-danger" name="field">
+								class="btn btn-danger" name="field" type="file" flow-btn>
 							<i class="fa fa-times-circle-o"></i>
-							{{'reimbursement.expense.document_upload.button_remove' | translate:'{document: filename}'
+							{{'reimbursement.expense.document_upload.button_replace' | translate:'{document: filename}'
 							}}{{filename}}
 						</button>
 					</div>

@@ -181,7 +181,8 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 							"reason": $scope.expenseItem.description,
 							"currency": $scope.expenseItem.amount.currency,
 							"exchangeRate": $scope.expenseItem.amount.exchange_rate,
-							"amount": $scope.expenseItem.amount.value,
+							"originalAmount": $scope.expenseItem.amount.original,
+							"calculatedAmount": $scope.expenseItem.amount.value,
 							"project": $scope.expenseItem.project
 						};
 						expenseRestService.postExpenseItem(data)
