@@ -412,6 +412,10 @@
 		"de": "Account",
 		"en": "Account"
 	},
+	"expense.creator": {
+		"de": "Ersteller",
+		"en": "Creator"
+	},
 	"expense.project": {
 		"de": "(Projekt)",
 		"en": "(Project)"

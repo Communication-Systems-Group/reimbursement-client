@@ -19,194 +19,211 @@
 </div>
 
 <form name="form1">
-	<div class="row">
-		<div class="col-md-12">
-			<div ng-class="{'col-md-6': expense.note.length > 0, 'col-md-12': expense.note.length < 1}">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">{{ 'reimbursement.expense.contact' | translate }}</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div ng-class="{'col-md-6': expense.note.length > 0, 'col-md-12': expense.note.length < 1}">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">{{ 'reimbursement.expense.contact' | translate }}</h3>
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="name">{{ 'reimbursement.expense.first_lastname' | translate
+									}}</label>
+								<input type="text" name="name"
+									   class="form-control" id="name"
+									   placeholder="{{ expense.contact.firstname }} {{ expense.contact.lastname }}"
+									   disabled>
 							</div>
-							<div class="panel-body">
-								<div class="form-group">
-									<label for="name">{{ 'reimbursement.expense.first_lastname' | translate
-										}}</label>
-									<input type="text" name="name"
-										   class="form-control" id="name"
-										   placeholder="{{ expense.contact.firstname }} {{ expense.contact.lastname }}"
-										   disabled>
-								</div>
-								<div class="form-group">
-									<label for="employeeId">{{ 'reimbursement.expense.phone' | translate }}</label>
-									<input type="tel" name="phone" ng-model="expense.contact.phone"
-										   class="form-control"
-										   id="employeeId"
-										   placeholder="{{ 'reimbursement.expense.phone' | translate }}" disabled>
-								</div>
+							<div class="form-group">
+								<label for="employeeId">{{ 'reimbursement.expense.phone' | translate }}</label>
+								<input type="tel" name="phone" ng-model="expense.contact.phone"
+									   class="form-control"
+									   id="employeeId"
+									   placeholder="{{ 'reimbursement.expense.phone' | translate }}" disabled>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">{{ 'reimbursement.expense.booking_info' | translate }}</h3>
-							</div>
-							<div class="panel-body">
-								<div class="form-group">
-									<label for="accounting">{{ 'reimbursement.expense.accounting_text' | translate
-										}}</label>
-									<input type="text" name="accounting" ng-model="expense.accounting"
-										   class="form-control"
-										   id="accounting"
-										   placeholder="{{ 'reimbursement.expense.accounting_text' | translate }}">
-								</div>
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">{{ 'reimbursement.expense.creator' | translate }}</h3>
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="name">{{ 'reimbursement.expense.first_lastname' | translate
+									}}</label>
+								<input type="text" name="name"
+									   class="form-control" id="name"
+									   placeholder="{{ expense.creator.firstname }} {{ expense.creator.lastname }}"
+									   disabled>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6" ng-show="expense.note.length > 0 || expenseId !== undefined">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">{{ 'reimbursement.expense.note_add' | translate }}</h3>
-					</div>
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-12">
-								<textarea class="form-control" ng-model="note" rows="2"
-										  maxlength="250"></textarea>
-								<small class="float-right">{{note.length}}{{'reimbursement.expense.max_length' |
-									translate:'{ max_length: 250
-									}'}}
-								</small>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">{{ 'reimbursement.expense.booking_info' | translate }}</h3>
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="accounting">{{ 'reimbursement.expense.accounting_text' | translate
+									}}</label>
+								<input type="text" name="accounting" ng-model="expense.accounting"
+									   class="form-control"
+									   id="accounting"
+									   placeholder="{{ 'reimbursement.expense.accounting_text' | translate }}">
 							</div>
 						</div>
 					</div>
-					<div class="panel-footer">
-						<button class="btn btn-primary" ng-click="saveComment()">
-							<i class="fa fa-add"></i>
-							{{'reimbursement.expense.save' | translate}}
-						</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6" ng-show="expense.note.length > 0 || expenseId !== undefined">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{ 'reimbursement.expense.note_add' | translate }}</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-12">
+							<textarea class="form-control" ng-model="note" rows="2"
+									  maxlength="250"></textarea>
+							<small class="float-right">{{note.length}}{{'reimbursement.expense.max_length' |
+								translate:'{ max_length: 250
+								}'}}
+							</small>
+						</div>
 					</div>
 				</div>
-				<div class="panel panel-default" ng-if="expense.note.length > 0">
-					<div class="panel-heading">
-						<h3 class="panel-title">{{ 'reimbursement.expense.notes' | translate }}</h3>
-					</div>
-					<div class="panel-body note-feedback">
-						<div class="media" ng-repeat="n in expense.note | orderBy:'date':true">
-							<div class="media-body">
-								<h4 class="media-heading">
-									{{n.creator.firstname}} {{n.creator.lastname}}
+				<div class="panel-footer">
+					<button class="btn btn-primary" ng-click="saveComment()">
+						<i class="fa fa-add"></i>
+						{{'reimbursement.expense.save' | translate}}
+					</button>
+				</div>
+			</div>
+			<div class="panel panel-default" ng-if="expense.note.length > 0">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{ 'reimbursement.expense.notes' | translate }}</h3>
+				</div>
+				<div class="panel-body note-feedback">
+					<div class="media" ng-repeat="n in expense.note | orderBy:'date':true">
+						<div class="media-body">
+							<h4 class="media-heading">
+								{{n.creator.firstname}} {{n.creator.lastname}}
 										<span
 											class="title-date-right">{{n.date | date:'dd.MM.yyyy'}}</span>
-								</h4>
-								{{n.text}}
-							</div>
+							</h4>
+							{{n.text}}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
-	<div class="row">
-		<div class="col-md-3">
-			<button class="btn btn-primary" ng-click="addNewExpenseItem()">
-				<i class="fa fa-plus-circle"></i>
-				{{'reimbursement.expense.add_expense_item' | translate}}
-			</button>
-		</div>
+<div class="row">
+	<div class="col-md-3">
+		<button class="btn btn-primary" ng-click="addNewExpenseItem()">
+			<i class="fa fa-plus-circle"></i>
+			{{'reimbursement.expense.add_expense_item' | translate}}
+		</button>
 	</div>
-	<table class="table table-striped">
-		<thead>
-		<tr>
-			<th>#</th>
-			<th>{{ 'reimbursement.expense.date_expense_item' | translate }}</th>
-			<th>{{ 'reimbursement.expense.category' | translate }}</th>
-			<th>
-				{{ 'reimbursement.expense.travel_purpose' | translate }}
-				<br>
-				<small>{{ 'reimbursement.expense.location_purpose' | translate }}</small>
-			</th>
-			<th class="align-right">
-				{{ 'reimbursement.expense.amount' | translate }}
-				<br>
-				<small>{{ 'reimbursement.expense.in_currency' | translate: '{currency: "CHF"}' }}</small>
-			</th>
-			<!--<th>-->
-			<!--{{ 'reimbursement.expense.cost_centre' | translate }}-->
-			<!--<br>-->
-			<!--<small>{{ 'reimbursement.expense.project' | translate }}</small>-->
-			<!--</th>-->
-			<th></th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr ng-repeat="r in expense.expenseItems">
-			<td>{{r.uid | idFormatting:'R'}}</td>
-			<td>{{r.date | date:'dd.MM.yyyy'}}</td>
-			<td>{{r.costCategory.name.de}}</td>
-			<td>{{r.description | limitTo:20}}</td>
-			<td class="align-right">{{r.amount.calculatedAmount | currency:'CHF ':2}}</td>
-			<!--<td>{{r.cost_center.prefix}}{{r.cost_center.value}}</td>-->
-			<td>
-				<div class="dropdown">
-					<button class="btn btn-primary dropdown-toggle" type="button" id="action_button_{{r.uid}}"
-							data-toggle="dropdown" aria-expanded="true">
-						{{'reimbursement.expense.action' | translate}}
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="action_button_{{r.uid}}">
-						<li role="presentation">
-							<a role="menuitem" tabindex="-1" ng-click="editExpenseItem(r.uid)">
-								<i class="fa fa-pencil"></i>&nbsp;{{'reimbursement.expense.edit' | translate}}
-							</a>
-						</li>
-						<li class="divider"></li>
-						<li role="presentation">
-							<a role="menuitem" tabindex="-1" ng-click="deleteExpenseItem(r.uid)">
-								<i class="fa fa-trash"></i>&nbsp;{{'reimbursement.expense.delete' | translate}}
-							</a>
-						</li>
-					</ul>
-				</div>
-			</td>
-			{{r}}
-		</tr>
-		</tbody>
-		<tfoot>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td class="align-right"><strong>{{total | currency:'':2}}</strong></td>
-			<td></td>
-		</tr>
-		</tfoot>
-	</table>
-	<div class="row row-centered" ng-if="expense.expenseItems === undefined">
-		<div class="col-md-12 col-centered">
-			{{ 'reimbursement.dashboard.table.noContent' | translate }}
-		</div>
+</div>
+<table class="table table-striped">
+	<thead>
+	<tr>
+		<th>#</th>
+		<th>{{ 'reimbursement.expense.date_expense_item' | translate }}</th>
+		<th>{{ 'reimbursement.expense.category' | translate }}</th>
+		<th>
+			{{ 'reimbursement.expense.travel_purpose' | translate }}
+			<br>
+			<small>{{ 'reimbursement.expense.location_purpose' | translate }}</small>
+		</th>
+		<th class="align-right">
+			{{ 'reimbursement.expense.amount' | translate }}
+			<br>
+			<small>{{ 'reimbursement.expense.in_currency' | translate: '{currency: "CHF"}' }}</small>
+		</th>
+		<!--<th>-->
+		<!--{{ 'reimbursement.expense.cost_centre' | translate }}-->
+		<!--<br>-->
+		<!--<small>{{ 'reimbursement.expense.project' | translate }}</small>-->
+		<!--</th>-->
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="r in expense.expenseItems">
+		<td>{{r.uid | idFormatting:'R'}}</td>
+		<td>{{r.date | date:'dd.MM.yyyy'}}</td>
+		<td>{{r.costCategory.name.de}}</td>
+		<td>{{r.description | limitTo:20}}</td>
+		<td class="align-right">{{r.amount.calculatedAmount | currency:'CHF ':2}}</td>
+		<!--<td>{{r.cost_center.prefix}}{{r.cost_center.value}}</td>-->
+		<td>
+			<div class="dropdown">
+				<button class="btn btn-primary dropdown-toggle" type="button" id="action_button_{{r.uid}}"
+						data-toggle="dropdown" aria-expanded="true">
+					{{'reimbursement.expense.action' | translate}}
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="action_button_{{r.uid}}">
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" ng-click="editExpenseItem(r.uid)">
+							<i class="fa fa-pencil"></i>&nbsp;{{'reimbursement.expense.edit' | translate}}
+						</a>
+					</li>
+					<li class="divider"></li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" ng-click="deleteExpenseItem(r.uid)">
+							<i class="fa fa-trash"></i>&nbsp;{{'reimbursement.expense.delete' | translate}}
+						</a>
+					</li>
+				</ul>
+			</div>
+		</td>
+		{{r}}
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td class="align-right"><strong>{{total | currency:'':2}}</strong></td>
+		<td></td>
+	</tr>
+	</tfoot>
+</table>
+<div class="row row-centered" ng-if="expense.expenseItems === undefined">
+	<div class="col-md-12 col-centered">
+		{{ 'reimbursement.dashboard.table.noContent' | translate }}
 	</div>
+</div>
 
-	<div class="row">
-		<div class="col-md-12">
-			<button class="btn btn-primary" ng-click="saveExpense(form1)"
-					ng-disabled="form1.$pristine && !expenseItemChanges">
-				<i class="fa fa-check"></i>
-				{{'reimbursement.expense.save' | translate}}
-			</button>
-			<button class="btn btn-default" ng-click="cancel(form1)">
-				<i class="fa fa-times"></i>
-				{{'reimbursement.expense.cancel' | translate}}
-			</button>
-		</div>
+<div class="row">
+	<div class="col-md-12">
+		<button class="btn btn-primary" ng-click="saveExpense(form1)"
+				ng-disabled="form1.$pristine && !expenseItemChanges">
+			<i class="fa fa-check"></i>
+			{{'reimbursement.expense.save' | translate}}
+		</button>
+		<button class="btn btn-default" ng-click="cancel(form1)">
+			<i class="fa fa-times"></i>
+			{{'reimbursement.expense.cancel' | translate}}
+		</button>
 	</div>
+</div>
 </form>
 </div>
