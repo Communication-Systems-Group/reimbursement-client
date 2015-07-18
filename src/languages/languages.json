@@ -468,6 +468,10 @@
 		"de": "Das Dokument konnte leider nicht hochgeladen werden. Bitte versuchen Sie es nochmals.",
 		"en": "The document upload did not succeed. Please try again."
 	},
+	"expense.add_document": {
+		"de": "Document hinzufügen",
+		"en": "Add docuement"
+	},
 	"expense.account.306020": {
 		"de": "Aus- und Weiterbildung",
 		"en": "Registration fees for conferences/workshops"

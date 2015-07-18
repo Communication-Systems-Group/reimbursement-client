@@ -14,12 +14,6 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 		$scope.flow = {};
 		$scope.filename = undefined;
 
-		if ($scope.expenseItem.uid !== undefined) {
-			$scope.amount_original = Math.ceil($scope.expenseItem.amount / $scope.expenseItem.exchangeRate);
-		} else {
-			$scope.amount_original = '0';
-		}
-
 		$scope.alert = {
 			info: {
 				state: false,
@@ -35,16 +29,6 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 			}
 		};
 
-//		function getCostCategories() {
-//			expenseRestService.getCostCategories()
-//				.success(function (response) {
-//					$scope.accounts = response;
-//				})
-//				.error(function () {
-//					globalMessagesService.showInfo($filter('translate')('reimbursement.error.title'), $filter('translate')('reimbursement.error.body'))
-//				});
-//		}
-
 		/**
 		 * Validates inputs and stores error messages into an array. Returns true if there are no
 		 * validation errors and false if there are.
@@ -57,13 +41,13 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 			if (!f.dateExpenseItem.$valid) {
 				errorMsg.push($filter('translate')('reimbursement.expense.validation.date_expense_item'));
 			}
-			if ($scope.expenseItem.costCategory === null || $scope.expenseItem.costCategory === undefined) {
+			if ($scope.expenseItem.costCategory.uid === null || $scope.expenseItem.costCategory.uid === undefined) {
 				errorMsg.push($filter('translate')('reimbursement.expense.validation.account'));
 			}
 			if (!f.original.$valid || !f.currency.$valid) {
 				errorMsg.push($filter('translate')('reimbursement.expense.validation.amount'));
 			}
-			if ($scope.expenseItem.currency === undefined || $scope.expenseItem.currency === null || $scope.expenseItem.currency === '') {
+			if ($scope.expenseItem.amount.currency === undefined || $scope.expenseItem.amount.currency === null || $scope.expenseItem.amount.currency === '') {
 				errorMsg.push($filter('translate')('reimbursement.expense.validation.select_currency'));
 			}
 			if (!f.project.$valid) {
@@ -98,7 +82,7 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 		$scope.calculateAmount = function () {
 
 			if ($scope.expenseItem.amount.currency !== undefined) {
-				if ($scope.expenseItem.amount.original !== '0') {
+				if ($scope.expenseItem.amount.originalAmount !== '0') {
 
 					// Do not load exchange rate if the selected currency is CHF
 					if ($scope.expenseItem.amount.currency !== 'CHF') {
@@ -106,7 +90,7 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 
 							if (result.status === 200) {
 								$scope.expenseItem.amount.exchange_rate = result.data.rates[$scope.expenseItem.amount.currency];
-								$scope.expenseItem.amount.value = Math.ceil($scope.expenseItem.amount.original * $scope.expenseItem.amount.exchange_rate);
+								$scope.expenseItem.amount.calculatedAmount = Math.ceil($scope.expenseItem.amount.originalAmount * $scope.expenseItem.amount.exchange_rate);
 							} else {
 								globalMessagesService.showError(
 									$filter('translate')('reimbursement.expense.error.title'),
@@ -116,7 +100,7 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 						});
 					} else {
 						$scope.expenseItem.amount.exchange_rate = 1;
-						$scope.expenseItem.amount.value = Math.ceil($scope.expenseItem.amount.original * $scope.expenseItem.amount.exchange_rate);
+						$scope.expenseItem.amount.calculatedAmount = Math.ceil($scope.expenseItem.amount.originalAmount * $scope.expenseItem.amount.exchange_rate);
 					}
 
 				}
@@ -165,7 +149,7 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 		 * and close the modal.
 		 * @param form
 		 */
-		$scope.saveExpenseItem = function (form) {
+		$scope.saveExpenseItem = function (form, addDocument) {
 			$scope.alert.danger.state = false;
 			var data = {};
 
@@ -181,28 +165,32 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 							"reason": $scope.expenseItem.description,
 							"currency": $scope.expenseItem.amount.currency,
 							"exchangeRate": $scope.expenseItem.amount.exchange_rate,
-							"originalAmount": $scope.expenseItem.amount.original,
-							"calculatedAmount": $scope.expenseItem.amount.value,
+							"originalAmount": $scope.expenseItem.amount.originalAmount,
+							"calculatedAmount": $scope.expenseItem.amount.calculatedAmount,
 							"project": $scope.expenseItem.project
 						};
 						expenseRestService.postExpenseItem(data)
 							.success(function (response, status) {
-								if (status === 201) {
+								if (status === 201 || status === 200) {
 									$scope.expenseItem.uid = response.uid;
 									$scope.expense.expenseItems.push($scope.expenseItem);
 									$scope.getTotal();
 
-									$scope.expenseItemAttachmentPath = expenseRestService.expenseItemAttachmentPath(response.uid);
+									if (addDocument) {
+										$scope.expenseItemAttachmentPath = expenseRestService.expenseItemAttachmentPath(response.uid);
+									} else {
+										$modalInstance.dismiss();
+									}
 								} else {
 									$scope.alert.danger.state = true;
-									$scope.alert.danger.value = $filter('translate')('expense.error.body');
+									$scope.alert.danger.value = $filter('translate')('reimbursement.error.body');
 
 									$scope.expenseItemAttachmentPath = false;
 								}
 							})
 							.error(function (response) {
 								$scope.alert.danger.state = true;
-								$scope.alert.danger.value = $filter('translate')('expense.error.body_message', {message: response.message});
+								$scope.alert.danger.value = $filter('translate')('reimbursement.error.body_message', {message: response.message});
 
 								$scope.expenseItemAttachmentPath = false;
 							});
@@ -214,27 +202,32 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 							"reason": $scope.expenseItem.reason,
 							"currency": $scope.expenseItem.amount.currency,
 							"exchangeRate": $scope.expenseItem.amount.exchange_rate,
-							"amount": $scope.expenseItem.amount.value,
+							"originalAmount": $scope.expenseItem.amount.originalAmount,
+							"calculatedAmount": $scope.expenseItem.amount.calculatedAmount,
 							"project": $scope.expenseItem.project
 						};
 						expenseRestService.putExpenseItem(data, $scope.expenseItem.uid)
 							.success(function (response, status) {
-								if (status === 201) {
-									var id = $scope.find($scope.expense.expenseItems, $scope.expenseItem.id);
+								if (status === 201 || status === 200) {
+									var id = $scope.find($scope.expense.expenseItems, $scope.expenseItem.uid);
 									$scope.expense.expenseItems[id[0]] = $scope.expenseItem;
 									$scope.getTotal();
 
-									$scope.expenseItemAttachmentPath = expenseRestService.expenseItemAttachmentPath(response.expenseItemUid);
+									if (addDocument) {
+										$scope.expenseItemAttachmentPath = expenseRestService.expenseItemAttachmentPath(response.expenseItemUid);
+									} else {
+										$modalInstance.dismiss();
+									}
 								} else {
 									$scope.alert.danger.state = true;
-									$scope.alert.danger.value = $filter('translate')('expense.error.body');
+									$scope.alert.danger.value = $filter('translate')('reimbursement.error.body');
 
 									$scope.expenseItemAttachmentPath = false;
 								}
 							})
 							.error(function (response) {
 								$scope.alert.danger.state = true;
-								$scope.alert.danger.value = $filter('translate')('expense.error.body_message', {message: response.message});
+								$scope.alert.danger.value = $filter('translate')('reimbursement.error.body_message', {message: response.message});
 
 								$scope.expenseItemAttachmentPath = false;
 							});

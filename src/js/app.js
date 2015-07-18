@@ -132,7 +132,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 app.run(['$http', function ($http) {
 	'use strict';
 
-	$http.defaults.headers.post['X-XSRF-TOKEN'] = function () {
+	$http.defaults.headers.common['X-XSRF-TOKEN'] = function () {
 		return document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 	};
 

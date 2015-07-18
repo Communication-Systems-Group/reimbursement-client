@@ -33,10 +33,10 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				account: null,
 				description: '',
 				amount: {
-					original: '',
+					originalAmount: '',
 					currency: '',
 					exchange_rate: '',
-					value: ''
+					calculatedAmount: ''
 				},
 				cost_center: {
 					prefix: 'E-1000',
