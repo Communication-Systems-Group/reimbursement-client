@@ -54,7 +54,7 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 				errorMsg.push($filter('translate')('reimbursement.expense.validation.select_currency'));
 			}
 			if (!f.project.$valid) {
-				errorMsg.push($filter('translate')('reimbursement.expense.validation.cost_centre'));
+				errorMsg.push($filter('translate')('reimbursement.expense.validation.project'));
 			}
 			if (!f.reason.$valid) {
 				errorMsg.push($filter('translate')('reimbursement.expense.validation.description'));

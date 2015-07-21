@@ -468,9 +468,9 @@
 		"de": "Bitte füge eine Buchungsinformation hinzu.",
 		"en": "Please enter a value on the panel «Account information» to proceed."
 	},
-	"expense.validation.cost_centre": {
-		"de": "Die Kostenstelle muss erfasst werden.",
-		"en": "Please add a cost center."
+	"expense.validation.project": {
+		"de": "Das Projekt muss erfasst werden.",
+		"en": "Please add a project."
 	},
 	"expense.validation.date_expense_item": {
 		"de": "Das Belegdatum muss gewählt werden!",
