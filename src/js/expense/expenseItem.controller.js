@@ -165,7 +165,7 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 							"expenseUid": $scope.expense.uid,
 							"date": $scope.expenseItem.date,
 							"costCategoryUid": $scope.expenseItem.costCategory.uid,
-							"reason": $scope.expenseItem.description,
+							"reason": $scope.expenseItem.reason,
 							"currency": $scope.expenseItem.amount.currency,
 							"exchangeRate": $scope.expenseItem.amount.exchange_rate,
 							"originalAmount": $scope.expenseItem.amount.originalAmount,

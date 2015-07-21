@@ -31,17 +31,14 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				expense_uid: expense_uid,
 				date: null,
 				account: null,
-				description: '',
+				reason: '',
 				amount: {
 					originalAmount: '',
 					currency: '',
 					exchange_rate: '',
 					calculatedAmount: ''
 				},
-				cost_center: {
-					prefix: 'E-1000',
-					value: ''
-				},
+				costCategory: {},
 				isNew: true
 			};
 
