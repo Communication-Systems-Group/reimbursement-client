@@ -8,7 +8,7 @@ app.factory('dashboardRestService', ['$http', 'HOST',
 		}
 
 		function deleteExpense(uid) {
-			return $http({method: 'DELETE', url: HOST + '/api/user/expense/' + uid});
+			return $http({method: 'DELETE', url: HOST + '/api/user/expenses/expense-item/' + uid});
 		}
 
 		return {
