@@ -50,6 +50,9 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 			if ($scope.expenseItem.amount.currency === undefined || $scope.expenseItem.amount.currency === null || $scope.expenseItem.amount.currency === '') {
 				errorMsg.push($filter('translate')('reimbursement.expense.validation.select_currency'));
 			}
+			if ($scope.expenseItem.amount.value === '') {
+				errorMsg.push($filter('translate')('reimbursement.expense.validation.select_currency'));
+			}
 			if (!f.project.$valid) {
 				errorMsg.push($filter('translate')('reimbursement.expense.validation.cost_centre'));
 			}
