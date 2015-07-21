@@ -1,6 +1,6 @@
-app.controller('DashboardController', ['$scope', 'dashboardRestService', 'globalMessagesService', '$filter', '$state',
+app.controller('DashboardController', ['$scope', 'dashboardRestService', 'globalMessagesService', '$filter', '$state', 'expenseRestService',
 
-	function ($scope, dashboardRestService, globalMessagesService, $filter, $state) {
+	function ($scope, dashboardRestService, globalMessagesService, $filter, $state, expenseRestService) {
 		'use strict';
 
 		function init() {
@@ -21,6 +21,17 @@ app.controller('DashboardController', ['$scope', 'dashboardRestService', 'global
 
 		$scope.go = function (state, params) {
 			$state.go(state, params);
+		};
+
+		$scope.addExpense = function () {
+			expenseRestService.postExpense({bookingText: 'dghgh', assignedManagerUid: 'dfghdfgh', state: 'CREATED'})
+				.success(function (response) {
+					$state.go('expense', {id: response.uid});
+				})
+				.error(function () {
+					$filter('translate')('reimbursement.error.title');
+					$filter('translate')('reimbursement.error.body');
+				});
 		};
 
 		/**
