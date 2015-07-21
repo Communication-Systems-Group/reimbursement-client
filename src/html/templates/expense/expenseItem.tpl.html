@@ -105,10 +105,9 @@
 			<div class="row margin-top-10">
 				<div class="col-md-4">
 					<div class="form-group">
-						<label for="project">{{'reimbursement.expense.cost_centre' | translate }}&nbsp;*</label>
+						<label for="project">{{'reimbursement.expense.project' | translate }}&nbsp;*</label>
 
 						<div class="input-group">
-							<!--<div class="input-group-addon">{{expense_item.cost_center.prefix}}</div>-->
 							<input type="text" id="project" class="form-control" name="project"
 								   ng-model="expenseItem.project"
 								   ng-disabled="expenseItemAttachmentPath" required>
@@ -183,5 +182,4 @@
 			</button>
 		</div>
 	</form>
-	{{expenseItem}}
 </div>
