@@ -6,6 +6,7 @@
 	<table class="table table-striped">
 		<thead>
 		<tr>
+			<th>#</th>
 			<th>{{ 'reimbursement.dashboard.table.date' | translate }}</th>
 			<th>{{ 'reimbursement.expense.accounting_text' | translate }}</th>
 			<th>{{ 'reimbursement.dashboard.table.totalCosts' | translate }}</th>
@@ -14,7 +15,8 @@
 		</tr>
 		</thead>
 		<tbody>
-		<tr ng-repeat="e in expenses.myExpenses">
+		<tr ng-repeat="e in expenses.myExpenses | orderBy:'uid'">
+			<td>{{e.uid | idFormatting:'E'}}</td>
 			<td>{{e.date | date:'dd.MM.yyyy'}}</td>
 			<td>{{e.account}}</td>
 			<td>{{e.amount | currency:'CHF ':2}}</td>
