@@ -31,6 +31,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				expense_uid: expense_uid,
 				date: null,
 				account: null,
+				project: '',
 				reason: '',
 				amount: {
 					originalAmount: '',
