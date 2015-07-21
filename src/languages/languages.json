@@ -284,9 +284,9 @@
 		"de": "Kontaktperson",
 		"en": "Contact"
 	},
-	"expense.cost_centre": {
-		"de": "Account",
-		"en": "Account"
+	"expense.project": {
+		"de": "Projekt",
+		"en": "Project"
 	},
 	"expense.createNew": {
 		"de": "Neue Spese erfassen",
