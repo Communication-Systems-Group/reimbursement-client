@@ -130,9 +130,17 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 
 		$scope.deleteExpenseItem = function (expenseItem_id) {
 			var expenseItem = $scope.find($scope.expense.expenseItems, expenseItem_id);
-			var confirm = window.confirm($filter('translate')('reimbursement.expense.delete_text', {
-				name: expenseItem[1].description.substr(0, 25)
-			}));
+			var confirm;
+
+			if (expenseItem[1].reason !== null && expenseItem[1].reason !== undefined) {
+				confirm = window.confirm($filter('translate')('reimbursement.expense.delete_text', {
+					name: expenseItem[1].reason.substr(0, 25)
+				}));
+			} else {
+				confirm = window.confirm($filter('translate')('reimbursement.expense.delete_text', {
+					name: 'undefined'
+				}));
+			}
 
 			if (confirm) {
 				expenseRestService.deleteExpense(expenseItem_id)
