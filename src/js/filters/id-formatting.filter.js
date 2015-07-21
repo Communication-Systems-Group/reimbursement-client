@@ -5,7 +5,7 @@ app.filter('idFormatting', function () {
 	"use strict";
 
 	return function (id, postLetter) {
-		if (id !== undefined) {
+		if (id !== '0' && id !== undefined) {
 			var s = "00000" + id;
 
 			return postLetter + s.substr(s.length - 6);
