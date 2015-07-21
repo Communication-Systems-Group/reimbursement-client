@@ -52,6 +52,14 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			});
 		}
 
+		function expenseNotFound() {
+			globalMessagesService.showError(
+				$filter('translate')('reimbursement.expense.not_found.title'),
+				$filter('translate')('reimbursement.expense.not_found.body'));
+
+			$state.go('dashboard');
+		}
+
 		/**
 		 * Calculate the total value of the expenseItems.
 		 */
@@ -65,10 +73,6 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			}
 
 			$scope.total = total;
-		};
-
-		$scope.uploadExpenseItem = function () {
-			// ToDo
 		};
 
 		$scope.prepareEmptyExpense = function () {
@@ -179,11 +183,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				})
 				.error(function (response) {
 					if (response.type === "ExpenseNotFoundException") {
-						globalMessagesService.showError(
-							$filter('translate')('reimbursement.expense.not_found.title'),
-							$filter('translate')('reimbursement.expense.not_found.body'));
-
-						$state.go($state.previous.name);
+						expenseNotFound();
 					} else {
 						globalMessagesService.showInfo(
 							$filter('translate')('reimbursement.error.title'),
@@ -235,7 +235,8 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		if ($scope.expenseId !== undefined) {
 			$scope.downloadExpense($scope.expenseId);
 		} else {
-			$scope.prepareEmptyExpense();
+
+
 		}
 
 		$scope.getCostCategories();
