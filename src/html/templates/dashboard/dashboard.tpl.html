@@ -37,9 +37,6 @@
 							ng-click="go('expense',{id:e.uid})"><i
 							class="fa fa-pencil"></i>&nbsp;{{ 'reimbursement.expense.edit' | translate }}</a>
 						</li>
-						<li ng-if="e.state === 'CREATED'"><a ng-click="deleteExpense(e.uid)"><i
-							class="fa fa-trash"></i>&nbsp;{{ 'reimbursement.expense.delete' | translate }}</a>
-						</li>
 						<li role="separator" class="divider"></li>
 						<li ng-click="sendExpense(e.uid)" ng-if="e.state === 'CREATED' || e.state === 'REJECTED'"><a
 							href="#"> <i
