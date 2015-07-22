@@ -1,10 +1,13 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal', 'expenseRestService', 'globalMessagesService', '$timeout',
+app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal', 'expenseRestService', 'globalMessagesService', 'USER', '$translate',
 
-	function ($scope, $filter, $state, $stateParams, $modal, expenseRestService, globalMessagesService, $timeout) {
+	function ($scope, $filter, $state, $stateParams, $modal, expenseRestService, globalMessagesService, USER, $translate) {
 		"use strict";
+
+		$scope.user = USER;
+		console.log(USER);
 
 		$scope.expense = {};
 		$scope.expenseId = $stateParams.id;
@@ -92,23 +95,21 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		};
 
 		/**
-		 * Creates an empty expenseItem element and opens the expenseItem modal.
+		 * This function adds a new expenseItem element.
 		 */
 		$scope.addNewExpenseItem = function () {
 			if ($scope.expenseId === undefined) {
-				if ($scope.expense.accounting.length === 0) {
+				if ($scope.expense.bookingText.length === 0) {
 					globalMessagesService.showWarning(
 						$filter('translate')('reimbursement.expense.dirty_form_title'),
 						$filter('translate')('reimbursement.expense.validation.bookingText'));
 				} else {
-					expenseRestService.postExpense({bookingText: $scope.expense.accounting, assignedManagerUid: 'jtyutyu', state: 'CREATED'})
+					expenseRestService.postExpense({bookingText: $scope.expense.bookingText, assignedManagerUid: 'jtyutyu', state: 'CREATED'})
 						.success(function (response) {
 							$scope.expenseId = response.uid;
 
-							$timeout(function () {
-								$scope.expense.uid = response.uid;
-								initNewExpenseItem($scope.expense.uid);
-							}, 800);
+							$scope.expense.uid = response.uid;
+							initNewExpenseItem($scope.expense.uid);
 						})
 						.error(function () {
 							$filter('translate')('reimbursement.error.title');
@@ -177,6 +178,34 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			});
 		};
 
+		$scope.saveExpense = function (form) {
+			if (form.$valid) {
+				var data = {
+					uid: $scope.expense.uid,
+					bookingText: $scope.expense.bookingText,
+					assignedManagerUid: $scope.user.manager.uid,
+					state: 'ASSIGNED_TO_PROFESSOR'
+				};
+
+				var successText = $translate('reimbursement.expense.created_and_assigned_to_manager', {manager: $scope.user.firstName + ' ' + $scope.user.lastName});
+				var errorText = $translate('error.body');
+
+				expenseRestService.putExpense(data)
+					.success(function () {
+						alert(successText);
+						$state.go('dashboard');
+					})
+					.error(function (response) {
+						alert(errorText);
+					});
+			} else {
+				globalMessagesService.showError(
+					$filter('translate')('reimbursement.expense.dirty_form_title'),
+					$filter('translate')('reimbursement.expense.enter_account_or_add_expense_item')
+				);
+			}
+		};
+
 		/**
 		 * Download an existing expense from the server based on the uid.
 		 * @param uid
@@ -236,7 +265,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 
 		/**
 		 * Initalize empty expense object
-		 * @type {{id: number, creator: {name: string}, contact: {person: {name: string}, phone: string}, accounting: string, note: Array, expenseItems: Array}}
+		 * @type {{id: number, creator: {name: string}, contact: {person: {name: string}, phone: string}, bookingText: string, note: Array, expenseItems: Array}}
 		 */
 		if ($scope.expenseId !== undefined) {
 			$scope.downloadExpense($scope.expenseId);

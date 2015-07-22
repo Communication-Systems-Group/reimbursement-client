@@ -75,10 +75,12 @@
 							<div class="form-group">
 								<label for="accounting">{{ 'reimbursement.expense.accounting_text' | translate
 									}}</label>
-								<input type="text" name="accounting" ng-model="expense.accounting"
+								<input type="text" name="bookingText"
+									   ng-model="expense.bookingText"
 									   class="form-control"
-									   id="accounting"
-									   placeholder="{{ 'reimbursement.expense.accounting_text' | translate }}">
+									   id="bookingText"
+									   placeholder="{{ 'reimbursement.expense.accounting_text' | translate }}"
+									   required="true">
 							</div>
 						</div>
 					</div>
@@ -215,9 +217,10 @@
 <div class="row">
 	<div class="col-md-12">
 		<button class="btn btn-primary" ng-click="saveExpense(form1)"
-				ng-disabled="form1.$pristine && !expenseItemChanges">
+				ng-disabled="!form1.$valid || !(expense.expenseItems.length > 0)">
 			<i class="fa fa-check"></i>
-			{{'reimbursement.expense.save' | translate}}
+			<span translate="reimbursement.expense.send_to_manager"
+				  translate-values="{ manager: '{{user.manager.firstName}} {{user.manager.lastName}}'}"></span>
 		</button>
 		<button class="btn btn-default" ng-click="cancel(form1)">
 			<i class="fa fa-times"></i>

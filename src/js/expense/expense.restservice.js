@@ -53,15 +53,8 @@ app.factory("expenseRestService", ['$http', 'HOST',
 		function putExpense(data) {
 			return $http({
 				method: 'PUT',
-				url: HOST + '/api/user/expenses/' + data.uid + '/expense-items',
+				url: HOST + '/api/user/expenses/' + data.uid,
 				data: data
-			});
-		}
-
-		function deleteExpense(uid) {
-			return $http({
-				method: 'DELETE',
-				url: HOST + '/api/user/expenses/expense-item/' + uid
 			});
 		}
 
@@ -122,7 +115,6 @@ app.factory("expenseRestService", ['$http', 'HOST',
 			getExpense: getExpense,
 			postExpense: postExpense,
 			putExpense: putExpense,
-			deleteExpense: deleteExpense,
 			postComment: postComment,
 			postExpenseItem: postExpenseItem,
 			putExpenseItem: putExpenseItem,
