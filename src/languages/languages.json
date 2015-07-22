@@ -296,6 +296,10 @@
 		"de": "Ersteller",
 		"en": "Creator"
 	},
+	"expense.created_and_assigned_to_manager": {
+		"de": "Das Spesenelement wurde erfolgreich gespeichert und {{manager}} zur Überprüfung zugewiesen.",
+		"de": "The expense was saved successfully and assigned to {{manager}} for review."
+	},
 	"expense.date_expense_item": {
 		"de": "Datum Beleg",
 		"en": "Date expense item"
@@ -436,9 +440,17 @@
 		"de": "Absenden",
 		"en": "Send"
 	},
+	"expense.send_to_manager": {
+		"de": "Zu {{manager}} senden",
+		"en": "Send to {{manager}}"
+	},
 	"expense.state.accepted": {
 		"de": "akzeptiert",
 		"en": "accepted"
+	},
+	"expense.state.assigned_to_professor": {
+		"de": "zugewiesen",
+		"en": "assigned"
 	},
 	"expense.state.created": {
 		"de": "erstellt",
@@ -487,5 +499,9 @@
 	"expense.validation.select_currency": {
 		"de": "Eine Währung muss gewählt werden (bsp. CHF).",
 		"en": "Please enter a currency (i.e CHF)."
+	},
+	"expense.validation.enter_account_or_add_expense_item": {
+		"de": "Bitte erfassen Sie einen Buchungstext und eine Spese.",
+		"en": "Please add an account and an expense first."
 	}
 }
