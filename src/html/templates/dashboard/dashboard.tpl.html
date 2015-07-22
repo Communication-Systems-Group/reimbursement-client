@@ -26,7 +26,9 @@
 			</td>
 			<td ng-if="e.state === 'REJECTED'"><span class="label label-danger">{{ 'reimbursement.expense.state.rejected' | translate }}</span>
 			</td>
-			<td>
+			<td ng-if="e.state === 'ASSIGNED_TO_PROFESSOR'"><span class="label label-warning">{{ 'reimbursement.expense.state.assigned_to_professor' | translate }}</span>
+			</td>
+			<td ng-if="(e.state === 'CREATED' || e.state === 'REJECTED')">
 				<div class="btn-group">
 					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">
@@ -109,5 +111,7 @@
 			</div>
 		</div>
 	</div>
-
+	{{user}}
+	<br>
+	{{expenses}}
 </div>
