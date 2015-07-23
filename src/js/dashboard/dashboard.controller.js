@@ -37,23 +37,6 @@ app.controller('DashboardController', ['$scope', 'dashboardRestService', 'global
 		};
 
 		/**
-		 * Deletes an entire expense object from the server.
-		 * @param uid
-		 */
-//		$scope.deleteExpense = function (uid) {
-//			// ToDo confirmation
-//			dashboardRestService.deleteExpense(uid)
-//				.success(function () {
-//					globalMessagesService.showInfo($filter('translate')('reimbursement.success'), $filter('translate')('reimbursement.expense.delete.success'));
-//					init();
-//				})
-//				.error(function () {
-//					globalMessagesService.showError($filter('translate')('reimbursement.error'), $filter('translate')('reimbursement.expense.delete.error'));
-//				});
-//
-//		};
-
-		/**
 		 * Complete an expense and send it to the next instance (prof) to review it.
 		 * @param uid
 		 */

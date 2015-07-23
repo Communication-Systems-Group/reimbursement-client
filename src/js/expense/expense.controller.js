@@ -1,9 +1,9 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal', 'expenseRestService', 'globalMessagesService', 'USER', '$translate',
+app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal', 'expenseRestService', 'globalMessagesService', 'USER', '$translate', 'alert',
 
-	function ($scope, $filter, $state, $stateParams, $modal, expenseRestService, globalMessagesService, USER, $translate) {
+	function ($scope, $filter, $state, $stateParams, $modal, expenseRestService, globalMessagesService, USER, $translate, alert) {
 		"use strict";
 
 		$scope.user = USER;
@@ -195,8 +195,11 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 						alert(successText);
 						$state.go('dashboard');
 					})
-					.error(function (response) {
-						alert(errorText);
+					.error(function () {
+						globalMessagesService.showError(
+							$filter('translate')('reimbursement.error.title'),
+							errorText
+						);
 					});
 			} else {
 				globalMessagesService.showError(
