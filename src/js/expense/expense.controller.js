@@ -1,9 +1,9 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal', 'expenseRestService', 'globalMessagesService', 'USER', '$translate', 'alert',
+app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal', 'expenseRestService', 'globalMessagesService', 'USER', '$translate',
 
-	function ($scope, $filter, $state, $stateParams, $modal, expenseRestService, globalMessagesService, USER, $translate, alert) {
+	function ($scope, $filter, $state, $stateParams, $modal, expenseRestService, globalMessagesService, USER, $translate) {
 		"use strict";
 
 		$scope.user = USER;
