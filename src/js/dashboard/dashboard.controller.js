@@ -28,7 +28,7 @@ app.controller('DashboardController', ['$scope', 'dashboardRestService', 'global
 		$scope.addExpense = function () {
 			expenseRestService.postExpense({bookingText: '', assignedManagerUid: USER.manager.uid, state: 'CREATED'})
 				.success(function (response) {
-					$state.go('expense', {id: response.uid});
+					$state.go('expense', {id: response.uid, isReview: 0});
 				})
 				.error(function () {
 					$filter('translate')('reimbursement.error.title');

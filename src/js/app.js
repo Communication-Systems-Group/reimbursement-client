@@ -96,13 +96,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 				onEnter: requireAuthentication()
 
 			}).state('expense', {
-				url: "/expense/:id",
-				templateUrl: "expense/expense.tpl.html",
-				controller: "ExpenseController",
-				onEnter: requireAuthentication()
-
-			}).state('newExpense', {
-				url: "/expense",
+				url: "/expense/:id/:isReview",
 				templateUrl: "expense/expense.tpl.html",
 				controller: "ExpenseController",
 				onEnter: requireAuthentication()

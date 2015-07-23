@@ -35,14 +35,9 @@
 						Action <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu">
-						<li ng-if="e.state === 'CREATED' || e.state === 'REJECTED'"><a
-							ng-click="go('expense',{id:e.uid})"><i
+						<li><a
+							ng-click="go('expense',{id:e.uid, isReview:0})"><i
 							class="fa fa-pencil"></i>&nbsp;{{ 'reimbursement.expense.edit' | translate }}</a>
-						</li>
-						<li role="separator" class="divider"></li>
-						<li ng-click="sendExpense(e.uid)" ng-if="e.state === 'CREATED' || e.state === 'REJECTED'"><a
-							href="#"> <i
-							class="fa fa-paper-plane-o"></i>&nbsp;{{ 'reimbursement.expense.send' | translate }}</a>
 						</li>
 					</ul>
 				</div>
@@ -94,7 +89,7 @@
 				</td>
 				<td>
 					<div class="btn-group">
-						<button type="button" class="btn btn-primary" ng-click="go('expense',{id:e.uid})">
+						<button type="button" class="btn btn-primary" ng-click="go('expense',{id:e.uid, isReview:1})">
 							<i class="fa fa-eye"></i>&nbsp;{{ 'reimbursement.expense.validate' | translate }}
 						</button>
 					</div>

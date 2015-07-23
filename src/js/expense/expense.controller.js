@@ -11,6 +11,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 
 		$scope.expense = {};
 		$scope.expenseId = $stateParams.id;
+		$scope.isReview = $stateParams.isReview;
 		$scope.expenseItemChanges = false;
 
 		$scope.note = '';
@@ -88,7 +89,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 					},
 					phone: ''
 				},
-				bookingText: '',
+				accounting: '',
 				note: [],
 				expenseItems: []
 			};
@@ -99,12 +100,12 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 		 */
 		$scope.addNewExpenseItem = function () {
 			if ($scope.expenseId === undefined) {
-				if ($scope.expense.bookingText.length === 0) {
+				if ($scope.expense.accounting.length === 0) {
 					globalMessagesService.showWarning(
 						$filter('translate')('reimbursement.expense.dirty_form_title'),
-						$filter('translate')('reimbursement.expense.validation.bookingText'));
+						$filter('translate')('reimbursement.expense.validation.accounting'));
 				} else {
-					expenseRestService.postExpense({bookingText: $scope.expense.bookingText, assignedManagerUid: 'jtyutyu', state: 'CREATED'})
+					expenseRestService.postExpense({accounting: $scope.expense.accounting, assignedManagerUid: 'jtyutyu', state: 'CREATED'})
 						.success(function (response) {
 							$scope.expenseId = response.uid;
 
@@ -182,7 +183,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			if (form.$valid) {
 				var data = {
 					uid: $scope.expense.uid,
-					bookingText: $scope.expense.bookingText,
+					accounting: $scope.expense.accounting,
 					assignedManagerUid: $scope.user.manager.uid,
 					state: 'ASSIGNED_TO_PROFESSOR'
 				};
@@ -268,7 +269,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 
 		/**
 		 * Initalize empty expense object
-		 * @type {{id: number, creator: {name: string}, contact: {person: {name: string}, phone: string}, bookingText: string, note: Array, expenseItems: Array}}
+		 * @type {{id: number, creator: {name: string}, contact: {person: {name: string}, phone: string}, accounting: string, note: Array, expenseItems: Array}}
 		 */
 		if ($scope.expenseId !== undefined) {
 			$scope.downloadExpense($scope.expenseId);

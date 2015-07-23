@@ -444,6 +444,14 @@
 		"de": "Zu {{manager}} senden",
 		"en": "Send to {{manager}}"
 	},
+	"expense.send_accept": {
+		"de": "Akzeptiert",
+		"en": "Accepted"
+	},
+	"expense.send_decline": {
+		"de": "Abgelehnt",
+		"en": "Declined"
+	},
 	"expense.state.accepted": {
 		"de": "akzeptiert",
 		"en": "accepted"
