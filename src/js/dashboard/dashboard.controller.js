@@ -26,7 +26,7 @@ app.controller('DashboardController', ['$scope', 'dashboardRestService', 'global
 		};
 
 		$scope.addExpense = function () {
-			expenseRestService.postExpense({bookingText: '', assignedManagerUid: USER.manager.uid, state: 'CREATED'})
+			expenseRestService.postExpense({accounting: '', assignedManagerUid: '', state: 'CREATED'})
 				.success(function (response) {
 					$state.go('expense', {id: response.uid, isReview: 0});
 				})
