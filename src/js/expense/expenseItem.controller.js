@@ -1,8 +1,8 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$modalInstance', 'expenseRestService', 'globalMessagesService',
-	function ($scope, $filter, Currencies, $modalInstance, expenseRestService, globalMessagesService) {
+app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$modalInstance', 'expenseRestService', 'globalMessagesService', '$window',
+	function ($scope, $filter, Currencies, $modalInstance, expenseRestService, globalMessagesService, $window) {
 		"use strict";
 
 		$scope.dismiss = $modalInstance.dismiss;
@@ -11,6 +11,8 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 		$scope.expenseItemAttachmentPath = false;
 		$scope.expenseItemUploading = false;
 		$scope.expenseItemUploadSucceeded = false;
+		$scope.expenseItemAttachmentAvailable = false;
+
 		$scope.flow = {};
 		$scope.filename = undefined;
 
@@ -240,8 +242,48 @@ app.controller('ExpenseItemController', ['$scope', '$filter', 'Currencies', '$mo
 			}
 		};
 
+		/**
+		 * Returns true if an attachment is available.
+		 * @param expenseItemUid
+		 */
+		$scope.checkForAttachment = function (expenseItemUid) {
+			expenseRestService.getExpenseAttachment(expenseItemUid)
+				.success(function (response) {
+					if (response.length > 0) {
+						$scope.expenseItemAttachmentAvailable = true;
+					} else {
+						$scope.expenseItemAttachmentAvailable = false;
+					}
+				})
+				.error(function () {
+					$scope.expenseItemAttachmentAvailable = false;
+				});
+
+		};
+
+		/**
+		 * Checks if an attachment is available; if so,
+		 * it opens it.
+		 * @param expenseItemUid
+		 */
+		$scope.openAttachment = function (expenseItemUid) {
+			expenseRestService.getExpenseAttachment(expenseItemUid)
+				.success(function (response) {
+					if (response.length > 0) {
+						$window.open("data:image/png;base64," + response);
+					}
+				})
+				.error(function () {
+					globalMessagesService.showError(
+						$filter('translate')('reimbursement.error.title'),
+						$filter('translate')('reimbursement.error.body'));
+				});
+		};
+
 		$scope.dismiss = function () {
 			$modalInstance.dismiss();
 		};
+
+		$scope.checkForAttachment($scope.expenseItem.uid);
 
 	}]);

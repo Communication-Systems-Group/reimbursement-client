@@ -109,6 +109,18 @@ app.factory("expenseRestService", ['$http', 'HOST',
 			return HOST + '/api/user/expenses/expense-items/' + expenseItem_uid + '/attachments';
 		}
 
+		/**
+		 * Returns the base64 String of the stored attachment on the server.
+		 * @param expenseItem_uid
+		 * @returns {base64}
+		 */
+		function getExpenseAttachment(expenseItem_uid) {
+			return $http({
+				method: 'GET',
+				url: HOST + '/api/user/expenses/expense-items/' + expenseItem_uid + '/attachments'
+			});
+		}
+
 		return {
 			getExchangeRates: getExchangeRates,
 			getCostCategories: getCostCategories,
@@ -118,7 +130,8 @@ app.factory("expenseRestService", ['$http', 'HOST',
 			postComment: postComment,
 			postExpenseItem: postExpenseItem,
 			putExpenseItem: putExpenseItem,
-			expenseItemAttachmentPath: expenseItemAttachmentPath
+			expenseItemAttachmentPath: expenseItemAttachmentPath,
+			getExpenseAttachment: getExpenseAttachment
 		};
 
 	}]);

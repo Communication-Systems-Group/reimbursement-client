@@ -130,11 +130,13 @@
 				</div>
 			</div>
 
-			<div class="row margin-top-10" ng-if="!expenseItemAttachmentPath">
+			{{expenseItemAttachmentAvailable}}
+			<div class="row margin-top-10" ng-if="expenseItemAttachmentAvailable">
 				<div class="col-md-11">
-					<div class="alert alert-info"><i class="fa fa-info"></i>
-						{{'reimbursement.expense.save_first' | translate}}
-					</div>
+					<button class="btn btn-danger" name="field" ng-click="openAttachment()">
+						<i class="fa fa-times-circle-o"></i>
+						View attachment
+					</button>
 				</div>
 			</div>
 			<div class="row margin-top-10" ng-if="expenseItemAttachmentPath">

@@ -1,9 +1,9 @@
 /**
  * Created by robinengbersen on 23.05.15.
  */
-app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal', 'expenseRestService', 'globalMessagesService', 'USER', '$translate',
+app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParams', '$modal', 'expenseRestService', 'globalMessagesService', 'USER',
 
-	function ($scope, $filter, $state, $stateParams, $modal, expenseRestService, globalMessagesService, USER, $translate) {
+	function ($scope, $filter, $state, $stateParams, $modal, expenseRestService, globalMessagesService, USER) {
 		"use strict";
 
 		$scope.user = USER;
@@ -179,17 +179,48 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			});
 		};
 
-		$scope.saveExpense = function (form) {
+		$scope.saveExpense = function (form, state) {
 			if (form.$valid) {
-				var data = {
-					uid: $scope.expense.uid,
-					accounting: $scope.expense.accounting,
-					assignedManagerUid: $scope.user.manager.uid,
-					state: 'ASSIGNED_TO_PROFESSOR'
-				};
 
-				var successText = $translate('reimbursement.expense.created_and_assigned_to_manager', {manager: $scope.user.firstName + ' ' + $scope.user.lastName});
-				var errorText = $translate('error.body');
+				var data = {};
+				var successText, errorText;
+
+				switch (state) {
+					case 'CREATE':
+						data = {
+							uid: $scope.expense.uid,
+							accounting: $scope.expense.accounting,
+							assignedManagerUid: $scope.user.manager.uid,
+							state: 'ASSIGNED_TO_PROFESSOR'
+						};
+
+						successText = $filter('translate')('reimbursement.expense.created', {manager: $scope.user.firstName + ' ' + $scope.user.lastName});
+						errorText = $filter('translate')('reimbursement.error.body');
+						break;
+					case 'ACCEPT':
+						data = {
+							uid: $scope.expense.uid,
+							accounting: $scope.expense.accounting,
+							assignedManagerUid: $scope.expense.contact.uid,
+							state: 'ACCEPTED'
+						};
+
+						successText = $filter('translate')('reimbursement.expense.accepted', {manager: $scope.user.firstName + ' ' + $scope.user.lastName});
+						errorText = $filter('translate')('reimbursement.error.body');
+						break;
+					case 'REJECT':
+						data = {
+							uid: $scope.expense.uid,
+							accounting: $scope.expense.accounting,
+							assignedManagerUid: $scope.user.manager.uid,
+							state: 'REJECTED'
+						};
+
+						successText = $filter('translate')('reimbursement.rejected', {manager: $scope.user.firstName + ' ' + $scope.user.lastName});
+						errorText = $filter('translate')('reimbursement.error.body');
+						break;
+				}
+				;
 
 				expenseRestService.putExpense(data)
 					.success(function () {
@@ -233,6 +264,10 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				});
 		};
 
+		/**
+		 * Cancels the creation of an expense.
+		 * @param form
+		 */
 		$scope.cancel = function (form) {
 			if (!form.$pristine || $scope.expenseItemChanges) {
 				var confirm = confirm($filter('transalte')('reimbursement.expense.confirm_cancel_unsaved_changes'));
@@ -245,7 +280,10 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 			}
 		};
 
-
+		/**
+		 * Saves an entered comment on the server and
+		 * resets the input field.
+		 */
 		$scope.saveComment = function () {
 			if ($scope.note.length > 3) {
 				expenseRestService.postComment({text: $scope.note, uid: $scope.expense.uid})
