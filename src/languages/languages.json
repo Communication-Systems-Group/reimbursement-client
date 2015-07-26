@@ -248,6 +248,10 @@
 		"de": "Optionen",
 		"en": "Options"
 	},
+	"expense.accepted": {
+		"de": "Sie haben das Spesenelement akzeptiert. Es wird nun zur Finanzabteilung des IFI weitergeleitet.",
+		"en": "You accepted the expense. It will now be sent to the accounting department of IFI."
+	},
 	"expense.accounting_text": {
 		"de": "Buchungstext (sichtbar in SAP)",
 		"en": "Account value (visual in SAP)"
@@ -304,9 +308,9 @@
 		"de": "Ersteller",
 		"en": "Creator"
 	},
-	"expense.created_and_assigned_to_manager": {
+	"expense.created": {
 		"de": "Das Spesenelement wurde erfolgreich gespeichert und {{manager}} zur Überprüfung zugewiesen.",
-		"de": "The expense was saved successfully and assigned to {{manager}} for review."
+		"en": "The expense was saved successfully and assigned to {{manager}} for review."
 	},
 	"expense.date_expense_item": {
 		"de": "Datum Beleg",
@@ -431,6 +435,10 @@
 	"expense.recipent": {
 		"de": "Spesenempfänger / in",
 		"en": "Expense recipent"
+	},
+	"expense.rejected": {
+		"de": "Sie haben das Spesenelement abgelehnt. Es wird nun zum Ersteller weitergeleitet.",
+		"en": "You rejected the expense. It will now be sent to the creator."
 	},
 	"expense.save": {
 		"de": "Speichern",
