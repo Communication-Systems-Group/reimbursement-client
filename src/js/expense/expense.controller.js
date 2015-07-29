@@ -220,11 +220,10 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 						errorText = $filter('translate')('reimbursement.error.body');
 						break;
 				}
-				;
 
 				expenseRestService.putExpense(data)
 					.success(function () {
-						alert(successText);
+						// alert(successText);
 						$state.go('dashboard');
 					})
 					.error(function () {
