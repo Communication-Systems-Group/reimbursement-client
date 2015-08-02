@@ -57,7 +57,7 @@
 	</form>
 	<div class = "panel panel-info" ng-show="image">
 	<div class="panel-heading"><h4>Result</h4></div>
-	<img ng-src="data:image/PNG;base64,{{image}}">
+	<img ng-src="data:{{image.type}};base64,{{image.content}}">
 	</div>
 
 	<h3>Public getSignatureFailure</h3>

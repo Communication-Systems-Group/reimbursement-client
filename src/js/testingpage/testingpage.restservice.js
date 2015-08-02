@@ -27,18 +27,14 @@ function($http, USER) {
 		getSignature: function() {
 			return $http({
 				method: 'GET',
-				url: 'http://localhost:80/api/user/signature',
-				transformResponse: null
+				url: 'http://localhost:80/api/user/signature'
 			});
 		},
 		getSignatureFailure: function() {
 			return $http({
 				method: 'GET',
-				url: 'http://localhost:80/api/user/NO_EXISTING_USER/signature',
-				transformResponse: null
+				url: 'http://localhost:80/api/user/NO_EXISTING_USER/signature'
 			});
 		}
-
 	};
-
 }]);
