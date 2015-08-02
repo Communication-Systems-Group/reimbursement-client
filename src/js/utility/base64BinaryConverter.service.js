@@ -31,7 +31,16 @@ function() {
 
 			var file = blob;
 			return file;
+		},
+		toBase64FromJson: function (json, callback) {
+			var base64String = "data:" + json.type + ";base64," + json.content;
+			if (typeof (callback) === "function") {
+				callback(base64String);
+			} else {
+				return base64String;
+			}
 		}
+
 	};
 
 }]);

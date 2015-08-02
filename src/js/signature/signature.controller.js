@@ -41,7 +41,7 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 			});
 
 			modalInstance.result.then(function(response) {
-				base64BinaryConverterService.toBase64(response.data, goToNextPage);
+				base64BinaryConverterService.toBase64FromJson(response.data, goToNextPage);
 			});
 		}, function() {
 			globalMessagesService.showGeneralError();

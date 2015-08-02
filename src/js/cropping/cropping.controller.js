@@ -9,6 +9,7 @@ function($scope, $stateParams, $state, spinnerService, croppingRestService, glob
 			location : "replace"
 		});
 	}
+
 	$scope.imageUri = $stateParams.imageUri;
 
 	$scope.dimensions = {};
