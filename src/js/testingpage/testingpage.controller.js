@@ -1,6 +1,6 @@
-app.controller('TestingPageController', ['$log', '$scope', 'testingPageRestService',
+app.controller('TestingPageController', ['$scope', 'testingPageRestService',
 
-function($log, $scope, testingPageRestService) {
+function($scope, testingPageRestService) {
 	"use strict";
 
 	$scope.form = {
@@ -44,7 +44,6 @@ function($log, $scope, testingPageRestService) {
 		testingPageRestService.getSignature().then(function(result) {
 			$scope.getSignatureSuccess = true;
 			$scope.image = result.data;
-			$log.log($scope.image);
 		}, function() {
 			$scope.getSignatureSuccess = false;
 		})['finally'](function() {
