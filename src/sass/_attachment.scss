@@ -1,0 +1,78 @@
+#attachmentCapture {
+
+	#attachmentCaptureImage,
+	#attachmentCaptureTouch {
+		margin: 20px 0 0 0;
+	}
+
+	#attachmentCaptureImage {
+		padding-bottom: 60px;
+
+		.image-upload {
+			border: 5px dashed $default-color-dark-cyan;
+			height: 260px;
+			border-radius: 35px;
+			position: relative;
+			padding: 7px;
+
+			div[flow-drop] {
+				width: 100%;
+				height: 100%;
+				border-radius: 28px;
+				&.dragOver {
+					background: $default-color-blue-drag-overlay;
+				}
+			}
+
+			.center {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				color: $default-color-dark-cyan;
+				font-size: 30px;
+				font-weight: 300;
+				user-select: none;
+				text-align: center;
+
+				&.uploadBar {
+					width: 40%;
+				}
+				&.uploadButton {
+					cursor: pointer;
+				}
+				.progress {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+#attachmentCaptureQR {
+	.qrCodeWrapper {
+		margin-top: 15px;
+		text-align: center;
+	}
+	qrcode {
+		display: block;
+		canvas {
+			display: inline-block;
+		}
+	}
+	.or {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		font-size: 30px;
+		font-weight: 300;
+	}
+	.qrUrl {
+		font-family: $font-family-monospace;
+		font-size: 16px;
+		display: inline-block;
+		padding: 2px 9px;
+		border-radius: 3px;
+		border: 1px solid $default-color-gray;
+		width: 65%;
+	}
+}

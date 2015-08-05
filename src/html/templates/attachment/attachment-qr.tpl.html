@@ -1,0 +1,25 @@
+<div id="signatureCaptureQR">
+	<spinner id="spinnerAttachmentQR" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
+	<div class="modal-header">
+		<a class="close" ng-click="dismiss()">&times;</a>
+		<h3 class="modal-title">{{ 'reimbursement.captureAttachment.qr.title' | translate }}</h3>
+	</div>
+	<div class="modal-body">
+		{{ 'reimbursement.captureAttachment.qr.info' | translate }}
+		<div class="qrCodeWrapper">
+			<div class="qrUrl">{{ qrUrl }}</div>
+			<div class="or">{{ 'reimbursement.captureAttachment.qr.or' | translate }}</div>
+			<qrcode data="{{ qrUrl }}" size="300" version="5"></qrcode>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="dismiss()">
+			<i class="fa fa-times"></i>
+			{{ 'reimbursement.captureAttachment.qr.cancel' | translate }}
+		</button>
+		<button class="btn btn-primary" ng-click="checkAndClose()">
+			<i class="fa fa-check"></i>
+			{{ 'reimbursement.captureAttachment.qr.capturedOnMobile' | translate }}
+		</button>
+	</div>
+</div>

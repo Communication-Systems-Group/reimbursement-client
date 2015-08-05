@@ -1,0 +1,36 @@
+<div id="attachmentCapture">
+	<h1 class="page-header"><i class="fa fa-pencil-square-o"></i> {{ 'reimbursement.captureAttachment.title' | translate }}</h1>
+	<div class="well">{{ 'reimbursement.captureAttachment.info' | translate }}</div>
+	<div class="col-lg-8 col-lg-offset-2">
+
+		<form id="attachmentCaptureImage">
+			<spinner id="spinnerAttachmentImage" label="{{ 'reimbursement.captureAttachment.spinnerUploading' | translate }}"></spinner>
+
+			<div flow-init="{target: postAttachmentPath, testChunks: false, singleFile: true, simultaneousUploads: 1}"
+				flow-name="flow.image" flow-file-added="validateFile($file)" flow-files-submitted="$flow.upload()"
+				flow-upload-started="showSpinner('spinnerAttachmentImage')" flow-file-success="getImageAndGoToNextPage()"
+				flow-file-error="showUploadError('image')">
+
+				<div class="image-upload">
+					<div flow-drop flow-btn ng-class="dropClass" flow-drag-enter="dropClass='dragOver'" flow-drag-leave="dropClass=''">
+						<div class="center uploadButton">
+							<i class="fa fa-plus-circle"></i> {{ 'reimbursement.captureAttachment.upload.centerText' | translate }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="alert alert-warning">
+				{{ 'reimbursement.captureAttachment.touch.warning' | translate }}
+				<div class="buttons">
+					<button class="btn btn-primary" ng-click="showQR()">
+						<i class="fa fa-tablet"></i>
+						{{ 'reimbursement.captureAttachment.touch.tryMobile' | translate }}
+					</button>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</div>
