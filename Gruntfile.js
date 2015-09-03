@@ -82,44 +82,38 @@ module.exports = function (grunt) {
 		// compiles the sass code to css code
 		sass: {
 			dist: {
-				files: [
-					{
-						expand: true,
-						cwd: 'src/sass',
-						src: ['*.{scss,sass}'],
-						dest: '.tmp/styles',
-						ext: '.css'
-					}
-				]
+				files: [{
+					expand: true,
+					cwd: 'src/sass',
+					src: ['*.{scss,sass}'],
+					dest: '.tmp/styles',
+					ext: '.css'
+				}]
 			}
 		},
 
 		// copies the specified files
 		copy: {
 			regular: {
-				files: [
-					{
-						//fonts
-						expand: true,
-						flatten: true,
-						src: ['bower_components/font-awesome/fonts/*.*', 'bower_components/bootstrap/fonts/*.*'],
-						dest: 'dist/fonts/'
-					},
-					{
-						//images
-						expand: true,
-						flatten: true,
-						src: ['bower_components/jcrop/css/*.gif'],
-						dest: 'dist/styles/'
-					},
-					{
-						//index.html
-						expand: true,
-						cwd: 'src/html/',
-						src: ['index.html'],
-						dest: 'dist/'
-					}
-				]
+				files: [{
+					// fonts
+					expand: true,
+					flatten: true,
+					src: ['bower_components/font-awesome/fonts/*.*', 'bower_components/bootstrap/fonts/*.*'],
+					dest: 'dist/fonts/'
+				}, {
+					// images
+					expand: true,
+					flatten: true,
+					src: ['bower_components/jcrop/css/*.gif'],
+					dest: 'dist/styles/'
+				}, {
+					// index.html
+					expand: true,
+					cwd: 'src/html/',
+					src: ['index.html'],
+					dest: 'dist/'
+				}]
 			}
 		},
 
@@ -236,14 +230,12 @@ module.exports = function (grunt) {
 					webxml_welcome: 'index.html',
 					webxml_display_name: 'Reimbursement Front-End'
 				},
-				files: [
-					{
-						expand: true,
-						cwd: 'dist',
-						src: ['**'],
-						dest: ''
-					}
-				]
+				files: [{
+					expand: true,
+					cwd: 'dist',
+					src: ['**'],
+					dest: ''
+				}]
 			}
 		},
 
