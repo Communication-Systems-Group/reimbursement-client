@@ -65,58 +65,58 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: 'LoginController'
 
 		}).state('logout', {
-				// no url, because the logout should not be opened manually
-				templateUrl: "logout/logout.tpl.html",
-				controller: 'LogoutController'
+			// no url, because the logout should not be opened manually
+			templateUrl: "logout/logout.tpl.html",
+			controller: 'LogoutController'
 
-			}).state('signature', {
-				url: "/signature",
-				templateUrl: "signature/signature.tpl.html",
-				controller: "SignatureController",
-				onEnter: requireAuthentication()
+		}).state('signature', {
+			url: "/signature",
+			templateUrl: "signature/signature.tpl.html",
+			controller: "SignatureController",
+			onEnter: requireAuthentication()
 
-			}).state('signatureMobile', {
-				url: "/signature-mobile/:token",
-				templateUrl: "signature/signature-mobile.tpl.html",
-				controller: "SignatureMobileController"
+		}).state('signatureMobile', {
+			url: "/signature-mobile/:token",
+			templateUrl: "signature/signature-mobile.tpl.html",
+			controller: "SignatureMobileController"
 
-			}).state('attachment', {
-				url: "/attachment",
-				templateUrl: "attachment/attachment.tpl.html",
-				controller: "AttachmentController",
-				onEnter: requireAuthentication()
+		}).state('attachment', {
+			url: "/attachment",
+			templateUrl: "attachment/attachment.tpl.html",
+			controller: "AttachmentController",
+			onEnter: requireAuthentication()
 
-			}).state('attachmentMobile', {
-				url: "/attachment-mobile/:token",
-				templateUrl: "attachment/attachment-mobile.tpl.html",
-				controller: "AttachmentMobileController"
+		}).state('attachmentMobile', {
+			url: "/attachment-mobile/:token",
+			templateUrl: "attachment/attachment-mobile.tpl.html",
+			controller: "AttachmentMobileController"
 
-			}).state('cropping', {
-				// no url, because the cropping should not be opened manually
-				params: {
-					imageUri: null
-				},
-				templateUrl: "cropping/cropping.tpl.html",
-				controller: "CroppingController",
-				onEnter: requireAuthentication()
+		}).state('cropping', {
+			// no url, because the cropping should not be opened manually
+			params: {
+				imageUri: null
+			},
+			templateUrl: "cropping/cropping.tpl.html",
+			controller: "CroppingController",
+			onEnter: requireAuthentication()
 
-			}).state('dashboard', {
-				url: "/dashboard",
-				templateUrl: "dashboard/dashboard.tpl.html",
-				controller: "DashboardController",
-				onEnter: requireAuthentication()
+		}).state('dashboard', {
+			url: "/dashboard",
+			templateUrl: "dashboard/dashboard.tpl.html",
+			controller: "DashboardController",
+			onEnter: requireAuthentication()
 
-			}).state('expense', {
-				url: "/expense/:id/:isReview",
-				templateUrl: "expense/expense.tpl.html",
-				controller: "ExpenseController",
-				onEnter: requireAuthentication()
+		}).state('expense', {
+			url: "/expense/:id/:isReview",
+			templateUrl: "expense/expense.tpl.html",
+			controller: "ExpenseController",
+			onEnter: requireAuthentication()
 
-			}).state('testingPage', {
-				url: "/testingPage",
-				templateUrl: "testingPage/testingPage.tpl.html",
-				controller: 'TestingPageController'
-			});
+		}).state('testingPage', {
+			url: "/testingPage",
+			templateUrl: "testingPage/testingPage.tpl.html",
+			controller: 'TestingPageController'
+		});
 
 		$urlRouterProvider.otherwise('/signature');
 

@@ -12,6 +12,7 @@ function($scope, $timeout, USER, logoutRestService, globalMessagesService, spinn
 	logoutRestService.postLogout().then(function() {
 		$scope.success = true;
 		USER.loggedIn = false;
+		logoutRestService.refreshCSRFToken();
 	}, function() {
 		globalMessagesService.showGeneralError();
 	})['finally'](function() {

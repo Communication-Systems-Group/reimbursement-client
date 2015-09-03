@@ -10,6 +10,9 @@ function($http, HOST) {
 				url: HOST + '/api/logout',
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			});
+		},
+		refreshCSRFToken: function() {
+			$http.get(HOST + "/api/user", {withCredentials: true});
 		}
 	};
 }]);
