@@ -12,6 +12,10 @@ body {
 	display: none !important;
 }
 
+body.deferred-bootstrap-loading {
+	cursor: progress;
+}
+
 .margin-top-05 {
 	margin-top: $default-margin-top-05;
 }
