@@ -123,13 +123,11 @@ module.exports = function (grunt) {
 				options: {
 					prefix: "reimbursement."
 				},
-				files: [
-					{
-						src: 'src/languages/languages.json',
-						dest: 'dist/languages/languages.json',
-						destType: 'file'
-					}
-				]
+				files: [{
+					src: 'src/languages/languages.json',
+					dest: 'dist/languages/languages.json',
+					destType: 'file'
+				}]
 			}
 		},
 
