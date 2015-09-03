@@ -3,7 +3,7 @@ app.controller('GlobalMessagesController', ['$scope', '$modalInstance', 'title',
 	function ($scope, $modalInstance, title, message) {
 		"use strict";
 
-		$scope.dismiss = $modalInstance.dismiss;
+		$scope.close = $modalInstance.close;
 		$scope.title = title;
 		$scope.message = message;
 

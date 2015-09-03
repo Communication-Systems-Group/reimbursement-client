@@ -1,9 +1,9 @@
-<div class="global-info">
+<div class="global-warning">
 
 	<div class="modal-header">
-		<div class="close" ng-click="close()">&times;</div>
+		<div class="close" ng-click="dismiss()">&times;</div>
 		<h3 class="modal-title">
-			<i class="fa fa-info-circle"></i>
+			<i class="fa fa-exclamation-circle"></i>
 			{{ title }}
 		</h3>
 	</div>
@@ -14,7 +14,10 @@
 
 	<div class="modal-footer">
 		<button class="btn btn-default" ng-click="close()">
-			{{ 'reimbursement.globalMessage.okayButton' | translate }}
+			{{ yes }}
+		</button>
+		<button class="btn btn-default" ng-click="dismiss()">
+			{{ no }}
 		</button>
 	</div>
 

@@ -47,6 +47,14 @@
 		"de": "Okay",
 		"en": "Okay"
 	},
+	"globalMessages.acceptButton": {
+		"de": "Ja",
+		"en": "Yes"
+	},
+	"globalMessages.denyButton": {
+		"de": "Nein",
+		"en": "No"
+	},
 	"globalMessage.notAnImage.title": {
 		"de": "Unbekannter Dateityp",
 		"en": "Not an image"
