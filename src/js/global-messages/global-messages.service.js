@@ -6,7 +6,7 @@ app.factory("globalMessagesService", ['$modal', '$translate', '$q',
 		var openModalInstances = [];
 
 		// modal without confirmation (yes or no)
-		function show(type, title, message) {
+		function show(type, title, message, isMd) {
 
 			var templateUrl;
 			if(type === 'error') {
@@ -28,7 +28,7 @@ app.factory("globalMessagesService", ['$modal', '$translate', '$q',
 				var openModal = $modal.open({
 					templateUrl: templateUrl,
 					controller: 'GlobalMessagesController',
-					size: 'md',
+					size: isMd ? 'md' : 'sm',
 					resolve: {
 						title: function () {
 							return translations[title];
@@ -51,7 +51,7 @@ app.factory("globalMessagesService", ['$modal', '$translate', '$q',
 		}
 
 		// modal with confirmation (yes or no)
-		function confirm(type, title, message, yes, no) {
+		function confirm(type, title, message, yes, no, isMd) {
 			yes = yes || "reimbursement.globalMessages.acceptButton";
 			no = no || "reimbursement.globalMessages.denyButton";
 
@@ -74,7 +74,7 @@ app.factory("globalMessagesService", ['$modal', '$translate', '$q',
 				var openModal = $modal.open({
 					templateUrl: templateUrl,
 					controller: 'GlobalMessagesConfirmController',
-					size: 'md',
+					size: isMd ? 'md' : 'sm',
 					resolve: {
 						title: function() {
 							return translations[title];
@@ -120,6 +120,25 @@ app.factory("globalMessagesService", ['$modal', '$translate', '$q',
 		function confirmInfo(title, message, yes, no) {
 			return confirm('info', title, message, yes, no);
 		}
+		function showErrorMd(title, message) {
+			return show('error', title, message, true);
+		}
+		function showWarningMd(title, message) {
+			return show('warning', title, message, true);
+		}
+		function showInfoMd(title, message) {
+			return show('info', title, message, true);
+		}
+		function confirmErrorMd(title, message, yes, no) {
+			return confirm('error', title, message, yes, no, true);
+		}
+		function confirmWarningMd(title, message, yes, no) {
+			return confirm('warning', title, message, yes, no, true);
+		}
+		function confirmInfoMd(title, message, yes, no) {
+			return confirm('info', title, message, yes, no, true);
+		}
+
 
 		function hideMessages() {
 			for (var instance in openModalInstances) {
@@ -154,6 +173,12 @@ app.factory("globalMessagesService", ['$modal', '$translate', '$q',
 			confirmError: confirmError,
 			confirmWarning: confirmWarning,
 			confirmInfo: confirmInfo,
+			showErrorMd: showErrorMd,
+			showWarningMd: showWarningMd,
+			showInfoMd: showInfoMd,
+			confirmErrorMd: confirmErrorMd,
+			confirmWarningMd: confirmWarningMd,
+			confirmInfoMd: confirmInfoMd,
 
 			hideMessages: hideMessages,
 			showGeneralError: function () {
