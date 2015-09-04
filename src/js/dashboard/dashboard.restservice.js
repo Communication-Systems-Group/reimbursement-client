@@ -1,19 +1,25 @@
 app.factory('dashboardRestService', ['$http', 'HOST',
 
-	function ($http, HOST) {
-		'use strict';
+function($http, HOST) {
 
-		function getExpenses() {
-			return $http.get(HOST + '/api/user/expenses');
-		}
+	'use strict';
 
-		function deleteExpense(uid) {
-			return $http({method: 'DELETE', url: HOST + '/api/user/expenses/expense-item/' + uid});
-		}
+	function getMyExpenses() {
+		return $http.get(HOST + '/api/user/expenses');
+	}
 
-		return {
-			getExpenses: getExpenses,
-			deleteExpense: deleteExpense
-		};
+	function getReviewExpensesAsFinanceAdmin() {
+		$http.get(HOST + '/api/finance-admin/review-expenses');
+	}
 
-	}]);
+	function getReviewExpensesAsProf() {
+		$http.get(HOST + '/api/prof/review-expenses');
+	}
+
+	return {
+		getMyExpenses: getMyExpenses,
+		getReviewExpensesAsFinanceAdmin: getReviewExpensesAsFinanceAdmin,
+		getReviewExpensesAsProf: getReviewExpensesAsProf
+	};
+
+}]);

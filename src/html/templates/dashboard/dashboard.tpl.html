@@ -6,7 +6,6 @@
 	<table class="table table-striped">
 		<thead>
 		<tr>
-			<th>#</th>
 			<th>{{ 'reimbursement.dashboard.table.date' | translate }}</th>
 			<th>{{ 'reimbursement.expense.accounting_text' | translate }}</th>
 			<th>{{ 'reimbursement.dashboard.table.totalCosts' | translate }}</th>
@@ -15,18 +14,21 @@
 		</tr>
 		</thead>
 		<tbody>
-		<tr ng-repeat="e in expenses.myExpenses | orderBy:'uid'">
-			<td>{{e.uid | idFormatting:'E'}}</td>
-			<td>{{e.date | date:'dd.MM.yyyy'}}</td>
-			<td>{{e.account}}</td>
-			<td>{{e.amount | currency:'CHF ':2}}</td>
-			<td ng-if="e.state === 'CREATED'"><span class="label label-info">{{ 'reimbursement.expense.state.created' | translate }}</span>
+		<tr ng-repeat="e in myExpenses | orderBy:'date'">
+			<td>{{ e.date | date:'dd.MM.yyyy' }}</td>
+			<td>{{ e.account }}</td>
+			<td>{{ e.amount | currency:'CHF ':2 }}</td>
+			<td ng-if="e.state === 'CREATED'">
+				<span class="label label-info">{{ 'reimbursement.expense.state.created' | translate }}</span>
 			</td>
-			<td ng-if="e.state === 'ACCEPTED'"><span class="label label-success">{{ 'reimbursement.expense.state.accepted' | translate }}</span>
+			<td ng-if="e.state === 'ACCEPTED'">
+				<span class="label label-success">{{ 'reimbursement.expense.state.accepted' | translate }}</span>
 			</td>
-			<td ng-if="e.state === 'REJECTED'"><span class="label label-danger">{{ 'reimbursement.expense.state.rejected' | translate }}</span>
+			<td ng-if="e.state === 'REJECTED'">
+				<span class="label label-danger">{{ 'reimbursement.expense.state.rejected' | translate }}</span>
 			</td>
-			<td ng-if="e.state === 'ASSIGNED_TO_PROFESSOR'"><span class="label label-warning">{{ 'reimbursement.expense.state.assigned_to_professor' | translate }}</span>
+			<td ng-if="e.state === 'ASSIGNED_TO_PROFESSOR'">
+				<span class="label label-warning">{{ 'reimbursement.expense.state.assigned_to_professor' | translate }}</span>
 			</td>
 			<td ng-if="(e.state === 'CREATED' || e.state === 'REJECTED')">
 				<div class="btn-group">
@@ -37,17 +39,15 @@
 					<ul class="dropdown-menu">
 						<li><a
 							ng-click="go('expense',{id:e.uid, isReview:0})"><i
-							class="fa fa-pencil"></i>&nbsp;{{ 'reimbursement.expense.edit' | translate }}</a>
+							class="fa fa-pencil"></i> {{ 'reimbursement.expense.edit' | translate }}</a>
 						</li>
 					</ul>
 				</div>
 			</td>
 		</tr>
 		</tbody>
-
-		</tr>
 	</table>
-	<div class="row row-centered" ng-if="expenses.myReviewExpenses.length < 1">
+	<div class="row row-centered" ng-if="myReviewExpenses.length < 1">
 		<div class="col-md-12 col-centered">
 			{{ 'reimbursement.dashboard.table.noContent' | translate }}
 		</div>
@@ -55,21 +55,20 @@
 
 	<div class="row">
 		<div class="col-md-3">
-			<button type="button" class="btn btn-primary" ng-click="addExpense()"><i
-				class="fa fa-plus-circle"></i>&nbsp;{{
-				'reimbursement.dashboard.table.addExpense' | translate }}
+			<button type="button" class="btn btn-primary" ng-click="addExpense()">
+				<i class="fa fa-plus-circle"></i>
+				{{ 'reimbursement.dashboard.table.addExpense' | translate }}
 			</button>
 		</div>
 		<div class="col-md-9"></div>
 	</div>
 
-	<div>
+	<div ng-if="showReviewSection">
 		<h2 class="page-header">{{ 'reimbursement.dashboard.myReviewExpenseItems' | translate }}</h2>
 
 		<table class="table table-striped">
 			<thead>
 			<tr>
-				<th>#</th>
 				<th>{{ 'reimbursement.dashboard.table.date' | translate }}</th>
 				<th>{{ 'reimbursement.expense.accounting_text' | translate }}</th>
 				<th>{{ 'reimbursement.dashboard.table.totalCosts' | translate }}</th>
@@ -79,28 +78,27 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr ng-repeat="e in expenses.myReviewExpenses">
-				<td>{{e.uid | idFormatting:'E'}}</td>
+			<tr ng-repeat="e in myReviewExpenses">
 				<td>{{e.date | date:'dd.MM.yyyy'}}</td>
 				<td>{{e.account}}</td>
 				<td>{{e.amount | currency:'CHF ':2}}</td>
-				<td><span
-					class="label label-info">{{ 'reimbursement.expense.state.assigned_to_professor' | translate }}</span>
+				<td>
+					<span class="label label-info">
+						{{ 'reimbursement.expense.state.assigned_to_professor' | translate }}
+					</span>
 				</td>
 				<td>
 					<div class="btn-group">
 						<button type="button" class="btn btn-primary" ng-click="go('expense',{id:e.uid, isReview:1})">
-							<i class="fa fa-eye"></i>&nbsp;{{ 'reimbursement.expense.validate' | translate }}
+							<i class="fa fa-eye"></i>
+							{{ 'reimbursement.expense.validate' | translate }}
 						</button>
 					</div>
 				</td>
 			</tr>
 			</tbody>
-
-			</tr>
 		</table>
-		<div class="row row-centered"
-			 ng-if="expenses.myReviewExpenseItems.length < 1 || expenses.myReviewExpenseItems === null">
+		<div class="row row-centered" ng-if="myReviewExpenseItems.length < 1 || myReviewExpenseItems === null">
 			<div class="col-md-12 col-centered">
 				{{ 'reimbursement.dashboard.table.noContent' | translate }}
 			</div>

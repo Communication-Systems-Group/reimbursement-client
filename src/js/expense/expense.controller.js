@@ -37,7 +37,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 				account: null,
 				project: '',
 				reason: '',
-				amount: {
+				totalAmount: {
 					originalAmount: '',
 					currency: '',
 					exchange_rate: '',
@@ -70,7 +70,7 @@ app.controller('ExpenseController', ['$scope', '$filter', '$state', '$stateParam
 
 			if ($scope.expense !== undefined) {
 				for (var i = 0; i < $scope.expense.expenseItems.length; i++) {
-					total += parseFloat($scope.expense.expenseItems[i].amount.value);
+					total += parseFloat($scope.expense.expenseItems[i].totalAmount.value);
 				}
 			}
 

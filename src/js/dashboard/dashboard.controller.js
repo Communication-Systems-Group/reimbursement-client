@@ -1,32 +1,40 @@
-app.controller('DashboardController', ['$scope', 'dashboardRestService', 'globalMessagesService', '$filter', '$state', 'expenseRestService', 'USER',
+app.controller('DashboardController', ['$scope', '$filter', '$state', 'USER', 'dashboardRestService', 'globalMessagesService',  'expenseRestService',
 
-	function ($scope, dashboardRestService, globalMessagesService, $filter, $state, expenseRestService, USER) {
+	function ($scope, $filter, $state, USER, dashboardRestService, globalMessagesService, expenseRestService) {
 		'use strict';
 
 		$scope.user = USER;
 
-		function init() {
-			dashboardRestService.getExpenses()
-				.success(function (response) {
-					$scope.expenses = response;
-				})
-				.error(function (response) {
+		$scope.showReviewSection = false;
+		dashboardRestService.getMyExpenses().success(function (response) {
+			$scope.myExpenses = response;
+		}, function() {
+			$scope.myExpenses = [];
+		});
 
-					if (response.type === 'ExpenseNotFoundException') {
-						$scope.expenses = [];
-					}
-
-				});
+		var myReviewExpenses = null;
+		if(USER.roles.indexOf('FINANCE_ADMIN') !== -1) {
+			myReviewExpenses.getReviewExpensesAsFinanceAdmin();
+		}
+		else if(USER.roles.indexOf('PROF') !== -1) {
+			myReviewExpenses.getReviewExpensesAsProf();
 		}
 
-		init();
+		if(myReviewExpenses !== null) {
+			$scope.showReviewSection = true;
+			myReviewExpenses.then(function(response) {
+				$scope.myReviewExpenses = response;
+			}, function() {
+				$scope.myReviewExpenses = [];
+			});
+		}
 
 		$scope.go = function (state, params) {
 			$state.go(state, params);
 		};
 
 		$scope.addExpense = function () {
-			expenseRestService.postExpense({accounting: '', assignedManagerUid: '', state: 'CREATED'})
+			expenseRestService.postExpense({accounting: '', state: 'CREATED'})
 				.success(function (response) {
 					$state.go('expense', {id: response.uid, isReview: 0});
 				})
@@ -35,14 +43,5 @@ app.controller('DashboardController', ['$scope', 'dashboardRestService', 'global
 					$filter('translate')('reimbursement.error.body');
 				});
 		};
-
-		/**
-		 * Complete an expense and send it to the next instance (prof) to review it.
-		 * @param uid
-		 */
-		$scope.sendExpense = function (uid) {
-			console.log(uid);
-			// ToDo
-		};
-
-	}]);
+	}
+]);
