@@ -9,11 +9,11 @@ function($http, HOST) {
 	}
 
 	function getReviewExpensesAsFinanceAdmin() {
-		$http.get(HOST + '/api/finance-admin/review-expenses');
+		return $http.get(HOST + '/api/finance-admin/review-expenses');
 	}
 
 	function getReviewExpensesAsProf() {
-		$http.get(HOST + '/api/prof/review-expenses');
+		return $http.get(HOST + '/api/prof/review-expenses');
 	}
 
 	return {
