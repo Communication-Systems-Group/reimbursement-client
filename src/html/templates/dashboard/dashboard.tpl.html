@@ -15,7 +15,7 @@
 		</thead>
 		<tbody>
 		<tr ng-repeat="e in myExpenses | orderBy:'date'">
-			<td>{{ e.date | date:'dd.MM.yyyy' }}</td>
+			<td>{{ e.date | date: 'dd.MM.yyyy' }}</td>
 			<td>{{ e.account }}</td>
 			<td>{{ e.amount | currency:'CHF ':2 }}</td>
 			<td ng-if="e.state === 'CREATED'">

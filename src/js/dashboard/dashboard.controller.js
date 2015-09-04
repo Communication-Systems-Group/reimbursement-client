@@ -14,10 +14,10 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', 'USER', 'd
 
 		var myReviewExpenses = null;
 		if(USER.roles.indexOf('FINANCE_ADMIN') !== -1) {
-			myReviewExpenses.getReviewExpensesAsFinanceAdmin();
+			myReviewExpenses = dashboardRestService.getReviewExpensesAsFinanceAdmin();
 		}
 		else if(USER.roles.indexOf('PROF') !== -1) {
-			myReviewExpenses.getReviewExpensesAsProf();
+			myReviewExpenses = dashboardRestService.getReviewExpensesAsProf();
 		}
 
 		if(myReviewExpenses !== null) {
