@@ -54,3 +54,17 @@ body.deferred-bootstrap-loading {
 	/* inline-block space fix */
 	margin-right: -4px;
 }
+
+.well {
+	&.with-info-in-well {
+		position:relative;
+	}
+	& .fa.info-in-well {
+		position: absolute;
+		right: 2%;
+		top: 50%;
+		color: #FFF;
+		transform: translateY(-50%);
+		font-size: 54px;
+	}
+}

@@ -28,7 +28,7 @@ app.factory("globalMessagesService", ['$modal', '$translate', '$q',
 				var openModal = $modal.open({
 					templateUrl: templateUrl,
 					controller: 'GlobalMessagesController',
-					size: 'sm',
+					size: 'md',
 					resolve: {
 						title: function () {
 							return translations[title];
@@ -74,7 +74,7 @@ app.factory("globalMessagesService", ['$modal', '$translate', '$q',
 				var openModal = $modal.open({
 					templateUrl: templateUrl,
 					controller: 'GlobalMessagesConfirmController',
-					size: 'sm',
+					size: 'md',
 					resolve: {
 						title: function() {
 							return translations[title];

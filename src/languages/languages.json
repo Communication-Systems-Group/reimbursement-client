@@ -256,6 +256,40 @@
 		"de": "Optionen",
 		"en": "Options"
 	},
+
+	"create-expense.title": {
+		"de": "Neue Spesen hinzufügen",
+		"en": "Add new expense"
+	},
+	"expense.nextStepButton": {
+		"de": "Nächster Schritt",
+		"en": "Next Step"
+	},
+	"expense.cancelButton": {
+		"de": "Abbrechen",
+		"en": "Cancel"
+	},
+	"expense.accountingTitle": {
+		"de": "Buchhaltungsbeschreibung",
+		"en": "Description for Accounting"
+	},
+	"expense.accountingDescription": {
+		"de": "Legen Sie den SAP Beschreibungstext wie folgt fest:\n– «PMtg [Project Acronym], [City], [YYMMDD]» für ein Projektmeeting | Beispiel: «PMtg SmartenIT, Zurich, 150324»\n– «Conf [Acronym] [YYYY], [City]» für ein Workshop/Konferenz | Beispiel: «Conf NetSys 2015, Cottbus»\n– «[Hardware/Software] Order» | für eine HW or SW Bestellung",
+		"en": "Define the SAP description text as follows:\n– «PMtg [Project Acronym], [City], [YYMMDD]» for any project meeting | Example: «PMtg SmartenIT, Zurich, 150324»\n– «Conf [Acronym] [YYYY], [City]» for any workshop/conference | Example: «Conf NetSys 2015, Cottbus»\n– «[Hardware/Software] Order» | for any HW or SW order"
+	},
+	"expense.accountingLabel": {
+		"de": "Buchhaltungsbeschreibung (SAP)",
+		"en": "Description for Accounting (SAP)"
+	},
+	"expense.info.accountingTextMissingTitle": {
+		"de": "Beschreibung unvollständig",
+		"en": "Description incomplete"
+	},
+	"expense.info.accountingTextMissingMessage": {
+		"de": "Die Buchhaltungsbeschreibung (SAP) muss mind. 5 Zeichen umfassen.\nGeben Sie bitte eine korrekte Beschreibung ein.",
+		"en": "The description for accounting (SAP) requires to be at least 5 characters.\nPlease enter a correct description."
+	},
+
 	"expense.accepted": {
 		"de": "Sie haben das Spesenelement akzeptiert. Es wird nun zur Finanzabteilung des IFI weitergeleitet.",
 		"en": "You accepted the expense. It will now be sent to the accounting department of IFI."
