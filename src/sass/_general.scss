@@ -20,6 +20,10 @@ body.deferred-bootstrap-loading {
 	white-space: pre-wrap;
 }
 
+textarea {
+	resize: vertical;
+}
+
 .margin-top-05 {
 	margin-top: $default-margin-top-05;
 }
@@ -53,6 +57,10 @@ body.deferred-bootstrap-loading {
 	float: none;
 	/* inline-block space fix */
 	margin-right: -4px;
+}
+
+.clearfix {
+	clear: both;
 }
 
 .well {
