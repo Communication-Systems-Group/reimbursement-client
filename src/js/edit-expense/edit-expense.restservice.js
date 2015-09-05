@@ -56,11 +56,20 @@ function($http, HOST) {
 		});
 	}
 
+	function putExpenseItem(uid, data) {
+		return $http({
+			method: "PUT",
+			url: HOST + '/api/user/expenses/expense-items/'+uid,
+			data: data
+		});
+	}
+
 	return {
 		postExpenseItem: postExpenseItem,
 		getCostCategories: getCostCategories,
 		getExpenseItems: getExpenseItems,
 		getExpenseItem: getExpenseItem,
+		putExpenseItem: putExpenseItem,
 		deleteExpenseItem: deleteExpenseItem,
 		getSupportedCurrencies: getSupportedCurrencies,
 		getExchangeRates: getExchangeRates

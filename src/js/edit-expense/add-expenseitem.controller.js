@@ -1,10 +1,12 @@
-app.controller('AddExpenseItemController', ['$scope', '$modalInstance', '$filter', 'globalMessagesService', 'editExpenseRestService', 'expenseItemUid',
+app.controller('AddExpenseItemController', ['moment', '$scope', '$modalInstance', '$filter', '$timeout', 'globalMessagesService', 'editExpenseRestService', 'expenseItemUid',
 
-function($scope, $modalInstance, $filter, globalMessagesService, editExpenseRestService, expenseItemUid) {
+function(moment, $scope, $modalInstance, $filter, $timeout, globalMessagesService, editExpenseRestService, expenseItemUid) {
 	"use strict";
 
 	$scope.form = {};
 	$scope.calculatedAmount = 0;
+
+	var expenseItem = {};
 
 	editExpenseRestService.getCostCategories().then(function(response) {
 		$scope.costCategories =  response.data;
@@ -13,9 +15,11 @@ function($scope, $modalInstance, $filter, globalMessagesService, editExpenseRest
 			$scope.currencies = response.data;
 
 			editExpenseRestService.getExpenseItem(expenseItemUid).then(function(response) {
+				expenseItem = response.data;
+
 				$scope.form.date = $filter('date')(response.data.date, 'yyyy-MM-dd');
-				$scope.form.costCategory = response.data.costCategory;
-				$scope.form.amount = response.data.originalAmount;
+				$scope.form.costCategoryUid = response.data.costCategory;
+				$scope.form.originalAmount = response.data.originalAmount;
 				$scope.form.currency = response.data.currency;
 				$scope.form.project = response.data.costCenter;
 				$scope.form.explanation = response.data.reason;
@@ -37,10 +41,10 @@ function($scope, $modalInstance, $filter, globalMessagesService, editExpenseRest
 		function calculate() {
 			var exchangeRate = exchangeRates.rates[$scope.form.currency];
 			if(typeof exchangeRate !== "undefined") {
-				$scope.calculatedAmount = window.parseInt($scope.form.amount, 10) * exchangeRate;
+				$scope.calculatedAmount = window.parseFloat($scope.form.originalAmount) * exchangeRate;
 			}
 			else {
-				$scope.calculatedAmount = window.parseInt($scope.form.amount, 10);
+				$scope.calculatedAmount = window.parseFloat($scope.form.originalAmount);
 			}
 		}
 
@@ -65,32 +69,68 @@ function($scope, $modalInstance, $filter, globalMessagesService, editExpenseRest
 	};
 
 	$scope.dismissWithConfirmation = function() {
-		globalMessagesService.confirmWarning("reimbursement.add-expenseitem.closeWarningTitle",
-			"reimbursement.add-expenseitem.closeWarningMessage").then(function(){
 
-			editExpenseRestService.deleteExpenseItem(expenseItemUid).then(undefined, function(){
-				globalMessagesService.showGeneralError();
-			})['finally'](function() {
+		if(expenseItem.state === 'INITIAL') {
+			globalMessagesService.confirmWarning("reimbursement.add-expenseitem.closeWarningTitle",
+				"reimbursement.add-expenseitem.closeWarningMessage").then(function() {
+
+				editExpenseRestService.deleteExpenseItem(expenseItemUid).then(undefined, function(){
+					globalMessagesService.showGeneralError();
+				})['finally'](function() {
+					$modalInstance.dismiss();
+				});
+			});
+		}
+		else {
+			globalMessagesService.confirmWarning("reimbursement.add-expenseitem.closeWarningEditTitle",
+				"reimbursement.add-expenseitem.closeWarningEditMessage").then(function() {
+
 				$modalInstance.dismiss();
 			});
-		});
+		}
 	};
 
 	$scope.sendForm = function() {
-		// TODO improve validation
-		var form = $scope.form;
-
-		if(validate(form.date) && validate(form.costcategory) && validate(form.amount) && validate(form.currency) && validate(form.project) && validate(form.explanation)) {
-			// TODO send to back-end
-			console.log(true);
+		if(validForm($scope.form)) {
+			editExpenseRestService.putExpenseItem(expenseItemUid, $scope.form).then(function() {
+				$modalInstance.close();
+			}, function() {
+				globalMessagesService.showGeneralError();
+			});
 		}
 		else {
 			globalMessagesService.showWarning("reimbursement.expense.warning.formNotComplete.title", "reimbursement.expense.warning.formNotComplete.message");
 		}
 	};
 
-	function validate(value) {
-		return (typeof value !== "undefined" && value !== "");
+	function validForm(form) {
+		if(typeof form.date === "undefined" || form.date === null || !moment(form.date, 'yyyy-MM-dd').isValid()) {
+			return false;
+		}
+		if(typeof form.costCategoryUid === "undefined" || form.costCategoryUid === null || form.costCategoryUid === "") {
+			return false;
+		}
+		if(typeof form.originalAmount === "undefined" || form.originalAmount === null || !jQuery.isNumeric(form.originalAmount) || parseFloat(form.originalAmount) <= 0) {
+			return false;
+		}
+		if(typeof form.currency === "undefined" || form.currency === null || form.currency === "") {
+			return false;
+		}
+		if(typeof form.project === "undefined" || form.project === null || form.project === "") {
+			return false;
+		}
+		if(typeof form.explanation === "undefined" || form.explanation === null || form.explanation === "") {
+			return false;
+		}
+		return true;
 	}
+
+	$timeout(function() {
+		jQuery('.datepicker').datetimepicker({
+			format: 'YYYY-MM-DD',
+			viewMode: 'years',
+			allowInputToggle: true
+		});
+	});
 
 }]);

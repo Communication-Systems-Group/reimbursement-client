@@ -277,6 +277,14 @@
 		"de": "Wenn Sie dieses Fenster schliessen, wird der Beleg verworfen. Fortfahren?",
 		"en": "If you close this window, you dismiss the current receipt. Continue?"
 	},
+	"add-expenseitem.closeWarningEditTitle": {
+		"de": "Achtung",
+		"en": "Attention"
+	},
+	"add-expenseitem.closeWarningEditMessage": {
+		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
+		"en": "If you close this window, you dismiss all changes made on the current receipt. Continue?"
+	},
 	"add-expenseitem.date": {
 		"de": "Belegsdatum",
 		"en": "Receipt date"

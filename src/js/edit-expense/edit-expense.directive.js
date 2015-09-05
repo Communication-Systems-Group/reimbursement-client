@@ -12,26 +12,30 @@ function($modal, $filter, globalMessagesService, editExpenseRestService) {
 		},
 		link: function($scope) {
 
-			$scope.expenseItems = [];
+			function updateTable() {
+				$scope.expenseItems = [];
 
-			editExpenseRestService.getExpenseItems($scope.expenseUid).then(function(response) {
-				var showGeneralError = function() {
+				editExpenseRestService.getExpenseItems($scope.expenseUid).then(function(response) {
+					var showGeneralError = function() {
+						globalMessagesService.showGeneralError();
+					};
+					for(var i=0; i<response.data.length; i++) {
+						// delete all expenseitems with state initial (not finished creation)
+						if(response.data[i].state === 'INITIAL') {
+							editExpenseRestService.deleteExpenseItem(response.data[i].uid).error(showGeneralError);
+						}
+						// show all others
+						else {
+							$scope.expenseItems.push(response.data[i]);
+						}
+					}
+
+				}, function() {
 					globalMessagesService.showGeneralError();
-				};
-				for(var i=0; i<response.data.length; i++) {
-					// delete all expenseitems with state initial (not finished creation)
-					if(response.data[i].state === 'INITIAL') {
-						editExpenseRestService.deleteExpenseItem(response.data[i].uid).error(showGeneralError);
-					}
-					// show all others
-					else {
-						$scope.expenseItems.push(response.data[i]);
-					}
-				}
+				});
+			}
 
-			}, function() {
-				globalMessagesService.showGeneralError();
-			});
+			updateTable();
 
 			$scope.addExpenseItem = function() {
 				editExpenseRestService.getCostCategories().then(function(response) {
@@ -60,10 +64,7 @@ function($modal, $filter, globalMessagesService, editExpenseRestService) {
 							keyboard: false
 						});
 
-						modalInstance.result.then(function() {
-							// TODO add expense to list
-							console.log(123);
-						});
+						modalInstance.result.then()['finally'](updateTable);
 
 					}, function() {
 						globalMessagesService.showGeneralError();

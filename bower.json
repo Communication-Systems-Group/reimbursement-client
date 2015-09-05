@@ -4,6 +4,7 @@
 		"angular": "^1.4.1",
 		"angular-translate": "^2.7.2",
 		"angular-route": "^1.4.1",
+		"moment": "^2.10.6",
 		"bootstrap": "^3.3.5",
 		"signature_pad": "^1.4.0",
 		"font-awesome": "^4.4.0",
@@ -16,7 +17,8 @@
 		"flow.js": "^2.9.0",
 		"ng-flow": "^2.6.1",
 		"jcrop": "^0.9.12",
-		"angular-input-masks": "~1.4.2"
+		"angular-input-masks": "~1.4.2",
+		"eonasdan-bootstrap-datetimepicker": "^4.15.35"
 	},
 	"resolutions": {
 		"angular": "^1.4.1"
