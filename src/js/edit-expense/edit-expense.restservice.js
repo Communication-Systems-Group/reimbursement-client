@@ -18,9 +18,52 @@ function($http, HOST) {
 		});
 	}
 
+	function getExpenseItems(expenseUid) {
+		return $http({
+			method: 'GET',
+			url: HOST + '/api/user/expenses/'+expenseUid+'/expense-items'
+		});
+	}
+
+	function getExpenseItem(expenseItemUid) {
+		return $http({
+			method: 'GET',
+			url: HOST + '/api/user/expenses/expense-items/'+expenseItemUid
+		});
+	}
+
+	function deleteExpenseItem(uid) {
+		return $http({
+			method: 'DELETE',
+			url: HOST + '/api/user/expenses/expense-items/'+uid
+		});
+	}
+
+	function getSupportedCurrencies() {
+		return $http({
+			method: "GET",
+			url: HOST + '/api/public/currencies'
+		});
+	}
+
+	function getExchangeRates(date) {
+		return $http({
+			method: "GET",
+			url: HOST + '/api/public/exchange-rate',
+			params: {
+				date: date
+			}
+		});
+	}
+
 	return {
 		postExpenseItem: postExpenseItem,
-		getCostCategories: getCostCategories
+		getCostCategories: getCostCategories,
+		getExpenseItems: getExpenseItems,
+		getExpenseItem: getExpenseItem,
+		deleteExpenseItem: deleteExpenseItem,
+		getSupportedCurrencies: getSupportedCurrencies,
+		getExchangeRates: getExchangeRates
 	};
 
 }]);

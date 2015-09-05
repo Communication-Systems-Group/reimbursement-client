@@ -1,18 +1,18 @@
-app.controller('AddExpenseItemController', ['$scope', '$modalInstance', '$filter', 'globalMessagesService', 'addExpenseItemRestService', 'expenseItemUid',
+app.controller('AddExpenseItemController', ['$scope', '$modalInstance', '$filter', 'globalMessagesService', 'editExpenseRestService', 'expenseItemUid',
 
-function($scope, $modalInstance, $filter, globalMessagesService, addExpenseItemRestService, expenseItemUid) {
+function($scope, $modalInstance, $filter, globalMessagesService, editExpenseRestService, expenseItemUid) {
 	"use strict";
 
 	$scope.form = {};
 	$scope.calculatedAmount = 0;
 
-	addExpenseItemRestService.getCostCategories().then(function(response) {
+	editExpenseRestService.getCostCategories().then(function(response) {
 		$scope.costCategories =  response.data;
 
-		addExpenseItemRestService.getSupportedCurrencies().then(function(response) {
+		editExpenseRestService.getSupportedCurrencies().then(function(response) {
 			$scope.currencies = response.data;
 
-			addExpenseItemRestService.getExpenseItem(expenseItemUid).then(function(response) {
+			editExpenseRestService.getExpenseItem(expenseItemUid).then(function(response) {
 				$scope.form.date = $filter('date')(response.data.date, 'yyyy-MM-dd');
 				$scope.form.costCategory = response.data.costCategory;
 				$scope.form.amount = response.data.originalAmount;
@@ -47,7 +47,7 @@ function($scope, $modalInstance, $filter, globalMessagesService, addExpenseItemR
 		if($scope.form.date !== "") {
 			// only make back-end calls if necessary
 			if(exchangeRateDate !== $scope.form.date) {
-				addExpenseItemRestService.getExchangeRates($scope.form.date).then(function(response) {
+				editExpenseRestService.getExchangeRates($scope.form.date).then(function(response) {
 					exchangeRates = response.data;
 					exchangeRateDate = $scope.form.date;
 					calculate();
@@ -68,7 +68,7 @@ function($scope, $modalInstance, $filter, globalMessagesService, addExpenseItemR
 		globalMessagesService.confirmWarning("reimbursement.add-expenseitem.closeWarningTitle",
 			"reimbursement.add-expenseitem.closeWarningMessage").then(function(){
 
-			addExpenseItemRestService.deleteExpenseItem(expenseItemUid).then(undefined, function(){
+			editExpenseRestService.deleteExpenseItem(expenseItemUid).then(undefined, function(){
 				globalMessagesService.showGeneralError();
 			})['finally'](function() {
 				$modalInstance.dismiss();

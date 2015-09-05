@@ -12,6 +12,25 @@ function($modal, $filter, globalMessagesService, editExpenseRestService) {
 		},
 		link: function($scope) {
 
+			$scope.expenseItems = [];
+
+			editExpenseRestService.getExpenseItems($scope.expenseUid).then(function(response) {
+				var showGeneralError = function() {
+					globalMessagesService.showGeneralError();
+				};
+				for(var i=0; i<response.data.length; i++) {
+					if(response.data[i].state === 'INITIAL') {
+						editExpenseRestService.deleteExpenseItem(response.data[i].uid).error(showGeneralError);
+					}
+					else {
+						$scope.expenseItems.push(response.data[i]);
+					}
+				}
+
+			}, function() {
+				globalMessagesService.showGeneralError();
+			});
+
 			$scope.addExpenseItem = function() {
 				editExpenseRestService.getCostCategories().then(function(response) {
 					var costCategories = response.data;

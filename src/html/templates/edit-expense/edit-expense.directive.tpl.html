@@ -7,13 +7,41 @@
 				<th>Cost Category</th>
 				<th>Amount</th>
 				<th>Project</th>
-				<th>Travel Purpose</th>
-				<th>File</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+			<tr ng-if="expenseItems.length === 0">
 				<td colspan="999" class="text-center">{{ 'reimbursement.expense.noExpenseItems' | translate }}</td>
+			</tr>
+			<tr ng-repeat="expenseItem in expenseItems">
+				<td>{{ expenseItem.date | date: 'yyyy-MM-dd' }}</td>
+				<td>{{ expenseItem.costCategory.name.de }}</td>
+				<td>{{ expenseItem.amount.calculatedAmount }} Fr.</td>
+				<td>{{ expenseItem.costCenter }}</td>
+				<td style="width:0;">
+					<div class="dropdown">
+						<button data-toggle="dropdown" aria-expanded="true" class="btn btn-default btn-xs dropdown-toggle" id="action-button_{{expenseItem.uid}}">
+							<i class="fa fa-caret-down"></i>&nbsp;
+							{{'reimbursement.expense.action' | translate}}
+						</button>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="action-button_{{expenseItem.uid}}">
+							<li role="presentation">
+								<a tabindex="-1" role="menuitem">
+									<i class="fa fa-pencil"></i>
+									{{ 'reimbursement.expense.edit' | translate }}
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li role="presentation">
+								<a tabindex="-1" role="menuitem">
+									<i class="fa fa-trash"></i>
+									{{ 'reimbursement.expense.delete' | translate }}
+								</a>
+							</li>
+						</ul>
+					</div>
+				</td>
 			</tr>
 		</tbody>
 
