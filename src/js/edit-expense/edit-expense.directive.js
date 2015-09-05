@@ -19,9 +19,11 @@ function($modal, $filter, globalMessagesService, editExpenseRestService) {
 					globalMessagesService.showGeneralError();
 				};
 				for(var i=0; i<response.data.length; i++) {
+					// delete all expenseitems with state initial (not finished creation)
 					if(response.data[i].state === 'INITIAL') {
 						editExpenseRestService.deleteExpenseItem(response.data[i].uid).error(showGeneralError);
 					}
+					// show all others
 					else {
 						$scope.expenseItems.push(response.data[i]);
 					}
