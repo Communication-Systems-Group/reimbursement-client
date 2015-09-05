@@ -33,7 +33,8 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', 'USER', 'd
 			$state.go(state, params);
 		};
 
-		$scope.addExpense = function () {
+		// TODO remove
+		$scope.addExpense_deprecated = function () {
 			expenseRestService.postExpense({accounting: '', state: 'CREATED'})
 				.success(function (response) {
 					$state.go('expense', {id: response.uid, isReview: 0});
@@ -42,6 +43,10 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', 'USER', 'd
 					$filter('translate')('reimbursement.error.title');
 					$filter('translate')('reimbursement.error.body');
 				});
+		};
+
+		$scope.addExpense = function() {
+			$state.go('create-expense');
 		};
 	}
 ]);

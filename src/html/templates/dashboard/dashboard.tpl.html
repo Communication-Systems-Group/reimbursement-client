@@ -47,20 +47,21 @@
 		</tr>
 		</tbody>
 	</table>
-	<div class="row row-centered" ng-if="myReviewExpenses.length < 1">
+	<div class="row row-centered" ng-if="myExpenses.length < 1">
 		<div class="col-md-12 col-centered">
 			{{ 'reimbursement.dashboard.table.noContent' | translate }}
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-md-3">
-			<button type="button" class="btn btn-primary" ng-click="addExpense()">
-				<i class="fa fa-plus-circle"></i>
-				{{ 'reimbursement.dashboard.table.addExpense' | translate }}
-			</button>
-		</div>
-		<div class="col-md-9"></div>
+	<div class="row pull-right">
+		<button type="button" class="btn btn-warning" ng-click="addExpense_deprecated()">
+			<i class="fa fa-plus-circle"></i>
+			{{ 'reimbursement.dashboard.table.addExpense' | translate }}_deprecated
+		</button>
+		<button type="button" class="btn btn-primary" ng-click="addExpense()">
+			<i class="fa fa-plus-circle"></i>
+			{{ 'reimbursement.dashboard.table.addExpense' | translate }}
+		</button>
 	</div>
 
 	<div ng-if="showReviewSection">
@@ -98,7 +99,7 @@
 			</tr>
 			</tbody>
 		</table>
-		<div class="row row-centered" ng-if="myReviewExpenseItems.length < 1 || myReviewExpenseItems === null">
+		<div class="row row-centered" ng-if="myReviewExpenses.length < 1">
 			<div class="col-md-12 col-centered">
 				{{ 'reimbursement.dashboard.table.noContent' | translate }}
 			</div>
