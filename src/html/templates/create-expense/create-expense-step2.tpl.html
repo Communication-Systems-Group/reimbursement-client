@@ -1,0 +1,17 @@
+<div id="create-expense-step2">
+
+	<h1 class="page-header">
+		<i class="fa fa-clone"></i>
+		{{ 'reimbursement.create-expense-step2.title' | translate }}
+	</h1>
+
+	<edit-expense expense-uid="{{ expenseUid }}"></edit-expense>
+
+	<hr>
+
+	<button disabled class="btn btn-primary pull-right" ng-click="submitToProf()">
+		<i class="fa fa-arrow-circle-right"></i>
+		{{ 'reimbursement.expense.submitToProfButton' | translate }}
+	</button>
+
+</div>

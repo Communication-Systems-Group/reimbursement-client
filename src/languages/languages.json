@@ -261,6 +261,50 @@
 		"de": "Neue Spesen hinzufügen",
 		"en": "Add new expense"
 	},
+	"create-expense-step2.title": {
+		"de": "Belege einreichen",
+		"en": "Add receipts"
+	},
+	"add-expenseitem.title": {
+		"de": "Beleg hinzufügen",
+		"en": "Add receipt"
+	},
+	"add-expenseitem.closeWarningTitle": {
+		"de": "Achtung",
+		"en": "Attention"
+	},
+	"add-expenseitem.closeWarningMessage": {
+		"de": "Wenn Sie dieses Fenster schliessen, wird der Beleg verworfen. Fortfahren?",
+		"en": "If you close this window, you dismiss the current receipt. Continue?"
+	},
+	"add-expenseitem.date": {
+		"de": "Belegsdatum",
+		"en": "Receipt date"
+	},
+	"add-expenseitem.costcategory":{
+		"de": "Kostenkategorie",
+		"en": "Cost category"
+	},
+	"add-expenseitem.amount": {
+		"de": "Betrag",
+		"en": "Amount"
+	},
+	"add-expenseitem.calculatedAmount": {
+		"de": "berechneter Betrag",
+		"en": "Calculated amount"
+	},
+	"add-expenseitem.project": {
+		"de": "Projekt",
+		"en": "Project"
+	},
+	"add-expenseitem.explanation": {
+		"de": "Spesengrund",
+		"en": "Expense explanation"
+	},
+	"add-expenseitem.uploadDocument": {
+		"de": "Dokumentupload",
+		"en": "Document upload"
+	},
 	"expense.nextStepButton": {
 		"de": "Nächster Schritt",
 		"en": "Next Step"
@@ -268,6 +312,22 @@
 	"expense.cancelButton": {
 		"de": "Abbrechen",
 		"en": "Cancel"
+	},
+	"expense.submitToProfButton": {
+		"de": "An Professor zuweisen",
+		"en": "Submit to Professor"
+	},
+	"expense.addNewReceiptButton": {
+		"de": "Neuen Beleg hinzufügen",
+		"en": "Add new receipt"
+	},
+	"expense.uploadDocumentButton": {
+		"de": "Dokument hochladen",
+		"en": "Upload document"
+	},
+	"expense.noExpenseItems": {
+		"de": "Keine Belege vorhanden.",
+		"en": "No receipts available."
 	},
 	"expense.accountingTitle": {
 		"de": "Buchhaltungsbeschreibung",
@@ -289,6 +349,15 @@
 		"de": "Die Buchhaltungsbeschreibung (SAP) muss mind. 5 Zeichen umfassen.\nGeben Sie bitte eine korrekte Beschreibung ein.",
 		"en": "The description for accounting (SAP) requires to be at least 5 characters.\nPlease enter a correct description."
 	},
+	"expense.warning.formNotComplete.title": {
+		"de": "Unvollständig",
+		"en": "Incomplete"
+	},
+	"expense.warning.formNotComplete.message": {
+		"de": "Bitte füllen Sie alle Felder komplett aus.",
+		"en": "Please fill out every input field."
+	},
+
 
 	"expense.accepted": {
 		"de": "Sie haben das Spesenelement akzeptiert. Es wird nun zur Finanzabteilung des IFI weitergeleitet.",

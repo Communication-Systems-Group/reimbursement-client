@@ -112,6 +112,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "CreateExpenseController",
 			onEnter: requireAuthentication()
 
+		}).state('create-expense-step2', {
+			url: "/create-expense-step2/:uid",
+			templateUrl: "create-expense/create-expense-step2.tpl.html",
+			controller: "CreateExpenseStep2Controller",
+			onEnter: requireAuthentication()
+
 		}).state('expense', {
 			url: "/expense/:id/:isReview",
 			templateUrl: "expense/expense.tpl.html",

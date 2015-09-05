@@ -1,0 +1,28 @@
+<div id="edit-expense">
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Date of Expense Item</th>
+				<th>Cost Category</th>
+				<th>Amount</th>
+				<th>Project</th>
+				<th>Travel Purpose</th>
+				<th>File</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td colspan="999" class="text-center">{{ 'reimbursement.expense.noExpenseItems' | translate }}</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+	<button class="btn-primary btn pull-right" ng-click="addExpenseItem()">
+		<i class="fa fa-plus"></i>
+		{{ 'reimbursement.expense.addNewReceiptButton' | translate }}
+	</button>
+	<div class="clearfix"></div>
+
+</div>
