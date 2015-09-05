@@ -7,9 +7,9 @@ function($scope, $modalInstance, $modal, attachmentRestService, spinnerService, 
 	$scope.dismiss = $modalInstance.dismiss;
 
 	$scope.checkAndClose = function() {
-		spinnerService.show('attachmentSignatureQR');
+		spinnerService.show('spinnerAttachmentQR');
 
-		var promise = signatureRestService.getSignature();
+		var promise = attachmentRestService.getSignature();
 		promise.then(function(image) {
 			$modalInstance.close(image);
 		}, function() {
@@ -18,7 +18,7 @@ function($scope, $modalInstance, $modal, attachmentRestService, spinnerService, 
 				"reimbursement.globalMessage.attachmentQrNoImage.message");
 
 		})['finally'](function() {
-			spinnerService.hide('attachmentSignatureQR');
+			spinnerService.hide('spinnerAttachmentQR');
 		});
 
 	};

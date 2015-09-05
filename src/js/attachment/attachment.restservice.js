@@ -6,13 +6,13 @@ function($http, HOST) {
 	return {
 		//TODO: Chrigi - make expenseItemId dynamic
 		getAttachment : function() {
-			return $http.get(HOST + "/api/user/expenses/expense-items/dbeba0ee-5727-4e60-ab05-dda5f215d396/attachments");
+			return $http.get(HOST + "/api/user/expenses/expense-items/f6570b82-344f-4ebe-84cc-c15a081f03a3/attachments");
 		},
 		postAttachmentMobileToken : function() {
-			return $http.post(HOST + "/api/user/expenses/expense-items/dbeba0ee-5727-4e60-ab05-dda5f215d396/attachments/token");
+			return $http.post(HOST + "/api/user/expenses/expense-items/f6570b82-344f-4ebe-84cc-c15a081f03a3/attachments/token");
 		},
 		postAttachmentPath : function() {
-			return HOST + "/api/user/expenses/expense-items/dbeba0ee-5727-4e60-ab05-dda5f215d396/attachments";
+			return HOST + "/api/user/expenses/expense-items/f6570b82-344f-4ebe-84cc-c15a081f03a3/attachments";
 		},
 		postAttachmentMobilePath: function(token) {
 			return HOST + "/api/public/mobile/" + token + "/attachment";

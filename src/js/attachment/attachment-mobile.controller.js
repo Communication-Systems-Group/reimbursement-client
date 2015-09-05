@@ -3,7 +3,7 @@ app.controller('AttachmentMobileController', ['$scope', '$stateParams', 'attachm
 function($scope, $stateParams, attachmentRestService, spinnerService) {
 	"use strict";
 
-	$scope.postSignaturePath = attachmentRestService.postSignatureMobilePath($stateParams.token);
+	$scope.postAttachmentPath = attachmentRestService.postAttachmentMobilePath($stateParams.token);
 	$scope.flow = {};
 	$scope.isComplete = false;
 	$scope.isError = false;

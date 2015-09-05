@@ -13,7 +13,7 @@
 	</div>
 	<spinner id="spinnerSignatureTouchMobile" label="{{ 'reimbursement.captureAttachment.spinnerUploading' | translate }}"></spinner>
 	<signature-pad submit="submit" full="true" parents="'#signatureCaptureMobile'"></signature-pad>
-	<div flow-init="{ target: postSignaturePath, testChunks: false, singleFile: true, simultaneousUploads: 1 }"
-		flow-name="flow.touchMobile" flow-upload-started="showSpinner('spinnerSignatureTouchMobile')"
+	<div flow-init="{ target: postAttachmentPath, testChunks: false, singleFile: true, simultaneousUploads: 1 }"
+		flow-name="flow.touchMobile" flow-upload-started="showSpinner('spinnerAttachmentTouchMobile')"
 		flow-file-success="success()" flow-file-error="error()"></div>
 </div>
