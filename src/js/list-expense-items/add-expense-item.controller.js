@@ -1,6 +1,6 @@
-app.controller('AddExpenseItemController', ['moment', '$scope', '$modalInstance', '$filter', '$timeout', '$translate', 'spinnerService', 'globalMessagesService', 'editExpenseRestService', 'expenseItemUid',
+app.controller('AddExpenseItemController', ['moment', '$scope', '$modalInstance', '$filter', '$timeout', '$translate', 'spinnerService', 'globalMessagesService', 'listExpenseItemsRestService', 'expenseItemUid',
 
-function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerService, globalMessagesService, editExpenseRestService, expenseItemUid) {
+function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerService, globalMessagesService, listExpenseItemsRestService, expenseItemUid) {
 	"use strict";
 
 	$scope.form = {};
@@ -15,20 +15,20 @@ function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerS
 	var invalidDate = "";
 	var invalidAmount = "";
 
-	$translate(['reimbursement.add-expenseitem.invalidDate', 'reimbursement.add-expenseitem.invalidAmount']).then(function(translations) {
-		invalidDate = translations['reimbursement.add-expenseitem.invalidDate'];
-		invalidAmount = translations['reimbursement.add-expenseitem.invalidAmount'];
+	$translate(['reimbursement.add-expense-item.invalidDate', 'reimbursement.add-expense-item.invalidAmount']).then(function(translations) {
+		invalidDate = translations['reimbursement.add-expense-item.invalidDate'];
+		invalidAmount = translations['reimbursement.add-expense-item.invalidAmount'];
 	}, function() {
 		globalMessagesService.showGeneralError();
 	});
 
-	editExpenseRestService.getCostCategories().then(function(response) {
+	listExpenseItemsRestService.getCostCategories().then(function(response) {
 		$scope.costCategories =  response.data;
 
-		editExpenseRestService.getSupportedCurrencies().then(function(response) {
+		listExpenseItemsRestService.getSupportedCurrencies().then(function(response) {
 			$scope.currencies = response.data;
 
-			editExpenseRestService.getExpenseItem(expenseItemUid).then(function(response) {
+			listExpenseItemsRestService.getExpenseItem(expenseItemUid).then(function(response) {
 				expenseItem = response.data;
 
 				$scope.form.date = $filter('date')(response.data.date, 'yyyy-MM-dd');
@@ -72,7 +72,7 @@ function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerS
 		if($scope.form.date !== "") {
 			// only make back-end calls if necessary
 			if(exchangeRateDate !== $scope.form.date) {
-				editExpenseRestService.getExchangeRates($scope.form.date).then(function(response) {
+				listExpenseItemsRestService.getExchangeRates($scope.form.date).then(function(response) {
 					exchangeRates = response.data;
 					exchangeRateDate = $scope.form.date;
 					calculate();
@@ -92,10 +92,10 @@ function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerS
 	$scope.dismissWithConfirmation = function() {
 
 		if(expenseItem.state === 'INITIAL') {
-			globalMessagesService.confirmWarning("reimbursement.add-expenseitem.closeWarningTitle",
-				"reimbursement.add-expenseitem.closeWarningMessage").then(function() {
+			globalMessagesService.confirmWarning("reimbursement.add-expense-item.closeWarningTitle",
+				"reimbursement.add-expense-item.closeWarningMessage").then(function() {
 
-				editExpenseRestService.deleteExpenseItem(expenseItemUid).then(undefined, function(){
+				listExpenseItemsRestService.deleteExpenseItem(expenseItemUid).then(undefined, function(){
 					globalMessagesService.showGeneralError();
 				})['finally'](function() {
 					$modalInstance.dismiss();
@@ -103,8 +103,8 @@ function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerS
 			});
 		}
 		else {
-			globalMessagesService.confirmWarning("reimbursement.add-expenseitem.closeWarningEditTitle",
-				"reimbursement.add-expenseitem.closeWarningEditMessage").then(function() {
+			globalMessagesService.confirmWarning("reimbursement.add-expense-item.closeWarningEditTitle",
+				"reimbursement.add-expense-item.closeWarningEditMessage").then(function() {
 
 				$modalInstance.dismiss();
 			});
@@ -113,7 +113,7 @@ function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerS
 
 	$scope.sendForm = function() {
 		if(validForm($scope.form)) {
-			editExpenseRestService.putExpenseItem(expenseItemUid, $scope.form).then(function() {
+			listExpenseItemsRestService.putExpenseItem(expenseItemUid, $scope.form).then(function() {
 				$modalInstance.close();
 			}, function() {
 				globalMessagesService.showGeneralError();

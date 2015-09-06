@@ -1,12 +1,12 @@
-app.directive('editExpense', ['$modal', '$filter', '$timeout', 'spinnerService', 'globalMessagesService', 'editExpenseRestService',
+app.directive('listExpenseItems', ['$modal', '$filter', '$timeout', 'spinnerService', 'globalMessagesService', 'listExpenseItemsRestService',
 
-function($modal, $filter, $timeout, spinnerService, globalMessagesService, editExpenseRestService) {
+function($modal, $filter, $timeout, spinnerService, globalMessagesService, listExpenseItemsRestService) {
 	"use strict";
 
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'edit-expense/edit-expense.directive.tpl.html',
+		templateUrl: 'list-expense-items/list-expense-items.directive.tpl.html',
 		scope: {
 			expenseUid: '@'
 		},
@@ -19,14 +19,14 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, editE
 					spinnerService.show('spinnerListExpenseItems');
 				});
 
-				editExpenseRestService.getExpenseItems($scope.expenseUid).then(function(response) {
+				listExpenseItemsRestService.getExpenseItems($scope.expenseUid).then(function(response) {
 					var showGeneralError = function() {
 						globalMessagesService.showGeneralError();
 					};
 					for(var i=0; i<response.data.length; i++) {
-						// delete all expenseitems with state initial (not finished creation)
+						// delete all expense-items with state initial (not finished creation)
 						if(response.data[i].state === 'INITIAL') {
-							editExpenseRestService.deleteExpenseItem(response.data[i].uid).error(showGeneralError);
+							listExpenseItemsRestService.deleteExpenseItem(response.data[i].uid).error(showGeneralError);
 						}
 						// show all others
 						else {
@@ -44,18 +44,18 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, editE
 			updateTable();
 
 			$scope.addExpenseItem = function() {
-				editExpenseRestService.getCostCategories().then(function(response) {
+				listExpenseItemsRestService.getCostCategories().then(function(response) {
 					var costCategories = response.data;
 					var preSelectedCategoryUid = costCategories[0].uid;
 
-					editExpenseRestService.postExpenseItem($scope.expenseUid, {
+					listExpenseItemsRestService.postExpenseItem($scope.expenseUid, {
 						date: $filter('date')(new Date(), 'yyyy-MM-dd'),
 						costCategoryUid: preSelectedCategoryUid,
 						currency: 'CHF',
 					}).then(function(response) {
 
 						var modalInstance = $modal.open({
-							templateUrl: 'edit-expense/add-expenseitem.tpl.html',
+							templateUrl: 'list-expense-items/add-expense-item.tpl.html',
 							controller: 'AddExpenseItemController',
 							resolve: {
 								costCategories: function() {

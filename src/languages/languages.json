@@ -265,59 +265,59 @@
 		"de": "Belege einreichen",
 		"en": "Add receipts"
 	},
-	"add-expenseitem.title": {
+	"add-expense-item.title": {
 		"de": "Beleg hinzufügen",
 		"en": "Add receipt"
 	},
-	"add-expenseitem.closeWarningTitle": {
+	"add-expense-item.closeWarningTitle": {
 		"de": "Achtung",
 		"en": "Attention"
 	},
-	"add-expenseitem.closeWarningMessage": {
+	"add-expense-item.closeWarningMessage": {
 		"de": "Wenn Sie dieses Fenster schliessen, wird der Beleg verworfen. Fortfahren?",
 		"en": "If you close this window, you dismiss the current receipt. Continue?"
 	},
-	"add-expenseitem.closeWarningEditTitle": {
+	"add-expense-item.closeWarningEditTitle": {
 		"de": "Achtung",
 		"en": "Attention"
 	},
-	"add-expenseitem.closeWarningEditMessage": {
+	"add-expense-item.closeWarningEditMessage": {
 		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
 		"en": "If you close this window, you dismiss all changes made on the current receipt. Continue?"
 	},
-	"add-expenseitem.date": {
+	"add-expense-item.date": {
 		"de": "Belegsdatum",
 		"en": "Receipt date"
 	},
-	"add-expenseitem.costcategory":{
+	"add-expense-item.costcategory":{
 		"de": "Kostenkategorie",
 		"en": "Cost category"
 	},
-	"add-expenseitem.amount": {
+	"add-expense-item.amount": {
 		"de": "Betrag",
 		"en": "Amount"
 	},
-	"add-expenseitem.calculatedAmount": {
+	"add-expense-item.calculatedAmount": {
 		"de": "berechneter Betrag",
 		"en": "Calculated amount"
 	},
-	"add-expenseitem.project": {
+	"add-expense-item.project": {
 		"de": "Projekt",
 		"en": "Project"
 	},
-	"add-expenseitem.explanation": {
+	"add-expense-item.explanation": {
 		"de": "Spesengrund",
 		"en": "Expense explanation"
 	},
-	"add-expenseitem.uploadDocument": {
+	"add-expense-item.uploadDocument": {
 		"de": "Dokumentupload",
 		"en": "Document upload"
 	},
-	"add-expenseitem.invalidDate": {
+	"add-expense-item.invalidDate": {
 		"de": "Datum ungültig",
 		"en": "Invalid Date"
 	},
-	"add-expenseitem.invalidAmount": {
+	"add-expense-item.invalidAmount": {
 		"de": "Betrag ungültig",
 		"en": "Invalid Amount"
 	},
