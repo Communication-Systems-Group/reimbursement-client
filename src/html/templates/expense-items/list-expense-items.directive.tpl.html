@@ -27,14 +27,14 @@
 						</button>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="action-button_{{expenseItem.uid}}">
 							<li role="presentation">
-								<a tabindex="-1" role="menuitem" ng-click="editExpenseItem(expenseItem.uid)">
+								<a href tabindex="-1" role="menuitem" ng-click="editExpenseItem(expenseItem.uid)">
 									<i class="fa fa-pencil"></i>
 									{{ 'reimbursement.expense.edit' | translate }}
 								</a>
 							</li>
 							<li class="divider"></li>
 							<li role="presentation">
-								<a tabindex="-1" role="menuitem">
+								<a href tabindex="-1" role="menuitem">
 									<i class="fa fa-trash"></i>
 									{{ 'reimbursement.expense.delete' | translate }}
 								</a>
