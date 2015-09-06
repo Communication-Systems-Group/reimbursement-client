@@ -38,7 +38,7 @@
 					{{ 'reimbursement.add-expenseitem.amount' | translate }}
 				</label>
 				<div class="col-sm-4" style="padding-right: 0;">
-					<input type="text" id="expenseitem-amount" ng-model="form.originalAmount" class="form-control text-center" ng-change="calculateAmount()">
+					<input type="number" id="expenseitem-amount" ng-model="form.originalAmount" class="form-control text-center" ng-change="calculateAmount()">
 				</div>
 				<div class="col-sm-4">
 					<select id="expenseitem-currency" class="form-control" ng-model="form.currency" ng-change="calculateAmount()">

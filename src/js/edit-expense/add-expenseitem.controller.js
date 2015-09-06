@@ -1,6 +1,6 @@
-app.controller('AddExpenseItemController', ['moment', '$scope', '$modalInstance', '$filter', '$timeout', 'spinnerService', 'globalMessagesService', 'editExpenseRestService', 'expenseItemUid',
+app.controller('AddExpenseItemController', ['moment', '$scope', '$modalInstance', '$filter', '$timeout', '$translate', 'spinnerService', 'globalMessagesService', 'editExpenseRestService', 'expenseItemUid',
 
-function(moment, $scope, $modalInstance, $filter, $timeout, spinnerService, globalMessagesService, editExpenseRestService, expenseItemUid) {
+function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerService, globalMessagesService, editExpenseRestService, expenseItemUid) {
 	"use strict";
 
 	$scope.form = {};
@@ -10,6 +10,16 @@ function(moment, $scope, $modalInstance, $filter, $timeout, spinnerService, glob
 
 	$timeout(function(){
 		spinnerService.show('spinnerEditExpenseItem');
+	});
+
+	var invalidDate = "";
+	var invalidAmount = "";
+
+	$translate(['reimbursement.add-expenseitem.invalidDate', 'reimbursement.add-expenseitem.invalidAmount']).then(function(translations) {
+		invalidDate = translations['reimbursement.add-expenseitem.invalidDate'];
+		invalidAmount = translations['reimbursement.add-expenseitem.invalidAmount'];
+	}, function() {
+		globalMessagesService.showGeneralError();
 	});
 
 	editExpenseRestService.getCostCategories().then(function(response) {
@@ -46,11 +56,16 @@ function(moment, $scope, $modalInstance, $filter, $timeout, spinnerService, glob
 
 		function calculate() {
 			var exchangeRate = exchangeRates.rates[$scope.form.currency];
-			if(typeof exchangeRate !== "undefined") {
-				$scope.calculatedAmount = window.parseFloat($scope.form.originalAmount) * exchangeRate;
+			if(isNaN(window.parseFloat($scope.form.originalAmount))) {
+				$scope.calculatedAmount = invalidAmount;
 			}
 			else {
-				$scope.calculatedAmount = window.parseFloat($scope.form.originalAmount);
+				if(typeof exchangeRate !== "undefined") {
+					$scope.calculatedAmount = window.parseFloat($scope.form.originalAmount) * exchangeRate;
+				}
+				else {
+					$scope.calculatedAmount = window.parseFloat($scope.form.originalAmount);
+				}
 			}
 		}
 
@@ -62,7 +77,7 @@ function(moment, $scope, $modalInstance, $filter, $timeout, spinnerService, glob
 					exchangeRateDate = $scope.form.date;
 					calculate();
 				}, function() {
-					$scope.calculatedAmount = 'Invalid Date';
+					$scope.calculatedAmount = invalidDate;
 				});
 			}
 			else {
@@ -135,7 +150,12 @@ function(moment, $scope, $modalInstance, $filter, $timeout, spinnerService, glob
 		jQuery('.datepicker').datetimepicker({
 			format: 'YYYY-MM-DD',
 			viewMode: 'months',
-			allowInputToggle: true
+			allowInputToggle: true,
+			maxDate: moment(),
+			calendarWeeks: true
+		}).on('dp.change', function() {
+			$scope.form.date = jQuery('.datepicker').find('input').first().val();
+			$scope.calculateAmount();
 		});
 	});
 

@@ -313,6 +313,14 @@
 		"de": "Dokumentupload",
 		"en": "Document upload"
 	},
+	"add-expenseitem.invalidDate": {
+		"de": "Datum ungültig",
+		"en": "Invalid Date"
+	},
+	"add-expenseitem.invalidAmount": {
+		"de": "Betrag ungültig",
+		"en": "Invalid Amount"
+	},
 	"expense.nextStepButton": {
 		"de": "Nächster Schritt",
 		"en": "Next Step"
