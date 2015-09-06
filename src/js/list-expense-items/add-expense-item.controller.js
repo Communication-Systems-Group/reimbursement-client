@@ -4,7 +4,7 @@ function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerS
 	"use strict";
 
 	$scope.form = {};
-	$scope.calculatedAmount = 0;
+	$scope.calculatedAmount = $filter('number')(0, 2);
 
 	var expenseItem = {};
 
@@ -85,7 +85,7 @@ function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerS
 			}
 		}
 		else {
-			$scope.calculatedAmount = 0;
+			$scope.calculatedAmount = $filter('number')(0, 2);
 		}
 	};
 
