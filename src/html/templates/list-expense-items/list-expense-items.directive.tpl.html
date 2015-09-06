@@ -3,11 +3,11 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Date of Expense Item</th>
-				<th>Cost Category</th>
-				<th>Amount</th>
-				<th>Project</th>
-				<th>Action</th>
+				<th>{{ 'reimbursement.expense-item.date' | translate }}</th>
+				<th>{{ 'reimbursement.expense-item.costcategory' | translate }}</th>
+				<th>{{ 'reimbursement.expense-item.amount' | translate }}</th>
+				<th>{{ 'reimbursement.expense-item.project' | translate }}</th>
+				<th>{{ 'reimbursement.expense.action' | translate }}</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -16,9 +16,9 @@
 			</tr>
 			<tr ng-repeat="expenseItem in expenseItems">
 				<td>{{ expenseItem.date | date: 'yyyy-MM-dd' }}</td>
-				<td>{{ expenseItem.costCategory.name.de }}</td>
-				<td>{{ expenseItem.amount.calculatedAmount }} Fr.</td>
-				<td>{{ expenseItem.costCenter }}</td>
+				<td>{{ expenseItem.costCategory }}</td>
+				<td>{{ expenseItem.calculatedAmount | number: 2 }} Fr.</td>
+				<td>{{ expenseItem.project }}</td>
 				<td style="width:0;">
 					<div class="dropdown">
 						<button data-toggle="dropdown" aria-expanded="true" class="btn btn-default btn-xs dropdown-toggle" id="action-button_{{expenseItem.uid}}">

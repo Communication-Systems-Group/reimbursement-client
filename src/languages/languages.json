@@ -285,27 +285,27 @@
 		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
 		"en": "If you close this window, you dismiss all changes made on the current receipt. Continue?"
 	},
-	"add-expense-item.date": {
+	"expense-item.date": {
 		"de": "Belegsdatum",
 		"en": "Receipt date"
 	},
-	"add-expense-item.costcategory":{
+	"expense-item.costcategory":{
 		"de": "Kostenkategorie",
 		"en": "Cost category"
 	},
-	"add-expense-item.amount": {
+	"expense-item.amount": {
 		"de": "Betrag",
 		"en": "Amount"
 	},
-	"add-expense-item.calculatedAmount": {
+	"expense-item.calculatedAmount": {
 		"de": "berechneter Betrag",
 		"en": "Calculated amount"
 	},
-	"add-expense-item.project": {
+	"expense-item.project": {
 		"de": "Projekt",
 		"en": "Project"
 	},
-	"add-expense-item.explanation": {
+	"expense-item.explanation": {
 		"de": "Spesengrund",
 		"en": "Expense explanation"
 	},

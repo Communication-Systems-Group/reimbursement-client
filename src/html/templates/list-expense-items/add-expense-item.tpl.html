@@ -12,7 +12,7 @@
 		<form class="form-horizontal">
 			<div class="form-group">
 				<label for="expenseitem-date" class="control-label col-sm-4">
-					{{ 'reimbursement.add-expense-item.date' | translate }}
+					{{ 'reimbursement.expense-item.date' | translate }}
 				</label>
 				<div class="col-sm-8">
 					<div class="input-group date datepicker">
@@ -25,7 +25,7 @@
 			</div>
 			<div class="form-group">
 				<label for="expenseitem-costcategory" class="control-label col-sm-4">
-					{{ 'reimbursement.add-expense-item.costcategory' | translate }}
+					{{ 'reimbursement.expense-item.costcategory' | translate }}
 				</label>
 				<div class="col-sm-8">
 					<select id="expenseitem-costcategory" class="form-control" ng-model="form.costCategoryUid">
@@ -35,7 +35,7 @@
 			</div>
 			<div class="form-group">
 				<label for="expenseitem-amount" class="control-label col-sm-4">
-					{{ 'reimbursement.add-expense-item.amount' | translate }}
+					{{ 'reimbursement.expense-item.amount' | translate }}
 				</label>
 				<div class="col-sm-4" style="padding-right: 0;">
 					<input type="number" id="expenseitem-amount" ng-model="form.originalAmount" class="form-control text-center" ng-change="calculateAmount()">
@@ -48,7 +48,7 @@
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-4">
-					{{ 'reimbursement.add-expense-item.calculatedAmount' | translate }}
+					{{ 'reimbursement.expense-item.calculatedAmount' | translate }}
 				</label>
 				<div class="col-sm-4" style="padding-right: 0;">
 					<input type="text" class="form-control text-center" disabled value="{{ calculatedAmount }}">
@@ -59,7 +59,7 @@
 			</div>
 			<div class="form-group">
 				<label for="expenseitem-project" class="control-label col-sm-4">
-					{{ 'reimbursement.add-expense-item.project' | translate }}
+					{{ 'reimbursement.expense-item.project' | translate }}
 				</label>
 				<div class="col-sm-8">
 					<input type="text" id="expenseitem-project" ng-model="form.project" class="form-control">
@@ -67,7 +67,7 @@
 			</div>
 			<div class="form-group">
 				<label for="expenseitem-explanation" class="control-label col-sm-4">
-					{{ 'reimbursement.add-expense-item.explanation' | translate }}
+					{{ 'reimbursement.expense-item.explanation' | translate }}
 				</label>
 				<div class="col-sm-8">
 					<textarea id="expenseitem-explanation" ng-model="form.explanation" class="form-control"></textarea>
