@@ -313,6 +313,14 @@
 		"de": "Beleg speichern",
 		"en": "Save Receipt"
 	},
+	"expense-item.deleteConfirmTitle": {
+		"de": "Achtung",
+		"en": "Attention"
+	},
+	"expense-item.deleteConfirmMessage": {
+		"de": "Möchten Sie diesen Beleg wirklich unwiderruflich löschen?",
+		"en": "Are you sure, that you want to delete this receipt permanently?"
+	},
 	"add-expense-item.uploadDocument": {
 		"de": "Dokumentupload",
 		"en": "Document upload"

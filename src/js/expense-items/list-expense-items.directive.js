@@ -62,6 +62,14 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, expen
 				modalInstance.result.then()['finally'](updateTable);
 			};
 
+			$scope.deleteExpenseItem = function(expenseItemUid) {
+				globalMessagesService.confirmWarning("reimbursement.expense-item.deleteConfirmTitle",
+					"reimbursement.expense-item.deleteConfirmMessage").then(function() {
+
+					expenseItemsRestService.deleteExpenseItem(expenseItemUid).then(updateTable);
+				});
+			};
+
 			$scope.addExpenseItem = function() {
 				expenseItemsRestService.getCostCategories().then(function(response) {
 					var preSelectedCategoryUid = response.data[0].uid;
