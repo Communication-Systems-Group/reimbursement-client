@@ -8,7 +8,8 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, expen
 		replace: true,
 		templateUrl: 'expense-items/list-expense-items.directive.tpl.html',
 		scope: {
-			expenseUid: '@'
+			expenseUid: '=',
+			expenseItems: '='
 		},
 		link: function($scope) {
 
