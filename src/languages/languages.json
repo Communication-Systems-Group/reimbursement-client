@@ -309,6 +309,10 @@
 		"de": "Spesengrund",
 		"en": "Expense explanation"
 	},
+	"expense-item.saveButton": {
+		"de": "Beleg speichern",
+		"en": "Save Receipt"
+	},
 	"add-expense-item.uploadDocument": {
 		"de": "Dokumentupload",
 		"en": "Document upload"

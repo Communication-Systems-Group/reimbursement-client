@@ -44,10 +44,26 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, listE
 
 			updateTable();
 
+			$scope.editExpenseItem = function(expenseItemUid) {
+				var modalInstance = $modal.open({
+					templateUrl: 'list-expense-items/edit-expense-item.tpl.html',
+					controller: 'EditExpenseItemController',
+					resolve: {
+						expenseItemUid: function() {
+							return expenseItemUid;
+						}
+					},
+					// prevent closing by accident:
+					backdrop: 'static',
+					keyboard: false
+				});
+
+				modalInstance.result.then()['finally'](updateTable);
+			};
+
 			$scope.addExpenseItem = function() {
 				listExpenseItemsRestService.getCostCategories().then(function(response) {
-					var costCategories = response.data;
-					var preSelectedCategoryUid = costCategories[0].uid;
+					var preSelectedCategoryUid = response.data[0].uid;
 
 					listExpenseItemsRestService.postExpenseItem($scope.expenseUid, {
 						date: $filter('date')(new Date(), 'yyyy-MM-dd'),
@@ -59,9 +75,6 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, listE
 							templateUrl: 'list-expense-items/add-expense-item.tpl.html',
 							controller: 'AddExpenseItemController',
 							resolve: {
-								costCategories: function() {
-									return costCategories;
-								},
 								expenseItemUid: function() {
 									return response.data.uid;
 								}

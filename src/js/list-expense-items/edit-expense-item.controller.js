@@ -1,4 +1,4 @@
-app.controller('AddExpenseItemController', ['$scope', '$modalInstance', 'globalMessagesService', 'listExpenseItemsRestService', 'expenseItemUid',
+app.controller('EditExpenseItemController', ['$scope', '$modalInstance', 'globalMessagesService', 'listExpenseItemsRestService', 'expenseItemUid',
 
 function($scope, $modalInstance, globalMessagesService, listExpenseItemsRestService, expenseItemUid) {
 	"use strict";
@@ -11,14 +11,10 @@ function($scope, $modalInstance, globalMessagesService, listExpenseItemsRestServ
 	$scope.submit = submitForm;
 
 	function dismissWithConfirmation() {
-		globalMessagesService.confirmWarning("reimbursement.add-expense-item.closeWarningTitle",
-			"reimbursement.add-expense-item.closeWarningMessage").then(function() {
+		globalMessagesService.confirmWarning("reimbursement.add-expense-item.closeWarningEditTitle",
+			"reimbursement.add-expense-item.closeWarningEditMessage").then(function() {
 
-			listExpenseItemsRestService.deleteExpenseItem(expenseItemUid).then(undefined, function(){
-				globalMessagesService.showGeneralError();
-			})['finally'](function() {
-				$modalInstance.dismiss();
-			});
+			$modalInstance.dismiss();
 		});
 	}
 
