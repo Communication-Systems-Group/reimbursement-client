@@ -61,10 +61,10 @@ function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerS
 			}
 			else {
 				if(typeof exchangeRate !== "undefined") {
-					$scope.calculatedAmount = window.parseFloat($scope.form.originalAmount) * exchangeRate;
+					$scope.calculatedAmount = $filter('number')(window.parseFloat($scope.form.originalAmount) / exchangeRate, 2);
 				}
 				else {
-					$scope.calculatedAmount = window.parseFloat($scope.form.originalAmount);
+					$scope.calculatedAmount = $filter('number')(window.parseFloat($scope.form.originalAmount), 2);
 				}
 			}
 		}
