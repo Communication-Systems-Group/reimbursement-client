@@ -8,9 +8,7 @@ function($http, HOST) {
 			method: 'POST',
 			url: HOST + '/api/user/expenses',
 			data: {
-				accounting: accounting,
-				// TODO remove state, not necessary in the beginning
-				state: 'CREATED'
+				accounting: accounting
 			}
 		});
 	}
