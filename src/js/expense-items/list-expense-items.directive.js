@@ -1,6 +1,6 @@
-app.directive('listExpenseItems', ['$modal', '$filter', '$timeout', 'spinnerService', 'globalMessagesService', 'listExpenseItemsRestService',
+app.directive('listExpenseItems', ['$modal', '$filter', '$timeout', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService',
 
-function($modal, $filter, $timeout, spinnerService, globalMessagesService, listExpenseItemsRestService) {
+function($modal, $filter, $timeout, spinnerService, globalMessagesService, expenseItemsRestService) {
 	"use strict";
 
 	return {
@@ -18,7 +18,7 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, listE
 					spinnerService.show('spinnerListExpenseItems');
 				});
 
-				listExpenseItemsRestService.getExpenseItems($scope.expenseUid).then(function(response) {
+				expenseItemsRestService.getExpenseItems($scope.expenseUid).then(function(response) {
 					$scope.expenseItems = [];
 
 					var showGeneralError = function() {
@@ -27,7 +27,7 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, listE
 					for(var i=0; i<response.data.length; i++) {
 						// delete all expense-items with state initial (not finished creation)
 						if(response.data[i].state === 'INITIAL') {
-							listExpenseItemsRestService.deleteExpenseItem(response.data[i].uid).error(showGeneralError);
+							expenseItemsRestService.deleteExpenseItem(response.data[i].uid).error(showGeneralError);
 						}
 						// show all others
 						else {
@@ -62,10 +62,10 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, listE
 			};
 
 			$scope.addExpenseItem = function() {
-				listExpenseItemsRestService.getCostCategories().then(function(response) {
+				expenseItemsRestService.getCostCategories().then(function(response) {
 					var preSelectedCategoryUid = response.data[0].uid;
 
-					listExpenseItemsRestService.postExpenseItem($scope.expenseUid, {
+					expenseItemsRestService.postExpenseItem($scope.expenseUid, {
 						date: $filter('date')(new Date(), 'yyyy-MM-dd'),
 						costCategoryUid: preSelectedCategoryUid,
 						currency: 'CHF',

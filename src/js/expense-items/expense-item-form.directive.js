@@ -1,6 +1,6 @@
-app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', 'spinnerService', 'globalMessagesService', 'listExpenseItemsRestService',
+app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService',
 
-function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesService, listExpenseItemsRestService) {
+function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesService, expenseItemsRestService) {
 	"use strict";
 
 	return {
@@ -31,13 +31,13 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 				globalMessagesService.showGeneralError();
 			});
 
-			listExpenseItemsRestService.getCostCategories().then(function(response) {
+			expenseItemsRestService.getCostCategories().then(function(response) {
 				$scope.costCategories =  response.data;
 
-				listExpenseItemsRestService.getSupportedCurrencies().then(function(response) {
+				expenseItemsRestService.getSupportedCurrencies().then(function(response) {
 					$scope.currencies = response.data;
 
-					listExpenseItemsRestService.getExpenseItem($scope.expenseItemUid).then(function(response) {
+					expenseItemsRestService.getExpenseItem($scope.expenseItemUid).then(function(response) {
 						expenseItem = response.data;
 
 						$scope.form.date = $filter('date')(response.data.date, 'yyyy-MM-dd');
@@ -84,7 +84,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 				if($scope.form.date !== "") {
 					// only make back-end calls if necessary
 					if(exchangeRateDate !== $scope.form.date) {
-						listExpenseItemsRestService.getExchangeRates($scope.form.date).then(function(response) {
+						expenseItemsRestService.getExchangeRates($scope.form.date).then(function(response) {
 							exchangeRates = response.data;
 							exchangeRateDate = $scope.form.date;
 							calculate();

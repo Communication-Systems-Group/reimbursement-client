@@ -1,4 +1,4 @@
-app.factory("listExpenseItemsRestService", ['$http', 'HOST',
+app.factory("expenseItemsRestService", ['$http', 'HOST',
 
 function($http, HOST) {
 	"use strict";
