@@ -337,6 +337,14 @@
 		"de": "An Professor {{professor}} zuweisen",
 		"en": "Submit to Professor {{professor}}"
 	},
+	"expense.submitInfoTitle": {
+		"de": "Definitiv abschicken?",
+		"en": "Submit permanently?"
+	},
+	"expense.submitInfoMessage": {
+		"de": "Sind Sie sicher, dass alle Belege erfasst wurden und die Spese an den Professor zugewiesen werden soll?",
+		"en": "Are you sure, that all receipts were uploaded and you are willing to send this expense to the professor?"
+	},
 	"expense.addNewReceiptButton": {
 		"de": "Neuen Beleg hinzufügen",
 		"en": "Add new receipt"

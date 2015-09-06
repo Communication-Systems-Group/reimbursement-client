@@ -1,6 +1,6 @@
-app.controller('CreateExpenseStep2Controller', ['$scope', '$stateParams', 'USER',
+app.controller('CreateExpenseStep2Controller', ['$scope', '$stateParams', 'USER', 'globalMessagesService',
 
-function($scope, $stateParams, USER) {
+function($scope, $stateParams, USER, globalMessagesService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
@@ -25,7 +25,14 @@ function($scope, $stateParams, USER) {
 	});
 
 	$scope.submitToProf = function() {
-		console.log("submit");
+		if(!$scope.submitButtonDisabled) {
+			globalMessagesService.confirmInfoMd('reimbursement.expense.submitInfoTitle',
+				'reimbursement.expense.submitInfoMessage').then(function() {
+
+				console.log("now, it should be sent to the prof...");
+				// TODO make REST call
+			});
+		}
 	};
 
 }]);
