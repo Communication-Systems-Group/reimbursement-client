@@ -3,14 +3,14 @@ app.controller('CreateExpenseController', ['$scope', '$state', 'globalMessagesSe
 function($scope, $state, globalMessagesService, createExpenseRestService) {
 	"use strict";
 
-	$scope.accountingText = "";
+	$scope.accountingText = null;
 
 	$scope.cancel = function() {
 		$state.go('dashboard');
 	};
 
 	$scope.nextStep = function() {
-		if($scope.accountingText === "" || $scope.accountingText.length < 5) {
+		if($scope.accountingText === null || typeof $scope.accountingText === "undefined" || $scope.accountingText.length < 5) {
 			globalMessagesService.showInfoMd('reimbursement.expense.info.accountingTextMissingTitle',
 				'reimbursement.expense.info.accountingTextMissingMessage');
 		}
