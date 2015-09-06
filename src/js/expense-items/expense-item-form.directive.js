@@ -6,7 +6,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'list-expense-items/expense-item-form.directive.tpl.html',
+		templateUrl: 'expense-items/expense-item-form.directive.tpl.html',
 		scope: {
 			expenseItemUid: '=',
 			form: '=',

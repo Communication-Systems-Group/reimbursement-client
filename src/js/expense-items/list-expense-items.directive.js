@@ -6,7 +6,7 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, listE
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'list-expense-items/list-expense-items.directive.tpl.html',
+		templateUrl: 'expense-items/list-expense-items.directive.tpl.html',
 		scope: {
 			expenseUid: '@'
 		},
@@ -46,7 +46,7 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, listE
 
 			$scope.editExpenseItem = function(expenseItemUid) {
 				var modalInstance = $modal.open({
-					templateUrl: 'list-expense-items/edit-expense-item.tpl.html',
+					templateUrl: 'expense-items/edit-expense-item.tpl.html',
 					controller: 'EditExpenseItemController',
 					resolve: {
 						expenseItemUid: function() {
@@ -72,7 +72,7 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, listE
 					}).then(function(response) {
 
 						var modalInstance = $modal.open({
-							templateUrl: 'list-expense-items/add-expense-item.tpl.html',
+							templateUrl: 'expense-items/add-expense-item.tpl.html',
 							controller: 'AddExpenseItemController',
 							resolve: {
 								expenseItemUid: function() {
