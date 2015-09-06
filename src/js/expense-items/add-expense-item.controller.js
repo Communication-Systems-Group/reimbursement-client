@@ -32,7 +32,7 @@ function($scope, $modalInstance, globalMessagesService, expenseItemsRestService,
 			});
 		}
 		else {
-			globalMessagesService.showWarning("reimbursement.expense.warning.formNotComplete.title",
+			globalMessagesService.showInfo("reimbursement.expense.warning.formNotComplete.title",
 			"reimbursement.expense.warning.formNotComplete.message");
 		}
 	}
