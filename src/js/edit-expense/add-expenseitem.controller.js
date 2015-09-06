@@ -1,12 +1,16 @@
-app.controller('AddExpenseItemController', ['moment', '$scope', '$modalInstance', '$filter', '$timeout', 'globalMessagesService', 'editExpenseRestService', 'expenseItemUid',
+app.controller('AddExpenseItemController', ['moment', '$scope', '$modalInstance', '$filter', '$timeout', 'spinnerService', 'globalMessagesService', 'editExpenseRestService', 'expenseItemUid',
 
-function(moment, $scope, $modalInstance, $filter, $timeout, globalMessagesService, editExpenseRestService, expenseItemUid) {
+function(moment, $scope, $modalInstance, $filter, $timeout, spinnerService, globalMessagesService, editExpenseRestService, expenseItemUid) {
 	"use strict";
 
 	$scope.form = {};
 	$scope.calculatedAmount = 0;
 
 	var expenseItem = {};
+
+	$timeout(function(){
+		spinnerService.show('spinnerEditExpenseItem');
+	});
 
 	editExpenseRestService.getCostCategories().then(function(response) {
 		$scope.costCategories =  response.data;
@@ -18,11 +22,13 @@ function(moment, $scope, $modalInstance, $filter, $timeout, globalMessagesServic
 				expenseItem = response.data;
 
 				$scope.form.date = $filter('date')(response.data.date, 'yyyy-MM-dd');
-				$scope.form.costCategoryUid = response.data.costCategory;
+				$scope.form.costCategoryUid = response.data.costCategory.uid;
 				$scope.form.originalAmount = response.data.originalAmount;
 				$scope.form.currency = response.data.currency;
-				$scope.form.project = response.data.costCenter;
-				$scope.form.explanation = response.data.reason;
+				$scope.form.project = response.data.project;
+				$scope.form.explanation = response.data.explanation;
+
+				spinnerService.hide('spinnerEditExpenseItem');
 
 			}, function() {
 				globalMessagesService.showGeneralError();

@@ -1,6 +1,6 @@
-app.controller('CreateExpenseController', ['$scope', '$state', 'globalMessagesService', 'createExpenseRestService',
+app.controller('CreateExpenseController', ['$scope', '$state', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
 
-function($scope, $state, globalMessagesService, createExpenseRestService) {
+function($scope, $state, spinnerService, globalMessagesService, createExpenseRestService) {
 	"use strict";
 
 	$scope.accountingText = null;
@@ -15,10 +15,14 @@ function($scope, $state, globalMessagesService, createExpenseRestService) {
 				'reimbursement.expense.info.accountingTextMissingMessage');
 		}
 		else {
+			spinnerService.show('spinnerCreateExpense');
+
 			createExpenseRestService.postCreateExpense($scope.accountingText).then(function(response) {
 				$state.go('create-expense-step2', { uid: response.data.uid });
 			}, function() {
 				globalMessagesService.showGeneralError();
+			})['finally'](function() {
+				spinnerService.hide('spinnerCreateExpense');
 			});
 		}
 	};

@@ -1,6 +1,6 @@
-app.directive('editExpense', ['$modal', '$filter', 'globalMessagesService', 'editExpenseRestService',
+app.directive('editExpense', ['$modal', '$filter', '$timeout', 'spinnerService', 'globalMessagesService', 'editExpenseRestService',
 
-function($modal, $filter, globalMessagesService, editExpenseRestService) {
+function($modal, $filter, $timeout, spinnerService, globalMessagesService, editExpenseRestService) {
 	"use strict";
 
 	return {
@@ -14,6 +14,10 @@ function($modal, $filter, globalMessagesService, editExpenseRestService) {
 
 			function updateTable() {
 				$scope.expenseItems = [];
+
+				$timeout(function() {
+					spinnerService.show('spinnerListExpenseItems');
+				});
 
 				editExpenseRestService.getExpenseItems($scope.expenseUid).then(function(response) {
 					var showGeneralError = function() {
@@ -32,6 +36,8 @@ function($modal, $filter, globalMessagesService, editExpenseRestService) {
 
 				}, function() {
 					globalMessagesService.showGeneralError();
+				})['finally'](function() {
+					spinnerService.hide('spinnerListExpenseItems');
 				});
 			}
 
