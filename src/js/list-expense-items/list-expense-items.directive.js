@@ -13,13 +13,14 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, listE
 		link: function($scope) {
 
 			function updateTable() {
-				$scope.expenseItems = [];
 
 				$timeout(function() {
 					spinnerService.show('spinnerListExpenseItems');
 				});
 
 				listExpenseItemsRestService.getExpenseItems($scope.expenseUid).then(function(response) {
+					$scope.expenseItems = [];
+
 					var showGeneralError = function() {
 						globalMessagesService.showGeneralError();
 					};
