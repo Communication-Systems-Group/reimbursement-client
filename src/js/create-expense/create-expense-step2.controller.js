@@ -1,11 +1,18 @@
-app.controller('CreateExpenseStep2Controller', ['$scope', '$stateParams',
+app.controller('CreateExpenseStep2Controller', ['$scope', '$stateParams', 'USER',
 
-function($scope, $stateParams) {
+function($scope, $stateParams, USER) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
 	$scope.expenseItems = [];
+
 	$scope.submitButtonDisabled = true;
+	if(typeof USER.manager !== "undefined") {
+		$scope.professorName = { professor: USER.manager.lastName };
+	}
+	else {
+		$scope.professorName = { professor: null };
+	}
 
 	$scope.$watch('expenseItems', function(newValue) {
 		$scope.submitButtonDisabled = true;

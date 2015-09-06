@@ -334,8 +334,8 @@
 		"en": "Cancel"
 	},
 	"expense.submitToProfButton": {
-		"de": "An Professor zuweisen",
-		"en": "Submit to Professor"
+		"de": "An Professor {{professor}} zuweisen",
+		"en": "Submit to Professor {{professor}}"
 	},
 	"expense.addNewReceiptButton": {
 		"de": "Neuen Beleg hinzufügen",
