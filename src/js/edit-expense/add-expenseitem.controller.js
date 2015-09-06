@@ -56,7 +56,7 @@ function(moment, $scope, $modalInstance, $filter, $timeout, $translate, spinnerS
 
 		function calculate() {
 			var exchangeRate = exchangeRates.rates[$scope.form.currency];
-			if(isNaN(window.parseFloat($scope.form.originalAmount))) {
+			if(isNaN(window.parseFloat($scope.form.originalAmount)) || window.parseFloat($scope.form.originalAmount) < 0) {
 				$scope.calculatedAmount = invalidAmount;
 			}
 			else {
