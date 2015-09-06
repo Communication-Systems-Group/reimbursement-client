@@ -15,9 +15,7 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, expen
 
 			function updateTable() {
 
-				$timeout(function() {
-					spinnerService.show('spinnerListExpenseItems');
-				});
+				spinnerService.show('spinnerListExpenseItems');
 
 				expenseItemsRestService.getExpenseItems($scope.expenseUid).then(function(response) {
 					$scope.expenseItems = [];
@@ -43,7 +41,9 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, expen
 				});
 			}
 
-			updateTable();
+			$timeout(function() {
+				updateTable();
+			});
 
 			$scope.editExpenseItem = function(expenseItemUid) {
 				var modalInstance = $modal.open({
