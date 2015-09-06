@@ -128,7 +128,7 @@ function(moment, $scope, $modalInstance, $filter, $timeout, globalMessagesServic
 	$timeout(function() {
 		jQuery('.datepicker').datetimepicker({
 			format: 'YYYY-MM-DD',
-			viewMode: 'years',
+			viewMode: 'months',
 			allowInputToggle: true
 		});
 	});
