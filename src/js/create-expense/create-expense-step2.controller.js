@@ -7,7 +7,7 @@ function($scope, $stateParams, USER, globalMessagesService) {
 	$scope.expenseItems = [];
 
 	$scope.submitButtonDisabled = true;
-	if(typeof USER.manager !== "undefined") {
+	if(typeof USER.manager !== "undefined" && USER.manager !== null) {
 		$scope.professorName = { professor: USER.manager.lastName };
 	}
 	else {
