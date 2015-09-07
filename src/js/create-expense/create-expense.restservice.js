@@ -1,6 +1,6 @@
-app.factory("createExpenseRestService", ['$http', 'HOST',
+app.factory("createExpenseRestService", ['$http', 'HOST', 'USER',
 
-function($http, HOST) {
+function($http, HOST, USER) {
 	"use strict";
 
 	function postCreateExpense(accounting) {
@@ -13,8 +13,18 @@ function($http, HOST) {
 		});
 	}
 
+	function assignToProf(uid) {
+		return $http({
+			method: 'PUT',
+			url: HOST + '/api/user/expenses/'+uid+'/assign-to-prof',
+			data: {
+				assignedManagerUid: USER.manager
+			}
+		});
+	}
 	return {
-		postCreateExpense: postCreateExpense
+		postCreateExpense: postCreateExpense,
+		assignToProf: assignToProf
 	};
 
 }]);

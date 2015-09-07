@@ -1,6 +1,6 @@
-app.controller('CreateExpenseStep2Controller', ['$scope', '$stateParams', 'USER', 'globalMessagesService',
+app.controller('CreateExpenseStep2Controller', ['$scope', '$stateParams', 'USER', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
 
-function($scope, $stateParams, USER, globalMessagesService) {
+function($scope, $stateParams, USER, spinnerService, globalMessagesService, createExpenseRestService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
@@ -28,9 +28,12 @@ function($scope, $stateParams, USER, globalMessagesService) {
 		if(!$scope.submitButtonDisabled) {
 			globalMessagesService.confirmInfoMd('reimbursement.expense.submitInfoTitle',
 				'reimbursement.expense.submitInfoMessage').then(function() {
-
-				console.log("now, it should be sent to the prof...");
-				// TODO make REST call
+				spinnerService.show('spinnerCreateExpense');
+				createExpenseRestService.assignToProf($scope.expenseUid);
+			}, function() {
+				globalMessagesService.showGeneralError();
+			})['finally'](function() {
+				spinnerService.hide('spinnerCreateExpense');
 			});
 		}
 	};
