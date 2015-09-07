@@ -1,4 +1,6 @@
-.tableRightMargin {
-	margin-right: 50%;
-	float: right;
+.table > tbody > tr > td.table-right-aligned,
+.table > thead > tr > th.table-right-aligned {
+	text-align: right;
+	padding-right: 3%;
+	white-space: nowrap;
 }
