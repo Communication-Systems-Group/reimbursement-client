@@ -1,0 +1,53 @@
+<div id="dashboard">
+	<h1 class="page-header">{{ 'reimbursement.administration.administration' | translate }}</h1>
+
+	<h2 class="page-header">{{'reimbursement.administration.cost_categories' | translate}}</h2>
+
+	<div class="row pull-left">
+		<div class="col-md-12">
+			<button type="button" class="btn btn-primary" ng-click="addItem()">
+				<i class="fa fa-plus-circle"></i>
+				{{ 'reimbursement.administration.add' | translate }}
+			</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th>{{ 'reimbursement.cost_category.account_number' | translate }}</th>
+					<th>{{ 'reimbursement.cost_category.name' | translate }}</th>
+					<th>{{ 'reimbursement.administration.action' | translate }}</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="c in costCategories">
+					<td>{{c.accountNumber}}</td>
+					<td>{{c.name | costCategoryLanguage}}</td>
+					<td>
+						<div class="btn-group">
+							<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">
+								{{ 'reimbursement.administration.action' | translate }} <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a
+									ng-click="editItem(c.uid)"><i
+									class="fa fa-pencil"></i> {{ 'reimbursement.administration.edit' | translate }}</a>
+								</li>
+								<li><a
+									ng-click="deleteItem(c.uid)"><i
+									class="fa fa-trash"></i> {{ 'reimbursement.administration.delete' | translate
+									}}</a>
+								</li>
+							</ul>
+						</div>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

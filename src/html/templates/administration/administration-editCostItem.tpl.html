@@ -1,0 +1,78 @@
+<div id="administration-editCostItem">
+	<div class="modal-header">
+		<div class="close" ng-click="dismissWithConfirmation()">&times;</div>
+		<h3 class="modal-title">
+			<i class="fa fa-file-text-o"></i>
+			{{ 'reimbursement.cost_category.edit' | translate }}
+		</h3>
+	</div>
+	<div class="modal-body">
+		<form name="form1">
+			<div class="form-group">
+				<label for="accountNumber">{{ 'reimbursement.cost_category.account_number' | translate }}</label>
+
+				<input type="number" class="form-control" id="accountNumber" name="accountNumber"
+					   ng-model="costCategory.accountNumber"
+					   required/>
+			</div>
+
+			<div class="form-group">
+				<label for="name">{{ 'reimbursement.cost_category.name' | translate }}</label>
+
+				<div class="input-group">
+					<div class="input-group-addon">{{'reimbursement.administration.de' | translate}}</div>
+					<input type="text" class="form-control" id="name" name="name_de" ng-model="costCategory.name.de"
+						   required/>
+				</div>
+
+				<div class="input-group margin-top-10">
+					<div class="input-group-addon">{{'reimbursement.administration.en' | translate}}</div>
+					<input type="text" class="form-control" id="name" name="name_en" ng-model="costCategory.name.en"
+						   required/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="description">{{ 'reimbursement.cost_category.description' | translate }}</label>
+
+				<div class="input-group">
+					<div class="input-group-addon">{{'reimbursement.administration.de' | translate}}</div>
+					<textarea class="form-control" id="description" rows="5"
+							  ng-model="costCategory.description.de" name="description_de" required></textarea>
+				</div>
+
+				<div class="input-group margin-top-10">
+					<div class="input-group-addon">{{'reimbursement.administration.en' | translate}}</div>
+					<textarea class="form-control" id="description" rows="5"
+							  ng-model="costCategory.description.en" name="description_en" required></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accounting_policy">{{ 'reimbursement.cost_category.accounting_policy' | translate }}</label>
+
+				<div class="input-group">
+					<div class="input-group-addon">{{'reimbursement.administration.de' | translate}}</div>
+					<textarea class="form-control" id="accounting_policy" rows="5"
+							  ng-model="costCategory.accountingPolicy.de" name="accounting_policy_de"
+							  required></textarea>
+				</div>
+
+				<div class="input-group margin-top-10">
+					<div class="input-group-addon">{{'reimbursement.administration.en' | translate}}</div>
+					<textarea class="form-control" id="accounting_policy" rows="5"
+							  ng-model="costCategory.accountingPolicy.en" name="accounting_policy_en"
+							  required></textarea>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="dismissWithConfirmation()">
+			<i class="fa fa-times"></i>
+			{{ 'reimbursement.cost_category.cancelButton' | translate }}
+		</button>
+		<button class="btn btn-primary" ng-click="save(form1)" ng-disabled="isLoading">
+			<i class="fa fa-save"></i>
+			{{ 'reimbursement.cost_category.saveButton' | translate }}
+		</button>
+	</div>
+</div>

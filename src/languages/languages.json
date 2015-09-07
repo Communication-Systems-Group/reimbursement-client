@@ -1,4 +1,72 @@
 {
+	"administration.administration": {
+		"de": "Administration",
+		"en": "Administration"
+	},
+	"administration.action": {
+		"de": "Aktion",
+		"en": "Action"
+	},
+	"administration.add": {
+		"de": "Element hinzufügen",
+		"en": "Add element"
+	},
+	"administration.de": {
+		"de": "DE",
+		"en": "DE"
+	},
+	"administration.delete": {
+		"de": "Löschen",
+		"en": "Delete"
+	},
+	"administration.deleteCostCategoryItemTitle": {
+		"de": "Element löschen?",
+		"en": "Delete element?"
+	},
+	"administration.deleteCostCategoryItemText": {
+		"de": "Sind Sie sicher, das Element unwiderruflich zu löschen?",
+		"en": "Do you really want to delete this category element?"
+	},
+	"administration.en": {
+		"de": "EN",
+		"en": "EN"
+	},
+	"administration.edit": {
+		"de": "Editieren",
+		"en": "Edit"
+	},
+	"administration.cost_categories": {
+		"de": "Kostenstellen",
+		"en": "Cost categories"
+	},
+	"cost_category.account_number": {
+		"de": "Kostenstellennummer",
+		"en": "Account number"
+	},
+	"cost_category.name": {
+		"de": "Name",
+		"en": "Name"
+	},
+	"cost_category.description": {
+		"de": "Beschreibung",
+		"en": "Description"
+	},
+	"cost_category.accounting_policy": {
+		"de": "Rechtsgrundlage",
+		"en": "Accounting policy"
+	},
+	"cost_category.edit": {
+		"de": "Kostenstelle editieren",
+		"en": "Edit cost-category"
+	},
+	"cost_category.saveButton": {
+		"de": "Kostenstelle speichern",
+		"en": "Save cost-categroy"
+	},
+	"cost_category.cancelButton": {
+		"de": "Abbrechen",
+		"en": "Cancel"
+	},
 	"success": {
 		"de": "Erfolg",
 		"en": "Success"
