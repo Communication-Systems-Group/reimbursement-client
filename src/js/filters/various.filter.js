@@ -1,6 +1,11 @@
-/**
- * Created by robinengbersen on 23.05.15.
- */
+app.filter('costCategoryLanguage', [ '$translate', function ($translate) {
+	'use strict';
+
+	return function (value) {
+		return value[$translate.use()];
+	};
+}]);
+
 app.filter('idFormatting', function () {
 	"use strict";
 
@@ -12,3 +17,4 @@ app.filter('idFormatting', function () {
 		}
 	};
 });
+
