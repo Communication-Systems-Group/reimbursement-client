@@ -1,6 +1,6 @@
-app.controller('CreateExpenseStep2Controller', ['$scope', '$stateParams', 'USER', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
+app.controller('CreateExpenseStep2Controller', ['$scope', '$state', '$stateParams', 'USER', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
 
-function($scope, $stateParams, USER, spinnerService, globalMessagesService, createExpenseRestService) {
+function($scope, $state, $stateParams, USER, spinnerService, globalMessagesService, createExpenseRestService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
@@ -26,15 +26,22 @@ function($scope, $stateParams, USER, spinnerService, globalMessagesService, crea
 
 	$scope.submitToProf = function() {
 		if(!$scope.submitButtonDisabled) {
+
 			globalMessagesService.confirmInfoMd('reimbursement.expense.submitInfoTitle',
 				'reimbursement.expense.submitInfoMessage').then(function() {
-				spinnerService.show('spinnerCreateExpense');
-				createExpenseRestService.assignToProf($scope.expenseUid);
-			}, function() {
-				globalMessagesService.showGeneralError();
-			})['finally'](function() {
-				spinnerService.hide('spinnerCreateExpense');
+
+				spinnerService.show('spinnerCreateExpenseStep2');
+				createExpenseRestService.assignToProf($scope.expenseUid).then(function() {
+
+					$state.go('dashboard');
+
+				}, function() {
+					globalMessagesService.showGeneralError();
+				})['finally'](function() {
+					spinnerService.hide('spinnerCreateExpenseStep2');
+				});
 			});
+
 		}
 	};
 

@@ -5,13 +5,19 @@
 		{{ 'reimbursement.create-expense-step2.title' | translate }}
 	</h1>
 
-	<list-expense-items expense-uid="expenseUid" expense-items="expenseItems"></list-expense-items>
+	<div class="pos-rel">
+		<spinner id="spinnerCreateExpenseStep2" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 
-	<hr>
+		<list-expense-items expense-uid="expenseUid" expense-items="expenseItems"></list-expense-items>
 
-	<button class="btn btn-primary pull-right" ng-click="submitToProf()" ng-disabled="submitButtonDisabled">
-		<i class="fa fa-arrow-circle-right"></i>
-		{{ 'reimbursement.expense.submitToProfButton' | translate: professorName }}
-	</button>
+		<hr>
+
+		<button class="btn btn-primary pull-right" ng-click="submitToProf()" ng-disabled="submitButtonDisabled">
+			<i class="fa fa-arrow-circle-right"></i>
+			{{ 'reimbursement.expense.submitToProfButton' | translate: professorName }}
+		</button>
+
+		<div class="clearfix"></div>
+	</div>
 
 </div>
