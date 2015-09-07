@@ -14,16 +14,17 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', 'USER', 'd
 
 		var myReviewExpenses = null;
 		if (USER.roles.indexOf('FINANCE_ADMIN') !== -1) {
+			$scope.showReviewSection = true;
 			myReviewExpenses = dashboardRestService.getReviewExpensesAsFinanceAdmin();
 		}
 		else if (USER.roles.indexOf('PROF') !== -1) {
+			$scope.showReviewSection = true;
 			myReviewExpenses = dashboardRestService.getReviewExpensesAsProf();
 		}
 
 		if (myReviewExpenses !== null) {
-			$scope.showReviewSection = true;
 			myReviewExpenses.then(function (response) {
-				$scope.myReviewExpenses = response;
+				$scope.myReviewExpenses = response.data;
 			}, function () {
 				$scope.myReviewExpenses = [];
 			});

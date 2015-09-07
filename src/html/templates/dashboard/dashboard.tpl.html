@@ -82,9 +82,13 @@
 		<table class="table table-striped">
 			<thead>
 			<tr>
-				<th>{{ 'reimbursement.dashboard.table.date' | translate }}</th>
 				<th>{{ 'reimbursement.expense.accountingTitle' | translate }}</th>
-				<th>{{ 'reimbursement.dashboard.table.totalCosts' | translate }}</th>
+				<th>
+					<span class="tableRightMargin">{{ 'reimbursement.dashboard.table.date' | translate }}</span>
+				</th>
+				<th>
+					<span class="tableRightMargin">{{ 'reimbursement.dashboard.table.totalCosts' | translate }}</span>
+				</th>
 				<th>{{ 'reimbursement.dashboard.table.status' | translate }}</th>
 				<th>{{ 'reimbursement.expense.action' | translate }}</th>
 				<th></th>
@@ -92,17 +96,36 @@
 			</thead>
 			<tbody>
 			<tr ng-repeat="e in myReviewExpenses">
-				<td>{{e.date | date:'dd.MM.yyyy'}}</td>
 				<td>{{e.account}}</td>
-				<td>{{e.amount | currency:'CHF ':2}}</td>
+				<td>{{e.date | date:'dd.MM.yyyy'}}</td>
 				<td>
-					<span class="label label-info">
-						{{ 'reimbursement.expense.state.assigned_to_professor' | translate }}
-					</span>
+					<span class="tableRightMargin">{{ e.totalAmount | currency:'CHF ':2 }}</span>
+				</td>
+				<td ng-if="e.state === 'DRAFT'">
+					<span class="label label-info">{{ 'reimbursement.expense.state.draft' | translate }}</span>
+				</td>
+				<td ng-if="e.state === 'ASSIGNED_TO_PROFESSOR'">
+				<span
+					class="label label-info">{{ 'reimbursement.expense.state.assigned_to_professor' | translate }}</span>
+				</td>
+				<td ng-if="e.state === 'ASSIGNED_TO_FINANCE_ADMIN'">
+				<span
+					class="label label-info">{{ 'reimbursement.expense.state.assigned_to_finance_admin' | translate }}</span>
+				</td>
+				<td ng-if="e.state === 'ACCEPTED'">
+					<span class="label label-success">{{ 'reimbursement.expense.state.accepted' | translate }}</span>
+				</td>
+				<td ng-if="e.state === 'REJECTED'">
+				<span
+					class="label label-danger">{{ 'reimbursement.expense.state.rejected' | translate }}</span>
+				</td>
+				<td ng-if="e.state === 'PRINTED'">
+				<span
+					class="label label-success">{{ 'reimbursement.expense.state.printed' | translate }}</span>
 				</td>
 				<td>
 					<div class="btn-group">
-						<button type="button" class="btn btn-primary" ng-click="go('expense',{id:e.uid, isReview:1})">
+						<button type="button" class="btn btn-primary">
 							<i class="fa fa-eye"></i>
 							{{ 'reimbursement.expense.validate' | translate }}
 						</button>
