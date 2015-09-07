@@ -1,6 +1,6 @@
-app.controller('DashboardController', ['$scope', '$filter', '$state', 'USER', 'dashboardRestService', 'globalMessagesService',  'expenseRestService',
+app.controller('DashboardController', ['$scope', '$filter', '$state', 'USER', 'dashboardRestService', 'globalMessagesService',
 
-	function ($scope, $filter, $state, USER, dashboardRestService, globalMessagesService, expenseRestService) {
+	function ($scope, $filter, $state, USER, dashboardRestService) {
 		'use strict';
 
 		$scope.user = USER;
@@ -8,23 +8,23 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', 'USER', 'd
 		$scope.showReviewSection = false;
 		dashboardRestService.getMyExpenses().success(function (response) {
 			$scope.myExpenses = response;
-		}, function() {
+		}, function () {
 			$scope.myExpenses = [];
 		});
 
 		var myReviewExpenses = null;
-		if(USER.roles.indexOf('FINANCE_ADMIN') !== -1) {
+		if (USER.roles.indexOf('FINANCE_ADMIN') !== -1) {
 			myReviewExpenses = dashboardRestService.getReviewExpensesAsFinanceAdmin();
 		}
-		else if(USER.roles.indexOf('PROF') !== -1) {
+		else if (USER.roles.indexOf('PROF') !== -1) {
 			myReviewExpenses = dashboardRestService.getReviewExpensesAsProf();
 		}
 
-		if(myReviewExpenses !== null) {
+		if (myReviewExpenses !== null) {
 			$scope.showReviewSection = true;
-			myReviewExpenses.then(function(response) {
+			myReviewExpenses.then(function (response) {
 				$scope.myReviewExpenses = response;
-			}, function() {
+			}, function () {
 				$scope.myReviewExpenses = [];
 			});
 		}
@@ -33,19 +33,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', 'USER', 'd
 			$state.go(state, params);
 		};
 
-		// TODO remove
-		$scope.addExpense_deprecated = function () {
-			expenseRestService.postExpense({accounting: '', state: 'CREATED'})
-				.success(function (response) {
-					$state.go('expense', {id: response.uid, isReview: 0});
-				})
-				.error(function () {
-					$filter('translate')('reimbursement.error.title');
-					$filter('translate')('reimbursement.error.body');
-				});
-		};
-
-		$scope.addExpense = function() {
+		$scope.addExpense = function () {
 			$state.go('create-expense');
 		};
 	}

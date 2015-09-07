@@ -220,6 +220,10 @@
 		"en": "Crop it"
 	},
 
+	"dashboard.action": {
+		"de": "Aktion",
+		"en": "Action"
+	},
 	"dashboard.myExpenses": {
 		"de": "Meine Spesen",
 		"en": "My expenses"
@@ -289,7 +293,7 @@
 		"de": "Belegsdatum",
 		"en": "Receipt date"
 	},
-	"expense-item.costcategory":{
+	"expense-item.costcategory": {
 		"de": "Kostenkategorie",
 		"en": "Cost category"
 	},
@@ -620,20 +624,32 @@
 		"en": "Declined"
 	},
 	"expense.state.accepted": {
-		"de": "akzeptiert",
-		"en": "accepted"
+		"de": "Akzeptiert",
+		"en": "Accepted"
 	},
 	"expense.state.assigned_to_professor": {
-		"de": "zugewiesen",
-		"en": "assigned"
+		"de": "Zugewiesen an Professor",
+		"en": "Assigned to Professor"
+	},
+	"expense.state.assigned_to_finance_admin": {
+		"de": "Zugewiesen an Finanzverwaltung",
+		"en": "Assigned to finance admin"
 	},
 	"expense.state.created": {
-		"de": "erstellt",
-		"en": "created"
+		"de": "Erstallt",
+		"en": "Created"
+	},
+	"expense.state.draft": {
+		"de": "Entwurf",
+		"en": "Draft"
 	},
 	"expense.state.rejected": {
-		"de": "abgelehnt",
-		"en": "rejected"
+		"de": "Abgelehnt",
+		"en": "Rejected"
+	},
+	"expense.state.printed": {
+		"de": "Ausgedruckt",
+		"en": "Printed"
 	},
 	"expense.travel_purpose": {
 		"de": "Reisegrund / Erklärung",
