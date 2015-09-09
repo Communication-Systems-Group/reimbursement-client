@@ -22,6 +22,7 @@
 				<tr>
 					<th>{{ 'reimbursement.cost_category.account_number' | translate }}</th>
 					<th>{{ 'reimbursement.cost_category.name' | translate }}</th>
+					<th>{{ 'reimbursement.cost_category.description' | translate }}</th>
 					<th>{{ 'reimbursement.administration.action' | translate }}</th>
 				</tr>
 				</thead>
@@ -29,6 +30,7 @@
 				<tr ng-repeat="c in costCategories">
 					<td>{{c.accountNumber}}</td>
 					<td>{{c.name | costCategoryLanguage}}</td>
+					<td>{{c.description | costCategoryLanguage | limitWordwise: 50 }}</td>
 					<td>
 						<div class="btn-group">
 							<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
@@ -40,6 +42,7 @@
 									ng-click="editItem(c.uid)"><i
 									class="fa fa-pencil"></i> {{ 'reimbursement.administration.edit' | translate }}</a>
 								</li>
+								<li class="divider"></li>
 								<li><a
 									ng-click="deleteItem(c.uid)"><i
 									class="fa fa-trash"></i> {{ 'reimbursement.administration.delete' | translate
