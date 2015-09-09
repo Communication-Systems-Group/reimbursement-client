@@ -10,7 +10,7 @@
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label"> {{ 'reimbursement.settings.language' | translate }} </label>
 						<div class="col-sm-9">
-							<select class="form-control" ng-model="form.selectedLanguage">
+							<select class="form-control" ng-model="selectedLanguage">
 								<option ng-repeat="language in languages" value="{{ language }}">
 									{{ "reimbursement.settings.language."+language | translate }}
 								</option>
