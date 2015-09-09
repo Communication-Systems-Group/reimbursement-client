@@ -149,8 +149,13 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 				url: "/testingPage",
 				templateUrl: "testingPage/testingPage.tpl.html",
 				controller: 'TestingPageController'
-			});
 
+
+			}).state('settings', {
+				url: "/settings",
+				templateUrl: "settings/settings.tpl.html",
+				controller: 'SettingsController'
+			});
 		$urlRouterProvider.otherwise('/dashboard');
 
 		$locationProvider.hashPrefix("!");

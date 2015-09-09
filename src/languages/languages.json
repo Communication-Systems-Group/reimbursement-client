@@ -1,5 +1,5 @@
 {
-	"administration.administration": {
+	"administration.title": {
 		"de": "Administration",
 		"en": "Administration"
 	},
@@ -38,6 +38,30 @@
 	"administration.cost_categories": {
 		"de": "Kostenstellen",
 		"en": "Cost categories"
+	},
+	"settings.title": {
+		"de": "Einstellungen",
+		"en": "Settings"
+	},
+	"settings.saveButton": {
+		"de": "Speichern",
+		"en": "Save"
+	},
+	"settings.language": {
+		"de": "Sprache",
+		"en": "Language"
+	},
+	"settings.language.DE": {
+		"de": "Deutsch",
+		"en": "German"
+	},
+		"settings.language.EN": {
+		"de": "Englisch",
+		"en": "English"
+	},
+	"settings.languagePanel": {
+		"de": "Sprache auswählen",
+		"en": "Choose language"
 	},
 	"cost_category.account_number": {
 		"de": "Kostenstellennummer",
@@ -95,9 +119,9 @@
 		"de": "Logout",
 		"en": "Logout"
 	},
-	"tabs.signature": {
-		"de": "Unterschrift ändern",
-		"en": "Change Signature"
+	"tabs.settings": {
+		"de": "Einstellungen",
+		"en": "Settings"
 	},
 	"tabs.dashboard": {
 		"de": "Dashboard",
