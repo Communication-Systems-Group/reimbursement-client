@@ -9,7 +9,7 @@ function ($q, $injector) {
 				var $state = $injector.get('$state');
 				var USER = $injector.get('USER');
 				var $modalStack = $injector.get('$modalStack');
-				
+
 				$modalStack.dismissAll();
 				USER.loggedIn = false;
 				$state.go('login');
@@ -17,6 +17,9 @@ function ($q, $injector) {
 				return $q.reject(response);
 			}
 			else {
+				var globalMessagesService = $injector.get('globalMessagesService');
+				globalMessagesService.showGeneralError();
+
 				return $q.reject(response);
 			}
 		}
