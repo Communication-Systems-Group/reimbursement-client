@@ -1,24 +1,29 @@
 <div id="add-expense-item">
 
 	<div class="modal-header">
-		<div class="close" ng-click="dismissWithConfirmation()">&times;</div>
+		<div class="close" ng-click="dismissWithConfirmation()" ng-hide="hideClose">&times;</div>
 		<h3 class="modal-title">
 			<i class="fa fa-file-text-o"></i>
 			{{ 'reimbursement.add-expense-item.title' | translate }}
 		</h3>
 	</div>
-	<div class="modal-body">
-		<expense-item-form expense-item-uid="expenseItemUid" form="form" validating-function="validatingFunction"></expense-item-form>
-	</div>
-	<div class="modal-footer">
-		<button class="btn btn-default" ng-click="dismissWithConfirmation()">
-			<i class="fa fa-times"></i>
-			{{ 'reimbursement.expense.cancelButton' | translate }}
-		</button>
-		<button class="btn btn-primary" ng-click="submit()">
-			<i class="fa fa-plus"></i>
-			{{ 'reimbursement.expense.addNewReceiptButton' | translate }}
-		</button>
+
+	<div class="pos-rel">
+		<spinner id="spinnerExpenseItemForm" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
+
+		<div class="modal-body">
+			<expense-item-form expense-item-uid="expenseItemUid" form="form" validating-function="validatingFunction"></expense-item-form>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-default" ng-click="dismissWithConfirmation()">
+				<i class="fa fa-times"></i>
+				{{ 'reimbursement.expense.cancelButton' | translate }}
+			</button>
+			<button class="btn btn-primary" ng-click="submit()">
+				<i class="fa fa-plus"></i>
+				{{ 'reimbursement.expense.addNewReceiptButton' | translate }}
+			</button>
+		</div>
 	</div>
 
 </div>

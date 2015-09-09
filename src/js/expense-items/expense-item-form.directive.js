@@ -18,7 +18,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 			$scope.calculatedAmount = $filter('number')(0, 2);
 
 			$timeout(function(){
-				spinnerService.show('spinnerEditExpenseItem');
+				spinnerService.show('spinnerExpenseItemForm');
 			});
 
 			var invalidDate = "";
@@ -47,19 +47,19 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 						$scope.form.project = response.data.project;
 						$scope.form.explanation = response.data.explanation;
 
-						spinnerService.hide('spinnerEditExpenseItem');
+						spinnerService.hide('spinnerExpenseItemForm');
 
 					}, function() {
 						globalMessagesService.showGeneralError();
-						spinnerService.hide('spinnerEditExpenseItem');
+						spinnerService.hide('spinnerExpenseItemForm');
 					});
 				}, function() {
 					globalMessagesService.showGeneralError();
-					spinnerService.hide('spinnerEditExpenseItem');
+					spinnerService.hide('spinnerExpenseItemForm');
 				});
 			}, function() {
 				globalMessagesService.showGeneralError();
-				spinnerService.hide('spinnerEditExpenseItem');
+				spinnerService.hide('spinnerExpenseItemForm');
 			});
 
 			var exchangeRates = null;

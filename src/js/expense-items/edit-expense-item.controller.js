@@ -1,6 +1,6 @@
-app.controller('EditExpenseItemController', ['$scope', '$modalInstance', 'globalMessagesService', 'expenseItemsRestService', 'expenseItemUid',
+app.controller('EditExpenseItemController', ['$scope', '$modalInstance', 'globalMessagesService', 'spinnerService', 'expenseItemsRestService', 'expenseItemUid',
 
-function($scope, $modalInstance, globalMessagesService, expenseItemsRestService, expenseItemUid) {
+function($scope, $modalInstance, globalMessagesService, spinnerService, expenseItemsRestService, expenseItemUid) {
 	"use strict";
 
 	$scope.expenseItemUid = expenseItemUid;
@@ -21,10 +21,15 @@ function($scope, $modalInstance, globalMessagesService, expenseItemsRestService,
 	function submitForm() {
 		var formIsValid = $scope.validatingFunction($scope.form);
 		if(formIsValid) {
+			spinnerService.show('spinnerExpenseItemForm');
+			$scope.hideClose = true;
 			expenseItemsRestService.putExpenseItem(expenseItemUid, $scope.form).then(function() {
 				$modalInstance.close();
 			}, function() {
 				globalMessagesService.showGeneralError();
+			})['finally'](function() {
+				$scope.hideClose = false;
+				spinnerService.hide('spinnerExpenseItemForm');
 			});
 		}
 		else {
