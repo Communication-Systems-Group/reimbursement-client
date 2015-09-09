@@ -1,30 +1,22 @@
-/**
- * Created by robinengbersen on 06.07.15.
- */
-app.factory('httpInterceptor', function ($q, $injector) {
+app.factory('httpInterceptor',
+
+function ($q, $injector) {
 	'use strict';
 
 	return {
-		'requestError': function (rejection) {
+		responseError: function(response) {
+			if(response.status === 401 || response.status === 403) {
+				var $state = $injector.get('$state');
+				var USER = $injector.get('USER');
 
-			return $q.reject(rejection);
-		},
+				USER.loggedIn = false;
+				$state.go('login');
 
-
-		'responseError': function (rejection) {
-
-			if (rejection.status === 400) {
-				// ToDo logout user if the user he's using has not been found
-				if (rejection.data.type === 'UserNotFoundException') {
-					var modal = $injector.get('$modalStack');
-					console.log(modal);
-					//modal.dismissAll();
-
-					//$injector.get('$state').transitionTo('login');
-				}
+				return $q.reject(response);
 			}
-
-			return $q.reject(rejection);
+			else {
+				return $q.reject(response);
+			}
 		}
 	};
 });
