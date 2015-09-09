@@ -1,6 +1,6 @@
-app.controller('DashboardController', ['$scope', '$filter', '$state', 'USER', 'dashboardRestService', 'globalMessagesService',
+app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 'USER', 'dashboardRestService', 'globalMessagesService',
 
-	function ($scope, $filter, $state, USER, dashboardRestService) {
+	function ($scope, $filter, $state, $modal, USER, dashboardRestService) {
 		'use strict';
 
 		$scope.user = USER;
@@ -35,7 +35,14 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', 'USER', 'd
 		};
 
 		$scope.addExpense = function () {
-			$state.go('create-expense');
+			var modalInstance = $modal.open({
+				templateUrl: 'expense/create-expense-sap.tpl.html',
+				controller: 'CreateExpenseSapController',
+			});
+
+			modalInstance.result.then(function(data) {
+				$state.go('create-expense', { uid: data.uid });
+			});
 		};
 	}
 ]);

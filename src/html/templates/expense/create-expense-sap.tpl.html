@@ -1,0 +1,43 @@
+<div id="create-expense-sap">
+
+	<div class="modal-header">
+		<div class="close" ng-click="dismiss()">&times;</div>
+		<h3 class="modal-title">
+			<i class="fa fa-plus-circle"></i>
+			{{ 'reimbursement.create-expense.title' | translate }}
+		</h3>
+	</div>
+
+	<div class="modal-body">
+		<spinner id="spinnerCreateExpense" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
+
+		<div class="well with-info-in-well">
+			<span class="fa fa-info-circle info-in-well"></span>
+			<span class="pre-wrap">{{ 'reimbursement.expense.accountingDescription' | translate }}</span>
+		</div>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label for="accountingText" class="col-sm-5 control-label">
+					{{ 'reimbursement.expense.accountingLabel' | translate }}
+				</label>
+				<div class="col-sm-7">
+					<input type="text" class="form-control" id="accountingText" placeholder="{{ 'reimbursement.expense.accountingLabel' | translate }}" required="true" ng-model="accountingText">
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="dismiss()">
+			<i class="fa fa-times-circle"></i>
+			{{ 'reimbursement.expense.cancelButton' | translate }}
+		</button>
+
+		<button class="btn btn-primary" ng-click="nextStep()">
+			<i class="fa fa-arrow-circle-right"></i>
+			{{ 'reimbursement.expense.nextStepButton' | translate }}
+		</button>
+	</div>
+
+</div>

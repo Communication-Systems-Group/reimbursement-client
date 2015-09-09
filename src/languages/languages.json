@@ -450,12 +450,12 @@
 		"en": "Description for Accounting"
 	},
 	"expense.accountingDescription": {
-		"de": "Legen Sie den SAP Beschreibungstext wie folgt fest:\n– «PMtg [Project Acronym], [City], [YYMMDD]» für ein Projektmeeting | Beispiel: «PMtg SmartenIT, Zurich, 150324»\n– «Conf [Acronym] [YYYY], [City]» für ein Workshop/Konferenz | Beispiel: «Conf NetSys 2015, Cottbus»\n– «[Hardware/Software] Order» | für eine HW or SW Bestellung",
-		"en": "Define the SAP description text as follows:\n– «PMtg [Project Acronym], [City], [YYMMDD]» for any project meeting | Example: «PMtg SmartenIT, Zurich, 150324»\n– «Conf [Acronym] [YYYY], [City]» for any workshop/conference | Example: «Conf NetSys 2015, Cottbus»\n– «[Hardware/Software] Order» | for any HW or SW order"
+		"de": "Legen Sie den SAP Beschreibungstext wie folgt fest:\n– «PMtg [Project Acronym], [City], [YYMMDD]» für ein Projektmeeting\n    Beispiel: «PMtg SmartenIT, Zurich, 150324»\n– «Conf [Acronym] [YYYY], [City]» für ein Workshop/Konferenz\n    Beispiel: «Conf NetSys 2015, Cottbus»\n– «[Hardware/Software] Order»\n    für eine HW or SW Bestellung",
+		"en": "Define the SAP description text as follows:\n– «PMtg [Project Acronym], [City], [YYMMDD]» for any project meeting\n    Example: «PMtg SmartenIT, Zurich, 150324»\n– «Conf [Acronym] [YYYY], [City]» for any workshop/conference\n    Example: «Conf NetSys 2015, Cottbus»\n– «[Hardware/Software] Order»\n    for any HW or SW order"
 	},
 	"expense.accountingLabel": {
-		"de": "Buchhaltungsbeschreibung (SAP)",
-		"en": "Description for Accounting (SAP)"
+		"de": "Beschreibung (SAP)",
+		"en": "Description (SAP)"
 	},
 	"expense.info.accountingTextMissingTitle": {
 		"de": "Beschreibung unvollständig",
