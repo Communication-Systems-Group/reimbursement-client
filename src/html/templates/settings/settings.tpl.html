@@ -6,9 +6,9 @@
 				{{ 'reimbursement.settings.languagePanel' | translate }}
 			</div>
 			<div class="panel-body">
-				<form class="form-horizontal">
+				<form id="languageSettings" class="form-horizontal">
 					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-3 control-label"> {{ 'reimbursement.settings.language' | translate }} </label>
+						<label class="col-sm-3 control-label"> {{ 'reimbursement.settings.language' | translate }} </label>
 						<div class="col-sm-9">
 							<select class="form-control" ng-model="selectedLanguage">
 								<option ng-repeat="language in languages" value="{{ language }}">
@@ -18,8 +18,30 @@
 						</div>
 					</div>
 					<div class="text-right">
-						<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>
+						<button type="submit" class="btn btn-primary" ng-click="saveLanguage()">
+							<i class="fa fa-check"></i>
 							{{ 'reimbursement.settings.saveButton' | translate }}
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				{{ 'reimbursement.settings.signaturePanel' | translate }}
+			</div>
+			<div class="panel-body">
+				<form id="signatureSettings" class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> {{ 'reimbursement.settings.signature' | translate }} </label>
+						<div class="col-sm-9">
+						<!-- Show signature here -->
+						</div>
+					</div>
+					<div class="text-right">
+						<button type="submit" class="btn btn-primary" ng-click="newSignature()">
+							<i class="fa fa-check"></i>
+							{{ 'reimbursement.settings.newSignature' | translate }}
 						</button>
 					</div>
 				</form>

@@ -150,11 +150,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 				templateUrl: "testingPage/testingPage.tpl.html",
 				controller: 'TestingPageController'
 
-
 			}).state('settings', {
 				url: "/settings",
 				templateUrl: "settings/settings.tpl.html",
-				controller: 'SettingsController'
+				controller: 'SettingsController',
+				onEnter: requireAuthentication()
+
 			});
 		$urlRouterProvider.otherwise('/dashboard');
 

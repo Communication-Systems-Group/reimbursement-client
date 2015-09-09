@@ -10,7 +10,19 @@ function($http, HOST) {
 		});
 	}
 
+		function putLanguage(language) {
+		return $http({
+			method: 'PUT',
+			url: HOST + '/api/user/language',
+			data: {
+				language: language
+			}
+		});
+	}
+
 	return {
-		getSupportedLanguages: getSupportedLanguages
+		getSupportedLanguages: getSupportedLanguages,
+		putLanguage: putLanguage
+
 	};
 }]);

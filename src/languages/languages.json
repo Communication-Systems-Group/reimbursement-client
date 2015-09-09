@@ -55,13 +55,33 @@
 		"de": "Deutsch",
 		"en": "German"
 	},
-		"settings.language.EN": {
+	"settings.language.EN": {
 		"de": "Englisch",
 		"en": "English"
 	},
 	"settings.languagePanel": {
-		"de": "Sprache auswählen",
-		"en": "Choose language"
+		"de": "Sprache ändern",
+		"en": "Change language"
+	},
+	"settings.language.submitInfoTitle": {
+		"de": "Spracheinstellungen",
+		"en": "Language settings"
+	},
+	"settings.language.submitInfoMessage": {
+		"de": "Sprache wurde erfolgreich geändert.",
+		"en": "Language has been changed successfully."
+	},
+	"settings.signaturePanel": {
+		"de": "Unterschrift ändern",
+		"en": "Change signature"
+	},
+	"settings.signature": {
+		"de": "Unterschrift",
+		"en": "Signature"
+	},
+		"settings.newSignature": {
+		"de": "Neue Unterschrift hochladen",
+		"en": "Upload new signature"
 	},
 	"cost_category.account_number": {
 		"de": "Kostenstellennummer",
@@ -76,7 +96,7 @@
 		"en": "Description"
 	},
 	"cost_category.accounting_policy": {
-		"de": "Rechtsgrundlage",
+		"de": "Kontierungsrichtlinien",
 		"en": "Accounting policy"
 	},
 	"cost_category.edit": {
@@ -126,6 +146,10 @@
 	"tabs.dashboard": {
 		"de": "Dashboard",
 		"en": "Dashboard"
+	},
+	"tabs.signature": {
+		"de": "Unterschrift ändern",
+		"en": "Change signature"
 	},
 	"tabs.testingpage": {
 		"de": "Test",
@@ -342,7 +366,7 @@
 	},
 	"dashboard.table.noContent": {
 		"de": "Keine Daten vorhanden!",
-		"en": "No content present!"
+		"en": "No content available!"
 	},
 	"dashboard.table.totalCosts": {
 		"de": "Totale Kosten",
@@ -513,7 +537,7 @@
 	},
 	"expense.add_document": {
 		"de": "Document hinzufügen",
-		"en": "Add docuement"
+		"en": "Add document"
 	},
 	"expense.add_expense_item": {
 		"de": "Neuen Beleg hinzufügen",
@@ -632,7 +656,7 @@
 		"en": "Edit"
 	},
 	"expense.editExisting": {
-		"de": "Spesen editieren",
+		"de": "Spesen bearbeiten",
 		"en": "Edit expense"
 	},
 	"expense.error.loading_exchange_rate": {
@@ -676,7 +700,7 @@
 		"en": "Notes / feedback"
 	},
 	"expense.note_add": {
-		"de": "Bemerkung hinzufuügen",
+		"de": "Bemerkung hinzufügen",
 		"en": "Add note"
 	},
 	"expense.not_found.body": {

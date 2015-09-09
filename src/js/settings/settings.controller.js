@@ -1,15 +1,21 @@
-app.controller('SettingsController', ['$scope', '$timeout', 'settingsRestService', 'USER',
+app.controller('SettingsController', ['$scope', '$state', '$timeout', 'settingsRestService', 'USER', 'globalMessagesService',
 
-function($scope, $timeout, settingsRestService, USER) {
+function($scope, $state, $timeout, settingsRestService, USER, globalMessagesService) {
 	'use strict';
 	$scope.languages = [];
-	// $scope.selectedLanguage=USER.language;
-	USER.test=1;
 
-	settingsRestService.getSupportedLanguages().then(function(response){
+	settingsRestService.getSupportedLanguages().then(function(response) {
 		$scope.languages = response.data;
 		$timeout(function() {
-			$scope.selectedLanguage = 'EN';
+			$scope.selectedLanguage = USER.language;
 		});
 	});
+	$scope.saveLanguage = function() {
+		settingsRestService.putLanguage($scope.selectedLanguage).then(function() {
+			globalMessagesService.showInfo('reimbursement.settings.language.submitInfoTitle', 'reimbursement.settings.language.submitInfoMessage');
+		});
+	};
+	$scope.newSignature = function() {
+		$state.go('signature');
+	};
 }]);
