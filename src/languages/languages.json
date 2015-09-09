@@ -107,6 +107,10 @@
 		"de": "Test",
 		"en": "Test"
 	},
+	"tabs.administration": {
+		"de": "Administration",
+		"en": "Administration"
+	},
 	"loading.label": {
 		"de": "Bitte warten...",
 		"en": "Please wait..."
