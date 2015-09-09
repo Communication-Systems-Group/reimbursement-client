@@ -1,16 +1,20 @@
-app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 'USER', 'dashboardRestService', 'globalMessagesService',
+app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 'USER', 'globalMessagesService', 'dashboardRestService',
 
-	function ($scope, $filter, $state, $modal, USER, dashboardRestService) {
+	function ($scope, $filter, $state, $modal, USER, globalMessagesService, dashboardRestService) {
 		'use strict';
 
 		$scope.user = USER;
 
 		$scope.showReviewSection = false;
-		dashboardRestService.getMyExpenses().success(function (response) {
-			$scope.myExpenses = response;
-		}, function () {
-			$scope.myExpenses = [];
-		});
+
+		function updateMyExpenses() {
+			dashboardRestService.getMyExpenses().success(function (response) {
+				$scope.myExpenses = response;
+			}, function () {
+				$scope.myExpenses = [];
+			});
+		}
+		updateMyExpenses();
 
 		var myReviewExpenses = null;
 		if (USER.roles.indexOf('FINANCE_ADMIN') !== -1) {
@@ -42,6 +46,13 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 
 			modalInstance.result.then(function(data) {
 				$state.go('create-expense', { uid: data.uid });
+			});
+		};
+
+		$scope.deleteExpense = function(uid) {
+			globalMessagesService.confirmWarning('reimbursement.expense.confirmDeleteTitle',
+			'reimbursement.expense.confirmDeleteMessage').then(function() {
+				dashboardRestService.deleteExpense(uid).then(updateMyExpenses);
 			});
 		};
 	}

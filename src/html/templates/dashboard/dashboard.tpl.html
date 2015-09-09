@@ -55,9 +55,17 @@
 					<ul class="dropdown-menu">
 						<li>
 							<!-- TODO link to edit-expense, not create expense (code shared with common directive) -->
-							<a
-							ui-sref="create-expense-step2({uid: e.uid})"><i
-							class="fa fa-pencil"></i> {{ 'reimbursement.expense.edit' | translate }}</a>
+							<a href ui-sref="create-expense({uid: e.uid})">
+								<i class="fa fa-pencil"></i>
+								{{ 'reimbursement.expense.edit' | translate }}
+							</a>
+						</li>
+						<li class="divider" ng-if="e.state === 'DRAFT'"></li>
+						<li ng-if="e.state === 'DRAFT'">
+							<a href ng-click="deleteExpense(e.uid)">
+								<i class="fa fa-trash"></i>
+								{{ 'reimbursement.expense.delete' | translate }}
+							</a>
 						</li>
 					</ul>
 				</div>

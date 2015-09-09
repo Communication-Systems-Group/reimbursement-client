@@ -16,10 +16,15 @@ function($http, HOST) {
 		return $http.get(HOST + '/api/prof/review-expenses');
 	}
 
+	function deleteExpense(uid) {
+		return $http.delete(HOST + '/api/user/expenses/' + uid);
+	}
+
 	return {
 		getMyExpenses: getMyExpenses,
 		getReviewExpensesAsFinanceAdmin: getReviewExpensesAsFinanceAdmin,
-		getReviewExpensesAsProf: getReviewExpensesAsProf
+		getReviewExpensesAsProf: getReviewExpensesAsProf,
+		deleteExpense: deleteExpense
 	};
 
 }]);

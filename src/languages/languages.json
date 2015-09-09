@@ -547,6 +547,14 @@
 		"de": "Löschen",
 		"en": "Delete"
 	},
+	"expense.confirmDeleteTitle": {
+		"de": "Bestätigung",
+		"en": "Confirmation"
+	},
+	"expense.confirmDeleteMessage": {
+		"de": "Möchten Sie diese Spesen mitsamt allen Belegen unwiderruflich löschen?",
+		"en": "Are you sure, you want to delete this expense with all receipts irrevocably?"
+	},
 	"expense.delete.error": {
 		"de": "Das Spesenelement konnte nicht gelöscht werden. Bitte versuch es nochmal!",
 		"en": "The expense could not be deleted successfully. Please retry!"
@@ -590,6 +598,10 @@
 	"expense.document_upload.succeeded": {
 		"de": "Das Dokument wurde erfolgreich hochgeladen.",
 		"en": "The document upload was successful."
+	},
+	"expense.edit": {
+		"de": "Löschen",
+		"en": "Delete"
 	},
 	"expense.edit": {
 		"de": "Editieren",
