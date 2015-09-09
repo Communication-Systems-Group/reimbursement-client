@@ -12,7 +12,6 @@ app.controller('LoginController', ['$scope', '$state', 'loginRestService', 'glob
 			loginRestService.postLogin($scope.form).then(function () {
 				window.location.reload();
 			}, function (response) {
-				console.log(response);
 
 				var errorLabel;
 				switch(response.data.type) {
