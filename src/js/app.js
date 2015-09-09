@@ -60,6 +60,26 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}];
 		}
 
+		function requireAuthenticatioWithRoles(roles) {
+			return ['$state', 'USER', function ($state, USER) {
+				if (!USER.loggedIn) {
+					$state.go('login');
+				}
+
+				var hasInsufficientRights = false;
+				for (var i=0; i<roles.length; i++) {
+					if (USER.roles.indexOf(roles[i]) === -1) {
+						hasInsufficientRights = true;
+						break;
+					}
+				}
+
+				if(hasInsufficientRights) {
+					$state.go('dashboard');
+				}
+			}];
+		}
+
 		$stateProvider.state('login', {
 			// no url, because the login should not be opened manually
 			templateUrl: "login/login.tpl.html",
@@ -85,7 +105,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 				url: "/administration",
 				templateUrl: "administration/administration.tpl.html",
 				controller: "AdministrationController",
-				onEnter: requireAuthentication()
+				onEnter: requireAuthenticatioWithRoles(['FINANCE_ADMIN'])
+
 			}).state('attachment', {
 				url: "/attachment",
 				templateUrl: "attachment/attachment.tpl.html",
