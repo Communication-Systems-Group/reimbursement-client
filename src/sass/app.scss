@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400');
 // global variables
 @import "variables";
+// include bootstrap extension
+@import "bootstrap_callout";
 // include partials
 @import "general";
 @import "cropping";
