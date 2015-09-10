@@ -43,9 +43,12 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 						$scope.form.date = $filter('date')(response.data.date, 'yyyy-MM-dd');
 						$scope.form.costCategoryUid = response.data.costCategory.uid;
 						$scope.form.originalAmount = response.data.originalAmount;
-						$scope.form.currency = response.data.currency;
 						$scope.form.project = response.data.project;
 						$scope.form.explanation = response.data.explanation;
+						$timeout(function() {
+							// make sure the currencies are completely loaded before setting the default
+							$scope.form.currency = response.data.currency;
+						});
 
 						spinnerService.hide('spinnerExpenseItemForm');
 
