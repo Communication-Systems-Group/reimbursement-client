@@ -16,7 +16,7 @@
 				<li ui-sref-active="active" ng-show="USER.loggedIn">
 					<a ui-sref="dashboard"><i class="fa fa-tachometer"></i> {{ 'reimbursement.tabs.dashboard' | translate }}</a>
 				</li>
-				<li ui-sref-active="active" ng-if="USER.roles.indexOf('FINANCE_ADMIN') !== -1">
+				<li ui-sref-active="active" ng-if="USER.roles !== undefined && USER.roles.indexOf('FINANCE_ADMIN') !== -1">
 					<a ui-sref="administration"><i class="fa fa-gear"></i> {{ 'reimbursement.tabs.administration' | translate }}</a>
 				</li>
 				<li ui-sref-active="active" ng-show="USER.loggedIn">

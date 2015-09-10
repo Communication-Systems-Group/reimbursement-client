@@ -12,6 +12,7 @@ function ($q, $injector) {
 					var $modalStack = $injector.get('$modalStack');
 
 					$modalStack.dismissAll();
+					USER.roles = [];
 					USER.loggedIn = false;
 					$state.go('login');
 				}
