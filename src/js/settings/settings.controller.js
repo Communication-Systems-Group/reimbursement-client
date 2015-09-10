@@ -1,6 +1,6 @@
-app.controller('SettingsController', ['$scope', '$state', '$timeout', '$translate', 'settingsRestService', 'USER', 'globalMessagesService', 'signatureRestService', 'base64BinaryConverterService',
+app.controller('SettingsController', ['$scope', '$state', '$timeout', '$translate', 'settingsRestService', 'USER', 'globalMessagesService', 'base64BinaryConverterService',
 
-function($scope, $state, $timeout, $translate, settingsRestService, USER, globalMessagesService, signatureRestService, base64BinaryConverterService) {
+function($scope, $state, $timeout, $translate, settingsRestService, USER, globalMessagesService, base64BinaryConverterService) {
 	'use strict';
 	$scope.languages = [];
 
@@ -25,7 +25,7 @@ function($scope, $state, $timeout, $translate, settingsRestService, USER, global
 			$state.go('signature');
 		});
 	};
-	signatureRestService.getSignature().then(function(response) {
+	settingsRestService.getSignature().then(function(response) {
 		$scope.signatureImage = base64BinaryConverterService.toBase64FromJson(response.data);
 	});
 }]);

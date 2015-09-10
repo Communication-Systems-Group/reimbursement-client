@@ -11,18 +11,25 @@ function($http, HOST) {
 	}
 
 	function putLanguage(language) {
-	return $http({
-		method: 'PUT',
-		url: HOST + '/api/user/language',
-		data: {
-			language: language
-		}
-	});
+		return $http({
+			method: 'PUT',
+			url: HOST + '/api/user/language',
+			data: {
+				language: language
+			}
+		});
+	}
+
+	function getSignature() {
+		return $http({
+			method: 'GET',
+			url: HOST + '/api/user/signature'
+		});
 	}
 
 	return {
 		getSupportedLanguages: getSupportedLanguages,
-		putLanguage: putLanguage
-
+		putLanguage: putLanguage,
+		getSignature: getSignature
 	};
 }]);
