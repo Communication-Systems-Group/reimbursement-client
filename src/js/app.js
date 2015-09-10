@@ -46,6 +46,9 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}
 		}
 
+		if(typeof USER.language === 'undefined') {
+			USER.language = 'DE';
+		}
 		$translateProvider.preferredLanguage(USER.language.toLowerCase());
 		$translateProvider.useSanitizeValueStrategy('escape');
 
