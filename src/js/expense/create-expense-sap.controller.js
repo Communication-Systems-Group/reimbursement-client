@@ -13,14 +13,14 @@ function($scope, $modalInstance, spinnerService, globalMessagesService, createEx
 				'reimbursement.expense.info.accountingTextMissingMessage');
 		}
 		else {
-			spinnerService.show('spinnerCreateExpense');
+			spinnerService.show('spinnerCreateExpenseSap');
 
 			createExpenseRestService.postCreateExpense($scope.accountingText).then(function(response) {
 				$modalInstance.close({ uid: response.data.uid });
 			}, function() {
 				globalMessagesService.showGeneralError();
 			})['finally'](function() {
-				spinnerService.hide('spinnerCreateExpense');
+				spinnerService.hide('spinnerCreateExpenseSap');
 			});
 		}
 	};

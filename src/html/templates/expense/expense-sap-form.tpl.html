@@ -1,0 +1,16 @@
+<div id="expense-sap-form">
+	<div class="well with-info-in-well">
+		<span class="fa fa-info-circle info-in-well"></span>
+		<span class="pre-wrap">{{ 'reimbursement.expense.accountingDescription' | translate }}</span>
+	</div>
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label for="accountingText" class="col-sm-5 control-label">
+				{{ 'reimbursement.expense.accountingLabel' | translate }}
+			</label>
+			<div class="col-sm-7">
+				<input type="text" class="form-control" id="accountingText" placeholder="{{ 'reimbursement.expense.accountingLabel' | translate }}" ng-model="accountingText">
+			</div>
+		</div>
+	</form>
+</div>

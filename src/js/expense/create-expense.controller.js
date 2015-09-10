@@ -1,15 +1,12 @@
-app.controller('CreateExpenseController', ['$scope', '$state', '$stateParams', '$timeout', 'USER', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
+app.controller('CreateExpenseController', ['$scope', '$state', '$stateParams', '$timeout', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
 
-function($scope, $state, $stateParams, $timeout, USER, spinnerService, globalMessagesService, createExpenseRestService) {
+function($scope, $state, $stateParams, $timeout, spinnerService, globalMessagesService, createExpenseRestService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
 	$scope.expenseItems = [];
 
-	$scope.USER = USER;
-
 	$scope.submitButtonShown = false;
-	$scope.professors = [];
 
 	$scope.$watch('expenseItems', function(newValue) {
 		$scope.submitButtonShown = false;
@@ -27,7 +24,7 @@ function($scope, $state, $stateParams, $timeout, USER, spinnerService, globalMes
 			globalMessagesService.confirmInfoMd('reimbursement.expense.submitInfoTitle',
 				'reimbursement.expense.submitInfoMessage').then(function() {
 
-				spinnerService.show('spinnerCreateExpenseStep2');
+				spinnerService.show('spinnerCreateExpense');
 				createExpenseRestService.assignToProf($scope.expenseUid).then(function() {
 
 					$state.go('dashboard');
@@ -35,7 +32,7 @@ function($scope, $state, $stateParams, $timeout, USER, spinnerService, globalMes
 				}, function() {
 					globalMessagesService.showGeneralError();
 				})['finally'](function() {
-					spinnerService.hide('spinnerCreateExpenseStep2');
+					spinnerService.hide('spinnerCreateExpense');
 				});
 			});
 
