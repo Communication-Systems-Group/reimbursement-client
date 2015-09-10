@@ -1,8 +1,16 @@
 <div id="create-expense">
 
 	<h1 class="page-header">
+		{{ expenseTitle }}
+		<button class="btn btn-sm btn-default" ng-click="editExpenseSap()">
+			<i class="fa fa-pencil"></i>
+			{{ 'reimbursement.expense.edit' | translate }}
+		</button>
+	</h1>
+
+	<h2 class="page-header">
 		<i class="fa fa-clone"></i>
-		{{ 'reimbursement.create-expense-step2.title' | translate }}
+		{{ 'reimbursement.expense-items.title' | translate }}
 	</h1>
 
 	<div class="pos-rel">

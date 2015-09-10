@@ -1,6 +1,6 @@
-app.controller('CreateExpenseController', ['$scope', '$state', '$stateParams', '$timeout', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
+app.controller('CreateExpenseController', ['$scope', '$state', '$stateParams', '$timeout', '$modal', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
 
-function($scope, $state, $stateParams, $timeout, spinnerService, globalMessagesService, createExpenseRestService) {
+function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalMessagesService, createExpenseRestService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
@@ -17,6 +17,24 @@ function($scope, $state, $stateParams, $timeout, spinnerService, globalMessagesS
 			}
 		}
 	});
+
+	function updateExpenseTitle() {
+		createExpenseRestService.getExpense($scope.expenseUid).then(function(response) {
+			$scope.expenseTitle = response.data.accounting;
+		}, function(response) {
+			response.errorHandled = true;
+			$state.go('dashboard');
+		});
+	}
+	updateExpenseTitle();
+
+	$scope.editExpenseSap = function() {
+		var modalInstance = $modal.open({
+			templateUrl: 'expense/edit-expense-sap.tpl.html',
+			controller: 'EditExpenseSapController'
+		});
+		modalInstance.result.then(updateExpenseTitle);
+	};
 
 	$scope.submitToProf = function() {
 		if(!$scope.submitButtonDisabled) {

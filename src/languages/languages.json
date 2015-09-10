@@ -389,10 +389,6 @@
 		"de": "Neue Spesen hinzufügen",
 		"en": "Add new expense"
 	},
-	"create-expense-step2.title": {
-		"de": "Belege einreichen",
-		"en": "Add receipts"
-	},
 	"add-expense-item.title": {
 		"de": "Beleg hinzufügen",
 		"en": "Add receipt"
@@ -412,6 +408,10 @@
 	"add-expense-item.closeWarningEditMessage": {
 		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
 		"en": "If you close this window, you dismiss all changes made on the current receipt. Continue?"
+	},
+	"expense-items.title": {
+		"de": "Belege einreichen",
+		"en": "Add receipts"
 	},
 	"expense-item.date": {
 		"de": "Belegsdatum",
