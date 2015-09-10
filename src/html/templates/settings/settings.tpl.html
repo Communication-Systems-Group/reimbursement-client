@@ -11,9 +11,7 @@
 						<label class="col-sm-3 control-label"> {{ 'reimbursement.settings.language' | translate }} </label>
 						<div class="col-sm-9">
 							<select class="form-control" ng-model="selectedLanguage">
-								<option ng-repeat="language in languages" value="{{ language }}">
-									{{ "reimbursement.settings.language."+language | translate }}
-								</option>
+								<option ng-repeat="language in languages" value="{{ language }}"> {{ "reimbursement.settings.language."+language | translate }} </option>
 							</select>
 						</div>
 					</div>
@@ -35,15 +33,10 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label"> {{ 'reimbursement.settings.signature' | translate }} </label>
 						<div class="col-sm-9">
-						<!-- Show signature here -->
+							<!-- Show signature here -->
+								<img id="signatureImage" src="{{ signatureImage }}" ng-click="newSignature()">
+							</div>
 						</div>
-					</div>
-					<div class="text-right">
-						<button type="submit" class="btn btn-primary" ng-click="newSignature()">
-							<i class="fa fa-check"></i>
-							{{ 'reimbursement.settings.newSignature' | translate }}
-						</button>
-					</div>
 				</form>
 			</div>
 		</div>

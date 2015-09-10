@@ -3,10 +3,11 @@ app.factory("signatureRestService", ['$http', 'HOST',
 function($http, HOST) {
 	"use strict";
 
+	function getSignature() {
+		return $http.get(HOST + "/api/user/signature");
+	}
 	return {
-		getSignature : function() {
-			return $http.get(HOST + "/api/user/signature");
-		},
+		getSignature: getSignature,
 		postSignatureMobileToken : function() {
 			return $http.post(HOST + "/api/user/signature/token");
 		},

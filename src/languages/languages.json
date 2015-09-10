@@ -71,6 +71,14 @@
 		"de": "Sprache wurde erfolgreich geändert.",
 		"en": "Language has been changed successfully."
 	},
+	"settings.signature.submitWarningTitle": {
+		"de": "Unterschrift ändern",
+		"en": "Change signature"
+	},
+	"settings.signature.submitWarningMessage": {
+		"de": "Sind Sie sicher, dass Sie diese Unterschrift überschreiben wollen?",
+		"en": "Are you sure you want to discard the current signature?"
+	},
 	"settings.signaturePanel": {
 		"de": "Unterschrift ändern",
 		"en": "Change signature"
@@ -78,10 +86,6 @@
 	"settings.signature": {
 		"de": "Unterschrift",
 		"en": "Signature"
-	},
-		"settings.newSignature": {
-		"de": "Neue Unterschrift hochladen",
-		"en": "Upload new signature"
 	},
 	"cost_category.account_number": {
 		"de": "Kostenstellennummer",

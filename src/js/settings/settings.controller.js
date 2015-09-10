@@ -1,6 +1,6 @@
-app.controller('SettingsController', ['$scope', '$state', '$timeout', 'settingsRestService', 'USER', 'globalMessagesService',
+app.controller('SettingsController', ['$scope', '$state', '$timeout', 'settingsRestService', 'USER', 'globalMessagesService', 'signatureRestService', 'base64BinaryConverterService',
 
-function($scope, $state, $timeout, settingsRestService, USER, globalMessagesService) {
+function($scope, $state, $timeout, settingsRestService, USER, globalMessagesService, signatureRestService, base64BinaryConverterService) {
 	'use strict';
 	$scope.languages = [];
 
@@ -16,6 +16,11 @@ function($scope, $state, $timeout, settingsRestService, USER, globalMessagesServ
 		});
 	};
 	$scope.newSignature = function() {
-		$state.go('signature');
+		globalMessagesService.confirmWarning('reimbursement.settings.signature.submitWarningTitle', 'reimbursement.settings.signature.submitWarningMessage').then(function() {
+			$state.go('signature');
+		});
 	};
+	signatureRestService.getSignature().then(function(response) {
+		$scope.signatureImage = base64BinaryConverterService.toBase64FromJson(response.data);
+	});
 }]);
