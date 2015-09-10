@@ -76,8 +76,8 @@
 		"en": "Change signature"
 	},
 	"settings.signature.submitWarningMessage": {
-		"de": "Sind Sie sicher, dass Sie diese Unterschrift überschreiben wollen?",
-		"en": "Are you sure you want to discard the current signature?"
+		"de": "Möchten Sie eine neue Signatur erfassen und die bisherig erfasste Unterschrift überschreiben?",
+		"en": "Do you want to add a new signature and discard the current one?"
 	},
 	"settings.signaturePanel": {
 		"de": "Unterschrift ändern",

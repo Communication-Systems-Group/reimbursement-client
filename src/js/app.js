@@ -36,8 +36,8 @@ app.constant("moment", moment);
 app.constant("HOST", window.location.protocol + "//" + window.location.host.split(":")[0]);
 //app.constant("HOST", "//localhost:8080");
 
-app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', 'LANGUAGES', 'flowFactoryProvider',
-	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, LANGUAGES, flowFactoryProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', 'LANGUAGES', 'USER', 'flowFactoryProvider',
+	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, LANGUAGES, USER, flowFactoryProvider) {
 		"use strict";
 
 		for (var key in LANGUAGES) {
@@ -46,7 +46,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}
 		}
 
-		$translateProvider.preferredLanguage('de');
+		$translateProvider.preferredLanguage(USER.language.toLowerCase());
 		$translateProvider.useSanitizeValueStrategy('escape');
 
 		$httpProvider.defaults.withCredentials = true;

@@ -1,6 +1,6 @@
-app.controller('SettingsController', ['$scope', '$state', '$timeout', 'settingsRestService', 'USER', 'globalMessagesService', 'signatureRestService', 'base64BinaryConverterService',
+app.controller('SettingsController', ['$scope', '$state', '$timeout', '$translate', 'settingsRestService', 'USER', 'globalMessagesService', 'signatureRestService', 'base64BinaryConverterService',
 
-function($scope, $state, $timeout, settingsRestService, USER, globalMessagesService, signatureRestService, base64BinaryConverterService) {
+function($scope, $state, $timeout, $translate, settingsRestService, USER, globalMessagesService, signatureRestService, base64BinaryConverterService) {
 	'use strict';
 	$scope.languages = [];
 
@@ -12,11 +12,16 @@ function($scope, $state, $timeout, settingsRestService, USER, globalMessagesServ
 	});
 	$scope.saveLanguage = function() {
 		settingsRestService.putLanguage($scope.selectedLanguage).then(function() {
-			globalMessagesService.showInfo('reimbursement.settings.language.submitInfoTitle', 'reimbursement.settings.language.submitInfoMessage');
+			USER.language = $scope.selectedLanguage;
+			$translate.use($scope.selectedLanguage.toLowerCase());
+			globalMessagesService.showInfo('reimbursement.settings.language.submitInfoTitle',
+				'reimbursement.settings.language.submitInfoMessage');
 		});
 	};
 	$scope.newSignature = function() {
-		globalMessagesService.confirmWarning('reimbursement.settings.signature.submitWarningTitle', 'reimbursement.settings.signature.submitWarningMessage').then(function() {
+		globalMessagesService.confirmWarning('reimbursement.settings.signature.submitWarningTitle',
+			'reimbursement.settings.signature.submitWarningMessage').then(function() {
+
 			$state.go('signature');
 		});
 	};
