@@ -12,8 +12,8 @@ function($scope, $modalInstance, $modal, signatureRestService, spinnerService, g
 		var promise = signatureRestService.getSignature();
 		promise.then(function(image) {
 			$modalInstance.close(image);
-		}, function() {
-
+		}, function(response) {
+			response.errorHandled = true;
 			globalMessagesService.showError("reimbursement.globalMessage.signatureQrNoImage.title",
 				"reimbursement.globalMessage.signatureQrNoImage.message");
 

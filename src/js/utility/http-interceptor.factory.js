@@ -1,6 +1,6 @@
-app.factory('httpInterceptor',
+app.factory('httpInterceptor', ['$q', '$timeout', '$injector',
 
-function ($q, $injector) {
+function ($q, $timeout, $injector) {
 	'use strict';
 
 	return {
@@ -20,11 +20,18 @@ function ($q, $injector) {
 				return $q.reject(response);
 			}
 			else {
-				var globalMessagesService = $injector.get('globalMessagesService');
-				globalMessagesService.showGeneralError();
-
-				return $q.reject(response);
+				// The global error message can be suppressed if, immediately inside the error function,
+				// response.errorHandled is set to true. This will stop the global error handler to open a modal.
+				return $q.reject(response)['finally'](function() {
+					$timeout(function() {
+						if(response.errorHandled !== true) {
+							var globalMessagesService = $injector.get('globalMessagesService');
+							globalMessagesService.showGeneralError();
+						}
+					});
+				});
 			}
 		}
 	};
-});
+
+}]);
