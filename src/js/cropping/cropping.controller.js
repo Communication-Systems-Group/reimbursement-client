@@ -1,6 +1,6 @@
-app.controller('CroppingController', ['$scope', '$stateParams', '$state', 'spinnerService', 'croppingRestService', 'globalMessagesService',
+app.controller('CroppingController', ['$scope', '$stateParams', '$state', 'spinnerService', 'croppingRestService',
 
-function($scope, $stateParams, $state, spinnerService, croppingRestService, globalMessagesService) {
+function($scope, $stateParams, $state, spinnerService, croppingRestService) {
 	"use strict";
 
 	if ($stateParams.imageUri === null) {
@@ -28,9 +28,7 @@ function($scope, $stateParams, $state, spinnerService, croppingRestService, glob
 			spinnerService.show('spinnerCroppingSubmit');
 
 			croppingRestService.postSignatureCropping($scope.dimensions).then(function() {
-			goToNextPage();
-			}, function() {
-				globalMessagesService.showGeneralError();
+				goToNextPage();
 
 			})['finally'](function() {
 				spinnerService.hide('spinnerCroppingSubmit');

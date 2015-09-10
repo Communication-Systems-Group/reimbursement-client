@@ -25,8 +25,6 @@ function($scope, $modalInstance, globalMessagesService, spinnerService, expenseI
 			$scope.hideClose = true;
 			expenseItemsRestService.putExpenseItem(expenseItemUid, $scope.form).then(function() {
 				$modalInstance.close();
-			}, function() {
-				globalMessagesService.showGeneralError();
 			})['finally'](function() {
 				$scope.hideClose = false;
 				spinnerService.hide('spinnerExpenseItemForm');

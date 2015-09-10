@@ -17,8 +17,6 @@ function($scope, $modalInstance, spinnerService, globalMessagesService, createEx
 
 			createExpenseRestService.postCreateExpense($scope.accountingText).then(function(response) {
 				$modalInstance.close({ uid: response.data.uid });
-			}, function() {
-				globalMessagesService.showGeneralError();
 			})['finally'](function() {
 				spinnerService.hide('spinnerCreateExpenseSap');
 			});

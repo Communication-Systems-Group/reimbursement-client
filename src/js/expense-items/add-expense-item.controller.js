@@ -14,9 +14,7 @@ function($scope, $modalInstance, globalMessagesService, spinnerService, expenseI
 		globalMessagesService.confirmWarning("reimbursement.add-expense-item.closeWarningTitle",
 			"reimbursement.add-expense-item.closeWarningMessage").then(function() {
 
-			expenseItemsRestService.deleteExpenseItem(expenseItemUid).then(undefined, function(){
-				globalMessagesService.showGeneralError();
-			})['finally'](function() {
+			expenseItemsRestService.deleteExpenseItem(expenseItemUid).then()['finally'](function() {
 				$modalInstance.dismiss();
 			});
 		});
@@ -29,8 +27,6 @@ function($scope, $modalInstance, globalMessagesService, spinnerService, expenseI
 			$scope.hideClose = true;
 			expenseItemsRestService.putExpenseItem(expenseItemUid, $scope.form).then(function() {
 				$modalInstance.close();
-			}, function() {
-				globalMessagesService.showGeneralError();
 			})['finally'](function() {
 				$scope.hideClose = false;
 				spinnerService.hide('spinnerExpenseItemForm');

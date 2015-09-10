@@ -27,8 +27,6 @@ function($scope, $state, $modal, Modernizr, spinnerService, attachmentRestServic
 			modalInstance.result.then(function(response) {
 				base64BinaryConverterService.toBase64FromJson(response.data, goToNextPage);
 			});
-		}, function() {
-			globalMessagesService.showGeneralError();
 		});
 	};
 

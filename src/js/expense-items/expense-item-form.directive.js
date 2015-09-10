@@ -53,15 +53,12 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 						spinnerService.hide('spinnerExpenseItemForm');
 
 					}, function() {
-						globalMessagesService.showGeneralError();
 						spinnerService.hide('spinnerExpenseItemForm');
 					});
 				}, function() {
-					globalMessagesService.showGeneralError();
 					spinnerService.hide('spinnerExpenseItemForm');
 				});
 			}, function() {
-				globalMessagesService.showGeneralError();
 				spinnerService.hide('spinnerExpenseItemForm');
 			});
 

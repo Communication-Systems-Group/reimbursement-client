@@ -29,8 +29,6 @@ function($scope, $state, $stateParams, $timeout, spinnerService, globalMessagesS
 
 					$state.go('dashboard');
 
-				}, function() {
-					globalMessagesService.showGeneralError();
 				})['finally'](function() {
 					spinnerService.hide('spinnerCreateExpense');
 				});

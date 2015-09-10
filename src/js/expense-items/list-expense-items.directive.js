@@ -20,13 +20,10 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, expen
 				expenseItemsRestService.getExpenseItems($scope.expenseUid).then(function(response) {
 					$scope.expenseItems = [];
 
-					var showGeneralError = function() {
-						globalMessagesService.showGeneralError();
-					};
 					for(var i=0; i<response.data.length; i++) {
 						// delete all expense-items with state initial (not finished creation)
 						if(response.data[i].state === 'INITIAL') {
-							expenseItemsRestService.deleteExpenseItem(response.data[i].uid).error(showGeneralError);
+							expenseItemsRestService.deleteExpenseItem(response.data[i].uid);
 						}
 						// show all others
 						else {
@@ -34,8 +31,6 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, expen
 						}
 					}
 
-				}, function() {
-					globalMessagesService.showGeneralError();
 				})['finally'](function() {
 					spinnerService.hide('spinnerListExpenseItems');
 				});
@@ -95,12 +90,8 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, expen
 
 						modalInstance.result.then()['finally'](updateTable);
 
-					}, function() {
-						globalMessagesService.showGeneralError();
 					});
 
-				}, function() {
-					globalMessagesService.showGeneralError();
 				});
 			};
 
