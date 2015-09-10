@@ -17,7 +17,7 @@ function($http, HOST) {
 		return $http({
 			method: 'PUT',
 			url: HOST + '/api/user/expenses/'+uid+'/assign-to-prof',
-			});
+		});
 	}
 	return {
 		postCreateExpense: postCreateExpense,

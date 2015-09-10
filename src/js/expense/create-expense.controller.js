@@ -1,24 +1,21 @@
-app.controller('CreateExpenseController', ['$scope', '$state', '$stateParams', 'USER', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
+app.controller('CreateExpenseController', ['$scope', '$state', '$stateParams', '$timeout', 'USER', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
 
-function($scope, $state, $stateParams, USER, spinnerService, globalMessagesService, createExpenseRestService) {
+function($scope, $state, $stateParams, $timeout, USER, spinnerService, globalMessagesService, createExpenseRestService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
 	$scope.expenseItems = [];
 
-	$scope.submitButtonDisabled = true;
-	if(typeof USER.manager !== "undefined" && USER.manager !== null) {
-		$scope.professorName = { professor: USER.manager.lastName };
-	}
-	else {
-		$scope.professorName = { professor: null };
-	}
+	$scope.USER = USER;
+
+	$scope.submitButtonShown = false;
+	$scope.professors = [];
 
 	$scope.$watch('expenseItems', function(newValue) {
-		$scope.submitButtonDisabled = true;
+		$scope.submitButtonShown = false;
 		for(var i=0; i<newValue.length; i++) {
 			if(newValue[i].state !== "INITIAL") {
-				$scope.submitButtonDisabled = false;
+				$scope.submitButtonShown = true;
 				break;
 			}
 		}

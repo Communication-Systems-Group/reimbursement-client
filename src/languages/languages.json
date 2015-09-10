@@ -474,8 +474,8 @@
 		"en": "Cancel"
 	},
 	"expense.submitToProfButton": {
-		"de": "An Professor {{professor}} zuweisen",
-		"en": "Submit to Professor {{professor}}"
+		"de": "An Professor zuweisen",
+		"en": "Submit to Professor"
 	},
 	"expense.submitInfoTitle": {
 		"de": "Definitiv abschicken?",

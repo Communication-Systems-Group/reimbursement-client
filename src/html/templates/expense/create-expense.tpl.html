@@ -10,14 +10,17 @@
 
 		<list-expense-items expense-uid="expenseUid" expense-items="expenseItems"></list-expense-items>
 
-		<hr>
+		<div ng-if="expenseItems.length > 0">
+			<hr>
 
-		<button class="btn btn-primary pull-right" ng-click="submitToProf()" ng-disabled="submitButtonDisabled">
-			<i class="fa fa-arrow-circle-right"></i>
-			{{ 'reimbursement.expense.submitToProfButton' | translate: professorName }}
-		</button>
+			<form class="form-inline text-right">
+				<button class="btn btn-primary" ng-click="submitToProf()">
+					<i class="fa fa-arrow-circle-right"></i>
+					{{ 'reimbursement.expense.submitToProfButton' | translate }}
+				</button>
+			</form>
+		</div>
 
-		<div class="clearfix"></div>
 	</div>
 
 </div>
