@@ -55,5 +55,20 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 				dashboardRestService.deleteExpense(uid).then(updateMyExpenses);
 			});
 		};
+
+		// ordering of table
+		$scope.stateOrdering = function(expense) {
+			var states = [
+				"DRAFT",
+				"REJECTED",
+				"ACCEPTED",
+				"ASSIGNED_TO_PROFESSOR",
+				"ASSIGNED_TO_FINANCE_ADMIN",
+				"PRINTED"
+			];
+			var stateNr = states.length - states.indexOf(expense.state);
+			var shortDate = (expense.date+"").substring(0, (expense.date+"").length - 3);
+			return parseInt("-" + stateNr + shortDate, 10);
+		};
 	}
 ]);
