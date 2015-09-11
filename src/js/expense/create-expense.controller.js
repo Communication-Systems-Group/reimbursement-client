@@ -44,6 +44,10 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 		modalInstance.result.then(updateExpenseTitle);
 	};
 
+	$scope.returnToDashboard = function() {
+		$state.go('dashboard');
+	};
+
 	$scope.submitToProf = function() {
 		if(!$scope.submitButtonDisabled) {
 

@@ -473,6 +473,10 @@
 		"de": "Speichern",
 		"en": "Save"
 	},
+	"expense.returnToDashboard": {
+		"de": "Zurück zum Dashboard",
+		"en": "Return to dashboard"
+	},
 	"expense.nextStepButton": {
 		"de": "Nächster Schritt",
 		"en": "Next Step"

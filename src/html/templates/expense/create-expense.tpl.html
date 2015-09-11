@@ -18,16 +18,18 @@
 
 		<list-expense-items expense-uid="expenseUid" expense-items="expenseItems"></list-expense-items>
 
-		<div ng-if="expenseItems.length > 0">
-			<hr>
+		<hr>
 
-			<form class="form-inline text-right">
-				<button class="btn btn-primary" ng-click="submitToProf()">
-					<i class="fa fa-arrow-circle-right"></i>
-					{{ 'reimbursement.expense.submitToProfButton' | translate }}
-				</button>
-			</form>
-		</div>
+		<form class="form-inline text-right">
+			<button class="btn btn-default pull-left" ng-click="returnToDashboard()">
+				<i class="fa fa-arrow-circle-left"></i>
+				{{ 'reimbursement.expense.returnToDashboard' | translate }}
+			</button>
+			<button class="btn btn-primary" ng-click="submitToProf()" ng-if="expenseItems.length > 0">
+				<i class="fa fa-arrow-circle-right"></i>
+				{{ 'reimbursement.expense.submitToProfButton' | translate }}
+			</button>
+		</form>
 
 	</div>
 
