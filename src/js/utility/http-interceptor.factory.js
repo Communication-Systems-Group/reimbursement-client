@@ -7,7 +7,7 @@ function ($q, $timeout, $injector) {
 		responseError: function(response) {
 			if(response.status === 401 || response.status === 403) {
 				var $state = $injector.get('$state');
-				if(!$state.is('logout')) {
+				if(!$state.is('logout') && !$state.is('login')) {
 					var USER = $injector.get('USER');
 					var $modalStack = $injector.get('$modalStack');
 

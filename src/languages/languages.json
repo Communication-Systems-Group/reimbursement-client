@@ -204,8 +204,8 @@
 		"en": "The entered password or username was incorrect. Please try again."
 	},
 	"globalMessage.loginError.MissingCsrfTokenException": {
-		"de": "Leider ist Ihr Sicherheitstoken abgelaufen. Bitte laden Sie die Seite neu und loggen Sie sich nochmals ein.",
-		"en": "Your security token expired. Please reload the page and try to login again."
+		"de": "Leider ist Ihre Sitzung abgelaufen.\nDie Seite wird neu geladen. Geben Sie danach Ihre Daten erneut ein.",
+		"en": "Your session has expired.\nThe page will be reloaded. Please and try then to login again."
 	},
 	"globalMessage.loginError.BadCredentialsException": {
 		"de": "Das eingegebene Passwort oder der Benutzername sind falsch. Bitte versuchen Sie es erneut.",

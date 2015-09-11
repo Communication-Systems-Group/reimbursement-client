@@ -12,20 +12,25 @@ app.controller('LoginController', ['$scope', '$state', 'loginRestService', 'glob
 			loginRestService.postLogin($scope.form).then(function () {
 				window.location.reload();
 			}, function (response) {
+				response.errorHandled = true;
+				var errorTitle = "reimbursement.globalMessage.loginError.title";
 
-				var errorLabel;
 				switch(response.data.type) {
-					case 'MissingCsrfTokenException':
-						errorLabel = "reimbursement.globalMessage.loginError.MissingCsrfTokenException";
+					case 'InvalidCsrfTokenException':
+						globalMessagesService.showErrorMd(errorTitle,
+							"reimbursement.globalMessage.loginError.MissingCsrfTokenException").then()['finally'](function() {
+
+							window.location.reload();
+						});
 						break;
 					case 'BadCredentialsException':
-						errorLabel = "reimbursement.globalMessage.loginError.BadCredentialsException";
+						globalMessagesService.showErrorMd(errorTitle, "reimbursement.globalMessage.loginError.BadCredentialsException");
 						break;
 					default:
-						errorLabel = "reimbursement.globalMessage.loginError.message";
+						globalMessagesService.showErrorMd(errorTitle, "reimbursement.globalMessage.loginError.message");
+						break;
 				}
 
-				globalMessagesService.showError("reimbursement.globalMessage.loginError.title", errorLabel);
 			});
 		};
 
