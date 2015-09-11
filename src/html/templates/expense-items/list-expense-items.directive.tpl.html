@@ -7,6 +7,7 @@
 				<th>{{ 'reimbursement.expense-item.costcategory' | translate }}</th>
 				<th>{{ 'reimbursement.expense-item.amount' | translate }}</th>
 				<th>{{ 'reimbursement.expense-item.project' | translate }}</th>
+				<th>{{ 'reimbursement.expense-item.explanation' | translate }}</th>
 				<th>{{ 'reimbursement.expense.action' | translate }}</th>
 			</tr>
 		</thead>
@@ -16,9 +17,10 @@
 			</tr>
 			<tr ng-repeat="expenseItem in expenseItems | orderBy: '-date'">
 				<td>{{ expenseItem.date | date: 'yyyy-MM-dd' }}</td>
-				<td>{{ expenseItem.costCategory | costCategoryLanguage }}</td>
+				<td>{{ expenseItem.costCategory.name | costCategoryLanguage }}</td>
 				<td>{{ expenseItem.calculatedAmount | number: 2 }} Fr.</td>
 				<td>{{ expenseItem.project }}</td>
+				<td>{{ expenseItem.explanation | limitWordwise: 40 }}</td>
 				<td style="width:0;">
 					<div class="dropdown">
 						<button data-toggle="dropdown" aria-expanded="true" class="btn btn-default btn-xs dropdown-toggle" id="action-button_{{expenseItem.uid}}">
