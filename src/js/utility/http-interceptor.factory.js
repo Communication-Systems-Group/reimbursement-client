@@ -26,7 +26,9 @@ function ($q, $timeout, $injector) {
 					$timeout(function() {
 						if(response.errorHandled !== true) {
 							var globalMessagesService = $injector.get('globalMessagesService');
-							globalMessagesService.showGeneralError();
+							globalMessagesService.showGeneralError().then(function() {
+								window.location.reload();
+							});
 						}
 					});
 				});

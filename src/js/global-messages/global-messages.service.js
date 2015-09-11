@@ -182,7 +182,7 @@ app.factory("globalMessagesService", ['$modal', '$translate', '$q',
 
 			hideMessages: hideMessages,
 			showGeneralError: function () {
-				showError("reimbursement.globalMessage.ServiceException.title",
+				return showError("reimbursement.globalMessage.ServiceException.title",
 					"reimbursement.globalMessage.ServiceException.message");
 			},
 			isServerErrorMessages: isServerErrorMessages
