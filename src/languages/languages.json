@@ -465,6 +465,14 @@
 		"de": "Beleg bearbeiten",
 		"en": "Edit receipt"
 	},
+	"edit-expense.editAccountingTitle": {
+		"de": "Buchhaltungsbeschreibung anpassen",
+		"en": "Change accounting description"
+	},
+	"edit-expense.editAccountingSaveButton": {
+		"de": "Speichern",
+		"en": "Save"
+	},
 	"expense.nextStepButton": {
 		"de": "Nächster Schritt",
 		"en": "Next Step"

@@ -20,10 +20,13 @@ function($http, HOST) {
 		});
 	}
 
-	function putAccountingToExpense(uid) {
+	function putExpense(uid, accounting) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/user/expenses/'+uid
+			url: HOST + '/api/user/expenses/'+uid,
+			data: {
+				accounting: accounting
+			}
 		});
 	}
 
@@ -37,7 +40,7 @@ function($http, HOST) {
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
-		putAccountingToExpense: putAccountingToExpense,
+		putExpense: putExpense,
 		assignToProf: assignToProf
 	};
 

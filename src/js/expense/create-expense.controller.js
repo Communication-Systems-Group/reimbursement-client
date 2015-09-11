@@ -20,7 +20,7 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 
 	function updateExpenseTitle() {
 		createExpenseRestService.getExpense($scope.expenseUid).then(function(response) {
-			$scope.expenseTitle = response.data.accounting;
+			$scope.expenseAccountingText = response.data.accounting;
 		}, function(response) {
 			response.errorHandled = true;
 			$state.go('dashboard');
@@ -31,7 +31,15 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	$scope.editExpenseSap = function() {
 		var modalInstance = $modal.open({
 			templateUrl: 'expense/edit-expense-sap.tpl.html',
-			controller: 'EditExpenseSapController'
+			controller: 'EditExpenseSapController',
+			resolve: {
+				accountingText: function() {
+					return $scope.expenseAccountingText;
+				},
+				expenseUid: function() {
+					return $scope.expenseUid;
+				}
+			}
 		});
 		modalInstance.result.then(updateExpenseTitle);
 	};

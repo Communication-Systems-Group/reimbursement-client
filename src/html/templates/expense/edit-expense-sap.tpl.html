@@ -1,0 +1,31 @@
+<div id="create-expense-sap">
+
+	<div class="modal-header">
+		<div class="close" ng-click="dismiss()">&times;</div>
+		<h3 class="modal-title">
+			<i class="fa fa-pencil"></i>
+			{{ 'reimbursement.edit-expense.editAccountingTitle' | translate }}
+		</h3>
+	</div>
+
+	<div class="pos-rel">
+		<spinner id="spinnerEditExpenseSap" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
+
+		<div class="modal-body">
+			<expense-sap-form accounting-text="accountingText"></expense-sap-form>
+		</div>
+
+		<div class="modal-footer">
+			<button class="btn btn-default" ng-click="dismiss()">
+				<i class="fa fa-times-circle"></i>
+				{{ 'reimbursement.expense.cancelButton' | translate }}
+			</button>
+
+			<button class="btn btn-primary" ng-click="saveAccountingText()">
+				<i class="fa fa-check"></i>
+				{{ 'reimbursement.edit-expense.editAccountingSaveButton' | translate }}
+			</button>
+		</div>
+	</div>
+
+</div>
