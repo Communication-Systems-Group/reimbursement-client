@@ -18,15 +18,20 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 		}
 	});
 
-	function updateExpenseTitle() {
+	function updateExpense() {
 		createExpenseRestService.getExpense($scope.expenseUid).then(function(response) {
-			$scope.expenseAccountingText = response.data.accounting;
+			if(response.data.state === 'DRAFT') {
+				$scope.expenseAccountingText = response.data.accounting;
+			}
+			else {
+				$state.go('dashboard');
+			}
 		}, function(response) {
 			response.errorHandled = true;
 			$state.go('dashboard');
 		});
 	}
-	updateExpenseTitle();
+	updateExpense();
 
 	$scope.editExpenseSap = function() {
 		var modalInstance = $modal.open({
@@ -41,7 +46,7 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 				}
 			}
 		});
-		modalInstance.result.then(updateExpenseTitle);
+		modalInstance.result.then(updateExpense);
 	};
 
 	$scope.returnToDashboard = function() {
