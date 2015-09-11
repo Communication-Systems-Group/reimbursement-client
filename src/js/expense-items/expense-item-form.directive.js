@@ -88,7 +88,8 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 							exchangeRates = response.data;
 							exchangeRateDate = $scope.form.date;
 							calculate();
-						}, function() {
+						}, function(response) {
+							response.errorHandled = true;
 							$scope.calculatedAmount = invalidDate;
 						});
 					}
@@ -130,7 +131,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 					allowInputToggle: true,
 					maxDate: moment(),
 					calendarWeeks: true
-				}).on('dp.change', function() {
+				}).on('dp.hide', function() {
 					$scope.form.date = jQuery('.datepicker').find('input').first().val();
 					$scope.calculateAmount();
 				});
