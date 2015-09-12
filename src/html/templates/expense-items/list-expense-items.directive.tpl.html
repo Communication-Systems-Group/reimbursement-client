@@ -21,7 +21,7 @@
 				<td>{{ expenseItem.calculatedAmount | number: 2 }} Fr.</td>
 				<td>{{ expenseItem.project }}</td>
 				<td>{{ expenseItem.explanation | limitWordwise: 40 }}</td>
-				<td style="width:0;">
+				<td style="width:0;" ng-if="!readonly">
 					<div class="dropdown">
 						<button data-toggle="dropdown" aria-expanded="true" class="btn btn-default btn-xs dropdown-toggle" id="action-button_{{expenseItem.uid}}">
 							<i class="fa fa-caret-down"></i>&nbsp;
@@ -44,12 +44,18 @@
 						</ul>
 					</div>
 				</td>
+				<td ng-if="readonly">
+					<button class="btn btn-default btn-xs" ng-click="viewExpenseItem(expenseItem.uid)">
+						<i class="fa fa-eye"></i>
+						{{ 'reimbursement.expense.viewItem' | translate }}
+					</button>
+				</td>
 			</tr>
 		</tbody>
 
 	</table>
 
-	<button class="btn-primary btn pull-right" ng-click="addExpenseItem()">
+	<button class="btn-primary btn pull-right" ng-click="addExpenseItem()" ng-if="!readonly">
 		<i class="fa fa-plus"></i>
 		{{ 'reimbursement.expense.addNewReceiptButton' | translate }}
 	</button>

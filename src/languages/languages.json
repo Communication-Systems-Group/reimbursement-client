@@ -477,6 +477,10 @@
 		"de": "Speichern",
 		"en": "Save"
 	},
+	"expense.viewItem": {
+		"de": "Anzeigen",
+		"en": "Show"
+	},
 	"expense.returnToDashboard": {
 		"de": "Zurück zum Dashboard",
 		"en": "Return to dashboard"
