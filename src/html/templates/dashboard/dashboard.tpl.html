@@ -50,7 +50,8 @@
 				<div class="btn-group" ng-if="(e.state === 'CREATED' || e.state === 'REJECTED' || e.state === 'DRAFT')">
 					<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">
-						{{ 'reimbursement.dashboard.action' | translate }} <span class="caret"></span>
+						<i class="fa fa-caret-down"></i>
+						{{ 'reimbursement.dashboard.action' | translate }}
 					</button>
 					<ul class="dropdown-menu">
 						<li>
@@ -68,6 +69,12 @@
 							</a>
 						</li>
 					</ul>
+				</div>
+				<div ng-if="!(e.state === 'CREATED' || e.state === 'REJECTED' || e.state === 'DRAFT')">
+					<button class="btn btn-default btn-xs" ng-click="go('view-expense', { uid: e.uid })">
+						<i class="fa fa-eye"></i>
+						{{ 'reimbursement.expense.viewItem' | translate }}
+					</button>
 				</div>
 			</td>
 		</tr>
