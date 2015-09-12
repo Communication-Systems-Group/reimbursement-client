@@ -34,7 +34,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 						expenseItem = response.data;
 
 						if($scope.readonly) {
-							$scope.form.calculatedAmount = response.data.calculatedAmount;
+							$scope.form.staticCalculatedAmount = response.data.calculatedAmount;
 
 							for(var i=0; i<$scope.costCategories.length; i++) {
 								if($scope.costCategories[i].uid === response.data.costCategory.uid) {
