@@ -24,6 +24,10 @@ textarea {
 	resize: vertical;
 }
 
+.navbar.navbar-inverse {
+	border-radius: 0;
+}
+
 .margin-top-10 {
 	margin-top: $default-margin-top-10;
 }
