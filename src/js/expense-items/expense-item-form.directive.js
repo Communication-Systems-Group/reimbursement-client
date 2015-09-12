@@ -34,11 +34,11 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 						expenseItem = response.data;
 
 						if($scope.readonly) {
-							$scope.form.staticCalculatedAmount = response.data.calculatedAmount;
+							$scope.staticCalculatedAmount = response.data.calculatedAmount;
 
 							for(var i=0; i<$scope.costCategories.length; i++) {
 								if($scope.costCategories[i].uid === response.data.costCategory.uid) {
-									$scope.costCategoryLabel = $filter('costCategoryLanguage', $scope.costCategories[i].name);
+									$scope.costCategoryLabel = $filter('costCategoryLanguage')($scope.costCategories[i].name);
 									break;
 								}
 							}
