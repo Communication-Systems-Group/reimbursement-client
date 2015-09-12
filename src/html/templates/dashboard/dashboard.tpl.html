@@ -4,7 +4,10 @@
 		{{ 'reimbursement.dashboard.title' | translate }}
 	</h1>
 
-	<h2 class="page-header">{{ 'reimbursement.dashboard.myExpenses' | translate }}</h2>
+	<h2 class="page-header">
+		<i class="fa fa-clone"></i>
+		{{ 'reimbursement.dashboard.myExpenses' | translate }}
+	</h2>
 
 	<table class="table table-striped">
 		<thead>
@@ -89,7 +92,10 @@
 	</div>
 
 	<div ng-if="showReviewSection">
-		<h2 class="page-header">{{ 'reimbursement.dashboard.myReviewExpenseItems' | translate }}</h2>
+		<h2 class="page-header">
+			<i class="fa fa-check-square-o"></i>
+			{{ 'reimbursement.dashboard.myReviewExpenseItems' | translate }}
+		</h2>
 
 		<table class="table table-striped">
 			<thead>
