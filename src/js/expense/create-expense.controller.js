@@ -1,6 +1,6 @@
-app.controller('CreateExpenseController', ['$scope', '$state', '$stateParams', '$timeout', '$modal', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
+app.controller('CreateExpenseController', ['$scope', '$state', '$stateParams', '$timeout', '$modal', 'spinnerService', 'globalMessagesService', 'expenseRestService',
 
-function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalMessagesService, createExpenseRestService) {
+function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalMessagesService, expenseRestService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
@@ -19,7 +19,7 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	});
 
 	function updateExpense() {
-		createExpenseRestService.getExpense($scope.expenseUid).then(function(response) {
+		expenseRestService.getExpense($scope.expenseUid).then(function(response) {
 			if(response.data.state === 'DRAFT') {
 				$scope.expenseAccountingText = response.data.accounting;
 			}
@@ -60,7 +60,7 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 				'reimbursement.expense.submitInfoMessage').then(function() {
 
 				spinnerService.show('spinnerCreateExpense');
-				createExpenseRestService.assignToProf($scope.expenseUid).then(function() {
+				expenseRestService.assignToProf($scope.expenseUid).then(function() {
 
 					$state.go('dashboard');
 

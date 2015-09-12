@@ -1,6 +1,6 @@
-app.controller('CreateExpenseSapController', ['$scope', '$modalInstance', 'spinnerService', 'globalMessagesService', 'createExpenseRestService',
+app.controller('CreateExpenseSapController', ['$scope', '$modalInstance', 'spinnerService', 'globalMessagesService', 'expenseRestService',
 
-function($scope, $modalInstance, spinnerService, globalMessagesService, createExpenseRestService) {
+function($scope, $modalInstance, spinnerService, globalMessagesService, expenseRestService) {
 	"use strict";
 
 	$scope.accountingText = null;
@@ -15,7 +15,7 @@ function($scope, $modalInstance, spinnerService, globalMessagesService, createEx
 		else {
 			spinnerService.show('spinnerCreateExpenseSap');
 
-			createExpenseRestService.postCreateExpense($scope.accountingText).then(function(response) {
+			expenseRestService.postCreateExpense($scope.accountingText).then(function(response) {
 				$modalInstance.close({ uid: response.data.uid });
 			})['finally'](function() {
 				spinnerService.hide('spinnerCreateExpenseSap');

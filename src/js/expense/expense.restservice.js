@@ -1,4 +1,4 @@
-app.factory("createExpenseRestService", ['$http', 'HOST',
+app.factory("expenseRestService", ['$http', 'HOST',
 
 function($http, HOST) {
 	"use strict";

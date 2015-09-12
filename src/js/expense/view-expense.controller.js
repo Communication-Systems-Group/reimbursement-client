@@ -1,12 +1,12 @@
-app.controller('ViewExpenseController', ['$scope', '$state', '$stateParams', 'createExpenseRestService',
+app.controller('ViewExpenseController', ['$scope', '$state', '$stateParams', 'expenseRestService',
 
-function($scope, $state, $stateParams, createExpenseRestService) {
+function($scope, $state, $stateParams, expenseRestService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
 	$scope.expenseItems = [];
 
-	createExpenseRestService.getExpense($scope.expenseUid).then(function(response) {
+	expenseRestService.getExpense($scope.expenseUid).then(function(response) {
 		$scope.expenseAccountingText = response.data.accounting;
 	}, function(response) {
 		response.errorHandled = true;
