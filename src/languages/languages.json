@@ -413,6 +413,10 @@
 		"de": "Belege einreichen",
 		"en": "Add receipts"
 	},
+	"expense-items.titleReadonly": {
+		"de": "Eingereichte Belege",
+		"en": "Receipts"
+	},
 	"expense-item.date": {
 		"de": "Belegsdatum",
 		"en": "Receipt date"

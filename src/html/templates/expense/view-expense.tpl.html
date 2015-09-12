@@ -1,0 +1,26 @@
+<div id="view-expense">
+
+	<h1 class="page-header">
+		<span class="vert-mid">{{ expenseAccountingText }}</span>
+		<small class="vert-mid">
+			<span class="label label-info">State TODO</span>
+		</small>
+	</h1>
+
+	<h2 class="page-header">
+		<i class="fa fa-clone"></i>
+		{{ 'reimbursement.expense-items.titleReadonly' | translate }}
+	</h1>
+
+	<list-expense-items expense-uid="expenseUid" expense-items="expenseItems" readonly="true"></list-expense-items>
+
+	<hr>
+
+	<form class="form-inline text-right">
+		<button class="btn btn-default pull-left" ng-click="returnToDashboard()">
+			<i class="fa fa-arrow-circle-left"></i>
+			{{ 'reimbursement.expense.returnToDashboard' | translate }}
+		</button>
+	</form>
+
+</div>
