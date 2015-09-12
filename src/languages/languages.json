@@ -477,6 +477,10 @@
 		"de": "Speichern",
 		"en": "Save"
 	},
+	"view-expense.title": {
+		"de": "Beleg anzeigen",
+		"en": "Show receipt"
+	},
 	"expense.viewItem": {
 		"de": "Anzeigen",
 		"en": "Show"
@@ -492,6 +496,10 @@
 	"expense.cancelButton": {
 		"de": "Abbrechen",
 		"en": "Cancel"
+	},
+	"expense.closeButton": {
+		"de": "Schliessen",
+		"en": "Close"
 	},
 	"expense.submitToProfButton": {
 		"de": "An Professor zuweisen",
