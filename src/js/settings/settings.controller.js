@@ -27,5 +27,7 @@ function($scope, $state, $timeout, $translate, settingsRestService, USER, global
 	};
 	settingsRestService.getSignature().then(function(response) {
 		$scope.signatureImage = base64BinaryConverterService.toBase64FromJson(response.data);
+	}, function(response) {
+		response.errorHandled = true;
 	});
 }]);

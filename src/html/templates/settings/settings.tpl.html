@@ -1,8 +1,5 @@
 <div id="settings">
-	<h1 class="page-header">
-		<i class="fa fa-wrench fa-flip-horizontal"></i>
-		{{ 'reimbursement.settings.title' | translate }}
-	</h1>
+	<h1 class="page-header"><i class="fa fa-wrench fa-flip-horizontal"></i> {{ 'reimbursement.settings.title' | translate }} </h1>
 	<div class="col-sm-10 col-sm-offset-1">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -35,11 +32,18 @@
 				<form id="signatureSettings" class="form-horizontal">
 					<div class="form-group">
 						<label class="col-sm-3 control-label"> {{ 'reimbursement.settings.signature' | translate }} </label>
-						<div class="col-sm-9 text-center">
-							<!-- Show signature here -->
-								<img id="signatureImage" src="{{ signatureImage }}" ng-click="newSignature()">
+						<div class="col-sm-9 text-center" ng-if="signatureImage">
+							<img id="signatureImage" src="{{ signatureImage }}" ng-click="newSignature()">
+						</div>
+						<div class="col-sm-9 text-center" ng-if="!signatureImage">
+							<div class="text-right">
+								<button type="submit" class="btn btn-primary" ng-click="newSignature()">
+									<i class="fa fa-check"></i>
+									{{ 'reimbursement.settings.uploadSignature' | translate }}
+								</button>
 							</div>
 						</div>
+					</div>
 				</form>
 			</div>
 		</div>
