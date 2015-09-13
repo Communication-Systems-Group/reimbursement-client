@@ -63,7 +63,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}];
 		}
 
-		function requireAuthenticatioWithRoles(roles) {
+		function requireAuthenticationWithRoles(roles) {
 			return ['$state', 'USER', function ($state, USER) {
 				if (!USER.loggedIn) {
 					$state.go('login');
@@ -89,77 +89,83 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: 'LoginController'
 
 		}).state('logout', {
-				// no url, because the logout should not be opened manually
-				templateUrl: "logout/logout.tpl.html",
-				controller: 'LogoutController'
+			// no url, because the logout should not be opened manually
+			templateUrl: "logout/logout.tpl.html",
+			controller: 'LogoutController'
 
-			}).state('signature', {
-				url: "/signature",
-				templateUrl: "signature/signature.tpl.html",
-				controller: "SignatureController",
-				onEnter: requireAuthentication()
+		}).state('signature', {
+			url: "/signature",
+			templateUrl: "signature/signature.tpl.html",
+			controller: "SignatureController",
+			onEnter: requireAuthentication()
 
-			}).state('signatureMobile', {
-				url: "/signature-mobile/:token",
-				templateUrl: "signature/signature-mobile.tpl.html",
-				controller: "SignatureMobileController"
+		}).state('signatureMobile', {
+			url: "/signature-mobile/:token",
+			templateUrl: "signature/signature-mobile.tpl.html",
+			controller: "SignatureMobileController"
 
-			}).state('administration', {
-				url: "/administration",
-				templateUrl: "administration/administration.tpl.html",
-				controller: "AdministrationController",
-				onEnter: requireAuthenticatioWithRoles(['FINANCE_ADMIN'])
+		}).state('administration', {
+			url: "/administration",
+			templateUrl: "administration/administration.tpl.html",
+			controller: "AdministrationController",
+			onEnter: requireAuthenticationWithRoles(['FINANCE_ADMIN'])
 
-			}).state('attachment', {
-				url: "/attachment",
-				templateUrl: "attachment/attachment.tpl.html",
-				controller: "AttachmentController",
-				onEnter: requireAuthentication()
+		}).state('settings', {
+			url: "/settings",
+			templateUrl: "settings/settings.tpl.html",
+			controller: 'SettingsController',
+			onEnter: requireAuthentication()
 
-			}).state('attachmentMobile', {
-				url: "/attachment-mobile/:token",
-				templateUrl: "attachment/attachment-mobile.tpl.html",
-				controller: "AttachmentMobileController"
+		}).state('attachment', {
+			url: "/attachment",
+			templateUrl: "attachment/attachment.tpl.html",
+			controller: "AttachmentController",
+			onEnter: requireAuthentication()
 
-			}).state('cropping', {
-				// no url, because the cropping should not be opened manually
-				params: {
-					imageUri: null
-				},
-				templateUrl: "cropping/cropping.tpl.html",
-				controller: "CroppingController",
-				onEnter: requireAuthentication()
+		}).state('attachmentMobile', {
+			url: "/attachment-mobile/:token",
+			templateUrl: "attachment/attachment-mobile.tpl.html",
+			controller: "AttachmentMobileController"
 
-			}).state('dashboard', {
-				url: "/dashboard",
-				templateUrl: "dashboard/dashboard.tpl.html",
-				controller: "DashboardController",
-				onEnter: requireAuthentication()
+		}).state('cropping', {
+			// no url, because the cropping should not be opened manually
+			params: {
+				imageUri: null
+			},
+			templateUrl: "cropping/cropping.tpl.html",
+			controller: "CroppingController",
+			onEnter: requireAuthentication()
 
-			}).state('create-expense', {
-				url: "/create-expense/:uid",
-				templateUrl: "expense/create-expense.tpl.html",
-				controller: "CreateExpenseController",
-				onEnter: requireAuthentication()
+		}).state('dashboard', {
+			url: "/dashboard",
+			templateUrl: "dashboard/dashboard.tpl.html",
+			controller: "DashboardController",
+			onEnter: requireAuthentication()
 
-			}).state('view-expense', {
-				url: "/view-expense/:uid",
-				templateUrl: "expense/view-expense.tpl.html",
-				controller: "ViewExpenseController",
-				onEnter: requireAuthentication()
+		}).state('create-expense', {
+			url: "/create-expense/:uid",
+			templateUrl: "expense/create-expense.tpl.html",
+			controller: "CreateExpenseController",
+			onEnter: requireAuthentication()
 
-			}).state('testingPage', {
-				url: "/testingPage",
-				templateUrl: "testingPage/testingPage.tpl.html",
-				controller: 'TestingPageController'
+		}).state('view-expense', {
+			url: "/view-expense/:uid",
+			templateUrl: "expense/view-expense.tpl.html",
+			controller: "ViewExpenseController",
+			onEnter: requireAuthentication()
 
-			}).state('settings', {
-				url: "/settings",
-				templateUrl: "settings/settings.tpl.html",
-				controller: 'SettingsController',
-				onEnter: requireAuthentication()
+		}).state('review-expense', {
+			url: "/review-expense/:uid",
+			templateUrl: "expense/review-expense.tpl.html",
+			controller: "ReviewExpenseController",
+			onEnter: requireAuthenticationWithRoles(['PROF'])
 
-			});
+		}).state('testingPage', {
+			url: "/testingPage",
+			templateUrl: "testingPage/testingPage.tpl.html",
+			controller: 'TestingPageController'
+
+		});
 		$urlRouterProvider.otherwise('/dashboard');
 
 		$locationProvider.hashPrefix("!");

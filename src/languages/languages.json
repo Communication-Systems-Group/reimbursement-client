@@ -417,6 +417,10 @@
 		"de": "Eingereichte Belege",
 		"en": "Receipts"
 	},
+	"expense-items.titleReview": {
+		"de": "Eingereichte Belege",
+		"en": "Receipts"
+	},
 	"expense-item.date": {
 		"de": "Belegsdatum",
 		"en": "Receipt date"
@@ -504,6 +508,14 @@
 	"expense.submitToProfButton": {
 		"de": "An Professor zuweisen",
 		"en": "Submit to Professor"
+	},
+	"expense.acceptButton": {
+		"de": "Annehmen",
+		"en": "Accept"
+	},
+	"expense.declineButton": {
+		"de": "Ablehnen",
+		"en": "Decline"
 	},
 	"expense.submitInfoTitle": {
 		"de": "Definitiv abschicken?",

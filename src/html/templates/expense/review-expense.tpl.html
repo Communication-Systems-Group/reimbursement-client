@@ -1,0 +1,40 @@
+<div id="review-expense">
+
+	<h1 class="page-header">
+		{{ expenseAccountingText }}
+		<button class="btn btn-sm btn-default" ng-click="editExpenseSap()">
+			<i class="fa fa-pencil"></i>
+			{{ 'reimbursement.expense.edit' | translate }}
+		</button>
+	</h1>
+
+	<h2 class="page-header">
+		<i class="fa fa-clone"></i>
+		{{ 'reimbursement.expense-items.titleReview' | translate }}
+	</h1>
+
+	<div class="pos-rel">
+		<spinner id="spinnerCreateExpense" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
+
+		<list-expense-items expense-uid="expenseUid" expense-items="expenseItems"></list-expense-items>
+
+		<hr>
+
+		<form class="form-inline text-right">
+			<button class="btn btn-default pull-left" ng-click="returnToDashboard()">
+				<i class="fa fa-arrow-circle-left"></i>
+				{{ 'reimbursement.expense.returnToDashboard' | translate }}
+			</button>
+			<button class="btn btn-danger" ng-click="decline()" ng-if="expenseItems.length > 0">
+				<i class="fa fa-times"></i>
+				{{ 'reimbursement.expense.declineButton' | translate }}
+			</button>
+			<button class="btn btn-success" ng-click="accept()" ng-if="expenseItems.length > 0">
+				<i class="fa fa-check"></i>
+				{{ 'reimbursement.expense.acceptButton' | translate }}
+			</button>
+		</form>
+
+	</div>
+
+</div>
