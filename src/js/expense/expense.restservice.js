@@ -37,11 +37,27 @@ function($http, HOST) {
 		});
 	}
 
+		function assignToFinanceAdmin(uid) {
+		return $http({
+			method: 'PUT',
+			url: HOST + '/api/prof/expenses/'+uid+'/assign-to-finance-admin',
+		});
+	}
+
+		function rejectExpense(uid) {
+		return $http({
+			method: 'PUT',
+			url: HOST + '/api/prof/expenses/'+uid+'/reject',
+		});
+	}
+
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
 		putExpense: putExpense,
-		assignToProf: assignToProf
+		assignToProf: assignToProf,
+		assignToFinanceAdmin: assignToFinanceAdmin,
+		rejectExpense: rejectExpense
 	};
 
 }]);
