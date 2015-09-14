@@ -5,25 +5,20 @@ function($http, HOST) {
 	'use strict';
 
 	function getMyExpenses() {
-		return $http.get(HOST + '/api/user/expenses');
+		return $http.get(HOST + '/api/expenses');
 	}
 
-	function getReviewExpensesAsFinanceAdmin() {
-		return $http.get(HOST + '/api/finance-admin/review-expenses');
-	}
-
-	function getReviewExpensesAsProf() {
-		return $http.get(HOST + '/api/prof/review-expenses');
+	function getReviewExpenses() {
+		return $http.get(HOST + '/api/expenses/review-expenses');
 	}
 
 	function deleteExpense(uid) {
-		return $http.delete(HOST + '/api/user/expenses/' + uid);
+		return $http.delete(HOST + '/api/expenses/' + uid);
 	}
 
 	return {
 		getMyExpenses: getMyExpenses,
-		getReviewExpensesAsFinanceAdmin: getReviewExpensesAsFinanceAdmin,
-		getReviewExpensesAsProf: getReviewExpensesAsProf,
+		getReviewExpenses: getReviewExpenses,
 		deleteExpense: deleteExpense
 	};
 
