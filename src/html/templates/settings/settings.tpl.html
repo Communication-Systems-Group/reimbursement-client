@@ -33,12 +33,12 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label"> {{ 'reimbursement.settings.signature' | translate }} </label>
 						<div class="col-sm-9 text-center" ng-if="signatureImage">
-							<img id="signatureImage" src="{{ signatureImage }}" ng-click="newSignature()">
+							<img id="signatureImage" ng-src="{{ signatureImage }}" ng-click="newSignature()">
 						</div>
-						<div class="col-sm-9 text-center" ng-if="!signatureImage">
-							<div class="text-right">
+						<div class="col-sm-9" ng-if="!signatureImage">
+							<div class="form-control-static text-center">
 								<button type="submit" class="btn btn-primary" ng-click="newSignature()">
-									<i class="fa fa-check"></i>
+									<i class="fa fa-edit"></i>
 									{{ 'reimbursement.settings.uploadSignature' | translate }}
 								</button>
 							</div>
