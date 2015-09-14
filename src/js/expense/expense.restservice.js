@@ -33,7 +33,7 @@ function($http, HOST) {
 	function accept(uid) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/expenses/'+uid+'/assign-to-prof',
+			url: HOST + '/api/expenses/'+uid+'/accept',
 		});
 	}
 
