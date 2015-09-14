@@ -2,17 +2,29 @@
 	position: relative;
 }
 
-table thead th {
-	vertical-align: top;
-
-	small {
-		color: $default-color-lightgray;
-		font-weight: normal;
-	}
-}
-
 .title-date-right {
 	float: right;
 	font-size: 10px;
 	margin-top: 7px;
+}
+
+.modal-content {
+	.accept .modal-header,
+	.reject .modal-header {
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+		border-bottom: 0;
+		color: white;
+
+		.modal-footer {
+			border-top: 0;
+			padding-top: 0;
+		}
+	}
+	.accept .modal-header {
+		background-color: $default-color-success;
+	}
+	.reject .modal-header {
+		background-color: $default-color-warning;
+	}
 }

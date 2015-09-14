@@ -489,6 +489,18 @@
 		"de": "Beleg anzeigen",
 		"en": "Show receipt"
 	},
+	"expense.acceptRejectReason": {
+		"de": "Grund (optional)",
+		"en": "Reason (optional)"
+	},
+	"expense.acceptTitle": {
+		"de": "Spesen bewilligen",
+		"en": "Accept Expense"
+	},
+	"expense.rejectTitle": {
+		"de": "Spesen ablehnen",
+		"en": "Reject Expense"
+	},
 	"expense.viewItem": {
 		"de": "Anzeigen",
 		"en": "Show"

@@ -1,0 +1,41 @@
+<div id="accept-reject" ng-class="{ accept: isAccept, reject: !isAccept }">
+	<div class="modal-header">
+		<h3 class="modal-title">
+			<span ng-if="isAccept">
+				<i class="fa fa-check-square-o"></i>
+				{{ 'reimbursement.expense.acceptTitle' | translate }}
+			</span>
+			<span ng-if="!isAccept">
+				<i class="fa fa-times-circle"></i>
+				{{ 'reimbursement.expense.rejectTitle' | translate }}
+			</span>
+		</h3>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label for="reason" class="col-sm-4 control-label">
+					{{ 'reimbursement.expense.acceptRejectReason' | translate }}
+				</label>
+				<div class="col-sm-8">
+					<textarea class="form-control textarea-md"></textarea>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default">
+			<i class="fa fa-times"></i>
+			{{ 'reimbursement.expense.cancelButton' | translate }}
+		</button>
+		<button class="btn btn-primary" ng-if="isAccept">
+			<i class="fa fa-check-square-o"></i>
+			{{ 'reimbursement.expense.acceptButton' | translate }}
+		</button>
+		<button class="btn btn-primary" ng-if="!isAccept">
+			<i class="fa fa-times-circle"></i>
+			{{ 'reimbursement.expense.rejectButton' | translate }}
+		</button>
+	</div>
+
+</div>
