@@ -13,7 +13,7 @@ function($modal, $filter, $timeout, $state, spinnerService, globalMessagesServic
 		},
 		link: function($scope) {
 
-			$scope.readonly = false;
+			$scope.editable = true;
 
 			function updateTable() {
 				spinnerService.show('spinnerListExpenseItems');
@@ -26,7 +26,7 @@ function($modal, $filter, $timeout, $state, spinnerService, globalMessagesServic
 						if(response.data[i].state === 'INITIAL') {
 							// if an admin or finance-admin looks at a rejected expense, which
 							// is again in edit mode, initial expenses should not be deleted
-							if(!$scope.readonly) {
+							if($scope.editable) {
 								expenseItemsRestService.deleteExpenseItem(response.data[i].uid);
 							}
 						}
@@ -45,10 +45,10 @@ function($modal, $filter, $timeout, $state, spinnerService, globalMessagesServic
 				expenseRestService.getAccessRights($scope.expenseUid).then(function(response) {
 
 					if(response.data.viewable) {
-						$scope.readonly = !response.data.editable;
+						$scope.editable = response.data.editable;
 						updateTable();
 
-						if(!$scope.readonly) {
+						if($scope.editable) {
 
 							$scope.editExpenseItem = function(expenseItemUid) {
 								var modalInstance = $modal.open({

@@ -11,7 +11,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 			expenseItemUid: '=',
 			form: '=',
 			validatingFunction: '=',
-			readonly: '='
+			editable: '='
 		},
 		link: function($scope) {
 
@@ -33,7 +33,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 					expenseItemsRestService.getExpenseItem($scope.expenseItemUid).then(function(response) {
 						expenseItem = response.data;
 
-						if($scope.readonly) {
+						if(!$scope.editable) {
 							$scope.staticCalculatedAmount = response.data.calculatedAmount;
 
 							for(var i=0; i<$scope.costCategories.length; i++) {
@@ -55,7 +55,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 							$scope.form.currency = response.data.currency;
 						});
 
-						if(!$scope.readonly) {
+						if($scope.editable) {
 							$scope.calculateAmount();
 						}
 
@@ -71,7 +71,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 				spinnerService.hide('spinnerExpenseItemForm');
 			});
 
-			if(!$scope.readonly) {
+			if($scope.editable) {
 
 				var invalidDate = "";
 				var invalidAmount = "";

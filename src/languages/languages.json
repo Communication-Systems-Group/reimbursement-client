@@ -417,7 +417,7 @@
 		"de": "Belege einreichen",
 		"en": "Add receipts"
 	},
-	"expense-items.titleReadonly": {
+	"expense-items.titleNotEditable": {
 		"de": "Eingereichte Belege",
 		"en": "Receipts"
 	},

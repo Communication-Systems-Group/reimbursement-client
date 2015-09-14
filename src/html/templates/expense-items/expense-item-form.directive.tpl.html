@@ -5,13 +5,13 @@
 				{{ 'reimbursement.expense-item.date' | translate }}
 			</label>
 			<div class="col-sm-8">
-				<div class="input-group date datepicker" ng-if="!readonly">
+				<div class="input-group date datepicker" ng-if="editable">
 					<input type="text" id="expenseitem-date" ng-model="form.date" class="form-control" ng-change="calculateAmount()">
 					<span class="input-group-addon">
 						<span class="fa fa-calendar"></span>
 					</span>
 				</div>
-				<div class="form-control-static" ng-if="readonly">{{ form.date }}</div>
+				<div class="form-control-static" ng-if="!editable">{{ form.date }}</div>
 			</div>
 		</div>
 		<div class="form-group">
@@ -19,25 +19,25 @@
 				{{ 'reimbursement.expense-item.costcategory' | translate }}
 			</label>
 			<div class="col-sm-8">
-				<select id="expenseitem-costcategory" class="form-control" ng-model="form.costCategoryUid" ng-if="!readonly">
+				<select id="expenseitem-costcategory" class="form-control" ng-model="form.costCategoryUid" ng-if="editable">
 					<option ng-repeat="category in costCategories" value="{{ category.uid }}">{{ category.name.de }}</option>
 				</select>
-				<div class="form-control-static" ng-if="readonly">{{ costCategoryLabel }}</div>
+				<div class="form-control-static" ng-if="!editable">{{ costCategoryLabel }}</div>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="expenseitem-amount" class="control-label col-sm-4">
 				{{ 'reimbursement.expense-item.amount' | translate }}
 			</label>
-			<div class="col-sm-4" style="padding-right: 0;" ng-if="!readonly">
+			<div class="col-sm-4" style="padding-right: 0;" ng-if="editable">
 				<input type="number" id="expenseitem-amount" ng-model="form.originalAmount" class="form-control text-center" ng-change="calculateAmount()">
 			</div>
-			<div class="col-sm-4" ng-if="!readonly">
+			<div class="col-sm-4" ng-if="editable">
 				<select id="expenseitem-currency" class="form-control" ng-model="form.currency" ng-change="calculateAmount()">
 					<option ng-repeat="currency in currencies" value="{{ currency }}">{{ currency }}</option>
 				</select>
 			</div>
-			<div class="col-sm-8" ng-if="readonly">
+			<div class="col-sm-8" ng-if="!editable">
 				<div class="form-control-static">{{ form.originalAmount | currency: form.currency + ' ' : 2 }}</div>
 			</div>
 		</div>
@@ -45,13 +45,13 @@
 			<label class="control-label col-sm-4">
 				{{ 'reimbursement.expense-item.calculatedAmount' | translate }}
 			</label>
-			<div class="col-sm-4" style="padding-right: 0;" ng-if="!readonly">
+			<div class="col-sm-4" style="padding-right: 0;" ng-if="editable">
 				<input type="text" class="form-control text-center" disabled value="{{ calculatedAmount }}">
 			</div>
-			<div class="col-sm-4 form-control-static" ng-if="!readonly">
+			<div class="col-sm-4 form-control-static" ng-if="editable">
 				<div class="label label-default" style="font-size: 14px;">CHF</div>
 			</div>
-			<div class="col-sm-8" ng-if="readonly">
+			<div class="col-sm-8" ng-if="!editable">
 				<div class="form-control-static">{{ staticCalculatedAmount | currency : 'CHF ' : 2 }}</div>
 			</div>
 		</div>
@@ -60,8 +60,8 @@
 				{{ 'reimbursement.expense-item.project' | translate }}
 			</label>
 			<div class="col-sm-8">
-				<input type="text" id="expenseitem-project" ng-model="form.project" class="form-control" ng-if="!readonly">
-				<div class="form-control-static" ng-if="readonly">{{ form.project }}</div>
+				<input type="text" id="expenseitem-project" ng-model="form.project" class="form-control" ng-if="editable">
+				<div class="form-control-static" ng-if="!editable">{{ form.project }}</div>
 			</div>
 		</div>
 		<div class="form-group">
@@ -69,11 +69,11 @@
 				{{ 'reimbursement.expense-item.explanation' | translate }}
 			</label>
 			<div class="col-sm-8">
-				<textarea id="expenseitem-explanation" ng-model="form.explanation" class="form-control" ng-if="!readonly"></textarea>
-				<div class="form-control-static" ng-if="readonly">{{ form.explanation }}</div>
+				<textarea id="expenseitem-explanation" ng-model="form.explanation" class="form-control" ng-if="editable"></textarea>
+				<div class="form-control-static" ng-if="!editable">{{ form.explanation }}</div>
 			</div>
 		</div>
-		<div class="form-group" ng-if="!readonly">
+		<div class="form-group" ng-if="editable">
 			<label class="control-label col-sm-4">
 				{{ 'reimbursement.add-expense-item.uploadDocument' | translate }}
 			</label>
