@@ -1,6 +1,6 @@
-app.directive('listExpenseItems', ['$modal', '$filter', '$timeout', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService',
+app.directive('listExpenseItems', ['$modal', '$filter', '$timeout', '$state', 'spinnerService', 'globalMessagesService', 'expenseRestService', 'expenseItemsRestService',
 
-function($modal, $filter, $timeout, spinnerService, globalMessagesService, expenseItemsRestService) {
+function($modal, $filter, $timeout, $state, spinnerService, globalMessagesService, expenseRestService, expenseItemsRestService) {
 	"use strict";
 
 	return {
@@ -9,13 +9,13 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, expen
 		templateUrl: 'expense-items/list-expense-items.directive.tpl.html',
 		scope: {
 			expenseUid: '=',
-			expenseItems: '=',
-			readonly: '='
+			expenseItems: '='
 		},
 		link: function($scope) {
 
-			function updateTable() {
+			$scope.readonly = false;
 
+			function updateTable() {
 				spinnerService.show('spinnerListExpenseItems');
 
 				expenseItemsRestService.getExpenseItems($scope.expenseUid).then(function(response) {
@@ -42,80 +42,89 @@ function($modal, $filter, $timeout, spinnerService, globalMessagesService, expen
 			}
 
 			$timeout(function() {
-				updateTable();
-			});
+				expenseRestService.getAccessRights($scope.expenseUid).then(function(response) {
 
-			if(!$scope.readonly) {
+					if(response.data.viewable) {
+						$scope.readonly = !response.data.editable;
+						updateTable();
 
-				$scope.editExpenseItem = function(expenseItemUid) {
-					var modalInstance = $modal.open({
-						templateUrl: 'expense-items/edit-expense-item.tpl.html',
-						controller: 'EditExpenseItemController',
-						resolve: {
-							expenseItemUid: function() {
-								return expenseItemUid;
-							}
-						},
-						// prevent closing by accident:
-						backdrop: 'static',
-						keyboard: false
-					});
+						if(!$scope.readonly) {
 
-					modalInstance.result.then()['finally'](updateTable);
-				};
+							$scope.editExpenseItem = function(expenseItemUid) {
+								var modalInstance = $modal.open({
+									templateUrl: 'expense-items/edit-expense-item.tpl.html',
+									controller: 'EditExpenseItemController',
+									resolve: {
+										expenseItemUid: function() {
+											return expenseItemUid;
+										}
+									},
+									// prevent closing by accident:
+									backdrop: 'static',
+									keyboard: false
+								});
 
-				$scope.deleteExpenseItem = function(expenseItemUid) {
-					globalMessagesService.confirmWarning("reimbursement.expense-item.deleteConfirmTitle",
-						"reimbursement.expense-item.deleteConfirmMessage").then(function() {
+								modalInstance.result.then()['finally'](updateTable);
+							};
 
-						expenseItemsRestService.deleteExpenseItem(expenseItemUid).then(updateTable);
-					});
-				};
+							$scope.deleteExpenseItem = function(expenseItemUid) {
+								globalMessagesService.confirmWarning("reimbursement.expense-item.deleteConfirmTitle",
+									"reimbursement.expense-item.deleteConfirmMessage").then(function() {
 
-				$scope.addExpenseItem = function() {
-					expenseItemsRestService.getCostCategories().then(function(response) {
-						var preSelectedCategoryUid = response.data[0].uid;
+									expenseItemsRestService.deleteExpenseItem(expenseItemUid).then(updateTable);
+								});
+							};
 
-						expenseItemsRestService.postExpenseItem($scope.expenseUid, {
-							date: $filter('date')(new Date(), 'yyyy-MM-dd'),
-							costCategoryUid: preSelectedCategoryUid,
-							currency: 'CHF',
-						}).then(function(response) {
+							$scope.addExpenseItem = function() {
+								expenseItemsRestService.getCostCategories().then(function(response) {
+									var preSelectedCategoryUid = response.data[0].uid;
 
-							var modalInstance = $modal.open({
-								templateUrl: 'expense-items/add-expense-item.tpl.html',
-								controller: 'AddExpenseItemController',
-								resolve: {
-									expenseItemUid: function() {
-										return response.data.uid;
-									}
-								},
-								// prevent closing by accident:
-								backdrop: 'static',
-								keyboard: false
-							});
+									expenseItemsRestService.postExpenseItem($scope.expenseUid, {
+										date: $filter('date')(new Date(), 'yyyy-MM-dd'),
+										costCategoryUid: preSelectedCategoryUid,
+										currency: 'CHF',
+									}).then(function(response) {
 
-							modalInstance.result.then()['finally'](updateTable);
+										var modalInstance = $modal.open({
+											templateUrl: 'expense-items/add-expense-item.tpl.html',
+											controller: 'AddExpenseItemController',
+											resolve: {
+												expenseItemUid: function() {
+													return response.data.uid;
+												}
+											},
+											// prevent closing by accident:
+											backdrop: 'static',
+											keyboard: false
+										});
 
-						});
+										modalInstance.result.then()['finally'](updateTable);
 
-					});
-				};
-			}
+									});
 
-			else {
-				$scope.viewExpenseItem = function(expenseItemUid) {
-					$modal.open({
-						templateUrl: 'expense-items/view-expense-item.tpl.html',
-						controller: 'ViewExpenseItemController',
-						resolve: {
-							expenseItemUid: function() {
-								return expenseItemUid;
-							}
+								});
+							};
 						}
-					});
-				};
-			}
+
+						else {
+							$scope.viewExpenseItem = function(expenseItemUid) {
+								$modal.open({
+									templateUrl: 'expense-items/view-expense-item.tpl.html',
+									controller: 'ViewExpenseItemController',
+									resolve: {
+										expenseItemUid: function() {
+											return expenseItemUid;
+										}
+									}
+								});
+							};
+						}
+					}
+					else {
+						$state.go('dashbord');
+					}
+				});
+			});
 		}
 	};
 

@@ -26,12 +26,17 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 			else {
 				$state.go('dashboard');
 			}
-		}, function(response) {
-			response.errorHandled = true;
-			$state.go('dashboard');
 		});
 	}
-	updateExpense();
+
+	expenseRestService.getAccessRights($scope.expenseUid).then(function(response) {
+		if(response.data.viewable && response.data.editable) {
+			updateExpense();
+		}
+		else {
+			$state.go('dashboard');
+		}
+	});
 
 	$scope.editExpenseSap = function() {
 		var modalInstance = $modal.open({

@@ -44,10 +44,17 @@ function($http, HOST) {
 		});
 	}
 
-		function rejectExpense(uid) {
+	function rejectExpense(uid) {
 		return $http({
 			method: 'PUT',
 			url: HOST + '/api/expenses/'+uid+'/reject',
+		});
+	}
+
+	function getAccessRights(uid) {
+		return $http({
+			method: 'GET',
+			url: HOST + '/api/expenses/'+uid+'/access-rights'
 		});
 	}
 
@@ -57,7 +64,8 @@ function($http, HOST) {
 		putExpense: putExpense,
 		assignToProf: assignToProf,
 		assignToFinanceAdmin: assignToFinanceAdmin,
-		rejectExpense: rejectExpense
+		rejectExpense: rejectExpense,
+		getAccessRights: getAccessRights
 	};
 
 }]);
