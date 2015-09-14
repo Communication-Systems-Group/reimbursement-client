@@ -489,9 +489,9 @@
 		"de": "Beleg anzeigen",
 		"en": "Show receipt"
 	},
-	"expense.explanationEnterAtLeast5Characters": {
-		"de": "Geben Sie eine Begründung mit mindestens 5 Zeichen ein.",
-		"en": "Enter a explanation with at least 5 characters."
+	"expense.explanationEnterAtLeast10Characters": {
+		"de": "Geben Sie eine Begründung mit mindestens 10 Zeichen ein.",
+		"en": "Enter a explanation with at least 10 characters."
 	},
 	"expense.rejectReason": {
 		"de": "Begründung",
