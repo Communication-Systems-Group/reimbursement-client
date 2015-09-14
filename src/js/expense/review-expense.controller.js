@@ -56,7 +56,12 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	$scope.accept = function() {
 		var modalInstance = $modal.open({
 			templateUrl: "expense/accept-expense.tpl.html",
-			controller: "AcceptExpenseController"
+			controller: "AcceptExpenseController",
+			resolve: {
+				expenseUid: function() {
+					return $scope.expenseUid;
+				}
+			}
 		});
 		modalInstance.result.then($scope.returnToDashboard);
 	};
@@ -64,7 +69,12 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	$scope.decline = function() {
 		var modalInstance = $modal.open({
 			templateUrl: "expense/reject-expense.tpl.html",
-			controller: "RejectExpenseController"
+			controller: "RejectExpenseController",
+			resolve: {
+				expenseUid: function() {
+					return $scope.expenseUid;
+				}
+			}
 		});
 		modalInstance.result.then($scope.returnToDashboard);
 	};

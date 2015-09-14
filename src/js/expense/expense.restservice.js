@@ -30,7 +30,7 @@ function($http, HOST) {
 		});
 	}
 
-	function assignToProf(uid) {
+	function accept(uid) {
 		return $http({
 			method: 'PUT',
 			url: HOST + '/api/expenses/'+uid+'/assign-to-prof',
@@ -44,10 +44,13 @@ function($http, HOST) {
 		});
 	}
 
-	function rejectExpense(uid) {
+		function reject(uid, reason) {
 		return $http({
 			method: 'PUT',
 			url: HOST + '/api/expenses/'+uid+'/reject',
+			data: {
+				comment: reason
+			}
 		});
 	}
 
@@ -62,10 +65,10 @@ function($http, HOST) {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
 		putExpense: putExpense,
-		assignToProf: assignToProf,
 		assignToFinanceAdmin: assignToFinanceAdmin,
-		rejectExpense: rejectExpense,
 		getAccessRights: getAccessRights
+		accept: accept,
+		reject: reject
 	};
 
 }]);
