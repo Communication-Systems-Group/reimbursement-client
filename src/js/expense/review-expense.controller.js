@@ -19,7 +19,7 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	});
 
 	function updateExpense() {
-		expenseRestService.getReviewExpenseAsProf($scope.expenseUid).then(function(response) {
+		expenseRestService.getExpense($scope.expenseUid).then(function(response) {
 			if(response.data.state === 'ASSIGNED_TO_PROFESSOR') {
 				$scope.expenseAccountingText = response.data.accounting;
 			}

@@ -20,13 +20,6 @@ function($http, HOST) {
 		});
 	}
 
-	function getReviewExpenseAsProf(uid) {
-		return $http({
-			method: 'GET',
-			url: HOST + '/api/prof/review-expenses/'+uid
-		});
-	}
-
 	function putExpense(uid, accounting) {
 		return $http({
 			method: 'PUT',
@@ -47,7 +40,6 @@ function($http, HOST) {
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
-		getReviewExpenseAsProf: getReviewExpenseAsProf,
 		putExpense: putExpense,
 		assignToProf: assignToProf
 	};
