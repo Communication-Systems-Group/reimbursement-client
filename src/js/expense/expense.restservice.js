@@ -49,7 +49,7 @@ function($http, HOST) {
 			method: 'PUT',
 			url: HOST + '/api/expenses/'+uid+'/reject',
 			data: {
-				comment: reason
+				text: reason
 			}
 		});
 	}
