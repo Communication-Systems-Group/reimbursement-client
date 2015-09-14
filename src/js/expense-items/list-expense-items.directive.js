@@ -121,7 +121,7 @@ function($modal, $filter, $timeout, $state, spinnerService, globalMessagesServic
 						}
 					}
 					else {
-						$state.go('dashbord');
+						$state.go('dashboard');
 					}
 				});
 			});
