@@ -17,7 +17,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 		updateMyExpenses();
 
 		var myReviewExpenses = null;
-		if (USER.roles.indexOf('FINANCE_ADMIN') !== -1 || USER.roles.indexOf('PROF') !== -1) {
+		if (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('PROF')) {
 			$scope.showReviewSection = true;
 			myReviewExpenses = dashboardRestService.getReviewExpenses();
 		}

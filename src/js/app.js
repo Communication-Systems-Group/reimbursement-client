@@ -46,9 +46,19 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}
 		}
 
+		// define some defaults
 		if(typeof USER.language === 'undefined') {
 			USER.language = 'DE';
 		}
+		if(typeof USER.roles === 'undefined') {
+			USER.roles = [];
+		}
+
+		// has role function to simplify the call
+		USER.hasRole = function(role) {
+			return USER.roles.indexOf(role) !== -1;
+		};
+
 		$translateProvider.preferredLanguage(USER.language.toLowerCase());
 		$translateProvider.useSanitizeValueStrategy('escape');
 
@@ -71,7 +81,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 
 				var hasInsufficientRights = false;
 				for (var i=0; i<roles.length; i++) {
-					if (USER.roles.indexOf(roles[i]) === -1) {
+					if (!USER.hasRole(roles[i])) {
 						hasInsufficientRights = true;
 						break;
 					}
@@ -189,12 +199,4 @@ app.run(['$http', function ($http) {
 		return document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 	};
 
-}]);
-
-app.filter('to_trusted', ['$sce', function ($sce) {
-	'use strict';
-
-	return function (text) {
-		return $sce.trustAsHtml(text);
-	};
 }]);
