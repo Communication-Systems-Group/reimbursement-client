@@ -54,21 +54,25 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	};
 
 	$scope.accept = function() {
-		expenseRestService.assignToFinanceAdmin($scope.expenseUid).then(function() {
-			$state.go('dashboard');
-		}, function(response) {
-			response.errorHandled = true;
-			$state.go('dashboard');
-		});
+		acceptRejectModal(true);
 	};
 
 	$scope.decline = function() {
-		expenseRestService.rejectExpense($scope.expenseUid).then(function() {
-			$state.go('dashboard');
-		}, function(response) {
-			response.errorHandled = true;
-			$state.go('dashboard');
-		});
+		acceptRejectModal(false);
 	};
+
+	function acceptRejectModal(state) {
+		var modalInstance = $modal.open({
+			templateUrl: "expense/accept-reject.tpl.html",
+			controller: "AcceptRejectController",
+			resolve: {
+				isAccept: function() {
+					return state;
+				}
+			}
+		});
+
+		modalInstance.result.then($scope.returnToDashboard);
+	}
 
 }]);
