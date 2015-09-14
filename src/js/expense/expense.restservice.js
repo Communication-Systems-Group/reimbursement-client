@@ -37,10 +37,10 @@ function($http, HOST) {
 		});
 	}
 
-		function assignToFinanceAdmin(uid) {
+	function assignToProf(uid) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/expenses/'+uid+'/assign-to-finance-admin',
+			url: HOST + '/api/expenses/'+uid+'/assign-to-prof',
 		});
 	}
 
@@ -65,7 +65,7 @@ function($http, HOST) {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
 		putExpense: putExpense,
-		assignToFinanceAdmin: assignToFinanceAdmin,
+		assignToProf: assignToProf,
 		getAccessRights: getAccessRights,
 		accept: accept,
 		reject: reject
