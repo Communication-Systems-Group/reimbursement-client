@@ -1,0 +1,34 @@
+<div id="accept-reject" class="reject">
+
+	<div class="modal-header">
+		<div class="close" ng-click="dismiss()">&times;</div>
+		<h3 class="modal-title">
+			<i class="fa fa-times-circle"></i>
+			{{ 'reimbursement.expense.rejectTitle' | translate }}
+		</h3>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label for="reason" class="col-sm-3 control-label">
+					{{ 'reimbursement.expense.rejectReason' | translate }}
+				</label>
+				<div class="col-sm-9">
+					<textarea id="reason" class="form-control textarea-md" ng-model="reason"
+						placeholder="{{ 'reimbursement.expense.explanationEnterAtLeast5Characters' | translate }}"></textarea>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="dismiss()">
+			<i class="fa fa-times"></i>
+			{{ 'reimbursement.expense.cancelButton' | translate }}
+		</button>
+		<button class="btn btn-danger" ng-click="reject()" ng-disabled="reason.length < 10">
+			<i class="fa fa-times-circle"></i>
+			{{ 'reimbursement.expense.rejectButton' | translate }}
+		</button>
+	</div>
+
+</div>

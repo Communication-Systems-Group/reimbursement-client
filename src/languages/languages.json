@@ -489,9 +489,13 @@
 		"de": "Beleg anzeigen",
 		"en": "Show receipt"
 	},
-	"expense.acceptRejectReason": {
-		"de": "Grund (optional)",
-		"en": "Reason (optional)"
+	"expense.explanationEnterAtLeast5Characters": {
+		"de": "Geben Sie eine Begründung mit mindestens 5 Zeichen ein.",
+		"en": "Enter a explanation with at least 5 characters."
+	},
+	"expense.rejectReason": {
+		"de": "Begründung",
+		"en": "Justification"
 	},
 	"expense.acceptTitle": {
 		"de": "Spesen bewilligen",
@@ -529,9 +533,9 @@
 		"de": "Annehmen",
 		"en": "Accept"
 	},
-	"expense.declineButton": {
+	"expense.rejectButton": {
 		"de": "Ablehnen",
-		"en": "Decline"
+		"en": "Reject"
 	},
 	"expense.submitInfoTitle": {
 		"de": "Definitiv abschicken?",

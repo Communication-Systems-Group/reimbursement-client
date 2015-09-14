@@ -1,0 +1,24 @@
+<div id="accept-reject" class="accept">
+
+	<div class="modal-header">
+		<div class="close" ng-click="dismiss()">&times;</div>
+		<h3 class="modal-title">
+			<i class="fa fa-check-square-o"></i>
+			{{ 'reimbursement.expense.acceptTitle' | translate }}
+		</h3>
+	</div>
+	<div class="modal-body">
+		{{ 'reimbursement.expense.acceptText' | translate }}
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="dismiss()">
+			<i class="fa fa-times"></i>
+			{{ 'reimbursement.expense.cancelButton' | translate }}
+		</button>
+		<button class="btn btn-success" ng-click="accept()">
+			<i class="fa fa-check-square-o"></i>
+			{{ 'reimbursement.expense.acceptButton' | translate }}
+		</button>
+	</div>
+
+</div>

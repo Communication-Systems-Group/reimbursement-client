@@ -54,25 +54,19 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	};
 
 	$scope.accept = function() {
-		acceptRejectModal(true);
+		var modalInstance = $modal.open({
+			templateUrl: "expense/accept-expense.tpl.html",
+			controller: "AcceptExpenseController"
+		});
+		modalInstance.result.then($scope.returnToDashboard);
 	};
 
 	$scope.decline = function() {
-		acceptRejectModal(false);
-	};
-
-	function acceptRejectModal(state) {
 		var modalInstance = $modal.open({
-			templateUrl: "expense/accept-reject.tpl.html",
-			controller: "AcceptRejectController",
-			resolve: {
-				isAccept: function() {
-					return state;
-				}
-			}
+			templateUrl: "expense/reject-expense.tpl.html",
+			controller: "RejectExpenseController"
 		});
-
 		modalInstance.result.then($scope.returnToDashboard);
-	}
+	};
 
 }]);
