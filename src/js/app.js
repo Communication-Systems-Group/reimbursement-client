@@ -18,9 +18,22 @@
 						function (response) {
 							var data = response.data;
 							data.loggedIn = true;
-							deferred.resolve(data);
+
+							$http.get(host + "/api/user", {withCredentials: true}).then(function() {
+								data.hasSignature = true;
+							}, function () {
+								data.hasSignature = false;
+							})['finally'](function() {
+								deferred.resolve(data);
+							});
+
 						}, function () {
-							var data = {loggedIn: false};
+							var data = {
+								loggedIn: false,
+								language: 'DE',
+								hasSignature: false,
+								roles: []
+							};
 							deferred.resolve(data);
 						});
 					return deferred.promise;
@@ -44,14 +57,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			if (LANGUAGES.hasOwnProperty(key)) {
 				$translateProvider.translations(key, LANGUAGES[key]);
 			}
-		}
-
-		// define some defaults
-		if(typeof USER.language === 'undefined') {
-			USER.language = 'DE';
-		}
-		if(typeof USER.roles === 'undefined') {
-			USER.roles = [];
 		}
 
 		// has role function to simplify the call
