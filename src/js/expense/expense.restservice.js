@@ -66,7 +66,7 @@ function($http, HOST) {
 		getExpense: getExpense,
 		putExpense: putExpense,
 		assignToFinanceAdmin: assignToFinanceAdmin,
-		getAccessRights: getAccessRights
+		getAccessRights: getAccessRights,
 		accept: accept,
 		reject: reject
 	};
