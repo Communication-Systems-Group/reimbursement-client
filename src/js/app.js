@@ -18,14 +18,7 @@
 						function (response) {
 							var data = response.data;
 							data.loggedIn = true;
-
-							$http.get(host + "/api/user", {withCredentials: true}).then(function() {
-								data.hasSignature = true;
-							}, function () {
-								data.hasSignature = false;
-							})['finally'](function() {
-								deferred.resolve(data);
-							});
+							deferred.resolve(data);
 
 						}, function () {
 							var data = {
