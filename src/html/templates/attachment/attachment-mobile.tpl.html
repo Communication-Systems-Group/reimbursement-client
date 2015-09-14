@@ -1,18 +1,22 @@
-<div id="signatureCaptureMobile">
+<div id="attachmentCaptureMobile">
 	<div class="complete" ng-class="{isComplete: isComplete}">
 		<div class="text">
 			<div><i class="fa fa-check-circle"></i></div>
-			{{ 'reimbursement.captureAttachment.mobile.complete' | translate }}
+			{{ 'reimbursement.captureImage.mobile.complete' | translate }}
 		</div>
 	</div>
 	<div class="error" ng-class="{isError: isError}">
 		<div class="text">
 			<div><i class="fa fa-warning"></i></div>
-			{{ 'reimbursement.captureAttachment.mobile.error' | translate }}
+			{{ 'reimbursement.captureImage.mobile.error' | translate }}
 		</div>
 	</div>
-	<spinner id="spinnerSignatureTouchMobile" label="{{ 'reimbursement.captureAttachment.spinnerUploading' | translate }}"></spinner>
-	<signature-pad submit="submit" full="true" parents="'#signatureCaptureMobile'"></signature-pad>
+
+	<spinner id="spinnerCaptureImageTouchMobile" label="{{ 'reimbursement.captureImage.spinnerUploading' | translate }}"></spinner>
+
+	<image-capture submit="submit" full="true" parents="'#attachmentCaptureMobile'"></image-capture>
+
+
 	<div flow-init="{ target: postAttachmentPath, testChunks: false, singleFile: true, simultaneousUploads: 1 }"
 		flow-name="flow.touchMobile" flow-upload-started="showSpinner('spinnerAttachmentTouchMobile')"
 		flow-file-success="success()" flow-file-error="error()"></div>

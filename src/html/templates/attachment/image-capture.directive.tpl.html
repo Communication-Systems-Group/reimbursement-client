@@ -1,0 +1,23 @@
+<div class="imageCapture">
+	<div class="select">
+		<label for="videoSource">Video source: </label><select id="videoSource"></select>
+	</div>
+	<video autoplay width="250"></video>
+	<button class="btn btn-default" ng-click="snapshot()">
+			<i class="fa fa-camera"></i> {{ "reimbursement.imageCapture.touch.snapshot" | translate }}
+	</button>
+
+	<img style ="display: none" src="">
+	<div class="pad">
+		<canvas ng-style="{width: captureWidth, height: captureHeight}"></canvas>
+	</div>
+
+	<div class="buttons">
+		<button class="btn btn-default" ng-click="clearCapture()">
+			<i class="fa fa-ban"></i> {{ "reimbursement.imageCapture.touch.reset" | translate }}
+		</button>
+		<button class="btn btn-primary" ng-click="submitCapture()">
+			{{ "reimbursement.imageCapture.nextStep" | translate }}
+		</button>
+	</div>
+</div>
