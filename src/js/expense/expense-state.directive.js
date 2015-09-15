@@ -5,9 +5,11 @@ app.directive('expenseState',
 
 		return {
 			restrict: 'E',
-			scope: true,
+			scope: {
+				state: '='
+			},
 			templateUrl: 'expense/state-expense.tpl.html',
-			link: function (scope, elem, attrs) {
+			link: function (scope) {
 				scope.states = {
 					'DRAFT': {
 						class: 'label-info',
@@ -35,7 +37,9 @@ app.directive('expenseState',
 					}
 				};
 
-				scope.state = scope.states[attrs.state];
+				scope.$watch('state', function (data) {
+					scope.expenseState = scope.states[data];
+				});
 			}
 		};
 	});

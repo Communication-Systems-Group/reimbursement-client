@@ -1,12 +1,11 @@
 <div id="view-expense">
-
+	{{expense}}
 	<h1 class="page-header">
 		<span class="vert-mid">{{ expenseAccountingText }}</span>
-		<small class="vert-mid">
-			<span class="label label-info">State TODO</span>
+		<small class="vert-mid pull-right">
+			<expense-state state="expenseState"></expense-state>
 		</small>
 	</h1>
-
 	<h2 class="page-header">
 		<i class="fa fa-clone"></i>
 		{{ 'reimbursement.expense-items.titleNotEditable' | translate }}
