@@ -30,24 +30,8 @@
 			<td class="text-center" ng-if="e.state === 'DRAFT'">
 				<span class="label label-info">{{ 'reimbursement.expense.state.draft' | translate }}</span>
 			</td>
-			<td class="text-center" ng-if="e.state === 'ASSIGNED_TO_PROFESSOR'">
-				<span
-					class="label label-info">{{ 'reimbursement.expense.state.assigned_to_professor' | translate }}</span>
-			</td>
-			<td class="text-center" ng-if="e.state === 'ASSIGNED_TO_FINANCE_ADMIN'">
-				<span
-					class="label label-info">{{ 'reimbursement.expense.state.assigned_to_finance_admin' | translate }}</span>
-			</td>
-			<td class="text-center" ng-if="e.state === 'ACCEPTED'">
-				<span class="label label-success">{{ 'reimbursement.expense.state.accepted' | translate }}</span>
-			</td>
-			<td class="text-center" ng-if="e.state === 'REJECTED'">
-				<span
-					class="label label-danger">{{ 'reimbursement.expense.state.rejected' | translate }}</span>
-			</td>
-			<td class="text-center" ng-if="e.state === 'PRINTED'">
-				<span
-					class="label label-success">{{ 'reimbursement.expense.state.printed' | translate }}</span>
+			<td>
+				<expense-state state="e.state"></expense-state>
 			</td>
 			<td>
 				<div class="btn-group" ng-if="(e.state === 'CREATED' || e.state === 'REJECTED' || e.state === 'DRAFT')">
@@ -122,7 +106,7 @@
 					<span class="tableRightMargin">{{ e.totalAmount | currency:'CHF ':2 }}</span>
 				</td>
 				<td>
-					<expense-state state=e.state></expense-state>
+					<expense-state state="e.state"></expense-state>
 				</td>
 				<td>
 					<div class="btn-group">
