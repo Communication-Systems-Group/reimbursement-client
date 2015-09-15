@@ -118,6 +118,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "AdministrationController",
 			onEnter: requireAuthenticationWithRoles(['FINANCE_ADMIN'])
 
+		}).state('admin-pool', {
+			url: "/admin-pool",
+			templateUrl: "administration/admin-pool.tpl.html",
+			controller: "AdministrationController",
+			onEnter: requireAuthenticationWithRoles(['FINANCE_ADMIN'])
+
 		}).state('settings', {
 			url: "/settings",
 			templateUrl: "settings/settings.tpl.html",

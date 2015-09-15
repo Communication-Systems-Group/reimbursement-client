@@ -167,6 +167,14 @@
 		"de": "Administration",
 		"en": "Administration"
 	},
+	"tabs.costCategories": {
+		"de": "Kostenstellen",
+		"en": "Cost-Categories"
+	},
+	"tabs.adminPool": {
+		"de": "Admin-Pool",
+		"en": "Admin-Pool"
+	},
 	"loading.label": {
 		"de": "Bitte warten...",
 		"en": "Please wait..."

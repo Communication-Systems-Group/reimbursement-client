@@ -16,8 +16,27 @@
 				<li ui-sref-active="active" ng-show="USER.loggedIn">
 					<a ui-sref="dashboard"><i class="fa fa-tachometer"></i> {{ 'reimbursement.tabs.dashboard' | translate }}</a>
 				</li>
-				<li ui-sref-active="active" ng-if="USER.hasRole('FINANCE_ADMIN')">
-					<a ui-sref="administration"><i class="fa fa-gear"></i> {{ 'reimbursement.tabs.administration' | translate }}</a>
+				<li class="dropdown" ng-if="USER.hasRole('FINANCE_ADMIN')">
+					<a href class="dropdown-toggle" data-toggle="dropdown">
+						<i class="fa fa-gear"></i>
+						{{ 'reimbursement.tabs.administration' | translate }}
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<a ui-sref="administration">
+								<i class="fa fa-wrench fa-flip-horizontal"></i>
+								{{ 'reimbursement.tabs.costCategories' | translate }}
+							</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a ui-sref="admin-pool">
+								<i class="fa fa-bar-chart"></i>
+								{{ 'reimbursement.tabs.adminPool' | translate }}
+							</a>
+						</li>
+					</ul>
 				</li>
 				<li ui-sref-active="active" ng-show="USER.loggedIn">
 					<a ui-sref="testingPage"><i class="fa fa-bug"></i> {{ 'reimbursement.tabs.testingpage' | translate }}</a>
