@@ -1,4 +1,4 @@
-app.controller('AdministrationCostCategoryController', [ '$scope', '$modalInstance', 'globalMessagesService', 'costCategory', '$translate', 'administrationRestService',
+app.controller('EditCostCategoryController', [ '$scope', '$modalInstance', 'globalMessagesService', 'costCategory', '$translate', 'administrationRestService',
 
 	function ($scope, $modalInstance, globalMessagesService, costCategory, $translate, administrationRestService) {
 		"use strict";

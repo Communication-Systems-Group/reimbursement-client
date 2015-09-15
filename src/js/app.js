@@ -112,16 +112,16 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "signature/signature-mobile.tpl.html",
 			controller: "SignatureMobileController"
 
-		}).state('administration', {
-			url: "/administration",
-			templateUrl: "administration/administration.tpl.html",
-			controller: "AdministrationController",
+		}).state('view-cost-category', {
+			url: "/view-cost-category",
+			templateUrl: "administration/view-cost-category.tpl.html",
+			controller: "ViewCostCategoryController",
 			onEnter: requireAuthenticationWithRoles(['FINANCE_ADMIN'])
 
 		}).state('admin-pool', {
 			url: "/admin-pool",
 			templateUrl: "administration/admin-pool.tpl.html",
-			controller: "AdministrationController",
+			controller: "AdminPoolController",
 			onEnter: requireAuthenticationWithRoles(['FINANCE_ADMIN'])
 
 		}).state('settings', {

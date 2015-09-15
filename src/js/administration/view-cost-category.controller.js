@@ -1,4 +1,4 @@
-app.controller('AdministrationController', [ '$scope', '$modal', 'administrationRestService', 'globalMessagesService',
+app.controller('ViewCostCategoryController', [ '$scope', '$modal', 'administrationRestService', 'globalMessagesService',
 
 	function ($scope, $modal, administrationRestService, globalMessagesService) {
 		"use strict";
@@ -22,7 +22,7 @@ app.controller('AdministrationController', [ '$scope', '$modal', 'administration
 		$scope.addItem = function () {
 			var modalInstance = $modal.open({
 				templateUrl: 'administration/edit-cost-category.tpl.html',
-				controller: 'AdministrationCostCategoryController',
+				controller: 'EditCostCategoryController',
 				backdrop: 'static',
 				keyboard: false,
 				resolve: {
@@ -49,7 +49,7 @@ app.controller('AdministrationController', [ '$scope', '$modal', 'administration
 
 			var modalInstance = $modal.open({
 				templateUrl: 'administration/edit-cost-category.tpl.html',
-				controller: 'AdministrationCostCategoryController',
+				controller: 'EditCostCategoryController',
 				backdrop: 'static',
 				keyboard: false,
 				resolve: {
