@@ -11,7 +11,7 @@ app.factory('administrationRestService', ['$http', 'HOST',
 		function postCostCategory(data) {
 			return $http({
 				method: 'POST',
-				url: HOST + '/api/user/cost-category',
+				url: HOST + '/api/finance-admin/cost-categories',
 				data: data
 			});
 		}
@@ -19,13 +19,13 @@ app.factory('administrationRestService', ['$http', 'HOST',
 		function putCostCategory(data, uid) {
 			return $http({
 				method: 'PUT',
-				url: HOST + '/api/user/cost-category/' + uid,
+				url: HOST + '/api/finance-admin/cost-categories/' + uid,
 				data: data
 			});
 		}
 
 		function deleteCostCategory(uid) {
-			return $http.delete(HOST + '/api/user/cost-category/' + uid);
+			return $http.delete(HOST + '/api/finance-admin/cost-categories/' + uid);
 		}
 
 		return {

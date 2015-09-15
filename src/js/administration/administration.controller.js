@@ -21,7 +21,7 @@ app.controller('AdministrationController', [ '$scope', '$modal', 'administration
 
 		$scope.addItem = function () {
 			var modalInstance = $modal.open({
-				templateUrl: 'administration/administration-editCostItem.tpl.html',
+				templateUrl: 'administration/edit-cost-category.tpl.html',
 				controller: 'AdministrationCostCategoryController',
 				backdrop: 'static',
 				keyboard: false,
@@ -48,7 +48,7 @@ app.controller('AdministrationController', [ '$scope', '$modal', 'administration
 		$scope.editItem = function (uid) {
 
 			var modalInstance = $modal.open({
-				templateUrl: 'administration/administration-editCostItem.tpl.html',
+				templateUrl: 'administration/edit-cost-category.tpl.html',
 				controller: 'AdministrationCostCategoryController',
 				backdrop: 'static',
 				keyboard: false,
