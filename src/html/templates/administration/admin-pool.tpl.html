@@ -1,2 +1,22 @@
 <div id="admin-pool">
+	<h1 class="page-header"><i class="fa fa-gear"></i> {{ 'reimbursement.adminPool.title' | translate }} </h1>
+	<div class="col-sm-10 col-sm-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				{{ 'reimbursement.adminPool.userRolePanel' | translate }}
+			</div>
+			<div class="panel-body">
+				<form id="userRole" class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> {{ 'reimbursement.adminPool.userRole' | translate }} </label>
+						<div class="col-sm-9">
+							<select class="form-control" ng-model="selectedRole">
+								<option ng-repeat="role in roles" value="{{ role }}"> {{ "reimbursement.adminPool.role."+role | translate }} </option>
+							</select>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>

@@ -28,11 +28,16 @@ app.factory('administrationRestService', ['$http', 'HOST',
 			return $http.delete(HOST + '/api/finance-admin/cost-categories/' + uid);
 		}
 
+		function getRoles() {
+			return $http.get(HOST + '/api/finance-admin/roles');
+		}
+
 		return {
 			getCostCategories: getCostCategories,
 			postCostCategory: postCostCategory,
 			putCostCategory: putCostCategory,
-			deleteCostCategory: deleteCostCategory
+			deleteCostCategory: deleteCostCategory,
+			getRoles: getRoles
 		};
 
 	}]);

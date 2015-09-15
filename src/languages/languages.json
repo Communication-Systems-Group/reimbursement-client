@@ -39,6 +39,30 @@
 		"de": "Kostenstellen",
 		"en": "Cost categories"
 	},
+	"adminPool.title": {
+		"de": "Admin-Pool",
+		"en": "Admin-Pool"
+	},
+	"adminPool.userRolePanel": {
+		"de": "Wähle die Rolle des Benutzers",
+		"en": "Select role of user"
+	},
+	"adminPool.userRole": {
+		"de": "Rolle",
+		"en": "Role"
+	},
+	"adminPool.role.USER": {
+		"de": "Benutzer",
+		"en": "User"
+	},
+	"adminPool.role.PROF": {
+		"de": "Professor",
+		"en": "Professor"
+	},
+	"adminPool.role.FINANCE_ADMIN": {
+		"de": "Finanzverwaltung",
+		"en": "Finance-Admin"
+	},
 	"settings.title": {
 		"de": "Einstellungen",
 		"en": "Settings"
