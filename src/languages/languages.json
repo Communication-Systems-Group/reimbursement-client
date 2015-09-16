@@ -43,13 +43,21 @@
 		"de": "Admin-Pool",
 		"en": "Admin-Pool"
 	},
-	"adminPool.userRolePanel": {
-		"de": "Wähle die Rolle des Benutzers",
-		"en": "Select role of user"
+	"adminPool.filterPanel": {
+		"de": "Suchkriterien eingeben",
+		"en": "Select search criteria"
+	},
+	"adminPool.sapText": {
+		"de": "SAP Text",
+		"en": "SAP text"
 	},
 	"adminPool.userRole": {
 		"de": "Rolle",
 		"en": "Role"
+	},
+	"adminPool.search": {
+		"de": "Go!",
+		"en": "Go!"
 	},
 	"adminPool.role.USER": {
 		"de": "Benutzer",
@@ -528,6 +536,10 @@
 	"expense.rejectReason": {
 		"de": "Begründung",
 		"en": "Justification"
+	},
+	"expense.sign": {
+		"de": "Signieren",
+		"en": "Sign"
 	},
 	"expense.acceptText": {
 		"de": "Sind Sie sicher, dass Sie diese Spesen hiermit akzeptieren möchten?",
