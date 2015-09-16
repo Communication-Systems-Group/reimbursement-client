@@ -30,7 +30,7 @@
 			<td class="text-center" ng-if="e.state === 'DRAFT'">
 				<span class="label label-info">{{ 'reimbursement.expense.state.draft' | translate }}</span>
 			</td>
-			<td>
+			<td class="text-center">
 				<expense-state state="e.state"></expense-state>
 			</td>
 			<td>
@@ -105,7 +105,7 @@
 				<td>
 					<span class="tableRightMargin">{{ e.totalAmount | currency:'CHF ':2 }}</span>
 				</td>
-				<td>
+				<td class="text-center">
 					<expense-state state="e.state"></expense-state>
 				</td>
 				<td>

@@ -5,6 +5,7 @@ app.directive('expenseState',
 
 		return {
 			restrict: 'E',
+			replace: true,
 			scope: {
 				state: '='
 			},
