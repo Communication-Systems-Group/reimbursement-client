@@ -71,21 +71,21 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}];
 		}
 
-		function requireAuthenticationWithRoles(roles) {
+		function requireAuthenticationWithAnyRole(roles) {
 			return ['$state', 'USER', function ($state, USER) {
 				if (!USER.loggedIn) {
 					$state.go('login');
 				}
 
-				var hasInsufficientRights = false;
+				var hasSufficientRights = false;
 				for (var i=0; i<roles.length; i++) {
-					if (!USER.hasRole(roles[i])) {
-						hasInsufficientRights = true;
+					if (USER.hasRole(roles[i])) {
+						hasSufficientRights = true;
 						break;
 					}
 				}
 
-				if(hasInsufficientRights) {
+				if(!hasSufficientRights) {
 					$state.go('dashboard');
 				}
 			}];
@@ -116,13 +116,13 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			url: "/view-cost-category",
 			templateUrl: "administration/view-cost-category.tpl.html",
 			controller: "ViewCostCategoryController",
-			onEnter: requireAuthenticationWithRoles(['FINANCE_ADMIN'])
+			onEnter: requireAuthenticationWithAnyRole(['FINANCE_ADMIN'])
 
 		}).state('admin-pool', {
 			url: "/admin-pool",
 			templateUrl: "administration/admin-pool.tpl.html",
 			controller: "AdminPoolController",
-			onEnter: requireAuthenticationWithRoles(['FINANCE_ADMIN'])
+			onEnter: requireAuthenticationWithAnyRole(['FINANCE_ADMIN'])
 
 		}).state('settings', {
 			url: "/settings",
@@ -172,7 +172,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			url: "/review-expense/:uid",
 			templateUrl: "expense/review-expense.tpl.html",
 			controller: "ReviewExpenseController",
-			onEnter: requireAuthenticationWithRoles(['PROF', 'FINANCE_ADMIN'])
+			onEnter: requireAuthenticationWithAnyRole(['PROF', 'FINANCE_ADMIN'])
 
 		}).state('testingPage', {
 			url: "/testingPage",
