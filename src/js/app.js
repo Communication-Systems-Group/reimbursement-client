@@ -172,7 +172,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			url: "/review-expense/:uid",
 			templateUrl: "expense/review-expense.tpl.html",
 			controller: "ReviewExpenseController",
-			onEnter: requireAuthenticationWithRoles(['PROF'])
+			onEnter: requireAuthenticationWithRoles(['PROF', 'FINANCE_ADMIN'])
 
 		}).state('testingPage', {
 			url: "/testingPage",
