@@ -59,6 +59,14 @@
 		"de": "Go!",
 		"en": "Go!"
 	},
+	"adminPool.lastName": {
+		"de": "Nachname",
+		"en": "Lastname"
+	},
+	"adminPool.costCategory": {
+		"de": "Kostenstelle",
+		"en": "Cost-Category"
+	},
 	"adminPool.role.USER": {
 		"de": "Benutzer",
 		"en": "User"
@@ -70,6 +78,10 @@
 	"adminPool.role.FINANCE_ADMIN": {
 		"de": "Finanzverwaltung",
 		"en": "Finance-Admin"
+	},
+	"adminPool.preselected": {
+		"de": "",
+		"en": ""
 	},
 	"settings.title": {
 		"de": "Einstellungen",

@@ -4,9 +4,14 @@ function($scope, administrationRestService) {
 	'use strict';
 	$scope.roles = [];
 	$scope.expenses = [];
+	$scope.costCategories = [];
 
 	administrationRestService.getRoles().then(function(response) {
 		$scope.roles = response.data;
+	});
+
+	administrationRestService.getCostCategories().then(function(response) {
+		$scope.costCategories = response.data;
 	});
 
 	$scope.search = function() {

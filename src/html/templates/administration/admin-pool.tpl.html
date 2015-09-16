@@ -6,19 +6,33 @@
 				{{ 'reimbursement.adminPool.filterPanel' | translate }}
 			</div>
 			<div class="panel-body">
-				<form id="userRole" class="form-horizontal">
+				<form id="searchForm" class="form-horizontal">
 					<div class="form-group">
-						<label class="col-sm-3 control-label"> {{ 'reimbursement.adminPool.sapText' | translate }} </label>
+						<label for="lastName" class="col-sm-3 control-label"> {{ 'reimbursement.adminPool.lastName' | translate }} </label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="sapText" placeholder="{{ 'reimbursement.adminPool.sapText' | translate }}" ng-model="sapText">
+							<input type="text" class="form-control" id="lastName" placeholder="{{ 'reimbursement.adminPool.lastName' | translate }}" ng-model="lastName">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label"> {{ 'reimbursement.adminPool.userRole' | translate }} </label>
 						<div class="col-sm-9">
-							<select class="form-control" ng-model="selectedRole">
-								<option ng-repeat="role in roles" value="{{ role }}"> {{ "reimbursement.adminPool.role."+role | translate }} </option>
+							<select class="form-control" ng-model="selectedRole" ng-options="role as 'reimbursement.adminPool.role.'+role | translate for role in roles">
+								<option selected value="">{{ 'reimbursement.adminPool.preselected' | translate }}</option>
 							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> {{ 'reimbursement.adminPool.costCategory' | translate }} </label>
+						<div class="col-sm-9">
+							<select class="form-control" ng-options="costCategory.uid as costCategory.name | costCategoryLanguage for costCategory in costCategories" ng-model="selectedCostCategory">
+								<option selected value="">{{ 'reimbursement.adminPool.preselected' | translate }}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="sapText" class="col-sm-3 control-label"> {{ 'reimbursement.adminPool.sapText' | translate }} </label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="sapText" placeholder="{{ 'reimbursement.adminPool.sapText' | translate }}" ng-model="sapText">
 						</div>
 					</div>
 					<div class="text-right">
