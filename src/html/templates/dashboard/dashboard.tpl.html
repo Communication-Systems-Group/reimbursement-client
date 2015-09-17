@@ -119,7 +119,7 @@
 								{{ 'reimbursement.expense.validate' | translate }}
 							</button>
 						</div>
-						<div ng-if="e.state === 'TO_SIGN_BY_PROF">
+						<div ng-if="e.state === 'TO_SIGN_BY_PROF'">
 							<button class="btn btn-default btn-xs" ng-click="go('sign-expense', { uid: e.uid })">
 								<i class="fa fa-pencil-square-o"></i>
 								{{ 'reimbursement.expense.signButton' | translate }}
@@ -139,7 +139,7 @@
 								{{ 'reimbursement.expense.validate' | translate }}
 							</button>
 						</div>
-						<div ng-if="e.state === 'TO_SIGN_BY_FINANCE_ADMIN">
+						<div ng-if="e.state === 'TO_SIGN_BY_FINANCE_ADMIN'">
 							<button class="btn btn-default btn-xs" ng-click="go('sign-expense', { uid: e.uid })">
 								<i class="fa fa-pencil-square-o"></i>
 								{{ 'reimbursement.expense.signButton' | translate }}
