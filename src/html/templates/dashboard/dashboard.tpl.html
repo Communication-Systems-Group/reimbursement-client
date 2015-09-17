@@ -45,7 +45,7 @@
 								{{ 'reimbursement.expense.edit' | translate }}
 							</a>
 						</li>
-						<li class="divider" ng-if="e.state === 'DRAFT'"></li>
+						<li class="divider" ng-if="(e.state === 'DRAFT' || e.state === 'REJECTED')"></li>
 						<li ng-if="e.state === 'DRAFT'">
 							<a href ng-click="deleteExpense(e.uid)">
 								<i class="fa fa-trash"></i>
@@ -96,7 +96,7 @@
 			<tr ng-if="myReviewExpenses.length < 1">
 				<td colspan="99" class="text-center">{{ 'reimbursement.dashboard.table.noContent' | translate }}</td>
 			</tr>
-			<tr ng-repeat="e in myReviewExpenses">
+			<tr ng-repeat="e in myReviewExpenses | orderBy: stateOrderingProfAdmin">
 				<td>{{e.accounting}}</td>
 				<td>{{e.date | date:'dd.MM.yyyy'}}</td>
 				<td>

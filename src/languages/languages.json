@@ -77,7 +77,7 @@
 	},
 	"adminPool.role.FINANCE_ADMIN": {
 		"de": "Finanzverwaltung",
-		"en": "Finance-Admin"
+		"en": "Finance Administration"
 	},
 	"adminPool.preselected": {
 		"de": "",
@@ -647,10 +647,6 @@
 	},
 
 
-	"expense.accepted": {
-		"de": "Sie haben das Spesenelement akzeptiert. Es wird nun zur Finanzabteilung des IFI weitergeleitet.",
-		"en": "You accepted the expense. It will now be sent to the accounting department of IFI."
-	},
 	"expense.accounting_text": {
 		"de": "Buchungstext (sichtbar in SAP)",
 		"en": "Account value (visual in SAP)"
@@ -879,9 +875,17 @@
 		"de": "Abgelehnt",
 		"en": "Declined"
 	},
-	"expense.state.accepted": {
-		"de": "Akzeptiert",
-		"en": "Accepted"
+	"expense.state.toSignByUser": {
+		"de": "Signieren durch Benutzer",
+		"en": "To be signed by user"
+	},
+	"expense.state.toSignByProf": {
+		"de": "Signieren durch Professor",
+		"en": "To be signed by professor"
+	},
+	"expense.state.toSignByFinanceAdmin": {
+		"de": "Signieren durch Finanzverwaltung",
+		"en": "To be signed by finance administration"
 	},
 	"expense.state.assigned_to_professor": {
 		"de": "Zugewiesen an Professor",
@@ -889,7 +893,7 @@
 	},
 	"expense.state.assigned_to_finance_admin": {
 		"de": "Zugewiesen an Finanzverwaltung",
-		"en": "Assigned to finance admin"
+		"en": "Assigned to finance administration"
 	},
 	"expense.state.created": {
 		"de": "Erstallt",

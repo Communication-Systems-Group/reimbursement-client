@@ -13,28 +13,36 @@ app.directive('expenseState',
 			link: function (scope) {
 				scope.states = {
 					'DRAFT': {
-						class: 'label-info',
-						translate: 'reimbursement.expense.state.draft'
+						"class": 'label-info',
+						"translate": 'reimbursement.expense.state.draft'
 					},
-					'ASSIGNED_TO_PROFESSOR': {
-						class: 'label-info',
-						translate: 'reimbursement.expense.state.assigned_to_professor'
+					'ASSIGNED_TO_PROF': {
+						"class": 'label-info',
+						"translate": 'reimbursement.expense.state.assigned_to_professor'
 					},
 					'ASSIGNED_TO_FINANCE_ADMIN': {
-						class: 'label-info',
-						translate: 'reimbursement.expense.state.assigned_to_finance_admin'
-					},
-					'ACCEPTED': {
-						class: 'label-success',
-						translate: 'reimbursement.expense.state.accepted'
+						"class": 'label-info',
+						"translate": 'reimbursement.expense.state.assigned_to_finance_admin'
 					},
 					'REJECTED': {
-						class: 'label-danger',
-						translate: 'reimbursement.expense.state.rejected'
+						"class": 'label-danger',
+						"translate": 'reimbursement.expense.state.rejected'
 					},
 					'PRINTED': {
-						class: 'label-success',
-						translate: 'reimbursement.expense.state.printed'
+						"class": 'label-success',
+						"translate": 'reimbursement.expense.state.printed'
+					},
+					'TO_SIGN_BY_USER': {
+						"class": 'label-info',
+						"translate": 'reimbursement.expense.state.toSignByUser'
+					},
+					'TO_SIGN_BY_PROF': {
+						"class": 'label-info',
+						"translate": 'reimbursement.expense.state.toSignByProf'
+					},
+					'TO_SIGN_BY_FINANCE_ADMIN': {
+						"class": 'label-info',
+						"translate": 'reimbursement.expense.state.toSignByFinanceAdmin'
 					}
 				};
 
