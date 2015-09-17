@@ -553,6 +553,10 @@
 		"de": "Signieren",
 		"en": "Sign"
 	},
+	"expense.signButton": {
+		"de": "Signieren",
+		"en": "Sign"
+	},
 	"expense.acceptText": {
 		"de": "Sind Sie sicher, dass Sie diese Spesen hiermit akzeptieren möchten?",
 		"en": "Are you sure, that you want to accept this expense?"
