@@ -174,6 +174,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "ReviewExpenseController",
 			onEnter: requireAuthenticationWithAnyRole(['PROF', 'FINANCE_ADMIN'])
 
+		}).state('sign-expense', {
+			url: "/sign-expense/:uid",
+			templateUrl: "expense/sign-expense.tpl.html",
+			controller: "SignExpenseController",
+
 		}).state('testingPage', {
 			url: "/testingPage",
 			templateUrl: "testingPage/testingPage.tpl.html",

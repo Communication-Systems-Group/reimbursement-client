@@ -43,13 +43,29 @@
 		"de": "Admin-Pool",
 		"en": "Admin-Pool"
 	},
-	"adminPool.userRolePanel": {
-		"de": "Wähle die Rolle des Benutzers",
-		"en": "Select role of user"
+	"adminPool.filterPanel": {
+		"de": "Suchkriterien eingeben",
+		"en": "Select search criteria"
+	},
+	"adminPool.sapText": {
+		"de": "SAP Text",
+		"en": "SAP text"
 	},
 	"adminPool.userRole": {
 		"de": "Rolle",
 		"en": "Role"
+	},
+	"adminPool.search": {
+		"de": "Go!",
+		"en": "Go!"
+	},
+	"adminPool.lastName": {
+		"de": "Nachname",
+		"en": "Lastname"
+	},
+	"adminPool.costCategory": {
+		"de": "Kostenstelle",
+		"en": "Cost-Category"
 	},
 	"adminPool.role.USER": {
 		"de": "Benutzer",
@@ -61,7 +77,11 @@
 	},
 	"adminPool.role.FINANCE_ADMIN": {
 		"de": "Finanzverwaltung",
-		"en": "Finance-Admin"
+		"en": "Finance Administration"
+	},
+	"adminPool.preselected": {
+		"de": "",
+		"en": ""
 	},
 	"settings.title": {
 		"de": "Einstellungen",
@@ -525,9 +545,21 @@
 		"de": "Geben Sie eine Begründung mit mindestens 10 Zeichen ein.",
 		"en": "Enter a explanation with at least 10 characters."
 	},
+	"expense.assignToMe": {
+		"de": "Mir zuweisen",
+		"en": "Assign to me"
+	},
 	"expense.rejectReason": {
 		"de": "Begründung",
 		"en": "Justification"
+	},
+	"expense.sign": {
+		"de": "Signieren",
+		"en": "Sign"
+	},
+	"expense.signButton": {
+		"de": "Signieren",
+		"en": "Sign"
 	},
 	"expense.acceptText": {
 		"de": "Sind Sie sicher, dass Sie diese Spesen hiermit akzeptieren möchten?",
@@ -623,10 +655,6 @@
 	},
 
 
-	"expense.accepted": {
-		"de": "Sie haben das Spesenelement akzeptiert. Es wird nun zur Finanzabteilung des IFI weitergeleitet.",
-		"en": "You accepted the expense. It will now be sent to the accounting department of IFI."
-	},
 	"expense.accounting_text": {
 		"de": "Buchungstext (sichtbar in SAP)",
 		"en": "Account value (visual in SAP)"
@@ -702,6 +730,14 @@
 	"expense.confirmDeleteMessage": {
 		"de": "Möchten Sie diese Spesen mitsamt allen Belegen unwiderruflich löschen?",
 		"en": "Are you sure, you want to delete this expense with all receipts irrevocably?"
+	},
+	"expense.confirmAssignTitle": {
+		"de": "Bestätigung",
+		"en": "Confirmation"
+	},
+	"expense.confirmAssignMessage": {
+		"de": "Möchten Sie sich diese Spese zuweisen?",
+		"en": "Are you sure, you want to assign this expense to you?"
 	},
 	"expense.delete.error": {
 		"de": "Das Spesenelement konnte nicht gelöscht werden. Bitte versuch es nochmal!",
@@ -855,9 +891,21 @@
 		"de": "Abgelehnt",
 		"en": "Declined"
 	},
-	"expense.state.accepted": {
-		"de": "Akzeptiert",
-		"en": "Accepted"
+	"expense.state.toSignByUser": {
+		"de": "Signieren durch Benutzer",
+		"en": "To be signed by user"
+	},
+	"expense.state.toSignByProf": {
+		"de": "Signieren durch Professor",
+		"en": "To be signed by professor"
+	},
+	"expense.state.to_be_assigned": {
+		"de": "Zuweisung an Finanzverwaltungsmitglied",
+		"en": "To be assigned to finance administrator"
+	},
+	"expense.state.toSignByFinanceAdmin": {
+		"de": "Signieren durch Finanzverwaltung",
+		"en": "To be signed by finance administration"
 	},
 	"expense.state.assigned_to_professor": {
 		"de": "Zugewiesen an Professor",
@@ -865,7 +913,7 @@
 	},
 	"expense.state.assigned_to_finance_admin": {
 		"de": "Zugewiesen an Finanzverwaltung",
-		"en": "Assigned to finance admin"
+		"en": "Assigned to finance administration"
 	},
 	"expense.state.created": {
 		"de": "Erstallt",

@@ -20,12 +20,7 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 
 	function updateExpense() {
 		expenseRestService.getExpense($scope.expenseUid).then(function(response) {
-			if(response.data.state === 'DRAFT') {
-				$scope.expenseAccountingText = response.data.accounting;
-			}
-			else {
-				$state.go('dashboard');
-			}
+			$scope.expenseAccountingText = response.data.accounting;
 		});
 	}
 

@@ -32,12 +32,21 @@ app.factory('administrationRestService', ['$http', 'HOST',
 			return $http.get(HOST + '/api/finance-admin/roles');
 		}
 
+		function search(data) {
+			return $http({
+				method: 'GET',
+				url: HOST + '/api/finance-admin/adminPoolSearch',
+				data: data
+			});
+		}
+
 		return {
 			getCostCategories: getCostCategories,
 			postCostCategory: postCostCategory,
 			putCostCategory: putCostCategory,
 			deleteCostCategory: deleteCostCategory,
-			getRoles: getRoles
+			getRoles: getRoles,
+			search: search
 		};
 
 	}]);

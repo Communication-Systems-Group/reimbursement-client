@@ -45,8 +45,8 @@
 								{{ 'reimbursement.expense.edit' | translate }}
 							</a>
 						</li>
-						<li class="divider" ng-if="e.state === 'DRAFT'"></li>
-						<li ng-if="e.state === 'DRAFT'">
+						<li class="divider" ng-if="(e.state === 'DRAFT' || e.state === 'REJECTED')"></li>
+						<li ng-if="(e.state === 'DRAFT' || e.state === 'REJECTED')">
 							<a href ng-click="deleteExpense(e.uid)">
 								<i class="fa fa-trash"></i>
 								{{ 'reimbursement.expense.delete' | translate }}
@@ -54,7 +54,13 @@
 						</li>
 					</ul>
 				</div>
-				<div ng-if="!(e.state === 'CREATED' || e.state === 'REJECTED' || e.state === 'DRAFT')">
+				<div ng-if="e.state === 'TO_SIGN_BY_USER'">
+					<button class="btn btn-default btn-xs" ng-click="go('sign-expense', { uid: e.uid })">
+						<i class="fa fa-pencil-square-o"></i>
+						{{ 'reimbursement.expense.signButton' | translate }}
+					</button>
+				</div>
+				<div ng-if="!(e.state === 'CREATED' || e.state === 'REJECTED' || e.state === 'DRAFT' || e.state === 'TO_SIGN_BY_USER')">
 					<button class="btn btn-default btn-xs" ng-click="go('view-expense', { uid: e.uid })">
 						<i class="fa fa-eye"></i>
 						{{ 'reimbursement.expense.viewItem' | translate }}
@@ -96,7 +102,7 @@
 			<tr ng-if="myReviewExpenses.length < 1">
 				<td colspan="99" class="text-center">{{ 'reimbursement.dashboard.table.noContent' | translate }}</td>
 			</tr>
-			<tr ng-repeat="e in myReviewExpenses">
+			<tr ng-repeat="e in myReviewExpenses | orderBy: stateOrderingProfAdmin">
 				<td>{{e.accounting}}</td>
 				<td>{{e.date | date:'dd.MM.yyyy'}}</td>
 				<td>
@@ -106,7 +112,52 @@
 					<expense-state state="e.state"></expense-state>
 				</td>
 				<td>
-					<expense-state-button uid="e.uid" state="e.state"></expense-state-button>
+					<div ng-if="USER.hasRole('PROF')">
+						<div ng-if="e.state === 'ASSIGNED_TO_PROF'">
+							<button class="btn btn-default btn-xs" ng-click="go('review-expense', { uid: e.uid })">
+								<i class="fa fa-gavel"></i>
+								{{ 'reimbursement.expense.validate' | translate }}
+							</button>
+						</div>
+						<div ng-if="e.state === 'TO_SIGN_BY_PROF'">
+							<button class="btn btn-default btn-xs" ng-click="go('sign-expense', { uid: e.uid })">
+								<i class="fa fa-pencil-square-o"></i>
+								{{ 'reimbursement.expense.signButton' | translate }}
+							</button>
+						</div>
+						<div ng-if="!(e.state === 'ASSIGNED_TO_PROF' || e.state === 'TO_SIGN_BY_PROF')">
+							<button class="btn btn-default btn-xs" ng-click="go('view-expense', { uid: e.uid })">
+								<i class="fa fa-eye"></i>
+								{{ 'reimbursement.expense.viewItem' | translate }}
+							</button>
+						</div>
+					</div>
+					<div ng-if="USER.hasRole('FINANCE_ADMIN')">
+						<div ng-if="e.state === 'ASSIGNED_TO_FINANCE_ADMIN'">
+							<button class="btn btn-default btn-xs" ng-click="go('review-expense', { uid: e.uid })">
+								<i class="fa fa-gavel"></i>
+								{{ 'reimbursement.expense.validate' | translate }}
+							</button>
+						</div>
+						<div ng-if="e.state === 'TO_BE_ASSIGNED'">
+							<button class="btn btn-default btn-xs" ng-click="assignToMe(e.uid)">
+								<i class="fa fa-hand-o-right"></i>
+								{{ 'reimbursement.expense.assignToMe' | translate }}
+							</button>
+						</div>
+						<div ng-if="e.state === 'TO_SIGN_BY_FINANCE_ADMIN'">
+							<button class="btn btn-default btn-xs" ng-click="go('sign-expense', { uid: e.uid })">
+								<i class="fa fa-pencil-square-o"></i>
+								{{ 'reimbursement.expense.signButton' | translate }}
+							</button>
+						</div>
+						<div ng-if="!(e.state === 'ASSIGNED_TO_FINANCE_ADMIN' || e.state === 'TO_SIGN_BY_FINANCE_ADMIN' || e.state === 'TO_BE_ASSIGNED')">
+							<button class="btn btn-default btn-xs" ng-click="go('view-expense', { uid: e.uid })">
+								<i class="fa fa-eye"></i>
+								{{ 'reimbursement.expense.viewItem' | translate }}
+							</button>
+						</div>
+					</div>
 				</td>
 			</tr>
 			</tbody>
