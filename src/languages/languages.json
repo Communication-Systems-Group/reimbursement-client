@@ -545,6 +545,10 @@
 		"de": "Geben Sie eine Begründung mit mindestens 10 Zeichen ein.",
 		"en": "Enter a explanation with at least 10 characters."
 	},
+	"expense.assignToMe": {
+		"de": "Mir zuweisen",
+		"en": "Assign to me"
+	},
 	"expense.rejectReason": {
 		"de": "Begründung",
 		"en": "Justification"
@@ -896,8 +900,8 @@
 		"en": "To be signed by professor"
 	},
 	"expense.state.to_be_assigned": {
-		"de": "Wird zugewiesen",
-		"en": "To be assigned"
+		"de": "Zuweisung an Finanzverwaltungsmitglied",
+		"en": "To be assigned to finance administrator"
 	},
 	"expense.state.toSignByFinanceAdmin": {
 		"de": "Signieren durch Finanzverwaltung",

@@ -6,6 +6,9 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 		$scope.user = USER;
 
 		$scope.showReviewSection = false;
+		if (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('PROF')) {
+			$scope.showReviewSection = true;
+		}
 
 		function updateMyExpenses() {
 			dashboardRestService.getMyExpenses().success(function (response) {
@@ -16,22 +19,16 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 		}
 		updateMyExpenses();
 
-		var myReviewExpenses = null;
 		function updateReviewExpenses() {
-			if (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('PROF')) {
-				$scope.showReviewSection = true;
-				myReviewExpenses = dashboardRestService.getReviewExpenses();
-			}
-
-			if (myReviewExpenses !== null) {
-				myReviewExpenses.then(function (response) {
-					$scope.myReviewExpenses = response.data;
-				}, function () {
-					$scope.myReviewExpenses = [];
-				});
-			}
+			dashboardRestService.getReviewExpenses().then(function (response) {
+				$scope.myReviewExpenses = response.data;
+			}, function () {
+				$scope.myReviewExpenses = [];
+			});
 		}
-		updateReviewExpenses();
+		if($scope.showReviewSection) {
+			updateReviewExpenses();
+		}
 
 		$scope.go = function (state, params) {
 			$state.go(state, params);
@@ -66,7 +63,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 		$scope.assignToMe = function(uid) {
 			globalMessagesService.confirmInfo('reimbursement.expense.confirmAssignTitle',
 			'reimbursement.expense.confirmAssignMessage').then(function() {
-				dashboardRestService.assignToMe(uid).then(updateMyExpenses);
+				dashboardRestService.assignToMe(uid).then(updateReviewExpenses);
 			});
 		};
 
