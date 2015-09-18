@@ -20,6 +20,10 @@ app.directive('expenseState',
 						"class": 'label-info',
 						"translate": 'reimbursement.expense.state.assigned_to_professor'
 					},
+					'TO_BE_ASSIGNED': {
+						"class": 'label-info',
+						"translate": 'reimbursement.expense.state.to_be_assigned'
+					},
 					'ASSIGNED_TO_FINANCE_ADMIN': {
 						"class": 'label-info',
 						"translate": 'reimbursement.expense.state.assigned_to_finance_admin'

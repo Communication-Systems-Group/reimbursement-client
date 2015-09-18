@@ -17,18 +17,21 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 		updateMyExpenses();
 
 		var myReviewExpenses = null;
-		if (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('PROF')) {
-			$scope.showReviewSection = true;
-			myReviewExpenses = dashboardRestService.getReviewExpenses();
-		}
+		function updateReviewExpenses() {
+			if (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('PROF')) {
+				$scope.showReviewSection = true;
+				myReviewExpenses = dashboardRestService.getReviewExpenses();
+			}
 
-		if (myReviewExpenses !== null) {
-			myReviewExpenses.then(function (response) {
-				$scope.myReviewExpenses = response.data;
-			}, function () {
-				$scope.myReviewExpenses = [];
-			});
+			if (myReviewExpenses !== null) {
+				myReviewExpenses.then(function (response) {
+					$scope.myReviewExpenses = response.data;
+				}, function () {
+					$scope.myReviewExpenses = [];
+				});
+			}
 		}
+		updateReviewExpenses();
 
 		$scope.go = function (state, params) {
 			$state.go(state, params);
@@ -48,7 +51,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 		$scope.deleteExpense = function(uid) {
 			globalMessagesService.confirmWarning('reimbursement.expense.confirmDeleteTitle',
 			'reimbursement.expense.confirmDeleteMessage').then(function() {
-				dashboardRestService.deleteExpense(uid).then(updateMyExpenses);
+				dashboardRestService.deleteExpense(uid).then(updateReviewExpenses);
 			});
 		};
 
@@ -60,6 +63,13 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 			return parseInt("-" + stateNr + shortDate, 10);
 		}
 
+		$scope.assignToMe = function(uid) {
+			globalMessagesService.confirmInfo('reimbursement.expense.confirmAssignTitle',
+			'reimbursement.expense.confirmAssignMessage').then(function() {
+				dashboardRestService.assignToMe(uid).then(updateMyExpenses);
+			});
+		};
+
 		$scope.stateOrdering = function(expense) {
 			var states = [];
 			states = [
@@ -67,6 +77,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 				"REJECTED",
 				"TO_SIGN_BY_USER",
 				"ASSIGNED_TO_PROF",
+				"TO_BE_ASSIGNED",
 				"ASSIGNED_TO_FINANCE_ADMIN",
 				"TO_SIGN_BY_PROF",
 				"TO_SIGN_BY_FINANCE_ADMIN",
@@ -81,6 +92,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 				states = [
 					"ASSIGNED_TO_PROF",
 					"TO_SIGN_BY_PROF",
+					"TO_BE_ASSIGNED",
 					"ASSIGNED_TO_FINANCE_ADMIN",
 					"TO_SIGN_BY_USER",
 					"TO_SIGN_BY_FINANCE_ADMIN",
@@ -91,6 +103,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 			}
 			if(USER.hasRole('FINANCE_ADMIN')) {
 				states = [
+					"TO_BE_ASSIGNED",
 					"ASSIGNED_TO_FINANCE_ADMIN",
 					"TO_SIGN_BY_FINANCE_ADMIN",
 					"REJECTED",

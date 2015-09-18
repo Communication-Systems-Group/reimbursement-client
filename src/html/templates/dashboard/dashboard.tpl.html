@@ -139,13 +139,19 @@
 								{{ 'reimbursement.expense.validate' | translate }}
 							</button>
 						</div>
+						<div ng-if="e.state === 'TO_BE_ASSIGNED'">
+							<button class="btn btn-default btn-xs" ng-click="assignToMe(e.uid)">
+								<i class="fa fa-gavel"></i>
+								{{ 'reimbursement.expense.validate' | translate }}
+							</button>
+						</div>
 						<div ng-if="e.state === 'TO_SIGN_BY_FINANCE_ADMIN'">
 							<button class="btn btn-default btn-xs" ng-click="go('sign-expense', { uid: e.uid })">
 								<i class="fa fa-pencil-square-o"></i>
 								{{ 'reimbursement.expense.signButton' | translate }}
 							</button>
 						</div>
-						<div ng-if="!(e.state === 'ASSIGNED_TO_FINANCE_ADMIN' || e.state === 'TO_SIGN_BY_FINANCE_ADMIN')">
+						<div ng-if="!(e.state === 'ASSIGNED_TO_FINANCE_ADMIN' || e.state === 'TO_SIGN_BY_FINANCE_ADMIN' || e.state === 'TO_BE_ASSIGNED')">
 							<button class="btn btn-default btn-xs" ng-click="go('view-expense', { uid: e.uid })">
 								<i class="fa fa-eye"></i>
 								{{ 'reimbursement.expense.viewItem' | translate }}

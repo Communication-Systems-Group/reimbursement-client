@@ -727,6 +727,14 @@
 		"de": "Möchten Sie diese Spesen mitsamt allen Belegen unwiderruflich löschen?",
 		"en": "Are you sure, you want to delete this expense with all receipts irrevocably?"
 	},
+	"expense.confirmAssignTitle": {
+		"de": "Bestätigung",
+		"en": "Confirmation"
+	},
+	"expense.confirmAssignMessage": {
+		"de": "Möchten Sie sich diese Spese zuweisen?",
+		"en": "Are you sure, you want to assign this expense to you?"
+	},
 	"expense.delete.error": {
 		"de": "Das Spesenelement konnte nicht gelöscht werden. Bitte versuch es nochmal!",
 		"en": "The expense could not be deleted successfully. Please retry!"
@@ -886,6 +894,10 @@
 	"expense.state.toSignByProf": {
 		"de": "Signieren durch Professor",
 		"en": "To be signed by professor"
+	},
+	"expense.state.to_be_assigned": {
+		"de": "Wird zugewiesen",
+		"en": "To be assigned"
 	},
 	"expense.state.toSignByFinanceAdmin": {
 		"de": "Signieren durch Finanzverwaltung",
