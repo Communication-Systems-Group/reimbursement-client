@@ -106,13 +106,7 @@
 					<expense-state state="e.state"></expense-state>
 				</td>
 				<td>
-					<div class="btn-group">
-						<button type="button" class="btn btn-xs btn-primary"
-								ng-click="go('review-expense', { uid: e.uid })">
-							<i class="fa fa-eye"></i>
-							{{ 'reimbursement.expense.validate' | translate }}
-						</button>
-					</div>
+					<expense-state-button uid="e.uid" state="e.state"></expense-state-button>
 				</td>
 			</tr>
 			</tbody>

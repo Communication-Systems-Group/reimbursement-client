@@ -37,7 +37,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 		$scope.addExpense = function () {
 			var modalInstance = $modal.open({
 				templateUrl: 'expense/create-expense-sap.tpl.html',
-				controller: 'CreateExpenseSapController',
+				controller: 'CreateExpenseSapController'
 			});
 
 			modalInstance.result.then(function(data) {
