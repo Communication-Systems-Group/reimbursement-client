@@ -36,6 +36,11 @@ app.directive('expenseState',
 						"class": 'label-danger',
 						"translate": 'reimbursement.expense.state.rejected'
 					},
+                    'SIGNED': {
+                        "icon": 'fa-check-square',
+                        "class": 'label-success',
+                        "translate": 'reimbursement.expense.state.signed'
+                    },
 					'PRINTED': {
 						"icon": 'fa-print',
 						"class": 'label-success',
