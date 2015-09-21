@@ -39,7 +39,7 @@
 					</button>
 					<ul class="dropdown-menu">
 						<li>
-							<a href ui-sref="view-expense({uid: e.uid})">
+							<a href ui-sref="edit-expense({uid: e.uid})">
 								<i class="fa fa-pencil"></i>
 								{{ 'reimbursement.expense.edit' | translate }}
 							</a>
@@ -64,7 +64,7 @@
                     {{ 'reimbursement.expense.viewItem' | translate }}
                 </button>
                 <button class="btn btn-default btn-xs" ng-click="go('print-expense', { uid: e.uid })"
-                        ng-if="e.state === 'PRINTED'">
+                        ng-if="e.state === 'SIGNED'">
                     <i class="fa fa-print"></i>
                     {{ 'reimbursement.expense.print' | translate }}
                 </button>

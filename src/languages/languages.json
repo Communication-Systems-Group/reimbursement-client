@@ -659,7 +659,7 @@
     },
     "expense.showPdf": {
         "de": "PDF anzeigen",
-        "en": "Show pdf"
+        "en": "Show PDF"
     },
     "expense.printExpense": {
         "de": "Spesendokument drucken",
@@ -941,6 +941,10 @@
 		"de": "Entwurf",
 		"en": "Draft"
 	},
+    "expense.state.signed": {
+        "de": "Signiert",
+        "en": "Signed"
+    },
 	"expense.state.rejected": {
 		"de": "Abgelehnt",
 		"en": "Rejected"
