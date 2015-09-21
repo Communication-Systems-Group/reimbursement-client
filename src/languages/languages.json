@@ -829,6 +829,26 @@
 		"de": "Detailansicht Belege",
 		"en": "Added expense items"
 	},
+    "expense.guest_view": {
+        "de": "Gastansicht",
+        "en": "Guest view"
+    },
+    "expense.guest_view_success": {
+        "de": "Ihr QR-Code wurde erkannt! Nun können Sie die digitale Version des PDF's laden.",
+        "en": "Your QR-Code has been recognized! Download the digital version of the PDF here."
+    },
+    "expense.guest_view_error": {
+        "de": "Ihr QR-Code wurde leider nicht erkannt!",
+        "en": "Unfortunately your QR-Code has not been recognized!"
+    },
+    "expense.guest_view_button_complete": {
+        "de": "Spese (inkl. Belege)",
+        "en": "Expense (incl. receipts)"
+    },
+    "expense.guest_view_button_half": {
+        "de": "Spese (exkl. Belege)",
+        "en": "Expense (excl. receipts)"
+    },
 	"expense.first_lastname": {
 		"de": "Vor- / Nachname",
 		"en": "First- / lastname"
