@@ -424,6 +424,10 @@
 		"de": "Datum",
 		"en": "Date"
 	},
+	"dashboard.table.expenseAuthor": {
+		"de": "Spesensteller",
+		"en": "Expense author"
+	},
 	"dashboard.table.noContent": {
 		"de": "Keine Daten vorhanden!",
 		"en": "No content available!"

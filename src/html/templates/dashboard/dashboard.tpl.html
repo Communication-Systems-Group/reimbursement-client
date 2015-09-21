@@ -89,6 +89,7 @@
 		<table class="table table-striped">
 			<thead>
 			<tr>
+				<th>{{ 'reimbursement.dashboard.table.expenseAuthor' | translate }}</th>
 				<th>{{ 'reimbursement.expense.accountingTitle' | translate }}</th>
 				<th>
 					<span class="tableRightMargin">{{ 'reimbursement.dashboard.table.date' | translate }}</span>
@@ -105,6 +106,7 @@
 				<td colspan="99" class="text-center">{{ 'reimbursement.dashboard.table.noContent' | translate }}</td>
 			</tr>
 			<tr ng-repeat="e in myReviewExpenses | orderBy: stateOrderingProfAdmin">
+				<td>{{e.user}}</td>
 				<td>{{e.accounting}}</td>
 				<td>{{e.date | date:'dd.MM.yyyy'}}</td>
 				<td>
