@@ -43,13 +43,13 @@ function($translate, $filter) {
 
 }]);
 
-app.filter('getISODate', [ '$filter',
+app.filter('getISODate', [ '$filter', 'moment',
 
-function ($filter) {
+function ($filter, moment) {
     'use strict';
 
     return function (date) {
-        var d = new Date(date.substr(6,4)+'-'+date.substr(3,2)+'-'+date.substr(0,2));
+        var d = new Date(moment(date, 'DD.MM.YYYY'));
 
         return $filter('date')(d, 'yyyy-MM-dd');
     };
