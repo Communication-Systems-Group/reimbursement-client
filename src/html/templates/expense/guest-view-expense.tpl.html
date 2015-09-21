@@ -1,4 +1,4 @@
-<div id="view-expense">
+<div id="guets-view-expense">
 	<h1 class="page-header">
 		<span class="vert-mid">{{ expenseAccountingText }}</span>
 		<small class="vert-mid">
@@ -11,14 +11,5 @@
 	</h2>
 
 	<list-expense-items expense-uid="expenseUid" expense-items="expenseItems"></list-expense-items>
-
-	<hr>
-
-	<form class="form-inline text-right">
-		<button class="btn btn-default pull-left" ng-click="returnToDashboard()">
-			<i class="fa fa-arrow-circle-left"></i>
-			{{ 'reimbursement.expense.returnToDashboard' | translate }}
-		</button>
-	</form>
 
 </div>
