@@ -69,6 +69,13 @@ function($http, HOST) {
         });
     }
 
+    function getExpenseToken(uid) {
+        return $http({
+            method: 'POST',
+            url: HOST + '/api/public/expenses/' + uid + '/token'
+        });
+    }
+
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
@@ -77,7 +84,8 @@ function($http, HOST) {
 		getAccessRights: getAccessRights,
 		accept: accept,
 		reject: reject,
-        getExpensePdf: getExpensePdf
+        getExpensePdf: getExpensePdf,
+        getExpenseToken: getExpenseToken
 	};
 
 }]);
