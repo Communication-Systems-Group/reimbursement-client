@@ -1,6 +1,6 @@
-app.controller('EditExpenseItemController', ['$scope', '$modalInstance', 'globalMessagesService', 'spinnerService', 'expenseItemsRestService', 'expenseItemUid',
+app.controller('EditExpenseItemController', ['$scope', '$modalInstance', 'globalMessagesService', 'spinnerService', 'expenseItemsRestService', 'expenseItemUid', '$filter',
 
-function($scope, $modalInstance, globalMessagesService, spinnerService, expenseItemsRestService, expenseItemUid) {
+function($scope, $modalInstance, globalMessagesService, spinnerService, expenseItemsRestService, expenseItemUid, $filter) {
 	"use strict";
 
 	$scope.expenseItemUid = expenseItemUid;
@@ -23,6 +23,9 @@ function($scope, $modalInstance, globalMessagesService, spinnerService, expenseI
 		if(formIsValid) {
 			spinnerService.show('spinnerExpenseItemForm');
 			$scope.hideClose = true;
+
+            var data = $scope.form;
+            data.date = $filter('getISODate')(data.date);
 			expenseItemsRestService.putExpenseItem(expenseItemUid, $scope.form).then(function() {
 				$modalInstance.close();
 			})['finally'](function() {

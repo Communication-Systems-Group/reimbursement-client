@@ -44,7 +44,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 							}
 						}
 
-						$scope.form.date = $filter('date')(response.data.date, 'yyyy-MM-dd');
+						$scope.form.date = $filter('date')(response.data.date, 'dd.MM.yyyy');
 						$scope.form.costCategoryUid = response.data.costCategory.uid;
 						$scope.form.originalAmount = response.data.originalAmount;
 						$scope.form.project = response.data.project;
@@ -102,10 +102,11 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 						}
 					}
 
-					if($scope.form.date !== "") {
+					if($scope.form.date !== "" && $scope.form.date !== undefined) {
 						// only make back-end calls if necessary
-						if(exchangeRateDate !== $scope.form.date) {
-							expenseItemsRestService.getExchangeRates($scope.form.date).then(function(response) {
+						if(exchangeRateDate !== $filter('getISODate')($scope.form.date)) {
+                            var date = $filter('getISODate')($scope.form.date);
+							expenseItemsRestService.getExchangeRates(date).then(function(response) {
 								exchangeRates = response.data;
 								exchangeRateDate = $scope.form.date;
 								calculate();
@@ -124,7 +125,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 				};
 
 				$scope.validatingFunction = function(form) {
-					if(typeof form.date === "undefined" || form.date === null || !moment(form.date, 'yyyy-MM-dd').isValid()) {
+					if(typeof form.date === "undefined" || form.date === null || !moment(form.date, 'dd.MM.yyyy').isValid()) {
 						return false;
 					}
 					if(typeof form.costCategoryUid === "undefined" || form.costCategoryUid === null || form.costCategoryUid === "") {
@@ -147,7 +148,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 
 				$timeout(function() {
 					jQuery('.datepicker').datetimepicker({
-						format: 'YYYY-MM-DD',
+						format: 'DD.MM.YYYY',
 						viewMode: 'months',
 						allowInputToggle: true,
 						maxDate: moment(),

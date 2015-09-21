@@ -42,3 +42,15 @@ function($translate, $filter) {
 	};
 
 }]);
+
+app.filter('getISODate', [ '$filter',
+
+function ($filter) {
+    'use strict';
+
+    return function (date) {
+        var d = new Date(date.substr(6,4)+'-'+date.substr(3,2)+'-'+date.substr(0,2));
+
+        return $filter('date')(d, 'yyyy-MM-dd');
+    };
+}]);
