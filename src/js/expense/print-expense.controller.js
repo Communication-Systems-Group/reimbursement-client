@@ -22,7 +22,7 @@ app.controller('PrintExpenseController', ['$scope', '$state', '$stateParams', 'e
                     // ToDo show sent document from server
                 })
                 .catch(function() {
-                    var data = {showSignature: true};
+                    var data = {showSignature: false};
                     expenseRestService.getExpensePdf($scope.expenseUid, data).then();
 
                     // ToDo show sent document from server
