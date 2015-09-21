@@ -48,7 +48,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 		$scope.deleteExpense = function(uid) {
 			globalMessagesService.confirmWarning('reimbursement.expense.confirmDeleteTitle',
 			'reimbursement.expense.confirmDeleteMessage').then(function() {
-				dashboardRestService.deleteExpense(uid).then(updateReviewExpenses);
+				dashboardRestService.deleteExpense(uid).then(updateMyExpenses);
 			});
 		};
 
