@@ -54,18 +54,21 @@
 						</li>
 					</ul>
 				</div>
-				<div ng-if="e.state === 'TO_SIGN_BY_USER'">
-					<button class="btn btn-default btn-xs" ng-click="go('sign-expense', { uid: e.uid })">
-						<i class="fa fa-pencil-square-o"></i>
-						{{ 'reimbursement.expense.signButton' | translate }}
-					</button>
-				</div>
-				<div ng-if="!(e.state === 'CREATED' || e.state === 'REJECTED' || e.state === 'DRAFT' || e.state === 'TO_SIGN_BY_USER')">
-					<button class="btn btn-default btn-xs" ng-click="go('view-expense', { uid: e.uid })">
-						<i class="fa fa-eye"></i>
-						{{ 'reimbursement.expense.viewItem' | translate }}
-					</button>
-				</div>
+                <button class="btn btn-default btn-xs" ng-click="go('sign-expense', { uid: e.uid })"
+                        ng-if="e.state === 'TO_SIGN_BY_USER' || e.state === 'TO_SIGN_BY_PROF' || e.state === 'TO_SIGN_BY_FINANCE_ADMIN'">
+                    <i class="fa fa-pencil-square-o"></i>
+                    {{ 'reimbursement.expense.signButton' | translate }}
+                </button>
+                <button class="btn btn-default btn-xs" ng-click="go('view-expense', { uid: e.uid })"
+                        ng-if="!(e.state === 'CREATED' || e.state === 'REJECTED' || e.state === 'DRAFT' || e.state === 'TO_SIGN_BY_USER')">
+                    <i class="fa fa-eye"></i>
+                    {{ 'reimbursement.expense.viewItem' | translate }}
+                </button>
+                <button class="btn btn-default btn-xs" ng-click="go('print-expense', { uid: e.uid })"
+                        ng-if="e.state === 'PRINTED'">
+                    <i class="fa fa-print"></i>
+                    {{ 'reimbursement.expense.print' | translate }}
+                </button>
 			</td>
 		</tr>
 		</tbody>

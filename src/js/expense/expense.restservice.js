@@ -44,7 +44,7 @@ function($http, HOST) {
 		});
 	}
 
-		function reject(uid, reason) {
+	function reject(uid, reason) {
 		return $http({
 			method: 'PUT',
 			url: HOST + '/api/expenses/'+uid+'/reject',
@@ -61,6 +61,14 @@ function($http, HOST) {
 		});
 	}
 
+    function getExpensePdf(uid, data) {
+        return $http({
+            method: 'POST',
+            url: HOST + '/api/expense/' + uid + '/print',
+            data: data
+        });
+    }
+
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
@@ -68,7 +76,8 @@ function($http, HOST) {
 		assignToProf: assignToProf,
 		getAccessRights: getAccessRights,
 		accept: accept,
-		reject: reject
+		reject: reject,
+        getExpensePdf: getExpensePdf
 	};
 
 }]);

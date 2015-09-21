@@ -653,8 +653,26 @@
 		"de": "Bitte füllen Sie alle Felder komplett aus.",
 		"en": "Please fill out every input field."
 	},
-
-
+    "expense.print": {
+        "de": "Drucken",
+        "en": "Print"
+    },
+    "expense.showPdf": {
+        "de": "PDF anzeigen",
+        "en": "Show pdf"
+    },
+    "expense.printExpense": {
+        "de": "Spesendokument drucken",
+        "en": "Print expense document"
+    },
+    "expense.printWithSignature": {
+        "de": "Signatur hinzufügen?",
+        "en": "Add signature?"
+    },
+    "expense.printWithSignatureMessage": {
+        "de": "Soll Ihre erfasste Unterschrift dem Dokument hinzugefügt werden?",
+        "en": "Do you want to print the document with your signature on it?"
+    },
 	"expense.accounting_text": {
 		"de": "Buchungstext (sichtbar in SAP)",
 		"en": "Account value (visual in SAP)"

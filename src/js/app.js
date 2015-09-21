@@ -168,6 +168,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "ViewExpenseController",
 			onEnter: requireAuthentication()
 
+		 }).state('print-expense', {
+		  url: "/print-expense/:uid",
+		  templateUrl: "expense/print-expense.tpl.html",
+		  controller: "PrintExpenseController"
+
 		}).state('review-expense', {
 			url: "/review-expense/:uid",
 			templateUrl: "expense/review-expense.tpl.html",
