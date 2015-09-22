@@ -13,15 +13,14 @@ function($scope, $state, $modal, Modernizr, spinnerService, attachmentRestServic
 			if(response.data.content){
 					showAttachmentInForm(base64BinaryConverterService.toBase64FromJson(response.data));
 				}
+			}, function(reason){
+				reason.errorHandled = true;
 			});
 		};
-
-//TODO find SMART solution
-//throws an error in create new
-// $scope.showAttachment();
+	$scope.showAttachment();
 
 
-//TODO make this pretty
+	//TODO make this smart
 	function showAttachmentInForm(responseAsBase64){
 		jQuery("#showAttachment").attr({"src":responseAsBase64});
 	}
