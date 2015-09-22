@@ -1,13 +1,10 @@
 #attachmentCapture {
 
-	#attachmentCaptureImage,
-	#attachmentCaptureTouch {
+	#attachmentCaptureImage{
 		margin: 20px 0 0 0;
 	}
 
 	#attachmentCaptureImage {
-		padding-bottom: 60px;
-
 		.image-upload {
 			border: 5px dashed $default-color-dark-cyan;
 			height: 260px;

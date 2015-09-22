@@ -1,6 +1,6 @@
-app.controller('AttachmentQRController', ['$scope', '$modalInstance', '$modal', 'attachmentRestService', 'spinnerService', 'globalMessagesService', 'token',
+app.controller('AttachmentQRController', ['$scope', '$modalInstance', '$modal', 'attachmentRestService', 'spinnerService', 'globalMessagesService', 'token','expenseItemUid',
 
-function($scope, $modalInstance, $modal, attachmentRestService, spinnerService, globalMessagesService, token) {
+function($scope, $modalInstance, $modal, attachmentRestService, spinnerService, globalMessagesService, token, expenseItemUid) {
 	"use strict";
 
 	$scope.qrUrl = window.location.protocol + "//" + window.location.host + "/#!attachment-mobile/" + token;
@@ -9,8 +9,7 @@ function($scope, $modalInstance, $modal, attachmentRestService, spinnerService, 
 	$scope.checkAndClose = function() {
 		spinnerService.show('spinnerAttachmentQR');
 
-		var promise = attachmentRestService.getSignature();
-		promise.then(function(image) {
+		attachmentRestService.getAttachment(expenseItemUid).then(function(image) {
 			$modalInstance.close(image);
 		}, function() {
 

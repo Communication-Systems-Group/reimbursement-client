@@ -77,12 +77,7 @@
 			<label class="control-label col-sm-4">
 				{{ 'reimbursement.add-expense-item.uploadDocument' | translate }}
 			</label>
-			<div class="col-sm-8">
-				<button class="btn btn-default">
-					<i class="fa fa-upload"></i>
-					{{ 'reimbursement.expense.uploadDocumentButton' | translate }}
-				</button>
-			</div>
 		</div>
+		<attachment-upload  expense-item-uid = "expenseItemUid" ng-if="editable"></attachment-upload>
 	</form>
 </div>

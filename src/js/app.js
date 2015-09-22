@@ -112,6 +112,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "signature/signature-mobile.tpl.html",
 			controller: "SignatureMobileController"
 
+		}).state('attachmentMobile', {
+			url: "/attachment-mobile/:token",
+			templateUrl: "attachment/attachment-mobile.tpl.html",
+			controller: "AttachmentMobileController"
+
 		}).state('view-cost-category', {
 			url: "/view-cost-category",
 			templateUrl: "administration/view-cost-category.tpl.html",
@@ -129,18 +134,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "settings/settings.tpl.html",
 			controller: 'SettingsController',
 			onEnter: requireAuthentication()
-
-		}).state('attachment', {
-			url: "/attachment",
-			templateUrl: "attachment/attachment.tpl.html",
-			controller: "AttachmentController",
-			onEnter: requireAuthentication()
-
-		}).state('attachmentMobile', {
-			url: "/attachment-mobile/:token",
-			templateUrl: "attachment/attachment-mobile.tpl.html",
-			controller: "AttachmentMobileController"
-
 		}).state('cropping', {
 			// no url, because the cropping should not be opened manually
 			params: {

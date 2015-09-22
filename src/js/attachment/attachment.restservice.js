@@ -4,17 +4,16 @@ function($http, HOST) {
 	"use strict";
 
 	return {
-		//TODO: Chrigi - make expenseItemId dynamic
-		getAttachment : function() {
-			return $http.get(HOST + "/api/expenses/expense-items/f6570b82-344f-4ebe-84cc-c15a081f03a3/attachments");
+		getAttachment : function(expenseItemUid) {
+			return $http.get(HOST + "/api/expenses/expense-items/" + expenseItemUid + "/attachments");
 		},
-		postAttachmentMobileToken : function() {
-			return $http.post(HOST + "/api/expenses/expense-items/f6570b82-344f-4ebe-84cc-c15a081f03a3/attachments/token");
+		postAttachmentMobileToken : function(expenseItemUid) {
+			return $http.post(HOST + "/api/expenses/expense-items/" + expenseItemUid + "/attachments/token");
 		},
-		postAttachmentPath : function() {
-			return HOST + "/api/expenses/expense-items/f6570b82-344f-4ebe-84cc-c15a081f03a3/attachments";
+		postAttachmentPath : function(expenseItemUid) {
+			return HOST + "/api/expenses/expense-items/" + expenseItemUid + "/attachments";
 		},
-		postAttachmentMobilePath: function(token) {
+		postAttachmentMobilePath : function(token) {
 			return HOST + "/api/public/mobile/" + token + "/attachment";
 		}
 	};

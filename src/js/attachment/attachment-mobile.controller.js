@@ -1,9 +1,10 @@
-app.controller('AttachmentMobileController', ['$scope', '$stateParams', 'attachmentRestService', 'spinnerService',
+app.controller('AttachmentMobileController', ['$scope', '$location', 'attachmentRestService', 'spinnerService',
 
-function($scope, $stateParams, attachmentRestService, spinnerService) {
+function($scope, $location, attachmentRestService, spinnerService) {
 	"use strict";
 
-	$scope.postAttachmentPath = attachmentRestService.postAttachmentMobilePath($stateParams.token);
+	var tokenUid = $location.path().split("/")[2];
+	$scope.postAttachmentPath = attachmentRestService.postAttachmentMobilePath(tokenUid);
 	$scope.flow = {};
 	$scope.isComplete = false;
 	$scope.isError = false;
