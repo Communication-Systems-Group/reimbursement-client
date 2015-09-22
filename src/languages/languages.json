@@ -103,17 +103,33 @@
 		"de": "Englisch",
 		"en": "English"
 	},
-	"settings.languagePanel": {
-		"de": "Spracheinstellungen",
-		"en": "Language settings"
+	"settings.userSettingsPanel": {
+		"de": "Benutzereinstellungen",
+		"en": "User settings"
 	},
-	"settings.language.submitInfoTitle": {
-		"de": "Spracheinstellungen",
-		"en": "Language settings"
+	"settings.personnelNumber": {
+		"de": "Personalnummer",
+		"en": "Personnel number"
 	},
-	"settings.language.submitInfoMessage": {
-		"de": "Sprache wurde erfolgreich geändert.",
-		"en": "Language has been changed successfully."
+	"settings.phoneNumber": {
+		"de": "Telefonnummer",
+		"en": "Phone number"
+	},
+	"settings.accountState": {
+		"de": "Kontostatus",
+		"en": "Account state"
+	},
+	"settings.state": {
+		"de": "Aktiv",
+		"en": "Active"
+	},
+	"settings.user.submitInfoTitle": {
+		"de": "Benutzereinstellungen",
+		"en": "User settings"
+	},
+	"settings.user.submitInfoMessage": {
+		"de": "Einstellungen wurden erfolgreich geändert.",
+		"en": "Settings have been changed successfully."
 	},
 	"settings.signature.submitWarningTitle": {
 		"de": "Unterschrift bearbeiten",

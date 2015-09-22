@@ -10,12 +10,15 @@ function($http, HOST) {
 		});
 	}
 
-	function putLanguage(language) {
+	function putSettings(language, personnelNumber, phoneNumber, active) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/user/language',
+			url: HOST + '/api/user/settings',
 			data: {
-				language: language
+				language: language,
+				personnelNumber: personnelNumber,
+				phoneNumber: phoneNumber,
+				active: active
 			}
 		});
 	}
@@ -29,7 +32,7 @@ function($http, HOST) {
 
 	return {
 		getSupportedLanguages: getSupportedLanguages,
-		putLanguage: putLanguage,
+		putSettings: putSettings,
 		getSignature: getSignature
 	};
 }]);

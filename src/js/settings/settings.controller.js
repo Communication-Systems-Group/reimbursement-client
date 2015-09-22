@@ -3,6 +3,9 @@ app.controller('SettingsController', ['$scope', '$state', '$timeout', '$translat
 function($scope, $state, $timeout, $translate, settingsRestService, USER, globalMessagesService, base64BinaryConverterService) {
 	'use strict';
 	$scope.languages = [];
+	$scope.personnelNumber = USER.personnelNumber;
+	$scope.phoneNumber = USER.phoneNumber;
+	$scope.active = USER.active;
 
 	settingsRestService.getSupportedLanguages().then(function(response) {
 		$scope.languages = response.data;
@@ -10,12 +13,15 @@ function($scope, $state, $timeout, $translate, settingsRestService, USER, global
 			$scope.selectedLanguage = USER.language;
 		});
 	});
-	$scope.saveLanguage = function() {
-		settingsRestService.putLanguage($scope.selectedLanguage).then(function() {
+	$scope.saveSettings = function() {
+		settingsRestService.putSettings($scope.selectedLanguage, $scope.personnelNumber, $scope.phoneNumber, $scope.active).then(function() {
+			USER.active = $scope.active;
+			USER.personnelNumber = $scope.personnelNumber;
+			USER.phoneNumber = $scope.phoneNumber;
 			USER.language = $scope.selectedLanguage;
 			$translate.use($scope.selectedLanguage.toLowerCase());
-			globalMessagesService.showInfo('reimbursement.settings.language.submitInfoTitle',
-				'reimbursement.settings.language.submitInfoMessage');
+			globalMessagesService.showInfo('reimbursement.settings.user.submitInfoTitle',
+				'reimbursement.settings.user.submitInfoMessage');
 		});
 	};
 	$scope.newSignature = function() {
