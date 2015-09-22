@@ -11,14 +11,22 @@ function($scope, $state, $modal, Modernizr, spinnerService, attachmentRestServic
 	$scope.showAttachment = function(){
 		attachmentRestService.getAttachment($scope.expenseItemUid).then(function(response) {
 			if(response.data.content){
-				var responseAsBase64 = base64BinaryConverterService.toBase64FromJson(response.data);
-					jQuery("#showAttachment").attr({"src":responseAsBase64});
+					showAttachmentInForm(base64BinaryConverterService.toBase64FromJson(response.data));
 				}
 			});
 		};
 
+//TODO find SMART solution
+//throws an error in create new
+// $scope.showAttachment();
+
+
+//TODO make this pretty
+	function showAttachmentInForm(responseAsBase64){
+		jQuery("#showAttachment").attr({"src":responseAsBase64});
+	}
+
 	$scope.showSpinner = function(spinnerId) {
-		$log.log("show spinner with id:"+spinnerId);
 		spinnerService.show(spinnerId);
 	};
 
@@ -31,15 +39,17 @@ function($scope, $state, $modal, Modernizr, spinnerService, attachmentRestServic
 					token : function() {
 						return response.data.uid;
 					},
-					expenseItemUid : $scope.expenseItemUid
+					expenseItemUid : function(){
+						return $scope.expenseItemUid;
+					}
 				}
 			});
 
 			modalInstance.result.then(function(response) {
-				$log.log(response);
 				var imageAsBase64 = base64BinaryConverterService.toBase64FromJson(response.data);
-				$log.log(imageAsBase64);
-				$scope.addImageToElement(imageAsBase64);
+				//TODO make all pretty
+				showAttachmentInForm(imageAsBase64);
+				//$scope.addImageToElement(imageAsBase64);
 			});
 		});
 	};
