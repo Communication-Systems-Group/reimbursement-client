@@ -44,28 +44,24 @@
 		"en": "Admin-Pool"
 	},
 	"adminPool.filterPanel": {
-		"de": "Suchkriterien eingeben",
-		"en": "Select search criteria"
+		"de": "Bitte geben Sie Ihre Suchkriterien ein für eine Suche nach Spesen.",
+		"en": "Please enter your search criteria to find the matching expenses."
 	},
 	"adminPool.sapText": {
-		"de": "SAP Text",
-		"en": "SAP text"
+		"de": "Buchhaltungsbeschreibung (SAP)",
+		"en": "Accounting description (SAP)"
 	},
 	"adminPool.userRole": {
-		"de": "Rolle",
-		"en": "Role"
+		"de": "Berechtigung Antragssteller",
+		"en": "Permission of Expense Creator"
 	},
 	"adminPool.search": {
 		"de": "Go!",
 		"en": "Go!"
 	},
-	"adminPool.lastName": {
-		"de": "Nachname",
-		"en": "Lastname"
-	},
-	"adminPool.costCategory": {
-		"de": "Kostenstelle",
-		"en": "Cost-Category"
+	"adminPool.userLastName": {
+		"de": "Nachname Antragssteller",
+		"en": "Last Name of Expense Creator"
 	},
 	"adminPool.role.USER": {
 		"de": "Benutzer",
@@ -79,9 +75,9 @@
 		"de": "Finanzverwaltung",
 		"en": "Finance Administration"
 	},
-	"adminPool.preselected": {
-		"de": "",
-		"en": ""
+	"adminPool.preselectedRole": {
+		"de": "alle Berechtigungen",
+		"en": "all permissions"
 	},
 	"settings.title": {
 		"de": "Einstellungen",
