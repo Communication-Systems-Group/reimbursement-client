@@ -161,7 +161,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 
                 $scope.openCostCategoryModal = function() {
                     var modalinstance = $modal.open({
-                        templateUrl : 'administration/show-cost-category.modal.tpl.html',
+                        templateUrl : 'expense-items/show-cost-category.modal.tpl.html',
                         controller : 'CostCategoryModalController',
                         resolve : {
                             costCategories: function() {
