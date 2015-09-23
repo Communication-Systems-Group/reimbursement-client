@@ -1,8 +1,9 @@
-app.controller('CostCategoryModalController', [ '$scope', 'costCategories', 'costCategoryUid', '$modalInstance',
+app.controller('CostCategoryModalController', [ '$scope', 'costCategories', 'costCategoryUid', '$modalInstance', '$translate',
 
-	function ($scope, costCategories, costCategoryUid, $modalInstance) {
+	function ($scope, costCategories, costCategoryUid, $modalInstance, $translate) {
 		"use strict";
 
+        $scope.language = $translate.use();
         $scope.costCategories = costCategories;
         $scope.costCategoryUid = costCategoryUid;
         $scope.costCategoryObject = {};
