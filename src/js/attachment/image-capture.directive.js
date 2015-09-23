@@ -18,10 +18,9 @@ function($timeout, $log, base64BinaryConverterService) {
 			// width to the value defined here, but the height will be
 			// calculated based on the aspect ratio of the input stream.
 
+			// We will scale the image width - hight will be computed
 			var width = 320;
-			// We will scale the image width to this
 			var height = 0;
-			// This will be computed based on the input stream
 
 			// |streaming| indicates whether or not we're currently streaming
 			// video from the camera. Obviously, we start at false.
@@ -29,7 +28,10 @@ function($timeout, $log, base64BinaryConverterService) {
 			var streaming = false;
 
 			// The various HTML elements we need to configure or control.
-			var video = document.getElementById('video'), canvas = document.getElementById('canvas'), image = document.getElementById('image'), videoSelect = document.getElementById('videoSource');
+			var video = document.getElementById('video'),
+				canvas = document.getElementById('canvas'),
+				image = document.getElementById('image'),
+				videoSelect = document.getElementById('videoSource');
 
 			//TODO user modernizer
 			//Check webRTC capability
@@ -67,6 +69,7 @@ function($timeout, $log, base64BinaryConverterService) {
 					"optional" : []
 				}
 			}, function(stream) {
+				$scope.videoStream = stream;
 				if (navigator.mozGetUserMedia) {
 					video.mozSrcObject = stream;
 				} else {
@@ -136,6 +139,9 @@ function($timeout, $log, base64BinaryConverterService) {
 					$timeout(function() {
 						$scope.submit(file);
 					});
+
+					$scope.videoStream.stop();
+					streaming = false;
 				}
 			};
 
