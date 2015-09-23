@@ -21,6 +21,7 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	function updateExpense() {
 		expenseRestService.getExpense($scope.expenseUid).then(function(response) {
 			$scope.expenseAccountingText = response.data.accounting;
+            $scope.expense = response.data;
 		});
 	}
 
