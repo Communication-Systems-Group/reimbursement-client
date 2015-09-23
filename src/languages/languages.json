@@ -327,6 +327,50 @@
 		"de": "Sie wurden erfolgreich ausgeloggt. Beehren Sie uns bald wieder mit Ihren Spesen.",
 		"en": "You were successfully logged out."
 	},
+	"captureAttachment.spinnerUploading": {
+		"de": "Der Anhang wird hochgeladen...",
+		"en": "Upload in progress..."
+	},
+	"captureAttachment.info": {
+		"de": "Wenn Sie den Anhang auf Ihrem Mobilgerät haben, können Sie ihn direkt von dort hochladen.",
+		"en": "You can use your mobile device to upload the attachment conveniently."
+	},
+	"captureAttachment.tryMobile": {
+		"de": "Mobilgerät verwenden.",
+		"en": "I use my mobile."
+	},
+	"captureAttachment.upload.centerText": {
+		"de": "Datei Auswählen",
+		"en": "Choose a file"
+	},
+	"captureAttachment.qr.title": {
+		"de": "Anhang mit Mobilgerät erfassen",
+		"en": "Capturing attachments using a mobile device"
+	},
+		"captureAttachment.qr.info": {
+		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet). Sie gelangen danach auf eine Seite in Ihrem mobile Browser, in welchem Sie den Anhang anfügen können.",
+		"en": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can upload your attachment using the touch screen is opened in your mobile device's browser."
+	},
+	"captureAttachment.qr.or": {
+		"de": "ODER",
+		"en": "OR"
+	},
+	"captureAttachment.qr.cancel": {
+		"de": "Abbrechen",
+		"en": "Cancel"
+	},
+	"captureAttachment.qr.capturedOnMobile": {
+		"de": "Anhang erfasst",
+		"en": "Attachment captured"
+	},
+	"attachmentCapture.mobile.complete": {
+		"de": "Der Anhang wurde erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät weiter, indem Sie auf den Button 'Anhang erfasst' klicken.",
+		"en": "The attachment was successfully uploaded. Please continue on your desktop device by clicking the button 'Attachment captured'."
+	},
+	"attachmentCapture.mobile.error": {
+		"de": "Der Anhang wurde erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät weiter, indem Sie auf den Button 'Anhang erfasst' klicken.",
+		"en": "The attachment was successfully uploaded. Please continue on your desktop device by clicking the button 'Attachment captured'."
+	},
 	"captureSignature.title": {
 		"de": "Unterschrift erfassen",
 		"en": "Capture Signature"

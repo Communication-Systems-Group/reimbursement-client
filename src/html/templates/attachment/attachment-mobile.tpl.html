@@ -1,23 +1,34 @@
 <div id="attachmentCaptureMobile">
+
 	<div class="complete" ng-class="{isComplete: isComplete}">
 		<div class="text">
 			<div><i class="fa fa-check-circle"></i></div>
-			{{ 'reimbursement.captureImage.mobile.complete' | translate }}
+			{{ 'reimbursement.attachmentCapture.mobile.complete' | translate }}
 		</div>
 	</div>
 	<div class="error" ng-class="{isError: isError}">
 		<div class="text">
 			<div><i class="fa fa-warning"></i></div>
-			{{ 'reimbursement.captureImage.mobile.error' | translate }}
+			{{ 'reimbursement.attachmentCapture.mobile.error' | translate }}
 		</div>
 	</div>
 
-	<spinner id="spinnerCaptureImageTouchMobile" label="{{ 'reimbursement.captureImage.spinnerUploading' | translate }}"></spinner>
+	<form id="attachmentCaptureImage">
+			<spinner id="spinnerAttachmentMobile" label="{{ 'reimbursement.attachmentCapture.mobile.spinnerUploading' | translate }}"></spinner>
+			<div class="image-upload">
+			<div flow-init="{target: postAttachmentPath, testChunks: false, singleFile: true, simultaneousUploads: 1}"
+				flow-name="flow.image" flow-file-added="validateFile($file)" flow-files-submitted="$flow.upload()"
+				flow-upload-started="showSpinner('spinnerAttachmentMobile')" flow-file-success="success()"
+				flow-file-error="error()">
 
-	<image-capture submit="submit" full="true" parents="'#attachmentCaptureMobile'"></image-capture>
 
+					<div flow-drop flow-btn ng-class="dropClass" flow-drag-enter="dropClass='dragOver'" flow-drag-leave="dropClass=''">
+						<div class="center uploadButton">
+							<i class="fa fa-plus-circle"></i> {{ 'reimbursement.captureAttachment.upload.centerText'| translate }}
+						</div>
+					</div>
+				</div>
+			</div>
 
-	<div flow-init="{ target: postAttachmentPath, testChunks: false, singleFile: true, simultaneousUploads: 1 }"
-		flow-name="flow.touchMobile" flow-upload-started="showSpinner('spinnerAttachmentTouchMobile')"
-		flow-file-success="success()" flow-file-error="error()"></div>
+		</form>
 </div>

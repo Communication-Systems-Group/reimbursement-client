@@ -7,7 +7,7 @@
 	#attachmentCaptureImage {
 		.image-upload {
 			border: 5px dashed $default-color-dark-cyan;
-			height: 260px;
+			height: 200px;
 			border-radius: 35px;
 			position: relative;
 			padding: 7px;
@@ -128,5 +128,49 @@
 		bottom: 12px;
 		right: 10px;
 		margin-top: 10px;
+	}
+
+	#attachmentCaptureImage {
+		padding: 60px;
+		height: 100%;
+
+		.image-upload {
+			border: 5px dashed $default-color-dark-cyan;
+			height: 100%;
+			border-radius: 35px;
+			position: relative;
+			padding: 7px;
+
+			div[flow-drop] {
+				width: 100%;
+				height: 100%;
+				border-radius: 28px;
+				&.dragOver {
+					background: $default-color-blue-drag-overlay;
+				}
+			}
+
+			.center {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				color: $default-color-dark-cyan;
+				font-size: 30px;
+				font-weight: 300;
+				user-select: none;
+				text-align: center;
+
+				&.uploadBar {
+					width: 40%;
+				}
+				&.uploadButton {
+					cursor: pointer;
+				}
+				.progress {
+					margin: 0;
+				}
+			}
+		}
 	}
 }

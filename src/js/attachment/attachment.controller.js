@@ -7,11 +7,14 @@ function($scope, $state, $modal, Modernizr, spinnerService, attachmentRestServic
 	$scope.Modernizr = Modernizr;
 	$scope.flow = {};
 
+	$scope.showAttachmentImage = false;
+	$scope.showAttachmentUpload = true;
 
 	$scope.showAttachment = function(){
 		attachmentRestService.getAttachment($scope.expenseItemUid).then(function(response) {
 			if(response.data.content){
 					showAttachmentInForm(base64BinaryConverterService.toBase64FromJson(response.data));
+					$scope.selectShowTab();
 				}
 			}, function(reason){
 				reason.errorHandled = true;
@@ -46,9 +49,10 @@ function($scope, $state, $modal, Modernizr, spinnerService, attachmentRestServic
 
 			modalInstance.result.then(function(response) {
 				var imageAsBase64 = base64BinaryConverterService.toBase64FromJson(response.data);
-				//TODO make all pretty
-				showAttachmentInForm(imageAsBase64);
+				//TODO make all pretty for example with directive features element instead of jQ
 				//$scope.addImageToElement(imageAsBase64);
+				showAttachmentInForm(imageAsBase64);
+
 			});
 		});
 	};
@@ -64,6 +68,7 @@ function($scope, $state, $modal, Modernizr, spinnerService, attachmentRestServic
 		}
 	};
 
+	//TODO check if this method is names correctly, I doubt it
 	$scope.onAttachmentUploadSuccess = function() {
 		var fileWrapper = $scope.flow.image.files[0];
 
@@ -87,6 +92,15 @@ function($scope, $state, $modal, Modernizr, spinnerService, attachmentRestServic
 			$log.error("File has not passed the validateFile check.");
 			return false;
 		}
+	};
+
+	$scope.selectShowTab = function() {
+		$scope.showAttachmentImage = true;
+		$scope.showAttachmentUpload = false;
+	};
+	$scope.selectUploadTab = function() {
+		$scope.showAttachmentImage = false;
+		$scope.showAttachmentUpload = true;
 	};
 
 }]);
