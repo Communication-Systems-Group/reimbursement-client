@@ -54,3 +54,17 @@ function ($filter, moment) {
         return $filter('date')(d, 'yyyy-MM-dd');
     };
 }]);
+
+app.filter('costCategoryTranslation', [ '$translate',
+
+    function ($translate) {
+        'use strict';
+
+        return function (object) {
+            if(object !== null) {
+                var language = $translate.use();
+
+                return object[language];
+            }
+        };
+    }]);

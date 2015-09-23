@@ -1,0 +1,50 @@
+<div id="show-cost-category">
+
+    <div class="modal-header">
+        <div class="close" ng-click="dismiss()">&times;</div>
+        <h3 class="modal-title">
+            <i class="fa fa-balance-scale"></i>
+            {{ 'reimbursement.expense-item.costcategory' | translate }}
+        </h3>
+    </div>
+
+    <div class="pos-rel">
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label for="costcategory" class="control-label">
+                        {{ 'reimbursement.expense-item.costcategory' | translate }}
+                    </label>
+                    <select id="costcategory" class="form-control" ng-model="costCategoryObject" ng-options="category.name.de for category in costCategories"></select>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>{{ 'reimbursement.cost_category.description' | translate }}</h4>
+                    <div class="alert alert-info" role="alert">
+                        {{costCategoryObject.description | costCategoryTranslation}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>{{ 'reimbursement.cost_category.accounting_policy' | translate }}</h3>
+                    <div class="alert alert-info" role="alert">
+                        {{costCategoryObject.accountingPolicy | costCategoryTranslation}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-default" ng-click="dismiss()">
+                <i class="fa fa-times"></i>
+                {{ 'reimbursement.expense.closeButton' | translate }}
+            </button>
+            <button class="btn btn-primary" ng-click="save()">
+                <i class="fa fa-save"></i>
+                {{ 'reimbursement.expense.costCategory.takeOver' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

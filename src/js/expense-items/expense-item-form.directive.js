@@ -1,6 +1,6 @@
-app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService',
+app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService', '$modal',
 
-function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesService, expenseItemsRestService) {
+function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesService, expenseItemsRestService, $modal) {
 	"use strict";
 
 	return {
@@ -158,6 +158,25 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 						$scope.calculateAmount();
 					});
 				});
+
+                $scope.openCostCategoryModal = function() {
+                    var modalinstance = $modal.open({
+                        templateUrl : 'administration/show-cost-category.modal.tpl.html',
+                        controller : 'CostCategoryModalController',
+                        resolve : {
+                            costCategories: function() {
+                                return $scope.costCategories;
+                            },
+                            costCategoryUid: function() {
+                                return $scope.form.costCategoryUid;
+                            }
+                        }
+                    });
+
+                    modalinstance.result.then(function(response){
+                        $scope.form.costCategoryUid = response;
+                    });
+                };
 			}
 		}
 	};

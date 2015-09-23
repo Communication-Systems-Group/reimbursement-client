@@ -617,6 +617,10 @@
 		"de": "Schliessen",
 		"en": "Close"
 	},
+    "expense.costCategory.takeOver": {
+        "de": "Übernehmen",
+        "en": "Take over"
+    },
 	"expense.submitToProfButton": {
 		"de": "An Professor zuweisen",
 		"en": "Submit to Professor"
