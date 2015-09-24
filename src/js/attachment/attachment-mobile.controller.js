@@ -1,6 +1,6 @@
-app.controller('AttachmentMobileController', ['$scope', '$location', '$log','attachmentRestService', 'spinnerService','base64BinaryConverterService','fileExtensionService',
+app.controller('AttachmentMobileController', ['$scope', '$location', 'attachmentRestService', 'spinnerService','base64BinaryConverterService','fileExtensionService','globalMessagesService',
 
-function($scope, $location, $log, attachmentRestService, spinnerService, base64BinaryConverterService, fileExtensionService) {
+function($scope, $location, attachmentRestService, spinnerService, base64BinaryConverterService, fileExtensionService,globalMessagesService) {
 	"use strict";
 
 	var tokenUid = $location.path().split("/")[2];
@@ -30,7 +30,7 @@ function($scope, $location, $log, attachmentRestService, spinnerService, base64B
 			return fileExtensionService.isImageFile($file.name) || fileExtensionService.isPdfFile($file.name);
 		}
 		else {
-			$log.error("File has not passed the validateFile check.");
+			globalMessagesService.showWarning("reimbursement.globalMessage.notAnImage.title", "reimbursement.globalMessage.notAnImage.message");
 			return false;
 		}
 	};
