@@ -1,6 +1,8 @@
 {
 	"name": "reimbursement-client",
 	"dependencies": {
+		"d3": "^3.5.6",
+		"c3": "^0.4.10",
 		"angular": "^1.4.1",
 		"angular-translate": "^2.7.2",
 		"angular-route": "^1.4.1",
@@ -21,6 +23,7 @@
 		"eonasdan-bootstrap-datetimepicker": "^4.15.35"
 	},
 	"resolutions": {
-		"angular": "^1.4.1"
+		"angular": "^1.4.1",
+		"d3": "^3.5.6"
 	}
 }

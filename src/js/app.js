@@ -39,6 +39,7 @@ var app = angular.module('reimbursement', ['reimbursement.templates', 'ui.router
 
 app.constant("Modernizr", Modernizr);
 app.constant("moment", moment);
+app.constant("c3", c3);
 app.constant("HOST", window.location.protocol + "//" + window.location.host.split(":")[0]);
 //app.constant("HOST", "//localhost:8080");
 

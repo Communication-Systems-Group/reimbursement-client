@@ -1,5 +1,29 @@
 <div id="admin-pool">
 	<h1 class="page-header"><i class="fa fa-bar-chart"></i> {{ 'reimbursement.adminPool.title' | translate }} </h1>
+
+	<div class="row">
+		<div class="col-sm-3">
+			<h4 class="text-center">
+				<span class="pre-wrap">Current State Distribution<br>(without &laquo;printed&raquo;)</span>
+			</h4>
+			<div id="graph-donut-current-state-distribution"></div>
+		</div>
+		<div class="col-sm-3">
+			<h4 class="text-center">
+				<span class="pre-wrap">Percentage of accepted expenses<br>(Data from the last 12 months)</span>
+			</h4>
+			<div id="graph-gauge-accepted-declined"></div>
+		</div>
+		<div class="col-sm-6">
+			<h4 class="text-center">
+				<span class="pre-wrap">Total Expense Amount in CHF<br>(Data from the year 2015)</span>
+			</h4>
+			<div id="graph-line-sum-current-year"></div>
+		</div>
+	</div>
+
+	<hr>
+
 	<div class="col-sm-10 col-sm-offset-1">
 		<div class="panel panel-default">
 			<div class="panel-heading">
