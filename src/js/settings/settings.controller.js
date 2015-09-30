@@ -2,24 +2,26 @@ app.controller('SettingsController', ['$scope', '$state', '$timeout', '$translat
 
 function($scope, $state, $timeout, $translate, settingsRestService, USER, globalMessagesService, base64BinaryConverterService) {
 	'use strict';
+
+	$scope.form = {};
 	$scope.languages = [];
-	$scope.personnelNumber = USER.personnelNumber;
-	$scope.phoneNumber = USER.phoneNumber;
-	$scope.active = USER.active;
+	$scope.form.personnelNumber = USER.personnelNumber;
+	$scope.form.phoneNumber = USER.phoneNumber;
+	$scope.form.isActive = USER.isActive;
 
 	settingsRestService.getSupportedLanguages().then(function(response) {
 		$scope.languages = response.data;
 		$timeout(function() {
-			$scope.selectedLanguage = USER.language;
+			$scope.form.language = USER.language;
 		});
 	});
 	$scope.saveSettings = function() {
-		settingsRestService.putSettings($scope.selectedLanguage, $scope.personnelNumber, $scope.phoneNumber, $scope.active).then(function() {
-			USER.active = $scope.active;
-			USER.personnelNumber = $scope.personnelNumber;
-			USER.phoneNumber = $scope.phoneNumber;
-			USER.language = $scope.selectedLanguage;
-			$translate.use($scope.selectedLanguage.toLowerCase());
+		settingsRestService.putSettings($scope.form).then(function() {
+			USER.isActive = $scope.form.isActive;
+			USER.personnelNumber = $scope.form.personnelNumber;
+			USER.phoneNumber = $scope.form.phoneNumber;
+			USER.language = $scope.form.language;
+			$translate.use($scope.form.language.toLowerCase());
 			globalMessagesService.showInfo('reimbursement.settings.user.submitInfoTitle',
 				'reimbursement.settings.user.submitInfoMessage');
 		});

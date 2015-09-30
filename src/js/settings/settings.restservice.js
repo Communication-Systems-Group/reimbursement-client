@@ -10,16 +10,11 @@ function($http, HOST) {
 		});
 	}
 
-	function putSettings(language, personnelNumber, phoneNumber, active) {
+	function putSettings(data) {
 		return $http({
 			method: 'PUT',
 			url: HOST + '/api/user/settings',
-			data: {
-				language: language,
-				personnelNumber: personnelNumber,
-				phoneNumber: phoneNumber,
-				active: active
-			}
+			data: data
 		});
 	}
 
