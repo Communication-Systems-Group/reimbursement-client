@@ -1,12 +1,12 @@
-app.controller('GuestViewExpenseController', ['$scope', '$state', '$stateParams',
+app.controller('GuestViewViewExpenseController', ['$scope', '$stateParams', 'expenseItem', '$modalInstance',
 
-	function ($scope, $state, $stateParams) {
+	function ($scope, $stateParams, expenseItem, $modalInstance) {
 		"use strict";
 
-		$scope.token = '';
-        $scope.expenseUid = $stateParams.uid;
+		$scope.dismiss = function() {
+			$modalInstance.close();
+		};
 
-        $scope.isAuthorized = true;
-        $scope.isLoading = false;
+		$scope.expenseItem = expenseItem;
 
 	}]);
