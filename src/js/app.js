@@ -156,11 +156,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "CreateExpenseController",
 			onEnter: requireAuthentication()
 
-        }).state('edit-expense', {
-            url: "/edit-expense/:uid",
-            templateUrl: "expense/create-expense.tpl.html",
-            controller: "CreateExpenseController",
-            onEnter: requireAuthentication()
+		}).state('edit-expense', {
+			url: "/edit-expense/:uid",
+			templateUrl: "expense/create-expense.tpl.html",
+			controller: "CreateExpenseController",
+			onEnter: requireAuthentication()
 
 		}).state('view-expense', {
 			url: "/view-expense/:uid",
