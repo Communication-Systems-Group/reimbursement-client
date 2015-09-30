@@ -46,25 +46,25 @@ function($translate, $filter) {
 app.filter('getISODate', [ '$filter', 'moment',
 
 function ($filter, moment) {
-    'use strict';
+		'use strict';
 
-    return function (date) {
-        var d = new Date(moment(date, 'DD.MM.YYYY'));
+		return function (date) {
+			var d = new Date(moment(date, 'DD.MM.YYYY'));
 
-        return $filter('date')(d, 'yyyy-MM-dd');
-    };
+			return $filter('date')(d, 'yyyy-MM-dd');
+		};
 }]);
 
 app.filter('costCategoryTranslation', [ '$translate',
 
-    function ($translate) {
-        'use strict';
+	function ($translate) {
+		'use strict';
 
-        return function (object) {
-            if(object !== null) {
-                var language = $translate.use();
+		return function (object) {
+			if(object !== null) {
+				var language = $translate.use();
 
-                return object[language];
-            }
-        };
-    }]);
+				return object[language];
+			}
+		};
+	}]);

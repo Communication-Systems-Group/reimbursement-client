@@ -7,26 +7,26 @@ app.controller('PrintExpenseController', ['$scope', '$state', '$stateParams', 'e
 		$scope.expenseItems = [];
 		$scope.expenseState = '';
 
-        expenseRestService.getExpense($scope.expenseUid).then(function (response) {
-            $scope.expenseAccountingText = response.data.accounting;
-            $scope.expenseState = response.data.state;
-        });
+		expenseRestService.getExpense($scope.expenseUid).then(function (response) {
+			$scope.expenseAccountingText = response.data.accounting;
+			$scope.expenseState = response.data.state;
+		});
 
-        $scope.showPdf = function() {
-            globalMessagesService.confirmInfoMd("reimbursement.expense.printWithSignature",
-                    "reimbursement.expense.printWithSignatureMessage")
-                .then(function() {
-                    var data = {showSignature: true};
-                    expenseRestService.getExpensePdf($scope.expenseUid, data).then();
+		$scope.showPdf = function() {
+			globalMessagesService.confirmInfoMd("reimbursement.expense.printWithSignature",
+					"reimbursement.expense.printWithSignatureMessage")
+				.then(function() {
+					var data = {showSignature: true};
+					expenseRestService.getExpensePdf($scope.expenseUid, data).then();
 
-                    // ToDo show sent document from server
-                })
-                .catch(function() {
-                    var data = {showSignature: false};
-                    expenseRestService.getExpensePdf($scope.expenseUid, data).then();
+					// ToDo show sent document from server with signatur
+				})
+				.catch(function() {
+					var data = {showSignature: false};
+					expenseRestService.getExpensePdf($scope.expenseUid, data).then();
 
-                    // ToDo show sent document from server
-                });
-        };
+					// ToDo show sent document from server without signature
+				});
+		};
 
 	}]);

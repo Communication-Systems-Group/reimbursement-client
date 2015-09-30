@@ -3,13 +3,13 @@ app.directive('navigationBar', ['USER', '$translate',
 function(USER, $translate) {
 	"use strict";
 
-    function reverselanguage(language) {
-        if(language === 'en') {
-            return 'de';
-        } else {
-            return 'en';
-        }
-    }
+	function reverselanguage(language) {
+		if(language === 'en') {
+			return 'de';
+		} else {
+			return 'en';
+		}
+	}
 
 	return {
 		restrict: 'E',
@@ -18,13 +18,12 @@ function(USER, $translate) {
 		link: function($scope) {
 
 			$scope.USER = USER;
-            $scope.inverseLanguage = reverselanguage($translate.use());
+			$scope.inverseLanguage = reverselanguage($translate.use());
 
-            $scope.switchLanguage = function(language) {
-                $translate.use(language);
-
-                $scope.inverseLanguage = reverselanguage(language);
-            };
+			$scope.switchLanguage = function(language) {
+				$translate.use(language);
+				$scope.inverseLanguage = reverselanguage(language);
+			};
 		}
 	};
 

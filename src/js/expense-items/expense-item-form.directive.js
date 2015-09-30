@@ -105,7 +105,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 					if($scope.form.date !== "" && $scope.form.date !== undefined) {
 						// only make back-end calls if necessary
 						if(exchangeRateDate !== $filter('getISODate')($scope.form.date)) {
-                            var date = $filter('getISODate')($scope.form.date);
+							var date = $filter('getISODate')($scope.form.date);
 							expenseItemsRestService.getExchangeRates(date).then(function(response) {
 								exchangeRates = response.data;
 								exchangeRateDate = $scope.form.date;
@@ -159,24 +159,24 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 					});
 				});
 
-                $scope.openCostCategoryModal = function() {
-                    var modalinstance = $modal.open({
-                        templateUrl : 'expense-items/show-cost-category.modal.tpl.html',
-                        controller : 'CostCategoryModalController',
-                        resolve : {
-                            costCategories: function() {
-                                return $scope.costCategories;
-                            },
-                            costCategoryUid: function() {
-                                return $scope.form.costCategoryUid;
-                            }
-                        }
-                    });
+				$scope.openCostCategoryModal = function() {
+					var modalinstance = $modal.open({
+						templateUrl : 'expense-items/show-cost-category.modal.tpl.html',
+						controller : 'CostCategoryModalController',
+						resolve : {
+							costCategories: function() {
+								return $scope.costCategories;
+							},
+							costCategoryUid: function() {
+								return $scope.form.costCategoryUid;
+							}
+						}
+					});
 
-                    modalinstance.result.then(function(response){
-                        $scope.form.costCategoryUid = response;
-                    });
-                };
+					modalinstance.result.then(function(response) {
+						$scope.form.costCategoryUid = response;
+					});
+				};
 			}
 		}
 	};

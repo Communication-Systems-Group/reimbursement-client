@@ -24,8 +24,8 @@ function($scope, $modalInstance, globalMessagesService, spinnerService, expenseI
 			spinnerService.show('spinnerExpenseItemForm');
 			$scope.hideClose = true;
 
-            var data = $scope.form;
-            data.date = $filter('getISODate')(data.date);
+			var data = $scope.form;
+			data.date = $filter('getISODate')(data.date);
 			expenseItemsRestService.putExpenseItem(expenseItemUid, $scope.form).then(function() {
 				$modalInstance.close();
 			})['finally'](function() {

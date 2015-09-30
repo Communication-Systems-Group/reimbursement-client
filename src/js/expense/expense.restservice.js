@@ -61,20 +61,20 @@ function($http, HOST) {
 		});
 	}
 
-    function getExpensePdf(uid, data) {
-        return $http({
-            method: 'POST',
-            url: HOST + '/api/expense/' + uid + '/print',
-            data: data
-        });
-    }
+	function getExpensePdf(uid, data) {
+		return $http({
+			method: 'POST',
+			url: HOST + '/api/expense/' + uid + '/print',
+			data: data
+		});
+	}
 
-    function getExpenseToken(uid) {
-        return $http({
-            method: 'POST',
-            url: HOST + '/api/public/expenses/' + uid + '/token'
-        });
-    }
+	function getExpenseToken(uid) {
+		return $http({
+			method: 'POST',
+			url: HOST + '/api/public/expenses/' + uid + '/token'
+		});
+	}
 
 	return {
 		postCreateExpense: postCreateExpense,
@@ -84,8 +84,8 @@ function($http, HOST) {
 		getAccessRights: getAccessRights,
 		accept: accept,
 		reject: reject,
-        getExpensePdf: getExpensePdf,
-        getExpenseToken: getExpenseToken
+		getExpensePdf: getExpensePdf,
+		getExpenseToken: getExpenseToken
 	};
 
 }]);
