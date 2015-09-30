@@ -184,10 +184,10 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "expense/sign-expense.tpl.html",
 			controller: "SignExpenseController",
 
-        }).state('guest-view-expense', {
-            url: "/guest-view-expense/:uid",
-            templateUrl: "expense/guest-expense.tpl.html",
-            controller: "GuestViewExpenseController"
+		}).state('guest-view-expense', {
+			url: "/guest-view-expense/:uid",
+			templateUrl: "expense/guest-expense.tpl.html",
+			controller: "GuestViewExpenseController"
 
 		}).state('testingPage', {
 			url: "/testingPage",

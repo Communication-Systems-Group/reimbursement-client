@@ -657,10 +657,10 @@
 		"de": "Schliessen",
 		"en": "Close"
 	},
-    "expense.costCategory.takeOver": {
-        "de": "Übernehmen",
-        "en": "Take over"
-    },
+	"expense.costCategory.takeOver": {
+		"de": "Übernehmen",
+		"en": "Take over"
+	},
 	"expense.submitToProfButton": {
 		"de": "An Professor zuweisen",
 		"en": "Submit to Professor"
@@ -721,26 +721,26 @@
 		"de": "Bitte füllen Sie alle Felder komplett aus.",
 		"en": "Please fill out every input field."
 	},
-    "expense.print": {
-        "de": "Drucken",
-        "en": "Print"
-    },
-    "expense.showPdf": {
-        "de": "PDF anzeigen",
-        "en": "Show PDF"
-    },
-    "expense.printExpense": {
-        "de": "Spesendokument drucken",
-        "en": "Print expense document"
-    },
-    "expense.printWithSignature": {
-        "de": "Signatur hinzufügen?",
-        "en": "Add signature?"
-    },
-    "expense.printWithSignatureMessage": {
-        "de": "Soll Ihre erfasste Unterschrift dem Dokument hinzugefügt werden?",
-        "en": "Do you want to print the document with your signature on it?"
-    },
+	"expense.print": {
+		"de": "Drucken",
+		"en": "Print"
+	},
+	"expense.showPdf": {
+		"de": "PDF anzeigen",
+		"en": "Show PDF"
+	},
+	"expense.printExpense": {
+		"de": "Spesendokument drucken",
+		"en": "Print expense document"
+	},
+	"expense.printWithSignature": {
+		"de": "Signatur hinzufügen?",
+		"en": "Add signature?"
+	},
+	"expense.printWithSignatureMessage": {
+		"de": "Soll Ihre erfasste Unterschrift dem Dokument hinzugefügt werden?",
+		"en": "Do you want to print the document with your signature on it?"
+	},
 	"expense.accounting_text": {
 		"de": "Buchungstext (sichtbar in SAP)",
 		"en": "Account value (visual in SAP)"
@@ -897,26 +897,26 @@
 		"de": "Detailansicht Belege",
 		"en": "Added expense items"
 	},
-    "expense.guest_view": {
-        "de": "Gastansicht",
-        "en": "Guest view"
-    },
-    "expense.guest_view_success": {
-        "de": "Ihr QR-Code wurde erkannt! Nun können Sie die digitale Version des PDF's laden.",
-        "en": "Your QR-Code has been recognized! Download the digital version of the PDF here."
-    },
-    "expense.guest_view_error": {
-        "de": "Ihr QR-Code wurde leider nicht erkannt!",
-        "en": "Unfortunately your QR-Code has not been recognized!"
-    },
-    "expense.guest_view_button_complete": {
-        "de": "Spese (inkl. Belege)",
-        "en": "Expense (incl. receipts)"
-    },
-    "expense.guest_view_button_half": {
-        "de": "Spese (exkl. Belege)",
-        "en": "Expense (excl. receipts)"
-    },
+	"expense.guest_view": {
+		"de": "Gastansicht",
+		"en": "Guest view"
+	},
+	"expense.guest_view_success": {
+		"de": "Ihr QR-Code wurde erkannt! Nun können Sie die digitale Version des PDF's laden.",
+		"en": "Your QR-Code has been recognized! Download the digital version of the PDF here."
+	},
+	"expense.guest_view_error": {
+		"de": "Ihr QR-Code wurde leider nicht erkannt!",
+		"en": "Unfortunately your QR-Code has not been recognized!"
+	},
+	"expense.guest_view_button_complete": {
+		"de": "Spese (inkl. Belege)",
+		"en": "Expense (incl. receipts)"
+	},
+	"expense.guest_view_button_half": {
+		"de": "Spese (exkl. Belege)",
+		"en": "Expense (excl. receipts)"
+	},
 	"expense.first_lastname": {
 		"de": "Vor- / Nachname",
 		"en": "First- / lastname"
@@ -1029,10 +1029,10 @@
 		"de": "Entwurf",
 		"en": "Draft"
 	},
-    "expense.state.signed": {
-        "de": "Signiert",
-        "en": "Signed"
-    },
+	"expense.state.signed": {
+		"de": "Signiert",
+		"en": "Signed"
+	},
 	"expense.state.rejected": {
 		"de": "Abgelehnt",
 		"en": "Rejected"
