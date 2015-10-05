@@ -27,7 +27,7 @@ function($scope, $state, $timeout, $translate, settingsRestService, USER, global
 		});
 	};
 	$scope.newSignature = function() {
-		globalMessagesService.confirmWarning('reimbursement.settings.signature.submitWarningTitle',
+		globalMessagesService.confirmInfoMd('reimbursement.settings.signature.submitWarningTitle',
 			'reimbursement.settings.signature.submitWarningMessage').then(function() {
 
 			$state.go('signature');
