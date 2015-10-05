@@ -7,7 +7,7 @@ function($http, HOST) {
 		return $http({
 			method: 'POST',
 			url: HOST + '/api/expenses',
-			data: {
+			params: {
 				accounting: accounting
 			}
 		});
@@ -48,8 +48,8 @@ function($http, HOST) {
 		return $http({
 			method: 'PUT',
 			url: HOST + '/api/expenses/'+uid+'/reject',
-			data: {
-				text: reason
+			params: {
+				comment: reason
 			}
 		});
 	}
