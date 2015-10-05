@@ -1,0 +1,24 @@
+<div id="guest-view-expense">
+	<h1 class="page-header">
+		<span class="vert-mid">{{ expenseAccountingText }}</span>
+		<small class="vert-mid">
+			<expense-state state="expenseState"></expense-state>
+		</small>
+	</h1>
+
+	<h2 class="page-header">
+		<i class="fa fa-clone"></i>
+		{{ 'reimbursement.expense-items.titleNotEditable' | translate }}
+	</h2>
+
+	<list-expense-items expense-uid="expenseUid"></list-expense-items>
+
+	<hr>
+
+	<form class="form-inline text-right">
+		<button class="btn btn-primary">
+			<i class="fa fa-download"></i>
+			{{ 'reimbursement.expense.downloadPdf' | translate }}
+		</button>
+	</form>
+</div>

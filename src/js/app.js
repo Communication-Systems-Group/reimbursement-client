@@ -135,6 +135,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "settings/settings.tpl.html",
 			controller: 'SettingsController',
 			onEnter: requireAuthentication()
+
 		}).state('cropping', {
 			// no url, because the cropping should not be opened manually
 			params: {
@@ -168,10 +169,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "ViewExpenseController",
 			onEnter: requireAuthentication()
 
-		 }).state('print-expense', {
-		  url: "/print-expense/:uid",
-		  templateUrl: "expense/print-expense.tpl.html",
-		  controller: "PrintExpenseController"
+		}).state('print-expense', {
+			url: "/print-expense/:uid",
+			templateUrl: "expense/print-expense.tpl.html",
+			controller: "PrintExpenseController",
+			onEnter: requireAuthentication()
 
 		}).state('review-expense', {
 			url: "/review-expense/:uid",
@@ -183,10 +185,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			url: "/sign-expense/:uid",
 			templateUrl: "expense/sign-expense.tpl.html",
 			controller: "SignExpenseController",
+			onEnter: requireAuthentication()
 
 		}).state('guest-view-expense', {
-			url: "/guest-view-expense/:uid",
-			templateUrl: "expense/guest-expense.tpl.html",
+			url: "/guest-view-expense/:token",
+			templateUrl: "expense/guest-view-expense.tpl.html",
 			controller: "GuestViewExpenseController"
 
 		}).state('testingPage', {
