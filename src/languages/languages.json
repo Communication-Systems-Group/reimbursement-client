@@ -613,10 +613,10 @@
 		"de": "Begründung",
 		"en": "Justification"
 	},
-    "expense.rejectComment": {
-        "de": "Dein Spesenantrag wurde von der zuständigen Person abgelehnt. Folgende Nachricht wurde dazu hinterlassen: {{message}}",
-        "en": "Your expense-item has been rejected by the responsible person. The following message has been added: {{message}}"
-    },
+	"expense.rejectComment": {
+		"de": "Dein Spesenantrag wurde von der zuständigen Person abgelehnt. Folgende Nachricht wurde dazu hinterlassen:",
+		"en": "Your expense-item has been rejected by the responsible person. The following message has been added:"
+	},
 	"expense.sign": {
 		"de": "Signieren",
 		"en": "Sign"
