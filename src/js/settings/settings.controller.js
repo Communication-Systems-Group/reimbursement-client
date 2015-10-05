@@ -22,7 +22,7 @@ function($scope, $state, $timeout, $translate, settingsRestService, USER, global
 			USER.phoneNumber = $scope.form.phoneNumber;
 			USER.language = $scope.form.language;
 			$translate.use($scope.form.language.toLowerCase());
-			globalMessagesService.showInfo('reimbursement.settings.user.submitInfoTitle',
+			globalMessagesService.showInfoMd('reimbursement.settings.user.submitInfoTitle',
 				'reimbursement.settings.user.submitInfoMessage');
 		});
 	};
