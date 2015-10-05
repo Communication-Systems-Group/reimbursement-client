@@ -6,6 +6,7 @@ app.controller('ViewExpenseController', ['$scope', '$state', '$stateParams', 'ex
 		$scope.expenseUid = $stateParams.uid;
 		$scope.expenseItems = [];
 		$scope.expenseState = '';
+		$scope.expenseComment = '';
 
 		$scope.returnToDashboard = function () {
 			$state.go('dashboard');
@@ -17,6 +18,7 @@ app.controller('ViewExpenseController', ['$scope', '$state', '$stateParams', 'ex
 				expenseRestService.getExpense($scope.expenseUid).then(function (response) {
 					$scope.expenseAccountingText = response.data.accounting;
 					$scope.expenseState = response.data.state;
+					$scope.expenseComment = response.data.rejectComment;
 				});
 			}
 			else {

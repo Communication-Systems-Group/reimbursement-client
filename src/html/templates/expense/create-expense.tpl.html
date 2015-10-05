@@ -10,7 +10,8 @@
 
 	<div ng-if="expense.state === 'REJECTED'" class="alert alert-danger" role="alert">
 		<i class="fa fa-times"></i>
-		<span translate="reimbursement.expense.rejectComment" translate-values="{message: expense.rejectComment}"></span>
+		<span>{{ 'reimbursement.expense.rejectComment' | translate }}</span>
+		<div><b>{{ expense.rejectComment}}</b></div>
 	</div>
 
 	<h2 class="page-header">
