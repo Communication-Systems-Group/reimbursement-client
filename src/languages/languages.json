@@ -368,8 +368,8 @@
 		"en": "The attachment was successfully uploaded. Please continue on your desktop device by clicking the button 'Attachment captured'."
 	},
 	"attachmentCapture.mobile.error": {
-		"de": "Der Anhang wurde erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät weiter, indem Sie auf den Button 'Anhang erfasst' klicken.",
-		"en": "The attachment was successfully uploaded. Please continue on your desktop device by clicking the button 'Attachment captured'."
+		"de": "Der Anhang konnte nicht hochgeladen werden. Bitte versuchen Sie es noch einmal.",
+		"en": "The attachment has not been uploaded. Please try again."
 	},
 	"captureSignature.title": {
 		"de": "Unterschrift erfassen",
