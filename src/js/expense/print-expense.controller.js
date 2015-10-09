@@ -10,6 +10,9 @@ app.controller('PrintExpenseController', ['$scope', '$state', '$stateParams', 'e
 		expenseRestService.getExpense($scope.expenseUid).then(function (response) {
 			$scope.expenseAccountingText = response.data.accounting;
 			$scope.expenseState = response.data.state;
+		}, function(response) {
+			// error handled in list-expense-items.directive
+			response.errorHandled = true;
 		});
 
 		$scope.showPdf = function() {
@@ -20,8 +23,7 @@ app.controller('PrintExpenseController', ['$scope', '$state', '$stateParams', 'e
 					expenseRestService.getExpensePdf($scope.expenseUid, data).then();
 
 					// ToDo show sent document from server with signatur
-				})
-				.catch(function() {
+				}, function() {
 					var data = {showSignature: false};
 					expenseRestService.getExpensePdf($scope.expenseUid, data).then();
 

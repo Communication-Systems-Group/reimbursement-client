@@ -21,7 +21,7 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	function updateExpense() {
 		expenseRestService.getExpense($scope.expenseUid).then(function(response) {
 			$scope.expenseAccountingText = response.data.accounting;
-            $scope.expense = response.data;
+			$scope.expense = response.data;
 		});
 	}
 
@@ -32,6 +32,9 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 		else {
 			$state.go('dashboard');
 		}
+	}, function(response) {
+		// error handled in list-expense-items.directive
+		response.errorHandled = true;
 	});
 
 	$scope.editExpenseSap = function() {

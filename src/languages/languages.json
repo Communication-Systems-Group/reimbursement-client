@@ -307,6 +307,10 @@
 		"de": "Keine Spesen gefunden",
 		"en": "No expenses found"
 	},
+	"globalMessage.ExpenseNotFoundException.message": {
+		"de": "Der Spesenantrag inkl. Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
+		"en": "The expense incl. its receipts could not be found. Please make sure, that there is no error in the address. You will be redirected now."
+	},
 	"login.title": {
 		"de": "Login",
 		"en": "Login"

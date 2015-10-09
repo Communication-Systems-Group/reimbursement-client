@@ -123,6 +123,15 @@ function($modal, $filter, $timeout, $state, spinnerService, globalMessagesServic
 					else {
 						$state.go('dashboard');
 					}
+				}, function(response) {
+					// expense could not be found.
+					response.errorHandled = true;
+
+					globalMessagesService.showErrorMd("reimbursement.globalMessage.ExpenseNotFoundException.title",
+						"reimbursement.globalMessage.ExpenseNotFoundException.message")
+					.then()['finally'](function() {
+						$state.go('dashboard');
+					});
 				});
 			});
 		}

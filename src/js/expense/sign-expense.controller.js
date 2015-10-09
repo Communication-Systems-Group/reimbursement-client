@@ -23,6 +23,9 @@ app.controller('SignExpenseController', ['$scope', '$state', '$stateParams', 'ex
 				$state.go('dashboard');
 			}
 
+		}, function(response) {
+			// error handled in list-expense-items.directive
+			response.errorHandled = true;
 		});
 
 		$scope.sign = function () {

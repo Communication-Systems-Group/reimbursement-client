@@ -17,6 +17,9 @@ app.controller('GuestViewExpenseController', ['$scope', '$state', '$stateParams'
 			else {
 				$state.go('dashboard');
 			}
+		}, function(response) {
+			// error handled in list-expense-items.directive
+			response.errorHandled = true;
 		});
 
 	}]);

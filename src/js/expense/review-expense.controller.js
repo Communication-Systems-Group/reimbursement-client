@@ -31,6 +31,9 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 		else {
 			$state.go('dashboard');
 		}
+	}, function(response) {
+		// error handled in list-expense-items.directive
+		response.errorHandled = true;
 	});
 
 	$scope.editExpenseSap = function() {
