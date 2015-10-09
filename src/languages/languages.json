@@ -51,6 +51,10 @@
 		"de": "Buchhaltungsbeschreibung (SAP)",
 		"en": "Accounting description (SAP)"
 	},
+	"adminPool.date": {
+		"de": "Spesen ab Datum",
+		"en": "Expenses from date"
+	},
 	"adminPool.userRole": {
 		"de": "Berechtigung Antragssteller",
 		"en": "Permission of Expense Creator"

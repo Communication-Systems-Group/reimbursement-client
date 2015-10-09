@@ -1,10 +1,11 @@
-app.controller('AdminPoolController', ['$scope', 'administrationRestService', 'c3',
+app.controller('AdminPoolController', ['moment', '$scope', '$timeout', 'administrationRestService', 'c3',
 
-function($scope, administrationRestService, c3) {
+function(moment, $scope, $timeout, administrationRestService, c3) {
 	'use strict';
 	$scope.roles = [];
 	$scope.expenses = [];
 	$scope.form = {};
+
 
 	administrationRestService.getRoles().then(function(response) {
 		$scope.roles = response.data;
@@ -15,6 +16,20 @@ function($scope, administrationRestService, c3) {
 			$scope.expenses = response.data;
 		});
 	};
+
+	$timeout(function() {
+			$scope.form.date = moment().subtract(6, 'months').format('DD.MM.YYYY');
+					jQuery('.datepicker').datetimepicker({
+						format: 'DD.MM.YYYY',
+						viewMode: 'months',
+						allowInputToggle: true,
+						maxDate: moment(),
+						calendarWeeks: true
+					}).on('dp.hide', function() {
+						$scope.form.date = jQuery('.datepicker').find('input').first().val();
+						$scope.calculateAmount();
+					});
+				});
 
 	c3.generate({
 		bindto: "#graph-donut-current-state-distribution",
