@@ -617,6 +617,10 @@
 		"de": "Mir zuweisen",
 		"en": "Assign to me"
 	},
+	"expense.downloadPdf": {
+		"de": "Signiertes PDF herunterladen",
+		"en": "Download signed PDF"
+	},
 	"expense.rejectReason": {
 		"de": "Begründung",
 		"en": "Justification"
