@@ -7,7 +7,8 @@
 		resolve: {
 			LANGUAGES: ['$http',
 				function ($http) {
-					return $http.get('/languages/languages.json');
+					var languagePath = "/" + jQuery("#languagesPath").data("path");
+					return $http.get(languagePath);
 				}],
 			USER: ['$q', '$http',
 				function ($q, $http) {
@@ -30,7 +31,8 @@
 							deferred.resolve(data);
 						});
 					return deferred.promise;
-				}]
+				}
+			]
 		}
 	});
 })();

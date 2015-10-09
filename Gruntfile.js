@@ -166,6 +166,22 @@ module.exports = function (grunt) {
 			}
 		},
 
+		filerev: {
+			options: {
+				algorithm: 'md5',
+				length: 25
+			},
+			dist: {
+				files: [{
+					src: [
+						'dist/languages/*.json',
+						'dist/javascript/*.js',
+						'dist/styles/*.css',
+					]
+				}]
+			}
+		},
+
 		// concats all css & js files from the index.html
 		useminPrepare: {
 			dev: 'src/html/index.html',
@@ -185,7 +201,10 @@ module.exports = function (grunt) {
 
 		// replaces the source files from index.html
 		usemin: {
-			dev: ['dist/index.html']
+			html: ['dist/index.html'],
+			options: {
+				assetsDirs: ['dist']
+			}
 		},
 
 		// concats only the app.js with templates.js (from html2js)
@@ -295,6 +314,7 @@ module.exports = function (grunt) {
 		'autoprefixer',
 		'copy',
 		'convertLanguageJson',
+		'filerev',
 		'usemin',
 		'clean:tmp'
 	]);
@@ -312,9 +332,10 @@ module.exports = function (grunt) {
 		'autoprefixer',
 		'copy',
 		'convertLanguageJson',
-		'usemin',
 		'uglify',
 		'cssmin',
+		'filerev',
+		'usemin',
 		'clean:tmp'
 	]);
 
@@ -338,4 +359,5 @@ module.exports = function (grunt) {
 		'war',
 		'http_upload'
 	]);
+
 };
