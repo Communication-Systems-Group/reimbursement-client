@@ -14,7 +14,7 @@ function($http, HOST) {
 	function getCostCategories() {
 		return $http({
 			method: 'GET',
-			url: HOST + '/api/user/cost-categories'
+			url: HOST + '/api/public/cost-categories'
 		});
 	}
 

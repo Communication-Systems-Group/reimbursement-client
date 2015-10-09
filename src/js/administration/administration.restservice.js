@@ -5,7 +5,7 @@ app.factory('administrationRestService', ['$http', 'HOST',
 		'use strict';
 
 		function getCostCategories() {
-			return $http.get(HOST + '/api/user/cost-categories');
+			return $http.get(HOST + '/api/public/cost-categories');
 		}
 
 		function postCostCategory(data) {
