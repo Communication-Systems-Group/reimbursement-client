@@ -1,6 +1,6 @@
-app.controller('AdminPoolController', ['moment', '$scope', '$timeout', 'administrationRestService', 'c3',
+app.controller('AdminPoolController', ['moment', '$scope', '$timeout', 'administrationRestService', 'c3', '$filter',
 
-function(moment, $scope, $timeout, administrationRestService, c3) {
+function(moment, $scope, $timeout, administrationRestService, c3, $filter) {
 	'use strict';
 	$scope.roles = [];
 	$scope.expenses = [];
@@ -12,7 +12,9 @@ function(moment, $scope, $timeout, administrationRestService, c3) {
 	});
 
 	$scope.search = function() {
-		administrationRestService.search($scope.form).then(function(response) {
+		var data = $scope.form;
+		data.date = $filter('getISODate')(data.date);
+		administrationRestService.search(data).then(function(response) {
 			$scope.expenses = response.data;
 		});
 	};
