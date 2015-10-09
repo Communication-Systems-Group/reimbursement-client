@@ -34,7 +34,7 @@ app.factory('administrationRestService', ['$http', 'HOST',
 
 		function search(data) {
 			return $http({
-				method: 'GET',
+				method: 'POST',
 				url: HOST + '/api/expenses/search',
 				data: data
 			});
