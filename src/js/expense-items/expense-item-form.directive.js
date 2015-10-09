@@ -160,21 +160,44 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 				});
 
 				$scope.openCostCategoryModal = function() {
-					var modalinstance = $modal.open({
+					var modalInstance = $modal.open({
 						templateUrl : 'expense-items/show-cost-category.modal.tpl.html',
-						controller : 'CostCategoryModalController',
+						controller : 'ShowCostCategoryController',
 						resolve : {
 							costCategories: function() {
 								return $scope.costCategories;
 							},
 							costCategoryUid: function() {
 								return $scope.form.costCategoryUid;
+							},
+							editable: function() {
+								return $scope.editable;
 							}
 						}
 					});
 
-					modalinstance.result.then(function(response) {
+					modalInstance.result.then(function(response) {
 						$scope.form.costCategoryUid = response;
+					});
+				};
+			}
+
+			if(!$scope.editable) {
+				$scope.openViewOnlyCostCategoryModal = function() {
+					$modal.open({
+						templateUrl: 'expense-items/show-cost-category.modal.tpl.html',
+						controller: 'ShowCostCategoryController',
+						resolve: {
+							costCategories: function() {
+								return $scope.costCategories;
+							},
+							costCategoryUid: function() {
+								return $scope.form.costCategoryUid;
+							},
+							editable: function() {
+								return $scope.editable;
+							}
+						}
 					});
 				};
 			}
