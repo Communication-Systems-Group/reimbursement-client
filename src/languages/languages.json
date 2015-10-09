@@ -83,6 +83,10 @@
 		"de": "alle Berechtigungen",
 		"en": "all permissions"
 	},
+	"adminPool.searchResults": {
+		"de": "Suchresultat",
+		"en": "Search results"
+	},
 	"settings.title": {
 		"de": "Einstellungen",
 		"en": "Settings"

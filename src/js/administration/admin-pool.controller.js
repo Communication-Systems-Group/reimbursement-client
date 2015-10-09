@@ -5,6 +5,7 @@ function(moment, $scope, $timeout, administrationRestService, c3, $filter) {
 	$scope.roles = [];
 	$scope.expenses = [];
 	$scope.form = {};
+	$scope.searchConducted = false;
 
 
 	administrationRestService.getRoles().then(function(response) {
@@ -16,6 +17,7 @@ function(moment, $scope, $timeout, administrationRestService, c3, $filter) {
 		data.date = $filter('getISODate')(data.date);
 		administrationRestService.search(data).then(function(response) {
 			$scope.expenses = response.data;
+			$scope.searchConducted = true;
 		});
 	};
 
