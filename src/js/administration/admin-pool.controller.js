@@ -27,7 +27,6 @@ function(moment, $scope, $timeout, administrationRestService, c3) {
 						calendarWeeks: true
 					}).on('dp.hide', function() {
 						$scope.form.date = jQuery('.datepicker').find('input').first().val();
-						$scope.calculateAmount();
 					});
 				});
 
