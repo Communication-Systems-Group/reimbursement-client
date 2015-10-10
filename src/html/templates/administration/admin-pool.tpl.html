@@ -32,10 +32,17 @@
 			<div class="panel-body">
 				<form id="searchForm" class="form-horizontal">
 					<div class="form-group">
-						<label for="admin-pool-date" class="control-label col-sm-4"> {{ 'reimbursement.adminPool.date' | translate }} </label>
-						<div class="col-sm-8">
-							<div class="input-group date datepicker">
-								<input type="text" id="admin-pool-date" ng-model="form.date" class="form-control">
+						<label for="admin-pool-date" class="control-label col-sm-4"> {{ 'reimbursement.adminPool.startTime' | translate }} </label>
+						<div class="col-sm-3">
+							<div class="input-group date datepicker-start-time">
+								<input type="text" id="admin-pool-start-time" ng-model="form.startTime" class="form-control">
+								<span class="input-group-addon"> <span class="fa fa-calendar"></span> </span>
+							</div>
+						</div>
+						<label for="admin-pool-date" class="control-label col-sm-2"> {{ 'reimbursement.adminPool.endTime' | translate }} </label>
+						<div class="col-sm-3">
+							<div class="input-group date datepicker-end-time">
+								<input type="text" id="admin-pool-end-time" ng-model="form.endTime" class="form-control">
 								<span class="input-group-addon"> <span class="fa fa-calendar"></span> </span>
 							</div>
 						</div>

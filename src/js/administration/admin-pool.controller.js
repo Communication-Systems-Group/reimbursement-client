@@ -6,7 +6,8 @@ function(moment, $scope, $timeout, administrationRestService, c3, $filter) {
 	$scope.expenses = [];
 	$scope.form = {};
 	$scope.searchConducted = false;
-
+	$scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
+	$scope.form.endTime = moment().format('DD.MM.YYYY');
 
 	administrationRestService.getRoles().then(function(response) {
 		$scope.roles = response.data;
@@ -14,25 +15,42 @@ function(moment, $scope, $timeout, administrationRestService, c3, $filter) {
 
 	$scope.search = function() {
 		var data = $scope.form;
-		data.date = $filter('getISODate')(data.date);
+		data.startTime = $filter('getISODate')(data.startTime);
+		data.endTime = $filter('getISODate')(data.endTime);
 		administrationRestService.search(data).then(function(response) {
+			$scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
+			$scope.form.endTime = moment().format('DD.MM.YYYY');
 			$scope.expenses = response.data;
 			$scope.searchConducted = true;
 		});
 	};
 
-	$timeout(function() {
-			$scope.form.date = moment().subtract(6, 'months').format('DD.MM.YYYY');
-					jQuery('.datepicker').datetimepicker({
+	function createDatePickerStartTime() {
+	jQuery('.datepicker-start-time').datetimepicker({
 						format: 'DD.MM.YYYY',
 						viewMode: 'months',
 						allowInputToggle: true,
-						maxDate: moment(),
+						maxDate: $scope.form.endTime,
 						calendarWeeks: true
 					}).on('dp.hide', function() {
-						$scope.form.date = jQuery('.datepicker').find('input').first().val();
+						$scope.form.startTime = jQuery('.datepicker-start-time').find('input').first().val();
 					});
-				});
+			}
+
+	$timeout(function() {
+	createDatePickerStartTime();
+	jQuery('.datepicker-end-time').datetimepicker({
+		format: 'DD.MM.YYYY',
+		viewMode: 'months',
+		allowInputToggle: true,
+		maxDate: moment(),
+		calendarWeeks: true
+	}).on('dp.hide', function() {
+		$scope.form.endTime = jQuery('.datepicker-end-time').find('input').first().val();
+		jQuery('.datepicker-start-time').datetimepicker('destroy');
+		createDatePickerStartTime();
+	});
+});
 
 	c3.generate({
 		bindto: "#graph-donut-current-state-distribution",
