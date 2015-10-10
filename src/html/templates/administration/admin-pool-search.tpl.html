@@ -1,45 +1,23 @@
-<div id="admin-pool">
-	<h1 class="page-header"><i class="fa fa-bar-chart"></i> {{ 'reimbursement.adminPool.title' | translate }} </h1>
-
-	<div class="row">
-		<div class="col-sm-3">
-			<h4 class="text-center"><span class="pre-wrap">Current State Distribution
-				<br>
-				(without &laquo;printed&raquo;)</span></h4>
-			<div id="graph-donut-current-state-distribution"></div>
-		</div>
-		<div class="col-sm-3">
-			<h4 class="text-center"><span class="pre-wrap">Percentage of accepted expenses
-				<br>
-				(Data from the last 12 months)</span></h4>
-			<div id="graph-gauge-accepted-declined"></div>
-		</div>
-		<div class="col-sm-6">
-			<h4 class="text-center"><span class="pre-wrap">Total Expense Amount in CHF
-				<br>
-				(Data from the year 2015)</span></h4>
-			<div id="graph-line-sum-current-year"></div>
-		</div>
-	</div>
-
+<div id="admin-pool-search">
+	<h1 class="page-header"><i class="fa fa-search"></i> {{ 'reimbursement.adminPoolSearch.title' | translate }} </h1>
 	<hr>
 
 	<div class="col-sm-10 col-sm-offset-1">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				{{ 'reimbursement.adminPool.filterPanel' | translate }}
+				{{ 'reimbursement.adminPoolSearch.filterPanel' | translate }}
 			</div>
 			<div class="panel-body">
 				<form id="searchForm" class="form-horizontal">
 					<div class="form-group">
-						<label for="admin-pool-date" class="control-label col-sm-4"> {{ 'reimbursement.adminPool.startTime' | translate }} </label>
+						<label for="admin-pool-date" class="control-label col-sm-4"> {{ 'reimbursement.adminPoolSearch.startTime' | translate }} </label>
 						<div class="col-sm-3">
 							<div class="input-group date datepicker-start-time">
 								<input type="text" id="admin-pool-start-time" ng-model="form.startTime" class="form-control">
 								<span class="input-group-addon"> <span class="fa fa-calendar"></span> </span>
 							</div>
 						</div>
-						<label for="admin-pool-date" class="control-label col-sm-2"> {{ 'reimbursement.adminPool.endTime' | translate }} </label>
+						<label for="admin-pool-date" class="control-label col-sm-2"> {{ 'reimbursement.adminPoolSearch.endTime' | translate }} </label>
 						<div class="col-sm-3">
 							<div class="input-group date datepicker-end-time">
 								<input type="text" id="admin-pool-end-time" ng-model="form.endTime" class="form-control">
@@ -48,21 +26,21 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="lastName" class="col-sm-4 control-label"> {{ 'reimbursement.adminPool.userLastName' | translate }} </label>
+						<label for="lastName" class="col-sm-4 control-label"> {{ 'reimbursement.adminPoolSearch.userLastName' | translate }} </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="lastName" ng-model="form.lastName">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label"> {{ 'reimbursement.adminPool.userRole' | translate }} </label>
+						<label class="col-sm-4 control-label"> {{ 'reimbursement.adminPoolSearch.userRole' | translate }} </label>
 						<div class="col-sm-8">
-							<select class="form-control" ng-model="form.role" ng-options="role as 'reimbursement.adminPool.role.'+role | translate for role in roles">
-								<option selected value="">{{ 'reimbursement.adminPool.preselectedRole' | translate }}</option>
+							<select class="form-control" ng-model="form.role" ng-options="role as 'reimbursement.adminPoolSearch.role.'+role | translate for role in roles">
+								<option selected value="">{{ 'reimbursement.adminPoolSearch.preselectedRole' | translate }}</option>
 							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="sapText" class="col-sm-4 control-label"> {{ 'reimbursement.adminPool.sapText' | translate }} </label>
+						<label for="sapText" class="col-sm-4 control-label"> {{ 'reimbursement.adminPoolSearch.sapText' | translate }} </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="sapText" ng-model="form.accountingText">
 						</div>
@@ -70,7 +48,7 @@
 					<div class="text-right">
 						<button type="submit" class="btn btn-primary" ng-click="search()">
 							<i class="fa fa-arrow-circle-right"></i>
-							{{ 'reimbursement.adminPool.search' | translate }}
+							{{ 'reimbursement.adminPoolSearch.search' | translate }}
 						</button>
 					</div>
 				</form>
@@ -80,7 +58,7 @@
 
 <div ng-if="searchConducted">
 		<h2 class="page-header">
-			{{ 'reimbursement.adminPool.searchResults' | translate }}
+			{{ 'reimbursement.adminPoolSearch.searchResults' | translate }}
 		</h2>
 
 	<table class="table table-striped">

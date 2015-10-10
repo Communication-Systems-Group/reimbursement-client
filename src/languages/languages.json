@@ -39,55 +39,59 @@
 		"de": "Kostenstellen",
 		"en": "Cost categories"
 	},
-	"adminPool.title": {
-		"de": "Admin-Pool",
-		"en": "Admin-Pool"
+	"adminPoolSearch.title": {
+		"de": "Admin-Pool Suche",
+		"en": "Admin-Pool search"
 	},
-	"adminPool.filterPanel": {
+	"adminPoolGraphs.title": {
+		"de": "Admin-Pool Graphen",
+		"en": "Admin-Pool graphs"
+	},
+	"adminPoolSearch.filterPanel": {
 		"de": "Bitte geben Sie Ihre Suchkriterien ein für eine Suche nach Spesen.",
 		"en": "Please enter your search criteria to find the matching expenses."
 	},
-	"adminPool.sapText": {
+	"adminPoolSearch.sapText": {
 		"de": "Buchhaltungsbeschreibung (SAP)",
 		"en": "Accounting description (SAP)"
 	},
-	"adminPool.startTime": {
+	"adminPoolSearch.startTime": {
 		"de": "Spesen ab Datum",
 		"en": "Expenses from date"
 	},
-	"adminPool.endTime": {
+	"adminPoolSearch.endTime": {
 		"de": "bis Datum",
 		"en": "to date"
 	},
-	"adminPool.userRole": {
+	"adminPoolSearch.userRole": {
 		"de": "Berechtigung Antragssteller",
 		"en": "Permission of Expense Creator"
 	},
-	"adminPool.search": {
+	"adminPoolSearch.search": {
 		"de": "Go!",
 		"en": "Go!"
 	},
-	"adminPool.userLastName": {
+	"adminPoolSearch.userLastName": {
 		"de": "Nachname Antragssteller",
 		"en": "Last Name of Expense Creator"
 	},
-	"adminPool.role.USER": {
+	"adminPoolSearch.role.USER": {
 		"de": "Benutzer",
 		"en": "User"
 	},
-	"adminPool.role.PROF": {
+	"adminPoolSearch.role.PROF": {
 		"de": "Professor",
 		"en": "Professor"
 	},
-	"adminPool.role.FINANCE_ADMIN": {
+	"adminPoolSearch.role.FINANCE_ADMIN": {
 		"de": "Finanzverwaltung",
 		"en": "Finance Administration"
 	},
-	"adminPool.preselectedRole": {
+	"adminPoolSearch.preselectedRole": {
 		"de": "alle Berechtigungen",
 		"en": "all permissions"
 	},
-	"adminPool.searchResults": {
+	"adminPoolSearch.searchResults": {
 		"de": "Suchresultat",
 		"en": "Search results"
 	},
@@ -239,9 +243,13 @@
 		"de": "Kostenstellen",
 		"en": "Cost-Categories"
 	},
-	"tabs.adminPool": {
-		"de": "Admin-Pool",
-		"en": "Admin-Pool"
+	"tabs.adminPoolSearch": {
+		"de": "Suche",
+		"en": "Search"
+	},
+	"tabs.adminPoolGraphs": {
+		"de": "Graphen",
+		"en": "Graphs"
 	},
 	"loading.label": {
 		"de": "Bitte warten...",
