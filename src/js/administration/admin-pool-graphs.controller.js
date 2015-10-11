@@ -1,7 +1,13 @@
-app.controller('AdminPoolGraphsController', ['c3',
+app.controller('AdminPoolGraphsController', ['administrationRestService', 'c3',
 
-function(c3) {
+function(administrationRestService, c3) {
 	'use strict';
+	var data = [];
+
+	administrationRestService.getExpenseStateRawData().then(function(response) {
+		data = response.data;
+		console.log(data);
+	});
 
 	c3.generate({
 		bindto: "#graph-donut-current-state-distribution",

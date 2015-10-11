@@ -40,13 +40,17 @@ app.factory('administrationRestService', ['$http', 'HOST',
 			});
 		}
 
+		function getExpenseStateRawData() {
+			return $http.get(HOST + '/api/expenses/statistics/states');
+		}
+
 		return {
 			getCostCategories: getCostCategories,
 			postCostCategory: postCostCategory,
 			putCostCategory: putCostCategory,
 			deleteCostCategory: deleteCostCategory,
 			getRoles: getRoles,
-			search: search
+			search: search,
+			getExpenseStateRawData: getExpenseStateRawData
 		};
-
 	}]);
