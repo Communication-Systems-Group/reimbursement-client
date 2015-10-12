@@ -1,40 +1,30 @@
 <div id="admin-pool-graphs">
 	<h1 class="page-header"><i class="fa fa-bar-chart"></i> {{ 'reimbursement.adminPoolGraphs.title' | translate }} </h1>
 
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol>
-
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner" role="listbox">
+	<uib-carousel interval="5000">
+		<uib-slide active="item.active">
 			<div class="item active">
 				<h4 class="text-center"><span class="pre-wrap">Current State Distribution
 					<br>
 					(without &laquo;printed&raquo;)</span></h4>
 				<div id="graph-donut-current-state-distribution"></div>
 			</div>
-
+		</uib-slide>
+		<uib-slide>
 			<div class="item">
 				<h4 class="text-center"><span class="pre-wrap">Percentage of accepted expenses
 					<br>
 					(Data from the last 12 months)</span></h4>
 				<div id="graph-gauge-accepted-declined"></div>
 			</div>
-
+		</uib-slide>
+		<uib-slide>
 			<div class="item">
 				<h4 class="text-center"><span class="pre-wrap">Total Expense Amount in CHF
 					<br>
 					(Data from the year 2015)</span></h4>
 				<div id="graph-line-sum-current-year"></div>
 			</div>
-		</div>
-
-		<!-- Left and right controls -->
-		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
-	</div>
+		</uib-slide>
+	</uib-carousel>
 </div>
