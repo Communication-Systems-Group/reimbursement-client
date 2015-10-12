@@ -1,6 +1,6 @@
-app.factory("globalMessagesService", ['$modal', '$translate', '$q',
+app.factory("globalMessagesService", ['$uibModal', '$translate', '$q',
 
-	function ($modal, $translate, $q) {
+	function ($uibModal, $translate, $q) {
 		"use strict";
 
 		var openModalInstances = [];
@@ -25,7 +25,7 @@ app.factory("globalMessagesService", ['$modal', '$translate', '$q',
 			var deferred = $q.defer();
 
 			$translate([title, message]).then(function (translations) {
-				var openModal = $modal.open({
+				var openModal = $uibModal.open({
 					templateUrl: templateUrl,
 					controller: 'GlobalMessagesController',
 					size: isMd ? 'md' : 'sm',
@@ -71,7 +71,7 @@ app.factory("globalMessagesService", ['$modal', '$translate', '$q',
 
 			var deferred = $q.defer();
 			$translate([title, message, yes, no]).then(function (translations) {
-				var openModal = $modal.open({
+				var openModal = $uibModal.open({
 					templateUrl: templateUrl,
 					controller: 'GlobalMessagesConfirmController',
 					size: isMd ? 'md' : 'sm',

@@ -1,6 +1,6 @@
-app.controller('ViewCostCategoryController', [ '$scope', '$modal', 'administrationRestService', 'globalMessagesService',
+app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administrationRestService', 'globalMessagesService',
 
-	function ($scope, $modal, administrationRestService, globalMessagesService) {
+	function ($scope, $uibModal, administrationRestService, globalMessagesService) {
 		"use strict";
 
 		function loadData() {
@@ -20,7 +20,7 @@ app.controller('ViewCostCategoryController', [ '$scope', '$modal', 'administrati
 		loadData();
 
 		$scope.addItem = function () {
-			var modalInstance = $modal.open({
+			var modalInstance = $uibModal.open({
 				templateUrl: 'administration/edit-cost-category.tpl.html',
 				controller: 'EditCostCategoryController',
 				backdrop: 'static',
@@ -47,7 +47,7 @@ app.controller('ViewCostCategoryController', [ '$scope', '$modal', 'administrati
 
 		$scope.editItem = function (uid) {
 
-			var modalInstance = $modal.open({
+			var modalInstance = $uibModal.open({
 				templateUrl: 'administration/edit-cost-category.tpl.html',
 				controller: 'EditCostCategoryController',
 				backdrop: 'static',

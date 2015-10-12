@@ -1,6 +1,6 @@
-app.controller('SignatureController', ['$scope', '$state', '$modal', 'Modernizr', 'spinnerService', 'signatureRestService', 'base64BinaryConverterService', 'fileExtensionService', 'globalMessagesService',
+app.controller('SignatureController', ['$scope', '$state', '$uibModal', 'Modernizr', 'spinnerService', 'signatureRestService', 'base64BinaryConverterService', 'fileExtensionService', 'globalMessagesService',
 
-function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService, fileExtensionService, globalMessagesService) {
+function($scope, $state, $uibModal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService, fileExtensionService, globalMessagesService) {
 	"use strict";
 
 	$scope.postSignaturePath = signatureRestService.postSignaturePath();
@@ -30,7 +30,7 @@ function($scope, $state, $modal, Modernizr, spinnerService, signatureRestService
 
 	$scope.showQR = function() {
 		signatureRestService.postSignatureMobileToken().then(function(response) {
-			var modalInstance = $modal.open({
+			var modalInstance = $uibModal.open({
 				templateUrl : 'signature/signature-qr.tpl.html',
 				controller : 'SignatureQRController',
 				resolve : {

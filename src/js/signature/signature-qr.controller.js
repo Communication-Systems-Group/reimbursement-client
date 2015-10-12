@@ -1,6 +1,6 @@
-app.controller('SignatureQRController', ['$scope', '$modalInstance', '$modal', 'signatureRestService', 'spinnerService', 'globalMessagesService', 'token',
+app.controller('SignatureQRController', ['$scope', '$modalInstance', 'signatureRestService', 'spinnerService', 'globalMessagesService', 'token',
 
-function($scope, $modalInstance, $modal, signatureRestService, spinnerService, globalMessagesService, token) {
+function($scope, $modalInstance, signatureRestService, spinnerService, globalMessagesService, token) {
 	"use strict";
 
 	$scope.qrUrl = window.location.protocol + "//" + window.location.host + "/#!signature-mobile/" + token;

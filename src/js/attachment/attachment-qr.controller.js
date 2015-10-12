@@ -1,6 +1,6 @@
-app.controller('AttachmentQRController', ['$scope', '$modalInstance', '$modal', 'attachmentRestService', 'spinnerService', 'globalMessagesService', 'token','expenseItemUid',
+app.controller('AttachmentQRController', ['$scope', '$modalInstance', 'attachmentRestService', 'spinnerService', 'globalMessagesService', 'token','expenseItemUid',
 
-function($scope, $modalInstance, $modal, attachmentRestService, spinnerService, globalMessagesService, token, expenseItemUid) {
+function($scope, $modalInstance, attachmentRestService, spinnerService, globalMessagesService, token, expenseItemUid) {
 	"use strict";
 
 	$scope.qrUrl = window.location.protocol + "//" + window.location.host + "/#!attachment-mobile/" + token;

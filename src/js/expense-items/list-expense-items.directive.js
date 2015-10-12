@@ -1,6 +1,6 @@
-app.directive('listExpenseItems', ['$modal', '$filter', '$timeout', '$state', 'spinnerService', 'globalMessagesService', 'expenseRestService', 'expenseItemsRestService',
+app.directive('listExpenseItems', ['$uibModal', '$filter', '$timeout', '$state', 'spinnerService', 'globalMessagesService', 'expenseRestService', 'expenseItemsRestService',
 
-function($modal, $filter, $timeout, $state, spinnerService, globalMessagesService, expenseRestService, expenseItemsRestService) {
+function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesService, expenseRestService, expenseItemsRestService) {
 	"use strict";
 
 	return {
@@ -51,7 +51,7 @@ function($modal, $filter, $timeout, $state, spinnerService, globalMessagesServic
 						if($scope.editable) {
 
 							$scope.editExpenseItem = function(expenseItemUid) {
-								var modalInstance = $modal.open({
+								var modalInstance = $uibModal.open({
 									templateUrl: 'expense-items/edit-expense-item.tpl.html',
 									controller: 'EditExpenseItemController',
 									resolve: {
@@ -85,7 +85,7 @@ function($modal, $filter, $timeout, $state, spinnerService, globalMessagesServic
 										currency: 'CHF',
 									}).then(function(response) {
 
-										var modalInstance = $modal.open({
+										var modalInstance = $uibModal.open({
 											templateUrl: 'expense-items/add-expense-item.tpl.html',
 											controller: 'AddExpenseItemController',
 											resolve: {
@@ -108,7 +108,7 @@ function($modal, $filter, $timeout, $state, spinnerService, globalMessagesServic
 
 						else {
 							$scope.viewExpenseItem = function(expenseItemUid) {
-								$modal.open({
+								$uibModal.open({
 									templateUrl: 'expense-items/view-expense-item.tpl.html',
 									controller: 'ViewExpenseItemController',
 									resolve: {

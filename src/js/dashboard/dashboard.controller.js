@@ -1,6 +1,6 @@
-app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 'USER', 'globalMessagesService', 'dashboardRestService',
+app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal', 'USER', 'globalMessagesService', 'dashboardRestService',
 
-	function ($scope, $filter, $state, $modal, USER, globalMessagesService, dashboardRestService) {
+	function ($scope, $filter, $state, $uibModal, USER, globalMessagesService, dashboardRestService) {
 		'use strict';
 
 		$scope.user = USER;
@@ -35,7 +35,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$modal', 
 		};
 
 		$scope.addExpense = function () {
-			var modalInstance = $modal.open({
+			var modalInstance = $uibModal.open({
 				templateUrl: 'expense/create-expense-sap.tpl.html',
 				controller: 'CreateExpenseSapController'
 			});

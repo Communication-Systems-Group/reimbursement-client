@@ -9,9 +9,9 @@ function ($q, $timeout, $injector) {
 				var $state = $injector.get('$state');
 				if(!$state.is('logout') && !$state.is('login')) {
 					var USER = $injector.get('USER');
-					var $modalStack = $injector.get('$modalStack');
+					var $uibModalStack = $injector.get('$uibModalStack');
 
-					$modalStack.dismissAll();
+					$uibModalStack.dismissAll();
 					USER.roles = [];
 					USER.loggedIn = false;
 					$state.go('login');

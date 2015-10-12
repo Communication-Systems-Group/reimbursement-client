@@ -1,6 +1,6 @@
-app.controller('ReviewExpenseController', ['$scope', '$state', '$stateParams', '$timeout', '$modal', 'spinnerService', 'globalMessagesService', 'expenseRestService',
+app.controller('ReviewExpenseController', ['$scope', '$state', '$stateParams', '$timeout', '$uibModal', 'spinnerService', 'globalMessagesService', 'expenseRestService',
 
-function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalMessagesService, expenseRestService) {
+function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, globalMessagesService, expenseRestService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
@@ -37,7 +37,7 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	});
 
 	$scope.editExpenseSap = function() {
-		var modalInstance = $modal.open({
+		var modalInstance = $uibModal.open({
 			templateUrl: 'expense/edit-expense-sap.tpl.html',
 			controller: 'EditExpenseSapController',
 			resolve: {
@@ -57,7 +57,7 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	};
 
 	$scope.accept = function() {
-		var modalInstance = $modal.open({
+		var modalInstance = $uibModal.open({
 			templateUrl: "expense/accept-expense.tpl.html",
 			controller: "AcceptExpenseController",
 			resolve: {
@@ -70,7 +70,7 @@ function($scope, $state, $stateParams, $timeout, $modal, spinnerService, globalM
 	};
 
 	$scope.decline = function() {
-		var modalInstance = $modal.open({
+		var modalInstance = $uibModal.open({
 			templateUrl: "expense/reject-expense.tpl.html",
 			controller: "RejectExpenseController",
 			resolve: {

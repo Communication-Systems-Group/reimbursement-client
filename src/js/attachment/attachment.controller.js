@@ -1,6 +1,6 @@
-app.controller('AttachmentController', ['$scope', '$state', '$modal', 'Modernizr', 'spinnerService', 'attachmentRestService', 'base64BinaryConverterService', 'fileExtensionService', 'globalMessagesService','$log',
+app.controller('AttachmentController', ['$scope', '$state', '$uibModal', 'Modernizr', 'spinnerService', 'attachmentRestService', 'base64BinaryConverterService', 'fileExtensionService', 'globalMessagesService','$log',
 
-function($scope, $state, $modal, Modernizr, spinnerService, attachmentRestService, base64BinaryConverterService, fileExtensionService, globalMessagesService, $log) {
+function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestService, base64BinaryConverterService, fileExtensionService, globalMessagesService, $log) {
 	"use strict";
 
 	$scope.postAttachmentPath = attachmentRestService.postAttachmentPath($scope.expenseItemUid);
@@ -34,7 +34,7 @@ function($scope, $state, $modal, Modernizr, spinnerService, attachmentRestServic
 
 	$scope.showQR = function() {
 		attachmentRestService.postAttachmentMobileToken($scope.expenseItemUid).then(function(response) {
-			var modalInstance = $modal.open({
+			var modalInstance = $uibModal.open({
 				templateUrl : 'attachment/attachment-qr.tpl.html',
 				controller : 'AttachmentQRController',
 				resolve : {

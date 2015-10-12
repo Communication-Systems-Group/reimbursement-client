@@ -1,6 +1,6 @@
-app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService', '$modal',
+app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService', '$uibModal',
 
-function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesService, expenseItemsRestService, $modal) {
+function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesService, expenseItemsRestService, $uibModal) {
 	"use strict";
 
 	return {
@@ -160,7 +160,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 				});
 
 				$scope.openCostCategoryModal = function() {
-					var modalInstance = $modal.open({
+					var modalInstance = $uibModal.open({
 						templateUrl : 'expense-items/show-cost-category.modal.tpl.html',
 						controller : 'ShowCostCategoryController',
 						resolve : {
@@ -184,7 +184,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 
 			if(!$scope.editable) {
 				$scope.openViewOnlyCostCategoryModal = function() {
-					$modal.open({
+					$uibModal.open({
 						templateUrl: 'expense-items/show-cost-category.modal.tpl.html',
 						controller: 'ShowCostCategoryController',
 						resolve: {
