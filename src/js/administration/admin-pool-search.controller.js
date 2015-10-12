@@ -9,10 +9,32 @@ function(moment, $scope, $timeout, administrationRestService, $filter) {
 	$scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
 	$scope.form.endTime = moment().format('DD.MM.YYYY');
 
+	$scope.sortingOrder = '';
+	$scope.reverse = false;
+	$scope.filteredItems = [];
+	$scope.groupedItems = [];
+	$scope.itemsPerPage = 5;
+	$scope.pagedItems = [];
+	$scope.currentPage = 0;
+	$scope.items = [];
+
 	administrationRestService.getRoles().then(function(response) {
 		$scope.roles = response.data;
 	});
+	//
+	// $scope.search = function() {
+	// var data = $scope.form;
+	// data.startTime = $filter('getISODate')(data.startTime);
+	// data.endTime = $filter('getISODate')(data.endTime);
+	// administrationRestService.search(data).then(function(response) {
+	// $scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
+	// $scope.form.endTime = moment().format('DD.MM.YYYY');
+	// $scope.expenses = response.data;
+	// $scope.searchConducted = true;
+	// });
+	// };
 
+	// init the filtered items
 	$scope.search = function() {
 		var data = $scope.form;
 		data.startTime = $filter('getISODate')(data.startTime);
@@ -22,6 +44,24 @@ function(moment, $scope, $timeout, administrationRestService, $filter) {
 			$scope.form.endTime = moment().format('DD.MM.YYYY');
 			$scope.expenses = response.data;
 			$scope.searchConducted = true;
+
+			$scope.items = $scope.expenses;
+			$scope.filteredItems = $filter('filter')($scope.items, function(item) {
+				for (var attr in item) {
+					if (searchMatch(item[attr], $scope.query)) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			});
+			// take care of the sorting order
+			if ($scope.sortingOrder !== '') {
+				$scope.filteredItems = $filter('orderBy')($scope.filteredItems, $scope.sortingOrder, $scope.reverse);
+			}
+			$scope.currentPage = 0;
+			// now group by pages
+			$scope.groupToPages();
 		});
 	};
 
@@ -51,5 +91,74 @@ function(moment, $scope, $timeout, administrationRestService, $filter) {
 			createDatePickerStartTime();
 		});
 	});
+
+	function searchMatch(haystack, needle) {
+		if (!needle) {
+			return true;
+		} else {
+			return haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
+		}
+	}
+
+	// calculate page in place
+	$scope.groupToPages = function() {
+		$scope.pagedItems = [];
+
+		for (var i = 0; i < $scope.filteredItems.length; i++) {
+			if (i % $scope.itemsPerPage === 0) {
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [$scope.filteredItems[i]];
+			} else {
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.filteredItems[i]);
+			}
+		}
+	};
+
+	$scope.range = function(start, end) {
+		var ret = [];
+		if (!end) {
+			end = start;
+			start = 0;
+		}
+		for (var i = start; i < end; i++) {
+			ret.push(i);
+		}
+		return ret;
+	};
+
+	$scope.prevPage = function() {
+		if ($scope.currentPage > 0) {
+			$scope.currentPage--;
+		}
+	};
+
+	$scope.nextPage = function() {
+		if ($scope.currentPage < $scope.pagedItems.length - 1) {
+			$scope.currentPage++;
+		}
+	};
+
+	$scope.setPage = function() {
+		$scope.currentPage = this.n;
+	};
+
+	// change sorting order
+	$scope.sort_by = function(newSortingOrder) {
+		if ($scope.sortingOrder === newSortingOrder) {
+			$scope.reverse = !$scope.reverse;
+		}
+
+		$scope.sortingOrder = newSortingOrder;
+
+		// icon setup
+		jQuery('th i').each(function() {
+			// icon reset
+			jQuery(this).removeClass().addClass('fa fa-sort');
+		});
+		if ($scope.reverse) {
+			jQuery('th.' + newSortingOrder + ' i').removeClass().addClass('fa fa-sort-asc');
+		} else {
+			jQuery('th.' + newSortingOrder + ' i').removeClass().addClass('fa fa-sort-desc');
+		}
+	};
 
 }]);

@@ -56,40 +56,48 @@
 		</div>
 	</div>
 
-<div ng-if="searchConducted">
-		<h2 class="page-header">
-			{{ 'reimbursement.adminPoolSearch.searchResults' | translate }}
-		</h2>
+	<div ng-if="searchConducted">
+		<h2 class="page-header"> {{ 'reimbursement.adminPoolSearch.searchResults' | translate }} </h2>
 
-	<table class="table table-striped">
+		<table class="table table-striped">
 			<thead>
-			<tr>
-				<th>{{ 'reimbursement.dashboard.table.expenseAuthor' | translate }}</th>
-				<th>{{ 'reimbursement.expense.accountingTitle' | translate }}</th>
-				<th>
-					<span class="tableRightMargin">{{ 'reimbursement.dashboard.table.date' | translate }}</span>
-				</th>
-				<th>
-					<span class="tableRightMargin">{{ 'reimbursement.dashboard.table.totalCosts' | translate }}</span>
-				</th>
-				<th>{{ 'reimbursement.dashboard.table.status' | translate }}</th>
-			</tr>
+				<tr>
+					<th>{{ 'reimbursement.dashboard.table.expenseAuthor' | translate }}<a ng-click="sort_by('user')"><i class="fa fa-sort"></i></th>
+					<th>{{ 'reimbursement.expense.accountingTitle' | translate }}</th>
+					<th><span class="tableRightMargin">{{ 'reimbursement.dashboard.table.date' | translate }}<a ng-click="sort_by('date')"><i class="fa fa-sort"></i></span></th>
+					<th><span class="tableRightMargin">{{ 'reimbursement.dashboard.table.totalCosts' | translate }}<a ng-click="sort_by('totalCosts')"><i class="fa fa-sort"></i></span></th>
+					<th>{{ 'reimbursement.dashboard.table.status' | translate }}<a ng-click="sort_by('status')"><i class="fa fa-sort"></i></th>
+				</tr>
 			</thead>
+			<tfoot>
+				<td colspan="6">
+				<div class="pagination pull-right">
+					<ul>
+						<li ng-class="{disabled: currentPage == 0}">
+							<a href ng-click="prevPage()">« Prev</a>
+						</li>
+						<li ng-repeat="n in range(pagedItems.length)"
+						ng-class="{active: n == currentPage}"
+						ng-click="setPage()">
+							<a href ng-bind="n + 1">1</a>
+						</li>
+						<li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+							<a href ng-click="nextPage()">Next »</a>
+						</li>
+					</ul>
+				</div></td>
+			</tfoot>
 			<tbody>
-			<tr ng-if="expenses.length < 1">
-				<td colspan="99" class="text-center">{{ 'reimbursement.dashboard.table.noContent' | translate }}</td>
-			</tr>
-			<tr ng-repeat="e in expenses | orderBy: stateOrderingProfAdmin">
-				<td>{{e.user}}</td>
-				<td>{{e.accounting}}</td>
-				<td>{{e.date | date:'dd.MM.yyyy'}}</td>
-				<td>
-					<span class="tableRightMargin">{{ e.totalAmount | currency:'CHF ':2 }}</span>
-				</td>
-				<td class="text-center">
-					<expense-state state="e.state"></expense-state>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+				<tr ng-if="expenses.length < 1">
+					<td colspan="99" class="text-center">{{ 'reimbursement.dashboard.table.noContent' | translate }}</td>
+				</tr>
+				<tr ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+					<td>{{item.user}}</td>
+					<td>{{item.accounting}}</td>
+					<td>{{item.date | date:'dd.MM.yyyy'}}</td>
+					<td><span class="tableRightMargin">{{ item.totalAmount | currency:'CHF ':2 }}</span></td>
+					<td class="text-center"><expense-state state="item.state"></expense-state></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
