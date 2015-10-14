@@ -69,17 +69,6 @@
 					<th>{{ 'reimbursement.dashboard.table.status' | translate }}<a ng-click="sort_by('status')"><i class="fa fa-sort"></i></th>
 				</tr>
 			</thead>
-			<tfoot>
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<uib-pagination
-						ng-model="currentPage"
-						total-items="items.length"
-						max-size="maxSize"
-						boundary-links="true"></uib-pagination>
-					</div>
-				</div>
-			</tfoot>
 			<tbody>
 				<tr ng-if="items.length < 1">
 					<td colspan="99" class="text-center">{{ 'reimbursement.dashboard.table.noContent' | translate }}</td>
@@ -91,7 +80,13 @@
 					<td><span class="tableRightMargin">{{ item.totalAmount | currency:'CHF ':2 }}</span></td>
 					<td class="text-center"><expense-state state="item.state"></expense-state></td>
 				</tr>
-
 			</tbody>
 		</table>
+		<div class="text-right">
+			<uib-pagination
+			ng-model="currentPage"
+			total-items="items.length"
+			max-size="maxSize"
+			boundary-links="true"></uib-pagination>
+		</div>
 	</div>
