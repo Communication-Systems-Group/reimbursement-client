@@ -1,7 +1,6 @@
 <div id="admin-pool-search">
 	<h1 class="page-header"><i class="fa fa-search"></i> {{ 'reimbursement.adminPoolSearch.title' | translate }} </h1>
-	<hr>
-
+{{currentPage}}
 	<div class="col-sm-10 col-sm-offset-1">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -62,18 +61,34 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>{{ 'reimbursement.dashboard.table.expenseAuthor' | translate }}<a ng-click="sort_by('user')"><i class="fa fa-sort"></i></th>
+					<th ng-click="sortBy('user')">
+						{{ 'reimbursement.dashboard.table.expenseAuthor' | translate }}
+						<i class="fa {{ orderIcon.user }}"></i>
+					</th>
 					<th>{{ 'reimbursement.expense.accountingTitle' | translate }}</th>
-					<th><span class="tableRightMargin">{{ 'reimbursement.dashboard.table.date' | translate }}<a ng-click="sort_by('date')"><i class="fa fa-sort"></i></span></th>
-					<th><span class="tableRightMargin">{{ 'reimbursement.dashboard.table.totalCosts' | translate }}<a ng-click="sort_by('totalCosts')"><i class="fa fa-sort"></i></span></th>
-					<th>{{ 'reimbursement.dashboard.table.status' | translate }}<a ng-click="sort_by('status')"><i class="fa fa-sort"></i></th>
+					<th ng-click="sortBy('date')">
+						<span class="tableRightMargin">
+							{{ 'reimbursement.dashboard.table.date' | translate }}
+							<i class="fa {{ orderIcon.date }}"></i>
+						</span>
+					</th>
+					<th ng-click="sortBy('totalCosts')">
+						<span class="tableRightMargin">
+							{{ 'reimbursement.dashboard.table.totalCosts' | translate }}
+							<i class="fa {{ orderIcon.totalCosts }}"></i>
+						</span>
+					</th>
+					<th ng-click="sortBy('status')" class="text-center">
+						{{ 'reimbursement.dashboard.table.status' | translate }}
+						<i class="fa {{ orderIcon.status }}"></i>
+					</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-if="items.length < 1">
 					<td colspan="99" class="text-center">{{ 'reimbursement.dashboard.table.noContent' | translate }}</td>
 				</tr>
-				<tr ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+				<tr ng-repeat="item in pagedItems[currentPage] | orderBy:orderColumn:orderReverse">
 					<td>{{item.user}}</td>
 					<td>{{item.accounting}}</td>
 					<td>{{item.date | date:'dd.MM.yyyy'}}</td>
@@ -84,9 +99,14 @@
 		</table>
 		<div class="text-right">
 			<uib-pagination
-			ng-model="currentPage"
-			total-items="items.length"
-			max-size="maxSize"
-			boundary-links="true"></uib-pagination>
+				total-items="items.length"
+				ng-model="currentPage"
+				items-per-page="itemsPerPage"
+				max-size="10"
+				class="pagination-sm"
+				boundary-links="true"
+				rotate="false"
+			></uib-pagination>
 		</div>
 	</div>
+</div>

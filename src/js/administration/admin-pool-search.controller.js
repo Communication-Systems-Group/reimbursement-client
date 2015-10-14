@@ -8,48 +8,18 @@ function(moment, $scope, $timeout, administrationRestService, $filter) {
 	$scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
 	$scope.form.endTime = moment().format('DD.MM.YYYY');
 
-	$scope.sortingOrder = '';
-	$scope.reverse = false;
-	$scope.filteredItems = [];
-	$scope.groupedItems = [];
 	$scope.itemsPerPage = 5;
-	$scope.pagedItems = [];
-	$scope.currentPage = 0;
 	$scope.items = [];
+	$scope.pagedItems = [];
+	$scope.orderReverse = false;
+	$scope.currentPage = 1;
+
+	// orderColumn needs to match JSON object from back-end
+	$scope.orderColumn = 'date';
 
 	administrationRestService.getRoles().then(function(response) {
 		$scope.roles = response.data;
 	});
-
-	// init the filtered items
-	$scope.search = function() {
-		var data = $scope.form;
-		data.startTime = $filter('getISODate')(data.startTime);
-		data.endTime = $filter('getISODate')(data.endTime);
-		administrationRestService.search(data).then(function(response) {
-			$scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
-			$scope.form.endTime = moment().format('DD.MM.YYYY');
-			$scope.items = response.data;
-			$scope.searchConducted = true;
-
-			$scope.filteredItems = $filter('filter')($scope.items, function(item) {
-				for (var attr in item) {
-					if (searchMatch(item[attr], $scope.query)) {
-						return true;
-					} else {
-						return false;
-					}
-				}
-			});
-			// take care of the sorting order
-			if ($scope.sortingOrder !== '') {
-				$scope.filteredItems = $filter('orderBy')($scope.filteredItems, $scope.sortingOrder, $scope.reverse);
-			}
-			$scope.currentPage = 0;
-			// now group by pages
-			$scope.groupToPages();
-		});
-	};
 
 	function createDatePickerStartTime() {
 		jQuery('.datepicker-start-time').datetimepicker({
@@ -78,73 +48,58 @@ function(moment, $scope, $timeout, administrationRestService, $filter) {
 		});
 	});
 
-	function searchMatch(haystack, needle) {
-		if (!needle) {
-			return true;
-		} else {
-			return haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
+	$scope.search = function() {
+		var data = angular.copy($scope.form);
+		data.startTime = $filter('getISODate')(data.startTime);
+		data.endTime = $filter('getISODate')(data.endTime);
+
+		administrationRestService.search(data).then(function(response) {
+			$scope.searchConducted = true;
+
+			$scope.items = response.data;
+			sortItems();
+			groupItemsToPages();
+			setOrderIcon();
+		});
+	};
+
+	$scope.sortBy = function(newOrderColumn) {
+		if ($scope.orderColumn === newOrderColumn) {
+			$scope.orderReverse = !$scope.orderReverse;
 		}
+		$scope.orderColumn = newOrderColumn;
+
+		sortItems();
+		groupItemsToPages();
+		setOrderIcon();
+	};
+
+	function sortItems() {
+		$scope.items = $filter('orderBy')($scope.items, $scope.orderColumn, $scope.orderReverse);
 	}
 
-	// calculate page in place
-	$scope.groupToPages = function() {
+	function groupItemsToPages() {
 		$scope.pagedItems = [];
 
-		for (var i = 0; i < $scope.filteredItems.length; i++) {
+		for (var i=0; i<$scope.items.length; i++) {
 			if (i % $scope.itemsPerPage === 0) {
-				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [$scope.filteredItems[i]];
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)+1] = [$scope.items[i]];
 			} else {
-				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.filteredItems[i]);
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)+1].push($scope.items[i]);
 			}
 		}
-	};
 
-	$scope.range = function(start, end) {
-		var ret = [];
-		if (!end) {
-			end = start;
-			start = 0;
-		}
-		for (var i = start; i < end; i++) {
-			ret.push(i);
-		}
-		return ret;
-	};
+		$scope.currentPage = 1;
+	}
 
-	$scope.prevPage = function() {
-		if ($scope.currentPage > 0) {
-			$scope.currentPage--;
-		}
-	};
-
-	$scope.nextPage = function() {
-		if ($scope.currentPage < $scope.pagedItems.length - 1) {
-			$scope.currentPage++;
-		}
-	};
-
-	$scope.setPage = function() {
-		$scope.currentPage = this.n;
-	};
-
-	// change sorting order
-	$scope.sort_by = function(newSortingOrder) {
-		if ($scope.sortingOrder === newSortingOrder) {
-			$scope.reverse = !$scope.reverse;
-		}
-
-		$scope.sortingOrder = newSortingOrder;
-
-		// icon setup
-		jQuery('th i').each(function() {
-			// icon reset
-			jQuery(this).removeClass().addClass('fa fa-sort');
-		});
-		if ($scope.reverse) {
-			jQuery('th.' + newSortingOrder + ' i').removeClass().addClass('fa fa-sort-asc');
-		} else {
-			jQuery('th.' + newSortingOrder + ' i').removeClass().addClass('fa fa-sort-desc');
-		}
-	};
+	function setOrderIcon() {
+		$scope.orderIcon = {
+			'user': 'fa-sort',
+			'date': 'fa-sort',
+			'totalCosts': 'fa-sort',
+			'status': 'fa-sort'
+		};
+		$scope.orderIcon[$scope.orderColumn] = $scope.orderReverse ? 'fa-sort-asc' : 'fa-sort-desc';
+	}
 
 }]);

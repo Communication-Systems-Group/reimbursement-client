@@ -17,3 +17,20 @@
 		border-color: transparent;
 	}
 }
+
+#admin-pool-search {
+
+	table th[ng-click] {
+		cursor: pointer;
+		user-select: none;
+
+		.fa-sort {
+			margin-left: 0.5em;
+			color: #ccc;
+		}
+		.fa-sort-asc,
+		.fa-sort-desc {
+			margin-left: 0.5em;
+		}
+	}
+}
