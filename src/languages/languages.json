@@ -67,6 +67,10 @@
 		"de": "Berechtigung Antragssteller",
 		"en": "Permission of Expense Creator"
 	},
+	"adminPoolSearch.expenseState": {
+		"de": "Spesenstatus",
+		"en": "Expense state"
+	},
 	"adminPoolSearch.search": {
 		"de": "Go!",
 		"en": "Go!"
@@ -76,8 +80,8 @@
 		"en": "Last Name of Expense Creator"
 	},
 	"adminPoolSearch.role.USER": {
-		"de": "Benutzer",
-		"en": "User"
+		"de": "Mitarbeiter",
+		"en": "Employee"
 	},
 	"adminPoolSearch.role.PROF": {
 		"de": "Professor",
@@ -90,6 +94,54 @@
 	"adminPoolSearch.preselectedRole": {
 		"de": "alle Berechtigungen",
 		"en": "all permissions"
+	},
+	"adminPoolSearch.preselectedExpense": {
+		"de": "alle Stati",
+		"en": "all states"
+	},
+	"adminPoolSearch.expenseState.DRAFT": {
+		"de": "Entwurf",
+		"en": "Draft"
+	},
+	"adminPoolSearch.expenseState.ASSIGNED_TO_PROF": {
+		"de": "Zugewiesen an Professor",
+		"en": "Assigned to professor"
+	},
+	"adminPoolSearch.expenseState.ASSIGNED_TO_PROF": {
+		"de": "Zugewiesen an Professor",
+		"en": "Assigned to professor"
+	},
+	"adminPoolSearch.expenseState.REJECTED": {
+		"de": "Abgelehnt",
+		"en": "Rejected"
+	},
+	"adminPoolSearch.expenseState.TO_BE_ASSIGNED": {
+		"de": "Wird zugewiesen",
+		"en": "To be assigned"
+	},
+	"adminPoolSearch.expenseState.ASSIGNED_TO_FINANCE_ADMIN": {
+		"de": "Zugewiesen an Finanzverwaltung",
+		"en": "Assigned to finance admin"
+	},
+	"adminPoolSearch.expenseState.TO_SIGN_BY_USER": {
+		"de": "Wird von Mitarbeiter signiert",
+		"en": "To sign by user"
+	},
+	"adminPoolSearch.expenseState.TO_SIGN_BY_PROF": {
+		"de": "Wird von Professor signiert",
+		"en": "To sign by professor"
+	},
+	"adminPoolSearch.expenseState.TO_SIGN_BY_FINANCE_ADMIN": {
+		"de": "Wird von Finanzverwaltung signiert",
+		"en": "To sign by finance admin"
+	},
+	"adminPoolSearch.expenseState.SIGNED": {
+		"de": "Signiert",
+		"en": "Signed"
+	},
+	"adminPoolSearch.expenseState.PRINTED": {
+		"de": "Gedruckt",
+		"en": "Printed"
 	},
 	"adminPoolSearch.searchResults": {
 		"de": "Suchresultat",

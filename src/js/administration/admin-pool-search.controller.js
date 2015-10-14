@@ -3,6 +3,7 @@ app.controller('AdminPoolSearchController', ['moment', '$scope', '$timeout', 'ad
 function(moment, $scope, $timeout, administrationRestService, $filter) {
 	'use strict';
 	$scope.roles = [];
+	$scope.expenseStates = [];
 	$scope.form = {};
 	$scope.searchConducted = false;
 	$scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
@@ -19,6 +20,10 @@ function(moment, $scope, $timeout, administrationRestService, $filter) {
 
 	administrationRestService.getRoles().then(function(response) {
 		$scope.roles = response.data;
+	});
+
+	administrationRestService.getExpenseStates().then(function(response) {
+		$scope.expenseStates = response.data;
 	});
 
 	function createDatePickerStartTime() {

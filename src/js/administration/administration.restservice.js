@@ -32,6 +32,10 @@ app.factory('administrationRestService', ['$http', 'HOST',
 			return $http.get(HOST + '/api/finance-admin/roles');
 		}
 
+		function getExpenseStates() {
+			return $http.get(HOST + '/api/expenses/expense-states');
+		}
+
 		function search(data) {
 			return $http({
 				method: 'POST',
@@ -50,6 +54,7 @@ app.factory('administrationRestService', ['$http', 'HOST',
 			putCostCategory: putCostCategory,
 			deleteCostCategory: deleteCostCategory,
 			getRoles: getRoles,
+			getExpenseStates: getExpenseStates,
 			search: search,
 			getExpenseStateRawData: getExpenseStateRawData
 		};

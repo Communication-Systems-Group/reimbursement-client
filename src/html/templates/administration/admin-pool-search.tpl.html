@@ -1,6 +1,6 @@
 <div id="admin-pool-search">
 	<h1 class="page-header"><i class="fa fa-search"></i> {{ 'reimbursement.adminPoolSearch.title' | translate }} </h1>
-{{currentPage}}
+	{{currentPage}}
 	<div class="col-sm-10 col-sm-offset-1">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -39,6 +39,14 @@
 						</div>
 					</div>
 					<div class="form-group">
+						<label class="col-sm-4 control-label"> {{ 'reimbursement.adminPoolSearch.expenseState' | translate }} </label>
+						<div class="col-sm-8">
+							<select class="form-control" ng-model="form.expenseState" ng-options="expenseState as 'reimbursement.adminPoolSearch.expenseState.'+expenseState | translate for expenseState in expenseStates">
+								<option selected value="">{{ 'reimbursement.adminPoolSearch.preselectedExpense' | translate }}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
 						<label for="sapText" class="col-sm-4 control-label"> {{ 'reimbursement.adminPoolSearch.sapText' | translate }} </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="sapText" ng-model="form.accountingText">
@@ -61,27 +69,11 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th ng-click="sortBy('user')">
-						{{ 'reimbursement.dashboard.table.expenseAuthor' | translate }}
-						<i class="fa {{ orderIcon.user }}"></i>
-					</th>
+					<th ng-click="sortBy('user')"> {{ 'reimbursement.dashboard.table.expenseAuthor' | translate }} <i class="fa {{ orderIcon.user }}"></i></th>
 					<th>{{ 'reimbursement.expense.accountingTitle' | translate }}</th>
-					<th ng-click="sortBy('date')">
-						<span class="tableRightMargin">
-							{{ 'reimbursement.dashboard.table.date' | translate }}
-							<i class="fa {{ orderIcon.date }}"></i>
-						</span>
-					</th>
-					<th ng-click="sortBy('totalCosts')">
-						<span class="tableRightMargin">
-							{{ 'reimbursement.dashboard.table.totalCosts' | translate }}
-							<i class="fa {{ orderIcon.totalCosts }}"></i>
-						</span>
-					</th>
-					<th ng-click="sortBy('status')" class="text-center">
-						{{ 'reimbursement.dashboard.table.status' | translate }}
-						<i class="fa {{ orderIcon.status }}"></i>
-					</th>
+					<th ng-click="sortBy('date')"><span class="tableRightMargin"> {{ 'reimbursement.dashboard.table.date' | translate }} <i class="fa {{ orderIcon.date }}"></i> </span></th>
+					<th ng-click="sortBy('totalCosts')"><span class="tableRightMargin"> {{ 'reimbursement.dashboard.table.totalCosts' | translate }} <i class="fa {{ orderIcon.totalCosts }}"></i> </span></th>
+					<th ng-click="sortBy('status')" class="text-center"> {{ 'reimbursement.dashboard.table.status' | translate }} <i class="fa {{ orderIcon.status }}"></i></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -99,13 +91,13 @@
 		</table>
 		<div class="text-right">
 			<uib-pagination
-				total-items="items.length"
-				ng-model="currentPage"
-				items-per-page="itemsPerPage"
-				max-size="10"
-				class="pagination-sm"
-				boundary-links="true"
-				rotate="false"
+			total-items="items.length"
+			ng-model="currentPage"
+			items-per-page="itemsPerPage"
+			max-size="10"
+			class="pagination-sm"
+			boundary-links="true"
+			rotate="false"
 			></uib-pagination>
 		</div>
 	</div>
