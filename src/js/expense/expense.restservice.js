@@ -24,7 +24,7 @@ function($http, HOST) {
 		return $http({
 			method: 'PUT',
 			url: HOST + '/api/expenses/'+uid,
-			data: {
+			params: {
 				accounting: accounting
 			}
 		});
