@@ -3,7 +3,6 @@ app.controller('AdminPoolSearchController', ['moment', '$scope', '$timeout', 'ad
 function(moment, $scope, $timeout, administrationRestService, $filter) {
 	'use strict';
 	$scope.roles = [];
-	$scope.expenses = [];
 	$scope.form = {};
 	$scope.searchConducted = false;
 	$scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
@@ -21,18 +20,6 @@ function(moment, $scope, $timeout, administrationRestService, $filter) {
 	administrationRestService.getRoles().then(function(response) {
 		$scope.roles = response.data;
 	});
-	//
-	// $scope.search = function() {
-	// var data = $scope.form;
-	// data.startTime = $filter('getISODate')(data.startTime);
-	// data.endTime = $filter('getISODate')(data.endTime);
-	// administrationRestService.search(data).then(function(response) {
-	// $scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
-	// $scope.form.endTime = moment().format('DD.MM.YYYY');
-	// $scope.expenses = response.data;
-	// $scope.searchConducted = true;
-	// });
-	// };
 
 	// init the filtered items
 	$scope.search = function() {
@@ -42,10 +29,9 @@ function(moment, $scope, $timeout, administrationRestService, $filter) {
 		administrationRestService.search(data).then(function(response) {
 			$scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
 			$scope.form.endTime = moment().format('DD.MM.YYYY');
-			$scope.expenses = response.data;
+			$scope.items = response.data;
 			$scope.searchConducted = true;
 
-			$scope.items = $scope.expenses;
 			$scope.filteredItems = $filter('filter')($scope.items, function(item) {
 				for (var attr in item) {
 					if (searchMatch(item[attr], $scope.query)) {
@@ -70,7 +56,7 @@ function(moment, $scope, $timeout, administrationRestService, $filter) {
 			format: 'DD.MM.YYYY',
 			viewMode: 'months',
 			allowInputToggle: true,
-			maxDate: $scope.form.endTime,
+			maxDate: $filter('getISODate')($scope.form.endTime),
 			calendarWeeks: true
 		}).on('dp.hide', function() {
 			$scope.form.startTime = jQuery('.datepicker-start-time').find('input').first().val();
@@ -83,12 +69,12 @@ function(moment, $scope, $timeout, administrationRestService, $filter) {
 			format: 'DD.MM.YYYY',
 			viewMode: 'months',
 			allowInputToggle: true,
-			maxDate: moment(),
+			maxDate: moment().valueOf(),
 			calendarWeeks: true
 		}).on('dp.hide', function() {
 			$scope.form.endTime = jQuery('.datepicker-end-time').find('input').first().val();
 			jQuery('.datepicker-start-time').datetimepicker('destroy');
-			createDatePickerStartTime();
+			jQuery('.datepicker-start-time').datetimepicker("change", { maxDate: $filter('getISODate')($scope.form.endTime) });
 		});
 	});
 
