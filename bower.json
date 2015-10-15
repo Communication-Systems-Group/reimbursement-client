@@ -12,7 +12,7 @@
 		"font-awesome": "^4.4.0",
 		"jquery": "^2.1.4",
 		"angular-ui-router": "^0.2.15",
-		"angular-bootstrap": "^0.14.1",
+		"angular-bootstrap": "^0.14.2",
 		"modernizr": "^2.8.3",
 		"angular-qrcode": "^5.1.0",
 		"angular-deferred-bootstrap": "^0.1.7",
