@@ -1,6 +1,5 @@
 <div id="admin-pool-search">
 	<h1 class="page-header"><i class="fa fa-search"></i> {{ 'reimbursement.adminPoolSearch.title' | translate }} </h1>
-	{{currentPage}}
 	<div class="col-sm-10 col-sm-offset-1">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -63,7 +62,7 @@
 		</div>
 	</div>
 
-	<div ng-if="searchConducted">
+	<div ng-show="searchConducted">
 		<h2 class="page-header"> {{ 'reimbursement.adminPoolSearch.searchResults' | translate }} </h2>
 
 		<table class="table table-striped">
