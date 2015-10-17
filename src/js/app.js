@@ -11,14 +11,17 @@
 					return $http.get(languagePath);
 				}],
 			USER: ['$q', '$http',
-				function ($q, $http) {
+				function($q, $http) {
 					var deferred = $q.defer();
 					var host = window.location.protocol + "//" + window.location.host.split(':')[0];
-					//var host = '//localhost:8080';
+
 					$http.get(host + "/api/user", {withCredentials: true}).then(
 						function (response) {
 							var data = response.data;
 							data.loggedIn = true;
+							data.hasRole = function(role) {
+								return data.roles.indexOf(role) !== -1;
+							};
 							deferred.resolve(data);
 
 						}, function () {
@@ -26,10 +29,14 @@
 								loggedIn: false,
 								language: 'DE',
 								hasSignature: false,
-								roles: []
+								roles: [],
+								hasRole: function() {
+									return false;
+								}
 							};
 							deferred.resolve(data);
 						});
+
 					return deferred.promise;
 				}
 			]
@@ -55,29 +62,41 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}
 		}
 
-		// has role function to simplify the call
-		USER.hasRole = function(role) {
-			return USER.roles.indexOf(role) !== -1;
-		};
-
 		$translateProvider.preferredLanguage(USER.language.toLowerCase());
 		$translateProvider.useSanitizeValueStrategy('escape');
 
 		$httpProvider.defaults.withCredentials = true;
 		$httpProvider.interceptors.push('httpInterceptor');
 
-		function requireAuthentication() {
+		function requireRegisteredAuthentication() {
 			return ['$state', 'USER', function ($state, USER) {
 				if (!USER.loggedIn) {
 					$state.go('login');
 				}
+				if (!USER.hasRole("REGISTERED_USER")) {
+					$state.go('registrationForm');
+				}
 			}];
 		}
 
-		function requireAuthenticationWithAnyRole(roles) {
+		function requireUnregisteredAuthentication() {
 			return ['$state', 'USER', function ($state, USER) {
 				if (!USER.loggedIn) {
 					$state.go('login');
+				}
+				if(USER.hasRole("REGISTERED_USER")) {
+					$state.go('dashboard');
+				}
+			}];
+		}
+
+		function requireRegisteredAuthenticationWithAnyRole(roles) {
+			return ['$state', 'USER', function ($state, USER) {
+				if (!USER.loggedIn) {
+					$state.go('login');
+				}
+				if (!USER.hasRole("REGISTERED_USER")) {
+					$state.go('registrationForm');
 				}
 
 				var hasSufficientRights = false;
@@ -104,11 +123,37 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "logout/logout.tpl.html",
 			controller: 'LogoutController'
 
-		}).state('signature', {
-			url: "/signature",
-			templateUrl: "signature/signature.tpl.html",
-			controller: "SignatureController",
-			onEnter: requireAuthentication()
+		}).state('registrationForm', {
+			templateUrl: "registration/registration-form.tpl.html",
+			controller: "RegistrationFormController",
+			onEnter: requireUnregisteredAuthentication()
+
+		}).state('registrationSignature', {
+			templateUrl: "registration/registration-signature.tpl.html",
+			controller: "RegistrationSignatureController",
+			onEnter: requireUnregisteredAuthentication()
+
+		}).state('registrationCropping', {
+			params: {
+				imageUri: null
+			},
+			templateUrl: "registration/registration-cropping.tpl.html",
+			controller: "RegistrationCroppingController",
+			onEnter: requireUnregisteredAuthentication()
+
+		}).state('settingsSignature', {
+			url: "/settingsSignature",
+			templateUrl: "settings/settings-signature.tpl.html",
+			controller: "SettingsSignatureController",
+			onEnter: requireRegisteredAuthentication()
+
+		}).state('settingsCropping', {
+			params: {
+				imageUri: null
+			},
+			templateUrl: "settings/settings-cropping.tpl.html",
+			controller: "SettingsCroppingController",
+			onEnter: requireRegisteredAuthentication()
 
 		}).state('signatureMobile', {
 			url: "/signature-mobile/:token",
@@ -124,76 +169,67 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			url: "/view-cost-category",
 			templateUrl: "administration/view-cost-category.tpl.html",
 			controller: "ViewCostCategoryController",
-			onEnter: requireAuthenticationWithAnyRole(['FINANCE_ADMIN'])
+			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
 
 		}).state('admin-pool-search', {
 			url: "/admin-pool-search",
 			templateUrl: "administration/admin-pool-search.tpl.html",
 			controller: "AdminPoolSearchController",
-			onEnter: requireAuthenticationWithAnyRole(['FINANCE_ADMIN'])
+			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
 
 		}).state('admin-pool-graphs', {
 			url: "/admin-pool-graphs",
 			templateUrl: "administration/admin-pool-graphs.tpl.html",
 			controller: "AdminPoolGraphsController",
-			onEnter: requireAuthenticationWithAnyRole(['FINANCE_ADMIN'])
+			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
 
 		}).state('settings', {
 			url: "/settings",
 			templateUrl: "settings/settings.tpl.html",
 			controller: 'SettingsController',
-			onEnter: requireAuthentication()
-
-		}).state('cropping', {
-			// no url, because the cropping should not be opened manually
-			params: {
-				imageUri: null
-			},
-			templateUrl: "cropping/cropping.tpl.html",
-			controller: "CroppingController",
-			onEnter: requireAuthentication()
+			onEnter: requireRegisteredAuthentication()
 
 		}).state('dashboard', {
 			url: "/dashboard",
 			templateUrl: "dashboard/dashboard.tpl.html",
 			controller: "DashboardController",
-			onEnter: requireAuthentication()
+			onEnter: requireRegisteredAuthentication()
 
 		}).state('create-expense', {
 			url: "/create-expense/:uid",
 			templateUrl: "expense/create-expense.tpl.html",
 			controller: "CreateExpenseController",
-			onEnter: requireAuthentication()
+			onEnter: requireRegisteredAuthentication()
 
 		}).state('edit-expense', {
 			url: "/edit-expense/:uid",
 			templateUrl: "expense/create-expense.tpl.html",
 			controller: "CreateExpenseController",
-			onEnter: requireAuthentication()
+			onEnter: requireRegisteredAuthentication()
 
 		}).state('view-expense', {
 			url: "/view-expense/:uid",
 			templateUrl: "expense/view-expense.tpl.html",
 			controller: "ViewExpenseController",
-			onEnter: requireAuthentication()
+			onEnter: requireRegisteredAuthentication()
 
 		}).state('print-expense', {
 			url: "/print-expense/:uid",
 			templateUrl: "expense/print-expense.tpl.html",
 			controller: "PrintExpenseController",
-			onEnter: requireAuthentication()
+			onEnter: requireRegisteredAuthentication()
 
 		}).state('review-expense', {
 			url: "/review-expense/:uid",
 			templateUrl: "expense/review-expense.tpl.html",
 			controller: "ReviewExpenseController",
-			onEnter: requireAuthenticationWithAnyRole(['PROF', 'FINANCE_ADMIN'])
+			onEnter: requireRegisteredAuthenticationWithAnyRole(['PROF', 'FINANCE_ADMIN'])
 
 		}).state('sign-expense', {
 			url: "/sign-expense/:uid",
 			templateUrl: "expense/sign-expense.tpl.html",
 			controller: "SignExpenseController",
-			onEnter: requireAuthentication()
+			onEnter: requireRegisteredAuthentication()
 
 		}).state('guest-view-expense', {
 			url: "/guest-view-expense/:token",

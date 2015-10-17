@@ -1,4 +1,16 @@
 {
+	"registration.title": {
+		"de": "Registrierung (Schritt {{step}})",
+		"en": "Registration (Step {{step}})"
+	},
+	"registration.subtitleStep1": {
+		"de": "Persönliche Daten",
+		"en": "Personnel Data"
+	},
+	"registration.subtitleStep3": {
+		"de": "Signatur zuschneiden",
+		"en": "Crop Signature"
+	},
 	"administration.title": {
 		"de": "Administration",
 		"en": "Administration"

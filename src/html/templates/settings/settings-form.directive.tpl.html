@@ -1,0 +1,36 @@
+<div id="settings-form">
+	<form id="languageSettings" class="form-horizontal">
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="languageSelect"> {{ 'reimbursement.settings.language' | translate }} </label>
+			<div class="col-sm-9">
+				<select class="form-control" ng-model="form.language" id="languageSelect">
+					<option ng-repeat="language in languages" value="{{ language }}"> {{ "reimbursement.settings.language."+language | translate }} </option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="personnelNumber"> {{ 'reimbursement.settings.personnelNumber' | translate }} </label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control" id="personnelNumber" placeholder="{{ personnelNumber }}" ng-model="form.personnelNumber">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="phoneNumber"> {{ 'reimbursement.settings.phoneNumber' | translate }} </label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control" id="phoneNumber" placeholder="{{ phoneNumber }}" ng-model="form.phoneNumber">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label"> {{ 'reimbursement.settings.accountState' | translate }} </label>
+			<div class="col-sm-9">
+				<label class="checkbox-inline"><input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="form.isActive"> {{ 'reimbursement.settings.state' | translate }} </label>
+			</div>
+		</div>
+		<div class="text-right">
+			<button type="submit" class="btn btn-primary" ng-click="saveSettings()">
+				<i class="fa fa-check"></i>
+				{{ 'reimbursement.settings.saveButton' | translate }}
+			</button>
+		</div>
+	</form>
+</div>
