@@ -11,7 +11,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-if="items.length < 1">
+			<tr ng-if="archivedExpenses.length < 1">
 				<td colspan="99" class="text-center">{{ 'reimbursement.dashboard.table.noContent' | translate }}</td>
 			</tr>
 			<tr ng-repeat="expense in pagedExpenses[currentPage]">
