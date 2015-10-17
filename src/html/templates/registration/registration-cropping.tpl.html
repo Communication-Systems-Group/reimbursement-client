@@ -1,8 +1,10 @@
 <div id="registration-cropping">
 	<h1 class="page-header">
-		<i class="fa fa-sign-in"></i>
 		{{ 'reimbursement.registration.title' | translate: '{step:3}' }}
-		<small>{{ 'reimbursement.registration.subtitleStep3' | translate }}</small>
+		<small>
+			<i class="fa fa-crop"></i>
+			{{ 'reimbursement.registration.subtitleStep3' | translate }}
+		</small>
 	</h1>
 
 	<cropping is-registration="true" finally-function="submit" image="image"></cropping>
