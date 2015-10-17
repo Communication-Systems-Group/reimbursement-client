@@ -11,8 +11,8 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 		}
 
 		function updateMyExpenses() {
-			dashboardRestService.getMyExpenses().success(function (response) {
-				$scope.myExpenses = response;
+			dashboardRestService.getMyExpenses().then(function (response) {
+				$scope.myExpenses = response.data;
 			}, function () {
 				$scope.myExpenses = [];
 			});
