@@ -1,6 +1,6 @@
-app.controller('AdminPoolSearchController', ['moment', '$scope', '$timeout', 'administrationRestService', '$filter',
+app.controller('AdminPoolSearchController', ['moment', '$scope', '$timeout', 'administrationRestService', 'globalMessagesService', '$filter',
 
-function(moment, $scope, $timeout, administrationRestService, $filter) {
+function(moment, $scope, $timeout, administrationRestService, globalMessagesService, $filter) {
 	'use strict';
 	$scope.roles = [];
 	$scope.expenseStates = [];
@@ -107,4 +107,10 @@ function(moment, $scope, $timeout, administrationRestService, $filter) {
 		$scope.orderIcon[$scope.orderColumn] = $scope.orderReverse ? 'fa-sort-asc' : 'fa-sort-desc';
 	}
 
+	$scope.assignToMe = function(uid) {
+		globalMessagesService.confirmInfo('reimbursement.expense.confirmAssignTitle',
+		'reimbursement.expense.confirmAssignMessage').then(function() {
+			administrationRestService.assignToMe(uid).then($scope.search);
+		});
+	};
 }]);
