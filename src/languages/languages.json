@@ -115,13 +115,9 @@
 		"de": "Entwurf",
 		"en": "Draft"
 	},
-	"adminPoolSearch.expenseState.ASSIGNED_TO_PROF": {
-		"de": "Zugewiesen an Professor",
-		"en": "Assigned to professor"
-	},
-	"adminPoolSearch.expenseState.ASSIGNED_TO_PROF": {
-		"de": "Zugewiesen an Professor",
-		"en": "Assigned to professor"
+	"adminPoolSearch.expenseState.ASSIGNED_TO_MANAGER": {
+		"de": "Zugewiesen an Vorgesetzten",
+		"en": "Assigned to manager"
 	},
 	"adminPoolSearch.expenseState.REJECTED": {
 		"de": "Abgelehnt",
@@ -139,9 +135,9 @@
 		"de": "Wird von Mitarbeiter signiert",
 		"en": "To sign by user"
 	},
-	"adminPoolSearch.expenseState.TO_SIGN_BY_PROF": {
-		"de": "Wird von Professor signiert",
-		"en": "To sign by professor"
+	"adminPoolSearch.expenseState.TO_SIGN_BY_MANAGER": {
+		"de": "Wird von Vorgesetzten signiert",
+		"en": "To sign by manager"
 	},
 	"adminPoolSearch.expenseState.TO_SIGN_BY_FINANCE_ADMIN": {
 		"de": "Wird von Finanzverwaltung signiert",
@@ -753,9 +749,9 @@
 		"de": "Übernehmen",
 		"en": "Take over"
 	},
-	"expense.submitToProfButton": {
-		"de": "An Professor zuweisen",
-		"en": "Submit to Professor"
+	"expense.submitToManagerButton": {
+		"de": "An Vorgesetzten zuweisen",
+		"en": "Submit to manager"
 	},
 	"expense.acceptButton": {
 		"de": "Annehmen",
@@ -770,8 +766,8 @@
 		"en": "Submit permanently?"
 	},
 	"expense.submitInfoMessage": {
-		"de": "Sind Sie sicher, dass alle Belege erfasst wurden und die Spese an den Professor zugewiesen werden soll?",
-		"en": "Are you sure, that all receipts were uploaded and you are willing to send this expense to the professor?"
+		"de": "Sind Sie sicher, dass alle Belege erfasst wurden und die Spese an den Vorgesetzten zugewiesen werden soll?",
+		"en": "Are you sure, that all receipts were uploaded and you are willing to send this expense to the manager?"
 	},
 	"expense.addNewReceiptButton": {
 		"de": "Neuen Beleg hinzufügen",
@@ -1093,9 +1089,9 @@
 		"de": "Signieren durch Benutzer",
 		"en": "To be signed by user"
 	},
-	"expense.state.toSignByProf": {
-		"de": "Signieren durch Professor",
-		"en": "To be signed by professor"
+	"expense.state.toSignByManager": {
+		"de": "Signieren durch Vorgesetzten",
+		"en": "To be signed by manager"
 	},
 	"expense.state.to_be_assigned": {
 		"de": "Zuweisung an Finanzverwaltungsmitglied",
@@ -1105,9 +1101,9 @@
 		"de": "Signieren durch Finanzverwaltung",
 		"en": "To be signed by finance administration"
 	},
-	"expense.state.assigned_to_professor": {
-		"de": "Zugewiesen an Professor",
-		"en": "Assigned to Professor"
+	"expense.state.assigned_to_manager": {
+		"de": "Zugewiesen an Vorgesetzten",
+		"en": "Assigned to manager"
 	},
 	"expense.state.assigned_to_finance_admin": {
 		"de": "Zugewiesen an Finanzverwaltung",

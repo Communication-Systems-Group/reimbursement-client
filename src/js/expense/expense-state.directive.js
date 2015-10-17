@@ -16,9 +16,9 @@ app.directive('expenseState',
 						"class": 'label-info',
 						"translate": 'reimbursement.expense.state.draft'
 					},
-					'ASSIGNED_TO_PROF': {
+					'ASSIGNED_TO_MANAGER': {
 						"class": 'label-info',
-						"translate": 'reimbursement.expense.state.assigned_to_professor'
+						"translate": 'reimbursement.expense.state.assigned_to_manager'
 					},
 					'TO_BE_ASSIGNED': {
 						"class": 'label-info',
@@ -44,9 +44,9 @@ app.directive('expenseState',
 						"class": 'label-info',
 						"translate": 'reimbursement.expense.state.toSignByUser'
 					},
-					'TO_SIGN_BY_PROF': {
+					'TO_SIGN_BY_MANAGER': {
 						"class": 'label-info',
-						"translate": 'reimbursement.expense.state.toSignByProf'
+						"translate": 'reimbursement.expense.state.toSignByManager'
 					},
 					'TO_SIGN_BY_FINANCE_ADMIN': {
 						"class": 'label-info',

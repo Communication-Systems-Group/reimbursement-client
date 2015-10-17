@@ -4,6 +4,8 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 		'use strict';
 
 		$scope.user = USER;
+		$scope.myExpenses = [];
+		$scope.myReviewExpenses = [];
 
 		$scope.showReviewSection = false;
 		if (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('PROF')) {
@@ -13,8 +15,6 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 		function updateMyExpenses() {
 			dashboardRestService.getMyExpenses().then(function (response) {
 				$scope.myExpenses = response.data;
-			}, function () {
-				$scope.myExpenses = [];
 			});
 		}
 		updateMyExpenses();
@@ -22,8 +22,6 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 		function updateReviewExpenses() {
 			dashboardRestService.getReviewExpenses().then(function (response) {
 				$scope.myReviewExpenses = response.data;
-			}, function () {
-				$scope.myReviewExpenses = [];
 			});
 		}
 		if($scope.showReviewSection) {
@@ -73,10 +71,10 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 				"DRAFT",
 				"REJECTED",
 				"TO_SIGN_BY_USER",
-				"ASSIGNED_TO_PROF",
+				"ASSIGNED_TO_MANAGER",
 				"TO_BE_ASSIGNED",
 				"ASSIGNED_TO_FINANCE_ADMIN",
-				"TO_SIGN_BY_PROF",
+				"TO_SIGN_BY_MANAGER",
 				"TO_SIGN_BY_FINANCE_ADMIN",
 				"PRINTED"
 			];
@@ -87,8 +85,8 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 			var states = [];
 			if(USER.hasRole('PROF')) {
 				states = [
-					"ASSIGNED_TO_PROF",
-					"TO_SIGN_BY_PROF",
+					"ASSIGNED_TO_MANAGER",
+					"TO_SIGN_BY_MANAGER",
 					"TO_BE_ASSIGNED",
 					"ASSIGNED_TO_FINANCE_ADMIN",
 					"TO_SIGN_BY_USER",
@@ -104,9 +102,9 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 					"ASSIGNED_TO_FINANCE_ADMIN",
 					"TO_SIGN_BY_FINANCE_ADMIN",
 					"REJECTED",
-					"ASSIGNED_TO_PROF",
+					"ASSIGNED_TO_MANAGER",
 					"TO_SIGN_BY_USER",
-					"TO_SIGN_BY_PROF",
+					"TO_SIGN_BY_MANAGER",
 					"DRAFT",
 					"PRINTED"
 				];

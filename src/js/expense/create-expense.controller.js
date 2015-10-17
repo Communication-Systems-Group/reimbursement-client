@@ -57,14 +57,14 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 		$state.go('dashboard');
 	};
 
-	$scope.submitToProf = function() {
+	$scope.submitToManager = function() {
 		if(!$scope.submitButtonDisabled) {
 
 			globalMessagesService.confirmInfoMd('reimbursement.expense.submitInfoTitle',
 				'reimbursement.expense.submitInfoMessage').then(function() {
 
 				spinnerService.show('spinnerCreateExpense');
-				expenseRestService.assignToProf($scope.expenseUid).then(function() {
+				expenseRestService.assignToManager($scope.expenseUid).then(function() {
 
 					$state.go('dashboard');
 

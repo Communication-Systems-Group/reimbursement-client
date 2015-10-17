@@ -53,7 +53,7 @@
 						</li>
 					</ul>
 				</div>
-				<button class="btn btn-default btn-xs" ng-click="go('sign-expense', { uid: e.uid })" ng-if="e.state === 'TO_SIGN_BY_USER' || e.state === 'TO_SIGN_BY_PROF' || e.state === 'TO_SIGN_BY_FINANCE_ADMIN'">
+				<button class="btn btn-default btn-xs" ng-click="go('sign-expense', { uid: e.uid })" ng-if="e.state === 'TO_SIGN_BY_USER' || e.state === 'TO_SIGN_BY_MANAGER' || e.state === 'TO_SIGN_BY_FINANCE_ADMIN'">
 					<i class="fa fa-pencil-square-o"></i>
 					{{ 'reimbursement.expense.signButton' | translate }}
 				</button>
@@ -114,19 +114,19 @@
 				</td>
 				<td>
 					<div ng-if="USER.hasRole('PROF')">
-						<div ng-if="e.state === 'ASSIGNED_TO_PROF'">
+						<div ng-if="e.state === 'ASSIGNED_TO_MANAGER'">
 							<button class="btn btn-default btn-xs" ng-click="go('review-expense', { uid: e.uid })">
 								<i class="fa fa-gavel"></i>
 								{{ 'reimbursement.expense.validate' | translate }}
 							</button>
 						</div>
-						<div ng-if="e.state === 'TO_SIGN_BY_PROF'">
+						<div ng-if="e.state === 'TO_SIGN_BY_MANAGER'">
 							<button class="btn btn-default btn-xs" ng-click="go('sign-expense', { uid: e.uid })">
 								<i class="fa fa-pencil-square-o"></i>
 								{{ 'reimbursement.expense.signButton' | translate }}
 							</button>
 						</div>
-						<div ng-if="!(e.state === 'ASSIGNED_TO_PROF' || e.state === 'TO_SIGN_BY_PROF')">
+						<div ng-if="!(e.state === 'ASSIGNED_TO_MANAGER' || e.state === 'TO_SIGN_BY_MANAGER')">
 							<button class="btn btn-default btn-xs" ng-click="go('view-expense', { uid: e.uid })">
 								<i class="fa fa-eye"></i>
 								{{ 'reimbursement.expense.viewItem' | translate }}
