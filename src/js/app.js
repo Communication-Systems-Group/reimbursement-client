@@ -1,7 +1,7 @@
 (function initializeLanguagesBeforeApplicationStart() {
 	"use strict";
 
-	deferredBootstrapper.bootstrap({
+	window.deferredBootstrapper.bootstrap({
 		element: document.body,
 		module: 'reimbursement',
 		resolve: {
@@ -46,11 +46,10 @@
 
 var app = angular.module('reimbursement', ['reimbursement.templates', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'monospaced.qrcode', 'flow']);
 
-app.constant("Modernizr", Modernizr);
-app.constant("moment", moment);
-app.constant("c3", c3);
+app.constant("Modernizr", window.Modernizr);
+app.constant("moment", window.moment);
+app.constant("c3", window.c3);
 app.constant("HOST", window.location.protocol + "//" + window.location.host.split(":")[0]);
-//app.constant("HOST", "//localhost:8080");
 
 app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', 'LANGUAGES', 'USER', 'flowFactoryProvider',
 	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, LANGUAGES, USER, flowFactoryProvider) {

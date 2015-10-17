@@ -14,7 +14,7 @@ function($window, $timeout, base64BinaryConverterService) {
 		},
 		link : function($scope, $element) {
 			var canvas = $element.find("canvas");
-			var signaturePad = new SignaturePad(canvas[0]);
+			var signaturePad = new window.SignaturePad(canvas[0]);
 
 			setCanvasSize();
 

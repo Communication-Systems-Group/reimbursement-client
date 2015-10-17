@@ -35,15 +35,8 @@ module.exports = function (grunt) {
 				globals: {
 					window: true,
 					document: true,
-					d3: true,
-					c3: true,
 					jQuery: true,
-					topojson: true,
-					moment: true,
-					SignaturePad: true,
-					angular: true,
-					Modernizr: true,
-					deferredBootstrapper: true
+					angular: true
 				}
 			},
 			prod: {
@@ -56,15 +49,8 @@ module.exports = function (grunt) {
 						console: true,
 						window: true,
 						document: true,
-						d3: true,
-						c3: true,
 						jQuery: true,
-						topojson: true,
-						moment: true,
-						SignaturePad: true,
-						angular: true,
-						Modernizr: true,
-						deferredBootstrapper: true
+						angular: true
 					}
 				},
 				src: ['dist/javascript/app.js']
