@@ -1,0 +1,25 @@
+<div id="archive">
+	<h1 class="page-header"><i class="fa fa-file-archive-o"></i> {{ 'reimbursement.archive.title' | translate }} </h1>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th> {{ 'reimbursement.dashboard.table.expenseAuthor' | translate }} </th>
+				<th>{{ 'reimbursement.expense.accountingTitle' | translate }}</th>
+				<th><span class="tableRightMargin"> {{ 'reimbursement.dashboard.table.date' | translate }} </span></th>
+				<th><span class="tableRightMargin"> {{ 'reimbursement.dashboard.table.totalCosts' | translate }} </span></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-if="items.length < 1">
+				<td colspan="99" class="text-center">{{ 'reimbursement.dashboard.table.noContent' | translate }}</td>
+			</tr>
+			<tr ng-repeat="expense in archivedExpenses | orderBy:date">
+				<td>{{expense.user}}</td>
+				<td>{{expense.accounting}}</td>
+				<td>{{expense.date | date:'dd.MM.yyyy'}}</td>
+				<td><span class="tableRightMargin">{{ expense.totalAmount | currency:'CHF ':2 }}</span></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

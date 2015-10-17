@@ -16,6 +16,9 @@
 				<li ui-sref-active="active" ng-show="USER.loggedIn && USER.hasRole('REGISTERED_USER')">
 					<a ui-sref="dashboard"><i class="fa fa-tachometer"></i> {{ 'reimbursement.tabs.dashboard' | translate }}</a>
 				</li>
+				<li ui-sref-active="active" ng-show="USER.loggedIn && USER.hasRole('REGISTERED_USER')">
+					<a ui-sref="archive"><i class="fa fa-file-archive-o"></i> {{ 'reimbursement.tabs.archive' | translate }}</a>
+				</li>
 				<li class="dropdown" ng-if="USER.hasRole('FINANCE_ADMIN') && USER.hasRole('REGISTERED_USER')">
 					<a href class="dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-gear"></i>

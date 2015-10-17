@@ -155,6 +155,10 @@
 		"de": "Suchresultat",
 		"en": "Search results"
 	},
+	"archive.title": {
+		"de": "Archivierte Spesen",
+		"en": "Archived Expenses"
+	},
 	"settings.title": {
 		"de": "Einstellungen",
 		"en": "Settings"
@@ -298,6 +302,10 @@
 	"tabs.administration": {
 		"de": "Administration",
 		"en": "Administration"
+	},
+	"tabs.archive": {
+		"de": "Archiv",
+		"en": "Archive"
 	},
 	"tabs.costCategories": {
 		"de": "Kostenstellen",

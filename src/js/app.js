@@ -182,6 +182,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "AdminPoolGraphsController",
 			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
 
+		}).state('archive', {
+			url: "/archive",
+			templateUrl: "archive/archive.tpl.html",
+			controller: 'ArchiveController',
+			onEnter: requireRegisteredAuthentication()
+
 		}).state('settings', {
 			url: "/settings",
 			templateUrl: "settings/settings.tpl.html",
