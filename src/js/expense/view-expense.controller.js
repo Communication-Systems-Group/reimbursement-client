@@ -8,10 +8,6 @@ app.controller('ViewExpenseController', ['$scope', '$state', '$stateParams', 'ex
 		$scope.expenseState = '';
 		$scope.expenseComment = '';
 
-		$scope.returnToDashboard = function () {
-			$state.go('dashboard');
-		};
-
 		expenseRestService.getAccessRights($scope.expenseUid).then(function (response) {
 
 			if (response.data.viewable) {

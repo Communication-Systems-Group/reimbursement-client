@@ -1,6 +1,6 @@
-app.controller('PrintExpenseController', ['$scope', '$state', '$stateParams', 'expenseRestService', 'globalMessagesService', 'base64BinaryConverterService',
+app.controller('PrintExpenseController', ['$scope', '$state', '$stateParams', 'expenseRestService', 'base64BinaryConverterService',
 
-function($scope, $state, $stateParams, expenseRestService, globalMessagesService, base64BinaryConverterService) {
+function($scope, $state, $stateParams, expenseRestService, base64BinaryConverterService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
@@ -17,14 +17,6 @@ function($scope, $state, $stateParams, expenseRestService, globalMessagesService
 	});
 
 	$scope.showPdf = function() {
-		globalMessagesService.confirmInfoMd("reimbursement.expense.printWithSignature", "reimbursement.expense.printWithSignatureMessage").then(function() {
-			expenseRestService.getExpensePdf($scope.expenseUid).then();
-		}, function() {
-				expenseRestService.getExpensePdf($scope.expenseUid).then();
-		});
-	};
-
-	$scope.showPdf2 = function() {
 		expenseRestService.getExpensePdf($scope.expenseUid).then(function(response) {
 
 			base64BinaryConverterService.toBase64FromJson(response.data, function(base64String) {

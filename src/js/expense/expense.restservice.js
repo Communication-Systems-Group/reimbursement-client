@@ -75,14 +75,6 @@ function($http, HOST) {
 		});
 	}
 
-	function showPdf(uid) {
-		return $http({
-			method: 'POST',
-			url: HOST + '/api/public/' + uid + '/download-pdf'
-		});
-
-	}
-
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
@@ -92,8 +84,7 @@ function($http, HOST) {
 		accept: accept,
 		reject: reject,
 		getExpensePdf: getExpensePdf,
-		getExpenseToken: getExpenseToken,
-		showPdf: showPdf
+		getExpenseToken: getExpenseToken
 	};
 
 }]);

@@ -53,10 +53,6 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 		modalInstance.result.then(updateExpense);
 	};
 
-	$scope.returnToDashboard = function() {
-		$state.go('dashboard');
-	};
-
 	$scope.submitToManager = function() {
 		if(!$scope.submitButtonDisabled) {
 

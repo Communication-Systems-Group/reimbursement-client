@@ -52,10 +52,6 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 		modalInstance.result.then(updateExpense);
 	};
 
-	$scope.returnToDashboard = function() {
-		$state.go('dashboard');
-	};
-
 	$scope.accept = function() {
 		var modalInstance = $uibModal.open({
 			templateUrl: "expense/accept-expense.tpl.html",
@@ -66,7 +62,7 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 				}
 			}
 		});
-		modalInstance.result.then($scope.returnToDashboard);
+		modalInstance.result.then(returnToDashboard);
 	};
 
 	$scope.decline = function() {
@@ -79,7 +75,11 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 				}
 			}
 		});
-		modalInstance.result.then($scope.returnToDashboard);
+		modalInstance.result.then(returnToDashboard);
 	};
+
+	function returnToDashboard() {
+		$state.go('dashboard');
+	}
 
 }]);

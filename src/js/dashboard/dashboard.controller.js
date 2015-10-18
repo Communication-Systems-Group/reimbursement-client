@@ -28,10 +28,6 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 			updateReviewExpenses();
 		}
 
-		$scope.go = function (state, params) {
-			$state.go(state, params);
-		};
-
 		$scope.addExpense = function () {
 			var modalInstance = $uibModal.open({
 				templateUrl: 'expense/create-expense-sap.tpl.html',
@@ -71,6 +67,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 				"DRAFT",
 				"REJECTED",
 				"TO_SIGN_BY_USER",
+				"SIGNED",
 				"ASSIGNED_TO_MANAGER",
 				"TO_BE_ASSIGNED",
 				"ASSIGNED_TO_FINANCE_ADMIN",
@@ -93,6 +90,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 					"TO_SIGN_BY_FINANCE_ADMIN",
 					"REJECTED",
 					"DRAFT",
+					"SIGNED",
 					"PRINTED"
 				];
 			}
@@ -106,6 +104,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 					"TO_SIGN_BY_USER",
 					"TO_SIGN_BY_MANAGER",
 					"DRAFT",
+					"SIGNED",
 					"PRINTED"
 				];
 			}

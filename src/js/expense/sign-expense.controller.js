@@ -7,10 +7,6 @@ app.controller('SignExpenseController', ['$scope', '$state', '$stateParams', 'ex
 		$scope.expenseItems = [];
 		$scope.expenseState = '';
 
-		$scope.returnToDashboard = function () {
-			$state.go('dashboard');
-		};
-
 		expenseRestService.getAccessRights($scope.expenseUid).then(function (response) {
 
 			if (response.data.viewable && response.data.signable && !response.data.editable) {
