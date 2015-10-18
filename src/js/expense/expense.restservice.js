@@ -75,6 +75,23 @@ function($http, HOST) {
 		});
 	}
 
+	function setSignMethod(uid, hasDigitalSignature) {
+		return $http({
+			method: 'PUT',
+			url: HOST + '/api/expenses/' + uid + '/digital-signature',
+			params: {
+				hasDigitalSignature: hasDigitalSignature
+			}
+		});
+	}
+
+	function signElectronically(uid) {
+		return $http({
+			method: 'POST',
+			url: HOST + '/api/expenses/' + uid + '/sign-electronically',
+		});
+	}
+
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
@@ -84,7 +101,9 @@ function($http, HOST) {
 		accept: accept,
 		reject: reject,
 		getExpensePdf: getExpensePdf,
-		getExpenseToken: getExpenseToken
+		getExpenseToken: getExpenseToken,
+		setSignMethod: setSignMethod,
+		signElectronically: signElectronically
 	};
 
 }]);
