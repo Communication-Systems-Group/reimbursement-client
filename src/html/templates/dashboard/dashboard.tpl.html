@@ -46,7 +46,7 @@
 						</li>
 					</ul>
 				</div>
-				<button class="btn btn-default btn-xs" ui-sref="sign-expense({ uid: e.uid })" ng-if="e.state === 'TO_SIGN_BY_USER' || e.state === 'TO_SIGN_BY_MANAGER' || e.state === 'TO_SIGN_BY_FINANCE_ADMIN'">
+				<button class="btn btn-default btn-xs" ui-sref="sign-expense({ uid: e.uid })" ng-if="e.state === 'TO_SIGN_BY_USER'">
 					<i class="fa fa-pencil-square-o"></i>
 					{{ 'reimbursement.expense.signButton' | translate }}
 				</button>
@@ -59,7 +59,7 @@
 	</table>
 
 	<div class="text-right">
-		<button type="button" class="btn btn-primary-" ng-click="addExpense()">
+		<button type="button" class="btn btn-primary" ng-click="addExpense()">
 			<i class="fa fa-plus-circle"></i>
 			{{ 'reimbursement.dashboard.table.addExpense' | translate }}
 		</button>
