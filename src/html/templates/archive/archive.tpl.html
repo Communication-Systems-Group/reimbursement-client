@@ -22,7 +22,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<div class="text-right">
+	<div class="text-right" ng-hide="archivedExpenses.length <= itemsPerPage">
 			<uib-pagination
 			total-items="archivedExpenses.length"
 			ng-model="currentPage"

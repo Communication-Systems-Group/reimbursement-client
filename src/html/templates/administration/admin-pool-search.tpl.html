@@ -96,7 +96,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<div class="text-right">
+		<div class="text-right" ng-hide="items.length <= itemsPerPage">
 				<uib-pagination
 				total-items="items.length"
 				ng-model="currentPage"
