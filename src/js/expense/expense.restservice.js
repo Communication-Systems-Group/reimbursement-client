@@ -63,14 +63,8 @@ function($http, HOST) {
 
 	function getExpensePdf(uid) {
 		return $http({
-<<<<<<< Upstream, based on origin/master
 			method: 'GET',
-			url: HOST + '/api/expense/' + uid + '/export-pdf',
-=======
-			method: 'POST',
 			url: HOST + '/api/expenses/' + uid + '/export-pdf',
-			data: data
->>>>>>> dd0a7ed fix show pdf in iframe
 		});
 	}
 
