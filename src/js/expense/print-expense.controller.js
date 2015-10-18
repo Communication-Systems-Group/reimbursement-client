@@ -17,19 +17,9 @@ function($scope, $sce, $state, $stateParams, expenseRestService, globalMessagesS
 
 	$scope.showPdf = function() {
 		globalMessagesService.confirmInfoMd("reimbursement.expense.printWithSignature", "reimbursement.expense.printWithSignatureMessage").then(function() {
-			var data = {
-				showSignature: true
-			};
-			expenseRestService.getExpensePdf($scope.expenseUid, data).then();
-
-			// ToDo show sent document from server with signatur
+			expenseRestService.getExpensePdf($scope.expenseUid).then();
 		}, function() {
-			var data = {
-				showSignature: false
-			};
-			expenseRestService.getExpensePdf($scope.expenseUid, data).then();
-
-			// ToDo show sent document from server without signature
+				expenseRestService.getExpensePdf($scope.expenseUid).then();
 		});
 	};
 

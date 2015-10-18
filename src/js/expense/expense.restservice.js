@@ -61,11 +61,10 @@ function($http, HOST) {
 		});
 	}
 
-	function getExpensePdf(uid, data) {
+	function getExpensePdf(uid) {
 		return $http({
-			method: 'POST',
-			url: HOST + '/api/expense/' + uid + '/print',
-			data: data
+			method: 'GET',
+			url: HOST + '/api/expense/' + uid + '/export-pdf',
 		});
 	}
 
@@ -78,7 +77,7 @@ function($http, HOST) {
 
 	function showPdf(uid) {
 		return $http({
-			method: 'GET',
+			method: 'POST',
 			url: HOST + '/api/public/' + uid + '/download-pdf'
 		});
 
