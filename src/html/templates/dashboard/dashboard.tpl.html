@@ -114,7 +114,7 @@
 							</button>
 						</div>
 						<div ng-if="e.state === 'TO_BE_ASSIGNED'">
-							<button class="btn btn-default btn-xs" ui-sref="assignToMe(e.uid)">
+							<button class="btn btn-default btn-xs" ng-click="assignToMe(e.uid)">
 								<i class="fa fa-hand-o-right"></i>
 								{{ 'reimbursement.expense.assignToMe' | translate }}
 							</button>
