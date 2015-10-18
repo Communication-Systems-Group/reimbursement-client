@@ -1,11 +1,12 @@
-app.controller('PrintExpenseController', ['$scope', '$sce', '$state', '$stateParams', 'expenseRestService', 'globalMessagesService',
+app.controller('PrintExpenseController', ['$scope', '$state', '$stateParams', 'expenseRestService', 'globalMessagesService', 'base64BinaryConverterService',
 
-function($scope, $sce, $state, $stateParams, expenseRestService, globalMessagesService) {
+function($scope, $state, $stateParams, expenseRestService, globalMessagesService, base64BinaryConverterService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
 	$scope.expenseItems = [];
 	$scope.expenseState = '';
+	$scope.showPdfFlag = false;
 
 	expenseRestService.getExpense($scope.expenseUid).then(function(response) {
 		$scope.expenseAccountingText = response.data.accounting;
@@ -24,14 +25,12 @@ function($scope, $sce, $state, $stateParams, expenseRestService, globalMessagesS
 	};
 
 	$scope.showPdf2 = function() {
+		expenseRestService.getExpensePdf($scope.expenseUid).then(function(response) {
 
-		expenseRestService.showPdf($scope.expenseUid).then(function(response) {
-			var file = new window.Blob([response.data], {
-				type: 'application/pdf'
+			base64BinaryConverterService.toBase64FromJson(response.data, function(base64String) {
+				$scope.pdfInBase64 = base64String;
+				$scope.showPdfFlag = true;
 			});
-			var fileURL = window.URL.createObjectURL(file);
-			$scope.content = $sce.trustAsResourceUrl(fileURL);
-
 		});
 	};
 
