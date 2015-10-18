@@ -46,16 +46,20 @@
 						</li>
 					</ul>
 				</div>
-				<button class="btn btn-default btn-xs" ng-click="sign-expense({ uid: e.uid })" ng-if="e.state === 'TO_SIGN_BY_USER' || e.state === 'TO_SIGN_BY_MANAGER' || e.state === 'TO_SIGN_BY_FINANCE_ADMIN'">
+				<button class="btn btn-default btn-xs" ui-sref="sign-expense({ uid: e.uid })" ng-if="e.state === 'TO_SIGN_BY_USER' || e.state === 'TO_SIGN_BY_MANAGER' || e.state === 'TO_SIGN_BY_FINANCE_ADMIN'">
 					<i class="fa fa-pencil-square-o"></i>
 					{{ 'reimbursement.expense.signButton' | translate }}
 				</button>
+				<button class="btn btn-default btn-xs" ui-sref="view-expense({ uid: e.uid })" ng-if="!(e.state === 'CREATED' || e.state === 'REJECTED' || e.state === 'DRAFT' || e.state === 'TO_SIGN_BY_USER' || e.state === 'SIGNED')">
+				<i class="fa fa-eye"></i>
+				{{ 'reimbursement.expense.viewItem' | translate }}
+			</button>
 			</tr>
 		</tbody>
 	</table>
 
 	<div class="text-right">
-		<button type="button" class="btn btn-primary" ng-click="addExpense()">
+		<button type="button" class="btn btn-primary-" ng-click="addExpense()">
 			<i class="fa fa-plus-circle"></i>
 			{{ 'reimbursement.dashboard.table.addExpense' | translate }}
 		</button>
