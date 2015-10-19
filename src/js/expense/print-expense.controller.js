@@ -1,6 +1,6 @@
-app.controller('PrintExpenseController', ['$scope', '$state', '$stateParams', 'THIS_HOST', 'expenseRestService', 'base64BinaryConverterService',
+app.controller('PrintExpenseController', ['$scope', '$state', '$stateParams', 'spinnerService', 'THIS_HOST', 'expenseRestService', 'base64BinaryConverterService',
 
-function($scope, $state, $stateParams, THIS_HOST, expenseRestService, base64BinaryConverterService) {
+function($scope, $state, $stateParams, spinnerService, THIS_HOST, expenseRestService, base64BinaryConverterService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
@@ -18,13 +18,13 @@ function($scope, $state, $stateParams, THIS_HOST, expenseRestService, base64Bina
 	});
 
 	$scope.showPdf = function() {
+			spinnerService.show('spinnerPrintExpense');
 		if($scope.hasDigitalSignature === true || $scope.expenseState === 'PRINTED') {
 			getExpensePdf();
 		}
 		else {
 			var url = THIS_HOST + "/guest-view-exepense/";
-			expenseRestService.generatePdf($scope.expenseUid, url);
-			getExpensePdf();
+			expenseRestService.generatePdf($scope.expenseUid, url).then(getExpensePdf);
 		}
 	};
 
@@ -35,7 +35,9 @@ function($scope, $state, $stateParams, THIS_HOST, expenseRestService, base64Bina
 				$scope.pdfInBase64 = base64String;
 				$scope.showPdfFlag = true;
 			});
-		});
+		})['finally'](function() {
+					spinnerService.hide('spinnerPrintExpense');
+				});
 	}
 
 }]);
