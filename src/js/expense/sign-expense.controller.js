@@ -6,6 +6,7 @@ function($scope, $state, $stateParams, $uibModal, expenseRestService, globalMess
 	$scope.expenseUid = $stateParams.uid;
 	$scope.expenseItems = [];
 	$scope.expenseState = '';
+	$scope.signedSuccessfully = false;
 
 	expenseRestService.getAccessRights($scope.expenseUid).then(function(response) {
 
@@ -49,6 +50,7 @@ function($scope, $state, $stateParams, $uibModal, expenseRestService, globalMess
 			if ($scope.hasDigitalSignature === false) {
 				expenseRestService.signElectronically($scope.expenseUid).then(function() {
 					globalMessagesService.showInfoMd('reimbursement.expense.signInfoTitle', 'reimbursement.expense.signInfoMessage');
+					$scope.signedSuccessfully = true;
 				});
 			}
 		}

@@ -18,7 +18,7 @@
 			<i class="fa fa-arrow-circle-left"></i>
 			{{ 'reimbursement.expense.returnToDashboard' | translate }}
 		</button>
-			<button type="submit" class="btn btn-primary" ng-click="sign()">
+			<button type="submit" class="btn btn-primary" ng-click="sign()" ng-hide="signedSuccessfully">
 				<i class="fa fa-edit-square-o"></i>
 				{{ 'reimbursement.expense.sign' | translate }}
 			</button>
