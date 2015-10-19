@@ -14,7 +14,9 @@ function($window, $timeout, base64BinaryConverterService) {
 		},
 		link : function($scope, $element) {
 			var canvas = $element.find("canvas");
-			var signaturePad = new window.SignaturePad(canvas[0]);
+			var signaturePad = new window.SignaturePad(canvas[0], {
+				penColor: "rgb(83,118,192)"
+			});
 
 			setCanvasSize();
 
@@ -28,8 +30,6 @@ function($window, $timeout, base64BinaryConverterService) {
 					var dataBase64 = signaturePad.toDataURL();
 					var file = convertBase64ToFile(dataBase64);
 
-					// TODO sebi | find out why it is necessary to have $timeout here.
-					// removing it leads to "Error: [$rootScope:inprog] $apply already in progress"
 					$timeout(function() {
 						$scope.submit(file);
 					});
