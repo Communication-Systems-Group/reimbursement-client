@@ -1,6 +1,6 @@
-app.controller('AdminPoolSearchController', ['moment', '$scope', '$timeout', 'administrationRestService', 'globalMessagesService', '$filter',
+app.controller('AdminPoolSearchController', ['moment', '$scope', '$timeout', 'spinnerService', 'administrationRestService', 'globalMessagesService', '$filter',
 
-function(moment, $scope, $timeout, administrationRestService, globalMessagesService, $filter) {
+function(moment, $scope, $timeout, spinnerService, administrationRestService, globalMessagesService, $filter) {
 	'use strict';
 	$scope.roles = [];
 	$scope.expenseStates = [];
@@ -56,6 +56,7 @@ function(moment, $scope, $timeout, administrationRestService, globalMessagesServ
 	});
 
 	$scope.search = function() {
+		spinnerService.show('spinnerAdminPoolSearch');
 		var data = angular.copy($scope.form);
 		data.startTime = $filter('getISODate')(data.startTime);
 		data.endTime = $filter('getISODate')(data.endTime);
@@ -68,7 +69,9 @@ function(moment, $scope, $timeout, administrationRestService, globalMessagesServ
 			sortItems();
 			groupItemsToPages();
 			setOrderIcon();
-		});
+		})['finally'](function() {
+					spinnerService.hide('spinnerAdminPoolSearch');
+				});
 	};
 
 	$scope.sortBy = function(newOrderColumn) {
