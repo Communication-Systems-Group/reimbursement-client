@@ -45,7 +45,7 @@ function($http, USER, HOST) {
 		},
 		exportPDF: function(expenseUid) {
 			return $http({
-				method: 'POST',
+				method: 'GET',
 				url: HOST + '/api/expenses/' + expenseUid + '/export-pdf'
 			});
 		}
