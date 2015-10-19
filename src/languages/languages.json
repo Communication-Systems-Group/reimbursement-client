@@ -713,6 +713,14 @@
 		"de": "Signieren",
 		"en": "Sign"
 	},
+	"expense.signInfoTitle": {
+		"de": "Spese signiert",
+		"en": "Expense signed"
+	},
+	"expense.signInfoMessage": {
+		"de": "Die Spese wurde erfolgreich signiert",
+		"en": "The Expense has been signed succesfully"
+	},
 	"expense.signForm.title": {
 		"de": "Signaturmethode",
 		"en": "Sign method"

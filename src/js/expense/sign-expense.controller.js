@@ -1,6 +1,6 @@
-app.controller('SignExpenseController', ['$scope', '$state', '$stateParams', '$uibModal', 'expenseRestService',
+app.controller('SignExpenseController', ['$scope', '$state', '$stateParams', '$uibModal', 'expenseRestService', 'globalMessagesService',
 
-	function ($scope, $state, $stateParams, $uibModal, expenseRestService) {
+	function ($scope, $state, $stateParams, $uibModal, expenseRestService, globalMessagesService) {
 		"use strict";
 
 		$scope.expenseUid = $stateParams.uid;
@@ -40,14 +40,15 @@ app.controller('SignExpenseController', ['$scope', '$state', '$stateParams', '$u
 
 			modalInstance.result.then(function(response) {
 				$scope.hasDigitalSignature = response;
-				console.log($scope.hasDigitalSignature);
-				console.log(response);
 				expenseRestService.setSignMethod($scope.expenseUid, $scope.hasDigitalSignature);
 			});
 			}
 
 			if($scope.hasDigitalSignature === false) {
-				expenseRestService.signElectronically($scope.expenseUid);
+				expenseRestService.signElectronically($scope.expenseUid).then(function() {
+					globalMessagesService.showInfoMd('reimbursement.expense.signInfoTitle',
+							'reimbursement.expense.signInfoMessage');
+				});
 			}
 		};
 
