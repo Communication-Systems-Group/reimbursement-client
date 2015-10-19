@@ -33,3 +33,74 @@
 	color: $default-color-info;
 	cursor: pointer;
 }
+
+
+.sign-method-box {
+	display: inline-block;
+	padding: 20px 15px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+	border-radius: 5px;
+	width: 190px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	cursor: pointer;
+	position: relative;
+	user-select: none;
+
+	& + .sign-method-box {
+		margin-left: 20px;
+	}
+
+	&.active {
+		background-color: $default-color-bootstrap-blue;
+		color: rgb(255,255,255);
+		box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+		cursor: default;
+	}
+
+	.fa-file-o {
+		display: block;
+		font-size: 100px;
+	}
+
+	.binary:before {
+		content: "10100";
+		top: 72px;
+	}
+	.binary:after {
+		content: "01001";
+		top: 89px;
+	}
+	.binary:before,
+	.binary:after {
+		display: block;
+		position: absolute;
+		font-size: 16px;
+		left: 80px;
+	}
+	.fa-pencil {
+		position: absolute;
+		top: 66px;
+		left: 85px;
+		font-size: 40px;
+	}
+	.pencil-line {
+		width: 58px;
+		height: 2px;
+		background: $default-color-lightblack;
+		position: absolute;
+		top: 106px;
+		left: 67px;
+		border-radius: 2px;
+	}
+	&.active .pencil-line {
+		background: rgb(255,255,255);
+	}
+
+	.text {
+		display: inline-block;
+		margin-top: 10px;
+		user-select: none;
+	}
+
+}

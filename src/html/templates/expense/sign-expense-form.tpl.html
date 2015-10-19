@@ -1,27 +1,32 @@
 <div id="sign-expense-form">
 	<div class="modal-header">
-		<div class="close" ng-click="dismissWithConfirmation()">
+		<div class="close" ng-click="dismiss()">
 			&times;
 		</div>
 		<h3 class="modal-title"><i class="fa fa-pencil-square-o"></i> {{ 'reimbursement.expense.signForm.title' | translate }} </h3>
 	</div>
 	<div class="modal-body">
-		<form name="signature-method">
-			<div class="form-group">
-				<label>{{ 'reimbursement.expense.signForm.text' | translate }}</label>
-				<div class="input-group">
-					<input id="digital" type="radio" ng-model="method" value="digital" />
-					<label for="digital"> {{ 'reimbursement.expense.signForm.digital' | translate }} </label>
-					<br />
-					<input id="electronical" type="radio" ng-model="method" value="electronical" />
-					<label for="electronical"> {{ 'reimbursement.expense.signForm.electronical' | translate }} </label>
-				</div>
+		<form name="signature-method" class="text-center">
+
+			<div><b>{{ 'reimbursement.expense.signForm.text' | translate }}</b></div>
+
+			<div class="sign-method-box" ng-click="selectMethod('digital')" ng-class="{'active': method==='digital'}">
+				<i class="fa fa-file-o"></i>
+				<span class="binary"></span>
+				<span class="text pre-wrap">{{ 'reimbursement.expense.signForm.digital' | translate }}</span>
 			</div>
+			<div class="sign-method-box" ng-click="selectMethod('electronical')" ng-class="{'active': method==='electronical'}">
+				<i class="fa fa-file-o"></i>
+				<i class="fa fa-pencil"></i>
+				<span class="pencil-line"></span>
+				<span class="text pre-wrap">{{ 'reimbursement.expense.signForm.electronical' | translate }}</span>
+			</div>
+
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button class="btn btn-primary" ng-click="save()">
-			<i class="fa fa-save"></i>
+		<button class="btn btn-primary" ng-click="save()" ng-disabled="method===null">
+			<i class="fa fa-pencil-square-o"></i>
 			{{ 'reimbursement.expense.signForm.saveButton' | translate }}
 		</button>
 	</div>

@@ -726,20 +726,20 @@
 		"en": "Sign method"
 	},
 	"expense.signForm.text": {
-		"de": "Wählen Sie die gewünschte Signaturmethode",
-		"en": "Please choose your desired signature method"
+		"de": "Wählen Sie die gewünschte Signaturmethode.",
+		"en": "Please choose your desired signature method."
 	},
 	"expense.signForm.saveButton": {
-		"de": "Methode speichern",
-		"en": "Save method"
+		"de": "Signieren",
+		"en": "Sign"
 	},
 	"expense.signForm.digital": {
-		"de": "Digitale Signatur",
-		"en": "Digital signature"
+		"de": "Digitale Signatur\n(Zertifikat)",
+		"en": "Digital signature\n(Zertifikat)"
 	},
 	"expense.signForm.electronical": {
-		"de": "Elektronische Signatur",
-		"en": "Electronical signature"
+		"de": "Elektronische Signatur\n(Bildsignatur)",
+		"en": "Electronical signature\n(Image signature)"
 	},
 	"expense.signButton": {
 		"de": "Signieren",
