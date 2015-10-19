@@ -33,7 +33,6 @@ app.controller('SignExpenseController', ['$scope', '$state', '$stateParams', '$u
 				var modalInstance = $uibModal.open({
 				templateUrl: 'expense/sign-expense-form.tpl.html',
 				controller: 'SignExpenseFormController',
-				backdrop: 'static',
 				keyboard: false
 
 			});

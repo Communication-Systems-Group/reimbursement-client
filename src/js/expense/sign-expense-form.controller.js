@@ -4,12 +4,13 @@ function($scope, $modalInstance) {
 	"use strict";
 
 	$scope.save = function() {
+		var hasDigitalSignature;
 		if ($scope.method === "digital") {
-			$scope.hasDigitalSignature = true;
+			hasDigitalSignature = true;
 		} else {
-			$scope.hasDigitalSignature = false;
+			hasDigitalSignature = false;
 		}
-		$modalInstance.close($scope.hasDigitalSignature);
+		$modalInstance.close(hasDigitalSignature);
 	};
 
 }]);
