@@ -1,6 +1,6 @@
-app.controller('TestingPageController', ['$scope', 'testingPageRestService',
+app.controller('TestingPageController', ['$scope', 'testingPageRestService', 'signExpenseFactory',
 
-function($scope, testingPageRestService) {
+function($scope, testingPageRestService, signExpenseFactory) {
 	"use strict";
 
 	$scope.form = {
@@ -73,6 +73,28 @@ function($scope, testingPageRestService) {
 			$scope.sendCroppingDtoSuccess = false;
 		})['finally'](function() {
 			$scope.sendCroppingDtoSent = true;
+		});
+	};
+
+	$scope.signExpense = function() {
+		testingPageRestService.generatePDF($scope.expenseUid).then(function() {
+			// Success generating pdf
+			console.log('PDF generation succeeded');
+		}, function() {
+			// Error generating pdf
+			console.log('PDF generation failed');
+		})['finally'](function() {
+			testingPageRestService.exportPDF($scope.expenseUid).then(function(response) {
+				signExpenseFactory.construct(response.data.content, $scope.privateKey, function(signature) {
+					console.log("Signature: " + signature);
+					signExpenseFactory.verify(response.data.content, signature, function(isValid) {
+						console.log("Is signature valid: " + isValid);
+					});
+				});
+			}, function() {
+				// Error generating pdf
+				console.log('PDF export failed');
+			});
 		});
 	};
 

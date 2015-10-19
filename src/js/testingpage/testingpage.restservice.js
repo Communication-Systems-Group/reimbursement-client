@@ -1,6 +1,6 @@
-app.factory('testingPageRestService', ['$http','USER',
+app.factory('testingPageRestService', ['$http','USER', 'HOST',
 
-function($http, USER) {
+function($http, USER, HOST) {
 	"use strict";
 
 	return {
@@ -34,6 +34,19 @@ function($http, USER) {
 			return $http({
 				method: 'GET',
 				url: 'http://localhost:80/api/user/NO_EXISTING_USER/signature'
+			});
+		},
+		// PDF services
+		generatePDF: function(expenseUid) {
+			return $http({
+				method: 'POST',
+				url: HOST + '/api/expenses/' + expenseUid + '/generate-pdf?url=http://google.ch'
+			});
+		},
+		exportPDF: function(expenseUid) {
+			return $http({
+				method: 'POST',
+				url: HOST + '/api/expenses/' + expenseUid + '/export-pdf'
 			});
 		}
 	};

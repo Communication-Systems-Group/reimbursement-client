@@ -50,7 +50,9 @@ module.exports = function (grunt) {
 						window: true,
 						document: true,
 						jQuery: true,
-						angular: true
+						angular: true,
+						Uint8Array: false,
+						ArrayBuffer: false
 					}
 				},
 				src: ['dist/javascript/app.js']

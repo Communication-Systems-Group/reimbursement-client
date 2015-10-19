@@ -113,4 +113,33 @@
 			</div>
 		</div>
 	</form>
+
+	<h3>Document signing</h3>
+
+	<div class="alert alert-info" role="alert">
+		<p>
+			How to generate a correct pkcs8 key:<br>
+			openssl genrsa -out  example-key.pem 2048<br>
+			openssl pkcs8 -topk8 -inform pem -in example-key.pem -outform pem -nocrypt -out file.pem
+		</p>
+	</div>
+	<form class="form-horizontal" name="form1">
+		<div class="form-group">
+			<label for="expense-uid" class="col-sm-4 control-label">Expense-uid: </label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" ng-model="expenseUid" id="expense-uid" placeholder="Enter the expense-uid of the expense that needs to be signed.">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="private-key" class="col-sm-4 control-label">Private key: </label>
+			<div class="col-sm-5">
+				<textarea class="form-control" id="private-key" ng-model="privateKey"></textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-9">
+				<button class="btn btn-primary pull-right" ng-click="signExpense(form1)">Sign</button>
+			</div>
+		</div>
+	</form>
 </div>
