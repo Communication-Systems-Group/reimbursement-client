@@ -1,6 +1,6 @@
-app.controller('PrintExpenseController', ['$scope', '$state', '$stateParams', 'expenseRestService', 'base64BinaryConverterService',
+app.controller('PrintExpenseController', ['$scope', '$state', '$stateParams', 'THIS_HOST', 'expenseRestService', 'base64BinaryConverterService',
 
-function($scope, $state, $stateParams, expenseRestService, base64BinaryConverterService) {
+function($scope, $state, $stateParams, THIS_HOST, expenseRestService, base64BinaryConverterService) {
 	"use strict";
 
 	$scope.expenseUid = $stateParams.uid;
@@ -22,7 +22,7 @@ function($scope, $state, $stateParams, expenseRestService, base64BinaryConverter
 			getExpensePdf();
 		}
 		else {
-			var url = "http://localhost:9005/#!/api/guest-view-expense/";
+			var url = THIS_HOST + "/#!guest-view-exepnse/";
 			expenseRestService.generatePdf($scope.expenseUid, url);
 			getExpensePdf();
 		}
