@@ -6,6 +6,7 @@ function(moment, $scope, $timeout, administrationRestService, globalMessagesServ
 	$scope.expenseStates = [];
 	$scope.form = {};
 	$scope.searchConducted = false;
+	$scope.showSearchForm = true;
 	$scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
 	$scope.form.endTime = moment().format('DD.MM.YYYY');
 
@@ -61,6 +62,7 @@ function(moment, $scope, $timeout, administrationRestService, globalMessagesServ
 
 		administrationRestService.search(data).then(function(response) {
 			$scope.searchConducted = true;
+			$scope.showSearchForm = false;
 
 			$scope.items = response.data;
 			sortItems();
@@ -114,4 +116,5 @@ function(moment, $scope, $timeout, administrationRestService, globalMessagesServ
 			administrationRestService.assignToMe(uid).then($scope.search);
 		});
 	};
+
 }]);
