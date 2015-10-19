@@ -22,7 +22,7 @@ function($scope, $state, $stateParams, THIS_HOST, expenseRestService, base64Bina
 			getExpensePdf();
 		}
 		else {
-			var url = THIS_HOST + "/#!guest-view-exepnse/";
+			var url = THIS_HOST + "/guest-view-exepnse/";
 			expenseRestService.generatePdf($scope.expenseUid, url);
 			getExpensePdf();
 		}
