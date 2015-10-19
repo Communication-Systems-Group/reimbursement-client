@@ -48,8 +48,9 @@ function(moment, $scope, $timeout, administrationRestService, globalMessagesServ
 			calendarWeeks: true
 		}).on('dp.hide', function() {
 			$scope.form.endTime = jQuery('.datepicker-end-time').find('input').first().val();
-			jQuery('.datepicker-start-time').datetimepicker('destroy');
-			jQuery('.datepicker-start-time').datetimepicker("change", { maxDate: $filter('getISODate')($scope.form.endTime) });
+
+			var newMaxDate = moment($filter('getISODate')($scope.form.endTime));
+			jQuery('.datepicker-start-time').data('DateTimePicker').maxDate(newMaxDate);
 		});
 	});
 
