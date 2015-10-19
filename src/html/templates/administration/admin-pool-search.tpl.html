@@ -8,17 +8,16 @@
 			<div class="panel-body">
 				<form id="searchForm" class="form-horizontal">
 					<div class="form-group">
-						<label for="admin-pool-date" class="control-label col-sm-4"> {{ 'reimbursement.adminPoolSearch.startTime' | translate }} </label>
-						<div class="col-sm-3">
+						<label for="admin-pool-date" class="control-label col-sm-4"> {{ 'reimbursement.adminPoolSearch.date' | translate }} </label>
+						<div class="col-sm-4">
 							<div class="input-group date datepicker-start-time">
-								<input type="text" id="admin-pool-start-time" ng-model="form.startTime" class="form-control">
+								<input type="text" id="admin-pool-start-time" ng-model="form.startTime" class="form-control text-center">
 								<span class="input-group-addon"> <span class="fa fa-calendar"></span> </span>
 							</div>
 						</div>
-						<label for="admin-pool-date" class="control-label col-sm-2"> {{ 'reimbursement.adminPoolSearch.endTime' | translate }} </label>
-						<div class="col-sm-3">
+						<div class="col-sm-4">
 							<div class="input-group date datepicker-end-time">
-								<input type="text" id="admin-pool-end-time" ng-model="form.endTime" class="form-control">
+								<input type="text" id="admin-pool-end-time" ng-model="form.endTime" class="form-control text-center">
 								<span class="input-group-addon"> <span class="fa fa-calendar"></span> </span>
 							</div>
 						</div>

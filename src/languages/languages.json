@@ -67,13 +67,9 @@
 		"de": "Buchhaltungsbeschreibung (SAP)",
 		"en": "Accounting description (SAP)"
 	},
-	"adminPoolSearch.startTime": {
-		"de": "Spesen ab Datum",
-		"en": "Expenses from date"
-	},
-	"adminPoolSearch.endTime": {
-		"de": "bis Datum",
-		"en": "to date"
+	"adminPoolSearch.date": {
+		"de": "Spesendatum (von/bis)",
+		"en": "Expense date (from/until)"
 	},
 	"adminPoolSearch.userRole": {
 		"de": "Berechtigung Antragssteller",
