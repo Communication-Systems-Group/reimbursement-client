@@ -16,14 +16,14 @@ function($http, HOST) {
 	function getExpense(uid) {
 		return $http({
 			method: 'GET',
-			url: HOST + '/api/expenses/'+uid
+			url: HOST + '/api/expenses/' + uid
 		});
 	}
 
 	function putExpense(uid, accounting) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/expenses/'+uid,
+			url: HOST + '/api/expenses/' + uid,
 			params: {
 				accounting: accounting
 			}
@@ -33,21 +33,21 @@ function($http, HOST) {
 	function accept(uid) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/expenses/'+uid+'/accept',
+			url: HOST + '/api/expenses/' + uid + '/accept',
 		});
 	}
 
 	function assignToManager(uid) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/expenses/'+uid+'/assign-to-manager',
+			url: HOST + '/api/expenses/' + uid + '/assign-to-manager',
 		});
 	}
 
 	function reject(uid, reason) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/expenses/'+uid+'/reject',
+			url: HOST + '/api/expenses/' + uid + '/reject',
 			params: {
 				comment: reason
 			}
@@ -57,7 +57,7 @@ function($http, HOST) {
 	function getAccessRights(uid) {
 		return $http({
 			method: 'GET',
-			url: HOST + '/api/expenses/'+uid+'/access-rights'
+			url: HOST + '/api/expenses/' + uid + '/access-rights'
 		});
 	}
 
@@ -92,6 +92,16 @@ function($http, HOST) {
 		});
 	}
 
+	function generatePdf(uid, url) {
+		return $http({
+			method: 'POST',
+			url: HOST + '/api/expenses/' + uid + '/generate-pdf',
+			params: {
+				url: url
+			}
+		});
+	}
+
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
@@ -103,7 +113,8 @@ function($http, HOST) {
 		getExpensePdf: getExpensePdf,
 		getExpenseToken: getExpenseToken,
 		setSignMethod: setSignMethod,
-		signElectronically: signElectronically
+		signElectronically: signElectronically,
+		generatePdf: generatePdf
 	};
 
 }]);

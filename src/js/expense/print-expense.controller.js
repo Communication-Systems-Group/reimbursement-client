@@ -11,12 +11,24 @@ function($scope, $state, $stateParams, expenseRestService, base64BinaryConverter
 	expenseRestService.getExpense($scope.expenseUid).then(function(response) {
 		$scope.expenseAccountingText = response.data.accounting;
 		$scope.expenseState = response.data.state;
+		$scope.hasDigitalSignature = response.data.hasDigitalSignature;
 	}, function(response) {
 		// error handled in list-expense-items.directive
 		response.errorHandled = true;
 	});
 
 	$scope.showPdf = function() {
+		if($scope.hasDigitalSignature === true) {
+			getExpensePdf();
+		}
+		else {
+			var url = "http://localhost:9005/#!/api/guest-view-expense/";
+			expenseRestService.generatePdf($scope.expenseUid, url);
+			getExpensePdf();
+		}
+	};
+
+	function getExpensePdf() {
 		expenseRestService.getExpensePdf($scope.expenseUid).then(function(response) {
 
 			base64BinaryConverterService.toBase64FromJson(response.data, function(base64String) {
@@ -24,6 +36,6 @@ function($scope, $state, $stateParams, expenseRestService, base64BinaryConverter
 				$scope.showPdfFlag = true;
 			});
 		});
-	};
+	}
 
 }]);
