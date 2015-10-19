@@ -18,11 +18,11 @@ function($scope, $state, $stateParams, THIS_HOST, expenseRestService, base64Bina
 	});
 
 	$scope.showPdf = function() {
-		if($scope.hasDigitalSignature === true) {
+		if($scope.hasDigitalSignature === true || $scope.expenseState === 'PRINTED') {
 			getExpensePdf();
 		}
 		else {
-			var url = THIS_HOST + "/guest-view-exepnse/";
+			var url = THIS_HOST + "/guest-view-exepense/";
 			expenseRestService.generatePdf($scope.expenseUid, url);
 			getExpensePdf();
 		}
