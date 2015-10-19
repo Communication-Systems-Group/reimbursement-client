@@ -40,7 +40,7 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService)
 						$scope.finallyFunction();
 					}
 					else {
-						globalMessagesService.showInfoMd('reimbursement.settings.user.submitInfoTitle',
+						globalMessagesService.showInfo('reimbursement.settings.user.submitInfoTitle',
 							'reimbursement.settings.user.submitInfoMessage');
 					}
 				});
