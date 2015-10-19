@@ -1,0 +1,24 @@
+#welcome {
+	.banner {
+		text-align: center;
+		position: absolute;
+		width: 100%;
+		top: 50px;
+		left: 0;
+		background: #F2F2F2;
+
+		.fa-optin-monster {
+			font-size: 250px;
+			margin-bottom: 30px;
+			margin-top: 40px;
+			color: #1e1e1e;
+		}
+		.mainTitle {
+			font-size: 34px;
+			margin-bottom: 55px;
+		}
+	}
+	.main {
+		margin-top: 430px;
+	}
+}

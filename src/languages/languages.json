@@ -1,4 +1,12 @@
 {
+	"page.title": {
+		"de": "Reimbursement IFI",
+		"en": "Reimbursement IFI"
+	},
+	"welcome.title": {
+		"de": "Reimbursement IFI",
+		"en": "Reimbursement IFI"
+	},
 	"registration.title": {
 		"de": "Registrierung (Schritt {{step}})",
 		"en": "Registration (Step {{step}})"
@@ -270,6 +278,14 @@
 	"mainTitle": {
 		"de": "Reimbursement IFI",
 		"en": "Reimbursement IFI"
+	},
+	"tabs.de": {
+		"de": "DE",
+		"en": "DE"
+	},
+	"tabs.en": {
+		"de": "EN",
+		"en": "EN"
 	},
 	"tabs.login": {
 		"de": "Login",

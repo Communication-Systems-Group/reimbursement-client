@@ -68,6 +68,14 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		$httpProvider.defaults.withCredentials = true;
 		$httpProvider.interceptors.push('httpInterceptor');
 
+		function requireNoAuthentication() {
+			return ['$state', 'USER', function ($state, USER) {
+				if (USER.loggedIn) {
+					$state.go('dashboard');
+				}
+			}];
+		}
+
 		function requireRegisteredAuthentication() {
 			return ['$state', 'USER', function ($state, USER) {
 				if (!USER.loggedIn) {
@@ -242,13 +250,19 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "expense/guest-view-expense.tpl.html",
 			controller: "GuestViewExpenseController"
 
+		}).state('welcome', {
+			url: "/welcome",
+			templateUrl: "welcome/welcome.tpl.html",
+			controller: "WelcomeController",
+			onEnter: requireNoAuthentication()
+
 		}).state('testingPage', {
 			url: "/testingPage",
 			templateUrl: "testingPage/testingPage.tpl.html",
 			controller: 'TestingPageController'
 
 		});
-		$urlRouterProvider.otherwise('/dashboard');
+		$urlRouterProvider.otherwise('/welcome');
 
 		$locationProvider.hashPrefix("!");
 
