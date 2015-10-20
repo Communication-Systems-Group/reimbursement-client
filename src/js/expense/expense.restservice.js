@@ -102,6 +102,13 @@ function($http, HOST) {
 		});
 	}
 
+	function exportPdf(expenseUid) {
+		return $http({
+			method: 'GET',
+			url: HOST + '/api/expenses/' + expenseUid + '/export-pdf'
+		});
+	}
+
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
@@ -114,7 +121,8 @@ function($http, HOST) {
 		getExpenseToken: getExpenseToken,
 		setSignMethod: setSignMethod,
 		signElectronically: signElectronically,
-		generatePdf: generatePdf
+		generatePdf: generatePdf,
+		exportPdf: exportPdf
 	};
 
 }]);

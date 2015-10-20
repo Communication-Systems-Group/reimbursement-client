@@ -1,6 +1,6 @@
-app.controller('SignExpenseFormController', ['$scope', '$modalInstance', 'signExpenseFactory', 'testingPageRestService', 'globalMessagesService', 'expenseUid',
+app.controller('SignExpenseFormController', ['$scope', '$modalInstance', 'signExpenseFactory', 'expenseRestService', 'globalMessagesService', 'expenseUid', 'HOST',
 
-function($scope, $modalInstance, signExpenseFactory, testingPageRestService, globalMessagesService, expenseUid) {
+function($scope, $modalInstance, signExpenseFactory, expenseRestService, globalMessagesService, expenseUid, HOST) {
 	"use strict";
 
 	$scope.expenseUid = expenseUid;
@@ -28,7 +28,7 @@ function($scope, $modalInstance, signExpenseFactory, testingPageRestService, glo
 
 		function digitallySignExpense(callback) {
 			if(validation()) {
-				testingPageRestService.generatePDF($scope.expenseUid).then(function() {}, function() {
+				expenseRestService.generatePdf($scope.expenseUid, HOST).then(function() {}, function() {
 					globalMessagesService.showErrorMd('reimbursement.expense.signForm.error',
 							'reimbursement.expense.signForm.pdfCannotBeCreated').then(function() {
 							$scope.privateKey = '';
@@ -37,7 +37,7 @@ function($scope, $modalInstance, signExpenseFactory, testingPageRestService, glo
 							callback(false);
 						});
 				})['finally'](function() {
-					testingPageRestService.exportPDF($scope.expenseUid).then(function(response) {
+					expenseRestService.exportPdf($scope.expenseUid).then(function(response) {
 						signExpenseFactory.construct(response.data.content, $scope.privateKey, function(signature) {
 							if(signature) {
 								signExpenseFactory.verify(response.data.content, signature, function() {
