@@ -46,6 +46,8 @@ function($scope, $modalInstance, signExpenseFactory, expenseRestService, globalM
 											$scope.privateKey = '';
 											$scope.method = null;
 
+											// ToDo upload signature
+
 											callback(true);
 										});
 								});

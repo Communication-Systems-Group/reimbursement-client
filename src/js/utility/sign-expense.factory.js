@@ -8,10 +8,12 @@ app.factory('signExpenseFactory', [
 		var publicKey, privateKey;
 
 		/**
-		 * Signs a base64 string with the provided privateKey
-		 * and returns the signature in base64.
+		 * Constructor for signing and verifying a base64 string
+		 * with a private / public key.
 		 *
 		 * @param base64
+		 * @param pKey
+		 * @param callback
 		 */
 		function construct(base64, pKey, callback) {
 			importKey(pKey, function(result) {
@@ -25,6 +27,14 @@ app.factory('signExpenseFactory', [
 			});
 		}
 
+		/**
+		 * Returns a signature based on the data and private
+		 * key provided. If it fails to create a signature
+		 * returns false.
+		 *
+		 * @param data
+		 * @param callback
+		 */
 		function sign(data, callback) {
 			// Prepare base64 value to be used by signing process.
 			var dd = base64ToArrayBuffer(data);
@@ -48,6 +58,14 @@ app.factory('signExpenseFactory', [
 				});
 		}
 
+		/**
+		 * Verify if the provided signature matches the
+		 * base64 string. Returns true if that's the case.
+		 *
+		 * @param base64
+		 * @param signatureBase64
+		 * @param callback
+		 */
 		function verify(base64, signatureBase64, callback) {
 			// Prepare base64 value to be used by signing process.
 			var data = base64ToArrayBuffer(base64);
@@ -70,6 +88,14 @@ app.factory('signExpenseFactory', [
 				});
 		}
 
+		/**
+		 * Import a base64 private-key to use it for the
+		 * window.crypto services. Returns true / false if
+		 * import worked / failed.
+		 *
+		 * @param key
+		 * @param callback
+		 */
 		function importKey(key, callback) {
 			if(key !== undefined && key !== "" && key !== null) {
 				key = preparePrivateKey(key);
@@ -99,6 +125,13 @@ app.factory('signExpenseFactory', [
 			}
 		}
 
+		/**
+		 * Converts a base64 string to an
+		 * array-buffer.
+		 *
+		 * @param base64
+		 * @returns {*}
+		 */
 		function base64ToArrayBuffer(base64) {
 			try {
 				var raw = window.atob(base64);
@@ -114,6 +147,14 @@ app.factory('signExpenseFactory', [
 				 return false;
 			}
 		}
+
+		/**
+		 * Converts an array-buffer to a base64
+		 * string.
+		 *
+		 * @param arrayBuffer
+		 * @returns {*}
+		 */
 		function arrayBufferToBase64(arrayBuffer) {
 			var binary = "";
 			var bytes = new Uint8Array(arrayBuffer);
@@ -124,6 +165,13 @@ app.factory('signExpenseFactory', [
 			return window.btoa(binary);
 		}
 
+		/**
+		 * Prepares the private key to use for further
+		 * transformation.
+		 *
+		 * @param pKey
+		 * @returns {*}
+		 */
 		function preparePrivateKey(pKey) {
 			var pB, pE, key;
 			if(pKey.indexOf("KEY-----") !== -1) {
