@@ -36,7 +36,9 @@ module.exports = function (grunt) {
 					window: true,
 					document: true,
 					jQuery: true,
-					angular: true
+					angular: true,
+					Uint8Array: false,
+					ArrayBuffer: false
 				}
 			},
 			prod: {
@@ -62,7 +64,9 @@ module.exports = function (grunt) {
 					strict: true,
 					globals: {
 						require: true,
-						module: true
+						module: true,
+						Uint8Array: false,
+						ArrayBuffer: false
 					}
 				},
 				src: ['Gruntfile.js']

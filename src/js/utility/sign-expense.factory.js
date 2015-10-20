@@ -47,8 +47,8 @@ app.factory('signExpenseFactory', [
 					//returns an ArrayBuffer containing the signature
 					callback(arrayBufferToBase64(signature));
 				})
-				.catch(function(err){
-					console.log(err);
+				.catch(function(){
+					//console.log(err);
 					callback(false);
 				});
 		}
@@ -95,8 +95,8 @@ app.factory('signExpenseFactory', [
 						privateKey = key;
 						callback(true);
 					})
-					.catch(function(err){
-						console.log(err);
+					.catch(function(){
+						//console.log(err);
 						callback(false);
 					});
 			} else {
@@ -133,7 +133,6 @@ app.factory('signExpenseFactory', [
 			}
 			return array.buffer;
 		}
-
 		function arrayBufferToBase64(arrayBuffer) {
 			var binary = "";
 			var bytes = new Uint8Array(arrayBuffer);

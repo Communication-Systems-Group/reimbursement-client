@@ -79,21 +79,21 @@ function($scope, testingPageRestService, signExpenseFactory) {
 	$scope.signExpense = function() {
 		testingPageRestService.generatePDF($scope.expenseUid).then(function() {
 			// Success generating pdf
-			console.log('PDF generation succeeded');
+			//console.log('PDF generation succeeded');
 		}, function() {
 			// Error generating pdf
-			console.log('PDF generation failed');
+			//console.log('PDF generation failed');
 		})['finally'](function() {
 			testingPageRestService.exportPDF($scope.expenseUid).then(function(response) {
 				signExpenseFactory.construct(response.data.content, $scope.privateKey, function(signature) {
-					console.log("Signature: " + signature);
-					signExpenseFactory.verify(response.data.content, signature, function(isValid) {
-						console.log("Is signature valid: " + isValid);
+					//console.log("Signature: " + signature);
+					signExpenseFactory.verify(response.data.content, signature, function() {
+						//console.log("Is signature valid: " + isValid);
 					});
 				});
 			}, function() {
 				// Error generating pdf
-				console.log('PDF export failed');
+				//console.log('PDF export failed');
 			});
 		});
 	};
