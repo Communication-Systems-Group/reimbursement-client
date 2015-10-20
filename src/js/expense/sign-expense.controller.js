@@ -33,7 +33,12 @@ function($scope, $state, $stateParams, $uibModal, expenseRestService, globalMess
 			var modalInstance = $uibModal.open({
 				templateUrl: 'expense/sign-expense-form.tpl.html',
 				controller: 'SignExpenseFormController',
-				keyboard: false
+				keyboard: false,
+				resolve: {
+					expenseUid: function() {
+						return $scope.expenseUid;
+					}
+				}
 
 			});
 

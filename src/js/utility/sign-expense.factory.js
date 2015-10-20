@@ -20,14 +20,7 @@ app.factory('signExpenseFactory', [
 						callback(signature);
 					});
 				} else {
-					generateKeyPair(function(key) {
-						privateKey = key.privateKey;
-						publicKey = key.publicKey;
-
-						sign(base64, function(signature) {
-							callback(signature);
-						});
-					});
+					callback(false);
 				}
 			});
 		}
@@ -35,6 +28,8 @@ app.factory('signExpenseFactory', [
 		function sign(data, callback) {
 			// Prepare base64 value to be used by signing process.
 			var dd = base64ToArrayBuffer(data);
+
+			if(!dd) { callback(false); }
 
 			window.crypto.subtle.sign(
 				{
@@ -104,34 +99,20 @@ app.factory('signExpenseFactory', [
 			}
 		}
 
-		function generateKeyPair(callback) {
-			window.crypto.subtle.generateKey(
-				{
-					name: USED_KEYPAIR_VERSION,
-					modulusLength: 2048, //can be 1024, 2048, or 4096
-					publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
-					hash: {name: USED_HASH_ALGO} //can be "SHA-1", "SHA-256", "SHA-384", or "SHA-512"
-				},
-				false, //whether the key is extractable (i.e. can be used in exportKey)
-				["sign", "verify"] //can be any combination of "sign" and "verify"
-			)
-				.then(function(key){
-					callback(key);
-				})
-				.catch(function(){
-					callback(false);
-				});
-		}
-
 		function base64ToArrayBuffer(base64) {
-			var raw = window.atob(base64);
-			var rawLength = raw.length;
-			var array = new Uint8Array(new ArrayBuffer(rawLength));
+			try {
+				var raw = window.atob(base64);
+				var rawLength = raw.length;
+				var array = new Uint8Array(new ArrayBuffer(rawLength));
 
-			for(var i = 0; i < rawLength; i++) {
-				array[i] = raw.charCodeAt(i);
+				for(var i = 0; i < rawLength; i++) {
+					array[i] = raw.charCodeAt(i);
+				}
+				return array.buffer;
+
+			} catch(e) {
+				 return false;
 			}
-			return array.buffer;
 		}
 		function arrayBufferToBase64(arrayBuffer) {
 			var binary = "";

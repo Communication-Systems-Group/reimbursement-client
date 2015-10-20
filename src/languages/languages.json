@@ -757,6 +757,42 @@
 		"de": "Elektronische Signatur\n(Bildsignatur)",
 		"en": "Electronical signature\n(Image signature)"
 	},
+	"expense.signForm.error": {
+		"de": "Fehler bei PDF Erstellung",
+		"en": "Error creating PDF"
+	},
+	"expense.signForm.pdfCannotBeCreated": {
+		"de": "Leider konnte das PDF nicht erstellt werden. Bitte versuchen Sie es noch einmal!",
+		"en": "The PDF could not be created. Please retry!"
+	},
+	"expense.signForm.pdfExportFailed": {
+		"de": "Leider konnte das PDF nicht exportiert werden. Bitte versuchen Sie es noch einmal!",
+		"en": "The PDF could not be exported. Please retry!"
+	},
+	"expense.signForm.privateKey": {
+		"de": "Privater Schlüssel:",
+		"en": "Private key:"
+	},
+	"expense.signForm.validationError": {
+		"de": "Validierungsfehler",
+		"en": "Validation error"
+	},
+	"expense.signForm.noPrivateKeyProvided": {
+		"de": "Bitte geben Sie einen privaten Schlüssel an!",
+		"en": "Please provide a private key!"
+	},
+	"expense.signForm.signatureCannotBeCreated": {
+		"de": "Der private Schlüssel konnte leider nicht eingelesen werden. Bitte vergewissern Sie sich, dass dieser im PKCS8 Format vorliegt.",
+		"en": "The private key cannot be parsed. Please double check the version is PKCS8."
+	},
+	"expense.signForm.success": {
+		"de": "Erfolg",
+		"en": "Success"
+	},
+	"expense.signForm.documentSignedSuccessfully": {
+		"de": "Das Dokument wurde erfolgreich signiert.",
+		"en": "The document has been signed successfully."
+	},
 	"expense.signButton": {
 		"de": "Signieren",
 		"en": "Sign"
