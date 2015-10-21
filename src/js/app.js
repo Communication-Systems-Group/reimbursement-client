@@ -76,6 +76,14 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}];
 		}
 
+		function requireAuthentication() {
+			return ['$state', 'USER', function ($state, USER) {
+				if (!USER.loggedIn) {
+					$state.go('login');
+				}
+			}];
+		}
+
 		function requireRegisteredAuthentication() {
 			return ['$state', 'USER', function ($state, USER) {
 				if (!USER.loggedIn) {
@@ -122,16 +130,19 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		}
 
 		$stateProvider.state('login', {
-			// no url, because the login should not be opened manually
+			url: "/login",
 			templateUrl: "login/login.tpl.html",
-			controller: 'LoginController'
+			controller: 'LoginController',
+			onEnter: requireNoAuthentication()
 
 		}).state('logout', {
-			// no url, because the logout should not be opened manually
+			url: "/logout",
 			templateUrl: "logout/logout.tpl.html",
-			controller: 'LogoutController'
+			controller: 'LogoutController',
+			onEnter: requireAuthentication()
 
 		}).state('registrationForm', {
+			url: "/registration",
 			templateUrl: "registration/registration-form.tpl.html",
 			controller: "RegistrationFormController",
 			onEnter: requireUnregisteredAuthentication()
