@@ -1,10 +1,12 @@
-app.controller('RegistrationFormController', ['$scope', '$state',
+app.controller('RegistrationFormController', ['$scope', '$state', 'USER',
 
-function($scope, $state) {
+function($scope, $state, USER) {
 	"use strict";
 
 	$scope.next = function() {
 		$state.go('registrationSignature');
 	};
+
+	$scope.USER = USER;
 
 }]);
