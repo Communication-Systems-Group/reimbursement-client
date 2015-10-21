@@ -259,7 +259,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		}).state('guest-view-expense', {
 			url: "/guest-view-expense/:token",
 			templateUrl: "expense/guest-view-expense.tpl.html",
-			controller: "GuestViewExpenseController"
+			controller: "GuestViewExpenseController",
+			onEnter: requireNoAuthentication()
 
 		}).state('welcome', {
 			url: "/welcome",
