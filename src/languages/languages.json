@@ -79,6 +79,10 @@
 		"de": "Admin-Pool Graphen",
 		"en": "Admin-Pool graphs"
 	},
+	"adminPoolGraphs.percentagePrinted": {
+		"de": "Gedruckt",
+		"en": "Printed"
+	},
 	"adminPoolSearch.filterPanel": {
 		"de": "Bitte geben Sie Ihre Suchkriterien ein für eine Suche nach Spesen.",
 		"en": "Please enter your search criteria to find the matching expenses."
@@ -148,15 +152,15 @@
 		"en": "Assigned to finance admin"
 	},
 	"adminPoolSearch.expenseState.TO_SIGN_BY_USER": {
-		"de": "Wird von Mitarbeiter signiert",
+		"de": "Signieren durch Mitarbeiter",
 		"en": "To sign by user"
 	},
 	"adminPoolSearch.expenseState.TO_SIGN_BY_MANAGER": {
-		"de": "Wird von Vorgesetzten signiert",
+		"de": "Signieren durch Vorgesetzten",
 		"en": "To sign by manager"
 	},
 	"adminPoolSearch.expenseState.TO_SIGN_BY_FINANCE_ADMIN": {
-		"de": "Wird von Finanzverwaltung signiert",
+		"de": "Signieren durch Finanzverwaltung",
 		"en": "To sign by finance admin"
 	},
 	"adminPoolSearch.expenseState.SIGNED": {
