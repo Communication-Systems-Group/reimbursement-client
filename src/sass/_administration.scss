@@ -12,9 +12,33 @@
 			color: $default-color-dark-cyan;
 		}
 	}
+	.carousel-indicators ol {
+		height: 20px;
+	}
 	.carousel-indicators li {
-		background-color: $default-color-info;
+		&, &.active, &.active:after {
+			width: 14px;
+			height: 14px;
+		}
+		background: transparent;
 		border-color: transparent;
+		position: relative;
+		margin: 0 2px 0 2px;
+		border-radius: 0;
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			border-radius: 2px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			transition: all ease 0.5s;
+			background-color: $default-color-info;
+			width: 10px;
+			height: 10px;
+		}
 	}
 }
 
