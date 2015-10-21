@@ -15,6 +15,10 @@
 		"de": "Persönliche Daten",
 		"en": "Personnel Data"
 	},
+	"registration.step1Message": {
+		"de": "Sie haben sich erfolgreich zum ersten Mal eingeloggt. Sie werden nun durch einen Registrierungsprozess mit 3 Schritte geführt. Bitte geben Sie die folgenden Informationen vollständig ein. Danach werden Sie aufgefordert eine Signatur über ein Gerät mit einem Touchscreen oder über einen Fileupload hochzuladen.",
+		"en": "You have been successfully logged in for the first time. Therefore you need to start by going through a 3-step registration process. Please provide the following information and afterwards a signature (as a file upload or directly by writing it on a touch-screen device)."
+	},
 	"registration.subtitleStep3": {
 		"de": "Signatur zuschneiden",
 		"en": "Crop Signature"
