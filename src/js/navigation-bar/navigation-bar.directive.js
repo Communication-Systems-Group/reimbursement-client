@@ -1,6 +1,6 @@
-app.directive('navigationBar', ['USER', '$translate',
+app.directive('navigationBar', ['USER', '$state', '$translate', 'globalMessagesService',
 
-function(USER, $translate) {
+function(USER, $state, $translate, globalMessagesService) {
 	"use strict";
 
 	function reverselanguage(language) {
@@ -23,6 +23,19 @@ function(USER, $translate) {
 			$scope.switchLanguage = function(language) {
 				$translate.use(language);
 				$scope.inverseLanguage = reverselanguage(language);
+			};
+
+			$scope.goToWelcomePage = function() {
+				if($state.is('registrationForm') || $state.is('registrationSignature') || $state.is('registrationCropping')) {
+					globalMessagesService.confirmWarningMd("reimbursement.navbar.leavePageWarning.title",
+						"reimbursement.navbar.leavePageWarning.message").then(function() {
+
+						$state.go('welcome');
+					});
+				}
+				else {
+					$state.go('welcome');
+				}
 			};
 		}
 	};

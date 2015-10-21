@@ -264,8 +264,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		}).state('welcome', {
 			url: "/welcome",
 			templateUrl: "welcome/welcome.tpl.html",
-			controller: "WelcomeController",
-			onEnter: requireNoAuthentication()
+			controller: "WelcomeController"
 
 		}).state('testingPage', {
 			url: "/testingPage",

@@ -19,6 +19,14 @@
 		"de": "Signatur zuschneiden",
 		"en": "Crop Signature"
 	},
+	"navbar.leavePageWarning.title": {
+		"de": "Seite verlassen?",
+		"en": "Leaving page?"
+	},
+	"navbar.leavePageWarning.message": {
+		"de": "Sind Sie sicher, dass Sie die Registrierung abbrechen und die Seite verlassen möchten?",
+		"en": "Are you sure, that you want to abort the registration and leave this page?"
+	},
 	"administration.title": {
 		"de": "Administration",
 		"en": "Administration"
