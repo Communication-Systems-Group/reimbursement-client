@@ -26,7 +26,7 @@ function(USER, $state, $translate, globalMessagesService) {
 			};
 
 			$scope.goToWelcomePage = function() {
-				if($state.is('registrationForm') || $state.is('registrationSignature') || $state.is('registrationCropping')) {
+				if(isOnRegistrationPage()) {
 					globalMessagesService.confirmWarningMd("reimbursement.navbar.leavePageWarning.title",
 						"reimbursement.navbar.leavePageWarning.message").then(function() {
 
@@ -37,6 +37,16 @@ function(USER, $state, $translate, globalMessagesService) {
 					$state.go('welcome');
 				}
 			};
+
+			$scope.goToRegistration = function() {
+				if(!isOnRegistrationPage()) {
+					$state.go('registrationForm');
+				}
+			};
+
+			function isOnRegistrationPage() {
+				return $state.is('registrationForm') || $state.is('registrationSignature') || $state.is('registrationCropping');
+			}
 		}
 	};
 

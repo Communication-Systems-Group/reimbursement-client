@@ -61,6 +61,10 @@
 					</a>
 					<ul class="dropdown-menu" role="menu" ng-if="!USER.hasRole('REGISTERED_USER')">
 						<li>
+							<a href ng-click="goToRegistration()"><i class="fa fa-dribbble"></i> {{ 'reimbursement.tabs.registration' | translate }}</a>
+						</li>
+						<li class="divider"></li>
+						<li>
 							<a href ui-sref="logout">
 								<i class="fa fa-sign-out"></i>
 								{{ 'reimbursement.tabs.logout' | translate }}

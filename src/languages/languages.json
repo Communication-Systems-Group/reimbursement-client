@@ -295,6 +295,10 @@
 		"de": "EN",
 		"en": "EN"
 	},
+	"tabs.registration": {
+		"de": "Registrierung",
+		"en": "Registration"
+	},
 	"tabs.login": {
 		"de": "Login",
 		"en": "Login"
