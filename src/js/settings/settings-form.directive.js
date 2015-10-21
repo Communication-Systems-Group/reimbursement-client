@@ -31,9 +31,7 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService,
 				settingsRestService.putLanguage($scope.form.language.toUpperCase()).then(function() {
 					USER.language = $scope.form.language;
 					$translate.use($scope.form.language.toLowerCase());
-				})['finally'](function() {
-					spinnerService.hide('settingsFormSpinner');
-				});
+				})['finally'](hideSpinner);
 			};
 
 			$scope.savePersonnelNumber = function() {
@@ -43,9 +41,7 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService,
 				spinnerService.show('settingsFormSpinner');
 				settingsRestService.putPersonnelNumber($scope.form.personnelNumber).then(function() {
 					USER.personnelNumber = $scope.form.personnelNumber;
-				})['finally'](function() {
-					spinnerService.hide('settingsFormSpinner');
-				});
+				})['finally'](hideSpinner);
 			};
 
 			$scope.savePhoneNumber = function() {
@@ -55,9 +51,7 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService,
 				spinnerService.show('settingsFormSpinner');
 				settingsRestService.putPhoneNumber($scope.form.phoneNumber).then(function() {
 					USER.phoneNumber = $scope.form.phoneNumber;
-				})['finally'](function() {
-					spinnerService.hide('settingsFormSpinner');
-				});
+				})['finally'](hideSpinner);
 			};
 
 			$scope.saveIsActive = function() {
@@ -65,12 +59,21 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService,
 					spinnerService.show('settingsFormSpinner');
 					settingsRestService.putIsActive($scope.form.isActive).then(function() {
 						USER.isActive = $scope.form.isActive;
-					})['finally'](function() {
-						spinnerService.hide('settingsFormSpinner');
-					});
+					})['finally'](hideSpinner);
 				}
 			};
 
+			function hideSpinner() {
+				if(!$scope.isRegistration) {
+					// saving in settings should always display spinner shortly, otherwise it is confusing.
+					$timeout(function() {
+						spinnerService.hide('settingsFormSpinner');
+					}, 500);
+				}
+				else {
+					spinnerService.hide('settingsFormSpinner');
+				}
+			}
 		}
 	};
 
