@@ -74,7 +74,7 @@ function($scope, $modalInstance, signExpenseFactory, expenseRestService, globalM
 
 		function validation() {
 			if($scope.privateKey.length < 255) {
-				globalMessagesService.showErrorMd('reimbursement.expense.signForm.validationError',
+				globalMessagesService.showWarningMd('reimbursement.expense.signForm.validationError',
 						'reimbursement.expense.signForm.noPrivateKeyProvided');
 				return false;
 			} else {
