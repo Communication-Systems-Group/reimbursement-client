@@ -20,7 +20,7 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 							'reimbursement.adminPoolGraphs.percentagePrinted']).then(function(translations) {
 
 				c3.generate({
-					bindto: "#graph-donut-current-state-distribution",
+					bindto: "#graph-area-step-current-state-distribution",
 					data: {
 						type: 'area-step',
 						columns: [

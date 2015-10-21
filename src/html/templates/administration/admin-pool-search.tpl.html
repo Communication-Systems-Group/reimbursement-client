@@ -5,11 +5,7 @@
 		<uib-accordion>
 			<uib-accordion-group is-open="showSearchForm">
 				<uib-accordion-heading>
-					<span ng-click="">
-						<i class="fa fa-angle-down fa-lg pull-right" ng-class="{'to-right': !showSearchForm}"></i>
-						<i class="fa fa-navicon"></i>
-						{{ 'reimbursement.adminPoolSearch.filterPanel' | translate }}
-					</span>
+					<span ng-click=""> <i class="fa fa-angle-down fa-lg pull-right" ng-class="{'to-right': !showSearchForm}"></i> <i class="fa fa-navicon"></i> {{ 'reimbursement.adminPoolSearch.filterPanel' | translate }} </span>
 				</uib-accordion-heading>
 				<form id="searchForm" class="form-horizontal">
 					<div class="form-group">
@@ -91,24 +87,38 @@
 					<td><span class="tableRightMargin">{{ item.totalAmount | currency:'CHF ':2 }}</span></td>
 					<td class="text-center"><expense-state state="item.state"></expense-state></td>
 					<td>
-					<div ng-if="item.state === 'PRINTED'">
-						<button class="btn btn-default btn-xs" ng-click="assignToMe(item.uid)">
-							<i class="fa fa-hand-o-right"></i>
-							{{ 'reimbursement.expense.assignToMe' | translate }}
+					<div class="btn-group" ng-if="item.state === 'PRINTED'">
+						<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-caret-down"></i>
+							{{ 'reimbursement.dashboard.action' | translate }}
 						</button>
-					</div></td>
+						<ul class="dropdown-menu">
+							<li>
+								<a href ui-sref="view-expense({uid: item.uid})"> <i class="fa fa-eye"></i> {{ 'reimbursement.expense.viewItem' | translate }} </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href ng-click="assignToMe(item.uid)"> <i class="fa fa-hand-o-right"></i> {{ 'reimbursement.expense.assignToMe' | translate }} </a>
+							</li>
+						</ul>
+					</div>
+					<button class="btn btn-default btn-xs" ui-sref="view-expense({ uid: item.uid })" ng-if="item.state !== 'PRINTED'">
+						<i class="fa fa-eye"></i>
+						{{ 'reimbursement.expense.viewItem' | translate }}
+					</button></td>
 				</tr>
 			</tbody>
 		</table>
 		<div class="text-right" ng-hide="items.length <= itemsPerPage">
-				<uib-pagination
-				total-items="items.length"
-				ng-model="currentPage"
-				items-per-page="itemsPerPage"
-				max-size="10"
-				class="pagination-sm"
-				boundary-links="true"
-				rotate="false"
+			<uib-pagination
+			total-items="items.length"
+			ng-model="currentPage"
+			items-per-page="itemsPerPage"
+			max-size="10"
+			class="pagination-sm"
+			boundary-links="true"
+			rotate="false"
 			></uib-pagination>
 		</div>
 	</div>
