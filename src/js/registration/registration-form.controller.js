@@ -3,7 +3,7 @@ app.controller('RegistrationFormController', ['$scope', '$state',
 function($scope, $state) {
 	"use strict";
 
-	$scope.submit = function() {
+	$scope.next = function() {
 		$state.go('registrationSignature');
 	};
 

@@ -12,6 +12,14 @@
 	</div>
 
 	<div class="col-sm-offset-1 col-sm-10">
-		<settings-form is-registration="true" finally-function="submit"></settings-form>
+		<settings-form is-registration="true"></settings-form>
+
+		<div class="text-right">
+			<button class="btn btn-primary" ng-click="next()">
+				<i class="fa fa-arrow-circle-right"></i>
+				{{ 'reimbursement.expense.nextStepButton' | translate }}
+			</button>
+		</div>
 	</div>
+
 </div>

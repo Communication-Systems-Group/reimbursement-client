@@ -219,14 +219,6 @@
 		"de": "Aktiv",
 		"en": "Active"
 	},
-	"settings.user.submitInfoTitle": {
-		"de": "Benutzereinstellungen",
-		"en": "User settings"
-	},
-	"settings.user.submitInfoMessage": {
-		"de": "Einstellungen wurden erfolgreich geändert.",
-		"en": "Settings have been changed successfully."
-	},
 	"settings.signature.submitWarningTitle": {
 		"de": "Unterschrift bearbeiten",
 		"en": "Change signature"
