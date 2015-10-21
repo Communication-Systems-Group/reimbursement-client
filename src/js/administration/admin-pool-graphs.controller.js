@@ -22,7 +22,7 @@ function($scope, $timeout, administrationRestService, c3) {
 				type: 'bar',
 				columns: [
 					['DRAFT', $scope.data.draft || 0],
-					['ASSIGNED_TO_PROF', $scope.data.assignedToProf || 0],
+					['ASSIGNED_TO_MANAGER', $scope.data.assignedToManager || 0],
 					['REJECTED', $scope.data.rejected || 0],
 					['TO_BE_ASSIGNED', $scope.data.toBeAssigned || 0],
 					['ASSIGNED_TO_FINANCE_ADMIN', $scope.data.assignedToFinanceAdmin || 0],
