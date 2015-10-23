@@ -47,6 +47,10 @@
 		"de": "DE",
 		"en": "DE"
 	},
+	"administration.en": {
+		"de": "EN",
+		"en": "EN"
+	},
 	"administration.delete": {
 		"de": "Löschen",
 		"en": "Delete"
@@ -58,10 +62,6 @@
 	"administration.deleteCostCategoryItemText": {
 		"de": "Sind Sie sicher, das Element unwiderruflich zu löschen?",
 		"en": "Do you really want to delete this category element?"
-	},
-	"administration.en": {
-		"de": "EN",
-		"en": "EN"
 	},
 	"administration.edit": {
 		"de": "Editieren",
@@ -111,18 +111,6 @@
 		"de": "Nachname Antragssteller",
 		"en": "Last Name of Expense Creator"
 	},
-	"adminPoolSearch.role.USER": {
-		"de": "Mitarbeiter",
-		"en": "Employee"
-	},
-	"adminPoolSearch.role.PROF": {
-		"de": "Professor",
-		"en": "Professor"
-	},
-	"adminPoolSearch.role.FINANCE_ADMIN": {
-		"de": "Finanzverwaltung",
-		"en": "Finance Administration"
-	},
 	"adminPoolSearch.preselectedRole": {
 		"de": "alle Berechtigungen",
 		"en": "all permissions"
@@ -138,10 +126,6 @@
 	"adminPoolSearch.expenseState.ASSIGNED_TO_MANAGER": {
 		"de": "Zugewiesen an Vorgesetzten",
 		"en": "Assigned to manager"
-	},
-	"adminPoolSearch.expenseState.REJECTED": {
-		"de": "Abgelehnt",
-		"en": "Rejected"
 	},
 	"adminPoolSearch.expenseState.TO_BE_ASSIGNED": {
 		"de": "Wird zugewiesen",
@@ -167,10 +151,6 @@
 		"de": "Signiert",
 		"en": "Signed"
 	},
-	"adminPoolSearch.expenseState.PRINTED": {
-		"de": "Gedruckt",
-		"en": "Printed"
-	},
 	"adminPoolSearch.searchResults": {
 		"de": "Suchresultat",
 		"en": "Search results"
@@ -183,21 +163,9 @@
 		"de": "Einstellungen",
 		"en": "Settings"
 	},
-	"settings.saveButton": {
-		"de": "Speichern",
-		"en": "Save"
-	},
 	"settings.language": {
 		"de": "Sprache",
 		"en": "Language"
-	},
-	"settings.language.DE": {
-		"de": "Deutsch",
-		"en": "German"
-	},
-	"settings.language.EN": {
-		"de": "Englisch",
-		"en": "English"
 	},
 	"settings.userSettingsPanel": {
 		"de": "Benutzereinstellungen",
@@ -267,26 +235,6 @@
 		"de": "Abbrechen",
 		"en": "Cancel"
 	},
-	"success": {
-		"de": "Erfolg",
-		"en": "Success"
-	},
-	"error.title": {
-		"de": "Verarbeitungsfehler",
-		"en": "Error occured"
-	},
-	"error.body": {
-		"de": "Ein Verarbeitungsfehler ist aufgetreten. Falls dieser weiterhin auftritt kontaktieren Sie den Support.",
-		"en": "An error occured. If the error continue to appear please contact our customer support."
-	},
-	"error.body_message": {
-		"de": "Ein Verarbeitungsfehler ist aufgetreten. Falls dieser weiterhin auftritt kontaktieren Sie den Support. Fehlermeldung: {{message}}",
-		"en": "An error occured. If the error continue to appear please contact our customer support. Message: {{message}}"
-	},
-	"mainTitle": {
-		"de": "Reimbursement IFI",
-		"en": "Reimbursement IFI"
-	},
 	"tabs.de": {
 		"de": "DE",
 		"en": "DE"
@@ -314,10 +262,6 @@
 	"tabs.dashboard": {
 		"de": "Dashboard",
 		"en": "Dashboard"
-	},
-	"tabs.signature": {
-		"de": "Unterschrift ändern",
-		"en": "Change signature"
 	},
 	"tabs.testingpage": {
 		"de": "Test",
@@ -463,7 +407,7 @@
 		"de": "Anhang mit Mobilgerät erfassen",
 		"en": "Capturing attachments using a mobile device"
 	},
-		"captureAttachment.qr.info": {
+	"captureAttachment.qr.info": {
 		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet). Sie gelangen danach auf eine Seite in Ihrem mobile Browser, in welchem Sie den Anhang anfügen können.",
 		"en": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can upload your attachment using the touch screen is opened in your mobile device's browser."
 	},
@@ -551,10 +495,6 @@
 		"de": "ODER",
 		"en": "OR"
 	},
-	"captureSignature.qr.error.okayButton": {
-		"de": "OK",
-		"en": "OK"
-	},
 	"captureSignature.mobile.complete": {
 		"de": "Unterschrift erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät mit der Registrierung weiter indem Sie auf den Button 'Signatur erfasst' klicken.",
 		"en": "The signature was successfully uploaded. Please continue on your desktop device by clicking the button 'Signature Captured'."
@@ -571,7 +511,6 @@
 		"de": "Zuschneiden",
 		"en": "Crop it"
 	},
-
 	"dashboard.action": {
 		"de": "Aktion",
 		"en": "Action"
@@ -612,11 +551,6 @@
 		"de": "Status",
 		"en": "State"
 	},
-	"dashboard.table.options": {
-		"de": "Optionen",
-		"en": "Options"
-	},
-
 	"create-expense.title": {
 		"de": "Neue Spesen hinzufügen",
 		"en": "Add new expense"
@@ -774,11 +708,11 @@
 		"en": "Error creating PDF"
 	},
 	"expense.signForm.pdfCannotBeCreated": {
-		"de": "Leider konnte das PDF nicht erstellt werden. Bitte versuchen Sie es noch einmal!",
+		"de": "Leider konnte das PDF nicht erstellt werden. Bitte versuchen Sie es noch einmal.",
 		"en": "The PDF could not be created. Please retry!"
 	},
 	"expense.signForm.pdfExportFailed": {
-		"de": "Leider konnte das PDF nicht exportiert werden. Bitte versuchen Sie es noch einmal!",
+		"de": "Leider konnte das PDF nicht exportiert werden. Bitte versuchen Sie es noch einmal.",
 		"en": "The PDF could not be exported. Please retry!"
 	},
 	"expense.signForm.privateKey": {
@@ -843,7 +777,7 @@
 	},
 	"expense.costCategory.takeOver": {
 		"de": "Übernehmen",
-		"en": "Take over"
+		"en": "Apply"
 	},
 	"expense.submitToManagerButton": {
 		"de": "An Vorgesetzten zuweisen",
@@ -868,10 +802,6 @@
 	"expense.addNewReceiptButton": {
 		"de": "Neuen Beleg hinzufügen",
 		"en": "Add new receipt"
-	},
-	"expense.uploadDocumentButton": {
-		"de": "Dokument hochladen",
-		"en": "Upload document"
 	},
 	"expense.noExpenseItems": {
 		"de": "Keine Belege vorhanden.",
@@ -917,77 +847,9 @@
 		"de": "Spesendokument drucken",
 		"en": "Print expense document"
 	},
-	"expense.printWithSignature": {
-		"de": "Signatur hinzufügen?",
-		"en": "Add signature?"
-	},
-	"expense.printWithSignatureMessage": {
-		"de": "Soll Ihre erfasste Unterschrift dem Dokument hinzugefügt werden?",
-		"en": "Do you want to print the document with your signature on it?"
-	},
-	"expense.accounting_text": {
-		"de": "Buchungstext (sichtbar in SAP)",
-		"en": "Account value (visual in SAP)"
-	},
 	"expense.action": {
 		"de": "Aktion",
 		"en": "Action"
-	},
-	"expense.add_document": {
-		"de": "Document hinzufügen",
-		"en": "Add document"
-	},
-	"expense.add_expense_item": {
-		"de": "Neuen Beleg hinzufügen",
-		"en": "Add new expense item"
-	},
-	"expense.amount": {
-		"de": "Betrag",
-		"en": "Amount"
-	},
-	"expense.amount_in_chf": {
-		"de": "Wert in CHF",
-		"en": "Amount in CHF"
-	},
-	"expense.booking_info": {
-		"de": "Buchungsinformationen",
-		"en": "Account information"
-	},
-	"expense.cancel": {
-		"de": "Abbrechen",
-		"en": "Cancel"
-	},
-	"expense.category": {
-		"de": "Kostenstelle",
-		"en": "Cost category"
-	},
-	"expense.confirm_cancel_unsaved_changes": {
-		"de": "Wollen Sie ihre ungesicherten Änderungen verwerfen?",
-		"en": "Do you really want to cancel your unsaved changes?"
-	},
-	"expense.contact": {
-		"de": "Kontaktperson",
-		"en": "Contact"
-	},
-	"expense.project": {
-		"de": "Projekt",
-		"en": "Project"
-	},
-	"expense.createNew": {
-		"de": "Neue Spese erfassen",
-		"en": "Create new expense"
-	},
-	"expense.creator": {
-		"de": "Ersteller",
-		"en": "Creator"
-	},
-	"expense.created": {
-		"de": "Das Spesenelement wurde erfolgreich gespeichert und {{manager}} zur Überprüfung zugewiesen.",
-		"en": "The expense was saved successfully and assigned to {{manager}} for review."
-	},
-	"expense.date_expense_item": {
-		"de": "Datum Beleg",
-		"en": "Date expense item"
 	},
 	"expense.delete": {
 		"de": "Löschen",
@@ -1009,177 +871,9 @@
 		"de": "Möchten Sie sich diese Spese zuweisen?",
 		"en": "Are you sure, you want to assign this expense to you?"
 	},
-	"expense.delete.error": {
-		"de": "Das Spesenelement konnte nicht gelöscht werden. Bitte versuch es nochmal!",
-		"en": "The expense could not be deleted successfully. Please retry!"
-	},
-	"expense.delete.success": {
-		"de": "Das Spesenelement wurde erfolgreich gelöscht.",
-		"en": "The expense has been deleted successfully."
-	},
-	"expense.delete_text": {
-		"de": "Sind Sie sicher, dass Sie die Spese mit der folgenden Beschreibung löschen möchten? {{name}}",
-		"en": "Are you sure you want to delete the expense with the description: {{name}}"
-	},
-	"expense.dirty_form": {
-		"de": "Bitte überprüfen Sie ihre Eingabe!",
-		"en": "Please validate your input."
-	},
-	"expense.dirty_form_title": {
-		"de": "Validierungsfehler",
-		"en": "Validation error"
-	},
-	"expense.document_available": {
-		"de": "Dokument vorhanden",
-		"en": "Document available"
-	},
-	"expense.document_upload": {
-		"de": "Dokument hochladen (optional):",
-		"en": "Upload document (optional):"
-	},
-	"expense.document_upload.button": {
-		"de": "Dokument hinzufügen",
-		"en": "Add document"
-	},
-	"expense.document_upload.button_replace": {
-		"de": "Dokument {{document}} ersetzen",
-		"en": "Replace {{document}}"
-	},
-	"expense.document_upload.error": {
-		"de": "Das Dokument konnte leider nicht hochgeladen werden. Bitte versuchen Sie es nochmals.",
-		"en": "The document upload did not succeed. Please try again."
-	},
-	"expense.document_upload.succeeded": {
-		"de": "Das Dokument wurde erfolgreich hochgeladen.",
-		"en": "The document upload was successful."
-	},
-	"expense.edit": {
-		"de": "Löschen",
-		"en": "Delete"
-	},
 	"expense.edit": {
 		"de": "Editieren",
 		"en": "Edit"
-	},
-	"expense.editExisting": {
-		"de": "Spesen bearbeiten",
-		"en": "Edit expense"
-	},
-	"expense.error.loading_exchange_rate": {
-		"de": "Leider konnte der Wechselkurs nicht geladen werden. Bitte versuchen Sie es nochmals.",
-		"en": "Exchange rate could not be loaded. Please retry."
-	},
-	"expense.error.title": {
-		"de": "Ein Fehler ist aufgetreten",
-		"en": "An error has occured"
-	},
-	"expense.exchange_course": {
-		"de": "Wechselkurs",
-		"en": "Exchange"
-	},
-	"expense.expense_items_detail": {
-		"de": "Detailansicht Belege",
-		"en": "Added expense items"
-	},
-	"expense.guest_view": {
-		"de": "Gastansicht",
-		"en": "Guest view"
-	},
-	"expense.guest_view_success": {
-		"de": "Ihr QR-Code wurde erkannt! Nun können Sie die digitale Version des PDF's laden.",
-		"en": "Your QR-Code has been recognized! Download the digital version of the PDF here."
-	},
-	"expense.guest_view_error": {
-		"de": "Ihr QR-Code wurde leider nicht erkannt!",
-		"en": "Unfortunately your QR-Code has not been recognized!"
-	},
-	"expense.guest_view_button_complete": {
-		"de": "Spese (inkl. Belege)",
-		"en": "Expense (incl. receipts)"
-	},
-	"expense.guest_view_button_half": {
-		"de": "Spese (exkl. Belege)",
-		"en": "Expense (excl. receipts)"
-	},
-	"expense.first_lastname": {
-		"de": "Vor- / Nachname",
-		"en": "First- / lastname"
-	},
-	"expense.info": {
-		"de": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend.",
-		"en": "Ausgaben werden mit dem Formular Spesenabrechnung auf Grundlage des Spesenreglements vergütet. Reisekosten und Spesen können nur auf Grundlage von Originalrechnungen und -belegen geltend gemacht werden. Eine alleinige Bescheinigung einer geleisteten Zahlung (bspw. paypal) genügt nicht. Für Flüge sind Buchungsbestätigungen ausreichend."
-	},
-	"expense.in_currency": {
-		"de": "(in {{currency}})",
-		"en": "(in {{currency}})"
-	},
-	"expense.location_purpose": {
-		"de": "(Ort und Geschäftszweck)",
-		"en": "(location and business purpose"
-	},
-	"expense.max_length": {
-		"de": " von {{max_length}} Zeichen.",
-		"en": " characters used of {{max_length}}."
-	},
-	"expense.notes": {
-		"de": "Bemerkung / Rückmeldung",
-		"en": "Notes / feedback"
-	},
-	"expense.note_add": {
-		"de": "Bemerkung hinzufügen",
-		"en": "Add note"
-	},
-	"expense.not_found.body": {
-		"de": "Die Spese konnte leider nicht gefunden werden.",
-		"en": "The expense could not be found."
-	},
-	"expense.not_found.title": {
-		"de": "Nicht gefunden",
-		"en": "Not found"
-	},
-	"expense.phone": {
-		"de": "Telefonnummer",
-		"en": "Phone"
-	},
-	"expense.project": {
-		"de": "(Projekt)",
-		"en": "(Project)"
-	},
-	"expense.recipent": {
-		"de": "Spesenempfänger / in",
-		"en": "Expense recipent"
-	},
-	"expense.rejected": {
-		"de": "Sie haben das Spesenelement abgelehnt. Es wird nun zum Ersteller weitergeleitet.",
-		"en": "You rejected the expense. It will now be sent to the creator."
-	},
-	"expense.save": {
-		"de": "Speichern",
-		"en": "Save"
-	},
-	"expense.save_first": {
-		"de": "Um ein Belegdokument wie bspw. PDF's hochzuladen, musst du zuerst speichern.",
-		"en": "You have to save the expense-item first before you can upload any documents."
-	},
-	"expense.select_currency": {
-		"de": "Währung wählen",
-		"en": "Select currency"
-	},
-	"expense.send": {
-		"de": "Absenden",
-		"en": "Send"
-	},
-	"expense.send_to_manager": {
-		"de": "Zu {{manager}} senden",
-		"en": "Send to {{manager}}"
-	},
-	"expense.send_accept": {
-		"de": "Akzeptiert",
-		"en": "Accepted"
-	},
-	"expense.send_decline": {
-		"de": "Abgelehnt",
-		"en": "Declined"
 	},
 	"expense.state.toSignByUser": {
 		"de": "Signieren durch Benutzer",
@@ -1205,10 +899,6 @@
 		"de": "Zugewiesen an Finanzverwaltung",
 		"en": "Assigned to finance administration"
 	},
-	"expense.state.created": {
-		"de": "Erstallt",
-		"en": "Created"
-	},
 	"expense.state.draft": {
 		"de": "Entwurf",
 		"en": "Draft"
@@ -1225,48 +915,8 @@
 		"de": "Ausgedruckt",
 		"en": "Printed"
 	},
-	"expense.travel_purpose": {
-		"de": "Reisegrund / Erklärung",
-		"en": "Travel purpose"
-	},
 	"expense.validate": {
 		"de": "Validieren",
 		"en": "Validate"
-	},
-	"expense.validation.account": {
-		"de": "Ein Kategorie / Konto muss gewählt werden.",
-		"en": "Please select a cost category."
-	},
-	"expense.validation.amount": {
-		"de": "Der Betrag muss erfasst werden.",
-		"en": "Please enter an amount."
-	},
-	"expense.validation.bookingText": {
-		"de": "Bitte füge eine Buchungsinformation hinzu.",
-		"en": "Please enter a value on the panel «Account information» to proceed."
-	},
-	"expense.validation.project": {
-		"de": "Das Projekt muss erfasst werden.",
-		"en": "Please add a project."
-	},
-	"expense.validation.date_expense_item": {
-		"de": "Das Belegdatum muss gewählt werden!",
-		"en": "Please enter a expense item date."
-	},
-	"expense.validation.description": {
-		"de": "Eine Beschreibung muss hinzugefügt werden!",
-		"en": "Please add a travel purpose."
-	},
-	"expense.validation.note": {
-		"de": "Bitte geben Sie eine Nachricht von mindestens drei Zeichen ein!",
-		"en": "Your message is to short. There need to be at least three characters."
-	},
-	"expense.validation.select_currency": {
-		"de": "Eine Währung muss gewählt werden (bsp. CHF).",
-		"en": "Please enter a currency (i.e CHF)."
-	},
-	"expense.validation.enter_account_or_add_expense_item": {
-		"de": "Bitte erfassen Sie einen Buchungstext und eine Spese.",
-		"en": "Please add an account and an expense first."
 	}
 }
