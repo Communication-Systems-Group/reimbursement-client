@@ -10,7 +10,7 @@ function($state, $uibModal, Modernizr, spinnerService, signatureRestService, bas
 		scope: {
 			isRegistration: '='
 		},
-		controller: function($scope) {
+		controller: ['$scope', function($scope) {
 			$scope.postSignaturePath = signatureRestService.postSignaturePath();
 			$scope.Modernizr = Modernizr;
 			$scope.showUploadImage = false;
@@ -104,7 +104,7 @@ function($state, $uibModal, Modernizr, spinnerService, signatureRestService, bas
 					imageUri : base64Image
 				});
 			}
-		}
+		}]
 	};
 
 }]);
