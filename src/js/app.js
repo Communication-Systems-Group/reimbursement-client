@@ -52,8 +52,8 @@ app.constant("c3", window.c3);
 app.constant("HOST", window.location.protocol + "//" + window.location.host.split(":")[0]);
 app.constant("THIS_HOST", window.location.protocol + "//" + window.location.host + "/#!");
 
-app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', 'LANGUAGES', 'USER', 'flowFactoryProvider',
-	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, LANGUAGES, USER, flowFactoryProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', '$compileProvider', 'LANGUAGES', 'USER', 'flowFactoryProvider',
+	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, $compileProvider, LANGUAGES, USER, flowFactoryProvider) {
 		"use strict";
 
 		for (var key in LANGUAGES) {
@@ -286,6 +286,9 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			},
 			withCredentials: true
 		};
+
+		// enable data URLs
+		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel|data):/);
 
 	}]);
 

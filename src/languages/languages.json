@@ -367,13 +367,17 @@
 		"de": "Der Anhang wird hochgeladen...",
 		"en": "Upload in progress..."
 	},
-	"captureAttachment.info": {
-		"de": "Wenn Sie den Anhang auf Ihrem Mobilgerät haben, können Sie ihn direkt von dort hochladen.",
-		"en": "You can use your mobile device to upload the attachment conveniently."
-	},
 	"captureAttachment.tryMobile": {
-		"de": "Mobilgerät verwenden.",
-		"en": "I use my mobile."
+		"de": "Mobilgerät für Upload verwenden",
+		"en": "Use mobile device for upload"
+	},
+	"captureAttachment.or": {
+		"de": "ODER",
+		"en": "OR"
+	},
+	"captureAttachment.downloadAttachment": {
+		"de": "Beleg herunterladen",
+		"en": "Download receipt"
 	},
 	"captureAttachment.upload.centerText": {
 		"de": "Datei Auswählen",

@@ -4,29 +4,30 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 	"use strict";
 
 	$scope.postAttachmentPath = attachmentRestService.postAttachmentPath($scope.expenseItemUid);
+	$scope.base64 = "";
+	$scope.displayAttachment = false;
 	$scope.Modernizr = Modernizr;
 	$scope.flow = {};
 
-	$scope.showAttachmentImage = false;
-	$scope.showAttachmentUpload = true;
-
-	$scope.showAttachment = function(){
+	$scope.showAttachmentLink = function() {
 		attachmentRestService.getAttachment($scope.expenseItemUid).then(function(response) {
-			if(response.data.content){
-					showAttachmentInForm(base64BinaryConverterService.toBase64FromJson(response.data));
-					$scope.selectShowTab();
-				}
-			}, function(reason){
-				reason.errorHandled = true;
-			});
-		};
-	$scope.showAttachment();
+			if(response.data.content) {
+				$scope.base64 = base64BinaryConverterService.toBase64FromJson(response.data);
+				$scope.displayAttachment = true;
+			}
+			else {
+				$scope.base64 = "";
+				$scope.displayAttachment = false;
+			}
 
+		}, function(response) {
+			response.errorHandled = true;
 
-	//TODO make this smart
-	function showAttachmentInForm(responseAsBase64){
-		jQuery("#showAttachment").attr({"src":responseAsBase64});
-	}
+			$scope.base64 = "";
+			$scope.displayAttachment = false;
+		});
+	};
+	$scope.showAttachmentLink();
 
 	$scope.showSpinner = function(spinnerId) {
 		spinnerService.show(spinnerId);
@@ -48,24 +49,16 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 			});
 
 			modalInstance.result.then(function(response) {
-				var imageAsBase64 = base64BinaryConverterService.toBase64FromJson(response.data);
-				//TODO make all pretty for example with directive features element instead of jQ
-				//$scope.addImageToElement(imageAsBase64);
-				showAttachmentInForm(imageAsBase64);
-
+				$scope.base64 = base64BinaryConverterService.toBase64FromJson(response.data);
+				$scope.displayAttachment = true;
 			});
 		});
 	};
 
-	$scope.onAttachmentUploadError = function(type) {
+	$scope.onAttachmentUploadError = function() {
 		spinnerService.hide('spinnerAttachmentImage');
+		$scope.flow.image.cancel();
 		globalMessagesService.showGeneralError();
-		if(type === 'image') {
-			$scope.flow.image.cancel();
-		}
-		else {
-			$scope.flow.touch.cancel();
-		}
 	};
 
 	//TODO check if this method is names correctly, I doubt it
@@ -75,13 +68,11 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 		// file was not accepted by the validator
 		if(typeof fileWrapper === "undefined" || typeof fileWrapper.file === "undefined") {
 			globalMessagesService.showWarning("reimbursement.globalMessage.notAnImage.title", "reimbursement.globalMessage.notAnImage.message");
-			$scope.showAttachment();
-			spinnerService.hide("spinnerAttachmentImage");
 		}
 		else {
-			$scope.showAttachment();
-			spinnerService.hide("spinnerAttachmentImage");
+			$scope.showAttachmentLink();
 		}
+		spinnerService.hide("spinnerAttachmentImage");
 	};
 
 	$scope.validateFile = function($file) {
@@ -92,15 +83,6 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 			$log.error("File has not passed the validateFile check.");
 			return false;
 		}
-	};
-
-	$scope.selectShowTab = function() {
-		$scope.showAttachmentImage = true;
-		$scope.showAttachmentUpload = false;
-	};
-	$scope.selectUploadTab = function() {
-		$scope.showAttachmentImage = false;
-		$scope.showAttachmentUpload = true;
 	};
 
 }]);
