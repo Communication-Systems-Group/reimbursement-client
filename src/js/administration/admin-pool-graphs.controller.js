@@ -9,14 +9,14 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 
 		$timeout(function() {
 
-			$translate(['reimbursement.adminPoolSearch.expenseState.DRAFT',
-							'reimbursement.adminPoolSearch.expenseState.ASSIGNED_TO_MANAGER',
-							'reimbursement.adminPoolSearch.expenseState.TO_BE_ASSIGNED',
-							'reimbursement.adminPoolSearch.expenseState.ASSIGNED_TO_FINANCE_ADMIN',
-							'reimbursement.adminPoolSearch.expenseState.TO_SIGN_BY_USER',
-							'reimbursement.adminPoolSearch.expenseState.TO_SIGN_BY_MANAGER',
-							'reimbursement.adminPoolSearch.expenseState.TO_SIGN_BY_FINANCE_ADMIN',
-							'reimbursement.adminPoolSearch.expenseState.SIGNED',
+			$translate(['reimbursement.expense.state.DRAFT',
+							'reimbursement.expense.state.ASSIGNED_TO_MANAGER',
+							'reimbursement.expense.state.TO_BE_ASSIGNED',
+							'reimbursement.expense.state.ASSIGNED_TO_FINANCE_ADMIN',
+							'reimbursement.expense.state.TO_SIGN_BY_USER',
+							'reimbursement.expense.state.TO_SIGN_BY_MANAGER',
+							'reimbursement.expense.state.TO_SIGN_BY_FINANCE_ADMIN',
+							'reimbursement.expense.state.SIGNED',
 							'reimbursement.adminPoolGraphs.percentagePrinted']).then(function(translations) {
 
 				c3.generate({
@@ -31,14 +31,14 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 						x: {
 							type: 'category',
 							categories: [
-								translations['reimbursement.adminPoolSearch.expenseState.DRAFT'],
-								translations['reimbursement.adminPoolSearch.expenseState.ASSIGNED_TO_MANAGER'],
-								translations['reimbursement.adminPoolSearch.expenseState.TO_BE_ASSIGNED'],
-								translations['reimbursement.adminPoolSearch.expenseState.ASSIGNED_TO_FINANCE_ADMIN'],
-								translations['reimbursement.adminPoolSearch.expenseState.TO_SIGN_BY_USER'],
-								translations['reimbursement.adminPoolSearch.expenseState.TO_SIGN_BY_MANAGER'],
-								translations['reimbursement.adminPoolSearch.expenseState.TO_SIGN_BY_FINANCE_ADMIN'],
-								translations['reimbursement.adminPoolSearch.expenseState.SIGNED']
+								translations['reimbursement.expense.state.DRAFT'],
+								translations['reimbursement.expense.state.ASSIGNED_TO_MANAGER'],
+								translations['reimbursement.expense.state.TO_BE_ASSIGNED'],
+								translations['reimbursement.expense.state.ASSIGNED_TO_FINANCE_ADMIN'],
+								translations['reimbursement.expense.state.TO_SIGN_BY_USER'],
+								translations['reimbursement.expense.state.TO_SIGN_BY_MANAGER'],
+								translations['reimbursement.expense.state.TO_SIGN_BY_FINANCE_ADMIN'],
+								translations['reimbursement.expense.state.SIGNED']
 							]
 						}
 					},

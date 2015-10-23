@@ -36,8 +36,8 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 		};
 
 		$scope.deleteItem = function (uid) {
-			globalMessagesService.confirmWarning("reimbursement.administration.deleteCostCategoryItemTitle",
-					"reimbursement.administration.deleteCostCategoryItemText").then(function () {
+			globalMessagesService.confirmWarning("reimbursement.language.deleteCostCategoryItemTitle",
+					"reimbursement.language.deleteCostCategoryItemText").then(function () {
 
 					administrationRestService.deleteCostCategory(uid).then(function () {
 						loadData();

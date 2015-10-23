@@ -32,7 +32,7 @@
 					<div class="form-group">
 						<label class="col-sm-4 control-label"> {{ 'reimbursement.adminPoolSearch.userRole' | translate }} </label>
 						<div class="col-sm-8">
-							<select class="form-control" ng-model="form.role" ng-options="role as 'reimbursement.adminPoolSearch.role.'+role | translate for role in roles">
+							<select class="form-control" ng-model="form.role" ng-options="role as 'reimbursement.user.role.'+role | translate for role in roles">
 								<option selected value="">{{ 'reimbursement.adminPoolSearch.preselectedRole' | translate }}</option>
 							</select>
 						</div>
@@ -40,7 +40,7 @@
 					<div class="form-group">
 						<label class="col-sm-4 control-label"> {{ 'reimbursement.adminPoolSearch.expenseState' | translate }} </label>
 						<div class="col-sm-8">
-							<select class="form-control" ng-model="form.expenseState" ng-options="expenseState as 'reimbursement.adminPoolSearch.expenseState.'+expenseState | translate for expenseState in expenseStates">
+							<select class="form-control" ng-model="form.expenseState" ng-options="expenseState as 'reimbursement.expense.state.'+expenseState | translate for expenseState in expenseStates">
 								<option selected value="">{{ 'reimbursement.adminPoolSearch.preselectedExpense' | translate }}</option>
 							</select>
 						</div>

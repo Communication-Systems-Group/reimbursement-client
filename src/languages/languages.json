@@ -43,13 +43,21 @@
 		"de": "Element hinzufügen",
 		"en": "Add element"
 	},
-	"administration.de": {
+	"language.de": {
 		"de": "DE",
 		"en": "DE"
 	},
-	"administration.en": {
+	"language.en": {
 		"de": "EN",
 		"en": "EN"
+	},
+	"language.full.de": {
+		"de": "Deutsch",
+		"en": "German"
+	},
+	"language.full.en": {
+		"de": "Englisch",
+		"en": "English"
 	},
 	"administration.delete": {
 		"de": "Löschen",
@@ -112,44 +120,12 @@
 		"en": "Last Name of Expense Creator"
 	},
 	"adminPoolSearch.preselectedRole": {
-		"de": "alle Berechtigungen",
-		"en": "all permissions"
+		"de": "(alle Berechtigungen)",
+		"en": "(all Permissions)"
 	},
 	"adminPoolSearch.preselectedExpense": {
-		"de": "alle Stati",
-		"en": "all states"
-	},
-	"adminPoolSearch.expenseState.DRAFT": {
-		"de": "Entwurf",
-		"en": "Draft"
-	},
-	"adminPoolSearch.expenseState.ASSIGNED_TO_MANAGER": {
-		"de": "Zugewiesen an Vorgesetzten",
-		"en": "Assigned to manager"
-	},
-	"adminPoolSearch.expenseState.TO_BE_ASSIGNED": {
-		"de": "Wird zugewiesen",
-		"en": "To be assigned"
-	},
-	"adminPoolSearch.expenseState.ASSIGNED_TO_FINANCE_ADMIN": {
-		"de": "Zugewiesen an Finanzverwaltung",
-		"en": "Assigned to finance admin"
-	},
-	"adminPoolSearch.expenseState.TO_SIGN_BY_USER": {
-		"de": "Signieren durch Mitarbeiter",
-		"en": "To sign by user"
-	},
-	"adminPoolSearch.expenseState.TO_SIGN_BY_MANAGER": {
-		"de": "Signieren durch Vorgesetzten",
-		"en": "To sign by manager"
-	},
-	"adminPoolSearch.expenseState.TO_SIGN_BY_FINANCE_ADMIN": {
-		"de": "Signieren durch Finanzverwaltung",
-		"en": "To sign by finance admin"
-	},
-	"adminPoolSearch.expenseState.SIGNED": {
-		"de": "Signiert",
-		"en": "Signed"
+		"de": "(alle Stati)",
+		"en": "(all States)"
 	},
 	"adminPoolSearch.searchResults": {
 		"de": "Suchresultat",
@@ -651,6 +627,46 @@
 		"de": "Beleg anzeigen",
 		"en": "Show receipt"
 	},
+	"expense.state.REJECTED": {
+		"de": "Zurückgewiesen",
+		"en": "Rejected"
+	},
+	"expense.state.DRAFT": {
+		"de": "Entwurf",
+		"en": "Draft"
+	},
+	"expense.state.ASSIGNED_TO_MANAGER": {
+		"de": "An Vorgesetzten zugewiesen",
+		"en": "Assigned to manager"
+	},
+	"expense.state.TO_BE_ASSIGNED": {
+		"de": "Wird zugewiesen",
+		"en": "To be assigned"
+	},
+	"expense.state.ASSIGNED_TO_FINANCE_ADMIN": {
+		"de": "Zugewiesen an Finanzverwaltung",
+		"en": "Assigned to finance admin"
+	},
+	"expense.state.TO_SIGN_BY_USER": {
+		"de": "Signieren durch Mitarbeiter",
+		"en": "To sign by user"
+	},
+	"expense.state.TO_SIGN_BY_MANAGER": {
+		"de": "Signieren durch Vorgesetzten",
+		"en": "To sign by manager"
+	},
+	"expense.state.TO_SIGN_BY_FINANCE_ADMIN": {
+		"de": "Signieren durch Finanzverwaltung",
+		"en": "To sign by finance admin"
+	},
+	"expense.state.SIGNED": {
+		"de": "Signiert",
+		"en": "Signed"
+	},
+	"expense.state.PRINTED": {
+		"de": "Ausgedruckt",
+		"en": "Printed"
+	},
 	"expense.explanationEnterAtLeast10Characters": {
 		"de": "Geben Sie eine Begründung mit mindestens 10 Zeichen ein.",
 		"en": "Enter a explanation with at least 10 characters."
@@ -875,48 +891,36 @@
 		"de": "Editieren",
 		"en": "Edit"
 	},
-	"expense.state.toSignByUser": {
-		"de": "Signieren durch Benutzer",
-		"en": "To be signed by user"
-	},
-	"expense.state.toSignByManager": {
-		"de": "Signieren durch Vorgesetzten",
-		"en": "To be signed by manager"
-	},
-	"expense.state.to_be_assigned": {
-		"de": "Zuweisung an Finanzverwaltungsmitglied",
-		"en": "To be assigned to finance administrator"
-	},
-	"expense.state.toSignByFinanceAdmin": {
-		"de": "Signieren durch Finanzverwaltung",
-		"en": "To be signed by finance administration"
-	},
-	"expense.state.assigned_to_manager": {
-		"de": "Zugewiesen an Vorgesetzten",
-		"en": "Assigned to manager"
-	},
-	"expense.state.assigned_to_finance_admin": {
-		"de": "Zugewiesen an Finanzverwaltung",
-		"en": "Assigned to finance administration"
-	},
-	"expense.state.draft": {
-		"de": "Entwurf",
-		"en": "Draft"
-	},
-	"expense.state.signed": {
-		"de": "Signiert",
-		"en": "Signed"
-	},
-	"expense.state.rejected": {
-		"de": "Abgelehnt",
-		"en": "Rejected"
-	},
-	"expense.state.printed": {
-		"de": "Ausgedruckt",
-		"en": "Printed"
-	},
 	"expense.validate": {
 		"de": "Validieren",
 		"en": "Validate"
+	},
+	"user.role.USER": {
+		"de": "Unregistrierter Benutzer",
+		"en": "Unregistered User"
+	},
+	"user.role.REGISTERED_USER": {
+		"de": "Registrierter Benutzer",
+		"en": "Registered User"
+	},
+	"user.role.PROF": {
+		"de": "Professor",
+		"en": "Professor"
+	},
+	"user.role.FINANCE_ADMIN": {
+		"de": "Finanzverwaltung",
+		"en": "Finance Management"
+	},
+	"user.role.UNI_ADMIN": {
+		"de": "Universitätsverwaltung",
+		"en": "University Management"
+	},
+	"user.role.DEPARTMENT_MANAGER": {
+		"de": "Department Manager",
+		"en": "Department Manager"
+	},
+	"user.role.CHIEF_OF_FINANCE_ADMIN": {
+		"de": "Vorgesetzter in Finanzverwaltung",
+		"en": "Chief of Finance Management"
 	}
 }
