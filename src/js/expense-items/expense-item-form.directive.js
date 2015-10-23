@@ -22,53 +22,54 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 
 			$timeout(function(){
 				spinnerService.show('spinnerExpenseItemForm');
-			});
 
-			expenseItemsRestService.getCostCategories().then(function(response) {
-				$scope.costCategories =  response.data;
+				expenseItemsRestService.getCostCategories().then(function(response) {
+					$scope.costCategories =  response.data;
 
-				expenseItemsRestService.getSupportedCurrencies().then(function(response) {
-					$scope.currencies = response.data;
+					expenseItemsRestService.getSupportedCurrencies().then(function(response) {
+						$scope.currencies = response.data;
 
-					expenseItemsRestService.getExpenseItem($scope.expenseItemUid).then(function(response) {
-						expenseItem = response.data;
+						expenseItemsRestService.getExpenseItem($scope.expenseItemUid).then(function(response) {
+							expenseItem = response.data;
 
-						if(!$scope.editable) {
-							$scope.staticCalculatedAmount = response.data.calculatedAmount;
+							if(!$scope.editable) {
+								$scope.staticCalculatedAmount = response.data.calculatedAmount;
 
-							for(var i=0; i<$scope.costCategories.length; i++) {
-								if($scope.costCategories[i].uid === response.data.costCategory.uid) {
-									$scope.costCategoryLabel = $filter('costCategoryLanguage')($scope.costCategories[i].name);
-									break;
+								for(var i=0; i<$scope.costCategories.length; i++) {
+									if($scope.costCategories[i].uid === response.data.costCategory.uid) {
+										$scope.costCategoryLabel = $filter('costCategoryLanguage')($scope.costCategories[i].name);
+										break;
+									}
 								}
 							}
-						}
 
-						$scope.form.date = $filter('date')(response.data.date, 'dd.MM.yyyy');
-						$scope.form.costCategoryUid = response.data.costCategory.uid;
-						$scope.form.originalAmount = response.data.originalAmount;
-						$scope.form.project = response.data.project;
-						$scope.form.explanation = response.data.explanation;
+							$scope.form.date = $filter('date')(response.data.date, 'dd.MM.yyyy');
+							$scope.form.costCategoryUid = response.data.costCategory.uid;
+							$scope.form.originalAmount = response.data.originalAmount;
+							$scope.form.project = response.data.project;
+							$scope.form.explanation = response.data.explanation;
 
-						$timeout(function() {
-							// make sure the currencies are completely loaded before setting the default
-							$scope.form.currency = response.data.currency;
+							$timeout(function() {
+								// make sure the currencies are completely loaded before setting the default
+								$scope.form.currency = response.data.currency;
+							});
+
+							if($scope.editable) {
+								$scope.calculateAmount();
+							}
+
+							spinnerService.hide('spinnerExpenseItemForm');
+
+						}, function() {
+							spinnerService.hide('spinnerExpenseItemForm');
 						});
-
-						if($scope.editable) {
-							$scope.calculateAmount();
-						}
-
-						spinnerService.hide('spinnerExpenseItemForm');
-
 					}, function() {
 						spinnerService.hide('spinnerExpenseItemForm');
 					});
 				}, function() {
 					spinnerService.hide('spinnerExpenseItemForm');
 				});
-			}, function() {
-				spinnerService.hide('spinnerExpenseItemForm');
+
 			});
 
 			if($scope.editable) {
