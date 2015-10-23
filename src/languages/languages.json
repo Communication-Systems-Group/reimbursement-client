@@ -416,8 +416,8 @@
 		"en": "Capture Signature"
 	},
 	"captureSignature.info": {
-		"de": "Sie haben sich erfolgreich eingeloggt. Um Ihre Registrierung abschliessen zu können, müssen Sie noch Ihre Unterschrift digital erfassen. Sie können die Unterschrift entweder über einen Touch-Screen direkt online erfassen oder eine Bilddatei mit Ihrer Unterschrift hochladen.",
-		"en": "You have been successfully logged in. To finish your registration, you are kindly asked to capture your signature. You can upload an image containing the signature or use the the touch screen input and capture it directly online."
+		"de": "Um Ihre Registrierung abschliessen zu können, müssen Sie noch Ihre Unterschrift digital erfassen. Sie können die Unterschrift entweder über einen Touch-Screen direkt online erfassen oder eine Bilddatei mit Ihrer Unterschrift hochladen.",
+		"en": "To finish your registration, you are kindly asked to capture your signature. You can upload an image containing the signature or use the the touch screen input and capture it directly online."
 	},
 	"captureSignature.nextStep": {
 		"de": "Speichern",
