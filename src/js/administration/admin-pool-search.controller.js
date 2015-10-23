@@ -5,8 +5,10 @@ function(moment, $scope, $timeout, spinnerService, administrationRestService, gl
 	$scope.roles = [];
 	$scope.expenseStates = [];
 	$scope.form = {};
-	$scope.searchConducted = false;
-	$scope.showSearchForm = true;
+	$scope.searchForm = {
+		searchConducted: false,
+		show: true
+	};
 	$scope.form.startTime = moment().subtract(6, 'months').format('DD.MM.YYYY');
 	$scope.form.endTime = moment().format('DD.MM.YYYY');
 
@@ -62,8 +64,8 @@ function(moment, $scope, $timeout, spinnerService, administrationRestService, gl
 		data.endTime = $filter('getISODate')(data.endTime);
 
 		administrationRestService.search(data).then(function(response) {
-			$scope.searchConducted = true;
-			$scope.showSearchForm = false;
+			$scope.searchForm.searchConducted = true;
+			$scope.searchForm.show = false;
 
 			$scope.items = response.data;
 			sortItems();

@@ -1,11 +1,11 @@
 <div id="admin-pool-search">
-	<spinner id="spinnerAdminPoolSearch" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 	<h1 class="page-header"><i class="fa fa-search"></i> {{ 'reimbursement.adminPoolSearch.title' | translate }} </h1>
-	<div class="col-sm-10 col-sm-offset-1">
+	<div class="col-sm-10 col-sm-offset-1 pos-rel">
+		<spinner id="spinnerAdminPoolSearch" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 		<uib-accordion>
-			<uib-accordion-group is-open="showSearchForm">
+			<uib-accordion-group is-open="searchForm.show">
 				<uib-accordion-heading>
-					<span ng-click=""> <i class="fa fa-angle-down fa-lg pull-right" ng-class="{'to-right': !showSearchForm}"></i> <i class="fa fa-navicon"></i> {{ 'reimbursement.adminPoolSearch.filterPanel' | translate }} </span>
+					<span ng-click=""> <i class="fa fa-angle-down fa-lg pull-right" ng-class="{'to-right': !searchForm.show}"></i> <i class="fa fa-navicon"></i> {{ 'reimbursement.adminPoolSearch.filterPanel' | translate }} </span>
 				</uib-accordion-heading>
 				<form id="searchForm" class="form-horizontal">
 					<div class="form-group">
@@ -62,7 +62,7 @@
 		</uib-accordion>
 	</div>
 
-	<div ng-show="searchConducted">
+	<div ng-show="searchForm.searchConducted">
 		<h2 class="page-header"> {{ 'reimbursement.adminPoolSearch.searchResults' | translate }} </h2>
 
 		<table class="table table-striped">
