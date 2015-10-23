@@ -3,7 +3,7 @@ app.controller('AttachmentQRController', ['$scope', '$modalInstance', 'THIS_HOST
 function($scope, $modalInstance, THIS_HOST, attachmentRestService, spinnerService, globalMessagesService, token, expenseItemUid) {
 	"use strict";
 
-	$scope.qrUrl = THIS_HOST + "/#!attachment-mobile/" + token;
+	$scope.qrUrl = THIS_HOST + "/attachment-mobile/" + token;
 	$scope.dismiss = $modalInstance.dismiss;
 
 	$scope.checkAndClose = function() {
