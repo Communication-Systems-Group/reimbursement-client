@@ -1,6 +1,6 @@
-app.controller('LoginController', ['$scope', '$state', 'loginRestService', 'globalMessagesService',
+app.controller('LoginController', ['$scope', '$state', 'spinnerService', 'loginRestService', 'globalMessagesService',
 
-	function ($scope, $state, loginRestService, globalMessagesService) {
+	function ($scope, $state, spinnerService, loginRestService, globalMessagesService) {
 		"use strict";
 
 		$scope.form = {
@@ -8,7 +8,10 @@ app.controller('LoginController', ['$scope', '$state', 'loginRestService', 'glob
 			password: null
 		};
 
+
+
 		$scope.submit = function () {
+			spinnerService.show('spinnerLogin');
 			loginRestService.postLogin($scope.form).then(function () {
 				window.location.reload();
 			}, function (response) {
@@ -31,7 +34,9 @@ app.controller('LoginController', ['$scope', '$state', 'loginRestService', 'glob
 						break;
 				}
 
-			});
+			})['finally'](function() {
+					spinnerService.hide('spinnerLogin');
+				});
 		};
 
 	}]);
