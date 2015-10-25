@@ -61,8 +61,9 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 
 	$scope.onAttachmentUploadError = function() {
 		spinnerService.hide('spinnerAttachmentImage');
+		globalMessagesService.showError("reimbursement.globalMessages.uploadOrValidationError.title",
+			"reimbursement.globalMessages.uploadOrValidationError.message");
 		$scope.flow.image.cancel();
-		globalMessagesService.showGeneralError();
 	};
 
 	$scope.onAttachmentUploadSuccess = function() {
@@ -76,15 +77,6 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 		}
 		else {
 			showAttachmentLinkOrUploadForm();
-		}
-	};
-
-	$scope.validateFile = function($file) {
-		if(typeof $file !== "undefined" && typeof $file.name !== "undefined" && $file.name !== "") {
-			return fileExtensionService.isImageFile($file.name) || fileExtensionService.isPdfFile($file.name);
-		}
-		else {
-			return false;
 		}
 	};
 

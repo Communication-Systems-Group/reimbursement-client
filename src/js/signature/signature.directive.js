@@ -57,11 +57,14 @@ function($state, $uibModal, Modernizr, spinnerService, signatureRestService, bas
 			$scope.showUploadError = function(type) {
 				spinnerService.hide('spinnerSignatureImage');
 				spinnerService.hide('spinnerSignatureTouch');
-				globalMessagesService.showGeneralError();
+
 				if(type === 'image') {
+					globalMessagesService.showError("reimbursement.globalMessages.uploadOrValidationError.title",
+						"reimbursement.globalMessages.uploadOrValidationError.message");
 					$scope.flow.image.cancel();
 				}
 				else {
+					globalMessagesService.showGeneralError();
 					$scope.flow.touch.cancel();
 				}
 			};
@@ -76,15 +79,6 @@ function($state, $uibModal, Modernizr, spinnerService, signatureRestService, bas
 				}
 				else {
 					base64BinaryConverterService.toBase64(fileWrapper.file, goToNextPage);
-				}
-			};
-
-			$scope.validateFile = function($file) {
-				if(typeof $file !== "undefined" && typeof $file.name !== "undefined" && $file.name !== "") {
-					return fileExtensionService.isImageFile($file.name);
-				}
-				else {
-					return false;
 				}
 			};
 

@@ -14,12 +14,12 @@
 			<spinner id="spinnerSignatureImage" label="{{ 'reimbursement.captureSignature.spinnerUploading' | translate }}"></spinner>
 
 			<div flow-init="{target: postSignaturePath, testChunks: false, singleFile: true, simultaneousUploads: 1}"
-				flow-name="flow.image" flow-file-added="validateFile($file)" flow-files-submitted="$flow.upload()"
+				flow-name="flow.image" flow-files-submitted="$flow.upload()"
 				flow-upload-started="showSpinner('spinnerSignatureImage')" flow-file-success="getImageAndGoToNextPage()"
 				flow-file-error="showUploadError('image')">
 
 				<div class="image-upload">
-					<div flow-drop flow-btn ng-class="dropClass" flow-drag-enter="dropClass='dragOver'" flow-drag-leave="dropClass=''">
+					<div flow-drop flow-btn flow-attrs="{accept:'image/*'}" ng-class="dropClass" flow-drag-enter="dropClass='dragOver'" flow-drag-leave="dropClass=''">
 						<div class="center uploadButton">
 							<i class="fa fa-plus-circle"></i> {{ 'reimbursement.captureSignature.upload.centerText' | translate }}
 						</div>
