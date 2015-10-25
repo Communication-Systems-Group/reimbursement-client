@@ -10,6 +10,8 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 	$scope.flow = {};
 
 	$scope.showAttachmentLink = function() {
+		spinnerService.show("spinnerAttachmentImage");
+
 		attachmentRestService.getAttachment($scope.expenseItemUid).then(function(response) {
 			if(response.data.content) {
 				$scope.base64 = base64BinaryConverterService.toBase64FromJson(response.data);
@@ -25,6 +27,9 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 
 			$scope.base64 = "";
 			$scope.displayAttachment = false;
+
+		})["finally"](function() {
+			spinnerService.hide("spinnerAttachmentImage");
 		});
 	};
 	$scope.showAttachmentLink();
@@ -65,6 +70,8 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 	$scope.onAttachmentUploadSuccess = function() {
 		var fileWrapper = $scope.flow.image.files[0];
 
+		spinnerService.hide("spinnerAttachmentImage");
+
 		// file was not accepted by the validator
 		if(typeof fileWrapper === "undefined" || typeof fileWrapper.file === "undefined") {
 			globalMessagesService.showWarning("reimbursement.globalMessage.notAnImage.title", "reimbursement.globalMessage.notAnImage.message");
@@ -72,7 +79,6 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 		else {
 			$scope.showAttachmentLink();
 		}
-		spinnerService.hide("spinnerAttachmentImage");
 	};
 
 	$scope.validateFile = function($file) {
@@ -90,10 +96,12 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 			"reimbursement.captureAttachment.deleteAttachment.message").then(function() {
 
 			spinnerService.show("spinnerAttachmentImage");
-			attachmentRestService.deleteAttachment($scope.expenseItemUid).then(	$scope.showAttachmentLink)
-				['finally'](function() {
-					spinnerService.hide("spinnerAttachmentImage");
-				});
+			attachmentRestService.deleteAttachment($scope.expenseItemUid).then(	function() {
+				spinnerService.hide("spinnerAttachmentImage");
+				$scope.showAttachmentLink();
+			}, function() {
+				spinnerService.hide("spinnerAttachmentImage");
+			});
 		});
 	};
 
