@@ -11,10 +11,11 @@ function($scope, $modalInstance, THIS_HOST, attachmentRestService, spinnerServic
 
 		attachmentRestService.getAttachment(expenseItemUid).then(function(image) {
 			$modalInstance.close(image);
-		}, function() {
 
-			globalMessagesService.showError("reimbursement.globalMessage.attachmentQrNoImage.title",
-				"reimbursement.globalMessage.attachmentQrNoImage.message");
+		}, function(response) {
+			response.errorHandled = true;
+			globalMessagesService.showWarning("reimbursement.captureAttachment.qr.notYetCaptured.title",
+				"reimbursement.captureAttachment.qr.notYetCaptured.message");
 
 		})['finally'](function() {
 			spinnerService.hide('spinnerAttachmentQR');

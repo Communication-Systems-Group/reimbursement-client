@@ -1,15 +1,14 @@
-app.controller('AttachmentController', ['$scope', '$state', '$uibModal', 'Modernizr', 'spinnerService', 'attachmentRestService', 'base64BinaryConverterService', 'fileExtensionService', 'globalMessagesService','$log',
+app.controller('AttachmentController', ['$scope', '$uibModal', 'spinnerService', 'attachmentRestService', 'base64BinaryConverterService', 'fileExtensionService', 'globalMessagesService',
 
-function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestService, base64BinaryConverterService, fileExtensionService, globalMessagesService, $log) {
+function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryConverterService, fileExtensionService, globalMessagesService) {
 	"use strict";
 
 	$scope.postAttachmentPath = attachmentRestService.postAttachmentPath($scope.expenseItemUid);
 	$scope.base64 = "";
 	$scope.displayAttachment = false;
-	$scope.Modernizr = Modernizr;
 	$scope.flow = {};
 
-	$scope.showAttachmentLink = function() {
+	function showAttachmentLinkOrUploadForm() {
 		spinnerService.show("spinnerAttachmentImage");
 
 		attachmentRestService.getAttachment($scope.expenseItemUid).then(function(response) {
@@ -31,8 +30,8 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 		})["finally"](function() {
 			spinnerService.hide("spinnerAttachmentImage");
 		});
-	};
-	$scope.showAttachmentLink();
+	}
+	showAttachmentLinkOrUploadForm();
 
 	$scope.showSpinner = function(spinnerId) {
 		spinnerService.show(spinnerId);
@@ -66,7 +65,6 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 		globalMessagesService.showGeneralError();
 	};
 
-	//TODO check if this method is names correctly, I doubt it
 	$scope.onAttachmentUploadSuccess = function() {
 		var fileWrapper = $scope.flow.image.files[0];
 
@@ -77,7 +75,7 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 			globalMessagesService.showWarning("reimbursement.globalMessage.notAnImage.title", "reimbursement.globalMessage.notAnImage.message");
 		}
 		else {
-			$scope.showAttachmentLink();
+			showAttachmentLinkOrUploadForm();
 		}
 	};
 
@@ -86,7 +84,6 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 			return fileExtensionService.isImageFile($file.name) || fileExtensionService.isPdfFile($file.name);
 		}
 		else {
-			$log.error("File has not passed the validateFile check.");
 			return false;
 		}
 	};
@@ -98,7 +95,7 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 			spinnerService.show("spinnerAttachmentImage");
 			attachmentRestService.deleteAttachment($scope.expenseItemUid).then(	function() {
 				spinnerService.hide("spinnerAttachmentImage");
-				$scope.showAttachmentLink();
+				showAttachmentLinkOrUploadForm();
 			}, function() {
 				spinnerService.hide("spinnerAttachmentImage");
 			});

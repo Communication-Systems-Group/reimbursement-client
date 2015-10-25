@@ -407,6 +407,14 @@
 		"de": "Anhang erfasst",
 		"en": "Attachment captured"
 	},
+	"captureAttachment.qr.notYetCaptured.title": {
+		"de": "Noch nicht erfasst",
+		"en": "Not yet uploaded"
+	},
+	"captureAttachment.qr.notYetCaptured.message": {
+		"de": "Der Beleg wurde auf dem Mobilgerät noch nicht hochgeladen. Laden Sie bitte den Beleg mit obenstehenden QR-Code auf Ihrem Mobilgerät hoch.",
+		"en": "The receipt was not yet uploaded on the mobile device. Please upload the receipt on your mobile device."
+	},
 	"attachmentCapture.mobile.complete": {
 		"de": "Der Anhang wurde erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät weiter, indem Sie auf den Button 'Anhang erfasst' klicken.",
 		"en": "The attachment was successfully uploaded. Please continue on your desktop device by clicking the button 'Attachment captured'."
