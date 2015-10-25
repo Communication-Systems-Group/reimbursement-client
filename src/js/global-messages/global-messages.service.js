@@ -149,22 +149,6 @@ app.factory("globalMessagesService", ['$uibModal', '$translate', '$q',
 			openModalInstances = [];
 		}
 
-		/**
-		 * Checks if a 5xx error occurred and shoes an error message.
-		 * Returns true if a server error message was catched; false if not
-		 * @param statusCode
-		 * @return boolean
-		 */
-		function isServerErrorMessages(statusCode, callback) {
-			if (statusCode.toString()[0] === '5') {
-				showError("reimbursement.globalMessage.ServerException.title",
-					"reimbursement.globalMessage.ServerException.message");
-				callback(true);
-			} else {
-				callback(false);
-			}
-		}
-
 		return {
 
 			showError: showError,
@@ -179,13 +163,11 @@ app.factory("globalMessagesService", ['$uibModal', '$translate', '$q',
 			confirmErrorMd: confirmErrorMd,
 			confirmWarningMd: confirmWarningMd,
 			confirmInfoMd: confirmInfoMd,
-
 			hideMessages: hideMessages,
 			showGeneralError: function () {
 				return showError("reimbursement.globalMessage.ServiceException.title",
 					"reimbursement.globalMessage.ServiceException.message");
-			},
-			isServerErrorMessages: isServerErrorMessages
+			}
 
 		};
 

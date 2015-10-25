@@ -303,13 +303,17 @@
 		"de": "Das eingegebene Passwort oder der Benutzername sind inkorrekt. Bitte versuchen Sie es erneut.",
 		"en": "The entered password or username was incorrect. Please try again."
 	},
-	"globalMessage.loginError.MissingCsrfTokenException": {
-		"de": "Leider ist Ihre Sitzung abgelaufen.\nDie Seite wird neu geladen. Geben Sie danach Ihre Daten erneut ein.",
-		"en": "Your session has expired.\nThe page will be reloaded. Please and try then to login again."
-	},
 	"globalMessage.loginError.BadCredentialsException": {
 		"de": "Das eingegebene Passwort oder der Benutzername sind falsch. Bitte versuchen Sie es erneut.",
 		"en": "The entered password or username was incorrect. Please try again."
+	},
+	"globalMessage.InvalidCsrfTokenException.title": {
+		"de": "Sitzung abgelaufen",
+		"en": "Session has expired"
+	},
+	"globalMessage.InvalidCsrfTokenException.message": {
+		"de": "Leider ist Ihre Sitzung abgelaufen.\n Bitte geben Sie nach dem Login Ihre Daten erneut ein.",
+		"en": "Your session has expired.\n Please login and reenter your data again."
 	},
 	"globalMessage.ServiceException.title": {
 		"de": "Allgemeiner Fehler",

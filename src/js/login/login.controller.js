@@ -17,15 +17,7 @@ app.controller('LoginController', ['$scope', '$state', 'spinnerService', 'loginR
 			}, function (response) {
 				response.errorHandled = true;
 				var errorTitle = "reimbursement.globalMessage.loginError.title";
-
 				switch(response.data.type) {
-					case 'InvalidCsrfTokenException':
-						globalMessagesService.showErrorMd(errorTitle,
-							"reimbursement.globalMessage.loginError.MissingCsrfTokenException").then()['finally'](function() {
-
-							window.location.reload();
-						});
-						break;
 					case 'BadCredentialsException':
 						globalMessagesService.showErrorMd(errorTitle, "reimbursement.globalMessage.loginError.BadCredentialsException");
 						break;
