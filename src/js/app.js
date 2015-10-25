@@ -68,9 +68,13 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		$httpProvider.defaults.withCredentials = true;
 		$httpProvider.interceptors.push('httpInterceptor');
 
-		function requireNoAuthentication() {
-			return ['$state', 'USER', function ($state, USER) {
+		function requireNoAuthenticationWithMessage() {
+			return ['$state', 'USER', 'globalMessagesService', function ($state, USER, globalMessagesService) {
+					console.log(globalMessagesService);
 				if (USER.loggedIn) {
+					globalMessagesService.showError("reimbursement.globalMessages.notAuthenticatedRequired.title",
+						"reimbursement.globalMessages.notAuthenticatedRequired.message");
+
 					$state.go('dashboard');
 				}
 			}];
@@ -133,7 +137,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			url: "/login",
 			templateUrl: "login/login.tpl.html",
 			controller: 'LoginController',
-			onEnter: requireNoAuthentication()
+			onEnter: requireNoAuthenticationWithMessage()
 
 		}).state('logout', {
 			url: "/logout",
@@ -177,12 +181,14 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		}).state('signatureMobile', {
 			url: "/signature-mobile/:token",
 			templateUrl: "signature/signature-mobile.tpl.html",
-			controller: "SignatureMobileController"
+			controller: "SignatureMobileController",
+			onEnter: requireNoAuthenticationWithMessage()
 
 		}).state('attachmentMobile', {
 			url: "/attachment-mobile/:token",
 			templateUrl: "attachment/attachment-mobile.tpl.html",
-			controller: "AttachmentMobileController"
+			controller: "AttachmentMobileController",
+			onEnter: requireNoAuthenticationWithMessage()
 
 		}).state('view-cost-category', {
 			url: "/view-cost-category",
@@ -260,7 +266,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			url: "/guest-view-expense/:token",
 			templateUrl: "expense/guest-view-expense.tpl.html",
 			controller: "GuestViewExpenseController",
-			onEnter: requireNoAuthentication()
+			onEnter: requireNoAuthenticationWithMessage()
 
 		}).state('welcome', {
 			url: "/welcome",

@@ -335,6 +335,14 @@
 		"de": "Der Spesenantrag inkl. Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
 		"en": "The expense incl. its receipts could not be found. Please make sure, that there is no error in the address. You will be redirected now."
 	},
+	"globalMessages.notAuthenticatedRequired.title": {
+		"de": "Eingeloggt...",
+		"en": "Logged in..."
+	},
+	"globalMessages.notAuthenticatedRequired.message": {
+		"de": "Sie versuchen eine Seite aufzurufen, die nur aufrufbar ist, wenn Sie nicht eingeloggt sind. Sie wurden zum Dashboard weitergeleitet.",
+		"en": "You are trying to access a page, which is only accessible if you're not logged in. You were redirected to the dashboard."
+	},
 	"login.title": {
 		"de": "Login",
 		"en": "Login"
