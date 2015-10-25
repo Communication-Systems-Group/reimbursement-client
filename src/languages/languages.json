@@ -363,9 +363,13 @@
 		"de": "Sie wurden erfolgreich ausgeloggt. Beehren Sie uns bald wieder mit Ihren Spesen.",
 		"en": "You were successfully logged out."
 	},
-	"captureAttachment.spinnerUploading": {
-		"de": "Der Anhang wird hochgeladen...",
-		"en": "Upload in progress..."
+	"captureAttachment.deleteAttachment.title": {
+		"de": "Beleg löschen?",
+		"en": "Delete receipt?"
+	},
+	"captureAttachment.deleteAttachment.message": {
+		"de": "Sind Sie sicher, dass Sie diesen hochgeladenen Beleg unwiderruflich löschen möchten?",
+		"en": "Are you sure, that you want to delete this uploaded receipt irrevocably?"
 	},
 	"captureAttachment.tryMobile": {
 		"de": "Mobilgerät für Upload verwenden",
@@ -380,8 +384,8 @@
 		"en": "Download receipt"
 	},
 	"captureAttachment.upload.centerText": {
-		"de": "Datei Auswählen",
-		"en": "Choose a file"
+		"de": "Datei auswählen",
+		"en": "Select file"
 	},
 	"captureAttachment.qr.title": {
 		"de": "Anhang mit Mobilgerät erfassen",

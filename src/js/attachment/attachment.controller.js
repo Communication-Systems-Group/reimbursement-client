@@ -85,4 +85,16 @@ function($scope, $state, $uibModal, Modernizr, spinnerService, attachmentRestSer
 		}
 	};
 
+	$scope.deleteAttachment = function() {
+		globalMessagesService.confirmWarning("reimbursement.captureAttachment.deleteAttachment.title",
+			"reimbursement.captureAttachment.deleteAttachment.message").then(function() {
+
+			spinnerService.show("spinnerAttachmentImage");
+			attachmentRestService.deleteAttachment($scope.expenseItemUid).then(	$scope.showAttachmentLink)
+				['finally'](function() {
+					spinnerService.hide("spinnerAttachmentImage");
+				});
+		});
+	};
+
 }]);
