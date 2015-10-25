@@ -79,6 +79,14 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}];
 		}
 
+		function requireNoAuthentication() {
+			return ['$state', 'USER', function ($state, USER) {
+				if(USER.loggedIn) {
+					$state.go('dashboard');
+				}
+			}];
+		}
+
 		function requireAuthentication() {
 			return ['$state', 'USER', function ($state, USER) {
 				if (!USER.loggedIn) {
@@ -136,7 +144,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			url: "/login",
 			templateUrl: "login/login.tpl.html",
 			controller: 'LoginController',
-			onEnter: requireNoAuthenticationWithMessage()
+			onEnter: requireNoAuthentication()
 
 		}).state('logout', {
 			url: "/logout",
