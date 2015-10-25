@@ -1,6 +1,6 @@
-app.controller('AttachmentMobileController', ['$scope', '$location', 'attachmentRestService', 'spinnerService','base64BinaryConverterService','fileExtensionService','globalMessagesService',
+app.controller('AttachmentMobileController', ['$scope', '$location', 'attachmentRestService', 'spinnerService',
 
-function($scope, $location, attachmentRestService, spinnerService, base64BinaryConverterService, fileExtensionService,globalMessagesService) {
+function($scope, $location, attachmentRestService, spinnerService) {
 	"use strict";
 
 	var tokenUid = $location.path().split("/")[2];
@@ -8,7 +8,6 @@ function($scope, $location, attachmentRestService, spinnerService, base64BinaryC
 	$scope.flow = {};
 	$scope.isComplete = false;
 	$scope.isError = false;
-
 
 	$scope.showSpinner = function(spinnerId) {
 		$scope.spinnerId = spinnerId;
@@ -23,16 +22,6 @@ function($scope, $location, attachmentRestService, spinnerService, base64BinaryC
 	$scope.error = function() {
 		spinnerService.hide($scope.spinnerId);
 		$scope.isError = true;
-	};
-
-	$scope.validateFile = function($file) {
-		if(typeof $file !== "undefined" && typeof $file.name !== "undefined" && $file.name !== "") {
-			return fileExtensionService.isImageFile($file.name) || fileExtensionService.isPdfFile($file.name);
-		}
-		else {
-			globalMessagesService.showWarning("reimbursement.globalMessage.notAnImage.title", "reimbursement.globalMessage.notAnImage.message");
-			return false;
-		}
 	};
 
 }]);

@@ -1,6 +1,6 @@
-app.controller('AttachmentController', ['$scope', '$uibModal', 'spinnerService', 'attachmentRestService', 'base64BinaryConverterService', 'fileExtensionService', 'globalMessagesService',
+app.controller('AttachmentController', ['$scope', '$uibModal', 'spinnerService', 'attachmentRestService', 'base64BinaryConverterService', 'globalMessagesService',
 
-function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryConverterService, fileExtensionService, globalMessagesService) {
+function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryConverterService, globalMessagesService) {
 	"use strict";
 
 	$scope.postAttachmentPath = attachmentRestService.postAttachmentPath($scope.expenseItemUid);

@@ -1,6 +1,6 @@
-app.directive('signature', ['$state', '$uibModal', 'Modernizr', 'spinnerService', 'signatureRestService', 'base64BinaryConverterService', 'fileExtensionService', 'globalMessagesService',
+app.directive('signature', ['$state', '$uibModal', 'Modernizr', 'spinnerService', 'signatureRestService', 'base64BinaryConverterService', 'globalMessagesService',
 
-function($state, $uibModal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService, fileExtensionService, globalMessagesService) {
+function($state, $uibModal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService, globalMessagesService) {
 	"use strict";
 
 	return {
