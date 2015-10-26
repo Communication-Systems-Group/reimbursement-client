@@ -124,3 +124,15 @@
 	font-weight: normal;
 	margin-top: 3px;
 }
+
+#expense-sap-form{
+	div.well.with-info-in-well{
+		padding-left: 100px;
+	}
+	.well .fa.info-in-well {
+		position: absolute;
+		right:initial;
+		left: 3%;
+		color: #337ab7;
+	}
+}
