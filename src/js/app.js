@@ -283,12 +283,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			url: "/welcome",
 			templateUrl: "welcome/welcome.tpl.html",
 			controller: "WelcomeController"
-
-		}).state('testingPage', {
-			url: "/testingPage",
-			templateUrl: "testingPage/testingPage.tpl.html",
-			controller: 'TestingPageController'
-
 		});
 		$urlRouterProvider.otherwise('/welcome');
 
