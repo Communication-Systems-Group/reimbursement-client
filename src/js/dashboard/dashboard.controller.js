@@ -12,20 +12,20 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 			$scope.showReviewSection = true;
 		}
 
-		function updateMyExpenses() {
+		$scope.updateMyExpenses = function() {
 			dashboardRestService.getMyExpenses().then(function (response) {
 				$scope.myExpenses = response.data;
 			});
-		}
-		updateMyExpenses();
+		};
+		$scope.updateMyExpenses();
 
-		function updateReviewExpenses() {
+		$scope.updateReviewExpenses = function() {
 			dashboardRestService.getReviewExpenses().then(function (response) {
 				$scope.myReviewExpenses = response.data;
 			});
-		}
+		};
 		if($scope.showReviewSection) {
-			updateReviewExpenses();
+			$scope.updateReviewExpenses();
 		}
 
 		$scope.addExpense = function () {
@@ -42,7 +42,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 		$scope.deleteExpense = function(uid) {
 			globalMessagesService.confirmWarning('reimbursement.expense.confirmDeleteTitle',
 			'reimbursement.expense.confirmDeleteMessage').then(function() {
-				dashboardRestService.deleteExpense(uid).then(updateMyExpenses);
+				dashboardRestService.deleteExpense(uid).then($scope.updateMyExpenses);
 			});
 		};
 
@@ -57,7 +57,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 		$scope.assignToMe = function(uid) {
 			globalMessagesService.confirmInfo('reimbursement.expense.confirmAssignTitle',
 			'reimbursement.expense.confirmAssignMessage').then(function() {
-				dashboardRestService.assignToMe(uid).then(updateReviewExpenses);
+				dashboardRestService.assignToMe(uid).then($scope.updateReviewExpenses);
 			});
 		};
 

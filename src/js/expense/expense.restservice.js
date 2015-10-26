@@ -109,6 +109,20 @@ function($http, HOST) {
 		});
 	}
 
+	function assignToMe(uid) {
+		return $http({
+			method: 'PUT',
+			url: HOST + '/api/expenses/'+uid+'/assign-to-me'
+		});
+	}
+
+	function deleteExpense(uid) {
+		return $http({
+			method: 'DELETE',
+			url: HOST + '/api/expenses/'+uid
+		});
+	}
+
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
@@ -122,7 +136,9 @@ function($http, HOST) {
 		setSignMethod: setSignMethod,
 		signElectronically: signElectronically,
 		generatePdf: generatePdf,
-		exportPdf: exportPdf
+		exportPdf: exportPdf,
+		assignToMe: assignToMe,
+		deleteExpense: deleteExpense
 	};
 
 }]);

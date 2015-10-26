@@ -141,13 +141,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		}
 
 		$stateProvider.state('login', {
-			url: "/login",
 			templateUrl: "login/login.tpl.html",
 			controller: 'LoginController',
 			onEnter: requireNoAuthentication()
 
 		}).state('logout', {
-			url: "/logout",
 			templateUrl: "logout/logout.tpl.html",
 			controller: 'LogoutController',
 			onEnter: requireAuthentication()
@@ -233,41 +231,47 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "DashboardController",
 			onEnter: requireRegisteredAuthentication()
 
+		}).state('expense', {
+			url: "/expense/:uid",
+			templateUrl: "expense/expense-redirect.tpl.html",
+			controller: "ExpenseRedirectController",
+			onEnter: requireRegisteredAuthentication()
+
 		}).state('create-expense', {
-			url: "/create-expense/:uid",
 			templateUrl: "expense/create-expense.tpl.html",
 			controller: "CreateExpenseController",
-			onEnter: requireRegisteredAuthentication()
+			onEnter: requireRegisteredAuthentication(),
+			params: { uid: null }
 
 		}).state('edit-expense', {
-			url: "/edit-expense/:uid",
 			templateUrl: "expense/create-expense.tpl.html",
 			controller: "CreateExpenseController",
-			onEnter: requireRegisteredAuthentication()
+			onEnter: requireRegisteredAuthentication(),
+			params: { uid: null }
 
 		}).state('view-expense', {
-			url: "/view-expense/:uid",
 			templateUrl: "expense/view-expense.tpl.html",
 			controller: "ViewExpenseController",
-			onEnter: requireRegisteredAuthentication()
+			onEnter: requireRegisteredAuthentication(),
+			params: { uid: null }
 
 		}).state('print-expense', {
-			url: "/print-expense/:uid",
 			templateUrl: "expense/print-expense.tpl.html",
 			controller: "PrintExpenseController",
-			onEnter: requireRegisteredAuthentication()
+			onEnter: requireRegisteredAuthentication(),
+			params: { uid: null }
 
 		}).state('review-expense', {
-			url: "/review-expense/:uid",
 			templateUrl: "expense/review-expense.tpl.html",
 			controller: "ReviewExpenseController",
-			onEnter: requireRegisteredAuthenticationWithAnyRole(['PROF', 'FINANCE_ADMIN'])
+			onEnter: requireRegisteredAuthenticationWithAnyRole(['PROF', 'FINANCE_ADMIN']),
+			params: { uid: null }
 
 		}).state('sign-expense', {
-			url: "/sign-expense/:uid",
 			templateUrl: "expense/sign-expense.tpl.html",
 			controller: "SignExpenseController",
-			onEnter: requireRegisteredAuthentication()
+			onEnter: requireRegisteredAuthentication(),
+			params: { uid: null }
 
 		}).state('guest-view-expense', {
 			url: "/guest-view-expense/:token",
