@@ -102,13 +102,6 @@ function($http, HOST) {
 		});
 	}
 
-	function exportPdf(expenseUid) {
-		return $http({
-			method: 'GET',
-			url: HOST + '/api/expenses/' + expenseUid + '/export-pdf'
-		});
-	}
-
 	function assignToMe(uid) {
 		return $http({
 			method: 'PUT',
@@ -136,7 +129,6 @@ function($http, HOST) {
 		setSignMethod: setSignMethod,
 		signElectronically: signElectronically,
 		generatePdf: generatePdf,
-		exportPdf: exportPdf,
 		assignToMe: assignToMe,
 		deleteExpense: deleteExpense
 	};

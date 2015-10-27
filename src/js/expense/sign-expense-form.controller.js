@@ -5,7 +5,6 @@ function($scope, $modalInstance, signExpenseFactory, expenseRestService, globalM
 
 	$scope.expenseUid = expenseUid;
 	$scope.method = null;
-	$scope.dismiss = $modalInstance.dismiss;
 	$scope.privateKey = '';
 
 	$scope.selectMethod = function(method) {
@@ -37,7 +36,7 @@ function($scope, $modalInstance, signExpenseFactory, expenseRestService, globalM
 							callback(false);
 						});
 				})['finally'](function() {
-					expenseRestService.exportPdf($scope.expenseUid).then(function(response) {
+					expenseRestService.getExpensePdf($scope.expenseUid).then(function(response) {
 						signExpenseFactory.construct(response.data.content, $scope.privateKey, function(signature) {
 							if(signature) {
 								signExpenseFactory.verify(response.data.content, signature, function() {
