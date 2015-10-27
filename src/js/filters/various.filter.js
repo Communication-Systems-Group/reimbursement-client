@@ -68,13 +68,3 @@ app.filter('costCategoryTranslation', [ '$translate',
 			}
 		};
 	}]);
-
-app.filter('trusted', ['$sce',
-
-	function ($sce) {
-		'use strict';
-
-    return function(url) {
-        return $sce.trustAsResourceUrl(url);
-    };
-}]);
