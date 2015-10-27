@@ -33,14 +33,14 @@ function($http, HOST) {
 	function accept(uid) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/expenses/' + uid + '/accept',
+			url: HOST + '/api/expenses/' + uid + '/accept'
 		});
 	}
 
 	function assignToManager(uid) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/expenses/' + uid + '/assign-to-manager',
+			url: HOST + '/api/expenses/' + uid + '/assign-to-manager'
 		});
 	}
 
@@ -64,7 +64,7 @@ function($http, HOST) {
 	function getExpensePdf(uid) {
 		return $http({
 			method: 'GET',
-			url: HOST + '/api/expenses/' + uid + '/export-pdf',
+			url: HOST + '/api/expenses/' + uid + '/export-pdf'
 		});
 	}
 
@@ -88,7 +88,7 @@ function($http, HOST) {
 	function signElectronically(uid) {
 		return $http({
 			method: 'POST',
-			url: HOST + '/api/expenses/' + uid + '/sign-electronically',
+			url: HOST + '/api/expenses/' + uid + '/sign-electronically'
 		});
 	}
 
