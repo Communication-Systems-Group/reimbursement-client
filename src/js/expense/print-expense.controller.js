@@ -23,7 +23,7 @@ function($scope, $state, $stateParams, spinnerService, THIS_HOST, expenseRestSer
 			getExpensePdf();
 		}
 		else {
-			var url = THIS_HOST + "/guest-view-exepense/";
+			var url = THIS_HOST + "/guest-view-expense/";
 			expenseRestService.generatePdf($scope.expenseUid, url).then(getExpensePdf);
 		}
 	};
@@ -32,8 +32,8 @@ function($scope, $state, $stateParams, spinnerService, THIS_HOST, expenseRestSer
 		expenseRestService.getExpensePdf($scope.expenseUid).then(function(response) {
 
 			base64BinaryConverterService.toBase64FromJson(response.data, function(base64String) {
-				$scope.pdfInBase64 = base64String;
-				$scope.showPdfFlag = true;
+			$scope.pdfInBase64 = base64String;
+			$scope.showPdfFlag = true;
 			});
 		})['finally'](function() {
 					spinnerService.hide('spinnerPrintExpense');
