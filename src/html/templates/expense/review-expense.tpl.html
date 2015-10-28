@@ -1,7 +1,7 @@
 <div id="review-expense">
 
 	<h1 class="page-header">
-		{{ expenseAccountingText }}
+		{{ expense.accounting }}
 		<button class="btn btn-sm btn-default" ng-click="editExpenseSap()">
 			<i class="fa fa-pencil"></i>
 			{{ 'reimbursement.expense.edit' | translate }}
@@ -16,7 +16,7 @@
 	<div class="pos-rel">
 		<spinner id="spinnerCreateExpense" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 
-		<list-expense-items expense-uid="expenseUid" expense-items="expenseItems" editable="true"></list-expense-items>
+		<list-expense-items expense-uid="expense.uid" expense-items="expenseItems" editable="true"></list-expense-items>
 
 		<hr>
 

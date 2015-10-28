@@ -274,7 +274,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "expense/review-expense.tpl.html",
 			controller: "ReviewExpenseController",
 			onEnter: requireRegisteredAuthenticationWithAnyRole(['PROF', 'FINANCE_ADMIN']),
-			params: { uid: null }
+			params: { expense: null }
 
 		}).state('sign-expense', {
 			templateUrl: "expense/sign-expense.tpl.html",
