@@ -252,15 +252,9 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "GuestExpenseController",
 			onEnter: requireNoAuthenticationWithMessage()
 
-		}).state('create-expense', {
-			templateUrl: "expense/create-expense.tpl.html",
-			controller: "CreateExpenseController",
-			onEnter: requireRegisteredAuthentication(),
-			params: { uid: null }
-
 		}).state('edit-expense', {
-			templateUrl: "expense/create-expense.tpl.html",
-			controller: "CreateExpenseController",
+			templateUrl: "expense/edit-expense.tpl.html",
+			controller: "EditExpenseController",
 			onEnter: requireRegisteredAuthentication(),
 			params: { uid: null }
 
