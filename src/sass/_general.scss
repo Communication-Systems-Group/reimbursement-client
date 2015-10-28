@@ -59,14 +59,15 @@ textarea {
 .well {
 	&.with-info-in-well {
 		position:relative;
+		padding-left: 100px;
 	}
 	& .fa.info-in-well {
 		position: absolute;
-		right: 4%;
+		left: 3%;
 		top: 50%;
-		color: #FFF;
 		transform: translateY(-50%);
 		font-size: 54px;
+		color: #337ab7;
 	}
 }
 
