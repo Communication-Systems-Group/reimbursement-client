@@ -25,9 +25,18 @@
 							deferred.resolve(data);
 
 						}, function () {
+
+							var language = "DE";
+							if(typeof window.navigator.language !== "undefined") {
+								var browserLanguage = window.navigator.language.substr(0,2).toUpperCase();
+								if(browserLanguage === "DE" || browserLanguage === "EN") {
+									language = browserLanguage;
+								}
+							}
+
 							var data = {
 								loggedIn: false,
-								language: 'DE',
+								language: language,
 								hasSignature: false,
 								roles: [],
 								hasRole: function() {
