@@ -1,6 +1,6 @@
-app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal', 'USER', 'globalMessagesService', 'dashboardRestService',
+app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal', 'USER', 'globalMessagesService', 'expenseRestService',
 
-	function ($scope, $filter, $state, $uibModal, USER, globalMessagesService, dashboardRestService) {
+	function ($scope, $filter, $state, $uibModal, USER, globalMessagesService, expenseRestService) {
 		'use strict';
 
 		$scope.user = USER;
@@ -13,14 +13,14 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 		}
 
 		$scope.updateMyExpenses = function() {
-			dashboardRestService.getMyExpenses().then(function (response) {
+			expenseRestService.getMyExpenses().then(function (response) {
 				$scope.myExpenses = response.data;
 			});
 		};
 		$scope.updateMyExpenses();
 
 		$scope.updateReviewExpenses = function() {
-			dashboardRestService.getReviewExpenses().then(function (response) {
+			expenseRestService.getReviewExpenses().then(function (response) {
 				$scope.myReviewExpenses = response.data;
 			});
 		};
@@ -42,7 +42,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 		$scope.deleteExpense = function(uid) {
 			globalMessagesService.confirmWarning('reimbursement.expense.confirmDeleteTitle',
 			'reimbursement.expense.confirmDeleteMessage').then(function() {
-				dashboardRestService.deleteExpense(uid).then($scope.updateMyExpenses);
+				expenseRestService.deleteExpense(uid).then($scope.updateMyExpenses);
 			});
 		};
 
@@ -57,7 +57,7 @@ app.controller('DashboardController', ['$scope', '$filter', '$state', '$uibModal
 		$scope.assignToMe = function(uid) {
 			globalMessagesService.confirmInfo('reimbursement.expense.confirmAssignTitle',
 			'reimbursement.expense.confirmAssignMessage').then(function() {
-				dashboardRestService.assignToMe(uid).then($scope.updateReviewExpenses);
+				expenseRestService.assignToMe(uid).then($scope.updateReviewExpenses);
 			});
 		};
 

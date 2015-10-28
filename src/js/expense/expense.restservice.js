@@ -116,6 +116,20 @@ function($http, HOST) {
 		});
 	}
 
+	function getMyExpenses() {
+		return $http({
+			method: 'GET',
+			url: HOST + "/api/expenses/"
+		});
+	}
+
+	function getReviewExpenses() {
+		return $http({
+			method: 'GET',
+			url: HOST + "/api/expenses/review-expenses"
+		});
+	}
+
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
@@ -130,7 +144,9 @@ function($http, HOST) {
 		signElectronically: signElectronically,
 		generatePdf: generatePdf,
 		assignToMe: assignToMe,
-		deleteExpense: deleteExpense
+		deleteExpense: deleteExpense,
+		getMyExpenses: getMyExpenses,
+		getReviewExpenses: getReviewExpenses
 	};
 
 }]);
