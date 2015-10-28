@@ -21,34 +21,26 @@
 				<td>{{expense.date | date:'dd.MM.yyyy'}}</td>
 				<td><span class="tableRightMargin">{{ expense.totalAmount | currency:'CHF ':2 }}</span></td>
 				<td>
-				<div class="btn-group">
-					<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-caret-down"></i>
-						{{ 'reimbursement.dashboard.action' | translate }}
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href ui-sref="view-expense({uid: expense.uid})"> <i class="fa fa-eye"></i> {{ 'reimbursement.expense.viewItem' | translate }} </a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href ui-sref="print-expense({ uid: expense.uid })"> <i class="fa fa-print"></i> {{ 'reimbursement.expense.print' | translate }} </a>
-						</li>
-					</ul>
-				</div></td>
+					<expense-button
+						expense-uid="expense.uid"
+						expense-state="expense.state"
+						expense-users="{userUid: expense.userUid,
+							assignedManagerUid: expense.assignedManagerUid,
+							financeAdminUid: expense.financeAdminUid}">
+					</expense-button>
+				</td>
 			</tr>
 		</tbody>
 	</table>
 	<div class="text-right" ng-hide="archivedExpenses.length <= itemsPerPage">
 		<uib-pagination
-		total-items="archivedExpenses.length"
-		ng-model="currentPage"
-		items-per-page="itemsPerPage"
-		max-size="10"
-		class="pagination-sm"
-		boundary-links="true"
-		rotate="false"
+			total-items="archivedExpenses.length"
+			ng-model="currentPage"
+			items-per-page="itemsPerPage"
+			max-size="10"
+			class="pagination-sm"
+			boundary-links="true"
+			rotate="false"
 		></uib-pagination>
 	</div>
 </div>

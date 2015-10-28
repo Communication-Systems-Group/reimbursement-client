@@ -891,9 +891,9 @@
 		"de": "Bitte füllen Sie alle Felder komplett aus.",
 		"en": "Please fill out every input field."
 	},
-	"expense.print": {
-		"de": "Drucken",
-		"en": "Print"
+	"expense.printPreview": {
+		"de": "Druckvorschau",
+		"en": "Print Preview"
 	},
 	"expense.showPdf": {
 		"de": "PDF anzeigen",
