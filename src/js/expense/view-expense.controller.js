@@ -1,17 +1,9 @@
-app.controller('ViewExpenseController', ['$scope', '$state', '$stateParams', 'expenseRestService',
+app.controller('ViewExpenseController', ['$scope', '$stateParams',
 
-function ($scope, $state, $stateParams, expenseRestService) {
+function ($scope, $stateParams) {
 	"use strict";
 
-	$scope.expenseUid = $stateParams.uid;
+	$scope.expense = $stateParams.expense;
 	$scope.expenseItems = [];
-	$scope.expenseState = '';
-	$scope.expenseComment = '';
-
-	expenseRestService.getExpense($scope.expenseUid).then(function (response) {
-		$scope.expenseAccountingText = response.data.accounting;
-		$scope.expenseState = response.data.state;
-		$scope.expenseComment = response.data.rejectComment;
-	});
 
 }]);

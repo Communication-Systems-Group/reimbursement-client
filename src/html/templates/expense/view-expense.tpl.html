@@ -1,15 +1,15 @@
 <div id="view-expense">
 	<h1 class="page-header">
-		<span class="vert-mid">{{ expenseAccountingText }}</span>
+		<span class="vert-mid">{{ expense.accounting }}</span>
 		<small class="vert-mid">
-			<expense-state state="expenseState"></expense-state>
+			<expense-state state="expense.state"></expense-state>
 		</small>
 	</h1>
 
-	<div ng-if="expenseState === 'REJECTED'" class="alert alert-danger" role="alert">
+	<div ng-if="expense.state === 'REJECTED'" class="alert alert-danger" role="alert">
 		<i class="fa fa-times"></i>
 		<span>{{ 'reimbursement.expense.rejectComment' | translate }}</span>
-		<br><div><b>{{ expenseComment }}</b></div>
+		<br><div><b>{{ expense.rejectComment }}</b></div>
 	</div>
 
 	<h2 class="page-header">
@@ -17,7 +17,7 @@
 		{{ 'reimbursement.expense-items.titleNotEditable' | translate }}
 	</h2>
 
-	<list-expense-items expense-uid="expenseUid" expense-items="expenseItems" editable="false"></list-expense-items>
+	<list-expense-items expense-uid="expense.uid" expense-items="expenseItems" editable="false"></list-expense-items>
 
 	<hr>
 

@@ -262,7 +262,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "expense/view-expense.tpl.html",
 			controller: "ViewExpenseController",
 			onEnter: requireRegisteredAuthentication(),
-			params: { uid: null }
+			params: { expense: null }
 
 		}).state('print-expense', {
 			templateUrl: "expense/print-expense.tpl.html",
