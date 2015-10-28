@@ -19,7 +19,7 @@ function($scope, $state, $stateParams, $window, spinnerService, THIS_HOST, expen
 			getExpensePdf();
 		}
 		else {
-			var url = THIS_HOST + "/guest-view-expense/";
+			var url = THIS_HOST + "/expense/guest/";
 			expenseRestService.generatePdf($scope.expenseUid, url).then(getExpensePdf);
 		}
 	};
