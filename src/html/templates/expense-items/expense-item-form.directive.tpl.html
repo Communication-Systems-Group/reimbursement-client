@@ -80,9 +80,9 @@
 		<div class="form-group" ng-if="editable">
 			<label class="control-label col-sm-4">
 				{{ 'reimbursement.expense-item.uploadReceipt' | translate }}
-				<div class="form-label-description">
+				<span class="form-label-description">
 					{{ 'reimbursement.expense-item.uploadReceipt.fileExtensions' | translate }}
-				</div>
+				</span>
 			</label>
 			<div class="col-sm-8">
 				<attachment-upload expense-item-uid="expenseItemUid" ng-if="editable"></attachment-upload>
