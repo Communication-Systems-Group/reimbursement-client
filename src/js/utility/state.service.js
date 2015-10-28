@@ -133,8 +133,8 @@ function($q, USER) {
 				else if(expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
 					return templates.signExpense;
 				}
-				else if(expenseState === 'SIGNED') {
-					return templates.printExpense;
+				else if(expenseState === 'PRINTED') {
+					return templates.assignToMe;
 				}
 				else {
 					return templates.noAccess;
@@ -142,7 +142,9 @@ function($q, USER) {
 			}
 
 			else if(!belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
-				if(expenseState === 'TO_BE_ASSIGNED') {
+				if(expenseState === 'TO_BE_ASSIGNED' ||
+					expenseState === 'PRINTED') {
+
 					return templates.assignToMe;
 				}
 			}

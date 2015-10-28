@@ -115,11 +115,4 @@ function(moment, $scope, $timeout, spinnerService, administrationRestService, gl
 		$scope.orderIcon[$scope.orderColumn] = $scope.orderReverse ? 'fa-sort-asc' : 'fa-sort-desc';
 	}
 
-	$scope.assignToMe = function(uid) {
-		globalMessagesService.confirmInfo('reimbursement.expense.confirmAssignTitle',
-		'reimbursement.expense.confirmAssignMessage').then(function() {
-			administrationRestService.assignToMe(uid).then($scope.search);
-		});
-	};
-
 }]);
