@@ -280,7 +280,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "expense/sign-expense.tpl.html",
 			controller: "SignExpenseController",
 			onEnter: requireRegisteredAuthentication(),
-			params: { uid: null }
+			params: { expense: null }
 
 		}).state('welcome', {
 			url: "/welcome",
