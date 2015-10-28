@@ -8,15 +8,15 @@ function($state, stateService, expenseRestService, globalMessagesService) {
 		replace: true,
 		scope: {
 			expenseUid: '=',
-			assignToMeCallback: '=',
-			deleteExpenseCallback: '='
+			expenseState: '=',
+			expenseUsers: '=',
+			assignToMeCallback: '=?',
+			deleteExpenseCallback: '=?'
 		},
 		templateUrl: 'expense/expense-button.tpl.html',
 		link: function ($scope) {
 
-			stateService.getExpenseViewDetails($scope.expenseUid).then(function(viewDetails) {
-				$scope.details = viewDetails;
-			});
+			$scope.details = stateService.getExpenseViewDetails($scope.expenseState, $scope.expenseUsers);
 
 			$scope.assignToMe = function() {
 				globalMessagesService.confirmInfo('reimbursement.expense.confirmAssignTitle',

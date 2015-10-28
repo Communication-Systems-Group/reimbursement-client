@@ -33,6 +33,10 @@
 				<td>
 					<expense-button
 						expense-uid="e.uid"
+						expense-state="e.state"
+						expense-users="{userUid: e.userUid,
+							assignedManagerUid: e.assignedManagerUid,
+							financeAdminUid: e.financeAdminUid}"
 						assign-to-me-callback="updateReviewExpenses"
 						delete-expense-callback="updateMyExpenses">
 					</expense-button>
@@ -80,6 +84,10 @@
 					<td>
 						<expense-button
 							expense-uid="e.uid"
+							expense-state="e.state"
+							expense-users="{userUid: e.userUid,
+								assignedManagerUid: e.assignedManagerUid,
+								financeAdminUid: e.financeAdminUid}"
 							assign-to-me-callback="updateReviewExpenses"
 							delete-expense-callback="updateMyExpenses">
 						</expense-button>

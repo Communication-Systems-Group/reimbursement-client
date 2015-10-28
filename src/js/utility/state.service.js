@@ -1,14 +1,13 @@
-app.factory('stateService', ['$q', 'USER', 'expenseRestService',
+app.factory('stateService', ['$q', 'USER',
 
-function($q, USER, expenseRestService) {
+function($q, USER) {
 	"use strict";
 
 	return {
 		// returns an object with the state the current user is allowed to go
-		// it expects an expense from the back-end as an argument.
-		getExpenseViewDetails: function(expenseUid) {
-
-			var deferred = $q.defer();
+		// it expects the state and the 3 users of an expense (uid) from the
+		// back-end as an argument.
+		getExpenseViewDetails: function(expenseState, expenseUsers) {
 
 			var templates = {
 				noAccess: {
@@ -40,126 +39,116 @@ function($q, USER, expenseRestService) {
 				}
 			};
 
-			expenseRestService.getExpense(expenseUid).then(function(response) {
-				var expense = response.data;
+			var belonging = {
+				"isUserExpense": USER.uid === expenseUsers.userUid,
+				"isManagerOfExpense": typeof expenseUsers.assignedManagerUid !== "undefined" &&
+					expenseUsers.assignedManagerUid !== null &&
+					USER.uid === expenseUsers.assignedManagerUid,
+				"isFinanceAdminOfExpense": typeof expenseUsers.financeAdminUid !== "undefined" &&
+					expenseUsers.financeAdminUid !== null &&
+					USER.uid === expenseUsers.financeAdminUid
+			};
 
-				var belonging = {
-					"isUserExpense": USER.uid === expense.userUid,
-					"isManagerOfExpense": typeof expense.assignedManagerUid !== "undefined" &&
-						expense.assignedManagerUid !== null &&
-						USER.uid === expense.assignedManagerUid,
-					"isFinanceAdminOfExpense": typeof expense.financeAdminUid !== "undefined" &&
-						expense.financeAdminUid !== null &&
-						USER.uid === expense.financeAdminUid
-				};
+			if(typeof USER.uid === "undefined" || USER.uid === null) {
+				return templates.noAccess;
+			}
+			if(typeof expenseUsers.userUid === "undefined" || expenseUsers.userUid === null) {
+				return templates.noAccess;
+			}
+			if(!belonging.isUserExpense && !belonging.isManagerOfExpense && !belonging.isFinanceAdminOfExpense) {
+				return templates.noAccess;
+			}
 
-				if(typeof USER.uid === "undefined" || USER.uid === null) {
-					deferred.resolve(templates.noAccess);
-					return;
+			for(var templateKey in templates) {
+				if(templates.hasOwnProperty(templateKey)) {
+					angular.extend(templates[templateKey], belonging);
 				}
-				if(!belonging.isUserExpense && !belonging.isManagerOfExpense && !belonging.isFinanceAdminOfExpense) {
-					deferred.resolve(templates.noAccess);
-					return;
+			}
+
+			if(belonging.isUserExpense) {
+				if(expenseState === 'ASSIGNED_TO_MANAGER' ||
+					expenseState === 'TO_BE_ASSIGNED' ||
+					expenseState === 'ASSIGNED_TO_FINANCE_ADMIN' ||
+					expenseState === 'TO_SIGN_BY_MANAGER' ||
+					expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
+
+					return templates.viewExpense;
 				}
+				else if(expenseState === 'REJECTED' ||
+					expenseState === 'DRAFT') {
 
-				for(var templateKey in templates) {
-					if(templates.hasOwnProperty(templateKey)) {
-						angular.extend(templates[templateKey], belonging);
-					}
+					return templates.editExpense;
 				}
-
-				if(belonging.isUserExpense) {
-					if(expense.state === 'ASSIGNED_TO_MANAGER' ||
-						expense.state === 'TO_BE_ASSIGNED' ||
-						expense.state === 'ASSIGNED_TO_FINANCE_ADMIN' ||
-						expense.state === 'TO_SIGN_BY_MANAGER' ||
-						expense.state === 'TO_SIGN_BY_FINANCE_ADMIN') {
-
-						deferred.resolve(templates.viewExpense);
-					}
-					else if(expense.state === 'REJECTED' ||
-						expense.state === 'DRAFT') {
-
-						deferred.resolve(templates.editExpense);
-					}
-					else if(expense.state === 'TO_SIGN_BY_USER') {
-						deferred.resolve(templates.signExpense);
-					}
-					else if(expense.state === 'SIGNED' ||
-						expense.state === 'PRINTED') {
-
-						deferred.resolve(templates.printExpense);
-					}
-					else {
-						deferred.resolve(templates.noAccess);
-					}
+				else if(expenseState === 'TO_SIGN_BY_USER') {
+					return templates.signExpense;
 				}
+				else if(expenseState === 'SIGNED' ||
+					expenseState === 'PRINTED') {
 
-				else if(belonging.isManagerOfExpense) {
-					if(expense.state === 'REJECTED' ||
-						expense.state === 'DRAFT' ||
-						expense.state === 'TO_BE_ASSIGNED' ||
-						expense.state === 'ASSIGNED_TO_FINANCE_ADMIN' ||
-						expense.state === 'TO_SIGN_BY_USER' ||
-						expense.state === 'TO_SIGN_BY_FINANCE_ADMIN' ||
-						expense.state === 'SIGNED') {
-
-						deferred.resolve(templates.viewExpense);
-					}
-					else if(expense.state === 'ASSIGNED_TO_MANAGER') {
-						deferred.resolve(templates.reviewExpense);
-					}
-					else if(expense.state === 'TO_SIGN_BY_MANAGER') {
-						deferred.resolve(templates.signExpense);
-					}
-					else if(expense.state === 'PRINTED') {
-						deferred.resolve(templates.printExpense);
-					}
-					else {
-						deferred.resolve(templates.noAccess);
-					}
+					return templates.printExpense;
 				}
-
-				else if(belonging.isFinanceAdminOfExpense) {
-					if(expense.state === 'REJECTED' ||
-						expense.state === 'DRAFT' ||
-						expense.state === 'ASSIGNED_TO_MANAGER' ||
-						expense.state === 'TO_SIGN_BY_USER' ||
-						expense.state === 'TO_SIGN_BY_MANAGER' ||
-						expense.state === 'SIGNED') {
-
-						deferred.resolve(templates.viewExpense);
-					}
-					else if(expense.state === 'TO_BE_ASSIGNED') {
-						deferred.resolve(templates.assignToMe);
-					}
-					else if(expense.state === 'ASSIGNED_TO_FINANCE_ADMIN') {
-						deferred.resolve(templates.reviewExpense);
-					}
-					else if(expense.state === 'TO_SIGN_BY_FINANCE_ADMIN') {
-						deferred.resolve(templates.signExpense);
-					}
-					else if(expense.state === 'SIGNED') {
-						deferred.resolve(templates.printExpense);
-					}
-					else {
-						deferred.resolve(templates.noAccess);
-					}
-				}
-
-				// should not be possible to reach this branch
 				else {
-					deferred.resolve(templates.noAccess);
+					return templates.noAccess;
 				}
+			}
 
-			}, function(response) {
-				response.errorHandled = true;
-				deferred.resolve(templates.noAccess);
-			});
+			else if(belonging.isManagerOfExpense) {
+				if(expenseState === 'REJECTED' ||
+					expenseState === 'DRAFT' ||
+					expenseState === 'TO_BE_ASSIGNED' ||
+					expenseState === 'ASSIGNED_TO_FINANCE_ADMIN' ||
+					expenseState === 'TO_SIGN_BY_USER' ||
+					expenseState === 'TO_SIGN_BY_FINANCE_ADMIN' ||
+					expenseState === 'SIGNED') {
 
-			return deferred.promise;
+					return templates.viewExpense;
+				}
+				else if(expenseState === 'ASSIGNED_TO_MANAGER') {
+					return templates.reviewExpense;
+				}
+				else if(expenseState === 'TO_SIGN_BY_MANAGER') {
+					return templates.signExpense;
+				}
+				else if(expenseState === 'PRINTED') {
+					return templates.printExpense;
+				}
+				else {
+					return templates.noAccess;
+				}
+			}
+
+			else if(belonging.isFinanceAdminOfExpense) {
+				if(expenseState === 'REJECTED' ||
+					expenseState === 'DRAFT' ||
+					expenseState === 'ASSIGNED_TO_MANAGER' ||
+					expenseState === 'TO_SIGN_BY_USER' ||
+					expenseState === 'TO_SIGN_BY_MANAGER' ||
+					expenseState === 'SIGNED') {
+
+					return templates.viewExpense;
+				}
+				else if(expenseState === 'TO_BE_ASSIGNED') {
+					return templates.assignToMe;
+				}
+				else if(expenseState === 'ASSIGNED_TO_FINANCE_ADMIN') {
+					return templates.reviewExpense;
+				}
+				else if(expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
+					return templates.signExpense;
+				}
+				else if(expenseState === 'SIGNED') {
+					return templates.printExpense;
+				}
+				else {
+					return templates.noAccess;
+				}
+			}
+
+			return templates.noAccess;
 		},
 
+		// returns a number, which is a combination of the expense state
+		// and the expense date, ordered by the order purpose
 		stateOrder: function(state, date, purpose) {
 			var statesList = {
 				forRegularUser: [
