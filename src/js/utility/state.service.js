@@ -55,9 +55,6 @@ function($q, USER) {
 			if(typeof expenseUsers.userUid === "undefined" || expenseUsers.userUid === null) {
 				return templates.noAccess;
 			}
-			if(!belonging.isUserExpense && !belonging.isManagerOfExpense && !belonging.isFinanceAdminOfExpense) {
-				return templates.noAccess;
-			}
 
 			for(var templateKey in templates) {
 				if(templates.hasOwnProperty(templateKey)) {
@@ -92,7 +89,7 @@ function($q, USER) {
 				}
 			}
 
-			else if(belonging.isManagerOfExpense) {
+			else if(belonging.isManagerOfExpense && USER.hasRole('PROF')) {
 				if(expenseState === 'REJECTED' ||
 					expenseState === 'DRAFT' ||
 					expenseState === 'TO_BE_ASSIGNED' ||
@@ -117,7 +114,7 @@ function($q, USER) {
 				}
 			}
 
-			else if(belonging.isFinanceAdminOfExpense) {
+			else if(belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
 				if(expenseState === 'REJECTED' ||
 					expenseState === 'DRAFT' ||
 					expenseState === 'ASSIGNED_TO_MANAGER' ||
@@ -141,6 +138,12 @@ function($q, USER) {
 				}
 				else {
 					return templates.noAccess;
+				}
+			}
+
+			else if(!belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
+				if(expenseState === 'TO_BE_ASSIGNED') {
+					return templates.assignToMe;
 				}
 			}
 
