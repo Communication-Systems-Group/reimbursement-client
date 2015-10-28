@@ -339,6 +339,14 @@
 		"de": "Sie versuchen eine Seite aufzurufen, die nur aufrufbar ist, wenn Sie nicht eingeloggt sind. Sie wurden zum Dashboard weitergeleitet.",
 		"en": "You are trying to access a page, which is only accessible if you're not logged in. You were redirected to the dashboard."
 	},
+	"globalMessages.guest.noExpenseFound.title": {
+		"de": "Keine Spese gefunden",
+		"en": "No expense found"
+	},
+	"globalMessages.guest.noExpenseFound.message": {
+		"de": "Es wurde keine Spese unter diesem Link gefunden. Der Link wird nach einer bestimmten Zeitdauer ungültig. Falls es sich um eine ältere Spesendokument handelt, ist es nun nicht mehr abrufbar. Ansonsten vergewissern Sie sich, dass Sie die Adresse korrekt eingegeben haben",
+		"en": "No expense was found on this link. The link becomes invalid after a certain time period. If the requested expense sheet is not new, the link became most likely invalid. Otherwise, please make sure, that you enter the link correctly."
+	},
 	"globalMessages.uploadOrValidationError.title": {
 		"de": "Fehler",
 		"en": "Error"

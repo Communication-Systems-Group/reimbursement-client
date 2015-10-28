@@ -237,6 +237,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "ExpenseRedirectController",
 			onEnter: requireRegisteredAuthentication()
 
+		}).state('guest-expense', {
+			url: "/expense/guest/:token",
+			templateUrl: "expense/guest-expense.tpl.html",
+			controller: "GuestExpenseController",
+			onEnter: requireNoAuthenticationWithMessage()
+
 		}).state('create-expense', {
 			templateUrl: "expense/create-expense.tpl.html",
 			controller: "CreateExpenseController",
@@ -272,12 +278,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			controller: "SignExpenseController",
 			onEnter: requireRegisteredAuthentication(),
 			params: { uid: null }
-
-		}).state('guest-view-expense', {
-			url: "/guest-view-expense/:token",
-			templateUrl: "expense/guest-view-expense.tpl.html",
-			controller: "GuestViewExpenseController",
-			onEnter: requireNoAuthenticationWithMessage()
 
 		}).state('welcome', {
 			url: "/welcome",

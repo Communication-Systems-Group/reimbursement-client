@@ -54,13 +54,6 @@ function($http, HOST) {
 		});
 	}
 
-	function getAccessRights(uid) {
-		return $http({
-			method: 'GET',
-			url: HOST + '/api/expenses/' + uid + '/access-rights'
-		});
-	}
-
 	function getExpensePdf(uid) {
 		return $http({
 			method: 'GET',
@@ -135,7 +128,6 @@ function($http, HOST) {
 		getExpense: getExpense,
 		putExpense: putExpense,
 		assignToManager: assignToManager,
-		getAccessRights: getAccessRights,
 		accept: accept,
 		reject: reject,
 		getExpensePdf: getExpensePdf,
