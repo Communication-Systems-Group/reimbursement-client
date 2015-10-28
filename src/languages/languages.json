@@ -295,10 +295,6 @@
 		"de": "Login fehlgeschlagen",
 		"en": "Login failed"
 	},
-	"globalMessage.loginError.message": {
-		"de": "Das eingegebene Passwort oder der Benutzername sind inkorrekt. Bitte versuchen Sie es erneut.",
-		"en": "The entered password or username was incorrect. Please try again."
-	},
 	"globalMessage.loginError.BadCredentialsException": {
 		"de": "Das eingegebene Passwort oder der Benutzername sind falsch. Bitte versuchen Sie es erneut.",
 		"en": "The entered password or username was incorrect. Please try again."
@@ -308,8 +304,8 @@
 		"en": "Session has expired"
 	},
 	"globalMessage.InvalidCsrfTokenException.message": {
-		"de": "Leider ist Ihre Sitzung abgelaufen.\n Bitte geben Sie nach dem Login Ihre Daten erneut ein.",
-		"en": "Your session has expired.\n Please login and reenter your data again."
+		"de": "Leider ist Ihre Sitzung abgelaufen. Sie werden zum Login weitergeleitet.\nBitte geben Sie nach dem Login Ihre Daten erneut ein.",
+		"en": "Your session has expired. You are redirected to the login page.\nPlease reenter your data after the login."
 	},
 	"globalMessage.ServiceException.title": {
 		"de": "Allgemeiner Fehler",

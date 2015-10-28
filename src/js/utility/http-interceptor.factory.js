@@ -29,10 +29,10 @@ function ($q, $timeout, $injector) {
 					$timeout(function() {
 						if(response.csrfErrorHandled !== true) {
 							resetUserToPreLogin();
-							$injector.get('loginRestService').getUsername();
+							$injector.get('loginRestService').getUser();
 
 							var globalMessagesService = $injector.get('globalMessagesService');
-							globalMessagesService.showErrorMd("reimbursement.globalMessage.InvalidCsrfTokenException.title",
+							globalMessagesService.showInfoMd("reimbursement.globalMessage.InvalidCsrfTokenException.title",
 								"reimbursement.globalMessage.InvalidCsrfTokenException.message");
 						}
 					});

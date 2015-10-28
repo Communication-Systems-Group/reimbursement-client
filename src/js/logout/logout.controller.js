@@ -14,8 +14,6 @@ function($scope, $timeout, USER, logoutRestService, globalMessagesService, spinn
 		USER.loggedIn = false;
 		USER.roles = [];
 		logoutRestService.refreshCSRFToken();
-	}, function() {
-		globalMessagesService.showGeneralError();
 	})['finally'](function() {
 		$timeout(function() {
 			spinnerService.hide("spinnerLogout");

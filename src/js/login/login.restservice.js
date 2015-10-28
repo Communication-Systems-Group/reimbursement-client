@@ -12,7 +12,7 @@ function($http, HOST) {
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			});
 		},
-		getUsername: function(){
+		getUser: function() {
 			return $http.get(HOST + '/api/user');
 		}
 	};
