@@ -12,6 +12,8 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService,
 		},
 		link: function($scope) {
 
+			var timeoutTime = 1000;
+			$scope.timeouts = {};
 			$scope.languages = [];
 			$scope.form = {
 				personnelNumber: USER.personnelNumber,
@@ -34,24 +36,44 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService,
 				})['finally'](hideSpinner);
 			};
 
-			$scope.savePersonnelNumber = function() {
+			$scope.savePersonnelNumber = function(immediacy) {
 				if($scope.form.personnelNumber === null) {
 					$scope.form.personnelNumber = "";
 				}
-				spinnerService.show('settingsFormSpinner');
-				settingsRestService.putPersonnelNumber($scope.form.personnelNumber).then(function() {
-					USER.personnelNumber = $scope.form.personnelNumber;
-				})['finally'](hideSpinner);
+				function pushToBackEnd() {
+					spinnerService.show('settingsFormSpinner');
+					settingsRestService.putPersonnelNumber($scope.form.personnelNumber).then(function() {
+						USER.personnelNumber = $scope.form.personnelNumber;
+					})['finally'](hideSpinner);
+				}
+
+				$timeout.cancel($scope.timeouts.personnelNumber);
+				if(immediacy === "delayed") {
+					$scope.timeouts.personnelNumber = $timeout(pushToBackEnd, timeoutTime);
+				}
+				else {
+					pushToBackEnd();
+				}
 			};
 
-			$scope.savePhoneNumber = function() {
+			$scope.savePhoneNumber = function(immediacy) {
 				if($scope.form.phoneNumber === null) {
 					$scope.form.phoneNumber = "";
 				}
-				spinnerService.show('settingsFormSpinner');
-				settingsRestService.putPhoneNumber($scope.form.phoneNumber).then(function() {
-					USER.phoneNumber = $scope.form.phoneNumber;
-				})['finally'](hideSpinner);
+				function pushToBackEnd() {
+					spinnerService.show('settingsFormSpinner');
+					settingsRestService.putPhoneNumber($scope.form.phoneNumber).then(function() {
+						USER.phoneNumber = $scope.form.phoneNumber;
+					})['finally'](hideSpinner);
+				}
+
+				$timeout.cancel($scope.timeouts.phoneNumber);
+				if(immediacy === 'delayed') {
+					$scope.timeouts.phoneNumber = $timeout(pushToBackEnd, timeoutTime);
+				}
+				else {
+					pushToBackEnd();
+				}
 			};
 
 			$scope.saveIsActive = function() {
