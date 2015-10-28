@@ -47,6 +47,12 @@ function(USER, $state, $translate, globalMessagesService) {
 			function isOnRegistrationPage() {
 				return $state.is('registrationForm') || $state.is('registrationSignature') || $state.is('registrationCropping');
 			}
+
+			$scope.changeHashToDashboardIfNecessary = function() {
+				if(window.location.hash === "#!/welcome") {
+					window.location.hash = "#!/dashboard";
+				}
+			};
 		}
 	};
 

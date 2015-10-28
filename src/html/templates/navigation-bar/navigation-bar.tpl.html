@@ -91,7 +91,7 @@
 					</a>
 				</li>
 				<li ng-show="!USER.loggedIn">
-					<a href ui-sref="dashboard">
+					<a ui-sref="dashboard" ng-click="changeHashToDashboardIfNecessary()">
 						<i class="fa fa-sign-in"></i>
 						{{ 'reimbursement.tabs.login' | translate }}
 					</a>
