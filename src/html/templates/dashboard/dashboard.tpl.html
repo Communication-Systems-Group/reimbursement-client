@@ -1,7 +1,13 @@
 <div id="dashboard">
-	<h1 class="page-header"><i class="fa fa-dashboard"></i> {{ 'reimbursement.dashboard.title' | translate }} </h1>
+	<h1 class="page-header">
+		<i class="fa fa-dashboard"></i>
+		{{ 'reimbursement.dashboard.title' | translate }}
+	</h1>
 
-	<h2 class="page-header"><i class="fa fa-clone"></i> {{ 'reimbursement.dashboard.myExpenses' | translate }} </h2>
+	<h2 class="page-header">
+		<i class="fa fa-clone"></i>
+		{{ 'reimbursement.dashboard.myExpenses' | translate }}
+	</h2>
 
 	<table class="table table-striped">
 		<thead>
@@ -21,42 +27,15 @@
 				<td>{{ e.accounting }}</td>
 				<td>{{ e.date | date: 'dd.MM.yyyy' }}</td>
 				<td class="table-right-aligned">{{ e.totalAmount | currency:'CHF ':2 }}</td>
-				<td class="text-center"><expense-state state="e.state"></expense-state></td>
-				<td>
-				<div class="btn-group" ng-if="(e.state === 'CREATED' || e.state === 'REJECTED' || e.state === 'DRAFT' || e.state === 'SIGNED')">
-					<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-caret-down"></i>
-						{{ 'reimbursement.dashboard.action' | translate }}
-					</button>
-					<ul class="dropdown-menu">
-						<li ng-if="(e.state === 'CREATED' || e.state === 'DRAFT' || e.state === 'REJECTED')">
-							<a href ui-sref="edit-expense({uid: e.uid})"> <i class="fa fa-pencil"></i> {{ 'reimbursement.expense.edit' | translate }} </a>
-						</li>
-						<li ng-if="(e.state === 'SIGNED')">
-							<a href ui-sref="view-expense({uid: e.uid})"> <i class="fa fa-eye"></i> {{ 'reimbursement.expense.viewItem' | translate }} </a>
-						</li>
-						<li class="divider" ng-if="(e.state === 'DRAFT' || e.state === 'REJECTED')"></li>
-						<li ng-if="(e.state === 'DRAFT' || e.state === 'REJECTED')">
-							<a href ng-click="deleteExpense(e.uid)"> <i class="fa fa-trash"></i> {{ 'reimbursement.expense.delete' | translate }} </a>
-						</li>
-						<li class="divider" ng-if="(e.state === 'SIGNED')"></li>
-						<li ng-if="(e.state === 'SIGNED')">
-							<a href ui-sref="print-expense({ uid: e.uid })"> <i class="fa fa-print"></i> {{ 'reimbursement.expense.print' | translate }} </a>
-						</li>
-					</ul>
-				</div>
-				<button class="btn btn-default btn-xs" ui-sref="sign-expense({ uid: e.uid })" ng-if="e.state === 'TO_SIGN_BY_USER'">
-					<i class="fa fa-pencil-square-o"></i>
-					{{ 'reimbursement.expense.signButton' | translate }}
-				</button>
-				<button class="btn btn-default btn-xs" ui-sref="view-expense({ uid: e.uid })" ng-if="!(e.state === 'CREATED' || e.state === 'REJECTED' || e.state === 'DRAFT' || e.state === 'TO_SIGN_BY_USER' || e.state === 'SIGNED')">
-				<i class="fa fa-eye"></i>
-				{{ 'reimbursement.expense.viewItem' | translate }}
-				</button>
+				<td class="text-center">
+					<expense-state state="e.state"></expense-state>
 				</td>
 				<td>
-					<expense-button expense-uid="e.uid" assign-to-me-callback="updateReviewExpenses" delete-expense-callback="updateMyExpenses"></expense-button>
+					<expense-button
+						expense-uid="e.uid"
+						assign-to-me-callback="updateReviewExpenses"
+						delete-expense-callback="updateMyExpenses">
+					</expense-button>
 				</td>
 			</tr>
 		</tbody>
@@ -70,7 +49,10 @@
 	</div>
 
 	<div ng-if="showReviewSection">
-		<h2 class="page-header"><i class="fa fa-check-square-o"></i> {{ 'reimbursement.dashboard.myReviewExpenseItems' | translate }} </h2>
+		<h2 class="page-header">
+			<i class="fa fa-check-square-o"></i>
+			{{ 'reimbursement.dashboard.myReviewExpenseItems' | translate }}
+		</h2>
 
 		<table class="table table-striped">
 			<thead>
@@ -92,54 +74,16 @@
 					<td>{{e.accounting}}</td>
 					<td>{{e.date | date:'dd.MM.yyyy'}}</td>
 					<td><span class="tableRightMargin">{{ e.totalAmount | currency:'CHF ':2 }}</span></td>
-					<td class="text-center"><expense-state state="e.state"></expense-state></td>
+					<td class="text-center">
+						<expense-state state="e.state"></expense-state>
+					</td>
 					<td>
-					<div ng-if="USER.hasRole('PROF')">
-						<div ng-if="e.state === 'ASSIGNED_TO_MANAGER'">
-							<button class="btn btn-default btn-xs" ui-sref="review-expense({ uid: e.uid })">
-								<i class="fa fa-gavel"></i>
-								{{ 'reimbursement.expense.validate' | translate }}
-							</button>
-						</div>
-						<div ng-if="e.state === 'TO_SIGN_BY_MANAGER'">
-							<button class="btn btn-default btn-xs" ui-sref="sign-expense({ uid: e.uid })">
-								<i class="fa fa-pencil-square-o"></i>
-								{{ 'reimbursement.expense.signButton' | translate }}
-							</button>
-						</div>
-						<div ng-if="!(e.state === 'ASSIGNED_TO_MANAGER' || e.state === 'TO_SIGN_BY_MANAGER')">
-							<button class="btn btn-default btn-xs" ui-sref="view-expense({ uid: e.uid })">
-								<i class="fa fa-eye"></i>
-								{{ 'reimbursement.expense.viewItem' | translate }}
-							</button>
-						</div>
-					</div>
-					<div ng-if="USER.hasRole('FINANCE_ADMIN')">
-						<div ng-if="e.state === 'ASSIGNED_TO_FINANCE_ADMIN'">
-							<button class="btn btn-default btn-xs" ui-sref="review-expense({ uid: e.uid })">
-								<i class="fa fa-gavel"></i>
-								{{ 'reimbursement.expense.validate' | translate }}
-							</button>
-						</div>
-						<div ng-if="e.state === 'TO_BE_ASSIGNED'">
-							<button class="btn btn-default btn-xs" ng-click="assignToMe(e.uid)">
-								<i class="fa fa-hand-o-right"></i>
-								{{ 'reimbursement.expense.assignToMe' | translate }}
-							</button>
-						</div>
-						<div ng-if="e.state === 'TO_SIGN_BY_FINANCE_ADMIN'">
-							<button class="btn btn-default btn-xs" ui-sref="sign-expense({ uid: e.uid })">
-								<i class="fa fa-pencil-square-o"></i>
-								{{ 'reimbursement.expense.signButton' | translate }}
-							</button>
-						</div>
-						<div ng-if="!(e.state === 'ASSIGNED_TO_FINANCE_ADMIN' || e.state === 'TO_SIGN_BY_FINANCE_ADMIN' || e.state === 'TO_BE_ASSIGNED')">
-							<button class="btn btn-default btn-xs" ui-sref="view-expense({ uid: e.uid })">
-								<i class="fa fa-eye"></i>
-								{{ 'reimbursement.expense.viewItem' | translate }}
-							</button>
-						</div>
-					</div></td>
+						<expense-button
+							expense-uid="e.uid"
+							assign-to-me-callback="updateReviewExpenses"
+							delete-expense-callback="updateMyExpenses">
+						</expense-button>
+					</td>
 				</tr>
 			</tbody>
 		</table>

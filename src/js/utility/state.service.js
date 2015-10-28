@@ -158,6 +158,63 @@ function($q, USER, expenseRestService) {
 			});
 
 			return deferred.promise;
+		},
+
+		stateOrder: function(state, date, purpose) {
+			var statesList = {
+				forRegularUser: [
+					"DRAFT",
+					"REJECTED",
+					"TO_SIGN_BY_USER",
+					"SIGNED",
+					"ASSIGNED_TO_MANAGER",
+					"TO_BE_ASSIGNED",
+					"ASSIGNED_TO_FINANCE_ADMIN",
+					"TO_SIGN_BY_MANAGER",
+					"TO_SIGN_BY_FINANCE_ADMIN",
+					"PRINTED"
+				],
+				forManager: [
+					"ASSIGNED_TO_MANAGER",
+					"TO_SIGN_BY_MANAGER",
+					"TO_BE_ASSIGNED",
+					"ASSIGNED_TO_FINANCE_ADMIN",
+					"TO_SIGN_BY_USER",
+					"TO_SIGN_BY_FINANCE_ADMIN",
+					"REJECTED",
+					"DRAFT",
+					"SIGNED",
+					"PRINTED"
+				],
+				forFinanceAdmin: [
+					"TO_BE_ASSIGNED",
+					"ASSIGNED_TO_FINANCE_ADMIN",
+					"TO_SIGN_BY_FINANCE_ADMIN",
+					"REJECTED",
+					"ASSIGNED_TO_MANAGER",
+					"TO_SIGN_BY_USER",
+					"TO_SIGN_BY_MANAGER",
+					"DRAFT",
+					"SIGNED",
+					"PRINTED"
+				]
+			};
+
+			function orderNumber(states) {
+				var stateNr = states.length - states.indexOf(state);
+				var shortDate = (date+"").substring(0, (date+"").length - 3);
+				return parseInt("-" + stateNr + shortDate, 10);
+			}
+
+			if(purpose === 'MANAGER') {
+				return orderNumber(statesList.forManager);
+			}
+			else if(purpose === 'FINANCE_ADMIN') {
+				return orderNumber(statesList.forFinanceAdmin);
+			}
+			else {
+				return orderNumber(statesList.forRegularUser);
+			}
 		}
 	};
 
