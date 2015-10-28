@@ -20,7 +20,7 @@ function($state, $stateParams, $timeout, stateService, globalMessagesService, sp
 			var viewDetails = stateService.getExpenseViewDetails(expenseState, expenseUsers);
 
 			if(viewDetails.hasAccess) {
-				$state.go(viewDetails.name, { uid: expenseUid });
+				$state.go(viewDetails.name, { expense: expense });
 			}
 			else {
 				$state.go('dashboard');

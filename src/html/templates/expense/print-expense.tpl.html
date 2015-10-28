@@ -1,17 +1,18 @@
-<div id="view-expense" class="pos-rel">
+<div id="print-expense" class="pos-rel">
 	<spinner id="spinnerPrintExpense" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 	<h1 class="page-header">
-		<span class="vert-mid">{{ expenseAccountingText }}</span>
+		<span class="vert-mid">{{ expense.accounting }}</span>
 		<small class="vert-mid">
-			<expense-state state="expenseState"></expense-state>
+			<expense-state state="expense.state"></expense-state>
 		</small>
 	</h1>
+
 	<h2 class="page-header">
 		<i class="fa fa-print"></i>
 		{{ 'reimbursement.expense.printExpense' | translate }}
 	</h2>
 
-	<list-expense-items expense-uid="expenseUid" expense-items="expenseItems" editable="false"></list-expense-items>
+	<list-expense-items expense-uid="expense.uid" expense-items="expenseItems" editable="false"></list-expense-items>
 
 	<hr>
 
@@ -20,7 +21,7 @@
 			<i class="fa fa-arrow-circle-left"></i>
 			{{ 'reimbursement.expense.returnToDashboard' | translate }}
 		</button>
-		<button class="btn btn-primary pull-right" ng-click="showPdf()" ng-disabled="expenseItems.length === 0">
+		<button class="btn btn-primary pull-right" ng-click="showPdf()">
 			<i class="fa fa-print"></i>
 			{{ 'reimbursement.expense.showPdf' | translate }}
 		</button>

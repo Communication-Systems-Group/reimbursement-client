@@ -256,7 +256,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "expense/edit-expense.tpl.html",
 			controller: "EditExpenseController",
 			onEnter: requireRegisteredAuthentication(),
-			params: { uid: null }
+			params: { expense: null }
 
 		}).state('view-expense', {
 			templateUrl: "expense/view-expense.tpl.html",
@@ -268,7 +268,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			templateUrl: "expense/print-expense.tpl.html",
 			controller: "PrintExpenseController",
 			onEnter: requireRegisteredAuthentication(),
-			params: { uid: null }
+			params: { expense: null }
 
 		}).state('review-expense', {
 			templateUrl: "expense/review-expense.tpl.html",

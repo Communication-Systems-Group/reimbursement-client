@@ -3,7 +3,7 @@ app.controller('EditExpenseController', ['$scope', '$state', '$stateParams', '$t
 function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, globalMessagesService, expenseRestService) {
 	"use strict";
 
-	$scope.expenseUid = $stateParams.uid;
+	$scope.expense = $stateParams.expense;
 	$scope.expenseItems = [];
 
 	$scope.submitButtonShown = false;
@@ -19,12 +19,10 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 	});
 
 	function updateExpense() {
-		expenseRestService.getExpense($scope.expenseUid).then(function(response) {
-			$scope.expenseAccountingText = response.data.accounting;
+		expenseRestService.getExpense($scope.expense.uid).then(function(response) {
 			$scope.expense = response.data;
 		});
 	}
-	updateExpense();
 
 	$scope.editExpenseSap = function() {
 		var modalInstance = $uibModal.open({
@@ -32,10 +30,10 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 			controller: 'EditExpenseSapController',
 			resolve: {
 				accountingText: function() {
-					return $scope.expenseAccountingText;
+					return $scope.expense.accounting;
 				},
 				expenseUid: function() {
-					return $scope.expenseUid;
+					return $scope.expense.uid;
 				}
 			}
 		});
@@ -49,7 +47,7 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 				'reimbursement.expense.submitInfoMessage').then(function() {
 
 				spinnerService.show('spinnerCreateExpense');
-				expenseRestService.assignToManager($scope.expenseUid).then(function() {
+				expenseRestService.assignToManager($scope.expense.uid).then(function() {
 
 					$state.go('dashboard');
 
