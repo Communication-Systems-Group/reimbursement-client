@@ -5,7 +5,7 @@ function ($q, $timeout, $injector) {
 
 	function resetUserToPreLogin(){
 		var $state = $injector.get('$state');
-		if(!$state.is('logout') && !$state.is('login')) {
+		if(!$state.is('login')) {
 			var USER = $injector.get('USER');
 			var $uibModalStack = $injector.get('$uibModalStack');
 
@@ -19,7 +19,11 @@ function ($q, $timeout, $injector) {
 	return {
 		responseError: function(response) {
 			if(response.status === 401) {
-				resetUserToPreLogin();
+				// the user receives a 401 on logout which should not be handled.
+				var $state = $injector.get('$state');
+				if(!$state.is('logout')) {
+					resetUserToPreLogin();
+				}
 				return $q.reject(response);
 
 			} else if(response.status === 403) {
