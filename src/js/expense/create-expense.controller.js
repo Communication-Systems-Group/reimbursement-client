@@ -24,18 +24,7 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 			$scope.expense = response.data;
 		});
 	}
-
-	expenseRestService.getAccessRights($scope.expenseUid).then(function(response) {
-		if(response.data.viewable && response.data.editable) {
-			updateExpense();
-		}
-		else {
-			$state.go('dashboard');
-		}
-	}, function(response) {
-		// error handled in list-expense-items.directive
-		response.errorHandled = true;
-	});
+	updateExpense();
 
 	$scope.editExpenseSap = function() {
 		var modalInstance = $uibModal.open({

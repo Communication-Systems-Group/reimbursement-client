@@ -11,9 +11,6 @@ function($scope, $state, $stateParams, $window, spinnerService, THIS_HOST, expen
 		$scope.expenseAccountingText = response.data.accounting;
 		$scope.expenseState = response.data.state;
 		$scope.hasDigitalSignature = response.data.hasDigitalSignature;
-	}, function(response) {
-		// error handled in list-expense-items.directive
-		response.errorHandled = true;
 	});
 
 	$scope.showPdf = function() {
@@ -31,11 +28,11 @@ function($scope, $state, $stateParams, $window, spinnerService, THIS_HOST, expen
 		expenseRestService.getExpensePdf($scope.expenseUid).then(function(response) {
 
 			base64BinaryConverterService.toBase64FromJson(response.data, function(base64String) {
-			$window.open(base64String, '_blank');
+				$window.open(base64String, '_blank');
 			});
 		})['finally'](function() {
-					spinnerService.hide('spinnerPrintExpense');
-				});
+			spinnerService.hide('spinnerPrintExpense');
+		});
 	}
 
 }]);

@@ -8,23 +8,9 @@ function($scope, $state, $stateParams, $uibModal, expenseRestService, globalMess
 	$scope.expenseState = '';
 	$scope.signedSuccessfully = false;
 
-	expenseRestService.getAccessRights($scope.expenseUid).then(function(response) {
-
-		if (response.data.viewable && response.data.signable && !response.data.editable) {
-			expenseRestService.getExpense($scope.expenseUid).then(function(response) {
-				$scope.expenseAccountingText = response.data.accounting;
-				$scope.expenseState = response.data.state;
-			});
-		} else {
-			$state.go('dashboard');
-		}
-
-	}, function(response) {
-		// error handled in list-expense-items.directive
-		response.errorHandled = true;
-	});
-
 	expenseRestService.getExpense($scope.expenseUid).then(function(response) {
+		$scope.expenseAccountingText = response.data.accounting;
+		$scope.expenseState = response.data.state;
 		$scope.hasDigitalSignature = response.data.hasDigitalSignature;
 	});
 
