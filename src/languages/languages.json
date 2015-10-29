@@ -739,14 +739,6 @@
 		"de": "Allgemeiner Fehler",
 		"en": "General error"
 	},
-	"globalMessage.serverException.message": {
-		"de": "Ein Serverfehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
-		"en": "A server error occured while transfering the data. Please try it again later."
-	},
-	"globalMessage.serverException.title": {
-		"de": "Serverfehler",
-		"en": "Server error"
-	},
 	"globalMessage.signatureQrNoImage.message": {
 		"de": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut die Signatur von Ihrem Mobilgerät abzuschicken.",
 		"en": "Make sure, you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device."
