@@ -43,13 +43,13 @@
 		"de": "Löschen",
 		"en": "Delete"
 	},
-	"administration.deleteCostCategoryItemTitle": {
-		"de": "Element löschen?",
-		"en": "Delete element?"
-	},
 	"administration.deleteCostCategoryItemText": {
 		"de": "Sind Sie sicher, das gewählte Element unwiderruflich zu löschen?",
 		"en": "Do you really want to delete this category element?"
+	},
+	"administration.deleteCostCategoryItemTitle": {
+		"de": "Element löschen?",
+		"en": "Delete element?"
 	},
 	"administration.edit": {
 		"de": "Editieren",
@@ -139,10 +139,6 @@
 		"de": "ODER",
 		"en": "OR"
 	},
-	"captureAttachment.tryMobile": {
-		"de": "Mobilgerät für Upload verwenden",
-		"en": "Use mobile device for upload"
-	},
 	"captureAttachment.qr.cancel": {
 		"de": "Abbrechen",
 		"en": "Cancel"
@@ -171,6 +167,10 @@
 		"de": "Anhang mit Mobilgerät erfassen",
 		"en": "Capturing attachments using a mobile device"
 	},
+	"captureAttachment.tryMobile": {
+		"de": "Mobilgerät für Upload verwenden",
+		"en": "Use mobile device for upload"
+	},
 	"captureAttachment.upload.centerText": {
 		"de": "Datei auswählen",
 		"en": "Select file"
@@ -178,10 +178,6 @@
 	"captureSignature.info": {
 		"de": "Um Ihre Registrierung abschliessen zu können, müssen Sie noch Ihre Unterschrift digital erfassen. Sie können die Unterschrift entweder über einen Touch-Screen direkt online erfassen oder eine Bilddatei mit Ihrer Unterschrift hochladen.",
 		"en": "To finish your registration, you are kindly asked to capture your signature. You can upload an image containing the signature or use the the touch screen input and capture it directly online."
-	},
-	"captureSignature.title": {
-		"de": "Unterschrift erfassen",
-		"en": "Capture Signature"
 	},
 	"captureSignature.nextStep": {
 		"de": "Speichern",
@@ -219,6 +215,10 @@
 		"de": "Wird hochgeladen...",
 		"en": "Uploading..."
 	},
+	"captureSignature.title": {
+		"de": "Unterschrift erfassen",
+		"en": "Capture Signature"
+	},
 	"captureSignature.touch.reset": {
 		"de": "Zurücksetzen",
 		"en": "Reset"
@@ -247,13 +247,13 @@
 		"de": "Bildupload",
 		"en": "Image Upload"
 	},
-	"costCategory.accountNumber": {
-		"de": "Kostenstellennummer",
-		"en": "Account number"
-	},
 	"costCategory.accountingPolicy": {
 		"de": "Kontierungsrichtlinien",
 		"en": "Accounting policy"
+	},
+	"costCategory.accountNumber": {
+		"de": "Kostenstellennummer",
+		"en": "Account number"
 	},
 	"costCategory.cancelButton": {
 		"de": "Abbrechen",
@@ -311,17 +311,21 @@
 		"de": "Neue Spese erstellen",
 		"en": "Create new expense"
 	},
-	"dashboard.table.expenseAuthor": {
-		"de": "Spesensteller",
-		"en": "Expense author"
-	},
 	"dashboard.table.date": {
 		"de": "Datum",
 		"en": "Date"
 	},
+	"dashboard.table.expenseAuthor": {
+		"de": "Spesensteller",
+		"en": "Expense author"
+	},
 	"dashboard.table.noContent": {
 		"de": "Keine Daten vorhanden!",
 		"en": "No content available!"
+	},
+	"dashboard.table.status": {
+		"de": "Status",
+		"en": "State"
 	},
 	"dashboard.table.totalCosts": {
 		"de": "Totale Kosten",
@@ -331,105 +335,161 @@
 		"de": "Dashboard",
 		"en": "Dashboard"
 	},
-	"edit-expense.title": {
-		"de": "Beleg bearbeiten",
-		"en": "Edit receipt"
+	"edit-expense.editAccountingSaveButton": {
+		"de": "Speichern",
+		"en": "Save"
 	},
 	"edit-expense.editAccountingTitle": {
 		"de": "Buchhaltungsbeschreibung anpassen",
 		"en": "Change accounting description"
 	},
-	"edit-expense.editAccountingSaveButton": {
-		"de": "Speichern",
-		"en": "Save"
+	"edit-expense.title": {
+		"de": "Beleg bearbeiten",
+		"en": "Edit receipt"
 	},
-	"expense.state.REJECTED": {
-		"de": "Zurückgewiesen",
-		"en": "Rejected"
+	"expense.acceptButton": {
+		"de": "Annehmen",
+		"en": "Accept"
 	},
-	"expense.state.DRAFT": {
-		"de": "Entwurf",
-		"en": "Draft"
+	"expense.acceptText": {
+		"de": "Sind Sie sicher, dass Sie diese Spesen hiermit akzeptieren möchten?",
+		"en": "Are you sure, that you want to accept this expense?"
 	},
-	"expense.state.ASSIGNED_TO_MANAGER": {
-		"de": "An Vorgesetzten zugewiesen",
-		"en": "Assigned to manager"
+	"expense.acceptTitle": {
+		"de": "Spesen bewilligen",
+		"en": "Accept Expense"
 	},
-	"expense.state.TO_BE_ASSIGNED": {
-		"de": "Wird zugewiesen",
-		"en": "To be assigned"
+	"expense.accountingDescription": {
+		"de": "Legen Sie den SAP Beschreibungstext wie folgt fest:\n– «PMtg [Project Acronym], [City], [YYMMDD]» für ein Projektmeeting\n    Beispiel: «PMtg SmartenIT, Zurich, 150324»\n– «Conf [Acronym] [YYYY], [City]» für ein Workshop/Konferenz\n    Beispiel: «Conf NetSys 2015, Cottbus»\n– «[Hardware/Software] Order»\n    für eine HW or SW Bestellung",
+		"en": "Define the SAP description text as follows:\n– «PMtg [Project Acronym], [City], [YYMMDD]» for any project meeting\n    Example: «PMtg SmartenIT, Zurich, 150324»\n– «Conf [Acronym] [YYYY], [City]» for any workshop/conference\n    Example: «Conf NetSys 2015, Cottbus»\n– «[Hardware/Software] Order»\n    for any HW or SW order"
 	},
-	"expense.state.ASSIGNED_TO_FINANCE_ADMIN": {
-		"de": "Zugewiesen an Finanzverwaltung",
-		"en": "Assigned to finance admin"
+	"expense.accountingLabel": {
+		"de": "Beschreibung (SAP)",
+		"en": "Description (SAP)"
 	},
-	"expense.state.TO_SIGN_BY_USER": {
-		"de": "Signieren durch Mitarbeiter",
-		"en": "To sign by user"
+	"expense.accountingTitle": {
+		"de": "Buchhaltungsbeschreibung",
+		"en": "Description for Accounting"
 	},
-	"expense.state.TO_SIGN_BY_MANAGER": {
-		"de": "Signieren durch Vorgesetzten",
-		"en": "To sign by manager"
+	"expense.action": {
+		"de": "Aktion",
+		"en": "Action"
 	},
-	"expense.state.TO_SIGN_BY_FINANCE_ADMIN": {
-		"de": "Signieren durch Finanzverwaltung",
-		"en": "To sign by finance admin"
-	},
-	"expense.state.SIGNED": {
-		"de": "Signiert",
-		"en": "Signed"
-	},
-	"expense.state.PRINTED": {
-		"de": "Ausgedruckt",
-		"en": "Printed"
-	},
-	"expense.explanationEnterAtLeast10Characters": {
-		"de": "Geben Sie eine Begründung mit mindestens 10 Zeichen ein.",
-		"en": "Enter a explanation with at least 10 characters."
+	"expense.addNewReceiptButton": {
+		"de": "Neuen Beleg hinzufügen",
+		"en": "Add new receipt"
 	},
 	"expense.assignToMe": {
 		"de": "Mir zuweisen",
 		"en": "Assign to me"
 	},
+	"expense.cancelButton": {
+		"de": "Abbrechen",
+		"en": "Cancel"
+	},
+	"expense.closeButton": {
+		"de": "Schliessen",
+		"en": "Close"
+	},
+	"expense.confirmAssignMessage": {
+		"de": "Möchten Sie sich diese Spese zuweisen?",
+		"en": "Are you sure, you want to assign this expense to you?"
+	},
+	"expense.confirmAssignTitle": {
+		"de": "Bestätigung",
+		"en": "Confirmation"
+	},
+	"expense.confirmDeleteMessage": {
+		"de": "Möchten Sie diese Spesen mitsamt allen Belegen unwiderruflich löschen?",
+		"en": "Are you sure, you want to delete this expense with all receipts irrevocably?"
+	},
+	"expense.confirmDeleteTitle": {
+		"de": "Bestätigung",
+		"en": "Confirmation"
+	},
+	"expense.costCategory.takeOver": {
+		"de": "Übernehmen",
+		"en": "Apply"
+	},
+	"expense.delete": {
+		"de": "Löschen",
+		"en": "Delete"
+	},
 	"expense.downloadPdf": {
 		"de": "Signiertes PDF herunterladen",
 		"en": "Download signed PDF"
 	},
-	"expense.rejectReason": {
-		"de": "Begründung",
-		"en": "Justification"
+	"expense.edit": {
+		"de": "Editieren",
+		"en": "Edit"
+	},
+	"expense.explanationEnterAtLeast10Characters": {
+		"de": "Geben Sie eine Begründung mit mindestens 10 Zeichen ein.",
+		"en": "Enter a explanation with at least 10 characters."
+	},
+	"expense.info.accountingTextMissingMessage": {
+		"de": "Die Buchhaltungsbeschreibung (SAP) muss mind. 5 Zeichen umfassen.\nGeben Sie bitte eine korrekte Beschreibung ein.",
+		"en": "The description for accounting (SAP) requires to be at least 5 characters.\nPlease enter a correct description."
+	},
+	"expense.info.accountingTextMissingTitle": {
+		"de": "Beschreibung unvollständig",
+		"en": "Description incomplete"
+	},
+	"expense.nextStepButton": {
+		"de": "Nächster Schritt",
+		"en": "Next Step"
+	},
+	"expense.noExpenseItems": {
+		"de": "Keine Belege vorhanden.",
+		"en": "No receipts available."
+	},
+	"expense.printExpense": {
+		"de": "Spesendokument drucken",
+		"en": "Print expense document"
+	},
+	"expense.printPreview": {
+		"de": "Druckvorschau",
+		"en": "Print Preview"
+	},
+	"expense.rejectButton": {
+		"de": "Ablehnen",
+		"en": "Reject"
 	},
 	"expense.rejectComment": {
 		"de": "Dein Spesenantrag wurde von der zuständigen Person abgelehnt. Folgende Nachricht wurde dazu hinterlassen:",
 		"en": "Your expense-item has been rejected by the responsible person. The following message has been added:"
 	},
+	"expense.rejectReason": {
+		"de": "Begründung",
+		"en": "Justification"
+	},
+	"expense.rejectTitle": {
+		"de": "Spesen ablehnen",
+		"en": "Reject Expense"
+	},
+	"expense.returnToDashboard": {
+		"de": "Zurück zum Dashboard",
+		"en": "Return to dashboard"
+	},
+	"expense.showPdf": {
+		"de": "PDF anzeigen",
+		"en": "Show PDF"
+	},
 	"expense.sign": {
 		"de": "Signieren",
 		"en": "Sign"
 	},
-	"expense.signInfoTitle": {
-		"de": "Spese signiert",
-		"en": "Expense signed"
-	},
-	"expense.signInfoMessage": {
-		"de": "Die Spese wurde erfolgreich signiert",
-		"en": "The Expense has been signed succesfully"
-	},
-	"expense.signForm.title": {
-		"de": "Signaturmethode",
-		"en": "Sign method"
-	},
-	"expense.signForm.text": {
-		"de": "Wählen Sie die gewünschte Signaturmethode.",
-		"en": "Please choose your desired signature method."
-	},
-	"expense.signForm.saveButton": {
+	"expense.signButton": {
 		"de": "Signieren",
 		"en": "Sign"
 	},
 	"expense.signForm.digital": {
 		"de": "Digitale Signatur\n(Zertifikat)",
 		"en": "Digital signature\n(Zertifikat)"
+	},
+	"expense.signForm.documentSignedSuccessfully": {
+		"de": "Das Dokument wurde erfolgreich signiert.",
+		"en": "The document has been signed successfully."
 	},
 	"expense.signForm.electronical": {
 		"de": "Elektronische Signatur\n(Bildsignatur)",
@@ -438,6 +498,10 @@
 	"expense.signForm.error": {
 		"de": "Fehler bei PDF Erstellung",
 		"en": "Error creating PDF"
+	},
+	"expense.signForm.noPrivateKeyProvided": {
+		"de": "Bitte geben Sie einen privaten Schlüssel an!",
+		"en": "Please provide a private key!"
 	},
 	"expense.signForm.pdfCannotBeCreated": {
 		"de": "Leider konnte das PDF nicht erstellt werden. Bitte versuchen Sie es noch einmal.",
@@ -451,13 +515,9 @@
 		"de": "Privater Schlüssel:",
 		"en": "Private key:"
 	},
-	"expense.signForm.validationError": {
-		"de": "Validierungsfehler",
-		"en": "Validation error"
-	},
-	"expense.signForm.noPrivateKeyProvided": {
-		"de": "Bitte geben Sie einen privaten Schlüssel an!",
-		"en": "Please provide a private key!"
+	"expense.signForm.saveButton": {
+		"de": "Signieren",
+		"en": "Sign"
 	},
 	"expense.signForm.signatureCannotBeCreated": {
 		"de": "Der private Schlüssel konnte leider nicht eingelesen werden. Bitte vergewissern Sie sich, dass dieser im PKCS8 Format vorliegt.",
@@ -467,149 +527,137 @@
 		"de": "Erfolg",
 		"en": "Success"
 	},
-	"expense.signForm.documentSignedSuccessfully": {
-		"de": "Das Dokument wurde erfolgreich signiert.",
-		"en": "The document has been signed successfully."
+	"expense.signForm.text": {
+		"de": "Wählen Sie die gewünschte Signaturmethode.",
+		"en": "Please choose your desired signature method."
 	},
-	"expense.signButton": {
-		"de": "Signieren",
-		"en": "Sign"
+	"expense.signForm.title": {
+		"de": "Signaturmethode",
+		"en": "Sign method"
 	},
-	"expense.acceptText": {
-		"de": "Sind Sie sicher, dass Sie diese Spesen hiermit akzeptieren möchten?",
-		"en": "Are you sure, that you want to accept this expense?"
+	"expense.signForm.validationError": {
+		"de": "Validierungsfehler",
+		"en": "Validation error"
 	},
-	"expense.acceptTitle": {
-		"de": "Spesen bewilligen",
-		"en": "Accept Expense"
+	"expense.signInfoMessage": {
+		"de": "Die Spese wurde erfolgreich signiert",
+		"en": "The Expense has been signed succesfully"
 	},
-	"expense.rejectTitle": {
-		"de": "Spesen ablehnen",
-		"en": "Reject Expense"
+	"expense.signInfoTitle": {
+		"de": "Spese signiert",
+		"en": "Expense signed"
 	},
-	"expense.viewItem": {
-		"de": "Anzeigen",
-		"en": "Show"
+	"expense.state.ASSIGNED_TO_FINANCE_ADMIN": {
+		"de": "Zugewiesen an Finanzverwaltung",
+		"en": "Assigned to finance admin"
 	},
-	"expense.returnToDashboard": {
-		"de": "Zurück zum Dashboard",
-		"en": "Return to dashboard"
+	"expense.state.ASSIGNED_TO_MANAGER": {
+		"de": "An Vorgesetzten zugewiesen",
+		"en": "Assigned to manager"
 	},
-	"expense.nextStepButton": {
-		"de": "Nächster Schritt",
-		"en": "Next Step"
+	"expense.state.DRAFT": {
+		"de": "Entwurf",
+		"en": "Draft"
 	},
-	"expense.cancelButton": {
-		"de": "Abbrechen",
-		"en": "Cancel"
+	"expense.state.PRINTED": {
+		"de": "Ausgedruckt",
+		"en": "Printed"
 	},
-	"expense.closeButton": {
-		"de": "Schliessen",
-		"en": "Close"
+	"expense.state.REJECTED": {
+		"de": "Zurückgewiesen",
+		"en": "Rejected"
 	},
-	"expense.costCategory.takeOver": {
-		"de": "Übernehmen",
-		"en": "Apply"
+	"expense.state.SIGNED": {
+		"de": "Signiert",
+		"en": "Signed"
 	},
-	"expense.submitToManagerButton": {
-		"de": "An Vorgesetzten zuweisen",
-		"en": "Submit to manager"
+	"expense.state.TO_BE_ASSIGNED": {
+		"de": "Wird zugewiesen",
+		"en": "To be assigned"
 	},
-	"expense.acceptButton": {
-		"de": "Annehmen",
-		"en": "Accept"
+	"expense.state.TO_SIGN_BY_FINANCE_ADMIN": {
+		"de": "Signieren durch Finanzverwaltung",
+		"en": "To sign by finance admin"
 	},
-	"expense.rejectButton": {
-		"de": "Ablehnen",
-		"en": "Reject"
+	"expense.state.TO_SIGN_BY_MANAGER": {
+		"de": "Signieren durch Vorgesetzten",
+		"en": "To sign by manager"
 	},
-	"expense.submitInfoTitle": {
-		"de": "Definitiv abschicken?",
-		"en": "Submit permanently?"
+	"expense.state.TO_SIGN_BY_USER": {
+		"de": "Signieren durch Mitarbeiter",
+		"en": "To sign by user"
 	},
 	"expense.submitInfoMessage": {
 		"de": "Sind Sie sicher, dass alle Belege erfasst wurden und die Spese an den Vorgesetzten zugewiesen werden soll?",
 		"en": "Are you sure, that all receipts were uploaded and you are willing to send this expense to the manager?"
 	},
-	"expense.addNewReceiptButton": {
-		"de": "Neuen Beleg hinzufügen",
-		"en": "Add new receipt"
+	"expense.submitInfoTitle": {
+		"de": "Definitiv abschicken?",
+		"en": "Submit permanently?"
 	},
-	"expense.noExpenseItems": {
-		"de": "Keine Belege vorhanden.",
-		"en": "No receipts available."
-	},
-	"expense.accountingTitle": {
-		"de": "Buchhaltungsbeschreibung",
-		"en": "Description for Accounting"
-	},
-	"expense.accountingDescription": {
-		"de": "Legen Sie den SAP Beschreibungstext wie folgt fest:\n– «PMtg [Project Acronym], [City], [YYMMDD]» für ein Projektmeeting\n    Beispiel: «PMtg SmartenIT, Zurich, 150324»\n– «Conf [Acronym] [YYYY], [City]» für ein Workshop/Konferenz\n    Beispiel: «Conf NetSys 2015, Cottbus»\n– «[Hardware/Software] Order»\n    für eine HW or SW Bestellung",
-		"en": "Define the SAP description text as follows:\n– «PMtg [Project Acronym], [City], [YYMMDD]» for any project meeting\n    Example: «PMtg SmartenIT, Zurich, 150324»\n– «Conf [Acronym] [YYYY], [City]» for any workshop/conference\n    Example: «Conf NetSys 2015, Cottbus»\n– «[Hardware/Software] Order»\n    for any HW or SW order"
-	},
-	"expense.accountingLabel": {
-		"de": "Beschreibung (SAP)",
-		"en": "Description (SAP)"
-	},
-	"expense.info.accountingTextMissingTitle": {
-		"de": "Beschreibung unvollständig",
-		"en": "Description incomplete"
-	},
-	"expense.info.accountingTextMissingMessage": {
-		"de": "Die Buchhaltungsbeschreibung (SAP) muss mind. 5 Zeichen umfassen.\nGeben Sie bitte eine korrekte Beschreibung ein.",
-		"en": "The description for accounting (SAP) requires to be at least 5 characters.\nPlease enter a correct description."
-	},
-	"expense.warning.formNotComplete.title": {
-		"de": "Unvollständig",
-		"en": "Incomplete"
+	"expense.submitToManagerButton": {
+		"de": "An Vorgesetzten zuweisen",
+		"en": "Submit to manager"
 	},
 	"expense.warning.formNotComplete.message": {
 		"de": "Bitte füllen Sie alle Felder komplett aus.",
 		"en": "Please fill out every input field."
 	},
-	"expense.printPreview": {
-		"de": "Druckvorschau",
-		"en": "Print Preview"
-	},
-	"expense.showPdf": {
-		"de": "PDF anzeigen",
-		"en": "Show PDF"
-	},
-	"expense.printExpense": {
-		"de": "Spesendokument drucken",
-		"en": "Print expense document"
-	},
-	"expense.action": {
-		"de": "Aktion",
-		"en": "Action"
-	},
-	"expense.delete": {
-		"de": "Löschen",
-		"en": "Delete"
-	},
-	"expense.confirmDeleteTitle": {
-		"de": "Bestätigung",
-		"en": "Confirmation"
-	},
-	"expense.confirmDeleteMessage": {
-		"de": "Möchten Sie diese Spesen mitsamt allen Belegen unwiderruflich löschen?",
-		"en": "Are you sure, you want to delete this expense with all receipts irrevocably?"
-	},
-	"expense.confirmAssignTitle": {
-		"de": "Bestätigung",
-		"en": "Confirmation"
-	},
-	"expense.confirmAssignMessage": {
-		"de": "Möchten Sie sich diese Spese zuweisen?",
-		"en": "Are you sure, you want to assign this expense to you?"
-	},
-	"expense.edit": {
-		"de": "Editieren",
-		"en": "Edit"
+	"expense.warning.formNotComplete.title": {
+		"de": "Unvollständig",
+		"en": "Incomplete"
 	},
 	"expense.validate": {
 		"de": "Validieren",
 		"en": "Validate"
+	},
+	"expense.viewItem": {
+		"de": "Anzeigen",
+		"en": "Show"
+	},
+	"expense-item.amount": {
+		"de": "Betrag",
+		"en": "Amount"
+	},
+	"expense-item.calculatedAmount": {
+		"de": "berechneter Betrag",
+		"en": "Calculated amount"
+	},
+	"expense-item.costcategory": {
+		"de": "Kostenkategorie",
+		"en": "Cost category"
+	},
+	"expense-item.date": {
+		"de": "Belegsdatum",
+		"en": "Receipt date"
+	},
+	"expense-item.deleteConfirmMessage": {
+		"de": "Möchten Sie diesen Beleg wirklich unwiderruflich löschen?",
+		"en": "Are you sure, that you want to delete this receipt permanently?"
+	},
+	"expense-item.deleteConfirmTitle": {
+		"de": "Achtung",
+		"en": "Attention"
+	},
+	"expense-item.explanation": {
+		"de": "Spesengrund",
+		"en": "Expense explanation"
+	},
+	"expense-item.project": {
+		"de": "Projekt",
+		"en": "Project"
+	},
+	"expense-item.saveButton": {
+		"de": "Beleg speichern",
+		"en": "Save Receipt"
+	},
+	"expense-item.uploadReceipt": {
+		"de": "Beleg hochladen",
+		"en": "Upload receipt"
+	},
+	"expense-item.uploadReceipt.fileExtensions": {
+		"de": "(Bilddateien oder PDFs)",
+		"en": "(Images or PDFs)"
 	},
 	"expense-items.title": {
 		"de": "Belege einreichen",
@@ -623,57 +671,65 @@
 		"de": "Eingereichte Belege",
 		"en": "Receipts"
 	},
-	"expense-item.date": {
-		"de": "Belegsdatum",
-		"en": "Receipt date"
+	"globalMessage.ExpenseNotFoundException.message": {
+		"de": "Der Spesenantrag inkl. Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
+		"en": "The expense incl. its receipts could not be found. Please make sure, that there is no error in the address. You will be redirected now."
 	},
-	"expense-item.costcategory": {
-		"de": "Kostenkategorie",
-		"en": "Cost category"
+	"globalMessage.ExpenseNotFoundException.title": {
+		"de": "Keine Spesen gefunden",
+		"en": "No expenses found"
 	},
-	"expense-item.amount": {
-		"de": "Betrag",
-		"en": "Amount"
+	"globalMessage.InvalidCsrfTokenException.message": {
+		"de": "Leider ist Ihre Sitzung abgelaufen. Sie werden zum Login weitergeleitet.\nBitte geben Sie nach dem Login Ihre Daten erneut ein.",
+		"en": "Your session has expired. You are redirected to the login page.\nPlease reenter your data after the login."
 	},
-	"expense-item.calculatedAmount": {
-		"de": "berechneter Betrag",
-		"en": "Calculated amount"
+	"globalMessage.InvalidCsrfTokenException.title": {
+		"de": "Sitzung abgelaufen",
+		"en": "Session has expired"
 	},
-	"expense-item.project": {
-		"de": "Projekt",
-		"en": "Project"
+	"globalMessage.loginError.BadCredentialsException": {
+		"de": "Das eingegebene Passwort oder der Benutzername sind falsch. Bitte versuchen Sie es erneut.",
+		"en": "The entered password or username was incorrect. Please try again."
 	},
-	"expense-item.explanation": {
-		"de": "Spesengrund",
-		"en": "Expense explanation"
+	"globalMessage.loginError.title": {
+		"de": "Login fehlgeschlagen",
+		"en": "Login failed"
 	},
-	"expense-item.saveButton": {
-		"de": "Beleg speichern",
-		"en": "Save Receipt"
+	"globalMessage.notAnImage.message": {
+		"de": "Die Datei, die Sie hochgeladen wurde, wurde nicht als gültiges Bild erkannt. Bitte versuchen Sie es erneut und laden Sie eine gültige Bilddatei hoch.",
+		"en": "The uploaded file was not recognized as an image. Please try it again and upload a proper image file."
 	},
-	"expense-item.deleteConfirmTitle": {
-		"de": "Achtung",
-		"en": "Attention"
-	},
-	"expense-item.deleteConfirmMessage": {
-		"de": "Möchten Sie diesen Beleg wirklich unwiderruflich löschen?",
-		"en": "Are you sure, that you want to delete this receipt permanently?"
-	},
-	"expense-item.uploadReceipt": {
-		"de": "Beleg hochladen",
-		"en": "Upload receipt"
-	},
-	"expense-item.uploadReceipt.fileExtensions": {
-		"de": "(Bilddateien oder PDFs)",
-		"en": "(Images or PDFs)"
-	},
-	"dashboard.table.status": {
-		"de": "Status",
-		"en": "State"
+	"globalMessage.notAnImage.title": {
+		"de": "Unbekannter Dateityp",
+		"en": "Not an image"
 	},
 	"globalMessage.okayButton": {
 		"de": "Okay",
 		"en": "Okay"
+	},
+	"globalMessage.ServiceException.message": {
+		"de": "Ein allgemeiner Fehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
+		"en": "A general error occured while transfering the data. Please try it again later."
+	},
+	"globalMessage.ServiceException.title": {
+		"de": "Allgemeiner Fehler",
+		"en": "General error"
+	},
+	"globalMessage.ServerException.message": {
+		"de": "Ein Serverfehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
+		"en": "A server error occured while transfering the data. Please try it again later."
+	},
+	"globalMessage.ServerException.title": {
+		"de": "Serverfehler",
+		"en": "Server error"
+	},
+	"globalMessage.signatureQrNoImage.message": {
+		"de": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut die Signatur von Ihrem Mobilgerät abzuschicken.",
+		"en": "Make sure, you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device."
+	},
+	"globalMessage.signatureQrNoImage.title": {
+		"de": "Fehler aufgetreten",
+		"en": "Error occured"
 	},
 	"globalMessages.acceptButton": {
 		"de": "Ja",
@@ -683,85 +739,29 @@
 		"de": "Nein",
 		"en": "No"
 	},
-	"globalMessage.notAnImage.title": {
-		"de": "Unbekannter Dateityp",
-		"en": "Not an image"
-	},
-	"globalMessage.notAnImage.message": {
-		"de": "Die Datei, die Sie hochgeladen wurde, wurde nicht als gültiges Bild erkannt. Bitte versuchen Sie es erneut und laden Sie eine gültige Bilddatei hoch.",
-		"en": "The uploaded file was not recognized as an image. Please try it again and upload a proper image file."
-	},
-	"globalMessage.signatureQrNoImage.title": {
-		"de": "Fehler aufgetreten",
-		"en": "Error occured"
-	},
-	"globalMessage.signatureQrNoImage.message": {
-		"de": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut die Signatur von Ihrem Mobilgerät abzuschicken.",
-		"en": "Make sure, you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device."
-	},
-	"globalMessage.loginError.title": {
-		"de": "Login fehlgeschlagen",
-		"en": "Login failed"
-	},
-	"globalMessage.loginError.BadCredentialsException": {
-		"de": "Das eingegebene Passwort oder der Benutzername sind falsch. Bitte versuchen Sie es erneut.",
-		"en": "The entered password or username was incorrect. Please try again."
-	},
-	"globalMessage.InvalidCsrfTokenException.title": {
-		"de": "Sitzung abgelaufen",
-		"en": "Session has expired"
-	},
-	"globalMessage.InvalidCsrfTokenException.message": {
-		"de": "Leider ist Ihre Sitzung abgelaufen. Sie werden zum Login weitergeleitet.\nBitte geben Sie nach dem Login Ihre Daten erneut ein.",
-		"en": "Your session has expired. You are redirected to the login page.\nPlease reenter your data after the login."
-	},
-	"globalMessage.ServiceException.title": {
-		"de": "Allgemeiner Fehler",
-		"en": "General error"
-	},
-	"globalMessage.ServiceException.message": {
-		"de": "Ein allgemeiner Fehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
-		"en": "A general error occured while transfering the data. Please try it again later."
-	},
-	"globalMessage.ServerException.title": {
-		"de": "Serverfehler",
-		"en": "Server error"
-	},
-	"globalMessage.ServerException.message": {
-		"de": "Ein Serverfehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
-		"en": "A server error occured while transfering the data. Please try it again later."
-	},
-	"globalMessage.ExpenseNotFoundException.title": {
-		"de": "Keine Spesen gefunden",
-		"en": "No expenses found"
-	},
-	"globalMessage.ExpenseNotFoundException.message": {
-		"de": "Der Spesenantrag inkl. Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
-		"en": "The expense incl. its receipts could not be found. Please make sure, that there is no error in the address. You will be redirected now."
-	},
-	"globalMessages.notAuthenticatedRequired.title": {
-		"de": "Eingeloggt...",
-		"en": "Logged in..."
-	},
-	"globalMessages.notAuthenticatedRequired.message": {
-		"de": "Sie versuchen eine Seite aufzurufen, die nur aufrufbar ist, wenn Sie nicht eingeloggt sind. Sie wurden zum Dashboard weitergeleitet.",
-		"en": "You are trying to access a page, which is only accessible if you're not logged in. You were redirected to the dashboard."
+	"globalMessages.guest.noExpenseFound.message": {
+		"de": "Es wurde keine Spese unter diesem Link gefunden. Der Link wird nach einer bestimmten Zeitdauer ungültig. Falls es sich um eine ältere Spesendokument handelt, ist es nun nicht mehr abrufbar. Ansonsten vergewissern Sie sich, dass Sie die Adresse korrekt eingegeben haben",
+		"en": "No expense was found on this link. The link becomes invalid after a certain time period. If the requested expense sheet is not new, the link became most likely invalid. Otherwise, please make sure, that you enter the link correctly."
 	},
 	"globalMessages.guest.noExpenseFound.title": {
 		"de": "Keine Spese gefunden",
 		"en": "No expense found"
 	},
-	"globalMessages.guest.noExpenseFound.message": {
-		"de": "Es wurde keine Spese unter diesem Link gefunden. Der Link wird nach einer bestimmten Zeitdauer ungültig. Falls es sich um eine ältere Spesendokument handelt, ist es nun nicht mehr abrufbar. Ansonsten vergewissern Sie sich, dass Sie die Adresse korrekt eingegeben haben",
-		"en": "No expense was found on this link. The link becomes invalid after a certain time period. If the requested expense sheet is not new, the link became most likely invalid. Otherwise, please make sure, that you enter the link correctly."
+	"globalMessages.notAuthenticatedRequired.message": {
+		"de": "Sie versuchen eine Seite aufzurufen, die nur aufrufbar ist, wenn Sie nicht eingeloggt sind. Sie wurden zum Dashboard weitergeleitet.",
+		"en": "You are trying to access a page, which is only accessible if you're not logged in. You were redirected to the dashboard."
 	},
-	"globalMessages.uploadOrValidationError.title": {
-		"de": "Fehler",
-		"en": "Error"
+	"globalMessages.notAuthenticatedRequired.title": {
+		"de": "Eingeloggt...",
+		"en": "Logged in..."
 	},
 	"globalMessages.uploadOrValidationError.message": {
 		"de": "Es ist ein Fehler aufgetreten. Stellen Sie sicher, dass Sie nur eine Datei mit einem der erlaubten Dateiformate hochladen.",
 		"en": "An error occured. Please make sure, that you only upload a file with one of the allowed file extensions."
+	},
+	"globalMessages.uploadOrValidationError.title": {
+		"de": "Fehler",
+		"en": "Error"
 	},
 	"language.de": {
 		"de": "DE",
@@ -783,14 +783,6 @@
 		"de": "Bitte warten...",
 		"en": "Please wait..."
 	},
-	"login.title": {
-		"de": "Login",
-		"en": "Login"
-	},
-	"login.usernameLabel": {
-		"de": "Benutzername",
-		"en": "User Name"
-	},
 	"login.passwordLabel": {
 		"de": "Passwort",
 		"en": "Password"
@@ -799,9 +791,13 @@
 		"de": "Login",
 		"en": "Login"
 	},
-	"logout.title": {
-		"de": "Logout",
-		"en": "Logout"
+	"login.title": {
+		"de": "Login",
+		"en": "Login"
+	},
+	"login.usernameLabel": {
+		"de": "Benutzername",
+		"en": "User Name"
 	},
 	"logout.spinner": {
 		"de": "Sie werden ausgeloggt...",
@@ -811,45 +807,45 @@
 		"de": "Sie wurden erfolgreich ausgeloggt. Beehren Sie uns bald wieder mit Ihren Spesen.",
 		"en": "You were successfully logged out."
 	},
-	"navbar.leavePageWarning.title": {
-		"de": "Seite verlassen?",
-		"en": "Leaving page?"
+	"logout.title": {
+		"de": "Logout",
+		"en": "Logout"
 	},
 	"navbar.leavePageWarning.message": {
 		"de": "Sind Sie sicher, dass Sie die Registrierung abbrechen und die Seite verlassen möchten?",
 		"en": "Are you sure, that you want to abort the registration and leave this page?"
 	},
+	"navbar.leavePageWarning.title": {
+		"de": "Seite verlassen?",
+		"en": "Leaving page?"
+	},
 	"page.title": {
 		"de": "Reimbursement IFI",
 		"en": "Reimbursement IFI"
-	},
-	"registration.title": {
-		"de": "Registrierung (Schritt {{step}})",
-		"en": "Registration (Step {{step}})"
-	},
-	"registration.subtitleStep1": {
-		"de": "Persönliche Daten",
-		"en": "Personnel Data"
 	},
 	"registration.step1Message": {
 		"de": "Sie haben sich erfolgreich zum ersten Mal eingeloggt. Sie werden nun durch einen Registrierungsprozess mit 3 Schritte geführt. Bitte geben Sie die folgenden Informationen vollständig ein. Danach werden Sie aufgefordert eine Signatur über ein Gerät mit einem Touchscreen oder über einen Fileupload hochzuladen.",
 		"en": "You have been successfully logged in for the first time. Therefore you need to start by going through a 3-step registration process. Please provide the following information and afterwards a signature (as a file upload or directly by writing it on a touch-screen device)."
 	},
+	"registration.subtitleStep1": {
+		"de": "Persönliche Daten",
+		"en": "Personnel Data"
+	},
 	"registration.subtitleStep3": {
 		"de": "Signatur zuschneiden",
 		"en": "Crop Signature"
 	},
-	"settings.title": {
-		"de": "Einstellungen",
-		"en": "Settings"
+	"registration.title": {
+		"de": "Registrierung (Schritt {{step}})",
+		"en": "Registration (Step {{step}})"
+	},
+	"settings.accountState": {
+		"de": "Kontostatus",
+		"en": "Account state"
 	},
 	"settings.language": {
 		"de": "Sprache",
 		"en": "Language"
-	},
-	"settings.userSettingsPanel": {
-		"de": "Benutzereinstellungen",
-		"en": "User settings"
 	},
 	"settings.personnelNumber": {
 		"de": "Personalnummer",
@@ -859,65 +855,49 @@
 		"de": "Telefonnummer",
 		"en": "Phone number"
 	},
-	"settings.accountState": {
-		"de": "Kontostatus",
-		"en": "Account state"
-	},
-	"settings.state": {
-		"de": "Aktiv",
-		"en": "Active"
-	},
-	"settings.signature.submitWarningTitle": {
-		"de": "Unterschrift bearbeiten",
-		"en": "Change signature"
+	"settings.signature": {
+		"de": "Unterschrift",
+		"en": "Signature"
 	},
 	"settings.signature.submitWarningMessage": {
 		"de": "Möchten Sie eine neue Signatur erfassen und die bisherig erfasste Unterschrift überschreiben?",
 		"en": "Do you want to add a new signature and discard the current one?"
 	},
+	"settings.signature.submitWarningTitle": {
+		"de": "Unterschrift bearbeiten",
+		"en": "Change signature"
+	},
 	"settings.signaturePanel": {
 		"de": "Unterschrift bearbeiten",
 		"en": "Change signature"
 	},
-	"settings.signature": {
-		"de": "Unterschrift",
-		"en": "Signature"
+	"settings.state": {
+		"de": "Aktiv",
+		"en": "Active"
+	},
+	"settings.title": {
+		"de": "Einstellungen",
+		"en": "Settings"
 	},
 	"settings.uploadSignature": {
 		"de": "Unterschrift erstellen",
 		"en": "Upload signature"
 	},
-	"tabs.de": {
-		"de": "DE",
-		"en": "DE"
-	},
-	"tabs.en": {
-		"de": "EN",
-		"en": "EN"
-	},
-	"tabs.registration": {
-		"de": "Registrierung",
-		"en": "Registration"
-	},
-	"tabs.login": {
-		"de": "Login",
-		"en": "Login"
-	},
-	"tabs.logout": {
-		"de": "Logout",
-		"en": "Logout"
-	},
-	"tabs.settings": {
-		"de": "Einstellungen",
-		"en": "Settings"
-	},
-	"tabs.dashboard": {
-		"de": "Dashboard",
-		"en": "Dashboard"
+	"settings.userSettingsPanel": {
+		"de": "Benutzereinstellungen",
+		"en": "User settings"
 	},
 	"tabs.administration": {
 		"de": "Administration",
 		"en": "Administration"
+	},
+	"tabs.adminPoolGraphs": {
+		"de": "Graphen",
+		"en": "Graphs"
+	},
+	"tabs.adminPoolSearch": {
+		"de": "Suche",
+		"en": "Search"
 	},
 	"tabs.archive": {
 		"de": "Archiv",
@@ -927,41 +907,61 @@
 		"de": "Kostenstellen",
 		"en": "Cost-Categories"
 	},
-	"tabs.adminPoolSearch": {
-		"de": "Suche",
-		"en": "Search"
+	"tabs.dashboard": {
+		"de": "Dashboard",
+		"en": "Dashboard"
 	},
-	"tabs.adminPoolGraphs": {
-		"de": "Graphen",
-		"en": "Graphs"
+	"tabs.de": {
+		"de": "DE",
+		"en": "DE"
 	},
-	"user.role.USER": {
-		"de": "Unregistrierter Benutzer",
-		"en": "Unregistered User"
+	"tabs.en": {
+		"de": "EN",
+		"en": "EN"
 	},
-	"user.role.REGISTERED_USER": {
-		"de": "Registrierter Benutzer",
-		"en": "Registered User"
+	"tabs.login": {
+		"de": "Login",
+		"en": "Login"
 	},
-	"user.role.PROF": {
-		"de": "Professor",
-		"en": "Professor"
+	"tabs.logout": {
+		"de": "Logout",
+		"en": "Logout"
 	},
-	"user.role.FINANCE_ADMIN": {
-		"de": "Finanzverwaltung",
-		"en": "Finance Management"
+	"tabs.registration": {
+		"de": "Registrierung",
+		"en": "Registration"
 	},
-	"user.role.UNI_ADMIN": {
-		"de": "Universitätsverwaltung",
-		"en": "University Management"
+	"tabs.settings": {
+		"de": "Einstellungen",
+		"en": "Settings"
+	},
+	"user.role.CHIEF_OF_FINANCE_ADMIN": {
+		"de": "Vorgesetzter in Finanzverwaltung",
+		"en": "Chief of Finance Management"
 	},
 	"user.role.DEPARTMENT_MANAGER": {
 		"de": "Department Manager",
 		"en": "Department Manager"
 	},
-	"user.role.CHIEF_OF_FINANCE_ADMIN": {
-		"de": "Vorgesetzter in Finanzverwaltung",
-		"en": "Chief of Finance Management"
+	"user.role.FINANCE_ADMIN": {
+		"de": "Finanzverwaltung",
+		"en": "Finance Management"
+	},
+	"user.role.PROF": {
+		"de": "Professor",
+		"en": "Professor"
+	},
+	"user.role.REGISTERED_USER": {
+		"de": "Registrierter Benutzer",
+		"en": "Registered User"
+	},
+	"user.role.UNI_ADMIN": {
+		"de": "Universitätsverwaltung",
+		"en": "University Management"
+	},
+	"user.role.USER": {
+		"de": "Unregistrierter Benutzer",
+		"en": "Unregistered User"
 	},
 	"view-expense.title": {
 		"de": "Beleg anzeigen",
