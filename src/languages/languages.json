@@ -623,7 +623,7 @@
 		"de": "berechneter Betrag",
 		"en": "Calculated amount"
 	},
-	"expense-item.costcategory": {
+	"expense-item.costCategory": {
 		"de": "Kostenkategorie",
 		"en": "Cost category"
 	},

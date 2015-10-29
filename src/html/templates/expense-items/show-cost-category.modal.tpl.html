@@ -6,7 +6,7 @@
 		</div>
 		<h3 class="modal-title">
 			<i class="fa fa-balance-scale"></i>
-			{{ 'reimbursement.expense-item.costcategory' | translate }}
+			{{ 'reimbursement.expense-item.costCategory' | translate }}
 		</h3>
 	</div>
 
@@ -14,7 +14,7 @@
 		<div class="modal-body">
 			<form class="form-horizontal">
 				<div class="form-group">
-					<label for="costcategory" class="control-label col-sm-4"> {{ 'reimbursement.expense-item.costcategory' | translate }} </label>
+					<label for="costcategory" class="control-label col-sm-4"> {{ 'reimbursement.expense-item.costCategory' | translate }} </label>
 					<div class="col-sm-8">
 						<select id="costcategory" class="form-control" ng-model="costCategoryObject" ng-options="category.name.de for category in costCategories" ng-show="editable"></select>
 						<div class="form-control-static" ng-if="!editable">{{ costCategoryObject.name | costCategoryLanguage }}</div>
