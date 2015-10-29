@@ -16,7 +16,7 @@
 				<div class="form-group">
 					<label for="costcategory" class="control-label col-sm-4"> {{ 'reimbursement.expense-item.costCategory' | translate }} </label>
 					<div class="col-sm-8">
-						<select id="costcategory" class="form-control" ng-model="costCategoryObject" ng-options="category.name.de for category in costCategories" ng-show="editable"></select>
+						<select id="costcategory" class="form-control" ng-model="costCategoryObject" ng-options="category.name[language] for category in costCategories" ng-show="editable"></select>
 						<div class="form-control-static" ng-if="!editable">{{ costCategoryObject.name | costCategoryLanguage }}</div>
 					</div>
 				</div>

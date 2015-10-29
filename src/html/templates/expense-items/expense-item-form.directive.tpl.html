@@ -21,7 +21,7 @@
 			</label>
 			<div class="col-sm-8">
 				<select id="expenseitem-costcategory" class="form-control" ng-model="form.costCategoryUid" ng-if="editable">
-					<option ng-repeat="category in costCategories" value="{{ category.uid }}">{{ category.name.de }}</option>
+					<option ng-repeat="category in costCategories" value="{{ category.uid }}">{{ category.name | costCategoryLanguage }}</option>
 				</select>
 				<div class="form-control-static" ng-if="!editable">
 					{{ costCategoryLabel }}
