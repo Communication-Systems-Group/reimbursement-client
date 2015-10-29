@@ -679,11 +679,11 @@
 		"de": "Nein",
 		"en": "No"
 	},
-	"globalMessage.ExpenseNotFoundException.message": {
+	"globalMessage.expenseNotFoundException.message": {
 		"de": "Der Spesenantrag inkl. Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
 		"en": "The expense incl. its receipts could not be found. Please make sure, that there is no error in the address. You will be redirected now."
 	},
-	"globalMessage.ExpenseNotFoundException.title": {
+	"globalMessage.expenseNotFoundException.title": {
 		"de": "Keine Spesen gefunden",
 		"en": "No expenses found"
 	},
@@ -695,15 +695,15 @@
 		"de": "Keine Spese gefunden",
 		"en": "No expense found"
 	},
-	"globalMessage.InvalidCsrfTokenException.message": {
+	"globalMessage.invalidCsrfTokenException.message": {
 		"de": "Leider ist Ihre Sitzung abgelaufen. Sie werden zum Login weitergeleitet.\nBitte geben Sie nach dem Login Ihre Daten erneut ein.",
 		"en": "Your session has expired. You are redirected to the login page.\nPlease reenter your data after the login."
 	},
-	"globalMessage.InvalidCsrfTokenException.title": {
+	"globalMessage.invalidCsrfTokenException.title": {
 		"de": "Sitzung abgelaufen",
 		"en": "Session has expired"
 	},
-	"globalMessage.loginError.BadCredentialsException": {
+	"globalMessage.loginError.badCredentialsException": {
 		"de": "Das eingegebene Passwort oder der Benutzername sind falsch. Bitte versuchen Sie es erneut.",
 		"en": "The entered password or username was incorrect. Please try again."
 	},
@@ -731,19 +731,19 @@
 		"de": "Okay",
 		"en": "Okay"
 	},
-	"globalMessage.ServiceException.message": {
+	"globalMessage.serviceException.message": {
 		"de": "Ein allgemeiner Fehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
 		"en": "A general error occured while transfering the data. Please try it again later."
 	},
-	"globalMessage.ServiceException.title": {
+	"globalMessage.serviceException.title": {
 		"de": "Allgemeiner Fehler",
 		"en": "General error"
 	},
-	"globalMessage.ServerException.message": {
+	"globalMessage.serverException.message": {
 		"de": "Ein Serverfehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
 		"en": "A server error occured while transfering the data. Please try it again later."
 	},
-	"globalMessage.ServerException.title": {
+	"globalMessage.serverException.title": {
 		"de": "Serverfehler",
 		"en": "Server error"
 	},

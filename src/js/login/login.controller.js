@@ -31,7 +31,7 @@ app.controller('LoginController', ['$scope', '$state', 'spinnerService', 'loginR
 				var errorTitle = "reimbursement.globalMessage.loginError.title";
 
 				if(response.status === 401) {
-					globalMessagesService.showErrorMd(errorTitle, "reimbursement.globalMessage.loginError.BadCredentialsException");
+					globalMessagesService.showErrorMd(errorTitle, "reimbursement.globalMessage.loginError.badCredentialsException");
 					spinnerService.hide('spinnerLogin');
 				}
 				else if(response.status === 403) {
@@ -47,7 +47,7 @@ app.controller('LoginController', ['$scope', '$state', 'spinnerService', 'loginR
 							// 403 is now not an option anymore. the csrf token should be up to date,
 							// therefore the only acceptable status is 200 or 401.
 							if(response.status === 401) {
-								globalMessagesService.showErrorMd(errorTitle, "reimbursement.globalMessage.loginError.BadCredentialsException");
+								globalMessagesService.showErrorMd(errorTitle, "reimbursement.globalMessage.loginError.badCredentialsException");
 								spinnerService.hide('spinnerLogin');
 							}
 							else {
