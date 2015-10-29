@@ -151,6 +151,10 @@
 		"de": "Neue Kostenstelle hinzufügen",
 		"en": "Add new cost-category"
 	},
+	"costCategory.delete": {
+		"de": "Kostenstelle löschen",
+		"en": "Delete cost-category"
+	},
 	"costCategory.description": {
 		"de": "Beschreibung",
 		"en": "Description"
