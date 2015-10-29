@@ -139,29 +139,29 @@
 		"de": "Kostenstellennummer",
 		"en": "Account number"
 	},
-	"costCategory.name": {
-		"de": "Name",
-		"en": "Name"
+	"costCategory.accountingPolicy": {
+		"de": "Kontierungsrichtlinien",
+		"en": "Accounting policy"
+	},
+	"costCategory.cancelButton": {
+		"de": "Abbrechen",
+		"en": "Cancel"
 	},
 	"costCategory.description": {
 		"de": "Beschreibung",
 		"en": "Description"
 	},
-	"costCategory.accountingPolicy": {
-		"de": "Kontierungsrichtlinien",
-		"en": "Accounting policy"
-	},
 	"costCategory.edit": {
 		"de": "Kostenstelle editieren",
 		"en": "Edit cost-category"
 	},
+	"costCategory.name": {
+		"de": "Name",
+		"en": "Name"
+	},
 	"costCategory.saveButton": {
 		"de": "Kostenstelle speichern",
 		"en": "Save cost-categroy"
-	},
-	"costCategory.cancelButton": {
-		"de": "Abbrechen",
-		"en": "Cancel"
 	},
 	"settings.title": {
 		"de": "Einstellungen",
