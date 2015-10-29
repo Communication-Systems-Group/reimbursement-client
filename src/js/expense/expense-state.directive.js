@@ -13,8 +13,10 @@ app.directive('expenseState',
 			link: function ($scope) {
 
 				function pushState(state) {
+					console.log(state);
 					$scope.expenseState = state;
-					$scope.isSuccess = state === "PRINTED" || "SIGNED";
+					$scope.isSuccess = state === "PRINTED" || state === "SIGNED";
+					$scope.isRejected = state === "REJECTED";
 				}
 				pushState();
 
