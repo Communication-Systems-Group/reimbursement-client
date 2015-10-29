@@ -1,39 +1,31 @@
 {
-	"page.title": {
-		"de": "Reimbursement IFI",
-		"en": "Reimbursement IFI"
+	"add-expense-item.closeWarningEditMessage": {
+		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
+		"en": "If you close this window, you dismiss all changes made on the current receipt. Continue?"
 	},
-	"welcome.title": {
-		"de": "Reimbursement IFI",
-		"en": "Reimbursement IFI"
+	"add-expense-item.closeWarningEditTitle": {
+		"de": "Achtung",
+		"en": "Attention"
 	},
-	"registration.title": {
-		"de": "Registrierung (Schritt {{step}})",
-		"en": "Registration (Step {{step}})"
+	"add-expense-item.closeWarningMessage": {
+		"de": "Wenn Sie dieses Fenster schliessen, wird der Beleg verworfen. Fortfahren?",
+		"en": "If you close this window, you dismiss the current receipt. Continue?"
 	},
-	"registration.subtitleStep1": {
-		"de": "Persönliche Daten",
-		"en": "Personnel Data"
+	"add-expense-item.closeWarningTitle": {
+		"de": "Achtung",
+		"en": "Attention"
 	},
-	"registration.step1Message": {
-		"de": "Sie haben sich erfolgreich zum ersten Mal eingeloggt. Sie werden nun durch einen Registrierungsprozess mit 3 Schritte geführt. Bitte geben Sie die folgenden Informationen vollständig ein. Danach werden Sie aufgefordert eine Signatur über ein Gerät mit einem Touchscreen oder über einen Fileupload hochzuladen.",
-		"en": "You have been successfully logged in for the first time. Therefore you need to start by going through a 3-step registration process. Please provide the following information and afterwards a signature (as a file upload or directly by writing it on a touch-screen device)."
+	"add-expense-item.invalidAmount": {
+		"de": "Betrag ungültig",
+		"en": "Invalid Amount"
 	},
-	"registration.subtitleStep3": {
-		"de": "Signatur zuschneiden",
-		"en": "Crop Signature"
+	"add-expense-item.invalidDate": {
+		"de": "Datum ungültig",
+		"en": "Invalid Date"
 	},
-	"navbar.leavePageWarning.title": {
-		"de": "Seite verlassen?",
-		"en": "Leaving page?"
-	},
-	"navbar.leavePageWarning.message": {
-		"de": "Sind Sie sicher, dass Sie die Registrierung abbrechen und die Seite verlassen möchten?",
-		"en": "Are you sure, that you want to abort the registration and leave this page?"
-	},
-	"administration.title": {
-		"de": "Administration",
-		"en": "Administration"
+	"add-expense-item.title": {
+		"de": "Beleg hinzufügen",
+		"en": "Add receipt"
 	},
 	"administration.action": {
 		"de": "Aktion",
@@ -43,21 +35,9 @@
 		"de": "Element hinzufügen",
 		"en": "Add element"
 	},
-	"language.de": {
-		"de": "DE",
-		"en": "DE"
-	},
-	"language.en": {
-		"de": "EN",
-		"en": "EN"
-	},
-	"language.full.de": {
-		"de": "Deutsch",
-		"en": "German"
-	},
-	"language.full.en": {
-		"de": "Englisch",
-		"en": "English"
+	"administration.costCategories": {
+		"de": "Kostenstellen",
+		"en": "Cost categories"
 	},
 	"administration.delete": {
 		"de": "Löschen",
@@ -75,65 +55,197 @@
 		"de": "Editieren",
 		"en": "Edit"
 	},
-	"administration.costCategories": {
-		"de": "Kostenstellen",
-		"en": "Cost categories"
-	},
-	"adminPoolSearch.title": {
-		"de": "Admin-Pool Suche",
-		"en": "Admin-Pool search"
-	},
-	"adminPoolGraphs.title": {
-		"de": "Admin-Pool Graphen",
-		"en": "Admin-Pool graphs"
+	"administration.title": {
+		"de": "Administration",
+		"en": "Administration"
 	},
 	"adminPoolGraphs.percentagePrinted": {
 		"de": "Gedruckt",
 		"en": "Printed"
 	},
-	"adminPoolSearch.filterPanel": {
-		"de": "Bitte geben Sie Ihre Suchkriterien ein für eine Suche nach Spesen.",
-		"en": "Please enter your search criteria to find the matching expenses."
-	},
-	"adminPoolSearch.sapText": {
-		"de": "Buchhaltungsbeschreibung (SAP)",
-		"en": "Accounting description (SAP)"
+	"adminPoolGraphs.title": {
+		"de": "Admin-Pool Graphen",
+		"en": "Admin-Pool graphs"
 	},
 	"adminPoolSearch.date": {
 		"de": "Spesendatum (von/bis)",
 		"en": "Expense date (from/until)"
 	},
-	"adminPoolSearch.userRole": {
-		"de": "Berechtigung Antragssteller",
-		"en": "Permission of Expense Creator"
-	},
 	"adminPoolSearch.expenseState": {
 		"de": "Spesenstatus",
 		"en": "Expense state"
 	},
-	"adminPoolSearch.search": {
-		"de": "Spesen suchen",
-		"en": "Search expenses"
-	},
-	"adminPoolSearch.userLastName": {
-		"de": "Nachname Antragssteller",
-		"en": "Last Name of Expense Creator"
-	},
-	"adminPoolSearch.preselectedRole": {
-		"de": "(alle Berechtigungen)",
-		"en": "(all Permissions)"
+	"adminPoolSearch.filterPanel": {
+		"de": "Bitte geben Sie Ihre Suchkriterien ein für eine Suche nach Spesen.",
+		"en": "Please enter your search criteria to find the matching expenses."
 	},
 	"adminPoolSearch.preselectedExpense": {
 		"de": "(alle Stati)",
 		"en": "(all States)"
 	},
+	"adminPoolSearch.preselectedRole": {
+		"de": "(alle Berechtigungen)",
+		"en": "(all Permissions)"
+	},
+	"adminPoolSearch.sapText": {
+		"de": "Buchhaltungsbeschreibung (SAP)",
+		"en": "Accounting description (SAP)"
+	},
+	"adminPoolSearch.search": {
+		"de": "Spesen suchen",
+		"en": "Search expenses"
+	},
 	"adminPoolSearch.searchResults": {
 		"de": "Suchresultat",
 		"en": "Search results"
 	},
+	"adminPoolSearch.title": {
+		"de": "Admin-Pool Suche",
+		"en": "Admin-Pool search"
+	},
+	"adminPoolSearch.userLastName": {
+		"de": "Nachname Antragssteller",
+		"en": "Last Name of Expense Creator"
+	},
+	"adminPoolSearch.userRole": {
+		"de": "Berechtigung Antragssteller",
+		"en": "Permission of Expense Creator"
+	},
 	"archive.title": {
 		"de": "Archivierte Spesen",
 		"en": "Archived Expenses"
+	},
+	"attachmentCapture.mobile.complete": {
+		"de": "Der Anhang wurde erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät weiter, indem Sie auf den Button 'Anhang erfasst' klicken.",
+		"en": "The attachment was successfully uploaded. Please continue on your desktop device by clicking the button 'Attachment captured'."
+	},
+	"attachmentCapture.mobile.error": {
+		"de": "Der Anhang konnte nicht hochgeladen werden. Verwenden Sie nur Bild- oder PDF-Dateien. Aktualisieren Sie die Seite für einen neuen Versuch.",
+		"en": "The attachment upload was unsuccessful. Please upload only image or pdf files. Refresh the page for a retry."
+	},
+	"captureAttachment.deleteAttachment.message": {
+		"de": "Sind Sie sicher, dass Sie diesen hochgeladenen Beleg unwiderruflich löschen möchten?",
+		"en": "Are you sure, that you want to delete this uploaded receipt irrevocably?"
+	},
+	"captureAttachment.deleteAttachment.title": {
+		"de": "Beleg löschen?",
+		"en": "Delete receipt?"
+	},
+	"captureAttachment.downloadAttachment": {
+		"de": "Beleg herunterladen",
+		"en": "Download receipt"
+	},
+	"captureAttachment.or": {
+		"de": "ODER",
+		"en": "OR"
+	},
+	"captureAttachment.tryMobile": {
+		"de": "Mobilgerät für Upload verwenden",
+		"en": "Use mobile device for upload"
+	},
+	"captureAttachment.qr.cancel": {
+		"de": "Abbrechen",
+		"en": "Cancel"
+	},
+	"captureAttachment.qr.capturedOnMobile": {
+		"de": "Anhang erfasst",
+		"en": "Attachment captured"
+	},
+	"captureAttachment.qr.info": {
+		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet). Sie gelangen danach auf eine Seite in Ihrem mobile Browser, in welchem Sie den Anhang anfügen können.",
+		"en": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can upload your attachment using the touch screen is opened in your mobile device's browser."
+	},
+	"captureAttachment.qr.notYetCaptured.message": {
+		"de": "Der Beleg wurde auf dem Mobilgerät noch nicht hochgeladen. Laden Sie bitte den Beleg mit obenstehenden QR-Code auf Ihrem Mobilgerät hoch.",
+		"en": "The receipt was not yet uploaded on the mobile device. Please upload the receipt on your mobile device."
+	},
+	"captureAttachment.qr.notYetCaptured.title": {
+		"de": "Noch nicht erfasst",
+		"en": "Not yet uploaded"
+	},
+	"captureAttachment.qr.or": {
+		"de": "ODER",
+		"en": "OR"
+	},
+	"captureAttachment.qr.title": {
+		"de": "Anhang mit Mobilgerät erfassen",
+		"en": "Capturing attachments using a mobile device"
+	},
+	"captureAttachment.upload.centerText": {
+		"de": "Datei auswählen",
+		"en": "Select file"
+	},
+	"captureSignature.info": {
+		"de": "Um Ihre Registrierung abschliessen zu können, müssen Sie noch Ihre Unterschrift digital erfassen. Sie können die Unterschrift entweder über einen Touch-Screen direkt online erfassen oder eine Bilddatei mit Ihrer Unterschrift hochladen.",
+		"en": "To finish your registration, you are kindly asked to capture your signature. You can upload an image containing the signature or use the the touch screen input and capture it directly online."
+	},
+	"captureSignature.title": {
+		"de": "Unterschrift erfassen",
+		"en": "Capture Signature"
+	},
+	"captureSignature.nextStep": {
+		"de": "Speichern",
+		"en": "Submit"
+	},
+	"captureSignature.mobile.complete": {
+		"de": "Unterschrift erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät mit der Registrierung weiter indem Sie auf den Button 'Signatur erfasst' klicken.",
+		"en": "The signature was successfully uploaded. Please continue on your desktop device by clicking the button 'Signature Captured'."
+	},
+	"captureSignature.mobile.error": {
+		"de": "Es ist ein Fehler beim Hochladen aufgetreten. Bitte schliessen Sie dieses Browserfenster auf Ihrem Mobilgerät, aktualisieren die Seite auf Ihrem Desktop-Gerät und probieren es erneut.",
+		"en": "An error occured while uploading the signature. Please close this browser window on your mobile device, refresh the page on the desktop device and try it again."
+	},
+	"captureSignature.qr.cancel": {
+		"de": "Abbrechen",
+		"en": "Cancel"
+	},
+	"captureSignature.qr.capturedOnMobile": {
+		"de": "Signatur erfasst",
+		"en": "Signature Captured"
+	},
+	"captureSignature.qr.info": {
+		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet). Sie gelangen danach auf eine Seite in Ihrem mobile Browser, in welchem Sie die Signatur mit dem Touch Screen erfassen können. Bestätigen Sie die Unterschrift und fahren Sie auf dieser Seite hier fort.",
+		"en": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can enter your signature using the touch screen is opened in your mobile device's  browser. Confirm the signature on the mobile device and continue on this page here."
+	},
+	"captureSignature.qr.or": {
+		"de": "ODER",
+		"en": "OR"
+	},
+	"captureSignature.qr.title": {
+		"de": "Signatur auf Mobilgerät erfassen",
+		"en": "Capture Signature on Mobile Device"
+	},
+	"captureSignature.spinnerUploading": {
+		"de": "Wird hochgeladen...",
+		"en": "Uploading..."
+	},
+	"captureSignature.touch.reset": {
+		"de": "Zurücksetzen",
+		"en": "Reset"
+	},
+	"captureSignature.touch.tab": {
+		"de": "Touch-Screen Eingabe",
+		"en": "Touch Screen Entry"
+	},
+	"captureSignature.touch.tryAnyway": {
+		"de": "Trotzdem erfassen",
+		"en": "Try it anyway"
+	},
+	"captureSignature.touch.tryMobile": {
+		"de": "Mobilgerät verwenden",
+		"en": "Use mobile device"
+	},
+	"captureSignature.touch.warning": {
+		"de": "Nach unserer Erkenntnis verwenden Sie ein Gerät, das keine Toucheingabe ermöglicht. Für die Unterschrift benötigen Sie ein touchfähiges Eingabegerät. Verwenden Sie ein Mobilgerät (Smartphone, Tablet) für die Eingabe, indem Sie folgenden QR-Code einscannen.",
+		"en": "According to our recognition patterns, you are using a device without a touch screen. For capturing the signature, you need to have a device with a touch screen. Use a mobile phone or tablet to enter your signature. Scan the following QR code on your mobile device."
+	},
+	"captureSignature.upload.centerText": {
+		"de": "Bild hochladen",
+		"en": "Upload Image"
+	},
+	"captureSignature.upload.tab": {
+		"de": "Bildupload",
+		"en": "Image Upload"
 	},
 	"costCategory.accountNumber": {
 		"de": "Kostenstellennummer",
@@ -171,365 +283,17 @@
 		"de": "Kostenstelle speichern",
 		"en": "Save cost-categroy"
 	},
-	"settings.title": {
-		"de": "Einstellungen",
-		"en": "Settings"
-	},
-	"settings.language": {
-		"de": "Sprache",
-		"en": "Language"
-	},
-	"settings.userSettingsPanel": {
-		"de": "Benutzereinstellungen",
-		"en": "User settings"
-	},
-	"settings.personnelNumber": {
-		"de": "Personalnummer",
-		"en": "Personnel number"
-	},
-	"settings.phoneNumber": {
-		"de": "Telefonnummer",
-		"en": "Phone number"
-	},
-	"settings.accountState": {
-		"de": "Kontostatus",
-		"en": "Account state"
-	},
-	"settings.state": {
-		"de": "Aktiv",
-		"en": "Active"
-	},
-	"settings.signature.submitWarningTitle": {
-		"de": "Unterschrift bearbeiten",
-		"en": "Change signature"
-	},
-	"settings.signature.submitWarningMessage": {
-		"de": "Möchten Sie eine neue Signatur erfassen und die bisherig erfasste Unterschrift überschreiben?",
-		"en": "Do you want to add a new signature and discard the current one?"
-	},
-	"settings.signaturePanel": {
-		"de": "Unterschrift bearbeiten",
-		"en": "Change signature"
-	},
-	"settings.signature": {
-		"de": "Unterschrift",
-		"en": "Signature"
-	},
-	"settings.uploadSignature": {
-		"de": "Unterschrift erstellen",
-		"en": "Upload signature"
-	},
-	"tabs.de": {
-		"de": "DE",
-		"en": "DE"
-	},
-	"tabs.en": {
-		"de": "EN",
-		"en": "EN"
-	},
-	"tabs.registration": {
-		"de": "Registrierung",
-		"en": "Registration"
-	},
-	"tabs.login": {
-		"de": "Login",
-		"en": "Login"
-	},
-	"tabs.logout": {
-		"de": "Logout",
-		"en": "Logout"
-	},
-	"tabs.settings": {
-		"de": "Einstellungen",
-		"en": "Settings"
-	},
-	"tabs.dashboard": {
-		"de": "Dashboard",
-		"en": "Dashboard"
-	},
-	"tabs.administration": {
-		"de": "Administration",
-		"en": "Administration"
-	},
-	"tabs.archive": {
-		"de": "Archiv",
-		"en": "Archive"
-	},
-	"tabs.costCategories": {
-		"de": "Kostenstellen",
-		"en": "Cost-Categories"
-	},
-	"tabs.adminPoolSearch": {
-		"de": "Suche",
-		"en": "Search"
-	},
-	"tabs.adminPoolGraphs": {
-		"de": "Graphen",
-		"en": "Graphs"
-	},
-	"loading.label": {
-		"de": "Bitte warten...",
-		"en": "Please wait..."
-	},
-	"globalMessage.okayButton": {
-		"de": "Okay",
-		"en": "Okay"
-	},
-	"globalMessages.acceptButton": {
-		"de": "Ja",
-		"en": "Yes"
-	},
-	"globalMessages.denyButton": {
-		"de": "Nein",
-		"en": "No"
-	},
-	"globalMessage.notAnImage.title": {
-		"de": "Unbekannter Dateityp",
-		"en": "Not an image"
-	},
-	"globalMessage.notAnImage.message": {
-		"de": "Die Datei, die Sie hochgeladen wurde, wurde nicht als gültiges Bild erkannt. Bitte versuchen Sie es erneut und laden Sie eine gültige Bilddatei hoch.",
-		"en": "The uploaded file was not recognized as an image. Please try it again and upload a proper image file."
-	},
-	"globalMessage.signatureQrNoImage.title": {
-		"de": "Fehler aufgetreten",
-		"en": "Error occured"
-	},
-	"globalMessage.signatureQrNoImage.message": {
-		"de": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut die Signatur von Ihrem Mobilgerät abzuschicken.",
-		"en": "Make sure, you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device."
-	},
-	"globalMessage.loginError.title": {
-		"de": "Login fehlgeschlagen",
-		"en": "Login failed"
-	},
-	"globalMessage.loginError.BadCredentialsException": {
-		"de": "Das eingegebene Passwort oder der Benutzername sind falsch. Bitte versuchen Sie es erneut.",
-		"en": "The entered password or username was incorrect. Please try again."
-	},
-	"globalMessage.InvalidCsrfTokenException.title": {
-		"de": "Sitzung abgelaufen",
-		"en": "Session has expired"
-	},
-	"globalMessage.InvalidCsrfTokenException.message": {
-		"de": "Leider ist Ihre Sitzung abgelaufen. Sie werden zum Login weitergeleitet.\nBitte geben Sie nach dem Login Ihre Daten erneut ein.",
-		"en": "Your session has expired. You are redirected to the login page.\nPlease reenter your data after the login."
-	},
-	"globalMessage.ServiceException.title": {
-		"de": "Allgemeiner Fehler",
-		"en": "General error"
-	},
-	"globalMessage.ServiceException.message": {
-		"de": "Ein allgemeiner Fehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
-		"en": "A general error occured while transfering the data. Please try it again later."
-	},
-	"globalMessage.ServerException.title": {
-		"de": "Serverfehler",
-		"en": "Server error"
-	},
-	"globalMessage.ServerException.message": {
-		"de": "Ein Serverfehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
-		"en": "A server error occured while transfering the data. Please try it again later."
-	},
-	"globalMessage.ExpenseNotFoundException.title": {
-		"de": "Keine Spesen gefunden",
-		"en": "No expenses found"
-	},
-	"globalMessage.ExpenseNotFoundException.message": {
-		"de": "Der Spesenantrag inkl. Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
-		"en": "The expense incl. its receipts could not be found. Please make sure, that there is no error in the address. You will be redirected now."
-	},
-	"globalMessages.notAuthenticatedRequired.title": {
-		"de": "Eingeloggt...",
-		"en": "Logged in..."
-	},
-	"globalMessages.notAuthenticatedRequired.message": {
-		"de": "Sie versuchen eine Seite aufzurufen, die nur aufrufbar ist, wenn Sie nicht eingeloggt sind. Sie wurden zum Dashboard weitergeleitet.",
-		"en": "You are trying to access a page, which is only accessible if you're not logged in. You were redirected to the dashboard."
-	},
-	"globalMessages.guest.noExpenseFound.title": {
-		"de": "Keine Spese gefunden",
-		"en": "No expense found"
-	},
-	"globalMessages.guest.noExpenseFound.message": {
-		"de": "Es wurde keine Spese unter diesem Link gefunden. Der Link wird nach einer bestimmten Zeitdauer ungültig. Falls es sich um eine ältere Spesendokument handelt, ist es nun nicht mehr abrufbar. Ansonsten vergewissern Sie sich, dass Sie die Adresse korrekt eingegeben haben",
-		"en": "No expense was found on this link. The link becomes invalid after a certain time period. If the requested expense sheet is not new, the link became most likely invalid. Otherwise, please make sure, that you enter the link correctly."
-	},
-	"globalMessages.uploadOrValidationError.title": {
-		"de": "Fehler",
-		"en": "Error"
-	},
-	"globalMessages.uploadOrValidationError.message": {
-		"de": "Es ist ein Fehler aufgetreten. Stellen Sie sicher, dass Sie nur eine Datei mit einem der erlaubten Dateiformate hochladen.",
-		"en": "An error occured. Please make sure, that you only upload a file with one of the allowed file extensions."
-	},
-	"login.title": {
-		"de": "Login",
-		"en": "Login"
-	},
-	"login.usernameLabel": {
-		"de": "Benutzername",
-		"en": "User Name"
-	},
-	"login.passwordLabel": {
-		"de": "Passwort",
-		"en": "Password"
-	},
-	"login.submitLabel": {
-		"de": "Login",
-		"en": "Login"
-	},
-	"logout.title": {
-		"de": "Logout",
-		"en": "Logout"
-	},
-	"logout.spinner": {
-		"de": "Sie werden ausgeloggt...",
-		"en": "You are going to be logged out..."
-	},
-	"logout.successMessage": {
-		"de": "Sie wurden erfolgreich ausgeloggt. Beehren Sie uns bald wieder mit Ihren Spesen.",
-		"en": "You were successfully logged out."
-	},
-	"captureAttachment.deleteAttachment.title": {
-		"de": "Beleg löschen?",
-		"en": "Delete receipt?"
-	},
-	"captureAttachment.deleteAttachment.message": {
-		"de": "Sind Sie sicher, dass Sie diesen hochgeladenen Beleg unwiderruflich löschen möchten?",
-		"en": "Are you sure, that you want to delete this uploaded receipt irrevocably?"
-	},
-	"captureAttachment.tryMobile": {
-		"de": "Mobilgerät für Upload verwenden",
-		"en": "Use mobile device for upload"
-	},
-	"captureAttachment.or": {
-		"de": "ODER",
-		"en": "OR"
-	},
-	"captureAttachment.downloadAttachment": {
-		"de": "Beleg herunterladen",
-		"en": "Download receipt"
-	},
-	"captureAttachment.upload.centerText": {
-		"de": "Datei auswählen",
-		"en": "Select file"
-	},
-	"captureAttachment.qr.title": {
-		"de": "Anhang mit Mobilgerät erfassen",
-		"en": "Capturing attachments using a mobile device"
-	},
-	"captureAttachment.qr.info": {
-		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet). Sie gelangen danach auf eine Seite in Ihrem mobile Browser, in welchem Sie den Anhang anfügen können.",
-		"en": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can upload your attachment using the touch screen is opened in your mobile device's browser."
-	},
-	"captureAttachment.qr.or": {
-		"de": "ODER",
-		"en": "OR"
-	},
-	"captureAttachment.qr.cancel": {
-		"de": "Abbrechen",
-		"en": "Cancel"
-	},
-	"captureAttachment.qr.capturedOnMobile": {
-		"de": "Anhang erfasst",
-		"en": "Attachment captured"
-	},
-	"captureAttachment.qr.notYetCaptured.title": {
-		"de": "Noch nicht erfasst",
-		"en": "Not yet uploaded"
-	},
-	"captureAttachment.qr.notYetCaptured.message": {
-		"de": "Der Beleg wurde auf dem Mobilgerät noch nicht hochgeladen. Laden Sie bitte den Beleg mit obenstehenden QR-Code auf Ihrem Mobilgerät hoch.",
-		"en": "The receipt was not yet uploaded on the mobile device. Please upload the receipt on your mobile device."
-	},
-	"attachmentCapture.mobile.complete": {
-		"de": "Der Anhang wurde erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät weiter, indem Sie auf den Button 'Anhang erfasst' klicken.",
-		"en": "The attachment was successfully uploaded. Please continue on your desktop device by clicking the button 'Attachment captured'."
-	},
-	"attachmentCapture.mobile.error": {
-		"de": "Der Anhang konnte nicht hochgeladen werden. Verwenden Sie nur Bild- oder PDF-Dateien. Aktualisieren Sie die Seite für einen neuen Versuch.",
-		"en": "The attachment upload was unsuccessful. Please upload only image or pdf files. Refresh the page for a retry."
-	},
-	"captureSignature.title": {
-		"de": "Unterschrift erfassen",
-		"en": "Capture Signature"
-	},
-	"captureSignature.info": {
-		"de": "Um Ihre Registrierung abschliessen zu können, müssen Sie noch Ihre Unterschrift digital erfassen. Sie können die Unterschrift entweder über einen Touch-Screen direkt online erfassen oder eine Bilddatei mit Ihrer Unterschrift hochladen.",
-		"en": "To finish your registration, you are kindly asked to capture your signature. You can upload an image containing the signature or use the the touch screen input and capture it directly online."
-	},
-	"captureSignature.nextStep": {
-		"de": "Speichern",
-		"en": "Submit"
-	},
-	"captureSignature.spinnerUploading": {
-		"de": "Wird hochgeladen...",
-		"en": "Uploading..."
-	},
-	"captureSignature.upload.tab": {
-		"de": "Bildupload",
-		"en": "Image Upload"
-	},
-	"captureSignature.upload.centerText": {
-		"de": "Bild hochladen",
-		"en": "Upload Image"
-	},
-	"captureSignature.touch.tab": {
-		"de": "Touch-Screen Eingabe",
-		"en": "Touch Screen Entry"
-	},
-	"captureSignature.touch.warning": {
-		"de": "Nach unserer Erkenntnis verwenden Sie ein Gerät, das keine Toucheingabe ermöglicht. Für die Unterschrift benötigen Sie ein touchfähiges Eingabegerät. Verwenden Sie ein Mobilgerät (Smartphone, Tablet) für die Eingabe, indem Sie folgenden QR-Code einscannen.",
-		"en": "According to our recognition patterns, you are using a device without a touch screen. For capturing the signature, you need to have a device with a touch screen. Use a mobile phone or tablet to enter your signature. Scan the following QR code on your mobile device."
-	},
-	"captureSignature.touch.tryMobile": {
-		"de": "Mobilgerät verwenden",
-		"en": "Use mobile device"
-	},
-	"captureSignature.touch.tryAnyway": {
-		"de": "Trotzdem erfassen",
-		"en": "Try it anyway"
-	},
-	"captureSignature.touch.reset": {
-		"de": "Zurücksetzen",
-		"en": "Reset"
-	},
-	"captureSignature.qr.title": {
-		"de": "Signatur auf Mobilgerät erfassen",
-		"en": "Capture Signature on Mobile Device"
-	},
-	"captureSignature.qr.cancel": {
-		"de": "Abbrechen",
-		"en": "Cancel"
-	},
-	"captureSignature.qr.capturedOnMobile": {
-		"de": "Signatur erfasst",
-		"en": "Signature Captured"
-	},
-	"captureSignature.qr.info": {
-		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet). Sie gelangen danach auf eine Seite in Ihrem mobile Browser, in welchem Sie die Signatur mit dem Touch Screen erfassen können. Bestätigen Sie die Unterschrift und fahren Sie auf dieser Seite hier fort.",
-		"en": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can enter your signature using the touch screen is opened in your mobile device's  browser. Confirm the signature on the mobile device and continue on this page here."
-	},
-	"captureSignature.qr.or": {
-		"de": "ODER",
-		"en": "OR"
-	},
-	"captureSignature.mobile.complete": {
-		"de": "Unterschrift erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät mit der Registrierung weiter indem Sie auf den Button 'Signatur erfasst' klicken.",
-		"en": "The signature was successfully uploaded. Please continue on your desktop device by clicking the button 'Signature Captured'."
-	},
-	"captureSignature.mobile.error": {
-		"de": "Es ist ein Fehler beim Hochladen aufgetreten. Bitte schliessen Sie dieses Browserfenster auf Ihrem Mobilgerät, aktualisieren die Seite auf Ihrem Desktop-Gerät und probieren es erneut.",
-		"en": "An error occured while uploading the signature. Please close this browser window on your mobile device, refresh the page on the desktop device and try it again."
-	},
-	"cropSignature.title": {
-		"de": "Unterschrift zuschneiden",
-		"en": "Crop Signature"
+	"create-expense.title": {
+		"de": "Neue Spesen hinzufügen",
+		"en": "Add new expense"
 	},
 	"cropSignature.submit": {
 		"de": "Zuschneiden",
 		"en": "Crop it"
+	},
+	"cropSignature.title": {
+		"de": "Unterschrift zuschneiden",
+		"en": "Crop Signature"
 	},
 	"dashboard.action": {
 		"de": "Aktion",
@@ -543,21 +307,17 @@
 		"de": "Spesen überprüfen",
 		"en": "Expenses for review"
 	},
-	"dashboard.title": {
-		"de": "Dashboard",
-		"en": "Dashboard"
-	},
 	"dashboard.table.addExpense": {
 		"de": "Neue Spese erstellen",
 		"en": "Create new expense"
 	},
-	"dashboard.table.date": {
-		"de": "Datum",
-		"en": "Date"
-	},
 	"dashboard.table.expenseAuthor": {
 		"de": "Spesensteller",
 		"en": "Expense author"
+	},
+	"dashboard.table.date": {
+		"de": "Datum",
+		"en": "Date"
 	},
 	"dashboard.table.noContent": {
 		"de": "Keine Daten vorhanden!",
@@ -567,97 +327,9 @@
 		"de": "Totale Kosten",
 		"en": "Total costs"
 	},
-	"dashboard.table.status": {
-		"de": "Status",
-		"en": "State"
-	},
-	"create-expense.title": {
-		"de": "Neue Spesen hinzufügen",
-		"en": "Add new expense"
-	},
-	"add-expense-item.title": {
-		"de": "Beleg hinzufügen",
-		"en": "Add receipt"
-	},
-	"add-expense-item.closeWarningTitle": {
-		"de": "Achtung",
-		"en": "Attention"
-	},
-	"add-expense-item.closeWarningMessage": {
-		"de": "Wenn Sie dieses Fenster schliessen, wird der Beleg verworfen. Fortfahren?",
-		"en": "If you close this window, you dismiss the current receipt. Continue?"
-	},
-	"add-expense-item.closeWarningEditTitle": {
-		"de": "Achtung",
-		"en": "Attention"
-	},
-	"add-expense-item.closeWarningEditMessage": {
-		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
-		"en": "If you close this window, you dismiss all changes made on the current receipt. Continue?"
-	},
-	"expense-items.title": {
-		"de": "Belege einreichen",
-		"en": "Add receipts"
-	},
-	"expense-items.titleNotEditable": {
-		"de": "Eingereichte Belege",
-		"en": "Receipts"
-	},
-	"expense-items.titleReview": {
-		"de": "Eingereichte Belege",
-		"en": "Receipts"
-	},
-	"expense-item.date": {
-		"de": "Belegsdatum",
-		"en": "Receipt date"
-	},
-	"expense-item.costcategory": {
-		"de": "Kostenkategorie",
-		"en": "Cost category"
-	},
-	"expense-item.amount": {
-		"de": "Betrag",
-		"en": "Amount"
-	},
-	"expense-item.calculatedAmount": {
-		"de": "berechneter Betrag",
-		"en": "Calculated amount"
-	},
-	"expense-item.project": {
-		"de": "Projekt",
-		"en": "Project"
-	},
-	"expense-item.explanation": {
-		"de": "Spesengrund",
-		"en": "Expense explanation"
-	},
-	"expense-item.saveButton": {
-		"de": "Beleg speichern",
-		"en": "Save Receipt"
-	},
-	"expense-item.deleteConfirmTitle": {
-		"de": "Achtung",
-		"en": "Attention"
-	},
-	"expense-item.deleteConfirmMessage": {
-		"de": "Möchten Sie diesen Beleg wirklich unwiderruflich löschen?",
-		"en": "Are you sure, that you want to delete this receipt permanently?"
-	},
-	"expense-item.uploadReceipt": {
-		"de": "Beleg hochladen",
-		"en": "Upload receipt"
-	},
-	"expense-item.uploadReceipt.fileExtensions": {
-		"de": "(Bilddateien oder PDFs)",
-		"en": "(Images or PDFs)"
-	},
-	"add-expense-item.invalidDate": {
-		"de": "Datum ungültig",
-		"en": "Invalid Date"
-	},
-	"add-expense-item.invalidAmount": {
-		"de": "Betrag ungültig",
-		"en": "Invalid Amount"
+	"dashboard.title": {
+		"de": "Dashboard",
+		"en": "Dashboard"
 	},
 	"edit-expense.title": {
 		"de": "Beleg bearbeiten",
@@ -670,10 +342,6 @@
 	"edit-expense.editAccountingSaveButton": {
 		"de": "Speichern",
 		"en": "Save"
-	},
-	"view-expense.title": {
-		"de": "Beleg anzeigen",
-		"en": "Show receipt"
 	},
 	"expense.state.REJECTED": {
 		"de": "Zurückgewiesen",
@@ -943,6 +611,330 @@
 		"de": "Validieren",
 		"en": "Validate"
 	},
+	"expense-items.title": {
+		"de": "Belege einreichen",
+		"en": "Add receipts"
+	},
+	"expense-items.titleNotEditable": {
+		"de": "Eingereichte Belege",
+		"en": "Receipts"
+	},
+	"expense-items.titleReview": {
+		"de": "Eingereichte Belege",
+		"en": "Receipts"
+	},
+	"expense-item.date": {
+		"de": "Belegsdatum",
+		"en": "Receipt date"
+	},
+	"expense-item.costcategory": {
+		"de": "Kostenkategorie",
+		"en": "Cost category"
+	},
+	"expense-item.amount": {
+		"de": "Betrag",
+		"en": "Amount"
+	},
+	"expense-item.calculatedAmount": {
+		"de": "berechneter Betrag",
+		"en": "Calculated amount"
+	},
+	"expense-item.project": {
+		"de": "Projekt",
+		"en": "Project"
+	},
+	"expense-item.explanation": {
+		"de": "Spesengrund",
+		"en": "Expense explanation"
+	},
+	"expense-item.saveButton": {
+		"de": "Beleg speichern",
+		"en": "Save Receipt"
+	},
+	"expense-item.deleteConfirmTitle": {
+		"de": "Achtung",
+		"en": "Attention"
+	},
+	"expense-item.deleteConfirmMessage": {
+		"de": "Möchten Sie diesen Beleg wirklich unwiderruflich löschen?",
+		"en": "Are you sure, that you want to delete this receipt permanently?"
+	},
+	"expense-item.uploadReceipt": {
+		"de": "Beleg hochladen",
+		"en": "Upload receipt"
+	},
+	"expense-item.uploadReceipt.fileExtensions": {
+		"de": "(Bilddateien oder PDFs)",
+		"en": "(Images or PDFs)"
+	},
+	"dashboard.table.status": {
+		"de": "Status",
+		"en": "State"
+	},
+	"globalMessage.okayButton": {
+		"de": "Okay",
+		"en": "Okay"
+	},
+	"globalMessages.acceptButton": {
+		"de": "Ja",
+		"en": "Yes"
+	},
+	"globalMessages.denyButton": {
+		"de": "Nein",
+		"en": "No"
+	},
+	"globalMessage.notAnImage.title": {
+		"de": "Unbekannter Dateityp",
+		"en": "Not an image"
+	},
+	"globalMessage.notAnImage.message": {
+		"de": "Die Datei, die Sie hochgeladen wurde, wurde nicht als gültiges Bild erkannt. Bitte versuchen Sie es erneut und laden Sie eine gültige Bilddatei hoch.",
+		"en": "The uploaded file was not recognized as an image. Please try it again and upload a proper image file."
+	},
+	"globalMessage.signatureQrNoImage.title": {
+		"de": "Fehler aufgetreten",
+		"en": "Error occured"
+	},
+	"globalMessage.signatureQrNoImage.message": {
+		"de": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut die Signatur von Ihrem Mobilgerät abzuschicken.",
+		"en": "Make sure, you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device."
+	},
+	"globalMessage.loginError.title": {
+		"de": "Login fehlgeschlagen",
+		"en": "Login failed"
+	},
+	"globalMessage.loginError.BadCredentialsException": {
+		"de": "Das eingegebene Passwort oder der Benutzername sind falsch. Bitte versuchen Sie es erneut.",
+		"en": "The entered password or username was incorrect. Please try again."
+	},
+	"globalMessage.InvalidCsrfTokenException.title": {
+		"de": "Sitzung abgelaufen",
+		"en": "Session has expired"
+	},
+	"globalMessage.InvalidCsrfTokenException.message": {
+		"de": "Leider ist Ihre Sitzung abgelaufen. Sie werden zum Login weitergeleitet.\nBitte geben Sie nach dem Login Ihre Daten erneut ein.",
+		"en": "Your session has expired. You are redirected to the login page.\nPlease reenter your data after the login."
+	},
+	"globalMessage.ServiceException.title": {
+		"de": "Allgemeiner Fehler",
+		"en": "General error"
+	},
+	"globalMessage.ServiceException.message": {
+		"de": "Ein allgemeiner Fehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
+		"en": "A general error occured while transfering the data. Please try it again later."
+	},
+	"globalMessage.ServerException.title": {
+		"de": "Serverfehler",
+		"en": "Server error"
+	},
+	"globalMessage.ServerException.message": {
+		"de": "Ein Serverfehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
+		"en": "A server error occured while transfering the data. Please try it again later."
+	},
+	"globalMessage.ExpenseNotFoundException.title": {
+		"de": "Keine Spesen gefunden",
+		"en": "No expenses found"
+	},
+	"globalMessage.ExpenseNotFoundException.message": {
+		"de": "Der Spesenantrag inkl. Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
+		"en": "The expense incl. its receipts could not be found. Please make sure, that there is no error in the address. You will be redirected now."
+	},
+	"globalMessages.notAuthenticatedRequired.title": {
+		"de": "Eingeloggt...",
+		"en": "Logged in..."
+	},
+	"globalMessages.notAuthenticatedRequired.message": {
+		"de": "Sie versuchen eine Seite aufzurufen, die nur aufrufbar ist, wenn Sie nicht eingeloggt sind. Sie wurden zum Dashboard weitergeleitet.",
+		"en": "You are trying to access a page, which is only accessible if you're not logged in. You were redirected to the dashboard."
+	},
+	"globalMessages.guest.noExpenseFound.title": {
+		"de": "Keine Spese gefunden",
+		"en": "No expense found"
+	},
+	"globalMessages.guest.noExpenseFound.message": {
+		"de": "Es wurde keine Spese unter diesem Link gefunden. Der Link wird nach einer bestimmten Zeitdauer ungültig. Falls es sich um eine ältere Spesendokument handelt, ist es nun nicht mehr abrufbar. Ansonsten vergewissern Sie sich, dass Sie die Adresse korrekt eingegeben haben",
+		"en": "No expense was found on this link. The link becomes invalid after a certain time period. If the requested expense sheet is not new, the link became most likely invalid. Otherwise, please make sure, that you enter the link correctly."
+	},
+	"globalMessages.uploadOrValidationError.title": {
+		"de": "Fehler",
+		"en": "Error"
+	},
+	"globalMessages.uploadOrValidationError.message": {
+		"de": "Es ist ein Fehler aufgetreten. Stellen Sie sicher, dass Sie nur eine Datei mit einem der erlaubten Dateiformate hochladen.",
+		"en": "An error occured. Please make sure, that you only upload a file with one of the allowed file extensions."
+	},
+	"language.de": {
+		"de": "DE",
+		"en": "DE"
+	},
+	"language.en": {
+		"de": "EN",
+		"en": "EN"
+	},
+	"language.full.de": {
+		"de": "Deutsch",
+		"en": "German"
+	},
+	"language.full.en": {
+		"de": "Englisch",
+		"en": "English"
+	},
+	"loading.label": {
+		"de": "Bitte warten...",
+		"en": "Please wait..."
+	},
+	"login.title": {
+		"de": "Login",
+		"en": "Login"
+	},
+	"login.usernameLabel": {
+		"de": "Benutzername",
+		"en": "User Name"
+	},
+	"login.passwordLabel": {
+		"de": "Passwort",
+		"en": "Password"
+	},
+	"login.submitLabel": {
+		"de": "Login",
+		"en": "Login"
+	},
+	"logout.title": {
+		"de": "Logout",
+		"en": "Logout"
+	},
+	"logout.spinner": {
+		"de": "Sie werden ausgeloggt...",
+		"en": "You are going to be logged out..."
+	},
+	"logout.successMessage": {
+		"de": "Sie wurden erfolgreich ausgeloggt. Beehren Sie uns bald wieder mit Ihren Spesen.",
+		"en": "You were successfully logged out."
+	},
+	"navbar.leavePageWarning.title": {
+		"de": "Seite verlassen?",
+		"en": "Leaving page?"
+	},
+	"navbar.leavePageWarning.message": {
+		"de": "Sind Sie sicher, dass Sie die Registrierung abbrechen und die Seite verlassen möchten?",
+		"en": "Are you sure, that you want to abort the registration and leave this page?"
+	},
+	"page.title": {
+		"de": "Reimbursement IFI",
+		"en": "Reimbursement IFI"
+	},
+	"registration.title": {
+		"de": "Registrierung (Schritt {{step}})",
+		"en": "Registration (Step {{step}})"
+	},
+	"registration.subtitleStep1": {
+		"de": "Persönliche Daten",
+		"en": "Personnel Data"
+	},
+	"registration.step1Message": {
+		"de": "Sie haben sich erfolgreich zum ersten Mal eingeloggt. Sie werden nun durch einen Registrierungsprozess mit 3 Schritte geführt. Bitte geben Sie die folgenden Informationen vollständig ein. Danach werden Sie aufgefordert eine Signatur über ein Gerät mit einem Touchscreen oder über einen Fileupload hochzuladen.",
+		"en": "You have been successfully logged in for the first time. Therefore you need to start by going through a 3-step registration process. Please provide the following information and afterwards a signature (as a file upload or directly by writing it on a touch-screen device)."
+	},
+	"registration.subtitleStep3": {
+		"de": "Signatur zuschneiden",
+		"en": "Crop Signature"
+	},
+	"settings.title": {
+		"de": "Einstellungen",
+		"en": "Settings"
+	},
+	"settings.language": {
+		"de": "Sprache",
+		"en": "Language"
+	},
+	"settings.userSettingsPanel": {
+		"de": "Benutzereinstellungen",
+		"en": "User settings"
+	},
+	"settings.personnelNumber": {
+		"de": "Personalnummer",
+		"en": "Personnel number"
+	},
+	"settings.phoneNumber": {
+		"de": "Telefonnummer",
+		"en": "Phone number"
+	},
+	"settings.accountState": {
+		"de": "Kontostatus",
+		"en": "Account state"
+	},
+	"settings.state": {
+		"de": "Aktiv",
+		"en": "Active"
+	},
+	"settings.signature.submitWarningTitle": {
+		"de": "Unterschrift bearbeiten",
+		"en": "Change signature"
+	},
+	"settings.signature.submitWarningMessage": {
+		"de": "Möchten Sie eine neue Signatur erfassen und die bisherig erfasste Unterschrift überschreiben?",
+		"en": "Do you want to add a new signature and discard the current one?"
+	},
+	"settings.signaturePanel": {
+		"de": "Unterschrift bearbeiten",
+		"en": "Change signature"
+	},
+	"settings.signature": {
+		"de": "Unterschrift",
+		"en": "Signature"
+	},
+	"settings.uploadSignature": {
+		"de": "Unterschrift erstellen",
+		"en": "Upload signature"
+	},
+	"tabs.de": {
+		"de": "DE",
+		"en": "DE"
+	},
+	"tabs.en": {
+		"de": "EN",
+		"en": "EN"
+	},
+	"tabs.registration": {
+		"de": "Registrierung",
+		"en": "Registration"
+	},
+	"tabs.login": {
+		"de": "Login",
+		"en": "Login"
+	},
+	"tabs.logout": {
+		"de": "Logout",
+		"en": "Logout"
+	},
+	"tabs.settings": {
+		"de": "Einstellungen",
+		"en": "Settings"
+	},
+	"tabs.dashboard": {
+		"de": "Dashboard",
+		"en": "Dashboard"
+	},
+	"tabs.administration": {
+		"de": "Administration",
+		"en": "Administration"
+	},
+	"tabs.archive": {
+		"de": "Archiv",
+		"en": "Archive"
+	},
+	"tabs.costCategories": {
+		"de": "Kostenstellen",
+		"en": "Cost-Categories"
+	},
+	"tabs.adminPoolSearch": {
+		"de": "Suche",
+		"en": "Search"
+	},
+	"tabs.adminPoolGraphs": {
+		"de": "Graphen",
+		"en": "Graphs"
+	},
 	"user.role.USER": {
 		"de": "Unregistrierter Benutzer",
 		"en": "Unregistered User"
@@ -970,5 +962,13 @@
 	"user.role.CHIEF_OF_FINANCE_ADMIN": {
 		"de": "Vorgesetzter in Finanzverwaltung",
 		"en": "Chief of Finance Management"
+	},
+	"view-expense.title": {
+		"de": "Beleg anzeigen",
+		"en": "Show receipt"
+	},
+	"welcome.title": {
+		"de": "Reimbursement IFI",
+		"en": "Reimbursement IFI"
 	}
 }
