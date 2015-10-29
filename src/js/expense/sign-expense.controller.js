@@ -32,15 +32,13 @@ function($state, $scope, $stateParams, $uibModal, expenseRestService, globalMess
 		}
 
 		function signElectronically() {
-			if ($scope.expense.hasDigitalSignature === false) {
-				expenseRestService.signElectronically($scope.expense.uid).then(function() {
-					globalMessagesService.showInfo('reimbursement.expense.signInfoTitle',
-						'reimbursement.expense.signInfoMessage');
-
+			expenseRestService.signElectronically($scope.expense.uid).then(function() {
+				globalMessagesService.showInfo('reimbursement.expense.signInfoTitle',
+					'reimbursement.expense.signInfoMessage').then(function () {
 					$scope.signedSuccessfully = true;
 					$state.go('dashboard');
 				});
-			}
+			});
 		}
 	};
 
