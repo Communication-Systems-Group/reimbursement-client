@@ -61,8 +61,8 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 
 	$scope.onAttachmentUploadError = function() {
 		spinnerService.hide('spinnerAttachmentImage');
-		globalMessagesService.showError("reimbursement.globalMessages.uploadOrValidationError.title",
-			"reimbursement.globalMessages.uploadOrValidationError.message");
+		globalMessagesService.showError("reimbursement.globalMessage.uploadOrValidationError.title",
+			"reimbursement.globalMessage.uploadOrValidationError.message");
 		$scope.flow.image.cancel();
 	};
 

@@ -671,6 +671,14 @@
 		"de": "Eingereichte Belege",
 		"en": "Receipts"
 	},
+	"globalMessage.acceptButton": {
+		"de": "Ja",
+		"en": "Yes"
+	},
+	"globalMessage.denyButton": {
+		"de": "Nein",
+		"en": "No"
+	},
 	"globalMessage.ExpenseNotFoundException.message": {
 		"de": "Der Spesenantrag inkl. Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
 		"en": "The expense incl. its receipts could not be found. Please make sure, that there is no error in the address. You will be redirected now."
@@ -678,6 +686,14 @@
 	"globalMessage.ExpenseNotFoundException.title": {
 		"de": "Keine Spesen gefunden",
 		"en": "No expenses found"
+	},
+	"globalMessage.guest.noExpenseFound.message": {
+		"de": "Es wurde keine Spese unter diesem Link gefunden. Der Link wird nach einer bestimmten Zeitdauer ungültig. Falls es sich um eine ältere Spesendokument handelt, ist es nun nicht mehr abrufbar. Ansonsten vergewissern Sie sich, dass Sie die Adresse korrekt eingegeben haben",
+		"en": "No expense was found on this link. The link becomes invalid after a certain time period. If the requested expense sheet is not new, the link became most likely invalid. Otherwise, please make sure, that you enter the link correctly."
+	},
+	"globalMessage.guest.noExpenseFound.title": {
+		"de": "Keine Spese gefunden",
+		"en": "No expense found"
 	},
 	"globalMessage.InvalidCsrfTokenException.message": {
 		"de": "Leider ist Ihre Sitzung abgelaufen. Sie werden zum Login weitergeleitet.\nBitte geben Sie nach dem Login Ihre Daten erneut ein.",
@@ -702,6 +718,14 @@
 	"globalMessage.notAnImage.title": {
 		"de": "Unbekannter Dateityp",
 		"en": "Not an image"
+	},
+	"globalMessage.notAuthenticatedRequired.message": {
+		"de": "Sie versuchen eine Seite aufzurufen, die nur aufrufbar ist, wenn Sie nicht eingeloggt sind. Sie wurden zum Dashboard weitergeleitet.",
+		"en": "You are trying to access a page, which is only accessible if you're not logged in. You were redirected to the dashboard."
+	},
+	"globalMessage.notAuthenticatedRequired.title": {
+		"de": "Eingeloggt...",
+		"en": "Logged in..."
 	},
 	"globalMessage.okayButton": {
 		"de": "Okay",
@@ -731,35 +755,11 @@
 		"de": "Fehler aufgetreten",
 		"en": "Error occured"
 	},
-	"globalMessages.acceptButton": {
-		"de": "Ja",
-		"en": "Yes"
-	},
-	"globalMessages.denyButton": {
-		"de": "Nein",
-		"en": "No"
-	},
-	"globalMessages.guest.noExpenseFound.message": {
-		"de": "Es wurde keine Spese unter diesem Link gefunden. Der Link wird nach einer bestimmten Zeitdauer ungültig. Falls es sich um eine ältere Spesendokument handelt, ist es nun nicht mehr abrufbar. Ansonsten vergewissern Sie sich, dass Sie die Adresse korrekt eingegeben haben",
-		"en": "No expense was found on this link. The link becomes invalid after a certain time period. If the requested expense sheet is not new, the link became most likely invalid. Otherwise, please make sure, that you enter the link correctly."
-	},
-	"globalMessages.guest.noExpenseFound.title": {
-		"de": "Keine Spese gefunden",
-		"en": "No expense found"
-	},
-	"globalMessages.notAuthenticatedRequired.message": {
-		"de": "Sie versuchen eine Seite aufzurufen, die nur aufrufbar ist, wenn Sie nicht eingeloggt sind. Sie wurden zum Dashboard weitergeleitet.",
-		"en": "You are trying to access a page, which is only accessible if you're not logged in. You were redirected to the dashboard."
-	},
-	"globalMessages.notAuthenticatedRequired.title": {
-		"de": "Eingeloggt...",
-		"en": "Logged in..."
-	},
-	"globalMessages.uploadOrValidationError.message": {
+	"globalMessage.uploadOrValidationError.message": {
 		"de": "Es ist ein Fehler aufgetreten. Stellen Sie sicher, dass Sie nur eine Datei mit einem der erlaubten Dateiformate hochladen.",
 		"en": "An error occured. Please make sure, that you only upload a file with one of the allowed file extensions."
 	},
-	"globalMessages.uploadOrValidationError.title": {
+	"globalMessage.uploadOrValidationError.title": {
 		"de": "Fehler",
 		"en": "Error"
 	},

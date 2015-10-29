@@ -52,8 +52,8 @@ app.factory("globalMessagesService", ['$uibModal', '$translate', '$q',
 
 		// modal with confirmation (yes or no)
 		function confirm(type, title, message, yes, no, isMd) {
-			yes = yes || "reimbursement.globalMessages.acceptButton";
-			no = no || "reimbursement.globalMessages.denyButton";
+			yes = yes || "reimbursement.globalMessage.acceptButton";
+			no = no || "reimbursement.globalMessage.denyButton";
 
 			var templateUrl;
 			if(type === "error") {

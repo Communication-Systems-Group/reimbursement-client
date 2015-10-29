@@ -80,8 +80,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		function requireNoAuthenticationWithMessage() {
 			return ['$state', 'USER', 'globalMessagesService', function ($state, USER, globalMessagesService) {
 				if (USER.loggedIn) {
-					globalMessagesService.showError("reimbursement.globalMessages.notAuthenticatedRequired.title",
-						"reimbursement.globalMessages.notAuthenticatedRequired.message");
+					globalMessagesService.showError("reimbursement.globalMessage.notAuthenticatedRequired.title",
+						"reimbursement.globalMessage.notAuthenticatedRequired.message");
 
 					$state.go('dashboard');
 				}

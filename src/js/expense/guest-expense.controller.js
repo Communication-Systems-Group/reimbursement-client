@@ -15,8 +15,8 @@ function ($scope, $state, $stateParams, expenseRestService, globalMessagesServic
 
 	}, function(response) {
 		response.errorHandled = true;
-		globalMessagesService.showErrorMd("reimbursement.globalMessages.guest.noExpenseFound.title",
-			"reimbursement.globalMessages.guest.noExpenseFound.message");
+		globalMessagesService.showErrorMd("reimbursement.globalMessage.guest.noExpenseFound.title",
+			"reimbursement.globalMessage.guest.noExpenseFound.message");
 		$state.go('welcome');
 
 	});

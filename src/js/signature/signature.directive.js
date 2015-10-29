@@ -59,8 +59,8 @@ function($state, $uibModal, Modernizr, spinnerService, signatureRestService, bas
 				spinnerService.hide('spinnerSignatureTouch');
 
 				if(type === 'image') {
-					globalMessagesService.showError("reimbursement.globalMessages.uploadOrValidationError.title",
-						"reimbursement.globalMessages.uploadOrValidationError.message");
+					globalMessagesService.showError("reimbursement.globalMessage.uploadOrValidationError.title",
+						"reimbursement.globalMessage.uploadOrValidationError.message");
 					$scope.flow.image.cancel();
 				}
 				else {
