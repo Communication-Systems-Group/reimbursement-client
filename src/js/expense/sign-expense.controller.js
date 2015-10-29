@@ -1,6 +1,6 @@
-app.controller('SignExpenseController', ['$scope', '$stateParams', '$uibModal', 'expenseRestService', 'globalMessagesService',
+app.controller('SignExpenseController', ['$state', '$scope', '$stateParams', '$uibModal', 'expenseRestService', 'globalMessagesService',
 
-function($scope, $stateParams, $uibModal, expenseRestService, globalMessagesService) {
+function($state, $scope, $stateParams, $uibModal, expenseRestService, globalMessagesService) {
 	"use strict";
 
 	$scope.expense = $stateParams.expense;
@@ -38,6 +38,7 @@ function($scope, $stateParams, $uibModal, expenseRestService, globalMessagesServ
 						'reimbursement.expense.signInfoMessage');
 
 					$scope.signedSuccessfully = true;
+					$state.go('dashboard');
 				});
 			}
 		}
