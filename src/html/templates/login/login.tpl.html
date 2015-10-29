@@ -12,10 +12,11 @@
 				<input type="text" class="form-control" id="inputUsername" ng-model="form.username" placeholder="{{ 'reimbursement.login.usernameLabel' | translate }}">
 			</div>
 		</div>
-		<div class="form-group">
+		<div class="form-group has-feedback">
 			<label for="inputPassword" class="col-sm-4 control-label">{{ 'reimbursement.login.passwordLabel' | translate }}</label>
-			<div class="col-sm-5">
+			<div class="col-sm-5 right-inner-addon">
 				<input type="password" class="form-control" id="inputPassword" ng-model="form.password" placeholder="{{ 'reimbursement.login.passwordLabel' | translate }}">
+				<i ng-show="isCapsLockOn" class="glyphicon glyphicon-exclamation-sign form-control-feedback"></i>
 			</div>
 		</div>
 		<div class="form-group">
