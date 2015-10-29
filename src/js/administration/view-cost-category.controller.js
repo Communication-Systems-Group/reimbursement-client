@@ -28,6 +28,9 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 				resolve: {
 					costCategory: function () {
 						return {};
+					},
+					isCreate: function() {
+						return true;
 					}
 				}
 			});
@@ -46,7 +49,6 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 		};
 
 		$scope.editItem = function (uid) {
-
 			var modalInstance = $uibModal.open({
 				templateUrl: 'administration/edit-cost-category.tpl.html',
 				controller: 'EditCostCategoryController',
@@ -55,6 +57,9 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 				resolve: {
 					costCategory: function () {
 						return findCostCategoryItem(uid);
+					},
+					isCreate: function() {
+						return false;
 					}
 				}
 			});

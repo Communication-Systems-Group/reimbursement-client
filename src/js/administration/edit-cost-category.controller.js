@@ -1,12 +1,15 @@
-app.controller('EditCostCategoryController', [ '$scope', '$modalInstance', 'globalMessagesService', 'costCategory', '$translate', 'administrationRestService',
+app.controller('EditCostCategoryController', [ '$scope', '$modalInstance', 'globalMessagesService', 'costCategory', 'isCreate', '$translate', 'administrationRestService',
 
-	function ($scope, $modalInstance, globalMessagesService, costCategory, $translate, administrationRestService) {
+	function ($scope, $modalInstance, globalMessagesService, costCategory, isCreate, $translate, administrationRestService) {
 		"use strict";
 
 		$scope.isLoading = false;
 		$scope.lang = $translate.use();
+
 		$scope.costCategory = {};
 		angular.copy(costCategory, $scope.costCategory);
+
+		$scope.isCreate = isCreate;
 
 		function validation(form) {
 			if (!form.accountNumber.$valid || !form.name_de.$valid || !form.name_en.$valid || !form.description_de.$valid || !form.description_en.$valid || !form.accounting_policy_de.$valid || !form.accounting_policy_en.$valid) {

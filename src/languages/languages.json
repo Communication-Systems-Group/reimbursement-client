@@ -147,6 +147,10 @@
 		"de": "Abbrechen",
 		"en": "Cancel"
 	},
+	"costCategory.create": {
+		"de": "Neue Kostenstelle hinzufügen",
+		"en": "Add new cost-category"
+	},
 	"costCategory.description": {
 		"de": "Beschreibung",
 		"en": "Description"
