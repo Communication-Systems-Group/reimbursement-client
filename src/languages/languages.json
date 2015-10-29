@@ -68,14 +68,14 @@
 		"en": "Delete element?"
 	},
 	"administration.deleteCostCategoryItemText": {
-		"de": "Sind Sie sicher, das Element unwiderruflich zu löschen?",
+		"de": "Sind Sie sicher, das gewählte Element unwiderruflich zu löschen?",
 		"en": "Do you really want to delete this category element?"
 	},
 	"administration.edit": {
 		"de": "Editieren",
 		"en": "Edit"
 	},
-	"administration.cost_categories": {
+	"administration.costCategories": {
 		"de": "Kostenstellen",
 		"en": "Cost categories"
 	},
@@ -135,6 +135,34 @@
 		"de": "Archivierte Spesen",
 		"en": "Archived Expenses"
 	},
+	"costCategory.accountNumber": {
+		"de": "Kostenstellennummer",
+		"en": "Account number"
+	},
+	"costCategory.name": {
+		"de": "Name",
+		"en": "Name"
+	},
+	"costCategory.description": {
+		"de": "Beschreibung",
+		"en": "Description"
+	},
+	"costCategory.accountingPolicy": {
+		"de": "Kontierungsrichtlinien",
+		"en": "Accounting policy"
+	},
+	"costCategory.edit": {
+		"de": "Kostenstelle editieren",
+		"en": "Edit cost-category"
+	},
+	"costCategory.saveButton": {
+		"de": "Kostenstelle speichern",
+		"en": "Save cost-categroy"
+	},
+	"costCategory.cancelButton": {
+		"de": "Abbrechen",
+		"en": "Cancel"
+	},
 	"settings.title": {
 		"de": "Einstellungen",
 		"en": "Settings"
@@ -182,34 +210,6 @@
 	"settings.uploadSignature": {
 		"de": "Unterschrift erstellen",
 		"en": "Upload signature"
-	},
-	"cost_category.account_number": {
-		"de": "Kostenstellennummer",
-		"en": "Account number"
-	},
-	"cost_category.name": {
-		"de": "Name",
-		"en": "Name"
-	},
-	"cost_category.description": {
-		"de": "Beschreibung",
-		"en": "Description"
-	},
-	"cost_category.accounting_policy": {
-		"de": "Kontierungsrichtlinien",
-		"en": "Accounting policy"
-	},
-	"cost_category.edit": {
-		"de": "Kostenstelle editieren",
-		"en": "Edit cost-category"
-	},
-	"cost_category.saveButton": {
-		"de": "Kostenstelle speichern",
-		"en": "Save cost-categroy"
-	},
-	"cost_category.cancelButton": {
-		"de": "Abbrechen",
-		"en": "Cancel"
 	},
 	"tabs.de": {
 		"de": "DE",
