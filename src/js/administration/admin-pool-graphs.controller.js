@@ -17,7 +17,7 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 							'reimbursement.expense.state.TO_SIGN_BY_MANAGER',
 							'reimbursement.expense.state.TO_SIGN_BY_FINANCE_ADMIN',
 							'reimbursement.expense.state.SIGNED',
-							'reimbursement.adminPoolGraphs.percentagePrinted']).then(function(translations) {
+							'reimbursement.administration.graphs.percentagePrinted']).then(function(translations) {
 
 				c3.generate({
 					bindto: "#graph-area-step-current-state-distribution",
@@ -50,7 +50,7 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 					bindto: "#graph-gauge-accepted-declined",
 					data: {
 						type: "gauge",
-						columns: [[translations['reimbursement.adminPoolGraphs.percentagePrinted'], $scope.data.percentagePrinted]]
+						columns: [[translations['reimbursement.administration.graphs.percentagePrinted'], $scope.data.percentagePrinted]]
 					},
 					color: {
 						pattern: ['#ff0000', '#f97600', '#f6c600', '#60b044'],

@@ -1,32 +1,4 @@
 {
-	"add-expense-item.closeWarningEditMessage": {
-		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
-		"en": "If you close this window, you dismiss all changes made on the current receipt. Continue?"
-	},
-	"add-expense-item.closeWarningEditTitle": {
-		"de": "Achtung",
-		"en": "Attention"
-	},
-	"add-expense-item.closeWarningMessage": {
-		"de": "Wenn Sie dieses Fenster schliessen, wird der Beleg verworfen. Fortfahren?",
-		"en": "If you close this window, you dismiss the current receipt. Continue?"
-	},
-	"add-expense-item.closeWarningTitle": {
-		"de": "Achtung",
-		"en": "Attention"
-	},
-	"add-expense-item.invalidAmount": {
-		"de": "Betrag ungültig",
-		"en": "Invalid Amount"
-	},
-	"add-expense-item.invalidDate": {
-		"de": "Datum ungültig",
-		"en": "Invalid Date"
-	},
-	"add-expense-item.title": {
-		"de": "Beleg hinzufügen",
-		"en": "Add receipt"
-	},
 	"administration.action": {
 		"de": "Aktion",
 		"en": "Action"
@@ -55,59 +27,59 @@
 		"de": "Editieren",
 		"en": "Edit"
 	},
+	"administration.graphs.percentagePrinted": {
+		"de": "Gedruckt",
+		"en": "Printed"
+	},
+	"administration.graphs.title": {
+		"de": "Admin-Pool Graphen",
+		"en": "Admin-Pool graphs"
+	},
 	"administration.title": {
 		"de": "Administration",
 		"en": "Administration"
 	},
-	"adminPoolGraphs.percentagePrinted": {
-		"de": "Gedruckt",
-		"en": "Printed"
-	},
-	"adminPoolGraphs.title": {
-		"de": "Admin-Pool Graphen",
-		"en": "Admin-Pool graphs"
-	},
-	"adminPoolSearch.date": {
+	"administration.search.date": {
 		"de": "Spesendatum (von/bis)",
 		"en": "Expense date (from/until)"
 	},
-	"adminPoolSearch.expenseState": {
+	"administration.search.expenseState": {
 		"de": "Spesenstatus",
 		"en": "Expense state"
 	},
-	"adminPoolSearch.filterPanel": {
+	"administration.search.filterPanel": {
 		"de": "Bitte geben Sie Ihre Suchkriterien ein für eine Suche nach Spesen.",
 		"en": "Please enter your search criteria to find the matching expenses."
 	},
-	"adminPoolSearch.preselectedExpense": {
+	"administration.search.preselectedExpense": {
 		"de": "(alle Stati)",
 		"en": "(all States)"
 	},
-	"adminPoolSearch.preselectedRole": {
+	"administration.search.preselectedRole": {
 		"de": "(alle Berechtigungen)",
 		"en": "(all Permissions)"
 	},
-	"adminPoolSearch.sapText": {
+	"administration.search.sapText": {
 		"de": "Buchhaltungsbeschreibung (SAP)",
 		"en": "Accounting description (SAP)"
 	},
-	"adminPoolSearch.search": {
+	"administration.search.search": {
 		"de": "Spesen suchen",
 		"en": "Search expenses"
 	},
-	"adminPoolSearch.searchResults": {
+	"administration.search.searchResults": {
 		"de": "Suchresultat",
 		"en": "Search results"
 	},
-	"adminPoolSearch.title": {
+	"administration.search.title": {
 		"de": "Admin-Pool Suche",
 		"en": "Admin-Pool search"
 	},
-	"adminPoolSearch.userLastName": {
+	"administration.search.userLastName": {
 		"de": "Nachname Antragssteller",
 		"en": "Last Name of Expense Creator"
 	},
-	"adminPoolSearch.userRole": {
+	"administration.search.userRole": {
 		"de": "Berechtigung Antragssteller",
 		"en": "Permission of Expense Creator"
 	},
@@ -334,18 +306,6 @@
 	"dashboard.title": {
 		"de": "Dashboard",
 		"en": "Dashboard"
-	},
-	"edit-expense.editAccountingSaveButton": {
-		"de": "Speichern",
-		"en": "Save"
-	},
-	"edit-expense.editAccountingTitle": {
-		"de": "Buchhaltungsbeschreibung anpassen",
-		"en": "Change accounting description"
-	},
-	"edit-expense.title": {
-		"de": "Beleg bearbeiten",
-		"en": "Edit receipt"
 	},
 	"expense.acceptButton": {
 		"de": "Annehmen",
@@ -623,6 +583,22 @@
 		"de": "berechneter Betrag",
 		"en": "Calculated amount"
 	},
+	"expense-item.closeWarningEditMessage": {
+		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
+		"en": "If you close this window, you dismiss all changes made on the current receipt. Continue?"
+	},
+	"expense-item.closeWarningEditTitle": {
+		"de": "Achtung",
+		"en": "Attention"
+	},
+	"expense-item.closeWarningMessage": {
+		"de": "Wenn Sie dieses Fenster schliessen, wird der Beleg verworfen. Fortfahren?",
+		"en": "If you close this window, you dismiss the current receipt. Continue?"
+	},
+	"expense-item.closeWarningTitle": {
+		"de": "Achtung",
+		"en": "Attention"
+	},
 	"expense-item.costCategory": {
 		"de": "Kostenkategorie",
 		"en": "Cost category"
@@ -639,9 +615,25 @@
 		"de": "Achtung",
 		"en": "Attention"
 	},
+	"expense-item.editAccountingSaveButton": {
+		"de": "Speichern",
+		"en": "Save"
+	},
+	"expense-item.editAccountingTitle": {
+		"de": "Buchhaltungsbeschreibung anpassen",
+		"en": "Change accounting description"
+	},
 	"expense-item.explanation": {
 		"de": "Spesengrund",
 		"en": "Expense explanation"
+	},
+	"expense-item.invalidAmount": {
+		"de": "Betrag ungültig",
+		"en": "Invalid Amount"
+	},
+	"expense-item.invalidDate": {
+		"de": "Datum ungültig",
+		"en": "Invalid Date"
 	},
 	"expense-item.project": {
 		"de": "Projekt",
@@ -651,6 +643,26 @@
 		"de": "Beleg speichern",
 		"en": "Save Receipt"
 	},
+	"expense-item.showReceipt": {
+		"de": "Beleg anzeigen",
+		"en": "Show receipt"
+	},
+	"expense-item.title": {
+		"de": "Belege einreichen",
+		"en": "Add receipts"
+	},
+	"expense-item.titleEdit": {
+		"de": "Beleg bearbeiten",
+		"en": "Edit receipt"
+	},
+	"expense-item.titleNotEditable": {
+		"de": "Eingereichte Belege",
+		"en": "Receipts"
+	},
+	"expense-item.titleReview": {
+		"de": "Eingereichte Belege",
+		"en": "Receipts"
+	},
 	"expense-item.uploadReceipt": {
 		"de": "Beleg hochladen",
 		"en": "Upload receipt"
@@ -658,18 +670,6 @@
 	"expense-item.uploadReceipt.fileExtensions": {
 		"de": "(Bilddateien oder PDFs)",
 		"en": "(Images or PDFs)"
-	},
-	"expense-items.title": {
-		"de": "Belege einreichen",
-		"en": "Add receipts"
-	},
-	"expense-items.titleNotEditable": {
-		"de": "Eingereichte Belege",
-		"en": "Receipts"
-	},
-	"expense-items.titleReview": {
-		"de": "Eingereichte Belege",
-		"en": "Receipts"
 	},
 	"globalMessage.acceptButton": {
 		"de": "Ja",
@@ -803,17 +803,17 @@
 		"de": "Logout",
 		"en": "Logout"
 	},
-	"navbar.leavePageWarning.message": {
-		"de": "Sind Sie sicher, dass Sie die Registrierung abbrechen und die Seite verlassen möchten?",
-		"en": "Are you sure, that you want to abort the registration and leave this page?"
-	},
-	"navbar.leavePageWarning.title": {
-		"de": "Seite verlassen?",
-		"en": "Leaving page?"
-	},
 	"page.title": {
 		"de": "Reimbursement IFI",
 		"en": "Reimbursement IFI"
+	},
+	"registration.leavePageWarning.message": {
+		"de": "Sind Sie sicher, dass Sie die Registrierung abbrechen und die Seite verlassen möchten?",
+		"en": "Are you sure, that you want to abort the registration and leave this page?"
+	},
+	"registration.leavePageWarning.title": {
+		"de": "Seite verlassen?",
+		"en": "Leaving page?"
 	},
 	"registration.step1Message": {
 		"de": "Sie haben sich erfolgreich zum ersten Mal eingeloggt. Sie werden nun durch einen Registrierungsprozess mit 3 Schritte geführt. Bitte geben Sie die folgenden Informationen vollständig ein. Danach werden Sie aufgefordert eine Signatur über ein Gerät mit einem Touchscreen oder über einen Fileupload hochzuladen.",
@@ -954,10 +954,6 @@
 	"user.role.USER": {
 		"de": "Unregistrierter Benutzer",
 		"en": "Unregistered User"
-	},
-	"view-expense.title": {
-		"de": "Beleg anzeigen",
-		"en": "Show receipt"
 	},
 	"welcome.title": {
 		"de": "Reimbursement IFI",

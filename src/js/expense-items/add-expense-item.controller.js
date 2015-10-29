@@ -11,8 +11,8 @@ function($scope, $modalInstance, globalMessagesService, spinnerService, expenseI
 	$scope.submit = submitForm;
 
 	function dismissWithConfirmation() {
-		globalMessagesService.confirmWarning("reimbursement.add-expense-item.closeWarningTitle",
-			"reimbursement.add-expense-item.closeWarningMessage").then(function() {
+		globalMessagesService.confirmWarning("reimbursement.expense-item.closeWarningTitle",
+			"reimbursement.expense-item.closeWarningMessage").then(function() {
 
 			expenseItemsRestService.deleteExpenseItem(expenseItemUid).then()['finally'](function() {
 				$modalInstance.dismiss();
