@@ -10,11 +10,6 @@ function() {
 		controller: 'AttachmentController',
 		scope : {
 			expenseItemUid : '='
-		},
-		link: function($scope, element){
-			$scope.addImageToElement = function(base64Image){
-				element.append("<image src="+base64Image+"><image>");
-			};
 		}
 	};
 });
