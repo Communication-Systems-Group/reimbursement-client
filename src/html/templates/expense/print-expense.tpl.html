@@ -1,10 +1,10 @@
 <div id="print-expense" class="pos-rel">
 	<spinner id="spinnerPrintExpense" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
+
+	<progress-indicator state="expense.state"></progress-indicator>
+
 	<h1 class="page-header">
-		<span class="vert-mid">{{ expense.accounting }}</span>
-		<small class="vert-mid">
-			<expense-state state="expense.state"></expense-state>
-		</small>
+		{{ expense.accounting }}
 	</h1>
 
 	<h2 class="page-header">

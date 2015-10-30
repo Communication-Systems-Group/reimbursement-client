@@ -1,9 +1,9 @@
 <div id="view-expense">
+
+	<progress-indicator state="expense.state"></progress-indicator>
+
 	<h1 class="page-header">
-		<span class="vert-mid">{{ expense.accounting }}</span>
-		<small class="vert-mid">
-			<expense-state state="expense.state"></expense-state>
-		</small>
+		{{ expense.accounting }}
 	</h1>
 
 	<div ng-if="expense.state === 'REJECTED'" class="alert alert-danger" role="alert">

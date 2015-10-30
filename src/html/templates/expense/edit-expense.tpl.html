@@ -1,10 +1,14 @@
 <div id="edit-expense">
 
-	<h1 class="page-header"> {{ expense.accounting }}
-	<button class="btn btn-sm btn-default" ng-click="editExpenseSap()">
-		<i class="fa fa-pencil"></i>
-		{{ 'reimbursement.expense.edit' | translate }}
-	</button></h1>
+	<progress-indicator state="expense.state"></progress-indicator>
+
+	<h1 class="page-header">
+		{{ expense.accounting }}
+		<button class="btn btn-sm btn-default" ng-click="editExpenseSap()">
+			<i class="fa fa-pencil"></i>
+			{{ 'reimbursement.expense.edit' | translate }}
+		</button>
+	</h1>
 
 	<div ng-if="expense.state === 'REJECTED'" class="alert alert-danger" role="alert">
 		<i class="fa fa-times"></i>
