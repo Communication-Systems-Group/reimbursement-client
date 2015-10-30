@@ -1,0 +1,9 @@
+<div class="progress-indicator">
+	<div ng-repeat="currentState in states" class="state" ng-class="currentState.class">
+		<div class="text">
+			<div class="effective">
+				{{ 'reimbursement.expense.state.' + currentState.state | translate }}
+			</div>
+		</div>
+	</div>
+</div>

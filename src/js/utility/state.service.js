@@ -209,6 +209,20 @@ function($q, USER) {
 			else {
 				return orderNumber(statesList.forRegularUser);
 			}
+		},
+
+		getStateListWorkflow: function() {
+			return [
+				"DRAFT",
+				"ASSIGNED_TO_MANAGER",
+				"TO_BE_ASSIGNED",
+				"ASSIGNED_TO_FINANCE_ADMIN",
+				"TO_SIGN_BY_USER",
+				"TO_SIGN_BY_MANAGER",
+				"TO_SIGN_BY_FINANCE_ADMIN",
+				"SIGNED",
+				"PRINTED"
+			];
 		}
 	};
 

@@ -1,0 +1,126 @@
+.progress-indicator {
+	float: right;
+	display: block;
+	background: white;
+	margin-top: -4px;
+	user-select: none;
+
+	.state {
+		$stateWidth: 30px;
+		$stateHeight: 44px;
+		$stateSpacing: 5px;
+		$color: #78AAF3;
+		$inactiveColor: #d7d7d7;
+
+		display: inline-block;
+		vertical-align: middle;
+		min-width: $stateWidth;
+		max-width: $stateWidth * 5;
+		height: $stateHeight;
+		background-color: $color;
+		margin-right: $stateSpacing;
+		position: relative;
+		vertical-align: middle;
+		line-height: $stateHeight - 3px;
+		cursor: help;
+		user-select: none;
+
+		// first element (without left white arrow)
+		&:first-child {
+			.text {
+				padding-left: $stateWidth * 0.55 !important;
+
+				.effective {
+					left: 53%;
+				}
+			}
+		}
+		// last element (arrow is absolute positioned)
+		&:last-child {
+			margin-right: $stateWidth * 0.8;
+		}
+		// every arrow (white & colored)
+		&:not(:first-child):before,
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			width: 0;
+			height: 0;
+			border: $stateHeight/2 solid transparent;
+			border-right: 0;
+		}
+		// all white arrows
+		&:not(:first-child):before {
+			border-left-color: white;
+			left: 0;
+			z-index: 9;
+		}
+		// all colored arrows
+		&:after {
+			border-left-color: $color;
+			right: -($stateHeight/2 * 0.98);
+			z-index: 10;
+		}
+		// all grey elements
+		&.afterActive {
+			background: $inactiveColor;
+			&:after {
+				border-left-color: $inactiveColor;
+			}
+		}
+		&.active {
+			cursor: default;
+			&.rejected {
+				background: #EF6B6B;
+				&:after {
+					border-left-color: #EF6B6B;
+				}
+			}
+		}
+		&:hover,
+		&.active {
+			.text {
+				width: $stateWidth * 5;
+				.effective {
+					opacity: 1;
+				}
+			}
+		}
+		.text {
+			width: 0;
+			text-transform: uppercase;
+			font-size: 80%;
+			transition: all 0.5s ease;
+			transition-delay: 0.3s;
+			height: $stateHeight;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			line-height: 1.3;
+			color: white;
+			padding-left: $stateWidth;
+			padding-right: $stateWidth / 3;
+			overflow: hidden;
+			position: relative;
+		}
+		.text .effective {
+			position: absolute;
+			width: $stateWidth * 5;
+			top: 50%;
+			left: 58%;
+			transform: translate(-50%, -50%);
+			transition: opacity 0.3s ease;
+			transition-delay: 0.4s;
+			opacity: 0;
+			user-select: all;
+		}
+	}
+	// clear floating afterwards
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
