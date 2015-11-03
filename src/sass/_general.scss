@@ -12,7 +12,7 @@ body {
 	display: none !important;
 }
 
-body.deferred-bootstrap-loading {
+.deferred-bootstrap-loading body {
 	cursor: progress;
 }
 
@@ -82,4 +82,42 @@ h1.page-header small > .fa {
 
 .modal-body {
 	position: static;
+}
+
+.ui-view-container {
+	position: relative;
+
+	[ui-view] {
+		background: white;
+		position: absolute;
+		width: 100%;
+		padding-right: 15px;
+		padding-left: 15px;
+
+		&.ng-enter,
+		&.ng-enter-active {
+			z-index: 11;
+		}
+		&.ng-enter,
+		&.ng-leave {
+			transition: all 0.4s ease-in-out;
+		}
+		&.ng-enter {
+			transition-delay: 0.1s;
+			opacity: 0;
+			transform: translateX(-40px);
+		}
+		&.ng-enter-active {
+			opacity: 1;
+			transform: translateX(0);
+		}
+		&.ng-leave {
+			opacity: 1;
+		}
+		&.ng-leave-active {
+			opacity: 0;
+			transform: translateX(40px);
+		}
+	}
+
 }
