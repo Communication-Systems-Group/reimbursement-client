@@ -49,48 +49,41 @@ function($q, USER) {
 					USER.uid === expenseUsers.financeAdminUid
 			};
 
-			if(typeof USER.uid === "undefined" || USER.uid === null) {
+			if ( typeof USER.uid === "undefined" || USER.uid === null) {
 				return templates.noAccess;
 			}
-			if(typeof expenseUsers.userUid === "undefined" || expenseUsers.userUid === null) {
+			if ( typeof expenseUsers.userUid === "undefined" || expenseUsers.userUid === null) {
 				return templates.noAccess;
 			}
 
-			for(var templateKey in templates) {
-				if(templates.hasOwnProperty(templateKey)) {
+			for (var templateKey in templates) {
+				if (templates.hasOwnProperty(templateKey)) {
 					angular.extend(templates[templateKey], belonging);
 				}
 			}
 
-			if(belonging.isUserExpense) {
-				if(expenseState === 'ASSIGNED_TO_MANAGER' ||
+			if (belonging.isUserExpense) {
+				if (expenseState === 'ASSIGNED_TO_MANAGER' ||
 					expenseState === 'TO_BE_ASSIGNED' ||
 					expenseState === 'ASSIGNED_TO_FINANCE_ADMIN' ||
 					expenseState === 'TO_SIGN_BY_MANAGER' ||
 					expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
 
 					return templates.viewExpense;
-				}
-				else if(expenseState === 'REJECTED' ||
+				} else if (expenseState === 'REJECTED' ||
 					expenseState === 'DRAFT') {
 
 					return templates.editExpense;
-				}
-				else if(expenseState === 'TO_SIGN_BY_USER') {
+				} else if (expenseState === 'TO_SIGN_BY_USER') {
 					return templates.signExpense;
-				}
-				else if(expenseState === 'SIGNED' ||
-					expenseState === 'PRINTED') {
+				} else if (expenseState === 'SIGNED' || expenseState === 'PRINTED') {
 
 					return templates.printExpense;
-				}
-				else {
+				} else {
 					return templates.noAccess;
 				}
-			}
-
-			else if(belonging.isManagerOfExpense && USER.hasRole('PROF')) {
-				if(expenseState === 'REJECTED' ||
+			} else if (belonging.isManagerOfExpense && (USER.hasRole('PROF') || USER.hasRole('DEPUTY'))) {
+				if (expenseState === 'REJECTED' ||
 					expenseState === 'DRAFT' ||
 					expenseState === 'TO_BE_ASSIGNED' ||
 					expenseState === 'ASSIGNED_TO_FINANCE_ADMIN' ||
@@ -99,23 +92,17 @@ function($q, USER) {
 					expenseState === 'SIGNED') {
 
 					return templates.viewExpense;
-				}
-				else if(expenseState === 'ASSIGNED_TO_MANAGER') {
+				} else if (expenseState === 'ASSIGNED_TO_MANAGER') {
 					return templates.reviewExpense;
-				}
-				else if(expenseState === 'TO_SIGN_BY_MANAGER') {
+				} else if (expenseState === 'TO_SIGN_BY_MANAGER') {
 					return templates.signExpense;
-				}
-				else if(expenseState === 'PRINTED') {
+				} else if (expenseState === 'PRINTED') {
 					return templates.printExpense;
-				}
-				else {
+				} else {
 					return templates.noAccess;
 				}
-			}
-
-			else if(belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
-				if(expenseState === 'REJECTED' ||
+			} else if (belonging.isFinanceAdminOfExpense && (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('CHIEF_OF_FINANCE_ADMIN'))) {
+				if (expenseState === 'REJECTED' ||
 					expenseState === 'DRAFT' ||
 					expenseState === 'ASSIGNED_TO_MANAGER' ||
 					expenseState === 'TO_SIGN_BY_USER' ||
@@ -123,26 +110,19 @@ function($q, USER) {
 					expenseState === 'SIGNED') {
 
 					return templates.viewExpense;
-				}
-				else if(expenseState === 'TO_BE_ASSIGNED') {
+				} else if (expenseState === 'TO_BE_ASSIGNED') {
 					return templates.assignToMe;
-				}
-				else if(expenseState === 'ASSIGNED_TO_FINANCE_ADMIN') {
+				} else if (expenseState === 'ASSIGNED_TO_FINANCE_ADMIN') {
 					return templates.reviewExpense;
-				}
-				else if(expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
+				} else if (expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
 					return templates.signExpense;
-				}
-				else if(expenseState === 'PRINTED') {
+				} else if (expenseState === 'PRINTED') {
 					return templates.assignToMe;
-				}
-				else {
+				} else {
 					return templates.noAccess;
 				}
-			}
-
-			else if(!belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
-				if(expenseState === 'TO_BE_ASSIGNED' ||
+			} else if (!belonging.isFinanceAdminOfExpense && (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('CHIEF_OF_FINANCE_ADMIN'))) {
+				if (expenseState === 'TO_BE_ASSIGNED' ||
 					expenseState === 'PRINTED') {
 
 					return templates.assignToMe;
@@ -156,8 +136,7 @@ function($q, USER) {
 		// and the expense date, ordered by the order purpose
 		stateOrder: function(state, date, purpose) {
 			var statesList = {
-				forRegularUser: [
-					"DRAFT",
+				forRegularUser: ["DRAFT",
 					"REJECTED",
 					"TO_SIGN_BY_USER",
 					"SIGNED",
@@ -168,8 +147,7 @@ function($q, USER) {
 					"TO_SIGN_BY_FINANCE_ADMIN",
 					"PRINTED"
 				],
-				forManager: [
-					"ASSIGNED_TO_MANAGER",
+				forManager: ["ASSIGNED_TO_MANAGER",
 					"TO_SIGN_BY_MANAGER",
 					"TO_BE_ASSIGNED",
 					"ASSIGNED_TO_FINANCE_ADMIN",
@@ -180,8 +158,7 @@ function($q, USER) {
 					"SIGNED",
 					"PRINTED"
 				],
-				forFinanceAdmin: [
-					"TO_BE_ASSIGNED",
+				forFinanceAdmin: ["TO_BE_ASSIGNED",
 					"ASSIGNED_TO_FINANCE_ADMIN",
 					"TO_SIGN_BY_FINANCE_ADMIN",
 					"REJECTED",
@@ -196,24 +173,21 @@ function($q, USER) {
 
 			function orderNumber(states) {
 				var stateNr = states.length - states.indexOf(state);
-				var shortDate = (date+"").substring(0, (date+"").length - 3);
+				var shortDate = (date + "").substring(0, (date + "").length - 3);
 				return parseInt("-" + stateNr + shortDate, 10);
 			}
 
-			if(purpose === 'MANAGER') {
+			if (purpose === 'MANAGER') {
 				return orderNumber(statesList.forManager);
-			}
-			else if(purpose === 'FINANCE_ADMIN') {
+			} else if (purpose === 'FINANCE_ADMIN') {
 				return orderNumber(statesList.forFinanceAdmin);
-			}
-			else {
+			} else {
 				return orderNumber(statesList.forRegularUser);
 			}
 		},
 
 		getStateListWorkflow: function() {
-			return [
-				"DRAFT",
+			return ["DRAFT",
 				"ASSIGNED_TO_MANAGER",
 				"TO_BE_ASSIGNED",
 				"ASSIGNED_TO_FINANCE_ADMIN",
