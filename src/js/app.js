@@ -208,19 +208,19 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			url: "/view-cost-category",
 			templateUrl: "administration/view-cost-category.tpl.html",
 			controller: "ViewCostCategoryController",
-			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
+			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN', 'CHIEF_OF_FINANCE_ADMIN'])
 
 		}).state('admin-pool-search', {
 			url: "/admin-pool-search",
 			templateUrl: "administration/admin-pool-search.tpl.html",
 			controller: "AdminPoolSearchController",
-			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
+			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN', 'CHIEF_OF_FINANCE_ADMIN'])
 
 		}).state('admin-pool-graphs', {
 			url: "/admin-pool-graphs",
 			templateUrl: "administration/admin-pool-graphs.tpl.html",
 			controller: "AdminPoolGraphsController",
-			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
+			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN', 'CHIEF_OF_FINANCE_ADMIN'])
 
 		}).state('archive', {
 			url: "/archive",
@@ -273,7 +273,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		}).state('review-expense', {
 			templateUrl: "expense/review-expense.tpl.html",
 			controller: "ReviewExpenseController",
-			onEnter: requireRegisteredAuthenticationWithAnyRole(['PROF', 'FINANCE_ADMIN']),
+			onEnter: requireRegisteredAuthenticationWithAnyRole(['PROF', 'FINANCE_ADMIN', 'CHIEF_OF_FINANCE_ADMIN', 'DEPUTY']),
 			params: { expense: null }
 
 		}).state('sign-expense', {
