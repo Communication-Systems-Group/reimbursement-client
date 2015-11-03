@@ -16,4 +16,9 @@
 		margin-top: 20px;
 		text-align: center;
 	}
+
+	// fix visibility of internal jcrop button on animated $state transition
+	.jcrop-keymgr {
+		display: none;
+	}
 }
