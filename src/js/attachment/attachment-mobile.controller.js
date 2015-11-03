@@ -3,6 +3,7 @@ app.controller('AttachmentMobileController', ['$scope', '$location', 'attachment
 function($scope, $location, attachmentRestService, spinnerService) {
 	"use strict";
 
+
 	var tokenUid = $location.path().split("/")[2];
 	$scope.postAttachmentPath = attachmentRestService.postAttachmentMobilePath(tokenUid);
 	$scope.flow = {};
@@ -23,5 +24,8 @@ function($scope, $location, attachmentRestService, spinnerService) {
 		spinnerService.hide($scope.spinnerId);
 		$scope.isError = true;
 	};
+
+	// fix position relative on ui-view-container
+	jQuery('.ui-view-container').removeClass('ui-view-container');
 
 }]);

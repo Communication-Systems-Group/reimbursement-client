@@ -27,4 +27,7 @@ function($scope, $stateParams, signatureRestService, spinnerService) {
 		$scope.isError = true;
 	};
 
+	// fix position relative on ui-view-container
+	jQuery('.ui-view-container').removeClass('ui-view-container');
+
 }]);
