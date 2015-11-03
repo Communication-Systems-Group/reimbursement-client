@@ -1,12 +1,12 @@
-app.controller('ViewExpenseItemController', ['$scope', '$modalInstance', 'expenseItemUid',
+app.controller('ViewExpenseItemController', ['$scope', '$uibModalInstance', 'expenseItemUid',
 
-function($scope, $modalInstance, expenseItemUid) {
+function($scope, $uibModalInstance, expenseItemUid) {
 	"use strict";
 
 	$scope.expenseItemUid = expenseItemUid;
 	$scope.form = {};
 	$scope.validatingFunction = null;
 
-	$scope.dismiss = $modalInstance.dismiss;
+	$scope.dismiss = $uibModalInstance.dismiss;
 
 }]);

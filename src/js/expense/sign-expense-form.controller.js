@@ -1,6 +1,6 @@
-app.controller('SignExpenseFormController', ['$scope', '$modalInstance', 'signExpenseFactory', 'expenseRestService', 'globalMessagesService', 'expenseUid', 'HOST',
+app.controller('SignExpenseFormController', ['$scope', '$uibModalInstance', 'signExpenseFactory', 'expenseRestService', 'globalMessagesService', 'expenseUid', 'HOST',
 
-function($scope, $modalInstance, signExpenseFactory, expenseRestService, globalMessagesService, expenseUid, HOST) {
+function($scope, $uibModalInstance, signExpenseFactory, expenseRestService, globalMessagesService, expenseUid, HOST) {
 	"use strict";
 
 	$scope.expenseUid = expenseUid;
@@ -17,12 +17,12 @@ function($scope, $modalInstance, signExpenseFactory, expenseRestService, globalM
 			hasDigitalSignature = true;
 			digitallySignExpense(function(result) {
 				if(result) {
-					$modalInstance.close(hasDigitalSignature);
+					$uibModalInstance.close(hasDigitalSignature);
 				}
 			});
 		} else {
 			hasDigitalSignature = false;
-			$modalInstance.close(hasDigitalSignature);
+			$uibModalInstance.close(hasDigitalSignature);
 		}
 
 		function digitallySignExpense(callback) {

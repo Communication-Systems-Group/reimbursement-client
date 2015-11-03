@@ -1,6 +1,6 @@
-app.controller('EditCostCategoryController', [ '$scope', '$modalInstance', 'globalMessagesService', 'costCategory', 'isCreate', '$translate', 'administrationRestService',
+app.controller('EditCostCategoryController', [ '$scope', '$uibModalInstance', 'globalMessagesService', 'costCategory', 'isCreate', '$translate', 'administrationRestService',
 
-	function ($scope, $modalInstance, globalMessagesService, costCategory, isCreate, $translate, administrationRestService) {
+	function ($scope, $uibModalInstance, globalMessagesService, costCategory, isCreate, $translate, administrationRestService) {
 		"use strict";
 
 		$scope.isLoading = false;
@@ -26,7 +26,7 @@ app.controller('EditCostCategoryController', [ '$scope', '$modalInstance', 'glob
 			globalMessagesService.confirmWarning("reimbursement.expense-item.closeWarningEditTitle",
 					"reimbursement.expense-item.closeWarningEditMessage").then(function () {
 
-					$modalInstance.dismiss();
+					$uibModalInstance.dismiss();
 				});
 		};
 
@@ -37,11 +37,11 @@ app.controller('EditCostCategoryController', [ '$scope', '$modalInstance', 'glob
 
 				if ($scope.costCategory.uid !== undefined) {
 					administrationRestService.putCostCategory($scope.costCategory, $scope.costCategory.uid).then(function () {
-						$modalInstance.dismiss();
+						$uibModalInstance.dismiss();
 					});
 				} else {
 					administrationRestService.postCostCategory($scope.costCategory).then(function () {
-						$modalInstance.dismiss();
+						$uibModalInstance.dismiss();
 					});
 				}
 			}

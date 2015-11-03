@@ -1,11 +1,11 @@
-app.controller('CreateExpenseSapController', ['$scope', '$modalInstance', 'spinnerService', 'globalMessagesService', 'expenseRestService',
+app.controller('CreateExpenseSapController', ['$scope', '$uibModalInstance', 'spinnerService', 'globalMessagesService', 'expenseRestService',
 
-function($scope, $modalInstance, spinnerService, globalMessagesService, expenseRestService) {
+function($scope, $uibModalInstance, spinnerService, globalMessagesService, expenseRestService) {
 	"use strict";
 
 	$scope.accountingText = null;
 
-	$scope.dismiss = $modalInstance.dismiss;
+	$scope.dismiss = $uibModalInstance.dismiss;
 
 	$scope.nextStep = function() {
 		if($scope.accountingText === null || typeof $scope.accountingText === "undefined" || $scope.accountingText.length < 5) {
@@ -16,7 +16,7 @@ function($scope, $modalInstance, spinnerService, globalMessagesService, expenseR
 			spinnerService.show('spinnerCreateExpenseSap');
 
 			expenseRestService.postCreateExpense($scope.accountingText).then(function(response) {
-				$modalInstance.close({ uid: response.data.uid });
+				$uibModalInstance.close({ uid: response.data.uid });
 			})['finally'](function() {
 				spinnerService.hide('spinnerCreateExpenseSap');
 			});

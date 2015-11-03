@@ -1,9 +1,9 @@
-app.controller('GlobalMessagesController', ['$scope', '$modalInstance', 'title', 'message',
+app.controller('GlobalMessagesController', ['$scope', '$uibModalInstance', 'title', 'message',
 
-	function ($scope, $modalInstance, title, message) {
+	function ($scope, $uibModalInstance, title, message) {
 		"use strict";
 
-		$scope.close = $modalInstance.close;
+		$scope.close = $uibModalInstance.close;
 		$scope.title = title;
 		$scope.message = message;
 

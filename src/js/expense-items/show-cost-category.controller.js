@@ -1,6 +1,6 @@
-app.controller('ShowCostCategoryController', ['$scope', '$modalInstance', '$translate', 'costCategories', 'costCategoryUid', 'editable',
+app.controller('ShowCostCategoryController', ['$scope', '$uibModalInstance', '$translate', 'costCategories', 'costCategoryUid', 'editable',
 
-function($scope, $modalInstance, $translate, costCategories, costCategoryUid, editable) {
+function($scope, $uibModalInstance, $translate, costCategories, costCategoryUid, editable) {
 	"use strict";
 
 	$scope.language = $translate.use();
@@ -21,10 +21,10 @@ function($scope, $modalInstance, $translate, costCategories, costCategoryUid, ed
 	findCostCategoryObject($scope.costCategoryUid);
 
 	$scope.save = function() {
-		$modalInstance.close($scope.costCategoryObject.uid);
+		$uibModalInstance.close($scope.costCategoryObject.uid);
 	};
 
 	$scope.dismiss = function() {
-		$modalInstance.dismiss();
+		$uibModalInstance.dismiss();
 	};
 }]);

@@ -1,14 +1,14 @@
-app.controller("RejectExpenseController", ['$scope', '$modalInstance', 'expenseRestService', 'expenseUid',
+app.controller("RejectExpenseController", ['$scope', '$uibModalInstance', 'expenseRestService', 'expenseUid',
 
-function($scope, $modalInstance, expenseRestService, expenseUid) {
+function($scope, $uibModalInstance, expenseRestService, expenseUid) {
 	"use strict";
 
 	$scope.reason = "";
 
-	$scope.dismiss = $modalInstance.dismiss;
+	$scope.dismiss = $uibModalInstance.dismiss;
 	$scope.reject = function() {
 		expenseRestService.reject(expenseUid, $scope.reason).then(function() {
-			$modalInstance.close();
+			$uibModalInstance.close();
 		});
 	};
 

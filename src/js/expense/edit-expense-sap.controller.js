@@ -1,9 +1,9 @@
-app.controller('EditExpenseSapController', ['$scope', '$modalInstance', 'spinnerService', 'globalMessagesService', 'expenseRestService', 'accountingText', 'expenseUid',
+app.controller('EditExpenseSapController', ['$scope', '$uibModalInstance', 'spinnerService', 'globalMessagesService', 'expenseRestService', 'accountingText', 'expenseUid',
 
-function($scope, $modalInstance, spinnerService, globalMessagesService, expenseRestService, accountingText, expenseUid) {
+function($scope, $uibModalInstance, spinnerService, globalMessagesService, expenseRestService, accountingText, expenseUid) {
 	"use strict";
 
-	$scope.dismiss = $modalInstance.dismiss;
+	$scope.dismiss = $uibModalInstance.dismiss;
 	$scope.accountingText = accountingText;
 
 	$scope.saveAccountingText = function() {
@@ -15,7 +15,7 @@ function($scope, $modalInstance, spinnerService, globalMessagesService, expenseR
 			spinnerService.show('spinnerEditExpenseSap');
 
 			expenseRestService.putExpense(expenseUid, $scope.accountingText).then(function() {
-				$modalInstance.close({ accountingText: $scope.accountingText });
+				$uibModalInstance.close({ accountingText: $scope.accountingText });
 			})['finally'](function() {
 				spinnerService.hide('spinnerEditExpenseSap');
 			});

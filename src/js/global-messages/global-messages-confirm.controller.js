@@ -1,10 +1,10 @@
-app.controller('GlobalMessagesConfirmController', ['$scope', '$modalInstance', 'title', 'message', 'yes', 'no',
+app.controller('GlobalMessagesConfirmController', ['$scope', '$uibModalInstance', 'title', 'message', 'yes', 'no',
 
-	function ($scope, $modalInstance, title, message, yes, no) {
+	function ($scope, $uibModalInstance, title, message, yes, no) {
 		"use strict";
 
-		$scope.dismiss = $modalInstance.dismiss;
-		$scope.close = $modalInstance.close;
+		$scope.dismiss = $uibModalInstance.dismiss;
+		$scope.close = $uibModalInstance.close;
 		$scope.title = title;
 		$scope.message = message;
 		$scope.yes = yes;
