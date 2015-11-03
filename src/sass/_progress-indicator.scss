@@ -92,7 +92,7 @@
 			text-transform: uppercase;
 			font-size: 80%;
 			transition: all 0.5s ease;
-			transition-delay: 0.3s;
+			transition-delay: 0.15s;
 			height: $stateHeight;
 			display: inline-block;
 			vertical-align: middle;
@@ -111,7 +111,7 @@
 			left: 58%;
 			transform: translate(-50%, -50%);
 			transition: opacity 0.3s ease;
-			transition-delay: 0.4s;
+			transition-delay: 0.25s;
 			opacity: 0;
 			user-select: all;
 		}
