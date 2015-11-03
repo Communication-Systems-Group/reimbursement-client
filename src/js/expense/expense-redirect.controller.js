@@ -12,27 +12,27 @@ function($state, $stateParams, $timeout, stateService, globalMessagesService, sp
 		var expense = response.data;
 		var expenseState = expense.state;
 		var expenseUsers = {
-		userUid: expense.userUid,
-		assignedManagerUid: expense.assignedManagerUid,
-		financeAdminUid: expense.financeAdminUid
+			userUid: expense.userUid,
+			assignedManagerUid: expense.assignedManagerUid,
+			financeAdminUid: expense.financeAdminUid
 		};
 
 		var viewDetails = stateService.getExpenseViewDetails(expenseState, expenseUsers);
 
 		if(viewDetails.hasAccess) {
-		$state.go(viewDetails.name, { expense: expense });
+			$state.go(viewDetails.name, { expense: expense });
 		}
 		else {
-		$state.go('dashboard');
+			$state.go('dashboard');
 		}
 
 		}, function(response) {
-		response.errorHandled = true;
+			response.errorHandled = true;
 
-		globalMessagesService.showErrorMd("reimbursement.globalMessage.expenseNotFoundException.title",
-		"reimbursement.globalMessage.expenseNotFoundException.message").
-		then()['finally'](function() {
-		$state.go('dashboard');
+			globalMessagesService.showErrorMd("reimbursement.globalMessage.expenseNotFoundException.title",
+			"reimbursement.globalMessage.expenseNotFoundException.message").
+			then()['finally'](function() {
+			$state.go('dashboard');
 		});
 
 		})['finally'](function() {
