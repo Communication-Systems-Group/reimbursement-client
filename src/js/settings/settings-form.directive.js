@@ -1,16 +1,17 @@
-app.directive('settingsForm', ['$timeout', '$translate', 'settingsRestService', 'USER', 'globalMessagesService', 'spinnerService',
+app.directive('settingsForm', ['$timeout', '$translate', 'settingsRestService', 'USER',
 
-function($timeout, $translate, settingsRestService, USER, globalMessagesService, spinnerService) {
+function($timeout, $translate, settingsRestService, USER) {
 	'use strict';
 
 	return {
 		restrict: 'E',
 		replace: true,
 		templateUrl: 'settings/settings-form.directive.tpl.html',
-		scope: {
-			isRegistration: '='
-		},
 		link: function($scope) {
+
+			$scope.personnelNumberLoading = false;
+			$scope.phoneNumberLoading = false;
+			$scope.languageLoading = false;
 
 			var timeoutTime = 700;
 			$scope.timeouts = {};
@@ -29,11 +30,15 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService,
 			});
 
 			$scope.saveLanguage = function() {
-				spinnerService.show('settingsFormSpinner');
+				$scope.languageLoading = true;
 				settingsRestService.putLanguage($scope.form.language.toUpperCase()).then(function() {
 					USER.language = $scope.form.language;
 					$translate.use($scope.form.language.toLowerCase());
-				})['finally'](hideSpinner);
+				})['finally'](function() {
+					$timeout(function() {
+						$scope.languageLoading = false;
+					}, timeoutTime-1);
+				});
 			};
 
 			$scope.savePersonnelNumber = function() {
@@ -43,11 +48,15 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService,
 				$timeout.cancel($scope.timeouts.personnelNumber);
 
 				$scope.timeouts.personnelNumber = $timeout(function() {
-					spinnerService.show('settingsFormSpinner');
+					$scope.personnelNumberLoading = true;
 
 					settingsRestService.putPersonnelNumber($scope.form.personnelNumber).then(function() {
 						USER.personnelNumber = $scope.form.personnelNumber;
-					})['finally'](hideSpinner);
+					})['finally'](function() {
+						$timeout(function () {
+							$scope.personnelNumberLoading = false;
+						}, timeoutTime-1);
+					});
 
 				}, timeoutTime);
 			};
@@ -60,35 +69,32 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService,
 				$timeout.cancel($scope.timeouts.phoneNumber);
 
 				$scope.timeouts.phoneNumber = $timeout(function() {
-					spinnerService.show('settingsFormSpinner');
+					$scope.phoneNumberLoading = true;
 
 					settingsRestService.putPhoneNumber($scope.form.phoneNumber).then(function() {
 						USER.phoneNumber = $scope.form.phoneNumber;
-					})['finally'](hideSpinner);
+					})['finally'](function() {
+						$timeout(function() {
+							$scope.phoneNumberLoading = false;
+						}, timeoutTime-1);
+					});
 
 				}, timeoutTime);
 			};
 
 			$scope.saveIsActive = function() {
 				if($scope.form.isActive !== "") {
-					spinnerService.show('settingsFormSpinner');
+					$scope.isActiveLoading = true;
 					settingsRestService.putIsActive($scope.form.isActive).then(function() {
 						USER.isActive = $scope.form.isActive;
-					})['finally'](hideSpinner);
+					})['finally'](function() {
+						$timeout(function() {
+							$scope.isActiveLoading = false;
+						}, timeoutTime-1);
+					});
 				}
 			};
 
-			function hideSpinner() {
-				if(!$scope.isRegistration) {
-					// saving in settings should always display spinner shortly, otherwise it is confusing.
-					$timeout(function() {
-						spinnerService.hide('settingsFormSpinner');
-					}, 500);
-				}
-				else {
-					spinnerService.hide('settingsFormSpinner');
-				}
-			}
 		}
 	};
 

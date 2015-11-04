@@ -1,30 +1,35 @@
 <div id="settings-form">
-	<spinner id="settingsFormSpinner" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 	<form id="languageSettings" class="form-horizontal">
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="languageSelect"> {{ 'reimbursement.settings.language' | translate }} </label>
-			<div class="col-sm-9">
+			<div class="col-sm-9 right-inner-addon">
 				<select class="form-control" ng-model="form.language" id="languageSelect" ng-change="saveLanguage()">
 					<option ng-repeat="language in languages" value="{{ language }}"> {{ "reimbursement.language.full."+language.toLowerCase() | translate }} </option>
 				</select>
+				<span class="inline-spinner fat right-margin" ng-class="{active: languageLoading}"></span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="personnelNumber"> {{ 'reimbursement.settings.personnelNumber' | translate }} </label>
-			<div class="col-sm-9">
+			<div class="col-sm-9 right-inner-addon">
 				<input type="text" class="form-control" id="personnelNumber" placeholder="{{ personnelNumber }}" ng-model="form.personnelNumber" ng-keydown="savePersonnelNumber()">
+				<span class="inline-spinner fat" ng-class="{active: personnelNumberLoading}"></span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="phoneNumber"> {{ 'reimbursement.settings.phoneNumber' | translate }} </label>
-			<div class="col-sm-9">
+			<div class="col-sm-9 right-inner-addon">
 				<input type="text" class="form-control" id="phoneNumber" placeholder="{{ phoneNumber }}" ng-model="form.phoneNumber" ng-keydown="savePhoneNumber()">
+				<span class="inline-spinner fat" ng-class="{active: phoneNumberLoading}"></span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-3 control-label"> {{ 'reimbursement.settings.accountState' | translate }} </label>
 			<div class="col-sm-9">
-				<label class="checkbox-inline"><input type="checkbox" name="isActive" ng-model="form.isActive" ng-change="saveIsActive()"> {{ 'reimbursement.settings.state' | translate }} </label>
+				<label class="checkbox-inline">
+					<input type="checkbox" name="isActive" ng-model="form.isActive" ng-change="saveIsActive()"> {{ 'reimbursement.settings.state' | translate }}
+					<span class="inline-spinner fat pull-right" ng-class="{active: isActiveLoading}"></span>
+				</label>
 			</div>
 		</div>
 	</form>

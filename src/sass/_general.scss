@@ -123,11 +123,27 @@ h1.page-header small > .fa {
 }
 
 .right-inner-addon {
-	.fa {
+	.fa,
+	.inline-spinner {
 		position: absolute;
 		top: 50%;
 		right: 1.3em;
 		transform: translateY(-50%);
+	}
+	.inline-spinner {
+		right: 1.3em;
+		margin-top:1px;
+
+		&.right-margin {
+			right: 2.3em;
+		}
+	}
+}
+.inline-spinner {
+	font-size: 18px;
+
+	&.pull-right {
+		margin-left: 10px;
 	}
 }
 
@@ -138,7 +154,7 @@ h1.page-header small > .fa {
 	transition: 0.3s all ease;
 	&.active {
 		visibility: visible;
-		opacity:1;
+		opacity: 1;
 	}
 	.fa {
 		color: rgba(255, 153, 0, 1);
