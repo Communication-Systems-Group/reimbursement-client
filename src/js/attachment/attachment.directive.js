@@ -9,7 +9,8 @@ function() {
 		templateUrl : 'attachment/attachment.tpl.html',
 		controller: 'AttachmentController',
 		scope : {
-			expenseItemUid : '='
+			expenseItemUid : "=",
+			hasAttachment: "="
 		}
 	};
 });

@@ -1,7 +1,7 @@
 <div id="attachmentCapture">
 	<spinner id="spinnerAttachmentImage" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 
-	<div ng-show="displayAttachment" class="displayAttachment">
+	<div ng-show="hasAttachment" class="displayAttachment">
 		<i class="fa fa-file-pdf-o"></i>
 		<a target="_blank" ng-href="{{ base64 }}">{{ 'reimbursement.captureAttachment.downloadAttachment' | translate }}</a>
 		<a href class="deleteAttachment" ng-click="deleteAttachment()">
@@ -9,7 +9,7 @@
 		</a>
 	</div>
 
-	<div ng-if="!displayAttachment">
+	<div ng-if="!hasAttachment">
 		<div class="text-center">
 			<button class="btn btn-default" ng-click="showQR()">
 				<i class="fa fa-tablet fa-lg"></i>
@@ -35,5 +35,4 @@
 			</div>
 		</form>
 	</div>
-
 </div>

@@ -11,11 +11,18 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 			expenseItemUid: '=',
 			form: '=',
 			validatingFunction: '=',
+			hasAttachment: '=',
 			editable: '='
 		},
 		link: function($scope) {
 
 			$scope.form = $scope.form || {};
+
+			// pass the hasAttachment property from the child directive to the parent
+			$scope.attachment = {};
+			$scope.$watch('attachment.hasAttachment', function() {
+				$scope.hasAttachment = $scope.attachment.hasAttachment;
+			});
 
 			var expenseItem = {};
 			$scope.calculatedAmount = $filter('number')(0, 2);
@@ -125,7 +132,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 					}
 				};
 
-				$scope.validatingFunction = function(form) {
+				$scope.validatingFunction = function(form, hasAttachment) {
 					if(typeof form.date === "undefined" || form.date === null || !moment(form.date, 'dd.MM.yyyy').isValid()) {
 						return false;
 					}
@@ -142,6 +149,10 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 						return false;
 					}
 					if(typeof form.explanation === "undefined" || form.explanation === null || form.explanation === "") {
+						return false;
+					}
+					if(typeof hasAttachment === "undefined" || hasAttachment === null || hasAttachment === false) {
+						console.log("hasAttachment is :"+hasAttachment);
 						return false;
 					}
 					return true;

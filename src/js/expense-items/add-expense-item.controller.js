@@ -21,13 +21,14 @@ function($scope, $uibModalInstance, globalMessagesService, spinnerService, expen
 	}
 
 	function submitForm() {
-		var formIsValid = $scope.validatingFunction($scope.form);
+		var formIsValid = $scope.validatingFunction($scope.form, $scope.hasAttachment);
 		if(formIsValid) {
 			spinnerService.show('spinnerExpenseItemForm');
 			$scope.hideClose = true;
 
-            var data = $scope.form;
-            data.date = $filter('getISODate')(data.date);
+			var data = $scope.form;
+			data.date = $filter('getISODate')(data.date);
+
 			expenseItemsRestService.putExpenseItem(expenseItemUid, data).then(function() {
 				$uibModalInstance.close();
 			})['finally'](function() {

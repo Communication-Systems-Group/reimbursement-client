@@ -19,7 +19,7 @@ function($scope, $uibModalInstance, globalMessagesService, spinnerService, expen
 	}
 
 	function submitForm() {
-		var formIsValid = $scope.validatingFunction($scope.form);
+		var formIsValid = $scope.validatingFunction($scope.form, $scope.hasAttachment);
 		if(formIsValid) {
 			spinnerService.show('spinnerExpenseItemForm');
 			$scope.hideClose = true;

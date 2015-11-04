@@ -5,7 +5,7 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 
 	$scope.postAttachmentPath = attachmentRestService.postAttachmentPath($scope.expenseItemUid);
 	$scope.base64 = "";
-	$scope.displayAttachment = false;
+	$scope.hasAttachment = false;
 	$scope.flow = {};
 
 	function showAttachmentLinkOrUploadForm() {
@@ -14,18 +14,18 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 		attachmentRestService.getAttachment($scope.expenseItemUid).then(function(response) {
 			if(response.data.content) {
 				$scope.base64 = base64BinaryConverterService.toBase64FromJson(response.data);
-				$scope.displayAttachment = true;
+				$scope.hasAttachment = true;
 			}
 			else {
 				$scope.base64 = "";
-				$scope.displayAttachment = false;
+				$scope.hasAttachment = false;
 			}
 
 		}, function(response) {
 			response.errorHandled = true;
 
 			$scope.base64 = "";
-			$scope.displayAttachment = false;
+			$scope.hasAttachment = false;
 
 		})["finally"](function() {
 			spinnerService.hide("spinnerAttachmentImage");
@@ -54,7 +54,7 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 
 			modalInstance.result.then(function(response) {
 				$scope.base64 = base64BinaryConverterService.toBase64FromJson(response.data);
-				$scope.displayAttachment = true;
+				$scope.hasAttachment = true;
 			});
 		});
 	};
