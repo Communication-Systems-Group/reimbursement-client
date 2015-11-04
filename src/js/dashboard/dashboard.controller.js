@@ -46,7 +46,7 @@ function($scope, $state, $uibModal, USER, expenseRestService, stateService) {
 	};
 
 	$scope.stateOrderingProfAdmin = function(expense) {
-		if (USER.hasRole('PROF')) {
+		if (USER.hasRole('PROF') || USER.hasRole('DEPARTMENT_MANAGER')) {
 			return stateService.stateOrder(expense.state, expense.date, 'MANAGER');
 		}
 		if (USER.hasRole('FINANCE_ADMIN')) {
