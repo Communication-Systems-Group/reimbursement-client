@@ -9,9 +9,8 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 		templateUrl: 'expense-items/expense-item-form.directive.tpl.html',
 		scope: {
 			expenseItemUid: '=',
+			validate: '=',
 			form: '=',
-			validatingFunction: '=',
-			hasAttachment: '=',
 			editable: '='
 		},
 		link: function($scope) {
@@ -132,26 +131,26 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 					}
 				};
 
-				$scope.validatingFunction = function(form, hasAttachment) {
-					if(typeof form.date === "undefined" || form.date === null || !moment(form.date, 'dd.MM.yyyy').isValid()) {
+				$scope.validate = function() {
+					if(typeof $scope.form.date === "undefined" || $scope.form.date === null || !moment($scope.form.date, 'dd.MM.yyyy').isValid()) {
 						return false;
 					}
-					if(typeof form.costCategoryUid === "undefined" || form.costCategoryUid === null || form.costCategoryUid === "") {
+					if(typeof $scope.form.costCategoryUid === "undefined" || $scope.form.costCategoryUid === null || $scope.form.costCategoryUid === "") {
 						return false;
 					}
-					if(typeof form.originalAmount === "undefined" || form.originalAmount === null || !jQuery.isNumeric(form.originalAmount) || parseFloat(form.originalAmount) <= 0) {
+					if(typeof $scope.form.originalAmount === "undefined" || $scope.form.originalAmount === null || !jQuery.isNumeric($scope.form.originalAmount) || parseFloat($scope.form.originalAmount) <= 0) {
 						return false;
 					}
-					if(typeof form.currency === "undefined" || form.currency === null || form.currency === "") {
+					if(typeof $scope.form.currency === "undefined" || $scope.form.currency === null || $scope.form.currency === "") {
 						return false;
 					}
-					if(typeof form.project === "undefined" || form.project === null || form.project === "") {
+					if(typeof $scope.form.project === "undefined" || $scope.form.project === null || $scope.form.project === "") {
 						return false;
 					}
-					if(typeof form.explanation === "undefined" || form.explanation === null || form.explanation === "") {
+					if(typeof $scope.form.explanation === "undefined" || $scope.form.explanation === null || $scope.form.explanation === "") {
 						return false;
 					}
-					if(typeof hasAttachment === "undefined" || hasAttachment === null || hasAttachment === false) {
+					if(typeof $scope.attachment.hasAttachment === "undefined" || $scope.attachment.hasAttachment === null || $scope.attachment.hasAttachment === false) {
 						return false;
 					}
 					return true;

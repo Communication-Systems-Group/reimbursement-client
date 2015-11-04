@@ -5,7 +5,7 @@ function($scope, $uibModalInstance, globalMessagesService, spinnerService, expen
 
 	$scope.expenseItemUid = expenseItemUid;
 	$scope.form = {};
-	$scope.validatingFunction = null;
+	$scope.validate = null;
 
 	$scope.dismissWithConfirmation = dismissWithConfirmation;
 	$scope.submit = submitForm;
@@ -19,7 +19,7 @@ function($scope, $uibModalInstance, globalMessagesService, spinnerService, expen
 	}
 
 	function submitForm() {
-		var formIsValid = $scope.validatingFunction($scope.form, $scope.hasAttachment);
+		var formIsValid = $scope.validate();
 		if(formIsValid) {
 			spinnerService.show('spinnerExpenseItemForm');
 			$scope.hideClose = true;

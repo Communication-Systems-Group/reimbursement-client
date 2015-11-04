@@ -12,7 +12,7 @@
 		<spinner id="spinnerExpenseItemForm" class="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 
 		<div class="modal-body">
-			<expense-item-form expense-item-uid="expenseItemUid" form="form" validating-function="validatingFunction" editable="true" has-attachment="hasAttachment"></expense-item-form>
+			<expense-item-form expense-item-uid="expenseItemUid" validate="validate" editable="true" form="form"></expense-item-form>
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-default" ng-click="dismissWithConfirmation()">
