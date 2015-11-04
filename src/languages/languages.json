@@ -87,6 +87,10 @@
 		"de": "Archivierte Spesen",
 		"en": "Archived Expenses"
 	},
+	"capsLockOnMessage": {
+		"de": "Feststelltaste aktiviert!",
+		"en": "Caps Lock is on!"
+	},
 	"captureAttachment.deleteAttachment.message": {
 		"de": "Sind Sie sicher, dass Sie diesen hochgeladenen Beleg unwiderruflich löschen möchten?",
 		"en": "Are you sure, that you want to delete this uploaded receipt irrevocably?"

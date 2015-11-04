@@ -121,3 +121,39 @@ h1.page-header small > .fa {
 	}
 
 }
+
+.right-inner-addon {
+	.fa {
+		position: absolute;
+		top: 50%;
+		right: 1.3em;
+		transform: translateY(-50%);
+	}
+}
+
+.isCapsLockOn {
+	display: block;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.3s all ease;
+	&.active {
+		visibility: visible;
+		opacity:1;
+	}
+	.fa {
+		color: rgba(255, 153, 0, 1);
+		transform: translateY(-33%);
+	}
+	.tooltip.right {
+		line-height: 1.6;
+		transform: translate(14px, -1px);
+		.tooltip-inner {
+			white-space: nowrap;
+			background: #737373;
+		}
+		.tooltip-arrow {
+			border-right-color: #737373;
+		}
+	}
+}
+
