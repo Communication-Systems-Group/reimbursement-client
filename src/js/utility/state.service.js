@@ -70,11 +70,11 @@ function($q, USER) {
 					expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
 
 					return templates.viewExpense;
-				} else if (expenseState === 'REJECTED' ||
-					expenseState === 'DRAFT') {
+				} else if (expenseState === 'REJECTED' || expenseState === 'DRAFT') {
 
 					return templates.editExpense;
 				} else if (expenseState === 'TO_SIGN_BY_USER') {
+
 					return templates.signExpense;
 				} else if (expenseState === 'SIGNED' || expenseState === 'PRINTED') {
 
@@ -82,7 +82,7 @@ function($q, USER) {
 				} else {
 					return templates.noAccess;
 				}
-			} else if (belonging.isManagerOfExpense && (USER.hasRole('PROF') || USER.hasRole('DEPUTY'))) {
+			} else if (belonging.isManagerOfExpense && USER.hasRole('PROF')) {
 				if (expenseState === 'REJECTED' ||
 					expenseState === 'DRAFT' ||
 					expenseState === 'TO_BE_ASSIGNED' ||
@@ -101,7 +101,7 @@ function($q, USER) {
 				} else {
 					return templates.noAccess;
 				}
-			} else if (belonging.isFinanceAdminOfExpense && (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('CHIEF_OF_FINANCE_ADMIN'))) {
+			} else if (belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
 				if (expenseState === 'REJECTED' ||
 					expenseState === 'DRAFT' ||
 					expenseState === 'ASSIGNED_TO_MANAGER' ||
@@ -121,7 +121,7 @@ function($q, USER) {
 				} else {
 					return templates.noAccess;
 				}
-			} else if (!belonging.isFinanceAdminOfExpense && (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('CHIEF_OF_FINANCE_ADMIN'))) {
+			} else if (!belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
 				if (expenseState === 'TO_BE_ASSIGNED' ||
 					expenseState === 'PRINTED') {
 
