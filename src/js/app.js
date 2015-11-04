@@ -255,31 +255,31 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		}).state('edit-expense', {
 			templateUrl: "expense/edit-expense.tpl.html",
 			controller: "EditExpenseController",
-			onEnter: requireRegisteredAuthentication(),
+			// no access-control required, because direct access not desired
 			params: { expense: null }
 
 		}).state('view-expense', {
 			templateUrl: "expense/view-expense.tpl.html",
 			controller: "ViewExpenseController",
-			onEnter: requireRegisteredAuthentication(),
+			// no access-control required, because direct access not desired
 			params: { expense: null }
 
 		}).state('print-expense', {
 			templateUrl: "expense/print-expense.tpl.html",
 			controller: "PrintExpenseController",
-			onEnter: requireRegisteredAuthentication(),
+			// no access-control required, because direct access not desired
 			params: { expense: null }
 
 		}).state('review-expense', {
 			templateUrl: "expense/review-expense.tpl.html",
 			controller: "ReviewExpenseController",
-			onEnter: requireRegisteredAuthenticationWithAnyRole(['PROF', 'FINANCE_ADMIN', 'CHIEF_OF_FINANCE_ADMIN', 'DEPUTY']),
+			// no access-control required, because direct access not desired
 			params: { expense: null }
 
 		}).state('sign-expense', {
 			templateUrl: "expense/sign-expense.tpl.html",
 			controller: "SignExpenseController",
-			onEnter: requireRegisteredAuthentication(),
+			// no access-control required, because direct access not desired
 			params: { expense: null }
 
 		}).state('welcome', {
