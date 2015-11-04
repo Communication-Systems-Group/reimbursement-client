@@ -152,7 +152,6 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 						return false;
 					}
 					if(typeof hasAttachment === "undefined" || hasAttachment === null || hasAttachment === false) {
-						console.log("hasAttachment is :"+hasAttachment);
 						return false;
 					}
 					return true;
