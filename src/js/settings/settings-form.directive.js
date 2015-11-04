@@ -12,7 +12,7 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService,
 		},
 		link: function($scope) {
 
-			var timeoutTime = 1000;
+			var timeoutTime = 700;
 			$scope.timeouts = {};
 			$scope.languages = [];
 			$scope.form = {
@@ -36,44 +36,37 @@ function($timeout, $translate, settingsRestService, USER, globalMessagesService,
 				})['finally'](hideSpinner);
 			};
 
-			$scope.savePersonnelNumber = function(immediacy) {
+			$scope.savePersonnelNumber = function() {
 				if($scope.form.personnelNumber === null) {
 					$scope.form.personnelNumber = "";
 				}
-				function pushToBackEnd() {
+				$timeout.cancel($scope.timeouts.personnelNumber);
+
+				$scope.timeouts.personnelNumber = $timeout(function() {
 					spinnerService.show('settingsFormSpinner');
+
 					settingsRestService.putPersonnelNumber($scope.form.personnelNumber).then(function() {
 						USER.personnelNumber = $scope.form.personnelNumber;
 					})['finally'](hideSpinner);
-				}
 
-				$timeout.cancel($scope.timeouts.personnelNumber);
-				if(immediacy === "delayed") {
-					$scope.timeouts.personnelNumber = $timeout(pushToBackEnd, timeoutTime);
-				}
-				else {
-					pushToBackEnd();
-				}
+				}, timeoutTime);
 			};
 
-			$scope.savePhoneNumber = function(immediacy) {
+			$scope.savePhoneNumber = function() {
 				if($scope.form.phoneNumber === null) {
 					$scope.form.phoneNumber = "";
 				}
-				function pushToBackEnd() {
+
+				$timeout.cancel($scope.timeouts.phoneNumber);
+
+				$scope.timeouts.phoneNumber = $timeout(function() {
 					spinnerService.show('settingsFormSpinner');
+
 					settingsRestService.putPhoneNumber($scope.form.phoneNumber).then(function() {
 						USER.phoneNumber = $scope.form.phoneNumber;
 					})['finally'](hideSpinner);
-				}
 
-				$timeout.cancel($scope.timeouts.phoneNumber);
-				if(immediacy === 'delayed') {
-					$scope.timeouts.phoneNumber = $timeout(pushToBackEnd, timeoutTime);
-				}
-				else {
-					pushToBackEnd();
-				}
+				}, timeoutTime);
 			};
 
 			$scope.saveIsActive = function() {
