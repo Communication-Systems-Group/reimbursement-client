@@ -10,7 +10,7 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 
 	$scope.$watch('expenseItems', function(newValue) {
 		$scope.submitButtonShown = false;
-		for(var i=0; i<newValue.length; i++) {
+		for(var i = 0; i < newValue.length; i++) {
 			if(newValue[i].state !== "INITIAL") {
 				$scope.submitButtonShown = true;
 				break;
@@ -44,7 +44,7 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 		if(!$scope.submitButtonDisabled) {
 
 			globalMessagesService.confirmInfoMd('reimbursement.expense.submitInfoTitle',
-				'reimbursement.expense.submitInfoMessage').then(function() {
+			'reimbursement.expense.submitInfoMessage').then(function() {
 
 				spinnerService.show('spinnerCreateExpense');
 				expenseRestService.assignToManager($scope.expense.uid).then(function() {

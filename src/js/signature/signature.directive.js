@@ -39,10 +39,10 @@ function($state, $uibModal, Modernizr, spinnerService, signatureRestService, bas
 			$scope.showQR = function() {
 				signatureRestService.postSignatureMobileToken().then(function(response) {
 					var modalInstance = $uibModal.open({
-						templateUrl : 'signature/signature-qr.tpl.html',
-						controller : 'SignatureQRController',
-						resolve : {
-							token : function() {
+						templateUrl: 'signature/signature-qr.tpl.html',
+						controller: 'SignatureQRController',
+						resolve: {
+							token: function() {
 								return response.data.uid;
 							}
 						}
@@ -95,7 +95,7 @@ function($state, $uibModal, Modernizr, spinnerService, signatureRestService, bas
 				}
 
 				$state.go(nextState, {
-					imageUri : base64Image
+					imageUri: base64Image
 				});
 			}
 		}]

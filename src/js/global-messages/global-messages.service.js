@@ -139,7 +139,6 @@ app.factory("globalMessagesService", ['$uibModal', '$translate', '$q',
 			return confirm('info', title, message, yes, no, true);
 		}
 
-
 		function hideMessages() {
 			for (var instance in openModalInstances) {
 				if (openModalInstances.hasOwnProperty(instance)) {

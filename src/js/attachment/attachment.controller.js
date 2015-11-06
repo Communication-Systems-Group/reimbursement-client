@@ -40,13 +40,13 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 	$scope.showQR = function() {
 		attachmentRestService.postAttachmentMobileToken($scope.expenseItemUid).then(function(response) {
 			var modalInstance = $uibModal.open({
-				templateUrl : 'attachment/attachment-qr.tpl.html',
-				controller : 'AttachmentQRController',
-				resolve : {
-					token : function() {
+				templateUrl: 'attachment/attachment-qr.tpl.html',
+				controller: 'AttachmentQRController',
+				resolve: {
+					token: function() {
 						return response.data.uid;
 					},
-					expenseItemUid : function(){
+					expenseItemUid: function() {
 						return $scope.expenseItemUid;
 					}
 				}
@@ -73,7 +73,8 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 
 		// file was not accepted by the validator
 		if(typeof fileWrapper === "undefined" || typeof fileWrapper.file === "undefined") {
-			globalMessagesService.showWarning("reimbursement.globalMessage.notAnImage.title", "reimbursement.globalMessage.notAnImage.message");
+			globalMessagesService.showWarning("reimbursement.globalMessage.notAnImage.title",
+			"reimbursement.globalMessage.notAnImage.message");
 		}
 		else {
 			showAttachmentLinkOrUploadForm();
@@ -82,7 +83,7 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 
 	$scope.deleteAttachment = function() {
 		globalMessagesService.confirmWarning("reimbursement.captureAttachment.deleteAttachment.title",
-			"reimbursement.captureAttachment.deleteAttachment.message").then(function() {
+		"reimbursement.captureAttachment.deleteAttachment.message").then(function() {
 
 			spinnerService.show("spinnerAttachmentImage");
 			attachmentRestService.deleteAttachment($scope.expenseItemUid).then(	function() {

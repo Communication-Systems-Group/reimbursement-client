@@ -10,7 +10,7 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 
 	$scope.$watch('expenseItems', function(newValue) {
 		$scope.submitButtonShown = false;
-		for(var i=0; i<newValue.length; i++) {
+		for(var i = 0; i < newValue.length; i++) {
 			if(newValue[i].state !== "INITIAL") {
 				$scope.submitButtonShown = true;
 				break;

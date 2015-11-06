@@ -3,7 +3,6 @@ app.controller('AttachmentMobileController', ['$scope', '$location', 'attachment
 function($scope, $location, attachmentRestService, spinnerService) {
 	"use strict";
 
-
 	var tokenUid = $location.path().split("/")[2];
 	$scope.postAttachmentPath = attachmentRestService.postAttachmentMobilePath(tokenUid);
 	$scope.flow = {};

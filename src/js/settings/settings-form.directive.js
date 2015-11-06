@@ -37,7 +37,7 @@ function($timeout, $translate, settingsRestService, USER) {
 				})['finally'](function() {
 					$timeout(function() {
 						$scope.languageLoading = false;
-					}, timeoutTime-1);
+					}, timeoutTime - 1);
 				});
 			};
 
@@ -55,7 +55,7 @@ function($timeout, $translate, settingsRestService, USER) {
 					})['finally'](function() {
 						$timeout(function () {
 							$scope.personnelNumberLoading = false;
-						}, timeoutTime-1);
+						}, timeoutTime - 1);
 					});
 
 				}, timeoutTime);
@@ -76,7 +76,7 @@ function($timeout, $translate, settingsRestService, USER) {
 					})['finally'](function() {
 						$timeout(function() {
 							$scope.phoneNumberLoading = false;
-						}, timeoutTime-1);
+						}, timeoutTime - 1);
 					});
 
 				}, timeoutTime);
@@ -90,7 +90,7 @@ function($timeout, $translate, settingsRestService, USER) {
 					})['finally'](function() {
 						$timeout(function() {
 							$scope.isActiveLoading = false;
-						}, timeoutTime-1);
+						}, timeoutTime - 1);
 					});
 				}
 			};

@@ -70,19 +70,24 @@ function($q, USER) {
 					expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
 
 					return templates.viewExpense;
-				} else if (expenseState === 'REJECTED' || expenseState === 'DRAFT') {
+				}
+				else if (expenseState === 'REJECTED' || expenseState === 'DRAFT') {
 
 					return templates.editExpense;
-				} else if (expenseState === 'TO_SIGN_BY_USER') {
+				}
+				else if (expenseState === 'TO_SIGN_BY_USER') {
 
 					return templates.signExpense;
-				} else if (expenseState === 'SIGNED' || expenseState === 'PRINTED') {
+				}
+				else if (expenseState === 'SIGNED' || expenseState === 'PRINTED') {
 
 					return templates.printExpense;
-				} else {
+				}
+				else {
 					return templates.noAccess;
 				}
-			} else if (belonging.isManagerOfExpense && (USER.hasRole('PROF') || USER.hasRole('DEPARTMENT_MANAGER'))) {
+			}
+			else if (belonging.isManagerOfExpense && (USER.hasRole('PROF') || USER.hasRole('DEPARTMENT_MANAGER'))) {
 				if (expenseState === 'REJECTED' ||
 					expenseState === 'DRAFT' ||
 					expenseState === 'TO_BE_ASSIGNED' ||
@@ -92,16 +97,21 @@ function($q, USER) {
 					expenseState === 'SIGNED') {
 
 					return templates.viewExpense;
-				} else if (expenseState === 'ASSIGNED_TO_MANAGER') {
+				}
+				else if (expenseState === 'ASSIGNED_TO_MANAGER') {
 					return templates.reviewExpense;
-				} else if (expenseState === 'TO_SIGN_BY_MANAGER') {
+				}
+				else if (expenseState === 'TO_SIGN_BY_MANAGER') {
 					return templates.signExpense;
-				} else if (expenseState === 'PRINTED') {
+				}
+				else if (expenseState === 'PRINTED') {
 					return templates.printExpense;
-				} else {
+				}
+				else {
 					return templates.noAccess;
 				}
-			} else if (belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
+			}
+			else if (belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
 				if (expenseState === 'REJECTED' ||
 					expenseState === 'DRAFT' ||
 					expenseState === 'ASSIGNED_TO_MANAGER' ||
@@ -110,18 +120,24 @@ function($q, USER) {
 					expenseState === 'SIGNED') {
 
 					return templates.viewExpense;
-				} else if (expenseState === 'TO_BE_ASSIGNED') {
+				}
+				else if (expenseState === 'TO_BE_ASSIGNED') {
 					return templates.assignToMe;
-				} else if (expenseState === 'ASSIGNED_TO_FINANCE_ADMIN') {
+				}
+				else if (expenseState === 'ASSIGNED_TO_FINANCE_ADMIN') {
 					return templates.reviewExpense;
-				} else if (expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
+				}
+				else if (expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
 					return templates.signExpense;
-				} else if (expenseState === 'PRINTED') {
+				}
+				else if (expenseState === 'PRINTED') {
 					return templates.assignToMe;
-				} else {
+				}
+				else {
 					return templates.noAccess;
 				}
-			} else if (!belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
+			}
+			else if (!belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
 				if (expenseState === 'TO_BE_ASSIGNED' ||
 					expenseState === 'PRINTED') {
 
@@ -179,9 +195,11 @@ function($q, USER) {
 
 			if (purpose === 'MANAGER') {
 				return orderNumber(statesList.forManager);
-			} else if (purpose === 'FINANCE_ADMIN') {
+			}
+			else if (purpose === 'FINANCE_ADMIN') {
 				return orderNumber(statesList.forFinanceAdmin);
-			} else {
+			}
+			else {
 				return orderNumber(statesList.forRegularUser);
 			}
 		},

@@ -21,11 +21,11 @@ function() {
 			var arrayBuffer = new window.ArrayBuffer(binaryLength);
 			var uint8Array = new window.Uint8Array(arrayBuffer);
 
-			for(var i=0; i<binaryLength; i++) {
+			for(var i = 0; i < binaryLength; i++) {
 				uint8Array[i] = binaryData.charCodeAt(i);
 			}
 
-			var blob = new window.Blob([uint8Array], {type: type});
+			var blob = new window.Blob([uint8Array], { type: type });
 			blob.lastModifiedDate = new Date();
 			blob.name = new Date().toUTCString() + "." + fileEnding;
 
@@ -36,7 +36,8 @@ function() {
 			var base64String = "data:" + json.type + ";base64," + json.content;
 			if (typeof (callback) === "function") {
 				callback(base64String);
-			} else {
+			}
+			else {
 				return base64String;
 			}
 		}

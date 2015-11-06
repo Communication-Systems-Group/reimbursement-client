@@ -12,7 +12,7 @@ function($scope, $uibModalInstance, globalMessagesService, spinnerService, expen
 
 	function dismissWithConfirmation() {
 		globalMessagesService.confirmWarning("reimbursement.expense-item.closeWarningEditTitle",
-			"reimbursement.expense-item.closeWarningEditMessage").then(function() {
+		"reimbursement.expense-item.closeWarningEditMessage").then(function() {
 
 			$uibModalInstance.dismiss();
 		});

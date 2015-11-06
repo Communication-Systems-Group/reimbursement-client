@@ -3,7 +3,7 @@ app.factory('httpInterceptor', ['$q', '$timeout', '$injector',
 function ($q, $timeout, $injector) {
 	'use strict';
 
-	function resetUserToPreLogin(){
+	function resetUserToPreLogin() {
 		var $state = $injector.get('$state');
 		if(!$state.is('login')) {
 			var USER = $injector.get('USER');
@@ -26,7 +26,8 @@ function ($q, $timeout, $injector) {
 				}
 				return $q.reject(response);
 
-			} else if(response.status === 403) {
+			}
+			else if(response.status === 403) {
 				// The 403 error message can be suppressed if, immediately inside the error function,
 				// response.csrfErrorHandled is set to true. This will stop the global error handler to open a modal.
 				return $q.reject(response)['finally'](function() {

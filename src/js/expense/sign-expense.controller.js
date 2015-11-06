@@ -24,10 +24,11 @@ function($state, $scope, $stateParams, $uibModal, expenseRestService, globalMess
 			modalInstance.result.then(function(response) {
 				$scope.expense.hasDigitalSignature = response;
 				expenseRestService.setSignMethod($scope.expense.uid, $scope.expense.hasDigitalSignature).then(function() {
-				signElectronically();
+					signElectronically();
 				});
 			});
-		} else {
+		}
+		else {
 			signElectronically();
 		}
 

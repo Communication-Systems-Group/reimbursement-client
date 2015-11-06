@@ -2,6 +2,7 @@ app.controller('AdminPoolSearchController', ['moment', '$scope', '$timeout', 'sp
 
 function(moment, $scope, $timeout, spinnerService, administrationRestService, globalMessagesService, $filter) {
 	'use strict';
+
 	$scope.roles = [];
 	$scope.expenseStates = [];
 	$scope.costCategories = [];
@@ -99,11 +100,12 @@ function(moment, $scope, $timeout, spinnerService, administrationRestService, gl
 	function groupItemsToPages() {
 		$scope.pagedItems = [];
 
-		for (var i=0; i<$scope.items.length; i++) {
+		for (var i = 0; i < $scope.items.length; i++) {
 			if (i % $scope.itemsPerPage === 0) {
-				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)+1] = [$scope.items[i]];
-			} else {
-				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)+1].push($scope.items[i]);
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage) + 1] = [$scope.items[i]];
+			}
+			else {
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage) + 1].push($scope.items[i]);
 			}
 		}
 

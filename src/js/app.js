@@ -15,7 +15,7 @@
 					var deferred = $q.defer();
 					var host = window.location.protocol + "//" + window.location.host.split(':')[0];
 
-					$http.get(host + "/api/user", {withCredentials: true}).then(
+					$http.get(host + "/api/user", { withCredentials: true }).then(
 						function (response) {
 							var data = response.data;
 							data.loggedIn = true;
@@ -28,7 +28,7 @@
 
 							var language = "DE";
 							if(typeof window.navigator.language !== "undefined") {
-								var browserLanguage = window.navigator.language.substr(0,2).toUpperCase();
+								var browserLanguage = window.navigator.language.substr(0, 2).toUpperCase();
 								if(browserLanguage === "DE" || browserLanguage === "EN") {
 									language = browserLanguage;
 								}
@@ -136,7 +136,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 				}
 
 				var hasSufficientRights = false;
-				for (var i=0; i<roles.length; i++) {
+				for (var i = 0; i < roles.length; i++) {
 					if (USER.hasRole(roles[i])) {
 						hasSufficientRights = true;
 						break;

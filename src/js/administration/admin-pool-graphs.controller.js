@@ -2,6 +2,7 @@ app.controller('AdminPoolGraphsController', ['$scope', '$timeout', '$translate',
 
 function($scope, $timeout, $translate, globalMessagesService, administrationRestService, c3) {
 	'use strict';
+
 	$scope.data = [];
 
 	administrationRestService.getExpenseStateRawData().then(function(response) {
@@ -10,21 +11,21 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 		$timeout(function() {
 
 			$translate(['reimbursement.expense.state.DRAFT',
-							'reimbursement.expense.state.ASSIGNED_TO_MANAGER',
-							'reimbursement.expense.state.TO_BE_ASSIGNED',
-							'reimbursement.expense.state.ASSIGNED_TO_FINANCE_ADMIN',
-							'reimbursement.expense.state.TO_SIGN_BY_USER',
-							'reimbursement.expense.state.TO_SIGN_BY_MANAGER',
-							'reimbursement.expense.state.TO_SIGN_BY_FINANCE_ADMIN',
-							'reimbursement.expense.state.SIGNED',
-							'reimbursement.administration.graphs.percentagePrinted']).then(function(translations) {
+			'reimbursement.expense.state.ASSIGNED_TO_MANAGER',
+			'reimbursement.expense.state.TO_BE_ASSIGNED',
+			'reimbursement.expense.state.ASSIGNED_TO_FINANCE_ADMIN',
+			'reimbursement.expense.state.TO_SIGN_BY_USER',
+			'reimbursement.expense.state.TO_SIGN_BY_MANAGER',
+			'reimbursement.expense.state.TO_SIGN_BY_FINANCE_ADMIN',
+			'reimbursement.expense.state.SIGNED',
+			'reimbursement.administration.graphs.percentagePrinted']).then(function(translations) {
 
 				c3.generate({
 					bindto: "#graph-area-step-current-state-distribution",
 					data: {
 						type: 'area-step',
 						columns: [
-							['Expenses in this state', $scope.data.draft, $scope.data.assignedToManager, $scope.data.toBeAssigned, $scope.data.assignedToFinanceAdmin, $scope.data.toSignByUser, $scope.data.toSignByManager, $scope.data.toSignByFinanceAdmin, $scope.data.signed],
+							['Expenses in this state', $scope.data.draft, $scope.data.assignedToManager, $scope.data.toBeAssigned, $scope.data.assignedToFinanceAdmin, $scope.data.toSignByUser, $scope.data.toSignByManager, $scope.data.toSignByFinanceAdmin, $scope.data.signed]
 						]
 					},
 					axis: {
@@ -82,7 +83,7 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 					}
 				});
 			}, function() {
-						globalMessagesService.showGeneralError();
+				globalMessagesService.showGeneralError();
 			});
 		});
 	});

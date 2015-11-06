@@ -1,4 +1,4 @@
-app.controller('AttachmentQRController', ['$scope', '$uibModalInstance', 'THIS_HOST', 'attachmentRestService', 'spinnerService', 'globalMessagesService', 'token','expenseItemUid',
+app.controller('AttachmentQRController', ['$scope', '$uibModalInstance', 'THIS_HOST', 'attachmentRestService', 'spinnerService', 'globalMessagesService', 'token', 'expenseItemUid',
 
 function($scope, $uibModalInstance, THIS_HOST, attachmentRestService, spinnerService, globalMessagesService, token, expenseItemUid) {
 	"use strict";

@@ -21,7 +21,8 @@ app.factory('signExpenseFactory', [
 					sign(base64, function(signature) {
 						callback(signature);
 					});
-				} else {
+				}
+				else {
 					callback(false);
 				}
 			});
@@ -39,21 +40,22 @@ app.factory('signExpenseFactory', [
 			// Prepare base64 value to be used by signing process.
 			var dd = base64ToArrayBuffer(data);
 
-			if(!dd) { callback(false); }
+			if(!dd) {
+				callback(false);
+			}
 
-			window.crypto.subtle.sign(
-				{
+			window.crypto.subtle.sign({
 					name: USED_KEYPAIR_VERSION
 				},
-				privateKey, //from generateKey or importKey above
-				dd //ArrayBuffer of data you want to sign
+				privateKey, // from generateKey or importKey above
+				dd // ArrayBuffer of data you want to sign
 			)
-				.then(function(signature){
-					//returns an ArrayBuffer containing the signature
+				.then(function(signature) {
+					// returns an ArrayBuffer containing the signature
 					callback(arrayBufferToBase64(signature));
 				})
-				.catch(function(){
-					//console.log(err);
+				.catch(function() {
+					// console.log(err);
 					callback(false);
 				});
 		}
@@ -75,15 +77,15 @@ app.factory('signExpenseFactory', [
 				{
 					name: USED_KEYPAIR_VERSION
 				},
-				publicKey, //from generateKey or importKey above
-				signature, //ArrayBuffer of the signature
-				data //ArrayBuffer of the data
+				publicKey, // from generateKey or importKey above
+				signature, // ArrayBuffer of the signature
+				data // ArrayBuffer of the data
 			)
-				.then(function(isvalid){
-					//returns a boolean on whether the signature is true or not
+				.then(function(isvalid) {
+					// returns a boolean on whether the signature is true or not
 					callback(isvalid);
 				})
-				.catch(function(){
+				.catch(function() {
 					callback(false);
 				});
 		}
@@ -103,24 +105,24 @@ app.factory('signExpenseFactory', [
 
 				window.crypto.subtle.importKey(
 					"pkcs8", // must be "pkcs8" (private only) to be used for document signing
-					buffer,
-					{   //these are the algorithm options
+					buffer, { // these are the algorithm options
 						name: USED_KEYPAIR_VERSION,
-						hash: {name: USED_HASH_ALGO} //can be "SHA-1", "SHA-256", "SHA-384", or "SHA-512"
+						hash: { name: USED_HASH_ALGO } // can be "SHA-1", "SHA-256", "SHA-384", or "SHA-512"
 					},
-					false, //whether the key is extractable (i.e. can be used in exportKey)
-					["sign"] //"verify" for public key import, "sign" for private key imports
+					false, // whether the key is extractable (i.e. can be used in exportKey)
+					["sign"] // "verify" for public key import, "sign" for private key imports
 				)
-					.then(function(key){
+					.then(function(key) {
 						// saves the privateKey
 						privateKey = key;
 						callback(true);
 					})
-					.catch(function(){
-						//console.log(err);
+					.catch(function() {
+						// console.log(err);
 						callback(false);
 					});
-			} else {
+			}
+			else {
 				callback(false);
 			}
 		}
@@ -144,7 +146,7 @@ app.factory('signExpenseFactory', [
 				return array.buffer;
 
 			} catch(e) {
-				 return false;
+				return false;
 			}
 		}
 
@@ -178,8 +180,9 @@ app.factory('signExpenseFactory', [
 				pB = pKey.split("KEY-----");
 				pE = pB[1].split("-----END");
 				key = pE[0].replace(/\s/g, "");
-			} else {
-				key = pKey.replace(/\s/g, "") ;
+			}
+			else {
+				key = pKey.replace(/\s/g, "");
 			}
 
 			return key;

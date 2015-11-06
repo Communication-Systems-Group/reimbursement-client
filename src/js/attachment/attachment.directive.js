@@ -4,12 +4,12 @@ function() {
 	"use strict";
 
 	return {
-		restrict : 'E',
-		replace : false,
-		templateUrl : 'attachment/attachment.tpl.html',
+		restrict: 'E',
+		replace: false,
+		templateUrl: 'attachment/attachment.tpl.html',
 		controller: 'AttachmentController',
-		scope : {
-			expenseItemUid : "=",
+		scope: {
+			expenseItemUid: "=",
 			hasAttachment: "="
 		}
 	};

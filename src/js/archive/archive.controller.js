@@ -2,6 +2,7 @@ app.controller('ArchiveController', ['$scope', '$filter', 'archiveRestService',
 
 function($scope, $filter, archiveRestService) {
 	'use strict';
+
 	$scope.archivedExpenses = [];
 	$scope.itemsPerPage = 15;
 	$scope.pagedExpenses = [];
@@ -23,7 +24,8 @@ function($scope, $filter, archiveRestService) {
 		for (var i = 0; i < $scope.archivedExpenses.length; i++) {
 			if (i % $scope.itemsPerPage === 0) {
 				$scope.pagedExpenses[Math.floor(i / $scope.itemsPerPage) + 1] = [$scope.archivedExpenses[i]];
-			} else {
+			}
+			else {
 				$scope.pagedExpenses[Math.floor(i / $scope.itemsPerPage) + 1].push($scope.archivedExpenses[i]);
 			}
 		}

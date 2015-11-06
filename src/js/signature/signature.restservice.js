@@ -8,10 +8,10 @@ function($http, HOST) {
 	}
 	return {
 		getSignature: getSignature,
-		postSignatureMobileToken : function() {
+		postSignatureMobileToken: function() {
 			return $http.post(HOST + "/api/user/signature/token");
 		},
-		postSignaturePath : function() {
+		postSignaturePath: function() {
 			return HOST + "/api/user/signature";
 		},
 		postSignatureMobilePath: function(token) {

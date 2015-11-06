@@ -6,7 +6,7 @@ function($http, HOST) {
 	function postExpenseItem(uid, data) {
 		return $http({
 			method: 'POST',
-			url: HOST + '/api/expenses/'+uid+'/expense-items',
+			url: HOST + '/api/expenses/' + uid + '/expense-items',
 			data: data
 		});
 	}
@@ -21,21 +21,21 @@ function($http, HOST) {
 	function getExpenseItems(expenseUid) {
 		return $http({
 			method: 'GET',
-			url: HOST + '/api/expenses/'+expenseUid+'/expense-items'
+			url: HOST + '/api/expenses/' + expenseUid + '/expense-items'
 		});
 	}
 
 	function getExpenseItem(expenseItemUid) {
 		return $http({
 			method: 'GET',
-			url: HOST + '/api/expenses/expense-items/'+expenseItemUid
+			url: HOST + '/api/expenses/expense-items/' + expenseItemUid
 		});
 	}
 
 	function deleteExpenseItem(uid) {
 		return $http({
 			method: 'DELETE',
-			url: HOST + '/api/expenses/expense-items/'+uid
+			url: HOST + '/api/expenses/expense-items/' + uid
 		});
 	}
 
@@ -59,7 +59,7 @@ function($http, HOST) {
 	function putExpenseItem(uid, data) {
 		return $http({
 			method: "PUT",
-			url: HOST + '/api/expenses/expense-items/'+uid,
+			url: HOST + '/api/expenses/expense-items/' + uid,
 			data: data
 		});
 	}

@@ -4,7 +4,7 @@ function($scope, $timeout, USER, logoutRestService, globalMessagesService, spinn
 	"use strict";
 
 	$scope.success = false;
-	$timeout(function(){
+	$timeout(function() {
 		// timeout because spinner directive is loaded afterwards
 		spinnerService.show('spinnerLogout');
 	});

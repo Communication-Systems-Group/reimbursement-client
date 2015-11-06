@@ -4,15 +4,15 @@ function() {
 	"use strict";
 
 	return {
-		restrict : 'E',
-		replace : true,
-		templateUrl : 'spinner/spinner.directive.tpl.html',
-		scope : {
-			id : '@',
-			label : "@?",
-			showSpinner : "@?"
+		restrict: 'E',
+		replace: true,
+		templateUrl: 'spinner/spinner.directive.tpl.html',
+		scope: {
+			id: '@',
+			label: "@?",
+			showSpinner: "@?"
 		},
-		controller : ['$scope', '$attrs', 'spinnerService',
+		controller: ['$scope', '$attrs', 'spinnerService',
 		function($scope, $attrs, spinnerService) {
 			if ( typeof $scope.label === 'undefined') {
 				$scope.label = '';

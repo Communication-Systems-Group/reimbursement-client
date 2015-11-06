@@ -12,5 +12,4 @@ function($scope, $uibModalInstance, expenseRestService, expenseUid) {
 		});
 	};
 
-
 }]);

@@ -12,22 +12,23 @@ app.controller('EditCostCategoryController', [ '$scope', '$uibModalInstance', 'g
 		$scope.isCreate = isCreate;
 
 		function validation(form) {
-			if (!form.accountNumber.$valid || !form.name_de.$valid || !form.name_en.$valid || !form.description_de.$valid || !form.description_en.$valid || !form.accounting_policy_de.$valid || !form.accounting_policy_en.$valid) {
+			if (!form.accountNumber.$valid || !form.nameDe.$valid || !form.nameEn.$valid || !form.descriptionDe.$valid || !form.descriptionEn.$valid || !form.accountingPolicyDe.$valid || !form.accountingPolicyEn.$valid) {
 				globalMessagesService.showInfo("reimbursement.expense.warning.formNotComplete.title",
 					"reimbursement.expense.warning.formNotComplete.message");
 
 				return false;
-			} else {
+			}
+			else {
 				return true;
 			}
 		}
 
 		$scope.dismissWithConfirmation = function () {
 			globalMessagesService.confirmWarning("reimbursement.expense-item.closeWarningEditTitle",
-					"reimbursement.expense-item.closeWarningEditMessage").then(function () {
+			"reimbursement.expense-item.closeWarningEditMessage").then(function () {
 
-					$uibModalInstance.dismiss();
-				});
+				$uibModalInstance.dismiss();
+			});
 		};
 
 		$scope.save = function (form) {
@@ -39,7 +40,8 @@ app.controller('EditCostCategoryController', [ '$scope', '$uibModalInstance', 'g
 					administrationRestService.putCostCategory($scope.costCategory, $scope.costCategory.uid).then(function () {
 						$uibModalInstance.dismiss();
 					});
-				} else {
+				}
+				else {
 					administrationRestService.postCostCategory($scope.costCategory).then(function () {
 						$uibModalInstance.dismiss();
 					});

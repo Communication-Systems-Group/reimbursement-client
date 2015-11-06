@@ -4,15 +4,15 @@ function($window, $timeout, base64BinaryConverterService) {
 	"use strict";
 
 	return {
-		restrict : 'E',
-		replace : false,
-		templateUrl : 'signature/signature-pad.directive.tpl.html',
-		scope : {
-			submit : "=",
+		restrict: 'E',
+		replace: false,
+		templateUrl: 'signature/signature-pad.directive.tpl.html',
+		scope: {
+			submit: "=",
 			parents: "=",
 			full: "="
 		},
-		link : function($scope, $element) {
+		link: function($scope, $element) {
 			var canvas = $element.find("canvas");
 			var signaturePad = new window.SignaturePad(canvas[0], {
 				penColor: "rgb(83,118,192)"
@@ -46,14 +46,14 @@ function($window, $timeout, base64BinaryConverterService) {
 
 				// if $scope.parents is an array
 				if(typeof $scope.parents === "object") {
-					for(var i=0; i<$scope.parents.length; i++) {
+					for(var i = 0; i < $scope.parents.length; i++) {
 						var newWidth = parseInt(jQuery($scope.parents[i]).css('width'), 10);
 						if(newWidth > width) {
 							width = newWidth;
 						}
 					}
 					if($scope.full) {
-						for(var j=0; i<$scope.parents.length; j++) {
+						for(var j = 0; j < $scope.parents.length; j++) {
 							var newHeight = parseInt(jQuery($scope.parents[j]).css('height'), 10);
 							if(newHeight > height) {
 								height = newHeight;

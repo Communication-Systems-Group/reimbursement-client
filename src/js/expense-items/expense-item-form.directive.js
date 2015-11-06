@@ -26,11 +26,11 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 			var expenseItem = {};
 			$scope.calculatedAmount = $filter('number')(0, 2);
 
-			$timeout(function(){
+			$timeout(function() {
 				spinnerService.show('spinnerExpenseItemForm');
 
 				expenseItemsRestService.getCostCategories().then(function(response) {
-					$scope.costCategories =  response.data;
+					$scope.costCategories = response.data;
 
 					expenseItemsRestService.getSupportedCurrencies().then(function(response) {
 						$scope.currencies = response.data;
@@ -41,7 +41,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 							if(!$scope.editable) {
 								$scope.staticCalculatedAmount = response.data.calculatedAmount;
 
-								for(var i=0; i<$scope.costCategories.length; i++) {
+								for(var i = 0; i < $scope.costCategories.length; i++) {
 									if($scope.costCategories[i].uid === response.data.costCategory.uid) {
 										$scope.costCategoryLabel = $filter('costCategoryLanguage')($scope.costCategories[i].name);
 										break;
@@ -171,9 +171,9 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 
 				$scope.openCostCategoryModal = function() {
 					var modalInstance = $uibModal.open({
-						templateUrl : 'expense-items/show-cost-category.modal.tpl.html',
-						controller : 'ShowCostCategoryController',
-						resolve : {
+						templateUrl: 'expense-items/show-cost-category.modal.tpl.html',
+						controller: 'ShowCostCategoryController',
+						resolve: {
 							costCategories: function() {
 								return $scope.costCategories;
 							},

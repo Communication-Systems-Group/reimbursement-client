@@ -40,12 +40,12 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 
 		$scope.deleteItem = function (uid) {
 			globalMessagesService.confirmWarning("reimbursement.administration.deleteCostCategoryItemTitle",
-					"reimbursement.administration.deleteCostCategoryItemText").then(function () {
+			"reimbursement.administration.deleteCostCategoryItemText").then(function () {
 
-					administrationRestService.deleteCostCategory(uid).then(function () {
-						loadData();
-					});
+				administrationRestService.deleteCostCategory(uid).then(function () {
+					loadData();
 				});
+			});
 		};
 
 		$scope.editItem = function (uid) {
@@ -66,6 +66,5 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 
 			modalInstance.result.then()['finally'](loadData);
 		};
-
 
 	}]);

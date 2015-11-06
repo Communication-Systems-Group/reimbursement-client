@@ -15,14 +15,14 @@ function(stateService) {
 
 			$scope.states = [];
 			var activeStatePassedBy = false;
-			for(var i=0; i<stateList.length; i++) {
+			for(var i = 0; i < stateList.length; i++) {
 				var currentClass = "";
 				if(stateList[i] === 'DRAFT' && $scope.state === 'REJECTED') {
 					activeStatePassedBy = true;
 					$scope.states.push({
 						"class": 'active rejected',
 						"state": $scope.state,
-						"first": i===0
+						"first": i === 0
 					});
 				}
 				else {
@@ -41,7 +41,7 @@ function(stateService) {
 					$scope.states.push({
 						"class": currentClass,
 						"state": stateList[i],
-						"first": i===0
+						"first": i === 0
 					});
 				}
 			}

@@ -98,14 +98,14 @@ function($http, HOST) {
 	function assignToMe(uid) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/expenses/'+uid+'/assign-to-me'
+			url: HOST + '/api/expenses/' + uid + '/assign-to-me'
 		});
 	}
 
 	function deleteExpense(uid) {
 		return $http({
 			method: 'DELETE',
-			url: HOST + '/api/expenses/'+uid
+			url: HOST + '/api/expenses/' + uid
 		});
 	}
 

@@ -20,7 +20,8 @@ function($scope, $uibModalInstance, signExpenseFactory, expenseRestService, glob
 					$uibModalInstance.close(hasDigitalSignature);
 				}
 			});
-		} else {
+		}
+		else {
 			hasDigitalSignature = false;
 			$uibModalInstance.close(hasDigitalSignature);
 		}
@@ -29,43 +30,44 @@ function($scope, $uibModalInstance, signExpenseFactory, expenseRestService, glob
 			if(validation()) {
 				expenseRestService.generatePdf($scope.expenseUid, HOST).then(function() {}, function() {
 					globalMessagesService.showErrorMd('reimbursement.expense.signForm.error',
-							'reimbursement.expense.signForm.pdfCannotBeCreated').then(function() {
-							$scope.privateKey = '';
-							$scope.method = null;
+					'reimbursement.expense.signForm.pdfCannotBeCreated').then(function() {
+						$scope.privateKey = '';
+						$scope.method = null;
 
-							callback(false);
-						});
+						callback(false);
+					});
 				})['finally'](function() {
 					expenseRestService.getExpensePdf($scope.expenseUid).then(function(response) {
 						signExpenseFactory.construct(response.data.content, $scope.privateKey, function(signature) {
 							if(signature) {
 								signExpenseFactory.verify(response.data.content, signature, function() {
 									globalMessagesService.showInfo('reimbursement.expense.signForm.success',
-											'reimbursement.expense.signForm.documentSignedSuccessfully').then(function() {
-											$scope.privateKey = '';
-											$scope.method = null;
+										'reimbursement.expense.signForm.documentSignedSuccessfully').then(function() {
+										$scope.privateKey = '';
+										$scope.method = null;
 
-											// ToDo upload signature
+										// TODO upload signature
 
-											callback(true);
-										});
-								});
-							} else {
-								globalMessagesService.showErrorMd('reimbursement.expense.signForm.error',
-										'reimbursement.expense.signForm.signatureCannotBeCreated').then(function() {
-
-										callback(false);
+										callback(true);
 									});
+								});
+							}
+							else {
+								globalMessagesService.showErrorMd('reimbursement.expense.signForm.error',
+								'reimbursement.expense.signForm.signatureCannotBeCreated').then(function() {
+
+									callback(false);
+								});
 							}
 						});
 					}, function() {
 						globalMessagesService.showErrorMd('reimbursement.expense.signForm.error',
-								'reimbursement.expense.signForm.pdfExportFailed').then(function() {
-								$scope.privateKey = '';
-								$scope.method = null;
+						'reimbursement.expense.signForm.pdfExportFailed').then(function() {
+							$scope.privateKey = '';
+							$scope.method = null;
 
-								callback(false);
-							});
+							callback(false);
+						});
 					});
 				});
 			}
@@ -74,9 +76,11 @@ function($scope, $uibModalInstance, signExpenseFactory, expenseRestService, glob
 		function validation() {
 			if($scope.privateKey.length < 255) {
 				globalMessagesService.showWarningMd('reimbursement.expense.signForm.validationError',
-						'reimbursement.expense.signForm.noPrivateKeyProvided');
+				'reimbursement.expense.signForm.noPrivateKeyProvided');
+
 				return false;
-			} else {
+			}
+			else {
 				return true;
 			}
 		}

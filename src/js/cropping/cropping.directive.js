@@ -19,7 +19,8 @@ function($state, spinnerService, croppingRestService) {
 			$scope.$watch('dimensions', function() {
 				if ( typeof $scope.dimensions.width === "undefined" || $scope.dimensions.width < 90 || $scope.dimensions.height < 60) {
 					$scope.hasDimensions = false;
-				} else {
+				}
+				else {
 					$scope.hasDimensions = true;
 				}
 			});

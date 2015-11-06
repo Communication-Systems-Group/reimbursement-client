@@ -5,7 +5,7 @@ function($scope, $state, settingsRestService, globalMessagesService, base64Binar
 
 	$scope.newSignature = function() {
 		globalMessagesService.confirmInfoMd('reimbursement.settings.signature.submitWarningTitle',
-			'reimbursement.settings.signature.submitWarningMessage').then(function() {
+		'reimbursement.settings.signature.submitWarningMessage').then(function() {
 
 			$state.go('settingsSignature');
 		});

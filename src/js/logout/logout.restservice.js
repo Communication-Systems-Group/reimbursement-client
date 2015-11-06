@@ -8,11 +8,11 @@ function($http, HOST) {
 			return $http({
 				method: 'POST',
 				url: HOST + '/api/logout',
-				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			});
 		},
 		refreshCSRFToken: function() {
-			$http.get(HOST + "/api/user", {withCredentials: true});
+			$http.get(HOST + "/api/user", { withCredentials: true });
 		}
 	};
 }]);

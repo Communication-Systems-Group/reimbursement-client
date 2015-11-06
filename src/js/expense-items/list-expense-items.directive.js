@@ -20,7 +20,7 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 				expenseItemsRestService.getExpenseItems($scope.expenseUid).then(function(response) {
 					$scope.expenseItems = [];
 
-					for(var i=0; i<response.data.length; i++) {
+					for(var i = 0; i < response.data.length; i++) {
 						// delete all expense-items with state initial (not finished creation)
 						if(response.data[i].state === 'INITIAL') {
 							// if an admin or finance-admin looks at a rejected expense, which
@@ -64,7 +64,7 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 
 					$scope.deleteExpenseItem = function(expenseItemUid) {
 						globalMessagesService.confirmWarning("reimbursement.expense-item.deleteConfirmTitle",
-							"reimbursement.expense-item.deleteConfirmMessage").then(function() {
+						"reimbursement.expense-item.deleteConfirmMessage").then(function() {
 
 							expenseItemsRestService.deleteExpenseItem(expenseItemUid).then(updateTable);
 						});
@@ -77,7 +77,7 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 							expenseItemsRestService.postExpenseItem($scope.expenseUid, {
 								date: $filter('date')(new Date(), 'yyyy-MM-dd'),
 								costCategoryUid: preSelectedCategoryUid,
-								currency: 'CHF',
+								currency: 'CHF'
 							}).then(function(response) {
 
 								var modalInstance = $uibModal.open({
