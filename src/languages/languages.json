@@ -59,6 +59,10 @@
 		"de": "(alle Berechtigungen)",
 		"en": "(all Permissions)"
 	},
+	"administration.search.preselectedCostCategory": {
+		"de": "(alle Kostenstellen)",
+		"en": "(all cost categories)"
+	},
 	"administration.search.sapText": {
 		"de": "Buchhaltungsbeschreibung (SAP)",
 		"en": "Accounting description (SAP)"
@@ -604,7 +608,7 @@
 		"en": "Attention"
 	},
 	"expense-item.costCategory": {
-		"de": "Kostenkategorie",
+		"de": "Kostenstelle",
 		"en": "Cost category"
 	},
 	"expense-item.date": {

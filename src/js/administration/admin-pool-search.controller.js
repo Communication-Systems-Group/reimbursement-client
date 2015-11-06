@@ -4,6 +4,7 @@ function(moment, $scope, $timeout, spinnerService, administrationRestService, gl
 	'use strict';
 	$scope.roles = [];
 	$scope.expenseStates = [];
+	$scope.costCategories = [];
 	$scope.form = {};
 	$scope.searchForm = {
 		searchConducted: false,
@@ -23,6 +24,10 @@ function(moment, $scope, $timeout, spinnerService, administrationRestService, gl
 
 	administrationRestService.getRoles().then(function(response) {
 		$scope.roles = response.data;
+	});
+
+	administrationRestService.getCostCategories().then(function (response) {
+		$scope.costCategories = response.data;
 	});
 
 	administrationRestService.getExpenseStates().then(function(response) {
