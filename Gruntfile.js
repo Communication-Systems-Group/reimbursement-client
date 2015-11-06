@@ -73,6 +73,57 @@ module.exports = function (grunt) {
 			}
 		},
 
+		jscs: {
+			final: {
+				options: {
+					disallowArrowFunctions: true,
+					disallowEmptyBlocks: true,
+					disallowIdentifierNames: ['temp', 'foo', 'bar'],
+					disallowMixedSpacesAndTabs: true,
+					disallowMultiLineTernary: true,
+					disallowMultipleLineBreaks: true,
+					disallowMultipleLineStrings: true,
+					disallowMultipleSpaces: true,
+					disallowNestedTernaries: true,
+					disallowNewlineBeforeBlockStatements: true,
+					disallowOperatorBeforeLineBreak: ["+", "."],
+					disallowSpaceAfterObjectKeys: true,
+					disallowSpaceBeforeComma: true,
+					disallowSpaceBeforeSemicolon: true,
+					disallowSpacesInCallExpression: true,
+					disallowTrailingComma: true,
+					disallowTrailingWhitespace: true,
+					disallowUnusedParams: true,
+					disallowYodaConditions: true,
+					requireBlocksOnNewline: true,
+					requireCamelCaseOrUpperCaseIdentifiers: true,
+					requireCommaBeforeLineBreak: true,
+					requireCurlyBraces: true,
+					requireKeywordsOnNewLine: ["else"],
+					requireLineBreakAfterVariableAssignment: true,
+					requireMatchingFunctionName: true,
+					requirePaddingNewLinesAfterUseStrict: true,
+					requireParenthesesAroundIIFE: true,
+					requireSemicolons: true,
+					requireSpaceAfterBinaryOperators: true,
+					requireSpaceAfterComma: true,
+					requireSpaceAfterLineComment: true,
+					requireSpaceBeforeBinaryOperators: true,
+					requireSpaceBeforeBlockStatements: true,
+					requireSpaceBeforeObjectValues: true,
+					requireSpaceBetweenArguments: true,
+					requireSpacesInConditionalExpression: true,
+					requireSpacesInForStatement: true,
+					requireSpacesInsideObjectBrackets: "all",
+					validateParameterSeparator: ", ",
+					validateIndentation: "\t"
+				},
+				files: {
+					src: ['dist/javascript/app.js']
+				}
+			}
+		},
+
 		// compiles the sass code to css code
 		sass: {
 			dist: {
@@ -168,7 +219,7 @@ module.exports = function (grunt) {
 					src: [
 						'dist/languages/*.json',
 						'dist/javascript/*.js',
-						'dist/styles/*.css',
+						'dist/styles/*.css'
 					]
 				}]
 			}
@@ -301,6 +352,7 @@ module.exports = function (grunt) {
 		'concat:generated',
 		'jshint:gruntfile',
 		'jshint:dev',
+		'jscs',
 		'html2js:dev',
 		'concat:appWithTemplates',
 		'autoprefixer',
@@ -319,6 +371,7 @@ module.exports = function (grunt) {
 		'concat:generated',
 		'jshint:gruntfile',
 		'jshint:prod',
+		'jscs',
 		'html2js:prod',
 		'concat:appWithTemplates',
 		'autoprefixer',
