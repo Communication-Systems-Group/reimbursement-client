@@ -24,8 +24,18 @@ function($http, HOST) {
 		});
 	}
 
-	function deleteCostCategory(uid) {
-		return $http.delete(HOST + '/api/finance-admin/cost-categories/' + uid);
+	function deactivateCostCategory(uid) {
+		return $http({
+			method: 'PUT',
+			url: HOST + '/api/finance-admin/cost-categories/' + uid + '/deactivate'
+		});
+	}
+
+	function activateCostCategory(uid) {
+		return $http({
+			method: 'PUT',
+			url: HOST + '/api/finance-admin/cost-categories/' + uid + '/activate'
+		});
 	}
 
 	function getRoles() {
@@ -59,7 +69,8 @@ function($http, HOST) {
 		getCostCategories: getCostCategories,
 		postCostCategory: postCostCategory,
 		putCostCategory: putCostCategory,
-		deleteCostCategory: deleteCostCategory,
+		deactivateCostCategory: deactivateCostCategory,
+		activateCostCategory: activateCostCategory,
 		getRoles: getRoles,
 		getExpenseStates: getExpenseStates,
 		search: search,

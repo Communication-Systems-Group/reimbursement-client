@@ -8,7 +8,7 @@
 		<i class="fa fa-balance-scale"></i>
 		{{'reimbursement.administration.costCategories' | translate}}
 		<span class="pull-right">
-			<button type="button" class="btn btn-sm btn-primary" ng-click="addItem()">
+			<button type="button" class="btn btn-sm btn-primary" ng-click="addCostCategory()">
 				<i class="fa fa-plus-circle"></i>
 				{{ 'reimbursement.administration.add' | translate }}
 			</button>
@@ -19,12 +19,12 @@
 		<div class="col-md-12">
 			<table class="table table-striped">
 				<thead>
-				<tr>
-					<th>{{ 'reimbursement.costCategory.accountNumber' | translate }}</th>
-					<th>{{ 'reimbursement.costCategory.name' | translate }}</th>
-					<th>{{ 'reimbursement.costCategory.description' | translate }}</th>
-					<th>{{ 'reimbursement.administration.action' | translate }}</th>
-				</tr>
+					<tr>
+						<th>{{ 'reimbursement.costCategory.accountNumber' | translate }}</th>
+						<th>{{ 'reimbursement.costCategory.name' | translate }}</th>
+						<th>{{ 'reimbursement.costCategory.description' | translate }}</th>
+						<th>{{ 'reimbursement.administration.action' | translate }}</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr ng-repeat="c in costCategories">
@@ -34,19 +34,22 @@
 						<td>
 							<div class="btn-group">
 								<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
-										aria-haspopup="true" aria-expanded="false">
+									aria-haspopup="true" aria-expanded="false">
 									{{ 'reimbursement.administration.action' | translate }} <span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a
-										ng-click="editItem(c.uid)"><i
-										class="fa fa-pencil"></i> {{ 'reimbursement.administration.edit' | translate }}</a>
+									<li>
+										<a ng-click="editCostCategory(c.uid)">
+										<i class="fa fa-pencil"></i> {{ 'reimbursement.administration.edit' | translate }}</a>
 									</li>
 									<li class="divider"></li>
-									<li><a
-										ng-click="deleteItem(c.uid)"><i
-										class="fa fa-trash"></i> {{ 'reimbursement.costCategory.delete' | translate
-										}}</a>
+									<li>
+										<a ng-if="c.isActive" ng-click="deactivateCostCategory(c.uid)">
+											<i class="fa fa-toggle-off"></i> {{ 'reimbursement.administration.deactivate' | translate }}</a>
+									</li>
+									<li>
+										<a ng-if="!c.isActive" ng-click="activateCostCategory(c.uid)">
+											<i class="fa fa-toggle-on"></i> {{ 'reimbursement.administration.activate' | translate }}</a>
 									</li>
 								</ul>
 							</div>

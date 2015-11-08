@@ -11,17 +11,29 @@
 		"de": "Kostenstellen",
 		"en": "Cost categories"
 	},
-	"administration.delete": {
-		"de": "Löschen",
-		"en": "Delete"
+	"administration.deactivate": {
+		"de": "Deaktivieren",
+		"en": "Deactivate"
 	},
-	"administration.deleteCostCategoryItemText": {
-		"de": "Sind Sie sicher, das gewählte Element unwiderruflich zu löschen?",
-		"en": "Do you really want to delete this category element?"
+	"administration.activate": {
+		"de": "Aktivieren",
+		"en": "Activate"
 	},
-	"administration.deleteCostCategoryItemTitle": {
-		"de": "Element löschen?",
-		"en": "Delete element?"
+	"administration.deactivateCostCategoryText": {
+		"de": "Möchten Sie die gewählte Kostenstelle wirklich deaktivieren?",
+		"en": "Do you really want to deactivate the selected cost category?"
+	},
+	"administration.deactivateCostCategoryTitle": {
+		"de": "Kostenstelle deaktivieren?",
+		"en": "Deactivate cost category?"
+	},
+	"administration.activateCostCategoryText": {
+		"de": "Möchten Sie die gewählte Kostenstelle wirklich aktivieren?",
+		"en": "Do you really want to activate the selected cost category?"
+	},
+	"administration.activateCostCategoryTitle": {
+		"de": "Kostenstelle aktivieren?",
+		"en": "Activate cost category?"
 	},
 	"administration.edit": {
 		"de": "Editieren",
@@ -235,11 +247,15 @@
 		"de": "Kostenstellennummer",
 		"en": "Account number"
 	},
+	"costCategory.applyButton": {
+		"de": "Übernehmen",
+		"en": "Apply"
+	},
 	"costCategory.cancelButton": {
 		"de": "Abbrechen",
 		"en": "Cancel"
 	},
-	"costCategory.create": {
+	"costCategory.createTitle": {
 		"de": "Neue Kostenstelle hinzufügen",
 		"en": "Add new cost-category"
 	},
@@ -374,10 +390,6 @@
 	"expense.confirmDeleteTitle": {
 		"de": "Bestätigung",
 		"en": "Confirmation"
-	},
-	"expense.costCategory.takeOver": {
-		"de": "Übernehmen",
-		"en": "Apply"
 	},
 	"expense.delete": {
 		"de": "Löschen",
@@ -583,99 +595,99 @@
 		"de": "Anzeigen",
 		"en": "Show"
 	},
-	"expense-item.amount": {
+	"expenseItem.amount": {
 		"de": "Betrag",
 		"en": "Amount"
 	},
-	"expense-item.calculatedAmount": {
+	"expenseItem.calculatedAmount": {
 		"de": "berechneter Betrag",
 		"en": "Calculated amount"
 	},
-	"expense-item.closeWarningEditMessage": {
+	"expenseItem.closeWarningEditMessage": {
 		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
 		"en": "If you close this window, you dismiss all changes made on the current receipt. Continue?"
 	},
-	"expense-item.closeWarningEditTitle": {
+	"expenseItem.closeWarningEditTitle": {
 		"de": "Achtung",
 		"en": "Attention"
 	},
-	"expense-item.closeWarningMessage": {
+	"expenseItem.closeWarningMessage": {
 		"de": "Wenn Sie dieses Fenster schliessen, wird der Beleg verworfen. Fortfahren?",
 		"en": "If you close this window, you dismiss the current receipt. Continue?"
 	},
-	"expense-item.closeWarningTitle": {
+	"expenseItem.closeWarningTitle": {
 		"de": "Achtung",
 		"en": "Attention"
 	},
-	"expense-item.costCategory": {
+	"expenseItem.costCategory": {
 		"de": "Kostenstelle",
 		"en": "Cost category"
 	},
-	"expense-item.date": {
+	"expenseItem.date": {
 		"de": "Belegsdatum",
 		"en": "Receipt date"
 	},
-	"expense-item.deleteConfirmMessage": {
+	"expenseItem.deleteConfirmMessage": {
 		"de": "Möchten Sie diesen Beleg wirklich unwiderruflich löschen?",
 		"en": "Are you sure, that you want to delete this receipt permanently?"
 	},
-	"expense-item.deleteConfirmTitle": {
+	"expenseItem.deleteConfirmTitle": {
 		"de": "Achtung",
 		"en": "Attention"
 	},
-	"expense-item.editAccountingSaveButton": {
+	"expenseItem.editAccountingSaveButton": {
 		"de": "Speichern",
 		"en": "Save"
 	},
-	"expense-item.editAccountingTitle": {
+	"expenseItem.editAccountingTitle": {
 		"de": "Buchhaltungsbeschreibung anpassen",
 		"en": "Change accounting description"
 	},
-	"expense-item.explanation": {
+	"expenseItem.explanation": {
 		"de": "Spesengrund",
 		"en": "Expense explanation"
 	},
-	"expense-item.invalidAmount": {
+	"expenseItem.invalidAmount": {
 		"de": "Betrag ungültig",
 		"en": "Invalid Amount"
 	},
-	"expense-item.invalidDate": {
+	"expenseItem.invalidDate": {
 		"de": "Datum ungültig",
 		"en": "Invalid Date"
 	},
-	"expense-item.project": {
+	"expenseItem.project": {
 		"de": "Projekt",
 		"en": "Project"
 	},
-	"expense-item.saveButton": {
+	"expenseItem.saveButton": {
 		"de": "Beleg speichern",
 		"en": "Save Receipt"
 	},
-	"expense-item.showReceipt": {
+	"expenseItem.showReceipt": {
 		"de": "Beleg anzeigen",
 		"en": "Show receipt"
 	},
-	"expense-item.title": {
+	"expenseItem.title": {
 		"de": "Belege einreichen",
 		"en": "Add receipts"
 	},
-	"expense-item.titleEdit": {
+	"expenseItem.titleEdit": {
 		"de": "Beleg bearbeiten",
 		"en": "Edit receipt"
 	},
-	"expense-item.titleNotEditable": {
+	"expenseItem.titleNotEditable": {
 		"de": "Eingereichte Belege",
 		"en": "Receipts"
 	},
-	"expense-item.titleReview": {
+	"expenseItem.titleReview": {
 		"de": "Eingereichte Belege",
 		"en": "Receipts"
 	},
-	"expense-item.uploadReceipt": {
+	"expenseItem.uploadReceipt": {
 		"de": "Beleg hochladen",
 		"en": "Upload receipt"
 	},
-	"expense-item.uploadReceipt.fileExtensions": {
+	"expenseItem.uploadReceipt.fileExtensions": {
 		"de": "(Bilddateien oder PDFs)",
 		"en": "(Images or PDFs)"
 	},

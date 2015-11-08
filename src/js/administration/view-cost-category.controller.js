@@ -9,7 +9,7 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 			});
 		}
 
-		function findCostCategoryItem(uid) {
+		function findCostCategory(uid) {
 			for (var i = 0; i < $scope.costCategories.length; i++) {
 				if ($scope.costCategories[i].uid === uid) {
 					return $scope.costCategories[i];
@@ -19,7 +19,7 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 
 		loadData();
 
-		$scope.addItem = function () {
+		$scope.addCostCategory = function () {
 			var modalInstance = $uibModal.open({
 				templateUrl: 'administration/edit-cost-category.tpl.html',
 				controller: 'EditCostCategoryController',
@@ -38,17 +38,27 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 			modalInstance.result.then()['finally'](loadData);
 		};
 
-		$scope.deleteItem = function (uid) {
-			globalMessagesService.confirmWarning("reimbursement.administration.deleteCostCategoryItemTitle",
-			"reimbursement.administration.deleteCostCategoryItemText").then(function () {
+		$scope.deactivateCostCategory = function (uid) {
+			globalMessagesService.confirmWarning("reimbursement.administration.deactivateCostCategoryTitle",
+			"reimbursement.administration.deactivateCostCategoryText").then(function () {
 
-				administrationRestService.deleteCostCategory(uid).then(function () {
+				administrationRestService.deactivateCostCategory(uid).then(function () {
 					loadData();
 				});
 			});
 		};
 
-		$scope.editItem = function (uid) {
+		$scope.activateCostCategory = function (uid) {
+			globalMessagesService.confirmWarning("reimbursement.administration.activateCostCategoryTitle",
+			"reimbursement.administration.activateCostCategoryText").then(function () {
+
+				administrationRestService.activateCostCategory(uid).then(function () {
+					loadData();
+				});
+			});
+		};
+
+		$scope.editCostCategory = function (uid) {
 			var modalInstance = $uibModal.open({
 				templateUrl: 'administration/edit-cost-category.tpl.html',
 				controller: 'EditCostCategoryController',
@@ -56,7 +66,7 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 				keyboard: false,
 				resolve: {
 					costCategory: function () {
-						return findCostCategoryItem(uid);
+						return findCostCategory(uid);
 					},
 					isCreate: function() {
 						return false;
