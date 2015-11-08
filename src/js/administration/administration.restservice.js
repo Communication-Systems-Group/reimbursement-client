@@ -5,7 +5,7 @@ function($http, HOST) {
 	'use strict';
 
 	function getCostCategories() {
-		return $http.get(HOST + '/api/public/cost-categories');
+		return $http.get(HOST + '/api/finance-admin/cost-categories');
 	}
 
 	function postCostCategory(data) {
