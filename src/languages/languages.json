@@ -255,6 +255,10 @@
 		"de": "Abbrechen",
 		"en": "Cancel"
 	},
+	"costCategory.closeWarningEditMessage": {
+		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an dieser Kostenstelle verworfen. Fortfahren?",
+		"en": "If you close this window, you dismiss all changes made on the current cost category. Continue?"
+	},
 	"costCategory.createTitle": {
 		"de": "Neue Kostenstelle hinzufügen",
 		"en": "Add new cost-category"
