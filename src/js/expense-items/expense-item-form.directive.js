@@ -83,9 +83,9 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 				var invalidDate = "";
 				var invalidAmount = "";
 
-				$translate(['reimbursement.expense-item.invalidDate', 'reimbursement.expense-item.invalidAmount']).then(function(translations) {
-					invalidDate = translations['reimbursement.expense-item.invalidDate'];
-					invalidAmount = translations['reimbursement.expense-item.invalidAmount'];
+				$translate(['reimbursement.expenseItem.invalidDate', 'reimbursement.expenseItem.invalidAmount']).then(function(translations) {
+					invalidDate = translations['reimbursement.expenseItem.invalidDate'];
+					invalidAmount = translations['reimbursement.expenseItem.invalidAmount'];
 				}, function() {
 					globalMessagesService.showGeneralError();
 				});

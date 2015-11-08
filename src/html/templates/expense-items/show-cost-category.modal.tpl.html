@@ -6,7 +6,7 @@
 		</div>
 		<h3 class="modal-title">
 			<i class="fa fa-balance-scale"></i>
-			{{ 'reimbursement.expense-item.costCategory' | translate }}
+			{{ 'reimbursement.expenseItem.costCategory' | translate }}
 		</h3>
 	</div>
 
@@ -14,27 +14,27 @@
 		<div class="modal-body">
 			<form class="form-horizontal">
 				<div class="form-group">
-					<label for="costcategory" class="control-label col-sm-4"> {{ 'reimbursement.expense-item.costCategory' | translate }} </label>
+					<label for="costcategory" class="control-label col-sm-4"> {{ 'reimbursement.expenseItem.costCategory' | translate }} </label>
 					<div class="col-sm-8">
-						<select id="costcategory" class="form-control" ng-model="costCategoryObject" ng-options="category.name[language] for category in costCategories" ng-show="editable"></select>
-						<div class="form-control-static" ng-if="!editable">{{ costCategoryObject.name | costCategoryLanguage }}</div>
+						<select id="costcategory" class="form-control" ng-model="costCategory" ng-options="category.name[language] for category in costCategories" ng-show="editable"></select>
+						<div class="form-control-static" ng-if="!editable">{{ costCategory.name | costCategoryLanguage }}</div>
 					</div>
 				</div>
 			</form>
 			<hr>
-			<div class="row" ng-if="costCategoryObject.description[language]">
+			<div class="row" ng-if="costCategory.description[language]">
 				<div class="col-md-12">
 					<h4>{{ 'reimbursement.costCategory.description' | translate }}</h4>
 					<div class="callout callout-info" role="alert">
-						<span class="pre-wrap">{{costCategoryObject.description | costCategoryTranslation}}</span>
+						<span class="pre-wrap">{{costCategory.description | costCategoryTranslation}}</span>
 					</div>
 				</div>
 			</div>
-			<div class="row" ng-if="costCategoryObject.accountingPolicy[language]">
+			<div class="row" ng-if="costCategory.accountingPolicy[language]">
 				<div class="col-md-12">
 					<h4>{{ 'reimbursement.costCategory.accountingPolicy' | translate }}</h4>
 					<div class="callout callout-info" role="alert">
-						<span class="pre-wrap">{{costCategoryObject.accountingPolicy | costCategoryTranslation}}</span>
+						<span class="pre-wrap">{{costCategory.accountingPolicy | costCategoryTranslation}}</span>
 					</div>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 			</button>
 			<button class="btn btn-primary" ng-click="save()" ng-if="editable">
 				<i class="fa fa-save"></i>
-				{{ 'reimbursement.expense.costCategory.takeOver' | translate }}
+				{{ 'reimbursement.costCategory.applyButton' | translate }}
 			</button>
 		</div>
 	</div>

@@ -7,21 +7,21 @@ function($scope, $uibModalInstance, $translate, costCategories, costCategoryUid,
 	$scope.editable = editable;
 	$scope.costCategories = costCategories;
 	$scope.costCategoryUid = costCategoryUid;
-	$scope.costCategoryObject = {};
+	$scope.costCategory = {};
 
-	function findCostCategoryObject(uid) {
+	function findcostCategory(uid) {
 		for (var i = 0; i < $scope.costCategories.length; i++) {
 			if ($scope.costCategories[i].uid === uid) {
-				$scope.costCategoryObject = $scope.costCategories[i];
+				$scope.costCategory = $scope.costCategories[i];
 				break;
 			}
 		}
 	}
 
-	findCostCategoryObject($scope.costCategoryUid);
+	findcostCategory($scope.costCategoryUid);
 
 	$scope.save = function() {
-		$uibModalInstance.close($scope.costCategoryObject.uid);
+		$uibModalInstance.close($scope.costCategory.uid);
 	};
 
 	$scope.dismiss = function() {

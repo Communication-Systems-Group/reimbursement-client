@@ -24,8 +24,8 @@ app.controller('EditCostCategoryController', [ '$scope', '$uibModalInstance', 'g
 		}
 
 		$scope.dismissWithConfirmation = function () {
-			globalMessagesService.confirmWarning("reimbursement.expense-item.closeWarningEditTitle",
-			"reimbursement.expense-item.closeWarningEditMessage").then(function () {
+			globalMessagesService.confirmWarning("reimbursement.expenseItem.closeWarningEditTitle",
+			"reimbursement.expenseItem.closeWarningEditMessage").then(function () {
 
 				$uibModalInstance.dismiss();
 			});

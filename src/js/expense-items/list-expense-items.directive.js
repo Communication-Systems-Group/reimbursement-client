@@ -63,8 +63,8 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 					};
 
 					$scope.deleteExpenseItem = function(expenseItemUid) {
-						globalMessagesService.confirmWarning("reimbursement.expense-item.deleteConfirmTitle",
-						"reimbursement.expense-item.deleteConfirmMessage").then(function() {
+						globalMessagesService.confirmWarning("reimbursement.expenseItem.deleteConfirmTitle",
+						"reimbursement.expenseItem.deleteConfirmMessage").then(function() {
 
 							expenseItemsRestService.deleteExpenseItem(expenseItemUid).then(updateTable);
 						});

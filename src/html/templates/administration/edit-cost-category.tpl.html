@@ -3,7 +3,7 @@
 		<div class="close" ng-click="dismissWithConfirmation()">&times;</div>
 		<h3 class="modal-title" ng-if="isCreate">
 			<i class="fa fa-file-text-o"></i>
-			{{ 'reimbursement.costCategory.create' | translate }}
+			{{ 'reimbursement.costCategory.createTitle' | translate }}
 		</h3>
 		<h3 class="modal-title" ng-if="!isCreate">
 			<i class="fa fa-file-text-o"></i>
@@ -72,7 +72,7 @@
 	<div class="modal-footer">
 		<button class="btn btn-default" ng-click="dismissWithConfirmation()">
 			<i class="fa fa-times"></i>
-			{{ 'reimbursement.costCategory.cancelButton' | translate }}
+			{{ 'reimbursement.expense.closeButton' | translate }}
 		</button>
 		<button class="btn btn-primary" ng-click="save(form1)" ng-disabled="isLoading">
 			<i class="fa fa-save"></i>
