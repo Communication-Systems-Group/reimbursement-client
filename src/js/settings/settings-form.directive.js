@@ -41,16 +41,19 @@ function($timeout, $translate, settingsRestService, USER) {
 				});
 			};
 
-			$scope.savePersonnelNumber = function() {
-				if($scope.form.personnelNumber === null) {
-					$scope.form.personnelNumber = "";
+			$scope.savePersonnelNumber = function(isValid) {
+				var personnelNumber = "";
+
+				if($scope.form.personnelNumber !== null && $scope.form.personnelNumber !== undefined && isValid) {
+					personnelNumber = $scope.form.personnelNumber
 				}
+
 				$timeout.cancel($scope.timeouts.personnelNumber);
 
 				$scope.timeouts.personnelNumber = $timeout(function() {
 					$scope.personnelNumberLoading = true;
 
-					settingsRestService.putPersonnelNumber($scope.form.personnelNumber).then(function() {
+					settingsRestService.putPersonnelNumber(personnelNumber).then(function() {
 						USER.personnelNumber = $scope.form.personnelNumber;
 					})['finally'](function() {
 						$timeout(function () {
@@ -61,9 +64,11 @@ function($timeout, $translate, settingsRestService, USER) {
 				}, timeoutTime);
 			};
 
-			$scope.savePhoneNumber = function() {
-				if($scope.form.phoneNumber === null) {
-					$scope.form.phoneNumber = "";
+			$scope.savePhoneNumber = function(isValid) {
+				var phoneNumber = "";
+
+				if($scope.form.phoneNumber !== null && $scope.form.phoneNumber !== undefined && isValid) {
+					phoneNumber = $scope.form.phoneNumber;
 				}
 
 				$timeout.cancel($scope.timeouts.phoneNumber);
@@ -71,7 +76,7 @@ function($timeout, $translate, settingsRestService, USER) {
 				$scope.timeouts.phoneNumber = $timeout(function() {
 					$scope.phoneNumberLoading = true;
 
-					settingsRestService.putPhoneNumber($scope.form.phoneNumber).then(function() {
+					settingsRestService.putPhoneNumber(phoneNumber).then(function() {
 						USER.phoneNumber = $scope.form.phoneNumber;
 					})['finally'](function() {
 						$timeout(function() {
