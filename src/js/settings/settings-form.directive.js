@@ -45,7 +45,7 @@ function($timeout, $translate, settingsRestService, USER) {
 				var personnelNumber = "";
 
 				if($scope.form.personnelNumber !== null && $scope.form.personnelNumber !== undefined && isValid) {
-					personnelNumber = $scope.form.personnelNumber
+					personnelNumber = $scope.form.personnelNumber;
 				}
 
 				$timeout.cancel($scope.timeouts.personnelNumber);
