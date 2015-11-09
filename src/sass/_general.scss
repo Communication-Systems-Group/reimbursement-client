@@ -173,3 +173,18 @@ h1.page-header small > .fa {
 	}
 }
 
+input,textarea {
+	&.input-validation {
+		&.ng-invalid {
+			&.ng-dirty {
+				background-color: #FA787E;
+		  }
+		}
+	  	&.ng-valid {
+			&.ng-dirty {
+				background-color: #78FA89;
+			}
+		}
+	}
+}
+
