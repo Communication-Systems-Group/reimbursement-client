@@ -9,7 +9,7 @@
 				{{ 'reimbursement.expense.accountingLabel' | translate }}
 			</label>
 			<div class="col-sm-7">
-				<input type="text" class="form-control" id="accountingText" placeholder="{{ 'reimbursement.expense.accountingLabel' | translate }}" ng-model="accountingText">
+				<input type="text" pattern="{{'expense.sapDescription' | regexValidation}}" class="input-validation form-control" id="accountingText" ng-model="accountingText">
 			</div>
 		</div>
 	</form>

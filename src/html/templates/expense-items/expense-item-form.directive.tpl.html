@@ -64,7 +64,7 @@
 				{{ 'reimbursement.expenseItem.project' | translate }}
 			</label>
 			<div class="col-sm-8">
-				<input type="text" id="expenseitem-project" ng-model="form.project" class="form-control" ng-if="editable">
+				<input type="text" id="expenseitem-project" ng-model="form.project" pattern="{{'expense.project' | regexValidation}}" class="input-validation form-control" ng-if="editable">
 				<div class="form-control-static" ng-if="!editable">{{ form.project }}</div>
 			</div>
 		</div>
@@ -73,7 +73,7 @@
 				{{ 'reimbursement.expenseItem.explanation' | translate }}
 			</label>
 			<div class="col-sm-8">
-				<textarea id="expenseitem-explanation" ng-model="form.explanation" class="form-control" ng-if="editable"></textarea>
+				<textarea id="expenseitem-explanation" ng-model="form.explanation" pattern="{{'expense.explanation' | regexValidation}}" class="input-validation form-control" ng-if="editable"></textarea>
 				<div class="form-control-static" ng-if="!editable">{{ form.explanation }}</div>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 <div id="settings-form">
-	<form id="languageSettings" class="form-horizontal">
+	<form id="languageSettings" class="form-horizontal" name="formSettings">
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="languageSelect"> {{ 'reimbursement.settings.language' | translate }} </label>
 			<div class="col-sm-9 right-inner-addon">
@@ -12,14 +12,14 @@
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="personnelNumber"> {{ 'reimbursement.settings.personnelNumber' | translate }} </label>
 			<div class="col-sm-9 right-inner-addon">
-				<input type="text" class="form-control" id="personnelNumber" placeholder="{{ personnelNumber }}" ng-model="form.personnelNumber" ng-keydown="savePersonnelNumber()">
+				<input type="text" class="input-validation form-control" pattern="{{'registration.personalNumber' | regexValidation}}" name="personnelNumber" id="personnelNumber" placeholder="{{ personnelNumber }}" ng-model="form.personnelNumber" ng-keydown="savePersonnelNumber(formSettings.personnelNumber.$valid)">
 				<span class="inline-spinner fat" ng-class="{active: personnelNumberLoading}"></span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="phoneNumber"> {{ 'reimbursement.settings.phoneNumber' | translate }} </label>
 			<div class="col-sm-9 right-inner-addon">
-				<input type="text" class="form-control" id="phoneNumber" placeholder="{{ phoneNumber }}" ng-model="form.phoneNumber" ng-keydown="savePhoneNumber()">
+				<input type="text" class="input-validation form-control" pattern="{{'registration.phoneNumber' | regexValidation}}" name="phoneNumber" id="phoneNumber" placeholder="{{ phoneNumber }}" ng-model="form.phoneNumber" ng-keydown="savePhoneNumber(formSettings.phoneNumber.$valid)">
 				<span class="inline-spinner fat" ng-class="{active: phoneNumberLoading}"></span>
 			</div>
 		</div>
