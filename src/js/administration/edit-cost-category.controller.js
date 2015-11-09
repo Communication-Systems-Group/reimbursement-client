@@ -12,7 +12,7 @@ app.controller('EditCostCategoryController', [ '$scope', '$uibModalInstance', 'g
 		$scope.isCreate = isCreate;
 
 		function validation(form) {
-			if (!form.accountNumber.$valid || !form.nameDe.$valid || !form.nameEn.$valid || !form.descriptionDe.$valid || !form.descriptionEn.$valid || !form.accountingPolicyDe.$valid || !form.accountingPolicyEn.$valid) {
+			if (!form.accountNumber.$valid || !form.nameDe.$valid || !form.nameEn.$valid || !form.descriptionDe.$valid || !form.descriptionEn.$valid) {
 				globalMessagesService.showInfo("reimbursement.expense.warning.formNotComplete.title",
 					"reimbursement.expense.warning.formNotComplete.message");
 
