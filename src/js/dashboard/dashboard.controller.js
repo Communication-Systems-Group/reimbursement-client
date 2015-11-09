@@ -8,7 +8,7 @@ function($scope, $state, $uibModal, USER, expenseRestService, stateService) {
 	$scope.myReviewExpenses = [];
 
 	$scope.showReviewSection = false;
-	if (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('PROF') || USER.hasRole('DEPARTMENT_MANAGER')) {
+	if (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('PROF') || USER.hasRole('DEPARTMENT_MANAGER') || USER.hasRole('HEAD_OF_INSTITUTE')) {
 		$scope.showReviewSection = true;
 	}
 
@@ -46,7 +46,7 @@ function($scope, $state, $uibModal, USER, expenseRestService, stateService) {
 	};
 
 	$scope.stateOrderingProfAdmin = function(expense) {
-		if (USER.hasRole('PROF') || USER.hasRole('DEPARTMENT_MANAGER')) {
+		if (USER.hasRole('PROF') || USER.hasRole('DEPARTMENT_MANAGER') || USER.hasRole('HEAD_OF_INSTITUTE')) {
 			return stateService.stateOrder(expense.state, expense.date, 'MANAGER');
 		}
 		if (USER.hasRole('FINANCE_ADMIN')) {

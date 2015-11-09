@@ -87,7 +87,7 @@ function($q, USER) {
 					return templates.noAccess;
 				}
 			}
-			else if (belonging.isManagerOfExpense && (USER.hasRole('PROF') || USER.hasRole('DEPARTMENT_MANAGER'))) {
+			else if (belonging.isManagerOfExpense && (USER.hasRole('PROF') || USER.hasRole('DEPARTMENT_MANAGER') || USER.hasRole('HEAD_OF_INSTITUTE'))) {
 				if (expenseState === 'REJECTED' ||
 					expenseState === 'DRAFT' ||
 					expenseState === 'TO_BE_ASSIGNED' ||
