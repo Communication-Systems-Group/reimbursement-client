@@ -15,7 +15,7 @@
 			<tr ng-if="expenseItems.length === 0">
 				<td colspan="999" class="text-center">{{ 'reimbursement.expense.noExpenseItems' | translate }}</td>
 			</tr>
-			<tr ng-repeat="expenseItem in expenseItems | orderBy: '-date'">
+			<tr ng-repeat="expenseItem in expenseItems | orderBy: 'date'">
 				<td>{{ expenseItem.date | date: 'dd.MM.yyyy' }}</td>
 				<td>{{ expenseItem.costCategory.name | costCategoryLanguage }}</td>
 				<td>{{ expenseItem.calculatedAmount | number: 2 }} Fr.</td>
