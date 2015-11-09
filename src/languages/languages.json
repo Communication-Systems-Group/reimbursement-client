@@ -283,7 +283,7 @@
 		"de": "Kostenstelle speichern",
 		"en": "Save cost-categroy"
 	},
-	"create-expense.title": {
+	"createExpense.title": {
 		"de": "Neue Spesen hinzufügen",
 		"en": "Add new expense"
 	},
