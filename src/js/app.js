@@ -9,7 +9,15 @@
 				function ($http) {
 					var languagePath = "/" + jQuery("#languagesPath").data("path");
 					return $http.get(languagePath);
-				}],
+				}
+			],
+			VALIDATIONS: ['$http',
+				function ($http) {
+					var host = window.location.protocol + "//" + window.location.host.split(':')[0];
+					var validationsPath = host + "/api/public/validations";
+					return $http.get(validationsPath, { withCredentials: true });
+				}
+			],
 			USER: ['$q', '$http',
 				function($q, $http) {
 					var deferred = $q.defer();

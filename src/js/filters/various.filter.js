@@ -69,13 +69,13 @@ app.filter('costCategoryTranslation', [ '$translate',
 		};
 	}]);
 
-app.filter('regexValidation', [ 'regexValidation',
+app.filter('regexValidation', [ 'VALIDATIONS',
 
-	function (regexValidation) {
+	function (VALIDATIONS) {
 		'use strict';
 
-		return function (name) {
-			return regexValidation.getPattern(name);
+		return function(name) {
+			return VALIDATIONS[name];
 		};
 	}
 
