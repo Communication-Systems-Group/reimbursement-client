@@ -15,12 +15,7 @@
 		<settings-form></settings-form>
 
 		<div class="text-right">
-			<button class="btn btn-primary" ng-click="next()" ng-disabled="USER.phoneNumber === null ||
-				USER.phoneNumber === '' ||
-				USER.language === null ||
-				USER.personnelNumber === null ||
-				USER.personnelNumber === '' ||
-				USER.isActive === null">
+			<button class="btn btn-primary" ng-click="next()" ng-disabled="!formSettings.$valid || isLoading">
 
 				<i class="fa fa-arrow-circle-right"></i>
 				{{ 'reimbursement.expense.nextStepButton' | translate }}
