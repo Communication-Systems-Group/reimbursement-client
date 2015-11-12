@@ -23,6 +23,7 @@
 						<th>{{ 'reimbursement.costCategory.accountNumber' | translate }}</th>
 						<th>{{ 'reimbursement.costCategory.name' | translate }}</th>
 						<th>{{ 'reimbursement.costCategory.description' | translate }}</th>
+						<th>{{ 'reimbursement.administration.state' | translate }}</th>
 						<th>{{ 'reimbursement.administration.action' | translate }}</th>
 					</tr>
 				</thead>
@@ -31,6 +32,10 @@
 						<td>{{c.accountNumber}}</td>
 						<td>{{c.name | costCategoryLanguage}}</td>
 						<td>{{c.description | costCategoryLanguage | limitWordwise: 50 }}</td>
+						<td>
+							<span ng-if="c.isActive" class="label label-success">{{ 'reimbursement.administration.state.active' | translate }}</span>
+							<span ng-if="!c.isActive" class="label label-danger">{{ 'reimbursement.administration.state.inactive' | translate }}</span>
+						</td>
 						<td>
 							<div class="btn-group">
 								<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"

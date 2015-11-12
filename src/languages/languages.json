@@ -99,6 +99,18 @@
 		"de": "Berechtigung Antragssteller",
 		"en": "Permission of Expense Creator"
 	},
+	"administration.state": {
+		"de": "Status",
+		"en": "State"
+	},
+	"administration.state.active": {
+		"de": "Aktiv",
+		"en": "Active"
+	},
+	"administration.state.inactive": {
+		"de": "Deaktiviert",
+		"en": "Inaktiv"
+	},
 	"archive.title": {
 		"de": "Archivierte Spesen",
 		"en": "Archived Expenses"
