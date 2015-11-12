@@ -14,8 +14,7 @@
 			VALIDATIONS: ['$http',
 				function ($http) {
 					var host = window.location.protocol + "//" + window.location.host.split(':')[0];
-					var validationsPath = host + "/api/public/validations";
-					return $http.get(validationsPath, { withCredentials: true });
+					return $http.get(host + "/api/public/validations", { withCredentials: true });
 				}
 			],
 			USER: ['$q', '$http',
