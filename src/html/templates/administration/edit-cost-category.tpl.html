@@ -11,13 +11,17 @@
 		</h3>
 	</div>
 	<div class="modal-body">
-		<form name="form1">
+		<form name="formCostCategories">
 			<div class="form-group">
 				<label for="accountNumber">{{ 'reimbursement.costCategory.accountNumber' | translate }}</label>
 
-				<input type="number" class="form-control" id="accountNumber" name="accountNumber"
-					   ng-model="costCategory.accountNumber"
-					   required/>
+				<div class="input-group" style="width: 100%">
+					<input type="text" class="form-control input-validation" id="accountNumber" name="accountNumber" ng-model="costCategory.accountNumber"
+						pattern="{{'admin.costCategories.number' | regexValidation}}" required />
+					<div ng-show="!formCostCategories.accountNumber.$valid" class="input-group-addon">
+						<span class="inline-validation error"></span>
+					</div>
+				</div>
 			</div>
 
 			<div class="form-group">
@@ -25,44 +29,58 @@
 
 				<div class="input-group">
 					<div class="input-group-addon">{{'reimbursement.language.de' | translate}}</div>
-					<input type="text" class="form-control" id="name" name="nameDe" ng-model="costCategory.name.de"
-						   required/>
+					<input type="text" class="form-control input-validation" id="name" name="nameDe" ng-model="costCategory.name.de"
+						pattern="{{'admin.costCategories.name' | regexValidation}}" required />
+					<div ng-show="!formCostCategories.nameDe.$valid" class="input-group-addon">
+						<span class="inline-validation error"></span>
+					</div>
 				</div>
 
 				<div class="input-group margin-top-10">
 					<div class="input-group-addon">{{'reimbursement.language.en' | translate}}</div>
-					<input type="text" class="form-control" id="name" name="nameEn" ng-model="costCategory.name.en"
-						   required/>
+					<input type="text" class="form-control input-validation" id="name" name="nameEn" ng-model="costCategory.name.en"
+						pattern="{{'admin.costCategories.name' | regexValidation}}" required />
+					<div ng-show="!formCostCategories.nameEn.$valid" class="input-group-addon">
+						<span class="inline-validation error"></span>
+					</div>
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label for="description">{{ 'reimbursement.costCategory.description' | translate }}</label>
 
 				<div class="input-group">
 					<div class="input-group-addon">{{'reimbursement.language.de' | translate}}</div>
-					<textarea class="form-control" id="description" rows="5"
-							  ng-model="costCategory.description.de" name="descriptionDe" required></textarea>
+					<textarea class="form-control input-validation" id="description" rows="5"
+						ng-model="costCategory.description.de" name="descriptionDe" pattern="{{'admin.costCategories.description' | regexValidation}}" required></textarea>
+					<div ng-show="!formCostCategories.descriptionDe.$valid" class="input-group-addon">
+						<span class="inline-validation error"></span>
+					</div>
 				</div>
 
 				<div class="input-group margin-top-10">
 					<div class="input-group-addon">{{'reimbursement.language.en' | translate}}</div>
-					<textarea class="form-control" id="description" rows="5"
-							  ng-model="costCategory.description.en" name="descriptionEn" required></textarea>
+					<textarea class="form-control input-validation" id="description" rows="5"
+						ng-model="costCategory.description.en" name="descriptionEn" pattern="{{'admin.costCategories.description' | regexValidation}}" required></textarea>
+					<div ng-show="!formCostCategories.descriptionEn.$valid" class="input-group-addon">
+						<span class="inline-validation error"></span>
+					</div>
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label for="accounting_policy">{{ 'reimbursement.costCategory.accountingPolicy' | translate }}</label>
 
 				<div class="input-group">
 					<div class="input-group-addon">{{'reimbursement.language.de' | translate}}</div>
-					<textarea class="form-control" id="accounting_policy" rows="5"
-							  ng-model="costCategory.accountingPolicy.de" name="accountingPolicyDe"></textarea>
+					<textarea class="form-control input-validation" id="accounting_policy" rows="5"
+							ng-model="costCategory.accountingPolicy.de" name="accountingPolicyDe"></textarea>
 				</div>
 
 				<div class="input-group margin-top-10">
 					<div class="input-group-addon">{{'reimbursement.language.en' | translate}}</div>
-					<textarea class="form-control" id="accounting_policy" rows="5"
-							  ng-model="costCategory.accountingPolicy.en" name="accountingPolicyEn"></textarea>
+					<textarea class="form-control input-validation" id="accounting_policy" rows="5"
+							ng-model="costCategory.accountingPolicy.en" name="accountingPolicyEn"></textarea>
 				</div>
 			</div>
 		</form>
@@ -72,7 +90,7 @@
 			<i class="fa fa-times"></i>
 			{{ 'reimbursement.expense.closeButton' | translate }}
 		</button>
-		<button class="btn btn-primary" ng-click="save(form1)" ng-disabled="isLoading">
+		<button class="btn btn-primary" ng-click="save(formCostCategories)" ng-disabled="isLoading || formCostCategories.$invalid">
 			<i class="fa fa-save"></i>
 			{{ 'reimbursement.costCategory.saveButton' | translate }}
 		</button>
