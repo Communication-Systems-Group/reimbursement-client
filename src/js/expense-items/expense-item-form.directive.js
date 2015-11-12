@@ -144,12 +144,6 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 					if(typeof $scope.form.currency === "undefined" || $scope.form.currency === null || $scope.form.currency === "") {
 						return false;
 					}
-					if(typeof $scope.form.project === "undefined" || $scope.form.project === null || $scope.form.project === "") {
-						return false;
-					}
-					if(typeof $scope.form.explanation === "undefined" || $scope.form.explanation === null || $scope.form.explanation === "") {
-						return false;
-					}
 					if(typeof $scope.attachment.hasAttachment === "undefined" || $scope.attachment.hasAttachment === null || $scope.attachment.hasAttachment === false) {
 						return false;
 					}
