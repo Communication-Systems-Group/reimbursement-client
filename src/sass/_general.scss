@@ -124,7 +124,7 @@ h1.page-header small > .fa {
 
 .right-inner-addon {
 	.fa,
-	.inline-spinner {
+	.inline-spinner, .inline-validation {
 		position: absolute;
 		top: 50%;
 		right: 1.3em;
@@ -174,13 +174,13 @@ h1.page-header small > .fa {
 }
 
 .input-validation.ng-touched.ng-dirty {
-  &.ng-invalid {
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(233, 102, 102, 0.6);
-	border-color: #F19494;
-  }
-  &.ng-valid {
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(111, 233, 102, 0.6);
-	border-color: #6CCE70;
+	&.ng-invalid {
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(233, 102, 102, 0.6);
+		border-color: #F19494;
+	}
+	&.ng-valid {
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(111, 233, 102, 0.6);
+		border-color: #6CCE70;
   }
 }
 
