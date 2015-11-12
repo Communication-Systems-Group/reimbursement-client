@@ -9,7 +9,7 @@
 				{{ 'reimbursement.expense.accountingLabel' | translate }}
 			</label>
 			<div class="col-sm-7 right-inner-addon">
-				<input type="text" pattern="{{'expense.sapDescription' | regexValidation}}" class="input-validation form-control" id="accountingText" name="accountingText" ng-model="accountingText">
+				<input type="text" pattern="{{'expense.sapDescription' | regexValidation}}" class="input-validation form-control" id="accountingText" name="accountingText" ng-model="accountingText" required>
 				<span ng-class="{'inline-validation error': !$parent.formSAP.accountingText.$valid}"></span>
 			</div>
 		</div>

@@ -412,8 +412,8 @@
 		"en": "Enter a explanation with at least 10 characters."
 	},
 	"expense.info.accountingTextMissingMessage": {
-		"de": "Die Buchhaltungsbeschreibung (SAP) muss mind. 5 Zeichen umfassen.\nGeben Sie bitte eine korrekte Beschreibung ein.",
-		"en": "The description for accounting (SAP) requires to be at least 5 characters.\nPlease enter a correct description."
+		"de": "Die Buchhaltungsbeschreibung (SAP) muss mind. 5 Zeichen umfassen sowie keine doppelten Leerschläge.\nGeben Sie bitte eine korrekte Beschreibung ein.",
+		"en": "The description for accounting (SAP) requires to be at least 5 characters and no double whitespaces.\nPlease enter a correct description."
 	},
 	"expense.info.accountingTextMissingTitle": {
 		"de": "Beschreibung unvollständig",
