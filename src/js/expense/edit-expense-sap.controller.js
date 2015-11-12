@@ -5,9 +5,10 @@ function($scope, $uibModalInstance, spinnerService, globalMessagesService, expen
 
 	$scope.dismiss = $uibModalInstance.dismiss;
 	$scope.accountingText = accountingText;
+	$scope.formSAP = {};
 
 	$scope.saveAccountingText = function() {
-		if($scope.accountingText === null || typeof $scope.accountingText === "undefined" || $scope.accountingText.length < 5) {
+		if($scope.formSAP.$invalid || !$scope.formSAP.$dirty) {
 			globalMessagesService.showInfoMd('reimbursement.expense.info.accountingTextMissingTitle',
 				'reimbursement.expense.info.accountingTextMissingMessage');
 		}

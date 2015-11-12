@@ -7,7 +7,8 @@ function() {
 		restrict: 'E',
 		templateUrl: 'expense/expense-sap-form.tpl.html',
 		scope: {
-			accountingText: '='
+			accountingText: '=',
+			formSAP: '='
 		}
 	};
 

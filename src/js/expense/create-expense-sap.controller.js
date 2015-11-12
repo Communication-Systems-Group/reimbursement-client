@@ -4,11 +4,12 @@ function($scope, $uibModalInstance, spinnerService, globalMessagesService, expen
 	"use strict";
 
 	$scope.accountingText = null;
+	$scope.formSAP = {};
 
 	$scope.dismiss = $uibModalInstance.dismiss;
 
 	$scope.nextStep = function() {
-		if($scope.accountingText === null || typeof $scope.accountingText === "undefined" || $scope.accountingText.length < 5) {
+		if($scope.formSAP.$invalid || !$scope.formSAP.$dirty) {
 			globalMessagesService.showInfoMd('reimbursement.expense.info.accountingTextMissingTitle',
 				'reimbursement.expense.info.accountingTextMissingMessage');
 		}

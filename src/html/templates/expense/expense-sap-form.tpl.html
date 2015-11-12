@@ -3,13 +3,14 @@
 		<span class="fa fa-info-circle info-in-well"></span>
 		<span class="pre-wrap">{{ 'reimbursement.expense.accountingDescription' | translate }}</span>
 	</div>
-	<form class="form-horizontal">
+	<form class="form-horizontal" name="$parent.formSAP">
 		<div class="form-group">
 			<label for="accountingText" class="col-sm-5 control-label">
 				{{ 'reimbursement.expense.accountingLabel' | translate }}
 			</label>
-			<div class="col-sm-7">
-				<input type="text" pattern="{{'expense.sapDescription' | regexValidation}}" class="input-validation form-control" id="accountingText" ng-model="accountingText">
+			<div class="col-sm-7 right-inner-addon">
+				<input type="text" pattern="{{'expense.sapDescription' | regexValidation}}" class="input-validation form-control" id="accountingText" name="accountingText" ng-model="accountingText">
+				<span ng-class="{'inline-validation error': !$parent.formSAP.accountingText.$valid}"></span>
 			</div>
 		</div>
 	</form>
