@@ -34,7 +34,11 @@
 				{{ 'reimbursement.expenseItem.amount' | translate }}
 			</label>
 			<div class="col-sm-4" style="padding-right: 0;" ng-if="editable">
-				<input type="number" id="expenseitem-amount" ng-model="form.originalAmount" class="form-control text-center" ng-change="calculateAmount()">
+				<div class="right-inner-addon">
+					<input type="number" id="expenseitem-amount" ng-model="form.originalAmount" name="originalAmount"
+						   pattern="{{'expense.amount' | regexValidation}}" class="input-validation form-control text-center" ng-change="calculateAmount()" required>
+				</div>
+
 			</div>
 			<div class="col-sm-4" ng-if="editable">
 				<select id="expenseitem-currency" class="form-control" ng-model="form.currency" ng-change="calculateAmount()">
