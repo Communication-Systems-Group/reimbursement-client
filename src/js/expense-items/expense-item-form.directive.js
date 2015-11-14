@@ -109,7 +109,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 						}
 					}
 
-					if($scope.form.date !== "" && $scope.form.date !== undefined) {
+					if($scope.form.date !== "" && $scope.form.date !== undefined && $scope.$parent.formExpenseItem.originalAmount.$valid) {
 						// only make back-end calls if necessary
 						if(exchangeRateDate !== $filter('getISODate')($scope.form.date)) {
 							var date = $filter('getISODate')($scope.form.date);
