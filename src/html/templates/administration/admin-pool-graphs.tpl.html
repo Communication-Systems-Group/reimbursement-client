@@ -4,25 +4,19 @@
 	<uib-carousel interval="5000">
 		<uib-slide active="item.active">
 			<div class="item active">
-				<h4 class="text-center"><span class="pre-wrap">Current State Distribution
-					<br>
-					(without &laquo;printed&raquo;)</span></h4>
+				<h4 class="text-center"><span class="text"> {{ 'reimbursement.administration.graphs.stateGraphText' | translate }} </span></h4>
 				<div id="graph-area-step-current-state-distribution"></div>
 			</div>
 		</uib-slide>
 		<uib-slide>
 			<div class="item">
-				<h4 class="text-center"><span class="pre-wrap">Percentage of printed expenses
-					<br>
-					(Data from the last 12 months)</span></h4>
+				<h4 class="text-center"><span class="text"> {{ 'reimbursement.administration.graphs.percentageGraphText' | translate }} </span></h4>
 				<div id="graph-gauge-accepted-declined"></div>
 			</div>
 		</uib-slide>
 		<uib-slide>
 			<div class="item">
-				<h4 class="text-center"><span class="pre-wrap">Total Expense Amount in CHF
-					<br>
-					(Data from the year 2015)</span></h4>
+				<h4 class="text-center"><span class="text"> {{ 'reimbursement.administration.graphs.totalAmountGraphText' | translate }} </span></h4>
 				<div id="graph-line-sum-current-year"></div>
 			</div>
 		</uib-slide>
