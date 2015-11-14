@@ -1,6 +1,6 @@
-app.controller('AdminPoolSearchController', ['moment', '$scope', '$timeout', 'spinnerService', 'administrationRestService', 'globalMessagesService', '$filter',
+app.controller('AdminPoolSearchController', ['$scope', '$timeout', 'moment', 'spinnerService', 'administrationRestService', 'globalMessagesService', '$filter',
 
-function(moment, $scope, $timeout, spinnerService, administrationRestService, globalMessagesService, $filter) {
+function($scope, $timeout, moment, spinnerService, administrationRestService, globalMessagesService, $filter) {
 	'use strict';
 
 	$scope.roles = [];
