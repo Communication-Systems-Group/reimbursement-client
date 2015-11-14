@@ -33,12 +33,10 @@
 						<td>{{c.name | costCategoryLanguage}}</td>
 						<td>{{c.description | costCategoryLanguage | limitWordwise: 50 }}</td>
 						<td>
-							<button ng-if="c.isActive" ng-click="deactivateCostCategory(c.uid)" class="btn btn-default" ng-click="editCostCategory(c.uid)">
-								<i class="fa fa-toggle-on"></i> {{ 'reimbursement.administration.deactivate' | translate }}
-							</button>
-							<button ng-if="!c.isActive" ng-click="activateCostCategory(c.uid)" class="btn btn-default" ng-click="editCostCategory(c.uid)">
-								<i class="fa fa-toggle-off"></i> {{ 'reimbursement.administration.activate' | translate }}
-							</button>
+							<input id="{{c.uid}}-unchecked" ng-if="!c.isActive"class="toggle toggle-round-flat" type="checkbox">
+							<label for="{{c.uid}}-unchecked" ng-if="!c.isActive" ng-click="activateCostCategory(c.uid)"></label>
+							<input id="{{c.uid}}-checked" hidden checked="checked" ng-if="c.isActive" class="toggle toggle-round-flat" type="checkbox">
+							<label for="{{c.uid}}-checked" ng-if="c.isActive" ng-click="deactivateCostCategory(c.uid)"></label>
 						</td>
 						<td>
 							<button class="btn btn-default" ng-click="editCostCategory(c.uid)">
