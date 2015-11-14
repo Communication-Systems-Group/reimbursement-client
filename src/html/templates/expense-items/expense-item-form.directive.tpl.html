@@ -38,7 +38,6 @@
 					<input type="number" id="expenseitem-amount" ng-model="form.originalAmount" name="originalAmount"
 						   pattern="{{'expense.amount' | regexValidation}}" class="input-validation form-control text-center" ng-change="calculateAmount()" required>
 				</div>
-
 			</div>
 			<div class="col-sm-4" ng-if="editable">
 				<select id="expenseitem-currency" class="form-control" ng-model="form.currency" ng-change="calculateAmount()">
