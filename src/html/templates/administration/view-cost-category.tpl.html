@@ -33,31 +33,17 @@
 						<td>{{c.name | costCategoryLanguage}}</td>
 						<td>{{c.description | costCategoryLanguage | limitWordwise: 50 }}</td>
 						<td>
-							<span ng-if="c.isActive" class="label label-success">{{ 'reimbursement.administration.state.active' | translate }}</span>
-							<span ng-if="!c.isActive" class="label label-danger">{{ 'reimbursement.administration.state.inactive' | translate }}</span>
+							<button ng-if="c.isActive" ng-click="deactivateCostCategory(c.uid)" class="btn btn-default" ng-click="editCostCategory(c.uid)">
+								<i class="fa fa-toggle-on"></i> {{ 'reimbursement.administration.deactivate' | translate }}
+							</button>
+							<button ng-if="!c.isActive" ng-click="activateCostCategory(c.uid)" class="btn btn-default" ng-click="editCostCategory(c.uid)">
+								<i class="fa fa-toggle-off"></i> {{ 'reimbursement.administration.activate' | translate }}
+							</button>
 						</td>
 						<td>
-							<div class="btn-group">
-								<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
-									aria-haspopup="true" aria-expanded="false">
-									{{ 'reimbursement.administration.action' | translate }} <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li>
-										<a ng-click="editCostCategory(c.uid)">
-										<i class="fa fa-pencil"></i> {{ 'reimbursement.administration.edit' | translate }}</a>
-									</li>
-									<li class="divider"></li>
-									<li>
-										<a ng-if="c.isActive" ng-click="deactivateCostCategory(c.uid)">
-											<i class="fa fa-toggle-off"></i> {{ 'reimbursement.administration.deactivate' | translate }}</a>
-									</li>
-									<li>
-										<a ng-if="!c.isActive" ng-click="activateCostCategory(c.uid)">
-											<i class="fa fa-toggle-on"></i> {{ 'reimbursement.administration.activate' | translate }}</a>
-									</li>
-								</ul>
-							</div>
+							<button class="btn btn-default" ng-click="editCostCategory(c.uid)">
+								<i class="fa fa-pencil"></i> {{ 'reimbursement.administration.edit' | translate }}
+							</button>
 						</td>
 					</tr>
 				</tbody>
