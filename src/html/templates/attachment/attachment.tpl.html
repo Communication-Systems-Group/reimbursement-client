@@ -3,7 +3,8 @@
 
 	<div ng-show="hasAttachment" class="displayAttachment">
 		<i class="fa fa-file-pdf-o"></i>
-		<a target="_blank" ng-href="{{ base64 }}">{{ 'reimbursement.captureAttachment.downloadAttachment' | translate }}</a>
+		<a target="_blank" ng-href="{{ blob.url }}" download="{{blob.name}}">{{ 'reimbursement.captureAttachment.downloadAttachment' | translate }}</a>
+		
 		<a href class="deleteAttachment" ng-click="deleteAttachment()">
 			<i class="fa fa-times-circle"></i>
 		</a>

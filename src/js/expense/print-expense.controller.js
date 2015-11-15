@@ -20,11 +20,10 @@ function($scope, $stateParams, $window, THIS_HOST, spinnerService, expenseRestSe
 
 	function getExpensePdf() {
 		expenseRestService.getExpensePdf($scope.expense.uid).then(function(response) {
-
-			base64BinaryConverterService.toBase64FromJson(response.data, function(base64String) {
-				$window.open(base64String, '_blank');
-			});
-
+			// TODO Refactoring
+			var base64 = base64BinaryConverterService.toBase64FromJson(response.data);
+			var blob = base64BinaryConverterService.toBinary(base64);
+			window.open(blob.url, '_blank');
 		})['finally'](function() {
 			spinnerService.hide('spinnerPrintExpense');
 		});

@@ -4,7 +4,9 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 	"use strict";
 
 	$scope.postAttachmentPath = attachmentRestService.postAttachmentPath($scope.expenseItemUid);
+	// TODO refactor this as soon that is clear that we switch to blob
 	$scope.base64 = "";
+	$scope.blob = "";
 	$scope.hasAttachment = false;
 	$scope.flow = {};
 
@@ -13,7 +15,9 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 
 		attachmentRestService.getAttachment($scope.expenseItemUid).then(function(response) {
 			if(response.data.content) {
+				// TODO refactor this as soon that is clear that we switch to blob
 				$scope.base64 = base64BinaryConverterService.toBase64FromJson(response.data);
+				$scope.blob = base64BinaryConverterService.toBinary($scope.base64);
 				$scope.hasAttachment = true;
 			}
 			else {
@@ -53,7 +57,9 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 			});
 
 			modalInstance.result.then(function(response) {
+				// TODO refactor this as soon that is clear that we switch to blob
 				$scope.base64 = base64BinaryConverterService.toBase64FromJson(response.data);
+				$scope.blob = base64BinaryConverterService.toBinary($scope.base64);
 				$scope.hasAttachment = true;
 			});
 		});
@@ -94,5 +100,4 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 			});
 		});
 	};
-
 }]);

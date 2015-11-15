@@ -309,7 +309,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		};
 
 		// enable data URLs
-		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel|data):/);
+		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob|data):/);
 
 	}]);
 

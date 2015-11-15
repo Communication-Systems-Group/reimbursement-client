@@ -13,7 +13,7 @@ function() {
 		},
 		toBinary: function(base64) {
 			var type = base64.split(',')[0].split(':')[1].split(";base64")[0];
-			var fileEnding = type.split('image/')[1];
+			var fileEnding = type.split('/')[1];
 
 			// taken from: http://stackoverflow.com/a/14988118/3233827
 			var binaryData = window.atob(base64.split(',')[1]);
@@ -28,6 +28,8 @@ function() {
 			var blob = new window.Blob([uint8Array], { type: type });
 			blob.lastModifiedDate = new Date();
 			blob.name = new Date().toUTCString() + "." + fileEnding;
+			// TODO check if this url creation need explicit revoke of url
+			blob.url = window.URL.createObjectURL(blob);
 
 			var file = blob;
 			return file;
