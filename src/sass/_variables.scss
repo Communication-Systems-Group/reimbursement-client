@@ -1,28 +1,16 @@
-//font
+// font
+$font-family-sans-serif:  "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$font-family-monospace: "Consolas", "Monaco", "Menlo", "Courier New", monospace;
+$default-font-family: $font-family-sans-serif;
 
-$font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif;
-$font-family-monospace:   Consolas, Monaco, Menlo, "Courier New", monospace;
-$default-font-family:  $font-family-sans-serif;
-
-
-
-$default-margin-top-05: 0.5em;
-$default-margin-top-10: 1.0em;
-$default-margin-top-15: 1.5em;
-$default-margin-top-20: 2.0em;
-$default-margin-top-25: 2.5em;
-$default-margin-top-30: 3.0em;
-
-
-//colors
+// colors
 $default-color-lightgray: #dfdfdf;
-$default-color-gray: #aaaaaa;
-$default-color-darkgray: #666666;
+$default-color-gray: #aaa;
+$default-color-darkgray: #666;
 
-$default-color-lightblack: #333333;
+$default-color-lightblack: #333;
 
-$default-color-error: #FA787E;
+$default-color-error: #C43834;
 $default-color-warning: #FF7F00;
 $default-color-info: #6797E6;
 $default-color-success: #178322;

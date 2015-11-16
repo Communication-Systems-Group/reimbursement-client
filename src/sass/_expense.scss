@@ -6,12 +6,6 @@
 	position: relative;
 }
 
-.title-date-right {
-	float: right;
-	font-size: 10px;
-	margin-top: 7px;
-}
-
 .modal-content {
 	.accept .modal-header,
 	.reject .modal-header {
@@ -37,7 +31,6 @@
 	color: $default-color-info;
 	cursor: pointer;
 }
-
 
 .sign-method-box {
 	display: inline-block;

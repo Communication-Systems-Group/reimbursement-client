@@ -32,10 +32,6 @@ textarea {
 	border-radius: 0;
 }
 
-.margin-top-10 {
-	margin-top: $default-margin-top-10;
-}
-
 .col-centered {
 	display: inline-block;
 	float: none;
@@ -142,13 +138,13 @@ h1.page-header small > .fa {
 	&.error {
 		&:after {
 			content: '\f071';
+			position: absolute;
 			font-family: FontAwesome;
 			color: $default-color-error;
-			position: absolute;
-			top: 0.25em;
-			right: 1em;
-			font-size: 15pt;
-			z-index: 100;
+			right: 1.3em;
+			top: 50%;
+			transform: translateY(-45%);
+			font-size: 18px;
 		}
 	}
 

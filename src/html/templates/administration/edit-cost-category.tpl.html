@@ -29,8 +29,9 @@
 					<input type="text" class="form-control input-validation" id="name" name="nameDe" ng-model="costCategory.name.de"
 						pattern="{{'admin.costCategories.name' | regexValidation}}" required>
 				</div>
-
-				<div class="input-group margin-top-10 right-inner-addon" ng-class="{'error': formCostCategories.nameEn.$invalid && formCostCategories.nameEn.$touched}">
+			</div>
+			<div class="form-group">
+				<div class="input-group right-inner-addon" ng-class="{'error': formCostCategories.nameEn.$invalid && formCostCategories.nameEn.$touched}">
 					<div class="input-group-addon">{{'reimbursement.language.en' | translate}}</div>
 					<input type="text" class="form-control input-validation" id="name" name="nameEn" ng-model="costCategory.name.en"
 						pattern="{{'admin.costCategories.name' | regexValidation}}" required>
@@ -46,8 +47,9 @@
 						ng-model="costCategory.description.de" name="descriptionDe"
 							pattern="{{'admin.costCategories.description' | regexValidation}}" required></textarea>
 				</div>
-
-				<div class="input-group margin-top-10 right-inner-addon" ng-class="{'error': formCostCategories.descriptionEn.$invalid && formCostCategories.descriptionEn.$touched}">
+			</div>
+			<div class="form-group">
+				<div class="input-group right-inner-addon" ng-class="{'error': formCostCategories.descriptionEn.$invalid && formCostCategories.descriptionEn.$touched}">
 					<div class="input-group-addon">{{'reimbursement.language.en' | translate}}</div>
 					<textarea class="form-control input-validation" id="description" rows="5"
 						ng-model="costCategory.description.en" name="descriptionEn"
@@ -63,8 +65,9 @@
 					<textarea class="form-control input-validation" id="accounting_policy" rows="5"
 							ng-model="costCategory.accountingPolicy.de" name="accountingPolicyDe"></textarea>
 				</div>
-
-				<div class="input-group margin-top-10">
+			</div>
+			<div class="form-group">
+				<div class="input-group">
 					<div class="input-group-addon">{{'reimbursement.language.en' | translate}}</div>
 					<textarea class="form-control input-validation" id="accounting_policy" rows="5"
 							ng-model="costCategory.accountingPolicy.en" name="accountingPolicyEn"></textarea>
