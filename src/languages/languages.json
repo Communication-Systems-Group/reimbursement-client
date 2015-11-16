@@ -707,6 +707,10 @@
 		"de": "Projekt",
 		"en": "Project"
 	},
+	"expenseItem.receipt": {
+		"de": "Beleg",
+		"en": "Receipt"
+	},
 	"expenseItem.saveButton": {
 		"de": "Beleg speichern",
 		"en": "Save Receipt"

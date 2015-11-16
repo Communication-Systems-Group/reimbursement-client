@@ -3,14 +3,14 @@
 
 	<div ng-show="hasAttachment" class="displayAttachment">
 		<i class="fa fa-file-pdf-o"></i>
-		<a target="_blank" ng-href="{{ blob.url }}" download="{{blob.name}}">{{ 'reimbursement.captureAttachment.downloadAttachment' | translate }}</a>
-		
-		<a href class="deleteAttachment" ng-click="deleteAttachment()">
+		<a target="_blank" ng-href="{{ blob.url }}" download="{{ blob.name }}">{{ 'reimbursement.captureAttachment.downloadAttachment' | translate }}</a>
+
+		<a href class="deleteAttachment" ng-click="deleteAttachment()" ng-if="editable">
 			<i class="fa fa-times-circle"></i>
 		</a>
 	</div>
 
-	<div ng-if="!hasAttachment">
+	<div ng-if="!hasAttachment && editable">
 		<div class="text-center">
 			<button class="btn btn-default" ng-click="showQR()">
 				<i class="fa fa-tablet fa-lg"></i>
@@ -19,7 +19,7 @@
 			<span class="orText">{{ 'reimbursement.captureAttachment.or' | translate }}</span>
 		</div>
 
-		<form id="attachmentCaptureImage" >
+		<div id="attachmentCaptureImage">
 
 			<div flow-init="{target: postAttachmentPath, testChunks: false, singleFile: true, simultaneousUploads: 1, chunkSize: maxUploadSize}"
 				flow-name="flow.image" flow-files-submitted="$flow.upload()"
@@ -34,6 +34,6 @@
 					</div>
 				</div>
 			</div>
-		</form>
+		</div>
 	</div>
 </div>

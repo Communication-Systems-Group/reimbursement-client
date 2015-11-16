@@ -10,7 +10,8 @@ function(MAX_UPLOAD_SIZE) {
 		controller: 'AttachmentController',
 		scope: {
 			expenseItemUid: "=",
-			hasAttachment: "="
+			hasAttachment: "=",
+			editable: "="
 		},
 		link: function($scope) {
 			$scope.maxUploadSize = MAX_UPLOAD_SIZE;
