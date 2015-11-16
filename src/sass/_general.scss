@@ -139,6 +139,19 @@ h1.page-header small > .fa {
 			right: 2.3em;
 		}
 	}
+	&.error {
+		&:after {
+			content: '\f071';
+			font-family: FontAwesome;
+			color: $default-color-error;
+			position: absolute;
+			top: 0.25em;
+			right: 1em;
+			font-size: 15pt;
+			z-index: 100;
+		}
+	}
+
 }
 .inline-spinner {
 	font-size: 18px;
@@ -182,22 +195,6 @@ h1.page-header small > .fa {
 	&.ng-valid {
 		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(111, 233, 102, 0.6);
 		border-color: #6CCE70;
-  }
-}
-
-.inline-validation {
-  display: block;
-  position: relative;
-  margin-right: 0.3em;
-
-
-  &.error {
-	&:after {
-	  font-family: FontAwesome;
-	  content: "\f071";
-	  color: $default-color-error;
-	  font-size: 1.5em;
-	}
   }
 }
 

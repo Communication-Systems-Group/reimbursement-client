@@ -15,58 +15,43 @@
 			<div class="form-group">
 				<label for="accountNumber">{{ 'reimbursement.costCategory.accountNumber' | translate }}</label>
 
-				<div class="input-group" style="width: 100%">
+				<div class="input-group right-inner-addon" ng-class="{'error': formCostCategories.accountNumber.$invalid && formCostCategories.accountNumber.$touched}" style="width: 100%">
 					<input type="text" class="form-control input-validation" id="accountNumber" name="accountNumber" ng-model="costCategory.accountNumber"
-						pattern="{{'admin.costCategories.number' | regexValidation}}" required />
-					<div ng-show="!formCostCategories.accountNumber.$valid" class="input-group-addon">
-						<span class="inline-validation error"></span>
-					</div>
+						pattern="{{'admin.costCategories.number' | regexValidation}}" required>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="name">{{ 'reimbursement.costCategory.name' | translate }}</label>
 
-				<div class="input-group">
+				<div class="input-group right-inner-addon" ng-class="{'error': formCostCategories.nameDe.$invalid && formCostCategories.nameDe.$touched}">
 					<div class="input-group-addon">{{'reimbursement.language.de' | translate}}</div>
 					<input type="text" class="form-control input-validation" id="name" name="nameDe" ng-model="costCategory.name.de"
-						pattern="{{'admin.costCategories.name' | regexValidation}}" required />
-					<div ng-show="!formCostCategories.nameDe.$valid" class="input-group-addon">
-						<span class="inline-validation error"></span>
-					</div>
+						pattern="{{'admin.costCategories.name' | regexValidation}}" required>
 				</div>
 
-				<div class="input-group margin-top-10">
+				<div class="input-group margin-top-10 right-inner-addon" ng-class="{'error': formCostCategories.nameEn.$invalid && formCostCategories.nameEn.$touched}">
 					<div class="input-group-addon">{{'reimbursement.language.en' | translate}}</div>
 					<input type="text" class="form-control input-validation" id="name" name="nameEn" ng-model="costCategory.name.en"
-						pattern="{{'admin.costCategories.name' | regexValidation}}" required />
-					<div ng-show="!formCostCategories.nameEn.$valid" class="input-group-addon">
-						<span class="inline-validation error"></span>
-					</div>
+						pattern="{{'admin.costCategories.name' | regexValidation}}" required>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="description">{{ 'reimbursement.costCategory.description' | translate }}</label>
 
-				<div class="input-group">
+				<div class="input-group right-inner-addon" ng-class="{'error': formCostCategories.descriptionDe.$invalid && formCostCategories.descriptionDe.$touched}">
 					<div class="input-group-addon">{{'reimbursement.language.de' | translate}}</div>
 					<textarea class="form-control input-validation" id="description" rows="5"
 						ng-model="costCategory.description.de" name="descriptionDe"
 							pattern="{{'admin.costCategories.description' | regexValidation}}" required></textarea>
-					<div ng-show="!formCostCategories.descriptionDe.$valid" class="input-group-addon">
-						<span class="inline-validation error"></span>
-					</div>
 				</div>
 
-				<div class="input-group margin-top-10">
+				<div class="input-group margin-top-10 right-inner-addon" ng-class="{'error': formCostCategories.descriptionEn.$invalid && formCostCategories.descriptionEn.$touched}">
 					<div class="input-group-addon">{{'reimbursement.language.en' | translate}}</div>
 					<textarea class="form-control input-validation" id="description" rows="5"
 						ng-model="costCategory.description.en" name="descriptionEn"
 							pattern="{{'admin.costCategories.description' | regexValidation}}" required></textarea>
-					<div ng-show="!formCostCategories.descriptionEn.$valid" class="input-group-addon">
-						<span class="inline-validation error"></span>
-					</div>
 				</div>
 			</div>
 

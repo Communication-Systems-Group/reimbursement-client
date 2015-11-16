@@ -14,10 +14,9 @@
 					{{ 'reimbursement.expense.rejectReason' | translate }}
 				</label>
 				<div class="col-sm-9">
-					<div class="right-inner-addon">
+					<div class="right-inner-addon" ng-class="{'error': formExpenseReject.reason.$invalid && formExpenseReject.reason.$touched}">
 						<textarea id="reason" name="reason" class="form-control textarea-md" ng-model="reason" pattern="{{'expense.reject.reason' | regexValidation}}"
 							placeholder="{{ 'reimbursement.expense.explanationEnterAtLeast10Characters' | translate }}" required></textarea>
-						<span ng-class="{'inline-validation error': !formExpenseReject.reason.$valid}"></span>
 					</div>
 				</div>
 			</div>

@@ -25,9 +25,8 @@
 					</div>
 					<div class="form-group">
 						<label for="lastName" class="col-sm-4 control-label"> {{ 'reimbursement.administration.search.userLastName' | translate }} </label>
-						<div class="col-sm-8 right-inner-addon">
+						<div class="col-sm-8 right-inner-addon" ng-class="{'error': formSearch.lastName.$invalid && formSearch.lastName.$touched}">
 							<input type="text" pattern="{{'admin.search.lastname' | regexValidation}}" class="input-validation form-control" id="lastName" name="lastName" ng-model="form.lastName">
-							<span ng-class="{'inline-validation error': !formSearch.lastName.$valid}"></span>
 						</div>
 					</div>
 					<div class="form-group">
@@ -56,9 +55,8 @@
 					</div>
 					<div class="form-group">
 						<label for="sapText" class="col-sm-4 control-label"> {{ 'reimbursement.administration.search.sapText' | translate }} </label>
-						<div class="col-sm-8 right-inner-addon">
+						<div class="col-sm-8 right-inner-addon" ng-class="{'error': formSearch.sapText.$invalid && formSearch.sapText.$touched}">
 							<input type="text" pattern="{{'admin.search.sapDescription' | regexValidation}}" class="input-validation form-control" id="sapText" name="sapText" ng-model="form.accountingText">
-							<span ng-class="{'inline-validation error': !formSearch.sapText.$valid}"></span>
 						</div>
 					</div>
 					<div class="text-right">
