@@ -64,6 +64,7 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 				controller: 'EditCostCategoryController',
 				backdrop: 'static',
 				keyboard: false,
+				size: 'lg',
 				resolve: {
 					costCategory: function () {
 						return findCostCategory(uid);

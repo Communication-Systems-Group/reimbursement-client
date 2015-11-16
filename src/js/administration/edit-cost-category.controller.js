@@ -25,10 +25,7 @@ app.controller('EditCostCategoryController', [ '$scope', '$uibModalInstance', 'g
 
 		$scope.dismissWithConfirmation = function () {
 			globalMessagesService.confirmWarning("reimbursement.expenseItem.closeWarningEditTitle",
-			"reimbursement.costCategory.closeWarningEditMessage").then(function () {
-
-				$uibModalInstance.dismiss();
-			});
+			"reimbursement.costCategory.closeWarningEditMessage").then($uibModalInstance.dismiss);
 		};
 
 		$scope.save = function (form) {
@@ -37,14 +34,10 @@ app.controller('EditCostCategoryController', [ '$scope', '$uibModalInstance', 'g
 				$scope.isLoading = true;
 
 				if ($scope.costCategory.uid !== undefined) {
-					administrationRestService.putCostCategory($scope.costCategory, $scope.costCategory.uid).then(function () {
-						$uibModalInstance.dismiss();
-					});
+					administrationRestService.putCostCategory($scope.costCategory, $scope.costCategory.uid).then($uibModalInstance.dismiss);
 				}
 				else {
-					administrationRestService.postCostCategory($scope.costCategory).then(function () {
-						$uibModalInstance.dismiss();
-					});
+					administrationRestService.postCostCategory($scope.costCategory).then($uibModalInstance.dismiss);
 				}
 			}
 		};
