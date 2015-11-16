@@ -1,6 +1,6 @@
-app.directive('attachmentUpload',
+app.directive('attachmentUpload', ['MAX_UPLOAD_SIZE',
 
-function() {
+function(MAX_UPLOAD_SIZE) {
 	"use strict";
 
 	return {
@@ -11,6 +11,9 @@ function() {
 		scope: {
 			expenseItemUid: "=",
 			hasAttachment: "="
+		},
+		link: function($scope) {
+			$scope.maxUploadSize = MAX_UPLOAD_SIZE;
 		}
 	};
-});
+}]);

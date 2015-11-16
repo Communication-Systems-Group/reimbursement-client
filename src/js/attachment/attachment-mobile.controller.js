@@ -1,6 +1,6 @@
-app.controller('AttachmentMobileController', ['$scope', '$location', 'attachmentRestService', 'spinnerService',
+app.controller('AttachmentMobileController', ['$scope', '$location', 'attachmentRestService', 'spinnerService', 'MAX_UPLOAD_SIZE',
 
-function($scope, $location, attachmentRestService, spinnerService) {
+function($scope, $location, attachmentRestService, spinnerService, MAX_UPLOAD_SIZE) {
 	"use strict";
 
 	var tokenUid = $location.path().split("/")[2];
@@ -23,6 +23,8 @@ function($scope, $location, attachmentRestService, spinnerService) {
 		spinnerService.hide($scope.spinnerId);
 		$scope.isError = true;
 	};
+
+	$scope.maxUploadSize = MAX_UPLOAD_SIZE;
 
 	// fix position relative on ui-view-container
 	jQuery('.ui-view-container').removeClass('ui-view-container');

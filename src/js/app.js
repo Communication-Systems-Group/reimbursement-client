@@ -67,6 +67,7 @@ app.constant("moment", window.moment);
 app.constant("c3", window.c3);
 app.constant("HOST", window.location.protocol + "//" + window.location.host.split(":")[0]);
 app.constant("THIS_HOST", window.location.protocol + "//" + window.location.host + "/#!");
+app.constant("MAX_UPLOAD_SIZE", "100000000"); // maximum chunk size of documents that will be uploaded
 
 app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', '$compileProvider', 'LANGUAGES', 'USER', 'flowFactoryProvider',
 	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, $compileProvider, LANGUAGES, USER, flowFactoryProvider) {
