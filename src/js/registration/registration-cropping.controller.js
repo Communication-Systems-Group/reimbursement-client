@@ -1,6 +1,6 @@
-app.controller('RegistrationCroppingController', ['$scope', '$state', '$stateParams',
+app.controller('RegistrationCroppingController', ['$scope', '$state', '$stateParams', 'USER', 'loginRestService',
 
-function($scope, $state, $stateParams) {
+function($scope, $state, $stateParams, USER, loginRestService) {
 	"use strict";
 
 	$scope.image = $stateParams.imageUri;
@@ -11,7 +11,16 @@ function($scope, $state, $stateParams) {
 	}
 
 	$scope.submit = function() {
-		window.location.reload();
+		loginRestService.getUser().then(function(response) {
+			var data = response.data;
+			for(var key in data) {
+				if(data.hasOwnProperty(key)) {
+					USER[key] = data[key];
+				}
+			}
+
+			$state.go('dashboard');
+		});
 	};
 
 }]);

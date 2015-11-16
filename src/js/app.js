@@ -44,7 +44,6 @@
 							var data = {
 								loggedIn: false,
 								language: language,
-								hasSignature: false,
 								roles: [],
 								hasRole: function() {
 									return false;
@@ -69,8 +68,8 @@ app.constant("HOST", window.location.protocol + "//" + window.location.host.spli
 app.constant("THIS_HOST", window.location.protocol + "//" + window.location.host + "/#!");
 app.constant("MAX_UPLOAD_SIZE", "100000000"); // maximum chunk size of documents that will be uploaded
 
-app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', '$compileProvider', 'LANGUAGES', 'USER', 'flowFactoryProvider',
-	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, $compileProvider, LANGUAGES, USER, flowFactoryProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', '$compileProvider', '$logProvider', 'LANGUAGES', 'USER', 'flowFactoryProvider',
+	function ($stateProvider, $urlRouterProvider, $translateProvider, $locationProvider, $httpProvider, $compileProvider, $logProvider, LANGUAGES, USER, flowFactoryProvider) {
 		"use strict";
 
 		for (var key in LANGUAGES) {
@@ -79,6 +78,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			}
 		}
 
+		$logProvider.debugEnabled(false);
+
 		$translateProvider.preferredLanguage(USER.language.toLowerCase());
 		$translateProvider.useSanitizeValueStrategy('escape');
 
@@ -86,97 +87,109 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		$httpProvider.interceptors.push('httpInterceptor');
 
 		function requireNoAuthenticationWithMessage() {
-			return ['$state', 'USER', 'globalMessagesService', function ($state, USER, globalMessagesService) {
-				if (USER.loggedIn) {
-					globalMessagesService.showError("reimbursement.globalMessage.notAuthenticatedRequired.title",
-						"reimbursement.globalMessage.notAuthenticatedRequired.message");
+			return {
+				redirectCheck: ['$q', 'USER', 'globalMessagesService', function ($q, USER, globalMessagesService) {
+					if (USER.loggedIn) {
+						globalMessagesService.showError("reimbursement.globalMessage.notAuthenticatedRequired.title",
+							"reimbursement.globalMessage.notAuthenticatedRequired.message");
 
-					$state.go('dashboard');
-				}
-			}];
+						return $q.reject({ state: 'dashboard' });
+					}
+				}]
+			};
 		}
 
 		function requireNoAuthentication() {
-			return ['$state', 'USER', function ($state, USER) {
-				if(USER.loggedIn) {
-					$state.go('dashboard');
-				}
-			}];
+			return {
+				redirectCheck: ['$q', 'USER', function ($q, USER) {
+					if(USER.loggedIn) {
+						return $q.reject({ state: 'dashboard' });
+					}
+				}]
+			};
 		}
 
 		function requireAuthentication() {
-			return ['$state', 'USER', function ($state, USER) {
-				if (!USER.loggedIn) {
-					$state.go('login');
-				}
-			}];
+			return {
+				redirectCheck: ['$q', 'USER', function ($q, USER) {
+					if (!USER.loggedIn) {
+						return $q.reject({ state: 'login' });
+					}
+				}]
+			};
 		}
 
 		function requireRegisteredAuthentication() {
-			return ['$state', 'USER', function ($state, USER) {
-				if (!USER.loggedIn) {
-					$state.go('login');
-				}
-				if (!USER.hasRole("REGISTERED_USER")) {
-					$state.go('registrationForm');
-				}
-			}];
+			return {
+				redirectCheck: ['$q', 'USER', function ($q, USER) {
+					if (!USER.loggedIn) {
+						return $q.reject({ state: 'login' });
+					}
+					else if (!USER.hasRole("REGISTERED_USER")) {
+						return $q.reject({ state: 'registrationForm' });
+					}
+				}]
+			};
 		}
 
 		function requireUnregisteredAuthentication() {
-			return ['$state', 'USER', function ($state, USER) {
-				if (!USER.loggedIn) {
-					$state.go('login');
-				}
-				if(USER.hasRole("REGISTERED_USER")) {
-					$state.go('dashboard');
-				}
-			}];
+			return {
+				redirectCheck: ['$q', 'USER', function ($q, USER) {
+					if (!USER.loggedIn) {
+						return $q.reject({ state: 'login' });
+					}
+					if(USER.hasRole("REGISTERED_USER")) {
+						return $q.reject({ state: 'dashboard' });
+					}
+				}]
+			};
 		}
 
 		function requireRegisteredAuthenticationWithAnyRole(roles) {
-			return ['$state', 'USER', function ($state, USER) {
-				if (!USER.loggedIn) {
-					$state.go('login');
-				}
-				if (!USER.hasRole("REGISTERED_USER")) {
-					$state.go('registrationForm');
-				}
-
-				var hasSufficientRights = false;
-				for (var i = 0; i < roles.length; i++) {
-					if (USER.hasRole(roles[i])) {
-						hasSufficientRights = true;
-						break;
+			return {
+				redirectCheck: ['$q', 'USER', function ($q, USER) {
+					if (!USER.loggedIn) {
+						return $q.reject({ state: 'login' });
 					}
-				}
+					if (!USER.hasRole("REGISTERED_USER")) {
+						return $q.reject({ state: 'registrationForm' });
+					}
 
-				if(!hasSufficientRights) {
-					$state.go('dashboard');
-				}
-			}];
+					var hasSufficientRights = false;
+					for (var i = 0; i < roles.length; i++) {
+						if (USER.hasRole(roles[i])) {
+							hasSufficientRights = true;
+							break;
+						}
+					}
+
+					if(!hasSufficientRights) {
+						return $q.reject({ state: 'dashboard' });
+					}
+				}]
+			};
 		}
 
 		$stateProvider.state('login', {
 			templateUrl: "login/login.tpl.html",
 			controller: 'LoginController',
-			onEnter: requireNoAuthentication()
+			resolve: requireNoAuthentication()
 
 		}).state('logout', {
 			templateUrl: "logout/logout.tpl.html",
 			controller: 'LogoutController',
-			onEnter: requireAuthentication()
+			resolve: requireAuthentication()
 
 		}).state('registrationForm', {
 			url: "/registration",
 			templateUrl: "registration/registration-form.tpl.html",
 			controller: "RegistrationFormController",
-			onEnter: requireUnregisteredAuthentication()
+			resolve: requireUnregisteredAuthentication()
 
 		}).state('registrationSignature', {
 			templateUrl: "registration/registration-signature.tpl.html",
 			controller: "RegistrationSignatureController",
-			onEnter: requireUnregisteredAuthentication()
+			resolve: requireUnregisteredAuthentication()
 
 		}).state('registrationCropping', {
 			params: {
@@ -184,81 +197,79 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			},
 			templateUrl: "registration/registration-cropping.tpl.html",
 			controller: "RegistrationCroppingController",
-			onEnter: requireUnregisteredAuthentication()
+			resolve: requireUnregisteredAuthentication()
 
 		}).state('settingsSignature', {
 			url: "/settingsSignature",
 			templateUrl: "settings/settings-signature.tpl.html",
 			controller: "SettingsSignatureController",
-			onEnter: requireRegisteredAuthentication()
+			resolve: requireRegisteredAuthentication()
 
 		}).state('settingsCropping', {
-			params: {
-				imageUri: null
-			},
 			templateUrl: "settings/settings-cropping.tpl.html",
 			controller: "SettingsCroppingController",
-			onEnter: requireRegisteredAuthentication()
+			resolve: requireRegisteredAuthentication(),
+			params: { imageUri: null }
 
 		}).state('signatureMobile', {
 			url: "/signature-mobile/:token",
 			templateUrl: "signature/signature-mobile.tpl.html",
 			controller: "SignatureMobileController",
-			onEnter: requireNoAuthenticationWithMessage()
+			resolve: requireNoAuthenticationWithMessage()
 
 		}).state('attachmentMobile', {
 			url: "/attachment-mobile/:token",
 			templateUrl: "attachment/attachment-mobile.tpl.html",
 			controller: "AttachmentMobileController",
-			onEnter: requireNoAuthenticationWithMessage()
+			resolve: requireNoAuthenticationWithMessage()
 
 		}).state('view-cost-category', {
 			url: "/view-cost-category",
 			templateUrl: "administration/view-cost-category.tpl.html",
 			controller: "ViewCostCategoryController",
-			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
+			resolve: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
 
 		}).state('admin-pool-search', {
 			url: "/admin-pool-search",
 			templateUrl: "administration/admin-pool-search.tpl.html",
 			controller: "AdminPoolSearchController",
-			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
+			resolve: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
 
 		}).state('admin-pool-graphs', {
 			url: "/admin-pool-graphs",
 			templateUrl: "administration/admin-pool-graphs.tpl.html",
 			controller: "AdminPoolGraphsController",
-			onEnter: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
+			resolve: requireRegisteredAuthenticationWithAnyRole(['FINANCE_ADMIN'])
 
 		}).state('archive', {
 			url: "/archive",
 			templateUrl: "archive/archive.tpl.html",
 			controller: 'ArchiveController',
-			onEnter: requireRegisteredAuthentication()
+			resolve: requireRegisteredAuthentication()
 
 		}).state('settings', {
 			url: "/settings",
 			templateUrl: "settings/settings.tpl.html",
 			controller: 'SettingsController',
-			onEnter: requireRegisteredAuthentication()
+			resolve: requireRegisteredAuthentication()
 
 		}).state('dashboard', {
 			url: "/dashboard",
 			templateUrl: "dashboard/dashboard.tpl.html",
 			controller: "DashboardController",
-			onEnter: requireRegisteredAuthentication()
+			resolve: requireRegisteredAuthentication()
 
 		}).state('expense', {
 			url: "/expense/:uid",
 			templateUrl: "expense/expense-redirect.tpl.html",
 			controller: "ExpenseRedirectController",
-			onEnter: requireRegisteredAuthentication()
+			resolve: requireRegisteredAuthentication()
 
 		}).state('guest-expense', {
 			url: "/expense/guest/:token",
 			templateUrl: "expense/guest-expense.tpl.html",
 			controller: "GuestExpenseController",
-			onEnter: requireNoAuthenticationWithMessage()
+			resolve: requireNoAuthenticationWithMessage()
 
 		}).state('edit-expense', {
 			templateUrl: "expense/edit-expense.tpl.html",
@@ -313,6 +324,24 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob|data):/);
 
 	}]);
+
+// reacts to a rejected state (defined above) and transitions to a new state
+app.run(['$rootScope', '$state', '$log', function ($rootScope, $state, $log) {
+	"use strict";
+
+	$rootScope.$on('$stateChangeError', function (event, toState, toStateParams, fromState, fromStateParams, error) {
+		if(error && error.state) {
+			// important to prevent faulty behavior (rejection and redirect to previous page)
+			event.preventDefault();
+
+			$log.info('Redirected to: "' + error.state + '"');
+			$state.targetStateBeforeRedirect = toState.name;
+			$state.targetStateParamsBeforeRedirect = toStateParams;
+
+			return $state.go(error.state, error.stateParams, error.stateOptions);
+		}
+	});
+}]);
 
 app.run(['$http', function ($http) {
 	'use strict';

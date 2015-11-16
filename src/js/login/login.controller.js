@@ -1,6 +1,6 @@
-app.controller('LoginController', ['$scope', '$state', 'spinnerService', 'loginRestService', 'globalMessagesService',
+app.controller('LoginController', ['$scope', '$state', 'USER', 'spinnerService', 'loginRestService', 'globalMessagesService',
 
-	function ($scope, $state, spinnerService, loginRestService, globalMessagesService) {
+	function ($scope, $state, USER, spinnerService, loginRestService, globalMessagesService) {
 		"use strict";
 
 		$scope.form = {
@@ -18,11 +18,11 @@ app.controller('LoginController', ['$scope', '$state', 'spinnerService', 'loginR
 			}
 
 			loginRestService.postLogin($scope.form).then(function () {
-				// Reloading the page redirects the user to the page in the URL. The login state is not represented
-				// in the URL (e.g. /dashboard is the URL and the effective state is login. a reload after a successful
-				// login redirects then from login to /dashboard).
-				window.location.reload();
 				spinnerService.hide('spinnerLogin');
+
+				loginRestService.getUser().then(function(response) {
+					storeUserAndRedirect(response.data);
+				});
 
 			}, function (response) {
 				response.errorHandled = true;
@@ -35,13 +35,17 @@ app.controller('LoginController', ['$scope', '$state', 'spinnerService', 'loginR
 					spinnerService.hide('spinnerLogin');
 				}
 				else if(response.status === 403) {
-					// get a new csrf token
-					loginRestService.getUser().then()['finally'](function() {
+					var userResponse = {};
+
+					// get a new csrf token and store user (for success case)
+					loginRestService.getUser().then(function(response) {
+						userResponse = response;
+					})['finally'](function() {
 
 						// retry the call
 						loginRestService.postLogin($scope.form).then(function() {
-							window.location.reload();
 							spinnerService.hide('spinnerLogin');
+							storeUserAndRedirect(userResponse.data);
 
 						}, function(response) {
 							// 403 is now not an option anymore. the csrf token should be up to date,
@@ -63,5 +67,23 @@ app.controller('LoginController', ['$scope', '$state', 'spinnerService', 'loginR
 				}
 			});
 		};
+
+		function storeUserAndRedirect(data) {
+			USER.loggedIn = true;
+			for(var key in data) {
+				if(data.hasOwnProperty(key)) {
+					USER[key] = data[key];
+				}
+			}
+
+			// the target URL is stored during the previous state redirection (to the login).
+			// you can find this logic in app.js (catching the event $stateChangeError)
+			if(typeof $state.targetStateBeforeRedirect !== "undefined") {
+				$state.go($state.targetStateBeforeRedirect, $state.targetStateParamsBeforeRedirect);
+			}
+			else {
+				$state.go('dashboard');
+			}
+		}
 
 	}]);
