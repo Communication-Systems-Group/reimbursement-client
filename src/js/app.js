@@ -22,12 +22,16 @@
 					var deferred = $q.defer();
 					var host = window.location.protocol + "//" + window.location.host.split(':')[0];
 
+					function hasRole(role, roles) {
+						return roles.indexOf(role) !== -1;
+					}
+
 					$http.get(host + "/api/user", { withCredentials: true }).then(
 						function (response) {
 							var data = response.data;
 							data.loggedIn = true;
 							data.hasRole = function(role) {
-								return data.roles.indexOf(role) !== -1;
+								return hasRole(role, data.roles);
 							};
 							deferred.resolve(data);
 
@@ -44,10 +48,10 @@
 							var data = {
 								loggedIn: false,
 								language: language,
-								roles: [],
-								hasRole: function() {
-									return false;
-								}
+								roles: []
+							};
+							data.hasRole = function(role) {
+								return hasRole(role, data.roles);
 							};
 							deferred.resolve(data);
 						});
@@ -125,7 +129,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 					if (!USER.loggedIn) {
 						return $q.reject({ state: 'login' });
 					}
-					else if (!USER.hasRole("REGISTERED_USER")) {
+					if (!USER.hasRole("REGISTERED_USER")) {
 						return $q.reject({ state: 'registrationForm' });
 					}
 				}]
