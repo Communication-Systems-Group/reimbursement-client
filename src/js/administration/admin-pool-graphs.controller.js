@@ -13,21 +13,30 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 	};
 
 	$scope.$watch('activeSlide.slide1', function(slide1) {
-		if(slide1 && charts.chart1 === null) {
+		if(slide1) {
+			if(charts.chart1 !== null) {
+				charts.chart1.destroy();
+			}
 			$timeout(function() {
 				charts.chart1 = generateGraphAreaStepCurrentStateDistribution();
 			});
 		}
 	});
 	$scope.$watch('activeSlide.slide2', function(slide2) {
-		if(slide2 && charts.chart2 === null) {
+		if(slide2) {
+			if(charts.chart2 !== null) {
+				charts.chart2.destroy();
+			}
 			$timeout(function() {
 				charts.chart2 = generateGraphGaugeAcceptedDeclined();
 			});
 		}
 	});
 	$scope.$watch('activeSlide.slide3', function(slide3) {
-		if(slide3 && charts.chart3 === null) {
+		if(slide3) {
+			if(charts.chart3 !== null) {
+				charts.chart3.destroy();
+			}
 			$timeout(function() {
 				charts.chart3 = generateGraphLineSumCurrentYear();
 			});
