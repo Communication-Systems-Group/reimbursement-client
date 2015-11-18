@@ -4,6 +4,101 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 	'use strict';
 
 	$scope.data = [];
+	$scope.activeSlide = {};
+	$scope.dataReady = false;
+	var charts = {
+		chart1: null,
+		chart2: null,
+		chart3: null
+	};
+
+	$scope.$watch('activeSlide.slide1', function(slide1) {
+		if(slide1 && charts.chart1 === null) {
+			$timeout(function() {
+				charts.chart1 = generateGraphAreaStepCurrentStateDistribution();
+			});
+		}
+	});
+	$scope.$watch('activeSlide.slide2', function(slide2) {
+		if(slide2 && charts.chart2 === null) {
+			$timeout(function() {
+				charts.chart2 = generateGraphGaugeAcceptedDeclined();
+			});
+		}
+	});
+	$scope.$watch('activeSlide.slide3', function(slide3) {
+		if(slide3 && charts.chart3 === null) {
+			$timeout(function() {
+				charts.chart3 = generateGraphLineSumCurrentYear();
+			});
+		}
+	});
+
+	var allTranslations = [];
+
+	function generateGraphAreaStepCurrentStateDistribution() {
+		return c3.generate({
+			bindto: "#graph-area-step-current-state-distribution",
+			data: {
+				type: 'area-step',
+				columns: [
+					['Expenses in this state', $scope.data.draft, $scope.data.assignedToManager, $scope.data.toBeAssigned, $scope.data.assignedToFinanceAdmin, $scope.data.toSignByUser, $scope.data.toSignByManager, $scope.data.toSignByFinanceAdmin, $scope.data.signed]
+				]
+			},
+			axis: {
+				x: {
+					type: 'category',
+					categories: [
+						allTranslations['reimbursement.expense.state.DRAFT'],
+						allTranslations['reimbursement.expense.state.ASSIGNED_TO_MANAGER'],
+						allTranslations['reimbursement.expense.state.TO_BE_ASSIGNED'],
+						allTranslations['reimbursement.expense.state.ASSIGNED_TO_FINANCE_ADMIN'],
+						allTranslations['reimbursement.expense.state.TO_SIGN_BY_USER'],
+						allTranslations['reimbursement.expense.state.TO_SIGN_BY_MANAGER'],
+						allTranslations['reimbursement.expense.state.TO_SIGN_BY_FINANCE_ADMIN'],
+						allTranslations['reimbursement.expense.state.SIGNED']
+					]
+				}
+			}
+		});
+	}
+
+	function generateGraphGaugeAcceptedDeclined() {
+		return c3.generate({
+			bindto: "#graph-gauge-accepted-declined",
+			data: {
+				type: "gauge",
+				columns: [[allTranslations['reimbursement.administration.graphs.percentagePrinted'], $scope.data.percentagePrinted]]
+			},
+			color: {
+				pattern: ['#ff0000', '#f97600', '#f6c600', '#60b044'],
+				threshold: {
+					values: [70, 80, 90, 100]
+				}
+			}
+		});
+	}
+
+	function generateGraphLineSumCurrentYear() {
+		return c3.generate({
+			bindto: "#graph-line-sum-current-year",
+			data: {
+				type: 'area',
+				columns: [[allTranslations['reimbursement.administration.graphs.totalAmount'], $scope.data.totalAmountFirstQuarter, $scope.data.totalAmountSecondQuarter, $scope.data.totalAmountThirdQuarter, $scope.data.totalAmountFourthQuarter]]
+			},
+			axis: {
+				x: {
+					type: 'category',
+					categories: [
+						allTranslations['reimbursement.administration.graphs.firstQuarter'],
+						allTranslations['reimbursement.administration.graphs.secondQuarter'],
+						allTranslations['reimbursement.administration.graphs.thirdQuarter'],
+						allTranslations['reimbursement.administration.graphs.fourthQuarter']
+					]
+				}
+			}
+		});
+	}
 
 	administrationRestService.getExpenseStateRawData().then(function(response) {
 		$scope.data = response.data;
@@ -25,64 +120,9 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 			'reimbursement.administration.graphs.thirdQuarter',
 			'reimbursement.administration.graphs.fourthQuarter']).then(function(translations) {
 
-				c3.generate({
-					bindto: "#graph-area-step-current-state-distribution",
-					data: {
-						type: 'area-step',
-						columns: [
-							['Expenses in this state', $scope.data.draft, $scope.data.assignedToManager, $scope.data.toBeAssigned, $scope.data.assignedToFinanceAdmin, $scope.data.toSignByUser, $scope.data.toSignByManager, $scope.data.toSignByFinanceAdmin, $scope.data.signed]
-						]
-					},
-					axis: {
-						x: {
-							type: 'category',
-							categories: [
-								translations['reimbursement.expense.state.DRAFT'],
-								translations['reimbursement.expense.state.ASSIGNED_TO_MANAGER'],
-								translations['reimbursement.expense.state.TO_BE_ASSIGNED'],
-								translations['reimbursement.expense.state.ASSIGNED_TO_FINANCE_ADMIN'],
-								translations['reimbursement.expense.state.TO_SIGN_BY_USER'],
-								translations['reimbursement.expense.state.TO_SIGN_BY_MANAGER'],
-								translations['reimbursement.expense.state.TO_SIGN_BY_FINANCE_ADMIN'],
-								translations['reimbursement.expense.state.SIGNED']
-							]
-						}
-					}
-				});
+				allTranslations = translations;
+				$scope.dataReady = true;
 
-				c3.generate({
-					bindto: "#graph-gauge-accepted-declined",
-					data: {
-						type: "gauge",
-						columns: [[translations['reimbursement.administration.graphs.percentagePrinted'], $scope.data.percentagePrinted]]
-					},
-					color: {
-						pattern: ['#ff0000', '#f97600', '#f6c600', '#60b044'],
-						threshold: {
-							values: [70, 80, 90, 100]
-						}
-					}
-				});
-
-				c3.generate({
-					bindto: "#graph-line-sum-current-year",
-					data: {
-						type: 'area',
-						columns: [
-							[translations['reimbursement.administration.graphs.totalAmount'], $scope.data.totalAmountFirstQuarter, $scope.data.totalAmountSecondQuarter, $scope.data.totalAmountThirdQuarter, $scope.data.totalAmountFourthQuarter]]
-					},
-					axis: {
-						x: {
-							type: 'category',
-							categories: [
-								translations['reimbursement.administration.graphs.firstQuarter'],
-								translations['reimbursement.administration.graphs.secondQuarter'],
-								translations['reimbursement.administration.graphs.thirdQuarter'],
-								translations['reimbursement.administration.graphs.fourthQuarter']
-							]
-						}
-					}
-				});
 			}, function() {
 				globalMessagesService.showGeneralError();
 			});
