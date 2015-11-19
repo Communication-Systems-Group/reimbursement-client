@@ -39,16 +39,18 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 		};
 
 		$scope.toggleCostCategory = function (uid, isActive) {
-			globalMessagesService.confirmWarning("reimbursement.administration.deactivateCostCategoryTitle",
-			"reimbursement.administration.deactivateCostCategoryText").then(function () {
-
-				if(isActive) {
+			if(isActive) {
+				globalMessagesService.confirmWarningMd("reimbursement.administration.deactivateCostCategoryTitle",
+				"reimbursement.administration.deactivateCostCategoryText").then(function () {
 					administrationRestService.deactivateCostCategory(uid).then(loadData);
-				}
-				else {
+				});
+			}
+			else {
+				globalMessagesService.confirmWarningMd("reimbursement.administration.activateCostCategoryTitle",
+				"reimbursement.administration.activateCostCategoryText").then(function () {
 					administrationRestService.activateCostCategory(uid).then(loadData);
-				}
-			});
+				});
+			}
 		};
 
 		$scope.editCostCategory = function (uid) {

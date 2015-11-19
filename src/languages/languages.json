@@ -132,16 +132,8 @@
 		"en": "Permission of Expense Creator"
 	},
 	"administration.state": {
-		"de": "Status",
-		"en": "State"
-	},
-	"administration.state.active": {
-		"de": "Aktiv",
-		"en": "Active"
-	},
-	"administration.state.inactive": {
-		"de": "Deaktiviert",
-		"en": "Inaktiv"
+		"de": "Aktiv?",
+		"en": "Active?"
 	},
 	"archive.title": {
 		"de": "Archivierte Spesen",

@@ -97,9 +97,10 @@
 		width: 42px;
 		height: 24px;
 		border-radius: 12px;
-		border: 2px solid $default-color-toggle;
+		background: $default-color-toggle;
 		cursor: pointer;
 		position: relative;
+		box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1);
 
 		&:after {
 			content: "";
@@ -107,19 +108,18 @@
 			position: absolute;
 			width: 16px;
 			height: 16px;
-			top: 2px;
-			left: 3px;
+			top: 4px;
+			left: 5px;
 			border-radius: 100%;
-			box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-			background: $default-color-toggle;
+			background: white;
+			box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 		}
 
 		&.active {
-			border-color: $default-color-success;
+			background: $default-color-toggle-active;
 
 			&:after {
-				left: 20px;
-				background: $default-color-success;
+				left: 21px;
 			}
 		}
 	}
