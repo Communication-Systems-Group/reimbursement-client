@@ -1,9 +1,9 @@
-app.controller('AddExpenseItemController', ['$scope', '$uibModalInstance', 'globalMessagesService', 'spinnerService', 'expenseItemsRestService', 'expenseItemUid', '$filter',
+app.controller('AddExpenseItemController', ['$scope', '$uibModalInstance', 'globalMessagesService', 'spinnerService', 'expenseItemsRestService', 'expenseItem', '$filter',
 
-function($scope, $uibModalInstance, globalMessagesService, spinnerService, expenseItemsRestService, expenseItemUid, $filter) {
+function($scope, $uibModalInstance, globalMessagesService, spinnerService, expenseItemsRestService, expenseItem, $filter) {
 	"use strict";
 
-	$scope.expenseItemUid = expenseItemUid;
+	$scope.expenseItem = expenseItem;
 	$scope.form = {};
 	$scope.formExpenseItem = {};
 	$scope.validate = null;
@@ -15,7 +15,7 @@ function($scope, $uibModalInstance, globalMessagesService, spinnerService, expen
 		globalMessagesService.confirmWarning("reimbursement.expenseItem.closeWarningTitle",
 		"reimbursement.expenseItem.closeWarningMessage").then(function() {
 
-			expenseItemsRestService.deleteExpenseItem(expenseItemUid).then()['finally'](function() {
+			expenseItemsRestService.deleteExpenseItem(expenseItem.uid).then()['finally'](function() {
 				$uibModalInstance.dismiss();
 			});
 		});
@@ -30,7 +30,7 @@ function($scope, $uibModalInstance, globalMessagesService, spinnerService, expen
 			var data = $scope.form;
 			data.date = $filter('getISODate')(data.date);
 
-			expenseItemsRestService.putExpenseItem(expenseItemUid, data).then(function() {
+			expenseItemsRestService.putExpenseItem(expenseItem.uid, data).then(function() {
 				$uibModalInstance.close();
 			})['finally'](function() {
 				$scope.hideClose = false;

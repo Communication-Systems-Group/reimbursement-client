@@ -1,6 +1,6 @@
-app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService', '$uibModal',
+app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', 'USER', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService', '$uibModal',
 
-function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesService, expenseItemsRestService, $uibModal) {
+function(moment, $filter, $timeout, $translate, USER, spinnerService, globalMessagesService, expenseItemsRestService, $uibModal) {
 	"use strict";
 
 	return {
@@ -8,7 +8,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 		replace: true,
 		templateUrl: 'expense-items/expense-item-form.directive.tpl.html',
 		scope: {
-			expenseItemUid: '=',
+			expenseItem: '=',
 			validate: '=',
 			form: '=',
 			editable: '='
@@ -16,6 +16,7 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 		link: function($scope) {
 
 			$scope.form = $scope.form || {};
+			$scope.USER = USER;
 
 			// pass the hasAttachment property from the child directive to the parent
 			$scope.attachment = {};
@@ -23,7 +24,6 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 				$scope.hasAttachment = $scope.attachment.hasAttachment;
 			});
 
-			var expenseItem = {};
 			$scope.calculatedAmount = $filter('number')(0, 2);
 
 			$timeout(function() {
@@ -35,47 +35,42 @@ function(moment, $filter, $timeout, $translate, spinnerService, globalMessagesSe
 					expenseItemsRestService.getSupportedCurrencies().then(function(response) {
 						$scope.currencies = response.data;
 
-						expenseItemsRestService.getExpenseItem($scope.expenseItemUid).then(function(response) {
-							expenseItem = response.data;
+						if(!$scope.editable) {
+							$scope.staticCalculatedAmount = $scope.expenseItem.calculatedAmount;
 
-							if(!$scope.editable) {
-								$scope.staticCalculatedAmount = response.data.calculatedAmount;
-
-								for(var i = 0; i < $scope.costCategories.length; i++) {
-									if($scope.costCategories[i].uid === response.data.costCategory.uid) {
-										$scope.costCategoryLabel = $filter('costCategoryLanguage')($scope.costCategories[i].name);
-										break;
-									}
+							for(var i = 0; i < $scope.costCategories.length; i++) {
+								if($scope.costCategories[i].uid === $scope.expenseItem.costCategory.uid) {
+									$scope.costCategoryLabel = $filter('costCategoryLanguage')($scope.costCategories[i].name);
+									break;
 								}
 							}
+						}
 
-							$scope.form.date = $filter('date')(response.data.date, 'dd.MM.yyyy');
-							$scope.form.costCategoryUid = response.data.costCategory.uid;
-							$scope.form.originalAmount = response.data.originalAmount;
-							$scope.form.project = response.data.project;
-							$scope.form.explanation = response.data.explanation;
+						$scope.form.date = $filter('date')($scope.expenseItem.date, 'dd.MM.yyyy');
+						$scope.form.costCategoryUid = $scope.expenseItem.costCategory.uid;
+						$scope.form.originalAmount = $scope.expenseItem.originalAmount;
+						$scope.form.project = $scope.expenseItem.project;
+						$scope.form.explanation = $scope.expenseItem.explanation;
 
-							$timeout(function() {
-								// make sure the currencies are completely loaded before setting the default
-								$scope.form.currency = response.data.currency;
-							});
-
-							if($scope.editable) {
-								$scope.calculateAmount();
-							}
-
-							spinnerService.hide('spinnerExpenseItemForm');
-
-						}, function() {
-							spinnerService.hide('spinnerExpenseItemForm');
+						$timeout(function() {
+							// make sure the currencies are completely loaded before setting the default
+							$scope.form.currency = $scope.expenseItem.currency;
 						});
+
+						if($scope.editable) {
+							$scope.calculateAmount();
+						}
+
+						spinnerService.hide('spinnerExpenseItemForm');
+
 					}, function() {
 						spinnerService.hide('spinnerExpenseItemForm');
 					});
 				}, function() {
 					spinnerService.hide('spinnerExpenseItemForm');
 				});
-
+			}, function() {
+				spinnerService.hide('spinnerExpenseItemForm');
 			});
 
 			if($scope.editable) {

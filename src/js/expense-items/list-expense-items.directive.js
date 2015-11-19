@@ -45,13 +45,13 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 
 				if($scope.editable) {
 
-					$scope.editExpenseItem = function(expenseItemUid) {
+					$scope.editExpenseItem = function(expenseItem) {
 						var modalInstance = $uibModal.open({
 							templateUrl: 'expense-items/edit-expense-item.tpl.html',
 							controller: 'EditExpenseItemController',
 							resolve: {
-								expenseItemUid: function() {
-									return expenseItemUid;
+								expenseItem: function() {
+									return expenseItem;
 								}
 							},
 							// prevent closing by accident:
@@ -80,35 +80,35 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 								currency: 'CHF'
 							}).then(function(response) {
 
-								var modalInstance = $uibModal.open({
-									templateUrl: 'expense-items/add-expense-item.tpl.html',
-									controller: 'AddExpenseItemController',
-									resolve: {
-										expenseItemUid: function() {
-											return response.data.uid;
-										}
-									},
-									// prevent closing by accident:
-									backdrop: 'static',
-									keyboard: false
+								expenseItemsRestService.getExpenseItem(response.data.uid).then(function(response) {
+
+									var modalInstance = $uibModal.open({
+										templateUrl: 'expense-items/add-expense-item.tpl.html',
+										controller: 'AddExpenseItemController',
+										resolve: {
+											expenseItem: function() {
+												return response.data;
+											}
+										},
+										// prevent closing by accident:
+										backdrop: 'static',
+										keyboard: false
+									});
+									modalInstance.result.then()['finally'](updateTable);
 								});
-
-								modalInstance.result.then()['finally'](updateTable);
-
 							});
-
 						});
 					};
 				}
 
 				else {
-					$scope.viewExpenseItem = function(expenseItemUid) {
+					$scope.viewExpenseItem = function(expenseItem) {
 						$uibModal.open({
 							templateUrl: 'expense-items/view-expense-item.tpl.html',
 							controller: 'ViewExpenseItemController',
 							resolve: {
-								expenseItemUid: function() {
-									return expenseItemUid;
+								expenseItem: function() {
+									return expenseItem;
 								}
 							}
 						});

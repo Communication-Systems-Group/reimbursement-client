@@ -29,7 +29,7 @@
 						</button>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="action-button_{{expenseItem.uid}}">
 							<li role="presentation">
-								<a href tabindex="-1" role="menuitem" ng-click="editExpenseItem(expenseItem.uid)">
+								<a href tabindex="-1" role="menuitem" ng-click="editExpenseItem(expenseItem)">
 									<i class="fa fa-pencil"></i>
 									{{ 'reimbursement.expense.edit' | translate }}
 								</a>
@@ -45,7 +45,7 @@
 					</div>
 				</td>
 				<td ng-if="!editable">
-					<button class="btn btn-default btn-xs" ng-click="viewExpenseItem(expenseItem.uid)">
+					<button class="btn btn-default btn-xs" ng-click="viewExpenseItem(expenseItem)">
 						<i class="fa fa-eye"></i>
 						{{ 'reimbursement.expense.viewItem' | translate }}
 					</button>
