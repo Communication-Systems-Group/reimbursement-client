@@ -150,7 +150,7 @@ module.exports = function (grunt) {
 					// images
 					expand: true,
 					flatten: true,
-					src: ['bower_components/jcrop/css/*.gif'],
+					src: ['bower_components/jcrop/css/*.gif', 'src/images/*'],
 					dest: 'dist/styles/'
 				}, {
 					// index.html
@@ -158,12 +158,6 @@ module.exports = function (grunt) {
 					cwd: 'src/html/',
 					src: ['index.html'],
 					dest: 'dist/'
-				}, {
-					// image
-					expand: true,
-					flatten: true,
-					src: ['src/images/*.*'],
-					dest: 'dist/images/'
 				}]
 			}
 		},
