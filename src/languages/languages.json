@@ -35,6 +35,14 @@
 		"de": "Kostenstelle aktivieren?",
 		"en": "Activate cost category?"
 	},
+	"administration.deactivateCostCategoryNotPossibleTitle": {
+		"de": "Deaktivierung nicht möglich",
+		"en": "Deactivation not possible"
+	},
+	"administration.deactivateCostCategoryNotPossibleMessage": {
+		"de": "Sie müssen mind. eine Kostenkategorie aktiviert haben. Aktivieren Sie eine andere Kostenkategorie, bevor Sie diese deaktivieren.",
+		"en": "You need to have at least one category activated. Please activate another cost category before deactivating this one."
+	},
 	"administration.edit": {
 		"de": "Editieren",
 		"en": "Edit"

@@ -40,13 +40,26 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 
 		$scope.toggleCostCategory = function (uid, isActive) {
 			if(isActive) {
-				globalMessagesService.confirmWarningMd("reimbursement.administration.deactivateCostCategoryTitle",
-				"reimbursement.administration.deactivateCostCategoryText").then(function () {
-					administrationRestService.deactivateCostCategory(uid).then(loadData);
-				});
+				// check if there is more than one cost category left
+				var totalNumberOfCostCategories = 0;
+				for(var i = 0; i < $scope.costCategories.length; i++) {
+					if($scope.costCategories[i].isActive) {
+						totalNumberOfCostCategories++;
+					}
+				}
+				if(totalNumberOfCostCategories <= 1) {
+					globalMessagesService.showWarningMd("reimbursement.administration.deactivateCostCategoryNotPossibleTitle",
+					"reimbursement.administration.deactivateCostCategoryNotPossibleMessage");
+				}
+				else {
+					globalMessagesService.confirmInfoMd("reimbursement.administration.deactivateCostCategoryTitle",
+					"reimbursement.administration.deactivateCostCategoryText").then(function () {
+						administrationRestService.deactivateCostCategory(uid).then(loadData);
+					});
+				}
 			}
 			else {
-				globalMessagesService.confirmWarningMd("reimbursement.administration.activateCostCategoryTitle",
+				globalMessagesService.confirmInfoMd("reimbursement.administration.activateCostCategoryTitle",
 				"reimbursement.administration.activateCostCategoryText").then(function () {
 					administrationRestService.activateCostCategory(uid).then(loadData);
 				});
