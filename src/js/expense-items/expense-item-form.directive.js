@@ -17,6 +17,16 @@ function(moment, $filter, $timeout, $translate, USER, spinnerService, globalMess
 
 			$scope.form = $scope.form || {};
 			$scope.USER = USER;
+			$scope.projectFieldRequired = (function() {
+				if($scope.USER.hasRole('PROF') || $scope.USER.hasRole('DEPARTMENT_MANAGER') || $scope.USER.hasRole('FINANCE_ADMIN')) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			})();
+
+			console.log($scope.projectFieldRequired);
 
 			// pass the hasAttachment property from the child directive to the parent
 			$scope.attachment = {};
