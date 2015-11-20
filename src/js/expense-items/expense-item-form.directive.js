@@ -37,12 +37,17 @@ function(moment, $filter, $timeout, $translate, USER, spinnerService, globalMess
 
 						if(!$scope.editable) {
 							$scope.staticCalculatedAmount = $scope.expenseItem.calculatedAmount;
-
+						}
+						else {
+							$scope.currentCostCategoryIsInactive = true;
 							for(var i = 0; i < $scope.costCategories.length; i++) {
 								if($scope.costCategories[i].uid === $scope.expenseItem.costCategory.uid) {
-									$scope.costCategoryLabel = $filter('costCategoryLanguage')($scope.costCategories[i].name);
+									$scope.currentCostCategoryIsInactive = false;
 									break;
 								}
+							}
+							if($scope.currentCostCategoryIsInactive) {
+								$scope.costCategories.push($scope.expenseItem.costCategory);
 							}
 						}
 
