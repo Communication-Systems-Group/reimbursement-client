@@ -26,8 +26,6 @@ function(moment, $filter, $timeout, $translate, USER, spinnerService, globalMess
 				}
 			})();
 
-			console.log($scope.projectFieldRequired);
-
 			// pass the hasAttachment property from the child directive to the parent
 			$scope.attachment = {};
 			$scope.$watch('attachment.hasAttachment', function() {
