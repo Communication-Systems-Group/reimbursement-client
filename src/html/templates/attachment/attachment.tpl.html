@@ -1,14 +1,23 @@
 <div id="attachmentCapture">
 	<spinner id="spinnerAttachmentImage" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 
-	<div ng-show="hasAttachment" class="displayAttachment">
-		<i class="fa fa-file-pdf-o"></i>
-		<a target="_blank" ng-href="{{ blob.url }}" download="{{ blob.name }}">{{ 'reimbursement.captureAttachment.downloadAttachment' | translate }}</a>
 
-		<a href class="deleteAttachment" ng-click="deleteAttachment()" ng-if="editable">
-			<i class="fa fa-times-circle"></i>
-		</a>
+	<div ng-show="hasAttachment" class="container-fluid displayAttachment">
+		<div class="row">
+			<div class="col-xs-4">
+				<a target="_blank" ng-href="{{ blob.url }}"><i class="fa fa-file-pdf-o"></i> {{'reimbursement.captureAttachment.openAttachment' | translate }}</a>
+			</div>
+			<div class="col-xs-4">
+				<a target="_blank" ng-href="{{ blob.url }}" download="{{ blob.name }}"><i class="fa fa-download"></i> {{'reimbursement.captureAttachment.downloadAttachment' | translate}}</a>
+			</div>
+			<div class="col-xs-4">
+				<a href class="deleteAttachment" ng-click="deleteAttachment()"
+					ng-if="editable"> <i class="fa fa-times-circle"></i> {{'reimbursement.captureAttachment.deleteAttachment' | translate }}
+				</a>
+			</div>
+		</div>
 	</div>
+
 
 	<div ng-if="!hasAttachment && editable">
 		<div class="text-center">

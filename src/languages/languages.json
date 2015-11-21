@@ -159,9 +159,17 @@
 		"de": "Beleg löschen?",
 		"en": "Delete receipt?"
 	},
+	"captureAttachment.deleteAttachment": {
+		"de": "Beleg löschen",
+		"en": "Delete receipt"
+	},
 	"captureAttachment.downloadAttachment": {
 		"de": "Beleg herunterladen",
 		"en": "Download receipt"
+	},
+		"captureAttachment.openAttachment": {
+		"de": "Beleg anzeigen",
+		"en": "Show receipt"
 	},
 	"captureAttachment.mobile.complete": {
 		"de": "Der Anhang wurde erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät weiter, indem Sie auf den Button 'Anhang erfasst' klicken.",
