@@ -22,27 +22,13 @@
 				<td>{{ expenseItem.project }}</td>
 				<td>{{ expenseItem.explanation | limitWordwise: 40 }}</td>
 				<td style="width:0;" ng-if="editable">
-					<div class="dropdown">
-						<button data-toggle="dropdown" aria-expanded="true" class="btn btn-default btn-xs dropdown-toggle" id="action-button_{{expenseItem.uid}}">
-							<i class="fa fa-caret-down"></i>&nbsp;
-							{{'reimbursement.expense.action' | translate}}
-						</button>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="action-button_{{expenseItem.uid}}">
-							<li role="presentation">
-								<a href tabindex="-1" role="menuitem" ng-click="editExpenseItem(expenseItem)">
-									<i class="fa fa-pencil"></i>
-									{{ 'reimbursement.expense.edit' | translate }}
-								</a>
-							</li>
-							<li class="divider"></li>
-							<li role="presentation">
-								<a href tabindex="-1" role="menuitem" ng-click="deleteExpenseItem(expenseItem.uid)">
-									<i class="fa fa-trash"></i>
-									{{ 'reimbursement.expense.delete' | translate }}
-								</a>
-							</li>
-						</ul>
-					</div>
+					<button class="btn btn-default btn-xs" ng-click="editExpenseItem(expenseItem)">
+							<i class="fa fa-pencil"></i>
+							{{ 'reimbursement.expense.edit' | translate }}
+					</button>
+					<button class="btn btn-danger btn-xs" ng-click="deleteExpenseItem(expenseItem.uid)">
+							<i class="fa fa-trash"></i>
+					</button>
 				</td>
 				<td ng-if="!editable">
 					<button class="btn btn-default btn-xs" ng-click="viewExpenseItem(expenseItem)">

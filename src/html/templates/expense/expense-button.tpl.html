@@ -1,24 +1,12 @@
 <div class="expense-button">
-	<div ng-if="details.name === 'edit-expense'" class="btn-group">
-		<button class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<i class="fa fa-caret-down"></i>
-			{{ 'reimbursement.expense.action' | translate }}
-		</button>
-		<ul class="dropdown-menu">
-			<li>
-				<a href ui-sref="expense({uid: expenseUid})">
-					<i class="fa fa-pencil"></i>
+	<div ng-if="details.name === 'edit-expense'" >
+		<button class="btn btn-default btn-xs" ui-sref="expense({uid: expenseUid})">
+			<i class="fa fa-pencil"></i>
 					{{ 'reimbursement.expense.edit' | translate }}
-				</a>
-			</li>
-			<li class="divider"></li>
-			<li>
-				<a href ng-click="deleteExpense()">
-					<i class="fa fa-trash"></i>
-					{{ 'reimbursement.expense.delete' | translate }}
-				</a>
-			</li>
-		</ul>
+		</button>
+		<button class="btn btn-danger btn-xs" ng-click="deleteExpense()">
+			<i class="fa fa-trash"></i>
+		</button>
 	</div>
 	<div ng-if="details.name === 'view-expense'">
 		<button class="btn btn-default btn-xs" ui-sref="expense({uid: expenseUid})">
