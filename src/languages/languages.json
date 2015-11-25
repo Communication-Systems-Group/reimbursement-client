@@ -596,7 +596,7 @@
 		"en": "Printed"
 	},
 	"expense.state.REJECTED": {
-		"de": "Zurückgewiesen",
+		"de": "Abgelehnt",
 		"en": "Rejected"
 	},
 	"expense.state.SIGNED": {
