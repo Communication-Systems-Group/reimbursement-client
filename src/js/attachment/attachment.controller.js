@@ -9,7 +9,14 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 	$scope.blob = "";
 	$scope.hasAttachment = false;
 	$scope.flow = {};
-
+	$scope.isIE = function() {
+		if (window.navigator.msSaveOrOpenBlob) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	};
 	function showAttachmentLinkOrUploadForm() {
 		spinnerService.show("spinnerAttachmentImage");
 
@@ -40,7 +47,6 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 	$scope.showSpinner = function(spinnerId) {
 		spinnerService.show(spinnerId);
 	};
-
 	$scope.showQR = function() {
 		attachmentRestService.postAttachmentMobileToken($scope.expenseItemUid).then(function(response) {
 			var modalInstance = $uibModal.open({
@@ -64,14 +70,12 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 			});
 		});
 	};
-
 	$scope.onAttachmentUploadError = function() {
 		spinnerService.hide('spinnerAttachmentImage');
 		globalMessagesService.showError("reimbursement.globalMessage.uploadOrValidationError.title",
 			"reimbursement.globalMessage.uploadOrValidationError.message");
 		$scope.flow.image.cancel();
 	};
-
 	$scope.onAttachmentUploadSuccess = function() {
 		var fileWrapper = $scope.flow.image.files[0];
 
@@ -86,7 +90,6 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 			showAttachmentLinkOrUploadForm();
 		}
 	};
-
 	$scope.deleteAttachment = function() {
 		globalMessagesService.confirmWarning("reimbursement.captureAttachment.deleteAttachment.title",
 		"reimbursement.captureAttachment.deleteAttachment.message").then(function() {
@@ -99,5 +102,8 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 				spinnerService.hide("spinnerAttachmentImage");
 			});
 		});
+	};
+	$scope.downloadIE = function() {
+		window.navigator.msSaveOrOpenBlob($scope.blob, $scope.blob.name);
 	};
 }]);

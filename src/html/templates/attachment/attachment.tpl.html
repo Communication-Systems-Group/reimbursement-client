@@ -4,11 +4,14 @@
 
 	<div ng-show="hasAttachment" class="container-fluid displayAttachment">
 		<div class="row icon-links">
-			<div class="col-xs-4">
+			<div ng-hide = "isIE()" class="col-xs-4">
 				<a target="_blank" ng-href="{{ blob.url }}"><i class="fa fa-file-pdf-o"></i> {{'reimbursement.captureAttachment.openAttachment' | translate }}</a>
 			</div>
-			<div class="col-xs-4">
+			<div ng-hide = "isIE()"  class="col-xs-4">
 				<a target="_blank" ng-href="{{ blob.url }}" download="{{ blob.name }}"><i class="fa fa-download"></i> {{'reimbursement.captureAttachment.downloadAttachment' | translate}}</a>
+			</div>
+			<div ng-show ="isIE()" class="col-xs-4">
+				<a ng-click="downloadIE()"><i class="fa fa-download"></i> {{'reimbursement.captureAttachment.downloadAttachment' | translate}}</a>
 			</div>
 			<div class="col-xs-4">
 				<a href class="deleteAttachment" ng-click="deleteAttachment()"
