@@ -1,13 +1,13 @@
-app.controller('LoginController', ['$scope', '$state', 'USER', 'spinnerService', 'loginRestService', 'globalMessagesService',
+app.controller('LoginController', ['$rootScope', '$scope', '$state', 'USER', 'spinnerService', 'loginRestService', 'globalMessagesService',
 
-	function ($scope, $state, USER, spinnerService, loginRestService, globalMessagesService) {
+	function ($rootScope, $scope, $state, USER, spinnerService, loginRestService, globalMessagesService) {
 		"use strict";
 
+		$scope.isCapsLockOn = false;
 		$scope.form = {
 			username: null,
 			password: null
 		};
-
 		$scope.submit = function () {
 			spinnerService.show('spinnerLogin');
 
@@ -85,5 +85,38 @@ app.controller('LoginController', ['$scope', '$state', 'USER', 'spinnerService',
 				$state.go('dashboard');
 			}
 		}
+		$scope.isIE = (window.navigator.msSaveOrOpenBlob) ? true : false;
+		$scope.checkCapsLock = function(e) {
+			var ev = e ? e : window.event;
+			if (!ev) {
+				return;
+			}
+			// var targ = ev.target ? ev.target:
+			// ev.srcElement;
 
+			// get key pressed
+			var which = -1;
+			if (ev.which) {
+				which = ev.which;
+			}
+			else if (ev.keyCode) {
+				which = ev.keyCode;
+			}
+			// get shift status
+			var shiftStatus = false;
+			if (ev.shiftKey) {
+				shiftStatus = ev.shiftKey;
+			}
+			else if (ev.modifiers) {
+				shiftStatus = !!(ev.modifiers & 4);// jshint ignore:line
+			}
+
+			if (((which >= 65 && which <= 90) && !shiftStatus) || ((which >= 97 && which <= 122) && shiftStatus)) {
+				// uppercase, no shift key
+				$scope.isCapsLockOn = true;
+			}
+			else {
+				$scope.isCapsLockOn = false;
+			}
+		};
 	}]);
