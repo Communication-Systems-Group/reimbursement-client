@@ -1,8 +1,8 @@
 <div class="expense-button">
-	<div ng-if="details.name === 'edit-expense'" >
+	<div ng-if="details.name === 'edit-expense'" class="no-wrap">
 		<button class="btn btn-default btn-xs" ui-sref="expense({uid: expenseUid})">
 			<i class="fa fa-pencil"></i>
-					{{ 'reimbursement.expense.edit' | translate }}
+			{{ 'reimbursement.expense.edit' | translate }}
 		</button>
 		<button class="btn btn-default btn-xs" ng-click="deleteExpense()">
 			<i class="fa fa-trash"></i>

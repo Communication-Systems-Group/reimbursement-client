@@ -16,6 +16,10 @@ body {
 	cursor: progress;
 }
 
+.no-wrap {
+	white-space: nowrap;
+}
+
 .pre-wrap {
 	white-space: pre-wrap;
 }
