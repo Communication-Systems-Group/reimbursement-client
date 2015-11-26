@@ -3,6 +3,8 @@ app.directive('listExpenseItems', ['$uibModal', '$filter', '$timeout', '$state',
 function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesService, expenseRestService, expenseItemsRestService) {
 	"use strict";
 
+	var MAX_NUMBER_OF_EXPENSE_ITEMS = 15;
+
 	return {
 		restrict: 'E',
 		replace: true,
@@ -71,33 +73,38 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 					};
 
 					$scope.addExpenseItem = function() {
-						expenseItemsRestService.getCostCategories().then(function(response) {
-							var preSelectedCategoryUid = response.data[0].uid;
+						if($scope.expenseItems.length < MAX_NUMBER_OF_EXPENSE_ITEMS) {
+							expenseItemsRestService.getCostCategories().then(function(response) {
+								var preSelectedCategoryUid = response.data[0].uid;
 
-							expenseItemsRestService.postExpenseItem($scope.expenseUid, {
-								date: $filter('date')(new Date(), 'yyyy-MM-dd'),
-								costCategoryUid: preSelectedCategoryUid,
-								currency: 'CHF'
-							}).then(function(response) {
+								expenseItemsRestService.postExpenseItem($scope.expenseUid, {
+									date: $filter('date')(new Date(), 'yyyy-MM-dd'),
+									costCategoryUid: preSelectedCategoryUid,
+									currency: 'CHF'
+								}).then(function(response) {
 
-								expenseItemsRestService.getExpenseItem(response.data.uid).then(function(response) {
+									expenseItemsRestService.getExpenseItem(response.data.uid).then(function(response) {
 
-									var modalInstance = $uibModal.open({
-										templateUrl: 'expense-items/add-expense-item.tpl.html',
-										controller: 'AddExpenseItemController',
-										resolve: {
-											expenseItem: function() {
-												return response.data;
-											}
-										},
-										// prevent closing by accident:
-										backdrop: 'static',
-										keyboard: false
+										var modalInstance = $uibModal.open({
+											templateUrl: 'expense-items/add-expense-item.tpl.html',
+											controller: 'AddExpenseItemController',
+											resolve: {
+												expenseItem: function() {
+													return response.data;
+												}
+											},
+											// prevent closing by accident:
+											backdrop: 'static',
+											keyboard: false
+										});
+										modalInstance.result.then()['finally'](updateTable);
 									});
-									modalInstance.result.then()['finally'](updateTable);
 								});
 							});
-						});
+						}
+						else {
+							globalMessagesService.showError("reimbursement.globalMessage.noMoreExpenseItemsAllowedTitle", "reimbursement.globalMessage.noMoreExpenseItemsAllowedMessage");
+						}
 					};
 				}
 

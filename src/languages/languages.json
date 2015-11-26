@@ -763,6 +763,14 @@
 		"de": "Keine Spesen gefunden",
 		"en": "No expenses found"
 	},
+	"globalMessage.noMoreExpenseItemsAllowedMessage": {
+		"de": "Sie haben bereits die maximale Anzahl an Beleg-Elementen erreicht die für eine Spese erfasst werden können.",
+		"en": "You have reached the maximum of allowed receipt elements for an expense."
+	},
+	"globalMessage.noMoreExpenseItemsAllowedTitle": {
+		"de": "Max. Anzahl Elemente erreicht",
+		"en": "No more items allowed"
+	},
 	"globalMessage.guest.noExpenseFound.message": {
 		"de": "Es wurde keine Spese unter diesem Link gefunden. Der Link wird nach einer bestimmten Zeitdauer ungültig. Falls es sich um eine ältere Spesendokument handelt, ist es nun nicht mehr abrufbar. Ansonsten vergewissern Sie sich, dass Sie die Adresse korrekt eingegeben haben",
 		"en": "No expense was found on this link. The link becomes invalid after a certain time period. If the requested expense sheet is not new, the link became most likely invalid. Otherwise, please make sure, that you enter the link correctly."
