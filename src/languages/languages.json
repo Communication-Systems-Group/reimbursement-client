@@ -467,6 +467,14 @@
 		"de": "Beschreibung unvollständig",
 		"en": "Description incomplete"
 	},
+	"expense.info.projectTextMissingMessage": {
+		"de": "In mindestens einem erstellten Beleg wurde das Projekt noch nicht angegeben. Solange nicht in allen Belegen das Projekt angegeben wurde kann die Spese nicht angenommen werden. Dieses Feld muss von dem Reviewer ausgefüllt werden.",
+		"en": "In at least one of the created expense-items the project field is still empty. This field has to be filled in all expense-items otherwise the expense cannot be accepted. This field has to be filled by the reviewer."
+	},
+	"expense.info.projectTextMissingTitle": {
+		"de": "Feld `Projekt` unvollständig",
+		"en": "Field `Project` incomplete"
+	},
 	"expense.nextStepButton": {
 		"de": "Nächster Schritt",
 		"en": "Next Step"

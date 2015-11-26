@@ -41,16 +41,22 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 	};
 
 	$scope.accept = function() {
-		var modalInstance = $uibModal.open({
-			templateUrl: "expense/accept-expense.tpl.html",
-			controller: "AcceptExpenseController",
-			resolve: {
-				expenseUid: function() {
-					return $scope.expense.uid;
+		if(projectFieldsSet()) {
+			var modalInstance = $uibModal.open({
+				templateUrl: "expense/accept-expense.tpl.html",
+				controller: "AcceptExpenseController",
+				resolve: {
+					expenseUid: function() {
+						return $scope.expense.uid;
+					}
 				}
-			}
-		});
-		modalInstance.result.then(returnToDashboard);
+			});
+			modalInstance.result.then(returnToDashboard);
+		}
+		else {
+			globalMessagesService.showInfoMd('reimbursement.expense.info.projectTextMissingTitle',
+				'reimbursement.expense.info.projectTextMissingMessage');
+		}
 	};
 
 	$scope.decline = function() {
@@ -65,6 +71,16 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 		});
 		modalInstance.result.then(returnToDashboard);
 	};
+
+	function projectFieldsSet() {
+		var allprojectFieldsSet = true;
+		for(var i = 0; i < $scope.expenseItems.length; i++) {
+			if($scope.expenseItems[i].project === null) {
+				allprojectFieldsSet = false;
+			}
+		}
+		return allprojectFieldsSet;
+	}
 
 	function returnToDashboard() {
 		$state.go('dashboard');
