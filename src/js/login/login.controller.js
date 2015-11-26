@@ -85,7 +85,6 @@ app.controller('LoginController', ['$rootScope', '$scope', '$state', 'USER', 'sp
 				$state.go('dashboard');
 			}
 		}
-		$scope.isIE = (window.navigator.msSaveOrOpenBlob) ? true : false;
 		$scope.checkCapsLock = function(e) {
 			var ev = e ? e : window.event;
 			if (!ev) {
