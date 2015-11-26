@@ -3,8 +3,6 @@ app.directive('listExpenseItems', ['$uibModal', '$filter', '$timeout', '$state',
 function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesService, expenseRestService, expenseItemsRestService) {
 	"use strict";
 
-	var MAX_NUMBER_OF_EXPENSE_ITEMS = 15;
-
 	return {
 		restrict: 'E',
 		replace: true,
@@ -73,7 +71,7 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 					};
 
 					$scope.addExpenseItem = function() {
-						if($scope.expenseItems.length < MAX_NUMBER_OF_EXPENSE_ITEMS) {
+						if($scope.expenseItems.length < parseInt($filter("regexValidation")("expense.maxExpenseItems"))) {
 							expenseItemsRestService.getCostCategories().then(function(response) {
 								var preSelectedCategoryUid = response.data[0].uid;
 
