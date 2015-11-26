@@ -697,7 +697,7 @@
 	},
 	"expenseItem.explanation": {
 		"de": "Spesengrund",
-		"en": "Expense explanation"
+		"en": "Receipt explanation"
 	},
 	"expenseItem.invalidAmount": {
 		"de": "Betrag ungültig",
