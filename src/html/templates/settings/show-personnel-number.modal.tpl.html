@@ -1,0 +1,30 @@
+<div id="show-personnel-number">
+	<div class="modal-header">
+		<div class="close" ng-click="dismiss()">
+			&times;
+		</div>
+		<h3 class="modal-title">
+			<i class="fa fa-info-circle fa-lg info-icon"></i>
+			{{ 'reimbursement.registration.personnelNumber.title' | translate }}
+		</h3>
+	</div>
+	<div class="modal-body">
+			<form name="personnel-number-info" class="text-center">
+				<div class="row">
+					<div class="col-md-12">
+						<div><b>{{ 'reimbursement.registration.personnelNumber.text' | translate }}</b></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<img src="styles/uzh_card.png">
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="dismiss()">
+			<i class="fa fa-times"></i>
+			{{ 'reimbursement.expense.closeButton' | translate }}
+		</button>
+	</div>
+</div>

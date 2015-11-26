@@ -84,6 +84,11 @@ h1.page-header small > .fa {
 	position: static;
 }
 
+.info-icon {
+	color: $default-color-info;
+	cursor: pointer;
+}
+
 .ui-view-container {
 	position: relative;
 

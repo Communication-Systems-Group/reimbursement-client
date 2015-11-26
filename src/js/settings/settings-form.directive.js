@@ -1,6 +1,6 @@
-app.directive('settingsForm', ['$timeout', '$translate', 'settingsRestService', 'USER',
+app.directive('settingsForm', ['$timeout', '$translate', '$uibModal', 'settingsRestService', 'USER',
 
-function($timeout, $translate, settingsRestService, USER) {
+function($timeout, $translate, $uibModal, settingsRestService, USER) {
 	'use strict';
 
 	return {
@@ -123,7 +123,12 @@ function($timeout, $translate, settingsRestService, USER) {
 				}
 			};
 
+			$scope.openPersonnelNumberModal = function() {
+					$uibModal.open({
+						templateUrl: 'settings/show-personnel-number.modal.tpl.html',
+						controller: 'ShowPersonnelNumberController'
+					});
+				};
 		}
 	};
-
 }]);

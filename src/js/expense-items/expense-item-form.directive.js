@@ -1,6 +1,6 @@
-app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', 'USER', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService', '$uibModal',
+app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', '$uibModal', 'USER', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService',
 
-function(moment, $filter, $timeout, $translate, USER, spinnerService, globalMessagesService, expenseItemsRestService, $uibModal) {
+function(moment, $filter, $timeout, $translate, $uibModal, USER, spinnerService, globalMessagesService, expenseItemsRestService) {
 	"use strict";
 
 	return {

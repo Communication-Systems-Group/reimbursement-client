@@ -10,7 +10,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-3 control-label" for="personnelNumber"> {{ 'reimbursement.settings.personnelNumber' | translate }} </label>
+			<label class="col-sm-3 control-label" for="personnelNumber"> {{ 'reimbursement.settings.personnelNumber' | translate }}
+			<i class="fa fa-info-circle fa-lg info-icon" ng-click="openPersonnelNumberModal()"></i>
+			</label>
 			<div class="col-sm-9 right-inner-addon" ng-class="{'error': formSettings.personnelNumber.$invalid && formSettings.personnelNumber.$touched}">
 				<input type="text" class="input-validation form-control" pattern="{{'settings.personnelNumber' | regexValidation}}" name="personnelNumber" id="personnelNumber"
 					placeholder="{{ personnelNumber }}" ng-model="form.personnelNumber" ng-keydown="savePersonnelNumber()" required>

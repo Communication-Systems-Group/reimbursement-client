@@ -911,6 +911,14 @@
 		"de": "Signatur zuschneiden",
 		"en": "Crop Signature"
 	},
+	"registration.personnelNumber.title": {
+		"de": "Personalnummer erfassen",
+		"en": "Add Personnel Number"
+	},
+	"registration.personnelNumber.text": {
+		"de": "Die 0 zu Beginn der Personalnummer bitte weglassen.",
+		"en": "Please ignore the 0 at the beginning of the personnel number."
+	},
 	"registration.title": {
 		"de": "Registrierung (Schritt {{step}})",
 		"en": "Registration (Step {{step}})"
