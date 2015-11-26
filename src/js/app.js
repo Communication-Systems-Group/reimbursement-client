@@ -63,7 +63,7 @@
 	});
 })();
 
-var app = angular.module('reimbursement', ['reimbursement.templates', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'monospaced.qrcode', 'flow']);
+var app = angular.module('reimbursement', ['reimbursement.templates', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'monospaced.qrcode', 'flow', 'ngCapsLock']);
 
 app.constant("Modernizr", window.Modernizr);
 app.constant("moment", window.moment);

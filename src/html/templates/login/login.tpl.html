@@ -15,9 +15,9 @@
 		<div class="form-group has-feedback">
 			<label for="inputPassword" class="col-sm-4 control-label">{{ 'reimbursement.login.passwordLabel' | translate }}</label>
 			<div class="col-sm-5 right-inner-addon">
-				<input type="password" class="form-control" id="inputPassword" ng-model="form.password" placeholder="{{ 'reimbursement.login.passwordLabel' | translate }}" ng-keypress="checkCapsLock($event)">
-				<span class="isCapsLockOn" ng-class="{active: isCapsLockOn}">
-					<i class="fa fa-lg fa-warning capsLockIcon" uib-tooltip="{{ 'reimbursement.capsLockOnMessage' | translate }}" tooltip-placement="right" tooltip-trigger="mouseenter" tooltip-is-open="false"></i>
+				<input type="password" class="form-control" id="inputPassword" ng-model="form.password" placeholder="{{ 'reimbursement.login.passwordLabel' | translate }}">
+				<span class="isCapsLockOn" ng-if="!isIE" ng-class="{active: isCapsLockOn}">
+					<i class="fa fa-lg fa-warning" uib-tooltip="{{ 'reimbursement.capsLockOnMessage' | translate }}" tooltip-placement="right" tooltip-trigger="none" tooltip-is-open="true"></i>
 				</span>
 			</div>
 		</div>
