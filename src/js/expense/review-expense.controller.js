@@ -54,8 +54,8 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 			modalInstance.result.then(returnToDashboard);
 		}
 		else {
-			globalMessagesService.showInfoMd('reimbursement.expense.info.projectTextMissingTitle',
-				'reimbursement.expense.info.projectTextMissingMessage');
+			globalMessagesService.showInfoMd('reimbursement.globalMessage.expense.info.projectTextMissing.title',
+				'reimbursement.globalMessage.expense.info.projectTextMissing.message');
 		}
 	};
 
@@ -73,13 +73,13 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 	};
 
 	function projectFieldsSet() {
-		var allprojectFieldsSet = true;
+		var allProjectFieldsSet = true;
 		for(var i = 0; i < $scope.expenseItems.length; i++) {
 			if($scope.expenseItems[i].project === null) {
-				allprojectFieldsSet = false;
+				allProjectFieldsSet = false;
 			}
 		}
-		return allprojectFieldsSet;
+		return allProjectFieldsSet;
 	}
 
 	function returnToDashboard() {

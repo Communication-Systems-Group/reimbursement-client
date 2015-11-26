@@ -101,7 +101,8 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 							});
 						}
 						else {
-							globalMessagesService.showError("reimbursement.globalMessage.noMoreExpenseItemsAllowedTitle", "reimbursement.globalMessage.noMoreExpenseItemsAllowedMessage");
+							globalMessagesService.showInfoMd("reimbursement.globalMessage.expenseItem.maxAmountReached.title",
+							"reimbursement.globalMessage.expenseItem.maxAmountReached.message");
 						}
 					};
 				}

@@ -459,14 +459,6 @@
 		"de": "Beschreibung unvollständig",
 		"en": "Accounting description incomplete"
 	},
-	"expense.info.projectTextMissingMessage": {
-		"de": "In mindestens einem erstellten Beleg wurde das Projekt noch nicht angegeben. Solange nicht in allen Belegen das Projekt angegeben wurde kann die Spese nicht angenommen werden. Dieses Feld muss von dem Reviewer ausgefüllt werden.",
-		"en": "In at least one of the created expense-items the project field is still empty. This field has to be filled in all expense-items otherwise the expense cannot be accepted. This field has to be filled by the reviewer."
-	},
-	"expense.info.projectTextMissingTitle": {
-		"de": "Feld `Projekt` unvollständig",
-		"en": "Field `Project` incomplete"
-	},
 	"expense.nextStepButton": {
 		"de": "Nächster Schritt",
 		"en": "Next Step"
@@ -755,6 +747,14 @@
 		"de": "Nein",
 		"en": "No"
 	},
+	"globalMessage.expense.info.projectTextMissing.message": {
+		"de": "In mindestens einem erstellten Beleg wurde das Projekt noch nicht angegeben. Solange nicht in allen Belegen das Projekt angegeben wurde kann die Spese nicht angenommen werden. Dieses Feld muss von dem Reviewer ausgefüllt werden.",
+		"en": "In at least one of the created expense-items the project field is still empty. This field has to be filled in all expense-items otherwise the expense cannot be accepted. This field has to be filled by the reviewer."
+	},
+	"globalMessage.expense.info.projectTextMissing.title": {
+		"de": "Feld `Projekt` unvollständig",
+		"en": "Field `Project` incomplete"
+	},
 	"globalMessage.expenseNotFoundException.message": {
 		"de": "Der Spesenantrag inkl. Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
 		"en": "The expense incl. its receipts could not be found. Please make sure, that there is no error in the address. You will be redirected now."
@@ -763,13 +763,13 @@
 		"de": "Keine Spesen gefunden",
 		"en": "No expenses found"
 	},
-	"globalMessage.noMoreExpenseItemsAllowedMessage": {
-		"de": "Sie haben bereits die maximale Anzahl an Beleg-Elementen erreicht die für eine Spese erfasst werden können.",
-		"en": "You have reached the maximum of allowed receipt elements for an expense."
+	"globalMessage.expenseItem.maxAmountReached.message": {
+		"de": "Sie können pro Spesenblatt maximal 15 Spesenbelege erstellen. Falls Sie weitere Spesenbelege erstellen wollen erfassen Sie bitte ein zusätzliches Spesenblatt.",
+		"en": "You cannot add more than 15 receipts for each expense. If you want to add more receipts please create a new expense."
 	},
-	"globalMessage.noMoreExpenseItemsAllowedTitle": {
-		"de": "Max. Anzahl Elemente erreicht",
-		"en": "No more items allowed"
+	"globalMessage.expenseItem.maxAmountReached.title": {
+		"de": "Maximale Anzahl Spesenbelege erreicht",
+		"en": "Max amount of expense-items reached"
 	},
 	"globalMessage.guest.noExpenseFound.message": {
 		"de": "Es wurde keine Spese unter diesem Link gefunden. Der Link wird nach einer bestimmten Zeitdauer ungültig. Falls es sich um eine ältere Spesendokument handelt, ist es nun nicht mehr abrufbar. Ansonsten vergewissern Sie sich, dass Sie die Adresse korrekt eingegeben haben",
