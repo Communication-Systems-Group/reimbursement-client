@@ -151,6 +151,10 @@
 		"de": "Feststelltaste aktiviert!",
 		"en": "Caps Lock is on!"
 	},
+	"capture.or": {
+		"de": "ODER",
+		"en": "OR"
+	},
 	"captureAttachment.deleteAttachment.message": {
 		"de": "Sind Sie sicher, dass Sie diesen hochgeladenen Beleg unwiderruflich löschen möchten?",
 		"en": "Are you sure, that you want to delete this uploaded receipt irrevocably?"
@@ -179,10 +183,6 @@
 		"de": "Der Anhang konnte nicht hochgeladen werden. Verwenden Sie nur Bild- oder PDF-Dateien. Aktualisieren Sie die Seite für einen neuen Versuch.",
 		"en": "The attachment upload was unsuccessful. Please upload only image or pdf files. Refresh the page for a retry."
 	},
-	"captureAttachment.or": {
-		"de": "ODER",
-		"en": "OR"
-	},
 	"captureAttachment.qr.cancel": {
 		"de": "Abbrechen",
 		"en": "Cancel"
@@ -202,10 +202,6 @@
 	"captureAttachment.qr.notYetCaptured.title": {
 		"de": "Noch nicht erfasst",
 		"en": "Not yet uploaded"
-	},
-	"captureAttachment.qr.or": {
-		"de": "ODER",
-		"en": "OR"
 	},
 	"captureAttachment.qr.title": {
 		"de": "Anhang mit Mobilgerät erfassen",
@@ -246,10 +242,6 @@
 	"captureSignature.qr.info": {
 		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet). Sie gelangen danach auf eine Seite in Ihrem mobile Browser, in welchem Sie die Signatur mit dem Touch Screen erfassen können. Bestätigen Sie die Unterschrift und fahren Sie auf dieser Seite hier fort.",
 		"en": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can enter your signature using the touch screen is opened in your mobile device's  browser. Confirm the signature on the mobile device and continue on this page here."
-	},
-	"captureSignature.qr.or": {
-		"de": "ODER",
-		"en": "OR"
 	},
 	"captureSignature.qr.title": {
 		"de": "Signatur auf Mobilgerät erfassen",
