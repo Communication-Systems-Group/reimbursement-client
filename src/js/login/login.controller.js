@@ -1,13 +1,15 @@
-app.controller('LoginController', ['$rootScope', '$scope', '$state', 'USER', 'spinnerService', 'loginRestService', 'globalMessagesService',
+app.controller('LoginController', ['$scope', '$state', 'USER', 'spinnerService', 'loginRestService', 'globalMessagesService',
 
-	function ($rootScope, $scope, $state, USER, spinnerService, loginRestService, globalMessagesService) {
+	function ($scope, $state, USER, spinnerService, loginRestService, globalMessagesService) {
 		"use strict";
 
-		$scope.isCapsLockOn = false;
 		$scope.form = {
 			username: null,
 			password: null
 		};
+
+		$scope.isIE = (window.navigator.msSaveOrOpenBlob) ? true : false;
+
 		$scope.submit = function () {
 			spinnerService.show('spinnerLogin');
 
