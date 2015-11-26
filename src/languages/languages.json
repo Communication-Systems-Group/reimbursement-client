@@ -889,7 +889,7 @@
 	},
 	"page.title": {
 		"de": "Spesenverwaltung am IFI",
-		"en": "Travel Reimbursements at IFI"
+		"en": "IFI Reimbursement administration"
 	},
 	"registration.leavePageWarning.message": {
 		"de": "Sind Sie sicher, dass Sie die Registrierung abbrechen und die Seite verlassen möchten?",
@@ -1038,9 +1038,5 @@
 	"user.role.USER": {
 		"de": "Unregistrierter Benutzer",
 		"en": "Unregistered User"
-	},
-	"welcome.title": {
-		"de": "Spesenverwaltung am IFI",
-		"en": "Travel Reimbursements at IFI"
 	}
 }
