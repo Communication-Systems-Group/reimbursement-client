@@ -54,8 +54,8 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 			modalInstance.result.then(returnToDashboard);
 		}
 		else {
-			globalMessagesService.showInfoMd('reimbursement.globalMessage.expense.info.projectTextMissing.title',
-				'reimbursement.globalMessage.expense.info.projectTextMissing.message');
+			globalMessagesService.showInfoMd('reimbursement.globalMessage.expense.projectTextMissing.title',
+				'reimbursement.globalMessage.expense.projectTextMissing.message');
 		}
 	};
 

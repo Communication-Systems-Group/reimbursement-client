@@ -25,6 +25,10 @@ function($q, USER) {
 					hasAccess: true,
 					name: "review-expense"
 				},
+				resetExpense: {
+					hasAccess: true,
+					name: "reset-expense"
+				},
 				signExpense: {
 					hasAccess: true,
 					name: "sign-expense"
@@ -142,6 +146,14 @@ function($q, USER) {
 					expenseState === 'PRINTED') {
 
 					return templates.assignToMe;
+				}
+				else if (expenseState === 'PRINTED' ||
+					expenseState === 'ASSIGNED_TO_MANAGER' ||
+					expenseState === 'ASSIGNED_TO_FINANCE_ADMIN' ||
+					expenseState === 'TO_SIGN_BY_MANAGER' ||
+					expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
+
+					return templates.resetExpense;
 				}
 			}
 

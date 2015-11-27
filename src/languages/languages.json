@@ -419,22 +419,6 @@
 		"de": "Schliessen",
 		"en": "Close"
 	},
-	"expense.confirmAssignMessage": {
-		"de": "Möchten Sie sich diese Spese zuweisen?",
-		"en": "Are you sure, you want to assign this expense to you?"
-	},
-	"expense.confirmAssignTitle": {
-		"de": "Bestätigung",
-		"en": "Confirmation"
-	},
-	"expense.confirmDeleteMessage": {
-		"de": "Möchten Sie diese Spesen mitsamt allen Belegen unwiderruflich löschen?",
-		"en": "Are you sure, you want to delete this expense with all receipts irrevocably?"
-	},
-	"expense.confirmDeleteTitle": {
-		"de": "Bestätigung",
-		"en": "Confirmation"
-	},
 	"expense.delete": {
 		"de": "Löschen",
 		"en": "Delete"
@@ -446,6 +430,10 @@
 	"expense.edit": {
 		"de": "Editieren",
 		"en": "Edit"
+	},
+	"expense.reset": {
+		"de": "Zurücksetzen",
+		"en": "Reset"
 	},
 	"expense.explanationEnterAtLeast10Characters": {
 		"de": "Geben Sie eine Begründung mit mindestens 10 Zeichen ein.",
@@ -747,11 +735,27 @@
 		"de": "Nein",
 		"en": "No"
 	},
-	"globalMessage.expense.info.projectTextMissing.message": {
+	"globalMessage.expense.confirmAssignMessage": {
+		"de": "Möchten Sie sich diese Spese zuweisen?",
+		"en": "Are you sure, you want to assign this expense to you?"
+	},
+	"globalMessage.expense.confirmTitle": {
+		"de": "Bestätigung",
+		"en": "Confirmation"
+	},
+	"globalMessage.expense.confirmDeleteMessage": {
+		"de": "Möchten Sie diese Spesen mitsamt allen Belegen unwiderruflich löschen?",
+		"en": "Are you sure, you want to delete this expense with all receipts irrevocably?"
+	},
+	"globalMessage.expense.confirmResetMessage": {
+		"de": "Möchten Sie diese Spesen zum Spesensteller zurücksetzen?",
+		"en": "Are you sure, you want to reset this expense to the creator of the expense?"
+	},
+	"globalMessage.expense.projectTextMissing.message": {
 		"de": "In mindestens einem erstellten Beleg wurde das Projekt noch nicht angegeben. Solange nicht in allen Belegen das Projekt angegeben wurde kann die Spese nicht angenommen werden. Dieses Feld muss von dem Reviewer ausgefüllt werden.",
 		"en": "In at least one of the created expense-items the project field is still empty. This field has to be filled in all expense-items otherwise the expense cannot be accepted. This field has to be filled by the reviewer."
 	},
-	"globalMessage.expense.info.projectTextMissing.title": {
+	"globalMessage.expense.projectTextMissing.title": {
 		"de": "Feld `Projekt` unvollständig",
 		"en": "Field `Project` incomplete"
 	},

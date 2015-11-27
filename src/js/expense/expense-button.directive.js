@@ -11,7 +11,8 @@ function($state, stateService, expenseRestService, globalMessagesService) {
 			expenseState: '=',
 			expenseUsers: '=',
 			assignToMeCallback: '=?',
-			deleteExpenseCallback: '=?'
+			deleteExpenseCallback: '=?',
+			resetExpenseCallback: '=?'
 		},
 		templateUrl: 'expense/expense-button.tpl.html',
 		link: function ($scope) {
@@ -19,19 +20,25 @@ function($state, stateService, expenseRestService, globalMessagesService) {
 			$scope.details = stateService.getExpenseViewDetails($scope.expenseState, $scope.expenseUsers);
 
 			$scope.assignToMe = function() {
-				globalMessagesService.confirmInfo('reimbursement.expense.confirmAssignTitle',
-				'reimbursement.expense.confirmAssignMessage').then(function() {
+				globalMessagesService.confirmInfo('reimbursement.globalMessage.expense.confirmTitle',
+				'reimbursement.globalMessage.expense.confirmAssignMessage').then(function() {
 					expenseRestService.assignToMe($scope.expenseUid).then($scope.assignToMeCallback);
 				});
 			};
 
 			$scope.deleteExpense = function() {
-				globalMessagesService.confirmWarning('reimbursement.expense.confirmDeleteTitle',
-				'reimbursement.expense.confirmDeleteMessage').then(function() {
+				globalMessagesService.confirmWarning('reimbursement.expense.confirmTitle',
+				'reimbursement.globalMessage.expense.confirmDeleteMessage').then(function() {
 					expenseRestService.deleteExpense($scope.expenseUid).then($scope.deleteExpenseCallback);
 				});
 			};
 
+			$scope.resetExpense = function() {
+				globalMessagesService.confirmInfo('reimbursement.globalMessage.expense.confirmTitle',
+				'reimbursement.globalMessage.expense.confirmResetMessage').then(function() {
+					expenseRestService.reject($scope.expenseUid, "The expense has been reset.").then($scope.resetExpenseCallback);
+				});
+			};
 		}
 	};
 
