@@ -14,7 +14,10 @@ function($scope, $stateParams, $window, THIS_HOST, spinnerService, expenseRestSe
 		}
 		else {
 			var url = THIS_HOST + "/expense/guest/";
-			expenseRestService.generatePdf($scope.expense.uid, url).then(getExpensePdf);
+			expenseRestService.generatePdf($scope.expense.uid, url).then(function() {
+				$scope.expense.state = 'PRINTED';
+				getExpensePdf();
+			});
 		}
 	};
 
