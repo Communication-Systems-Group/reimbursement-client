@@ -284,6 +284,22 @@ module.exports = function (grunt) {
 			}
 		},
 
+		htmlmin: {
+			indexFile: {
+				options: {
+					collapseBooleanAttributes: true,
+					collapseWhitespace: true,
+					removeComments: true
+					// conservative collapse is not necessary in index.html, because it contains no
+					// elements styles with display: inline-block. if that changes, change this property
+					/* conservativeCollapse: true */
+				},
+				files: {
+					'dist/index.html': 'dist/index.html'
+				}
+			}
+		},
+
 		war: {
 			target: {
 				options: {
@@ -381,6 +397,7 @@ module.exports = function (grunt) {
 		'cssmin',
 		'filerev',
 		'usemin',
+		'htmlmin',
 		'clean:tmp'
 	]);
 
