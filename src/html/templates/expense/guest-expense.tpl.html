@@ -13,9 +13,17 @@
 	<hr>
 
 	<form class="form-inline text-right">
-		<button class="btn btn-primary" ng-click="downloadPdf()">
+		<a href class="btn btn-primary" target="_blank" ng-if="!isIE" ng-href="{{ pdfBlob.url }}" ng-disabled="pdfBlob === null">
+			<i class="fa fa-file-pdf-o"></i>
+			{{ 'reimbursement.expense.showPdf' | translate }}
+		</a>
+		<a href class="btn btn-primary" target="_blank" ng-if="!isIE" ng-href="{{ pdfBlob.url }}" download="{{ pdfBlob.name }}" ng-disabled="pdfBlob === null">
 			<i class="fa fa-download"></i>
 			{{ 'reimbursement.expense.downloadPdf' | translate }}
-		</button>
+		</a>
+		<a href class="btn btn-primary" target="_blank" ng-if="isIE" ng-click="downloadIE()" ng-disabled="pdfBlob === null">
+			<i class="fa fa-download"></i>
+			{{ 'reimbursement.expense.downloadPdf' | translate }}
+		</a>
 	</form>
 </div>

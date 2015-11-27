@@ -7,6 +7,14 @@ function ($scope, $state, $stateParams, expenseRestService, globalMessagesServic
 	$scope.expenseItems = [];
 	$scope.expenseState = '';
 	$scope.showListExpenseItems = false;
+	$scope.pdfBlob = null;
+	$scope.isIE = (window.navigator.msSaveOrOpenBlob) ? true : false;
+
+	expenseRestService.getExpensePdf($scope.expenseUid).then(function(response) {
+		// TODO crixx Refactoring (print-expense)
+		var base64 = base64BinaryConverterService.toBase64FromJson(response.data);
+		$scope.pdfBlob = base64BinaryConverterService.toBinary(base64);
+	});
 
 	expenseRestService.getExpense($scope.expenseUid).then(function(response) {
 		$scope.showListExpenseItems = true;
@@ -22,19 +30,8 @@ function ($scope, $state, $stateParams, expenseRestService, globalMessagesServic
 		$state.go('welcome');
 	});
 
-	$scope.downloadPdf = function() {
-		expenseRestService.getExpensePdf($scope.expenseUid).then(function(response) {
-			// TODO crixx Refactoring (print-expense)
-			var base64 = base64BinaryConverterService.toBase64FromJson(response.data);
-			var blob = base64BinaryConverterService.toBinary(base64);
-
-			if(window.navigator.msSaveOrOpenBlob) {
-				window.navigator.msSaveOrOpenBlob(blob, blob.name);
-			}
-			else {
-				window.open(blob.url, '_blank');
-			}
-		});
+	$scope.downloadIE = function() {
+		window.navigator.msSaveOrOpenBlob($scope.pdfBlob, $scope.pdfBlob.name);
 	};
 
 }]);
