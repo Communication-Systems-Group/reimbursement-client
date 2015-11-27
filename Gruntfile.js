@@ -33,6 +33,7 @@ module.exports = function (grunt) {
 				undef: true,
 				strict: true,
 				globals: {
+					app: true,
 					window: true,
 					document: true,
 					jQuery: true,
@@ -42,12 +43,13 @@ module.exports = function (grunt) {
 				}
 			},
 			prod: {
-				src: ['dist/javascript/app.js']
+				src: ['src/js/**/*.js']
 			},
 			dev: {
 				options: {
 					globals: {
 						// console is allowed in dev mode
+						app: true,
 						console: true,
 						window: true,
 						document: true,
@@ -57,7 +59,7 @@ module.exports = function (grunt) {
 						ArrayBuffer: false
 					}
 				},
-				src: ['dist/javascript/app.js']
+				src: ['src/js/**/*.js']
 			},
 			gruntfile: {
 				options: {
@@ -119,7 +121,7 @@ module.exports = function (grunt) {
 					validateIndentation: "\t"
 				},
 				files: {
-					src: ['dist/javascript/app.js']
+					src: ['src/js/**/*.js']
 				}
 			}
 		},
@@ -362,13 +364,13 @@ module.exports = function (grunt) {
 
 	// the default grunt task, just call "grunt" and it will be executed
 	grunt.registerTask('default', [
+		'jshint:gruntfile',
+		'jshint:dev',
+		'jscs',
 		'clean',
 		'sass',
 		'useminPrepare',
 		'concat:generated',
-		'jshint:gruntfile',
-		'jshint:dev',
-		'jscs',
 		'html2js:dev',
 		'concat:appWithTemplates',
 		'autoprefixer',
@@ -381,13 +383,13 @@ module.exports = function (grunt) {
 
 	// the productive process, which also minifies. it can be started by calling "grunt prod"
 	grunt.registerTask('prod', [
+		'jshint:gruntfile',
+		'jshint:prod',
+		'jscs',
 		'clean',
 		'sass',
 		'useminPrepare',
 		'concat:generated',
-		'jshint:gruntfile',
-		'jshint:prod',
-		'jscs',
 		'html2js:prod',
 		'concat:appWithTemplates',
 		'autoprefixer',
