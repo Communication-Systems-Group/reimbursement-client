@@ -1,6 +1,6 @@
-app.controller('LoginController', ['$scope', '$state', 'USER', 'spinnerService', 'loginRestService', 'globalMessagesService',
+app.controller('LoginController', ['$scope', '$state', '$translate', 'USER', 'spinnerService', 'loginRestService', 'globalMessagesService',
 
-	function ($scope, $state, USER, spinnerService, loginRestService, globalMessagesService) {
+	function ($scope, $state, $translate, USER, spinnerService, loginRestService, globalMessagesService) {
 		"use strict";
 
 		$scope.form = {
@@ -77,6 +77,7 @@ app.controller('LoginController', ['$scope', '$state', 'USER', 'spinnerService',
 					USER[key] = data[key];
 				}
 			}
+			$translate.use(USER.language.toLowerCase());
 
 			// the target URL is stored during the previous state redirection (to the login).
 			// you can find this logic in app.js (catching the event $stateChangeError)
