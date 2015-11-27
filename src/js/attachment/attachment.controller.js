@@ -91,7 +91,7 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 		}
 	};
 	$scope.deleteAttachment = function() {
-		globalMessagesService.confirmWarning("reimbursement.captureAttachment.deleteAttachment.title",
+		globalMessagesService.confirmWarning("reimbursement.captureAttachment.deleteAttachment",
 		"reimbursement.captureAttachment.deleteAttachment.message").then(function() {
 
 			spinnerService.show("spinnerAttachmentImage");

@@ -6,7 +6,7 @@
 				<a href ng-click="selectTouchTab()">{{ 'reimbursement.captureSignature.touch.tab' | translate }}</a>
 			</li>
 			<li role="captureMethod" ng-class="{active: showUploadImage}">
-				<a href ng-click="selectUploadTab()">{{ 'reimbursement.captureSignature.upload.tab' | translate }}</a>
+				<a href ng-click="selectUploadTab()">{{ 'reimbursement.general.imageUpload' | translate }}</a>
 			</li>
 		</ul>
 
@@ -21,7 +21,7 @@
 				<div class="image-upload">
 					<div flow-drop flow-btn flow-attrs="{accept:'image/*'}" ng-class="dropClass" flow-drag-enter="dropClass='dragOver'" flow-drag-leave="dropClass=''">
 						<div class="center uploadButton">
-							<i class="fa fa-plus-circle"></i> {{ 'reimbursement.captureSignature.upload.centerText' | translate }}
+							<i class="fa fa-plus-circle"></i> {{ 'reimbursement.general.imageUpload' | translate }}
 						</div>
 					</div>
 				</div>

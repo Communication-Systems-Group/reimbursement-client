@@ -5,7 +5,7 @@
 	<div ng-show="hasAttachment" class="container-fluid displayAttachment">
 		<div class="row icon-links">
 			<div ng-hide = "isIE()" class="col-xs-4">
-				<a target="_blank" ng-href="{{ blob.url }}"><i class="fa fa-file-pdf-o"></i> {{'reimbursement.captureAttachment.openAttachment' | translate }}</a>
+				<a target="_blank" ng-href="{{ blob.url }}"><i class="fa fa-file-pdf-o"></i> {{'reimbursement.general.showReceipt' | translate }}</a>
 			</div>
 			<div ng-hide = "isIE()"  class="col-xs-4">
 				<a target="_blank" ng-href="{{ blob.url }}" download="{{ blob.name }}"><i class="fa fa-download"></i> {{'reimbursement.captureAttachment.downloadAttachment' | translate}}</a>

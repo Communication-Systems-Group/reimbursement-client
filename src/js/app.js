@@ -13,14 +13,14 @@
 			],
 			VALIDATIONS: ['$http',
 				function ($http) {
-					var host = window.location.protocol + "//" + window.location.host.split(':')[0];
+					var host = "http://localhost:8080";
 					return $http.get(host + "/api/public/validations", { withCredentials: true });
 				}
 			],
 			USER: ['$q', '$http',
 				function($q, $http) {
 					var deferred = $q.defer();
-					var host = window.location.protocol + "//" + window.location.host.split(':')[0];
+					var host = "http://localhost:8080";
 
 					function hasRole(role, roles) {
 						return roles.indexOf(role) !== -1;
@@ -68,8 +68,8 @@ var app = angular.module('reimbursement', ['reimbursement.templates', 'ngAnimate
 app.constant("Modernizr", window.Modernizr);
 app.constant("moment", window.moment);
 app.constant("c3", window.c3);
-app.constant("HOST", window.location.protocol + "//" + window.location.host.split(":")[0]);
-app.constant("THIS_HOST", window.location.protocol + "//" + window.location.host + "/#!");
+app.constant("HOST", "//localhost:8080");
+app.constant("THIS_HOST", "//localhost:8080/#!");
 app.constant("MAX_UPLOAD_SIZE", "100000000"); // maximum chunk size of documents that will be uploaded
 
 app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$locationProvider', '$httpProvider', '$compileProvider', '$logProvider', 'LANGUAGES', 'USER', 'flowFactoryProvider',

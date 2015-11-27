@@ -8,7 +8,7 @@
 				<th>{{ 'reimbursement.expenseItem.amount' | translate }}</th>
 				<th>{{ 'reimbursement.expenseItem.project' | translate }}</th>
 				<th>{{ 'reimbursement.expenseItem.explanation' | translate }}</th>
-				<th>{{ 'reimbursement.expense.action' | translate }}</th>
+				<th>{{ 'reimbursement.general.action' | translate }}</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,7 +24,7 @@
 				<td style="width:0;" ng-if="editable" class="no-wrap">
 					<button class="btn btn-default btn-xs" ng-click="editExpenseItem(expenseItem)">
 							<i class="fa fa-pencil"></i>
-							{{ 'reimbursement.expense.edit' | translate }}
+							{{ 'reimbursement.general.edit' | translate }}
 					</button>
 					<button class="btn btn-default btn-xs" ng-click="deleteExpenseItem(expenseItem.uid)">
 							<i class="fa fa-trash"></i>

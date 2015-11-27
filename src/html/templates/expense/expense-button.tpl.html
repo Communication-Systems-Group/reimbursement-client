@@ -2,7 +2,7 @@
 	<div ng-if="details.name === 'edit-expense'" class="no-wrap">
 		<button class="btn btn-default btn-xs" ui-sref="expense({uid: expenseUid})">
 			<i class="fa fa-pencil"></i>
-			{{ 'reimbursement.expense.edit' | translate }}
+			{{ 'reimbursement.general.edit' | translate }}
 		</button>
 		<button class="btn btn-default btn-xs" ng-click="deleteExpense()">
 			<i class="fa fa-trash"></i>
@@ -29,7 +29,7 @@
 	<div ng-if="details.name === 'sign-expense'">
 		<button class="btn btn-default btn-xs" ui-sref="expense({uid: expenseUid})">
 			<i class="fa fa-pencil-square-o"></i>
-			{{ 'reimbursement.expense.signButton' | translate }}
+			{{ 'reimbursement.expense.sign' | translate }}
 		</button>
 	</div>
 	<div ng-if="details.name === 'print-expense'">

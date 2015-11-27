@@ -1,8 +1,4 @@
 {
-	"administration.action": {
-		"de": "Aktion",
-		"en": "Action"
-	},
 	"administration.add": {
 		"de": "Element hinzufügen",
 		"en": "Add element"
@@ -42,14 +38,6 @@
 	"administration.deactivateCostCategoryNotPossibleMessage": {
 		"de": "Sie müssen mind. eine Kostenkategorie aktiviert haben. Aktivieren Sie eine andere Kostenkategorie, bevor Sie diese deaktivieren.",
 		"en": "You need to have at least one category activated. Please activate another cost category before deactivating this one."
-	},
-	"administration.edit": {
-		"de": "Editieren",
-		"en": "Edit"
-	},
-	"administration.graphs.percentagePrinted": {
-		"de": "Gedruckt",
-		"en": "Printed"
 	},
 	"administration.graphs.title": {
 		"de": "Admin-Pool Graphen",
@@ -155,10 +143,6 @@
 		"de": "Sind Sie sicher, dass Sie diesen hochgeladenen Beleg unwiderruflich löschen möchten?",
 		"en": "Are you sure that you want to delete this uploaded receipt irrevocably?"
 	},
-	"captureAttachment.deleteAttachment.title": {
-		"de": "Beleg löschen",
-		"en": "Delete receipt"
-	},
 	"captureAttachment.deleteAttachment": {
 		"de": "Beleg löschen",
 		"en": "Delete receipt"
@@ -167,10 +151,6 @@
 		"de": "Beleg herunterladen",
 		"en": "Download receipt"
 	},
-	"captureAttachment.openAttachment": {
-		"de": "Beleg anzeigen",
-		"en": "Show receipt"
-	},
 	"captureAttachment.mobile.complete": {
 		"de": "Der Anhang wurde erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät fort, indem Sie auf den Button 'Anhang erfasst' klicken.",
 		"en": "The attachment was successfully uploaded. Please continue on your desktop device by clicking the button 'Attachment Captured'."
@@ -178,10 +158,6 @@
 	"captureAttachment.mobile.error": {
 		"de": "Der Anhang konnte nicht hochgeladen werden. Verwenden Sie nur Bild- oder PDF-Dateien. Aktualisieren Sie die Seite für einen neuen Versuch.",
 		"en": "The attachment upload was unsuccessful. Please upload only image or PDF files. Refresh the page for a retry."
-	},
-	"captureAttachment.qr.cancel": {
-		"de": "Abbrechen",
-		"en": "Cancel"
 	},
 	"captureAttachment.qr.capturedOnMobile": {
 		"de": "Anhang erfasst",
@@ -214,10 +190,6 @@
 	"captureSignature.info": {
 		"de": "Um Ihre Registrierung abschliessen zu können, müssen Sie noch Ihre Unterschrift digital erfassen. Sie können die Unterschrift entweder über einen Touch-Screen direkt online erfassen oder eine Bilddatei mit Ihrer Unterschrift hochladen.",
 		"en": "To finish your registration, you are kindly asked to capture your signature. You can use the the touch screen input and capture it directly online or upload an image containing the signature."
-	},
-	"captureSignature.nextStep": {
-		"de": "Speichern",
-		"en": "Submit"
 	},
 	"captureSignature.mobile.complete": {
 		"de": "Unterschrift erfolgreich hochgeladen. Fahren Sie an Ihrem Gerät mit der Registrierung weiter, indem Sie auf den Button 'Signatur erfasst' klicken.",
@@ -267,14 +239,6 @@
 		"de": "Sie verwenden ein Gerät, das keine Toucheingabe ermöglicht. Für die Unterschrift benötigen Sie ein touchfähiges Eingabegerät. Verwenden Sie ein anderes Mobilgerät (Smartphone, Tablet) für die Eingabe, indem Sie folgenden QR-Code einscannen.",
 		"en": "Pattern recognition is not possible on a device without a touch screen. For capturing the signature, you need to have a device with a touch screen. Use a mobile phone or tablet to enter your signature. Scan the following QR code on your mobile device."
 	},
-	"captureSignature.upload.centerText": {
-		"de": "Bild hochladen",
-		"en": "Upload Image"
-	},
-	"captureSignature.upload.tab": {
-		"de": "Bildupload",
-		"en": "Image Upload"
-	},
 	"costCategory.accountingPolicy": {
 		"de": "Kontierungsrichtlinien",
 		"en": "Accounting Policy"
@@ -286,10 +250,6 @@
 	"costCategory.applyButton": {
 		"de": "Übernehmen",
 		"en": "Apply"
-	},
-	"costCategory.cancelButton": {
-		"de": "Abbrechen",
-		"en": "Cancel"
 	},
 	"costCategory.closeWarningEditMessage": {
 		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an dieser Kostenstelle verworfen. Fortfahren?",
@@ -391,10 +351,6 @@
 		"de": "Buchhaltungsbeschreibung",
 		"en": "Accounting Description"
 	},
-	"expense.action": {
-		"de": "Aktion",
-		"en": "Action"
-	},
 	"expense.addNewReceiptButton": {
 		"de": "Neuen Beleg hinzufügen",
 		"en": "Add new receipt"
@@ -402,10 +358,6 @@
 	"expense.assignToMe": {
 		"de": "Mir zuweisen",
 		"en": "Assign to me"
-	},
-	"expense.cancelButton": {
-		"de": "Abbrechen",
-		"en": "Cancel"
 	},
 	"expense.closeButton": {
 		"de": "Schliessen",
@@ -419,10 +371,6 @@
 		"de": "Signiertes PDF herunterladen",
 		"en": "Download signed PDF"
 	},
-	"expense.edit": {
-		"de": "Editieren",
-		"en": "Edit"
-	},
 	"expense.explanationEnterAtLeast10Characters": {
 		"de": "Geben Sie eine Begründung mit mindestens zehn Zeichen ein.",
 		"en": "Enter an explanation with at least 10 characters."
@@ -434,10 +382,6 @@
 	"expense.info.accountingTextMissingTitle": {
 		"de": "Beschreibung unvollständig",
 		"en": "Description incomplete"
-	},
-	"expense.nextStepButton": {
-		"de": "Nächster Schritt",
-		"en": "Next step"
 	},
 	"expense.noExpenseItems": {
 		"de": "Keine Belege vorhanden",
@@ -479,10 +423,6 @@
 		"de": "Signieren",
 		"en": "Sign"
 	},
-	"expense.signButton": {
-		"de": "Signieren",
-		"en": "Sign"
-	},
 	"expense.signForm.digital": {
 		"de": "Digitale Signatur\n(Zertifikat)",
 		"en": "Digital signature\n(Zertifikat)"
@@ -514,10 +454,6 @@
 	"expense.signForm.privateKey": {
 		"de": "Privater Schlüssel:",
 		"en": "Private key:"
-	},
-	"expense.signForm.saveButton": {
-		"de": "Signieren",
-		"en": "Sign"
 	},
 	"expense.signForm.signatureCannotBeCreated": {
 		"de": "Der private Schlüssel konnte leider nicht eingelesen werden. Bitte vergewissern Sie sich, dass dieser im PKCS8 Format vorliegt.",
@@ -652,8 +588,8 @@
 		"en": "Are you sure that you want to delete this receipt permanently?"
 	},
 	"expenseItem.deleteConfirmTitle": {
-		"de": "Achtung",
-		"en": "Attention"
+		"de": "Element löschen",
+		"en": "Delete element"
 	},
 	"expenseItem.editAccountingSaveButton": {
 		"de": "Speichern",
@@ -687,10 +623,6 @@
 		"de": "Beleg speichern",
 		"en": "Save Receipt"
 	},
-	"expenseItem.showReceipt": {
-		"de": "Beleg anzeigen",
-		"en": "Show receipt"
-	},
 	"expenseItem.title": {
 		"de": "Belege einreichen",
 		"en": "Add receipts"
@@ -714,6 +646,30 @@
 	"expenseItem.uploadReceipt.fileExtensions": {
 		"de": "(Bilddateien oder PDFs)",
 		"en": "(Images or PDFs)"
+	},
+	"general.action": {
+		"de": "Aktion",
+		"en": "Action"
+	},
+	"general.cancel": {
+		"de": "Abbrechen",
+		"en": "Cancel"
+	},
+	"general.edit": {
+		"de": "Editieren",
+		"en": "Edit"
+	},
+	"general.imageUpload": {
+		"de": "Bildupload",
+		"en": "Upload image"
+	},
+	"general.nextStep": {
+		"de": "Nächster Schritt",
+		"en": "Next Step"
+	},
+	"general.showReceipt": {
+		"de": "Beleg anzeigen",
+		"en": "Show receipt"
 	},
 	"globalMessage.acceptButton": {
 		"de": "Ja",
@@ -855,10 +811,6 @@
 		"de": "Passwort",
 		"en": "Password"
 	},
-	"login.submitLabel": {
-		"de": "Login",
-		"en": "Login"
-	},
 	"login.title": {
 		"de": "Login",
 		"en": "Login"
@@ -963,10 +915,6 @@
 		"de": "Benutzereinstellungen",
 		"en": "User Settings"
 	},
-	"tabs.administration": {
-		"de": "Administration",
-		"en": "Administration"
-	},
 	"tabs.adminPoolGraphs": {
 		"de": "Graphen",
 		"en": "Graphs"
@@ -983,10 +931,6 @@
 		"de": "Kostenstellen",
 		"en": "Cost Categories"
 	},
-	"tabs.dashboard": {
-		"de": "Dashboard",
-		"en": "Dashboard"
-	},
 	"tabs.de": {
 		"de": "DE",
 		"en": "DE"
@@ -994,14 +938,6 @@
 	"tabs.en": {
 		"de": "EN",
 		"en": "EN"
-	},
-	"tabs.login": {
-		"de": "Login",
-		"en": "Login"
-	},
-	"tabs.logout": {
-		"de": "Logout",
-		"en": "Logout"
 	},
 	"tabs.registration": {
 		"de": "Registrierung",

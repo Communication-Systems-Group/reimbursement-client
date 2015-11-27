@@ -77,7 +77,7 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 			bindto: "#graph-gauge-accepted-declined",
 			data: {
 				type: "gauge",
-				columns: [[allTranslations['reimbursement.administration.graphs.percentagePrinted'], $scope.data.percentagePrinted]]
+				columns: [[allTranslations['reimbursement.expense.state.PRINTED'], $scope.data.percentagePrinted]]
 			},
 			color: {
 				pattern: ['#ff0000', '#f97600', '#f6c600', '#60b044'],
@@ -122,7 +122,7 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 			'reimbursement.expense.state.TO_SIGN_BY_MANAGER',
 			'reimbursement.expense.state.TO_SIGN_BY_FINANCE_ADMIN',
 			'reimbursement.expense.state.SIGNED',
-			'reimbursement.administration.graphs.percentagePrinted',
+			'reimbursement.expense.state.PRINTED',
 			'reimbursement.administration.graphs.totalAmount',
 			'reimbursement.administration.graphs.firstQuarter',
 			'reimbursement.administration.graphs.secondQuarter',

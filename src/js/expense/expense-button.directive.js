@@ -27,7 +27,7 @@ function($state, stateService, expenseRestService, globalMessagesService) {
 			};
 
 			$scope.deleteExpense = function() {
-				globalMessagesService.confirmWarning('reimbursement.expense.confirmTitle',
+				globalMessagesService.confirmWarning('reimbursement.globalMessage.expense.confirmTitle',
 				'reimbursement.globalMessage.expense.confirmDeleteMessage').then(function() {
 					expenseRestService.deleteExpense($scope.expenseUid).then($scope.deleteExpenseCallback);
 				});
