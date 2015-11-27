@@ -695,6 +695,10 @@
 		"de": "Möchten Sie diese Spesen zum Spesensteller zurücksetzen?",
 		"en": "Are you sure, you want to reset this expense to the creator of the expense?"
 	},
+	"globalMessage.expense.resetMessage": {
+		"de": "Diese Spesen wurden auf Ihr Wunsch hin zurückgesetzt da sie im Prozess hängen geblieben sind.",
+		"en": "This expense has been reset on your request because it was stuck in the process."
+	},
 	"globalMessage.expense.projectTextMissing.message": {
 		"de": "In mindestens einem erstellten Beleg wurde das Projekt noch nicht angegeben. Solange nicht in allen Belegen das Projekt angegeben wurde kann die Spese nicht angenommen werden. Dieses Feld muss von dem Reviewer ausgefüllt werden.",
 		"en": "In at least one of the created expense-items the project field is still empty. This field has to be filled in all expense-items otherwise the expense cannot be accepted. This field has to be filled by the reviewer."

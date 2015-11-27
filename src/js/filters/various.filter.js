@@ -1,13 +1,3 @@
-app.filter('costCategoryLanguage', [ '$translate',
-
-function ($translate) {
-	'use strict';
-
-	return function (value) {
-		return value[$translate.use()];
-	};
-}]);
-
 app.filter('limitWordwise', [ '$translate', '$filter',
 
 function($translate, $filter) {
@@ -45,15 +35,16 @@ function($translate, $filter) {
 
 app.filter('getISODate', [ '$filter', 'moment',
 
-function ($filter, moment) {
-	'use strict';
+	function ($filter, moment) {
+		'use strict';
 
-	return function (date) {
-		var d = new Date(moment(date, 'DD.MM.YYYY'));
+		return function (date) {
+			var d = new Date(moment(date, 'DD.MM.YYYY'));
 
-		return $filter('date')(d, 'yyyy-MM-dd');
-	};
-}]);
+			return $filter('date')(d, 'yyyy-MM-dd');
+		};
+	}
+]);
 
 app.filter('costCategoryTranslation', [ '$translate',
 
@@ -67,7 +58,19 @@ app.filter('costCategoryTranslation', [ '$translate',
 				return object[language];
 			}
 		};
-	}]);
+	}
+]);
+
+app.filter('costCategoryLanguage', [ '$translate',
+
+	function ($translate) {
+		'use strict';
+
+		return function (value) {
+			return value[$translate.use()];
+		};
+	}
+]);
 
 app.filter('regexValidation', [ 'VALIDATIONS',
 
@@ -78,5 +81,24 @@ app.filter('regexValidation', [ 'VALIDATIONS',
 			return VALIDATIONS[name];
 		};
 	}
+]);
 
+app.filter('commentValidation', [ 'LANGUAGES', '$translate',
+
+	function (LANGUAGES, $translate) {
+		'use strict';
+
+		return function (key, selectedLanguage) {
+			if(typeof selectedLanguage === "undefined") {
+				selectedLanguage = $translate.use();
+			}
+
+			if(LANGUAGES[selectedLanguage] === "undefined") {
+				return undefined;
+			}
+			else {
+				return LANGUAGES[selectedLanguage][key];
+			}
+		};
+	}
 ]);

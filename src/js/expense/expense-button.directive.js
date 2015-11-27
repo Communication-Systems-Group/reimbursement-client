@@ -1,6 +1,6 @@
-app.directive('expenseButton', ['$state', 'stateService', 'expenseRestService', 'globalMessagesService',
+app.directive('expenseButton', ['$state', '$filter', 'stateService', 'expenseRestService', 'globalMessagesService',
 
-function($state, stateService, expenseRestService, globalMessagesService) {
+function($state, $filter, stateService, expenseRestService, globalMessagesService) {
 	"use strict";
 
 	return {
@@ -34,9 +34,14 @@ function($state, stateService, expenseRestService, globalMessagesService) {
 			};
 
 			$scope.resetExpense = function() {
-				globalMessagesService.confirmInfo('reimbursement.globalMessage.expense.confirmTitle',
-				'reimbursement.globalMessage.expense.confirmResetMessage').then(function() {
-					expenseRestService.reject($scope.expenseUid, "The expense has been reset.").then($scope.resetExpenseCallback);
+				expenseRestService.getExpense($scope.expenseUid).then(function(response) {
+					expenseRestService.getUserByUid(response.data.userUid).then(function(response) {
+						var comment = $filter('commentValidation')('reimbursement.globalMessage.expense.resetMessage', response.data.language.toLowerCase());
+						globalMessagesService.confirmInfo('reimbursement.globalMessage.expense.confirmTitle',
+						'reimbursement.globalMessage.expense.confirmResetMessage').then(function() {
+							expenseRestService.reject($scope.expenseUid, comment).then($scope.resetExpenseCallback);
+						});
+					});
 				});
 			};
 		}

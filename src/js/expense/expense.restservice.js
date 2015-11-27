@@ -123,6 +123,13 @@ function($http, HOST) {
 		});
 	}
 
+	function getUserByUid(uid) {
+		return $http({
+			method: 'GET',
+			url: HOST + "/api/finance-admin/users/" + uid
+		});
+	}
+
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
@@ -138,7 +145,8 @@ function($http, HOST) {
 		assignToMe: assignToMe,
 		deleteExpense: deleteExpense,
 		getMyExpenses: getMyExpenses,
-		getReviewExpenses: getReviewExpenses
+		getReviewExpenses: getReviewExpenses,
+		getUserByUid: getUserByUid
 	};
 
 }]);
