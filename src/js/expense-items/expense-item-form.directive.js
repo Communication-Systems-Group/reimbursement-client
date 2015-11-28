@@ -110,7 +110,7 @@ function(moment, $filter, $timeout, $translate, $uibModal, USER, spinnerService,
 						}
 					}
 
-					if($scope.form.date !== "" && $scope.form.date !== undefined && $scope.$parent.formExpenseItem.originalAmount.$valid) {
+					if(($scope.form.date !== "" && $scope.form.date !== undefined && $scope.$parent.formExpenseItem.originalAmount.$valid) || (!$scope.$parent.formExpenseItem.originalAmount.$valid && !$scope.$parent.formExpenseItem.originalAmount.$touched)) {
 						// only make back-end calls if necessary
 						if(exchangeRateDate !== $filter('getISODate')($scope.form.date)) {
 							var date = $filter('getISODate')($scope.form.date);

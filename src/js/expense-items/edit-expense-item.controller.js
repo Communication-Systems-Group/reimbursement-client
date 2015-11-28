@@ -21,7 +21,7 @@ function($scope, $uibModalInstance, globalMessagesService, spinnerService, expen
 
 	function submitForm() {
 		var formIsValid = $scope.validate();
-		if(formIsValid && !$scope.formExpenseItem.$invalid && $scope.formExpenseItem.$dirty) {
+		if(formIsValid && !$scope.formExpenseItem.$invalid) {
 			spinnerService.show('spinnerExpenseItemForm');
 			$scope.hideClose = true;
 
