@@ -83,7 +83,7 @@ app.filter('regexValidation', [ 'VALIDATIONS',
 	}
 ]);
 
-app.filter('commentValidation', [ 'LANGUAGES', '$translate',
+app.filter('translateToGivenLanguage', [ 'LANGUAGES', '$translate',
 
 	function (LANGUAGES, $translate) {
 		'use strict';

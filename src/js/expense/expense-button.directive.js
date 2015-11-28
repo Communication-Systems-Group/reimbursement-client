@@ -36,7 +36,7 @@ function($state, $filter, stateService, expenseRestService, globalMessagesServic
 			$scope.resetExpense = function() {
 				expenseRestService.getExpense($scope.expenseUid).then(function(response) {
 					expenseRestService.getUserByUid(response.data.userUid).then(function(response) {
-						var comment = $filter('commentValidation')('reimbursement.globalMessage.expense.resetMessage', response.data.language.toLowerCase());
+						var comment = $filter('translateToGivenLanguage')('reimbursement.globalMessage.expense.resetMessage', response.data.language.toLowerCase());
 						globalMessagesService.confirmInfo('reimbursement.globalMessage.expense.confirmTitle',
 						'reimbursement.globalMessage.expense.confirmResetMessage').then(function() {
 							expenseRestService.reject($scope.expenseUid, comment).then($scope.resetExpenseCallback);
