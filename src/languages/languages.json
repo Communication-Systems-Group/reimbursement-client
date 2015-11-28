@@ -679,6 +679,10 @@
 		"de": "Nein",
 		"en": "No"
 	},
+	"globalMessage.warning": {
+		"de": "Warnung",
+		"en": "Warning"
+	},
 	"globalMessage.expense.confirmAssignMessage": {
 		"de": "Möchten Sie sich diese Spese zuweisen?",
 		"en": "Are you sure, you want to assign this expense to you?"
@@ -766,6 +770,10 @@
 	"globalMessage.okayButton": {
 		"de": "Okay",
 		"en": "Okay"
+	},
+	"globalMessage.popupBlockerDiscovered": {
+		"de": "Bitte deaktivieren Sie alle Pop-Up Blocker für diese Webseite.",
+		"en": "Please deactivate all Pop-Up Blockers for this website."
 	},
 	"globalMessage.serviceException.message": {
 		"de": "Ein allgemeiner Fehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
