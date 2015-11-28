@@ -67,9 +67,9 @@
 				{{ 'reimbursement.expenseItem.project' | translate }}
 			</label>
 			<div class="col-sm-8">
-				<div class="right-inner-addon" ng-if="editable" ng-class="{'error': $parent.formExpenseItem.project.$invalid && $parent.formExpenseItem.project.$touched}">
+				<div class="right-inner-addon" ng-class="{'error': $parent.formExpenseItem.project.$invalid && $parent.formExpenseItem.project.$touched}">
 					<input type="text" id="expenseitem-project" ng-model="form.project" name="project" pattern="{{'expense.project' | regexValidation}}"
-						   class="input-validation form-control" required>
+						   class="input-validation form-control" ng-if="editable" required>
 				</div>
 				<div class="form-control-static" ng-if="!editable">{{ form.project }}</div>
 			</div>
@@ -79,9 +79,9 @@
 				{{ 'reimbursement.expenseItem.explanation' | translate }}
 			</label>
 			<div class="col-sm-8">
-				<div class="right-inner-addon" ng-if="editable" ng-class="{'error': $parent.formExpenseItem.explanation.$invalid && $parent.formExpenseItem.explanation.$touched}">
+				<div class="right-inner-addon" ng-class="{'error': $parent.formExpenseItem.explanation.$invalid && $parent.formExpenseItem.explanation.$touched}">
 					<textarea id="expenseitem-explanation" ng-model="form.explanation" name="explanation" pattern="{{'expense.explanation' | regexValidation}}"
-							  class="input-validation form-control" required></textarea>
+							  class="input-validation form-control" ng-if="editable" required></textarea>
 				</div>
 				<div class="form-control-static" ng-if="!editable">{{ form.explanation }}</div>
 			</div>
