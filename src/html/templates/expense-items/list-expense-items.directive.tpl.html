@@ -41,7 +41,7 @@
 
 	</table>
 
-	<button class="btn-primary btn pull-right" ng-click="addExpenseItem()" ng-if="editable">
+	<button class="btn-primary btn pull-right" ng-click="addExpenseItem()" ng-if="editable" ng-disabled="addExpenseItemButtonDisabled">
 		<i class="fa fa-plus"></i>
 		{{ 'reimbursement.expense.addNewReceiptButton' | translate }}
 	</button>

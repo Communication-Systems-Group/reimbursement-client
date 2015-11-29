@@ -18,6 +18,8 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 				spinnerService.show('spinnerListExpenseItems');
 
 				expenseItemsRestService.getExpenseItems($scope.expenseUid).then(function(response) {
+					$scope.addExpenseItemButtonDisabled = false;
+
 					$scope.expenseItems = [];
 
 					for(var i = 0; i < response.data.length; i++) {
@@ -72,6 +74,9 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 
 					$scope.addExpenseItem = function() {
 						if($scope.expenseItems.length < parseInt($filter("regexValidation")("expense.maxExpenseItems"))) {
+							// button is enabled again in updateTable()
+							$scope.addExpenseItemButtonDisabled = true;
+
 							expenseItemsRestService.getCostCategories().then(function(response) {
 								var preSelectedCategoryUid = response.data[0].uid;
 
@@ -82,7 +87,6 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 								}).then(function(response) {
 
 									expenseItemsRestService.getExpenseItem(response.data.uid).then(function(response) {
-
 										var modalInstance = $uibModal.open({
 											templateUrl: 'expense-items/add-expense-item.tpl.html',
 											controller: 'AddExpenseItemController',
