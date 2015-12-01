@@ -300,8 +300,8 @@
 		"en": "Expenses for review"
 	},
 	"dashboard.table.addExpense": {
-		"de": "Neue Spesen erstellen",
-		"en": "Create new expenses"
+		"de": "Neue Spese erstellen",
+		"en": "Create new expense"
 	},
 	"dashboard.table.date": {
 		"de": "Datum",
