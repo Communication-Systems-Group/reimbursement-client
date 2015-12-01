@@ -5,7 +5,7 @@
 	},
 	"administration.costCategories": {
 		"de": "Kostenstellen",
-		"en": "Cost categories"
+		"en": "Cost Categories"
 	},
 	"administration.deactivate": {
 		"de": "Deaktivieren",
@@ -17,19 +17,19 @@
 	},
 	"administration.deactivateCostCategoryText": {
 		"de": "Möchten Sie die gewählte Kostenstelle wirklich deaktivieren?",
-		"en": "Do you really want to deactivate the selected cost category?"
+		"en": "Do you really want to deactivate the selected Cost Category?"
 	},
 	"administration.deactivateCostCategoryTitle": {
 		"de": "Kostenstelle deaktivieren",
-		"en": "Deactivate cost category"
+		"en": "Deactivate Cost Category"
 	},
 	"administration.activateCostCategoryText": {
 		"de": "Möchten Sie die gewählte Kostenstelle wirklich aktivieren?",
-		"en": "Do you really want to activate the selected cost category?"
+		"en": "Do you really want to activate the selected Cost Category?"
 	},
 	"administration.activateCostCategoryTitle": {
 		"de": "Kostenstelle aktivieren",
-		"en": "Activate cost category"
+		"en": "Activate Cost Category"
 	},
 	"administration.deactivateCostCategoryNotPossibleTitle": {
 		"de": "Deaktivierung nicht möglich",
@@ -37,7 +37,7 @@
 	},
 	"administration.deactivateCostCategoryNotPossibleMessage": {
 		"de": "Sie müssen mind. eine Kostenkategorie aktiviert haben. Aktivieren Sie eine andere Kostenkategorie, bevor Sie diese deaktivieren.",
-		"en": "You need to have at least one category activated. Please activate another cost category before deactivating this one."
+		"en": "You need to have at least one category activated. Please activate another Cost Category before deactivating this one."
 	},
 	"administration.graphs.title": {
 		"de": "Admin-Pool Graphen",
@@ -85,7 +85,7 @@
 	},
 	"administration.search.expenseState": {
 		"de": "Spesenstatus",
-		"en": "Expense state"
+		"en": "Expense State"
 	},
 	"administration.search.filterPanel": {
 		"de": "Bitte geben Sie Ihre Suchkriterien für eine Suche nach Spesen ein.",
@@ -145,11 +145,11 @@
 	},
 	"captureAttachment.deleteAttachment": {
 		"de": "Beleg löschen",
-		"en": "Delete receipt"
+		"en": "Delete Receipt"
 	},
 	"captureAttachment.downloadAttachment": {
 		"de": "Beleg herunterladen",
-		"en": "Download receipt"
+		"en": "Download Receipt"
 	},
 	"captureAttachment.mobile.complete": {
 		"de": "Der Anhang wurde erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät fort, indem Sie auf den Button 'Anhang erfasst' klicken.",
@@ -185,7 +185,7 @@
 	},
 	"captureAttachment.upload.centerText": {
 		"de": "Datei auswählen",
-		"en": "Select file"
+		"en": "Select File"
 	},
 	"captureSignature.info": {
 		"de": "Um Ihre Registrierung abschliessen zu können, müssen Sie noch Ihre Unterschrift digital erfassen. Sie können die Unterschrift entweder über einen Touch-Screen direkt online erfassen oder eine Bilddatei mit Ihrer Unterschrift hochladen.",
@@ -253,15 +253,15 @@
 	},
 	"costCategory.closeWarningEditMessage": {
 		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an dieser Kostenstelle verworfen. Fortfahren?",
-		"en": "If you close this window, you dismiss all changes made in the current cost category. Continue?"
+		"en": "If you close this window, you dismiss all changes made in the current Cost Category. Continue?"
 	},
 	"costCategory.createTitle": {
 		"de": "Neue Kostenstelle hinzufügen",
-		"en": "Add new cost category"
+		"en": "Add new Cost Category"
 	},
 	"costCategory.delete": {
 		"de": "Kostenstelle löschen",
-		"en": "Delete cost category"
+		"en": "Delete Cost Category"
 	},
 	"costCategory.description": {
 		"de": "Beschreibung",
@@ -269,7 +269,7 @@
 	},
 	"costCategory.edit": {
 		"de": "Kostenstelle editieren",
-		"en": "Edit cost category"
+		"en": "Edit Cost Category"
 	},
 	"costCategory.name": {
 		"de": "Name",
@@ -277,11 +277,11 @@
 	},
 	"costCategory.saveButton": {
 		"de": "Kostenstelle speichern",
-		"en": "Save cost categroy"
+		"en": "Save Cost Categroy"
 	},
 	"createExpense.title": {
 		"de": "Neue Spese hinzufügen",
-		"en": "Add new expense"
+		"en": "Add new Expense"
 	},
 	"cropSignature.submit": {
 		"de": "Zuschneiden",
@@ -293,15 +293,15 @@
 	},
 	"dashboard.myExpenses": {
 		"de": "Meine Spesen",
-		"en": "My expenses"
+		"en": "My Expenses"
 	},
 	"dashboard.myReviewExpenseItems": {
 		"de": "Spesen überprüfen",
-		"en": "Expenses for review"
+		"en": "Expenses for Review"
 	},
 	"dashboard.table.addExpense": {
 		"de": "Neue Spese erstellen",
-		"en": "Create new expense"
+		"en": "Create new Expense"
 	},
 	"dashboard.table.date": {
 		"de": "Datum",
@@ -309,7 +309,7 @@
 	},
 	"dashboard.table.expenseAuthor": {
 		"de": "Spesensteller",
-		"en": "Expense applicant"
+		"en": "Expense Applicant"
 	},
 	"dashboard.table.noContent": {
 		"de": "Keine Daten vorhanden",
@@ -353,11 +353,11 @@
 	},
 	"expense.addNewReceiptButton": {
 		"de": "Neuen Beleg hinzufügen",
-		"en": "Add new receipt"
+		"en": "Add new Receipt"
 	},
 	"expense.assignToMe": {
 		"de": "Mir zuweisen",
-		"en": "Assign to me"
+		"en": "Assign to Me"
 	},
 	"expense.closeButton": {
 		"de": "Schliessen",
@@ -385,7 +385,7 @@
 	},
 	"expense.noExpenseItems": {
 		"de": "Keine Belege vorhanden",
-		"en": "No receipts available"
+		"en": "No Receipts available"
 	},
 	"expense.printExpense": {
 		"de": "Spesenblatt drucken",
@@ -577,11 +577,11 @@
 	},
 	"expenseItem.costCategory": {
 		"de": "Kostenstelle",
-		"en": "Cost category"
+		"en": "Cost Category"
 	},
 	"expenseItem.date": {
 		"de": "Belegsdatum",
-		"en": "Receipt date"
+		"en": "Receipt Date"
 	},
 	"expenseItem.deleteConfirmMessage": {
 		"de": "Möchten Sie diesen Beleg wirklich unwiderruflich löschen?",
@@ -589,7 +589,7 @@
 	},
 	"expenseItem.deleteConfirmTitle": {
 		"de": "Element löschen",
-		"en": "Delete element"
+		"en": "Delete Element"
 	},
 	"expenseItem.editAccountingSaveButton": {
 		"de": "Speichern",
@@ -641,7 +641,7 @@
 	},
 	"expenseItem.uploadReceipt": {
 		"de": "Beleg hochladen",
-		"en": "Upload receipt"
+		"en": "Upload Receipt"
 	},
 	"expenseItem.uploadReceipt.fileExtensions": {
 		"de": "(Bilddateien oder PDFs)",
@@ -661,7 +661,7 @@
 	},
 	"general.imageUpload": {
 		"de": "Bildupload",
-		"en": "Upload image"
+		"en": "Upload Image"
 	},
 	"general.nextStep": {
 		"de": "Nächster Schritt",
@@ -669,7 +669,7 @@
 	},
 	"general.showReceipt": {
 		"de": "Beleg anzeigen",
-		"en": "Show receipt"
+		"en": "Show Receipt"
 	},
 	"globalMessage.acceptButton": {
 		"de": "Ja",
@@ -757,7 +757,7 @@
 	},
 	"globalMessage.notAnImage.title": {
 		"de": "Unbekannter Dateityp",
-		"en": "Not an image"
+		"en": "Not an Image"
 	},
 	"globalMessage.notAuthenticatedRequired.message": {
 		"de": "Sie versuchen eine Seite aufzurufen, die nur aufrufbar ist, wenn Sie nicht eingeloggt sind. Sie wurden zum Dashboard weitergeleitet.",
@@ -869,7 +869,7 @@
 	},
 	"registration.personnelNumber.title": {
 		"de": "Personalnummer erfassen",
-		"en": "Add Personnel Number"
+		"en": "Add personnel Number"
 	},
 	"registration.personnelNumber.text": {
 		"de": "Die 0 zu Beginn der Personalnummer bitte weglassen.",
