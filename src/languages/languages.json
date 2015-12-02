@@ -152,8 +152,8 @@
 		"en": "Download Receipt"
 	},
 	"captureAttachment.mobile.complete": {
-		"de": "Der Anhang wurde erfolgreich hochgeladen. Fahren Sie an Ihrem Desktopgerät fort, indem Sie auf den Button 'Anhang erfasst' klicken.",
-		"en": "The attachment was successfully uploaded. Please continue on your desktop device by clicking the button 'Attachment Captured'."
+		"de": "Der Anhang wurde erfolgreich hochgeladen. Fahren Sie an Ihrem Desktop fort, indem Sie auf den Button 'Anhang erfasst' klicken.",
+		"en": "The attachment was successfully uploaded. Please continue on your desktop by clicking the button 'Attachment Captured'."
 	},
 	"captureAttachment.mobile.error": {
 		"de": "Der Anhang konnte nicht hochgeladen werden. Verwenden Sie nur Bild- oder PDF-Dateien. Aktualisieren Sie die Seite für einen erneuten Versuch.",
@@ -164,24 +164,24 @@
 		"en": "Attachment Captured"
 	},
 	"captureAttachment.qr.info": {
-		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet) ein. Sie gelangen danach auf eine Seite in Ihrem Browser, in welchem Sie den Anhang anfügen können.",
-		"en": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can upload your attachment using the touch screen is opened in your mobile device's browser."
+		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Smartphone (oder Tablet) ein. Sie gelangen danach auf eine Seite in Ihrem Browser, in welchem Sie den Anhang anfügen können.",
+		"en": "Open the following link or scan the QR code with your smartphone (or tablet). A page where you can upload your attachment using the touch screen is opened in your smartphone's browser."
 	},
 	"captureAttachment.qr.notYetCaptured.message": {
-		"de": "Der Beleg wurde auf dem Mobilgerät noch nicht hochgeladen. Laden Sie bitte den Beleg mit obenstehendem QR-Code auf Ihrem Mobilgerät hoch.",
-		"en": "The receipt was not yet uploaded on the mobile device. Please upload the receipt on your mobile device."
+		"de": "Der Beleg wurde auf dem Smartphone noch nicht hochgeladen. Laden Sie bitte den Beleg mit obenstehendem QR-Code auf Ihrem Smartphone hoch.",
+		"en": "The receipt was not yet uploaded on the smartphone. Please upload the receipt on your smartphone."
 	},
 	"captureAttachment.qr.notYetCaptured.title": {
 		"de": "Noch nicht erfasst",
 		"en": "Not yet uploaded"
 	},
 	"captureAttachment.qr.title": {
-		"de": "Anhang mit Mobilgerät erfassen",
-		"en": "Capturing attachments using a mobile device"
+		"de": "Anhang mit Smartphone erfassen",
+		"en": "Capturing attachments using a smartphone"
 	},
 	"captureAttachment.tryMobile": {
-		"de": "Mobilgerät für den Upload verwenden.",
-		"en": "Use mobile device for upload."
+		"de": "Smartphone für den Upload verwenden.",
+		"en": "Use smartphone for upload."
 	},
 	"captureAttachment.upload.centerText": {
 		"de": "Datei auswählen",
@@ -196,20 +196,20 @@
 		"en": "The signature was successfully uploaded. Please continue on your device by clicking the button 'Signature Captured'."
 	},
 	"captureSignature.mobile.error": {
-		"de": "Beim Hochladen ist ein Fehler aufgetreten. Bitte schliessen Sie dieses Browserfenster auf Ihrem Mobilgerät, aktualisieren Sie die Seite auf Ihrem Gerät und probieren Sie es erneut.",
-		"en": "An error occured while uploading the signature. Please close this browser window on your mobile device, refresh the page on the desktop device, and try again."
+		"de": "Beim Hochladen ist ein Fehler aufgetreten. Bitte schliessen Sie dieses Browserfenster auf Ihrem Smartphone, aktualisieren Sie die Seite auf Ihrem Desktop und probieren Sie es erneut.",
+		"en": "An error occured while uploading the signature. Please close this browser window on your smartphone, refresh the page on the desktop, and try again."
 	},
 	"captureSignature.qr.capturedOnMobile": {
 		"de": "Signatur erfasst",
 		"en": "Signature Captured"
 	},
 	"captureSignature.qr.info": {
-		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Mobilgerät (Smartphone oder Tablet) ein. Sie gelangen danach auf eine Seite in Ihrem Browser, in welchem Sie die Signatur mit dem Touch Screen erfassen können. Bestätigen Sie die Unterschrift und fahren Sie auf dieser Seite hier fort.",
-		"en": "Open the following link or scan the QR code with your mobile device (smart phone or tablet). A page where you can enter your signature using the touch screen is opened in your browser. Confirm the signature on the mobile device and continue on this page here."
+		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Smartphone (oder Tablet) ein. Sie gelangen danach auf eine Seite in Ihrem Browser, in welchem Sie die Signatur mit dem Touch Screen erfassen können. Bestätigen Sie die Unterschrift und fahren Sie auf dieser Seite hier fort.",
+		"en": "Open the following link or scan the QR code with your smartphone (or tablet). A page where you can enter your signature using the touch screen is opened in your browser. Confirm the signature on the smartphone and continue on this page here."
 	},
 	"captureSignature.qr.title": {
-		"de": "Signatur auf Mobilgerät erfassen",
-		"en": "Capture Signature on Mobile Device"
+		"de": "Signatur auf Smartphone erfassen",
+		"en": "Capture Signature on smartphone"
 	},
 	"captureSignature.spinnerUploading": {
 		"de": "Wird hochgeladen ...",
@@ -232,12 +232,12 @@
 		"en": "Try it anyway"
 	},
 	"captureSignature.touch.tryMobile": {
-		"de": "Mobilgerät verwenden",
-		"en": "Use mobile device"
+		"de": "Smartphone verwenden",
+		"en": "Use smartphone"
 	},
 	"captureSignature.touch.warning": {
-		"de": "Sie verwenden ein Gerät, welches keine Toucheingabe ermöglicht. Für die Unterschrift benötigen Sie ein touchfähiges Eingabegerät. Verwenden Sie ein anderes Mobilgerät (Smartphone, Tablet) für die Eingabe, indem Sie folgenden QR-Code einscannen.",
-		"en": "Pattern recognition is not possible on a device without a touch screen. For capturing the signature, you need to have a device with a touch screen. Use a mobile phone or tablet to enter your signature. Scan the following QR code on your mobile device."
+		"de": "Sie verwenden ein Gerät, welches keine Toucheingabe ermöglicht. Für die Unterschrift benötigen Sie ein touchfähiges Eingabegerät. Verwenden Sie ein anderes Smartphone (oder Tablet) für die Eingabe, indem Sie folgenden QR-Code einscannen.",
+		"en": "Pattern recognition is not possible on a device without a touch screen. For capturing the signature, you need to have a device with a touch screen. Use a different smartphone (or tablet) to enter your signature. Scan the following QR code on your smartphone."
 	},
 	"costCategory.accountingPolicy": {
 		"de": "Kontierungsrichtlinien",
@@ -784,8 +784,8 @@
 		"en": "General error"
 	},
 	"globalMessage.signatureQrNoImage.message": {
-		"de": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Mobilgerät eingegeben und abgeschickt haben. Versuchen Sie bitte erneut, die Signatur von Ihrem Mobilgerät abzuschicken.",
-		"en": "Make sure that you have entered the signature on your mobile device and confirmed it. Please try again to submit the signature on your mobile device."
+		"de": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Smartphone eingegeben und abgeschickt haben. Versuchen Sie bitte erneut, die Signatur von Ihrem Smartphone abzuschicken.",
+		"en": "Make sure that you have entered the signature on your smartphone and confirm it. Please try again to submit the signature on your smartphone."
 	},
 	"globalMessage.signatureQrNoImage.title": {
 		"de": "Fehler aufgetreten",
