@@ -17,7 +17,7 @@
 	},
 	"administration.deactivateCostCategoryText": {
 		"de": "Möchten Sie die gewählte Kostenstelle wirklich deaktivieren?",
-		"en": "Do you really want to deactivate the selected Cost Category?"
+		"en": "Do you really want to deactivate the selected cost category?"
 	},
 	"administration.deactivateCostCategoryTitle": {
 		"de": "Kostenstelle deaktivieren",
@@ -25,7 +25,7 @@
 	},
 	"administration.activateCostCategoryText": {
 		"de": "Möchten Sie die gewählte Kostenstelle wirklich aktivieren?",
-		"en": "Do you really want to activate the selected Cost Category?"
+		"en": "Do you really want to activate the selected cost category?"
 	},
 	"administration.activateCostCategoryTitle": {
 		"de": "Kostenstelle aktivieren",
@@ -37,7 +37,7 @@
 	},
 	"administration.deactivateCostCategoryNotPossibleMessage": {
 		"de": "Sie müssen mind. eine Kostenkategorie aktiviert haben. Aktivieren Sie eine andere Kostenkategorie, bevor Sie diese deaktivieren.",
-		"en": "You need to have at least one category activated. Please activate another Cost Category before deactivating this one."
+		"en": "You need to have at least one category activated. Please activate another cost category before deactivating this one."
 	},
 	"administration.graphs.title": {
 		"de": "Admin-Pool Graphen",
@@ -253,7 +253,7 @@
 	},
 	"costCategory.closeWarningEditMessage": {
 		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an dieser Kostenstelle verworfen. Fortfahren?",
-		"en": "If you close this window, you dismiss all changes made in the current Cost Category. Continue?"
+		"en": "If you close this window, you dismiss all changes made in the current cost category. Continue?"
 	},
 	"costCategory.createTitle": {
 		"de": "Neue Kostenstelle hinzufügen",
