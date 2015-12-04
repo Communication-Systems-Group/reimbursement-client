@@ -683,6 +683,14 @@
 		"de": "Warnung",
 		"en": "Warning"
 	},
+	"globalMessage.accountCurrentlyDeactivated": {
+		"de": "Ihr Konto ist derzeit deaktiviert. Bitte aktivieren Sie es in den ",
+		"en": "Your account is currently deactivated. Please activate it in the "
+	},
+	"globalMessage.accountCurrentlyDeactivated.settings": {
+		"de": "Einstellungen",
+		"en": "settings"
+	},
 	"globalMessage.expense.confirmAssignMessage": {
 		"de": "Möchten Sie sich diese Spesen zuweisen?",
 		"en": "Are you sure, you want to assign these expenses to you?"

@@ -1,102 +1,111 @@
-<nav class="navbar navbar-inverse">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-							aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a href class="navbar-brand" ng-click="goToWelcomePage()">
-				{{ 'reimbursement.page.title' | translate }}
-			</a>
-		</div>
+<div>
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+								aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href class="navbar-brand" ng-click="goToWelcomePage()">
+					{{ 'reimbursement.page.title' | translate }}
+				</a>
+			</div>
 
-		<div id="navbar" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li ui-sref-active="active" ng-show="USER.loggedIn && USER.hasRole('REGISTERED_USER')">
-					<a ui-sref="dashboard"><i class="fa fa-tachometer"></i> {{ 'reimbursement.dashboard.title' | translate }}</a>
-				</li>
-				<li ui-sref-active="active" ng-show="USER.loggedIn && USER.hasRole('REGISTERED_USER')">
-					<a ui-sref="archive"><i class="fa fa-file-archive-o"></i> {{ 'reimbursement.tabs.archive' | translate }}</a>
-				</li>
-				<li class="dropdown" ng-if="USER.hasRole('FINANCE_ADMIN') && USER.hasRole('REGISTERED_USER')">
-					<a href class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-gear"></i>
-						{{ 'reimbursement.administration.title' | translate }}
-						<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu" role="menu">
-						<li>
-							<a ui-sref="view-cost-category">
-								<i class="fa fa-balance-scale"></i>
-								{{ 'reimbursement.tabs.costCategories' | translate }}
-							</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a ui-sref="admin-pool-search">
-								<i class="fa fa-search"></i>
-								{{ 'reimbursement.tabs.adminPoolSearch' | translate }}
-							</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a ui-sref="admin-pool-graphs">
-								<i class="fa fa-bar-chart"></i>
-								{{ 'reimbursement.tabs.adminPoolGraphs' | translate }}
-							</a>
-						</li>
-					</ul>
-				</li>
-				<li class="dropdown" ng-show="USER.loggedIn">
-					<a href class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-user"></i>
-						[ {{ USER.uid }} ]
-						<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu" role="menu" ng-if="!USER.hasRole('REGISTERED_USER')">
-						<li>
-							<a href ng-click="goToRegistration()"><i class="fa fa-dribbble"></i> {{ 'reimbursement.tabs.registration' | translate }}</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href ui-sref="logout">
-								<i class="fa fa-sign-out"></i>
-								{{ 'reimbursement.logout.title' | translate }}
-							</a>
-						</li>
-					</ul>
-					<ul class="dropdown-menu" role="menu" ng-if="USER.hasRole('REGISTERED_USER')">
-						<li>
-							<a href ui-sref="settings">
-								<i class="fa fa-wrench fa-flip-horizontal"></i>
-								{{ 'reimbursement.tabs.settings' | translate }}
-							</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href ui-sref="logout">
-								<i class="fa fa-sign-out"></i>
-								{{ 'reimbursement.logout.title' | translate }}
-							</a>
-						</li>
-					</ul>
-				</li>
-				<li ng-show="!USER.loggedIn">
-					<a href ng-click="switchLanguage(inverseLanguage)">
-						<i class="fa fa-language"></i>
-						{{ 'reimbursement.tabs.' + inverseLanguage | translate }}
-					</a>
-				</li>
-				<li ng-show="!USER.loggedIn">
-					<a href ui-sref="dashboard">
-						<i class="fa fa-sign-in"></i>
-						{{ 'reimbursement.login.title' | translate }}
-					</a>
-				</li>
-			</ul>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li ui-sref-active="active" ng-show="USER.loggedIn && USER.hasRole('REGISTERED_USER')">
+						<a ui-sref="dashboard"><i class="fa fa-tachometer"></i> {{ 'reimbursement.dashboard.title' | translate }}</a>
+					</li>
+					<li ui-sref-active="active" ng-show="USER.loggedIn && USER.hasRole('REGISTERED_USER')">
+						<a ui-sref="archive"><i class="fa fa-file-archive-o"></i> {{ 'reimbursement.tabs.archive' | translate }}</a>
+					</li>
+					<li class="dropdown" ng-if="USER.hasRole('FINANCE_ADMIN') && USER.hasRole('REGISTERED_USER')">
+						<a href class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-gear"></i>
+							{{ 'reimbursement.administration.title' | translate }}
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a ui-sref="view-cost-category">
+									<i class="fa fa-balance-scale"></i>
+									{{ 'reimbursement.tabs.costCategories' | translate }}
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a ui-sref="admin-pool-search">
+									<i class="fa fa-search"></i>
+									{{ 'reimbursement.tabs.adminPoolSearch' | translate }}
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a ui-sref="admin-pool-graphs">
+									<i class="fa fa-bar-chart"></i>
+									{{ 'reimbursement.tabs.adminPoolGraphs' | translate }}
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown" ng-show="USER.loggedIn">
+						<a href class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-user"></i>
+							[ {{ USER.uid }} ]
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu" ng-if="!USER.hasRole('REGISTERED_USER')">
+							<li>
+								<a href ng-click="goToRegistration()"><i class="fa fa-dribbble"></i> {{ 'reimbursement.tabs.registration' | translate }}</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href ui-sref="logout">
+									<i class="fa fa-sign-out"></i>
+									{{ 'reimbursement.logout.title' | translate }}
+								</a>
+							</li>
+						</ul>
+						<ul class="dropdown-menu" role="menu" ng-if="USER.hasRole('REGISTERED_USER')">
+							<li>
+								<a href ui-sref="settings">
+									<i class="fa fa-wrench fa-flip-horizontal"></i>
+									{{ 'reimbursement.tabs.settings' | translate }}
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href ui-sref="logout">
+									<i class="fa fa-sign-out"></i>
+									{{ 'reimbursement.logout.title' | translate }}
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li ng-show="!USER.loggedIn">
+						<a href ng-click="switchLanguage(inverseLanguage)">
+							<i class="fa fa-language"></i>
+							{{ 'reimbursement.tabs.' + inverseLanguage | translate }}
+						</a>
+					</li>
+					<li ng-show="!USER.loggedIn">
+						<a href ui-sref="dashboard">
+							<i class="fa fa-sign-in"></i>
+							{{ 'reimbursement.login.title' | translate }}
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container global-alert" ng-show="USER.loggedIn && !USER.isActive">
+		<div class="alert alert-danger">
+			<i class="fa fa-warning"></i>
+			{{ 'reimbursement.globalMessage.accountCurrentlyDeactivated' | translate }}
+			<a href ui-sref="settings">{{ 'reimbursement.globalMessage.accountCurrentlyDeactivated.settings' | translate }}</a>.
 		</div>
 	</div>
-</nav>
+</div>

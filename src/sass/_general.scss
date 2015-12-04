@@ -96,8 +96,8 @@ h1.page-header small > .fa {
 		background: white;
 		position: absolute;
 		width: 100%;
-		padding-right: 15px;
-		padding-left: 15px;
+		padding-right: 30px;
+		padding-left: 0;
 
 		&.ng-enter,
 		&.ng-enter-active {
@@ -208,3 +208,35 @@ i.capsLockIcon{
 	}
 }
 
+.global-alert {
+	&.ng-hide-add {
+		animation: 0.5s heightAnimation ease;
+	}
+	&.ng-hide-remove {
+		animation: 0.5s heightAnimationReverse ease;
+	}
+	.alert {
+		margin-bottom: 0;
+
+		a {
+			color: inherit;
+			text-decoration: underline;
+		}
+	}
+}
+@keyframes heightAnimation {
+	0% {
+		max-height: 60px;
+	}
+	100% {
+		max-height: 0;
+	}
+}
+@keyframes heightAnimationReverse {
+	0% {
+		max-height: 0;
+	}
+	100% {
+		max-height: 60px;
+	}
+}
