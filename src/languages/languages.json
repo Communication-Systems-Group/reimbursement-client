@@ -420,8 +420,12 @@
 		"en": "Show PDF"
 	},
 	"expense.sign": {
-		"de": "Signieren",
-		"en": "Sign"
+		"de": "Dokument signieren",
+		"en": "Sign Document"
+	},
+	"expense.signPreview": {
+		"de": "Signiervorschau",
+		"en": "Sign Preview"
 	},
 	"expense.signForm.digital": {
 		"de": "Digitale Signatur\n(Zertifikat)",
@@ -435,45 +439,25 @@
 		"de": "Elektronische Signatur\n(Bildsignatur)",
 		"en": "Electronical signature\n(Image signature)"
 	},
-	"expense.signForm.error": {
-		"de": "Fehler bei der PDF Erstellung",
-		"en": "Error creating PDF"
-	},
-	"expense.signForm.noPrivateKeyProvided": {
-		"de": "Bitte geben Sie einen privaten Schlüssel an!",
-		"en": "Please provide a private key!"
-	},
-	"expense.signForm.pdfCannotBeCreated": {
-		"de": "Leider konnte das PDF nicht erstellt werden. Bitte versuchen Sie es noch einmal.",
-		"en": "The PDF could not be created. Please retry!"
-	},
-	"expense.signForm.pdfExportFailed": {
-		"de": "Leider konnte das PDF nicht exportiert werden. Bitte versuchen Sie es noch einmal.",
-		"en": "The PDF could not be exported. Please retry!"
-	},
 	"expense.signForm.privateKey": {
 		"de": "Privater Schlüssel:",
 		"en": "Private key:"
-	},
-	"expense.signForm.signatureCannotBeCreated": {
-		"de": "Der private Schlüssel konnte leider nicht eingelesen werden. Bitte vergewissern Sie sich, dass dieser im PKCS8 Format vorliegt.",
-		"en": "The private key cannot be parsed. Please double check that the key’s format is PKCS8."
-	},
-	"expense.signForm.success": {
-		"de": "Erfolg",
-		"en": "Success"
 	},
 	"expense.signForm.text": {
 		"de": "Wählen Sie die gewünschte Signaturmethode.",
 		"en": "Please choose your desired signature method."
 	},
-	"expense.signForm.title": {
-		"de": "Signaturmethode",
-		"en": "Sign method"
+	"expense.signForm.signDigitallyText": {
+		"de": "Bitte geben Sie Ihren private Signierschlüssel ein und signieren Sie das Dokument indem Sie auf den Button unten klicken. Ihr privater Schlüssel wird nicht übertragen.",
+		"en": "Please enter your private signing key and sign the document by clicking the Sign button below. Your personal key will not be transferred."
 	},
-	"expense.signForm.validationError": {
-		"de": "Validierungsfehler",
-		"en": "Validation error"
+	"expense.signForm.signElectronicallyText": {
+		"de": "Bitte signieren Sie das Dokument indem Sie auf den Button unten klicken. Ihre gespeicherte Signatur wird automatisch auf dem Dokument platziert.",
+		"en": "Please sign the document by clicking the Sign button below. Your stored signature will automatically be place on the document."
+	},
+	"expense.signForm.title": {
+		"de": "Dokument signieren",
+		"en": "Sign Document"
 	},
 	"expense.signInfoMessage": {
 		"de": "Die Spesen wurde erfolgreich signiert.",

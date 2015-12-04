@@ -38,6 +38,11 @@
 	cursor: pointer;
 	position: relative;
 	user-select: none;
+	transition: all 0.2s ease;
+
+	.pencil-line {
+		transition: all 0.2s ease;
+	}
 
 	& + .sign-method-box {
 		margin-left: 20px;
@@ -48,6 +53,17 @@
 		color: rgb(255,255,255);
 		box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
 		cursor: default;
+		.pencil-line {
+			background: rgb(255,255,255);
+		}
+	}
+	&.disabled {
+		color: #c2c2c2;
+		box-shadow: 0 0 3px rgba(0,0,0,0.2);
+		cursor: not-allowed;
+		.pencil-line {
+			background: #c2c2c2;
+		}
 	}
 
 	.fa-file-o {
@@ -85,9 +101,6 @@
 		left: 67px;
 		border-radius: 2px;
 	}
-	&.active .pencil-line {
-		background: rgb(255,255,255);
-	}
 
 	.text {
 		display: inline-block;
@@ -104,6 +117,13 @@
 
 		&.active {
 			max-height: 300px;
+		}
+
+		textarea {
+			font-family: Consolas, monospace;
+			font-size: 12px;
+			width: 94%;
+			margin: 10px auto 15px;
 		}
 	}
 }

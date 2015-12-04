@@ -5,45 +5,55 @@
 		</div>
 		<h3 class="modal-title"><i class="fa fa-pencil-square-o"></i> {{ 'reimbursement.expense.signForm.title' | translate }} </h3>
 	</div>
-	<div class="modal-body">
-		<form name="signature-method" class="text-center">
+	<div class="pos-rel">
+		<spinner id="signSpinner" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 
-			<div class="row">
-				<div class="col-md-12">
-					<div><b>{{ 'reimbursement.expense.signForm.text' | translate }}</b></div>
+		<div class="modal-body">
+			<form name="signatureMethod" class="text-center">
 
-					<div class="sign-method-box" ng-click="selectMethod('digital')" ng-class="{'active': method==='digital'}">
-						<i class="fa fa-file-o"></i>
-						<span class="binary"></span>
-						<span class="text pre-wrap">{{ 'reimbursement.expense.signForm.digital' | translate }}</span>
-					</div>
-					<div class="sign-method-box" ng-click="selectMethod('electronical')" ng-class="{'active': method==='electronical'}">
-						<i class="fa fa-file-o"></i>
-						<i class="fa fa-pencil"></i>
-						<span class="pencil-line"></span>
-						<span class="text pre-wrap">{{ 'reimbursement.expense.signForm.electronical' | translate }}</span>
-					</div>
-				</div>
-			</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div>
+							<span ng-if="method === null">{{ 'reimbursement.expense.signForm.text' | translate }}</span>
+							<span ng-if="method === 'digital'">{{ 'reimbursement.expense.signForm.signDigitallyText' | translate }}</span>
+							<span ng-if="method === 'electronical'">{{ 'reimbursement.expense.signForm.signElectronicallyText' | translate }}</span>
+						</div>
 
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1 certificateInput" ng-class="{active: method === 'digital'}">
-					<hr>
-					<div class="form-group">
-						<strong>{{ 'reimbursement.expense.signForm.privateKey' | translate }}</strong>
-						<div class="col-md-12">
-							<textarea class="form-control" id="private-key" ng-model="$parent.privateKey" rows="10"></textarea>
+						<div class="sign-method-box" ng-click="selectMethod('digital')" ng-class="{'active': method==='digital', 'disabled': method !== 'digital' && !methodChangeable}">
+							<i class="fa fa-file-o"></i>
+							<span class="binary"></span>
+							<span class="text pre-wrap">{{ 'reimbursement.expense.signForm.digital' | translate }}</span>
+						</div>
+						<div class="sign-method-box" ng-click="selectMethod('electronical')" ng-class="{'active': method==='electronical', 'disabled': method !== 'electronical' && !methodChangeable}">
+							<i class="fa fa-file-o"></i>
+							<i class="fa fa-pencil"></i>
+							<span class="pencil-line"></span>
+							<span class="text pre-wrap">{{ 'reimbursement.expense.signForm.electronical' | translate }}</span>
 						</div>
 					</div>
 				</div>
-			</div>
 
-		</form>
-	</div>
-	<div class="modal-footer">
-		<button class="btn btn-primary" ng-click="save()" ng-disabled="method===null">
-			<i class="fa fa-pencil-square-o"></i>
-			{{ 'reimbursement.expense.sign' | translate }}
-		</button>
+				<div class="certificateInput" ng-class="{active: method === 'digital'}">
+					<hr>
+					<div class="form-group">
+						<h4>{{ 'reimbursement.expense.signForm.privateKey' | translate }}</h4>
+						<textarea class="form-control input-validation" name="privateKey" ng-model="privateKey" rows="10" pattern="{{'expense.sign.privateKey' | regexValidation }}" required></textarea>
+					</div>
+					<div flow-init="{ target: signDigitallyPath, testChunks: false, singleFile: true, simultaneousUploads: 1 }"
+					flow-name="flow.signDigitally" flow-file-success="signDigitallySuccess()" flow-file-error="signDigitallyError()"></div>
+				</div>
+
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-default" ng-click="dismiss()">
+				<i class="fa fa-times-circle"></i>
+				{{ 'reimbursement.general.cancel' | translate }}
+			</button>
+			<button class="btn btn-primary" ng-click="sign()" ng-disabled="method === null || (method === 'digital' && signatureMethod.privateKey.$invalid)">
+				<i class="fa fa-pencil-square-o"></i>
+				{{ 'reimbursement.expense.sign' | translate }}
+			</button>
+		</div>
 	</div>
 </div>

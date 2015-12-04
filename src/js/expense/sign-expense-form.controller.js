@@ -1,89 +1,91 @@
-app.controller('SignExpenseFormController', ['$scope', '$uibModalInstance', 'signExpenseService', 'expenseRestService', 'globalMessagesService', 'expenseUid', 'HOST',
+app.controller('SignExpenseFormController', ['$scope', '$uibModalInstance', '$timeout', 'THIS_HOST', 'digitallySignExpenseService', 'spinnerService', 'expenseRestService', 'globalMessagesService', 'base64BinaryConverterService', 'expense',
 
-function($scope, $uibModalInstance, signExpenseService, expenseRestService, globalMessagesService, expenseUid, HOST) {
+function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseService, spinnerService, expenseRestService, globalMessagesService, base64BinaryConverterService, expense) {
 	"use strict";
 
-	$scope.expenseUid = expenseUid;
-	$scope.method = null;
+	var linkToGuestView = THIS_HOST + "/expense/guest/";
+
+	$scope.expense = expense;
 	$scope.privateKey = '';
+	$scope.dismiss = $uibModalInstance.dismiss;
+	$scope.methodChangeable = ($scope.expense.state === 'TO_SIGN_BY_USER');
 
-	$scope.selectMethod = function(method) {
-		$scope.method = method;
-	};
+	$scope.signDigitallyPath = expenseRestService.getSignDigitallyPath($scope.expense.uid);
+	$scope.flow = {};
 
-	$scope.save = function() {
-		var hasDigitalSignature;
-		if ($scope.method === "digital") {
-			hasDigitalSignature = true;
-			digitallySignExpense(function(result) {
-				if(result) {
-					$uibModalInstance.close(hasDigitalSignature);
-				}
-			});
+	(function initiallySetMethod() {
+		if($scope.methodChangeable) {
+			$scope.method = null;
 		}
 		else {
-			hasDigitalSignature = false;
-			$uibModalInstance.close(hasDigitalSignature);
-		}
-
-		function digitallySignExpense(callback) {
-			if(validation()) {
-				expenseRestService.generatePdf($scope.expenseUid, HOST).then(function() {}, function() {
-					globalMessagesService.showErrorMd('reimbursement.expense.signForm.error',
-					'reimbursement.expense.signForm.pdfCannotBeCreated').then(function() {
-						$scope.privateKey = '';
-						$scope.method = null;
-
-						callback(false);
-					});
-				})['finally'](function() {
-					expenseRestService.getExpensePdf($scope.expenseUid).then(function(response) {
-						signExpenseService.construct(response.data.content, $scope.privateKey, function(signature) {
-							if(signature) {
-								signExpenseService.verify(response.data.content, signature, function() {
-									globalMessagesService.showInfo('reimbursement.expense.signForm.success',
-										'reimbursement.expense.signForm.documentSignedSuccessfully').then(function() {
-										$scope.privateKey = '';
-										$scope.method = null;
-
-										// TODO upload signature
-
-										callback(true);
-									});
-								});
-							}
-							else {
-								globalMessagesService.showErrorMd('reimbursement.expense.signForm.error',
-								'reimbursement.expense.signForm.signatureCannotBeCreated').then(function() {
-
-									callback(false);
-								});
-							}
-						});
-					}, function() {
-						globalMessagesService.showErrorMd('reimbursement.expense.signForm.error',
-						'reimbursement.expense.signForm.pdfExportFailed').then(function() {
-							$scope.privateKey = '';
-							$scope.method = null;
-
-							callback(false);
-						});
-					});
-				});
-			}
-		}
-
-		function validation() {
-			if($scope.privateKey.length < 255) {
-				globalMessagesService.showWarningMd('reimbursement.expense.signForm.validationError',
-				'reimbursement.expense.signForm.noPrivateKeyProvided');
-
-				return false;
+			if($scope.expense.hasDigitalSignature) {
+				$scope.method = 'digital';
 			}
 			else {
-				return true;
+				$scope.method = 'electronical';
+			}
+		}
+	})();
+
+	$scope.selectMethod = function(method) {
+		if($scope.methodChangeable) {
+			$scope.method = method;
+		}
+	};
+
+	$scope.sign = function() {
+		spinnerService.show('signSpinner');
+		// first time
+		if($scope.methodChangeable) {
+			if($scope.method === 'digital') {
+				expenseRestService.setSignMethodToDigital($scope.expense.uid).then(function() {
+					expenseRestService.generatePdf($scope.expense.uid, linkToGuestView).then(signDigitally);
+				});
+			}
+			else {
+				expenseRestService.setSignMethodToElectronical($scope.expense.uid).then(signElectronically);
+			}
+		}
+		else {
+			if($scope.method === 'digital') {
+				signDigitally();
+			}
+			else {
+				signElectronically();
 			}
 		}
 	};
+
+	function signDigitally() {
+		expenseRestService.getExpensePdf($scope.expense.uid).then(function(response) {
+			var base64 = base64BinaryConverterService.toBase64FromJson(response.data);
+			var signedBase64 = digitallySignExpenseService.signPdf(base64, $scope.privateKey);
+			var signedBlob = base64BinaryConverterService.toBinary(signedBase64);
+
+			$timeout(function() {
+				$scope.flow.signDigitally.addFile(signedBlob);
+				$scope.flow.signDigitally.upload();
+			});
+		});
+	}
+	$scope.signDigitallySuccess = function() {
+		showSuccessInfo();
+	};
+	$scope.signDigitallyError = function() {
+		spinnerService.hide('signSpinner');
+		globalMessagesService.showGeneralError().then()['finally'](function() {
+			window.location.reload();
+		});
+	};
+
+	function signElectronically() {
+		expenseRestService.signElectronically($scope.expense.uid).then(showSuccessInfo);
+	}
+
+	function showSuccessInfo() {
+		spinnerService.hide('signSpinner');
+		globalMessagesService.showInfo('reimbursement.expense.signInfoTitle',
+		'reimbursement.expense.signInfoMessage').then($uibModalInstance.close);
+	}
 
 }]);

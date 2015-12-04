@@ -68,14 +68,22 @@ function($http, HOST) {
 		});
 	}
 
-	function setSignMethod(uid, hasDigitalSignature) {
+	function setSignMethodToDigital(uid) {
 		return $http({
 			method: 'PUT',
-			url: HOST + '/api/expenses/' + uid + '/digital-signature',
-			params: {
-				hasDigitalSignature: hasDigitalSignature
-			}
+			url: HOST + '/api/expenses/' + uid + '/set-digital-signature'
 		});
+	}
+
+	function setSignMethodToElectronical(uid) {
+		return $http({
+			method: 'PUT',
+			url: HOST + '/api/expenses/' + uid + '/set-electronical-signature'
+		});
+	}
+
+	function getSignDigitallyPath(uid) {
+		return HOST + '/api/expenses/' + uid + '/sign-digitally';
 	}
 
 	function signElectronically(uid) {
@@ -139,7 +147,9 @@ function($http, HOST) {
 		reject: reject,
 		getExpensePdf: getExpensePdf,
 		getExpenseToken: getExpenseToken,
-		setSignMethod: setSignMethod,
+		setSignMethodToDigital: setSignMethodToDigital,
+		setSignMethodToElectronical: setSignMethodToElectronical,
+		getSignDigitallyPath: getSignDigitallyPath,
 		signElectronically: signElectronically,
 		generatePdf: generatePdf,
 		assignToMe: assignToMe,
