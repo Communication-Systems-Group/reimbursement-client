@@ -696,12 +696,12 @@
 		"en": "These expenses had been reset on your request because they were stuck in the process."
 	},
 	"globalMessage.expense.projectTextMissing.message": {
-		"de": "In mindestens einem erstellten Beleg wurde das Projekt noch nicht angegeben. Solange nicht in allen Belegen das Projekt angegeben wurde können diese Spesen nicht angenommen werden. Dieses Feld muss von dem Reviewer ausgefüllt werden.",
-		"en": "In at least one of the created expense-items the project field is still empty. This field has to be filled in all expense-items otherwise these expenses cannot be accepted. This field has to be filled by the reviewer."
+		"de": "In mindestens einem der erstellten Belege wurde das Projektfeld noch nicht ausgefüllt. Solange nicht in allen Belegen das Projekt angegeben wurde können diese Spesen nicht angenommen werden. Dieses Feld muss vom Vorgesetzten ausgefüllt werden.",
+		"en": "In at least one of the created receipts the project field is still empty. The expense cannot be accepted without having this field filled out. At the latest, the reviewer needs to fill out this field."
 	},
 	"globalMessage.expense.projectTextMissing.title": {
-		"de": "Feld `Projekt` unvollständig",
-		"en": "Field `Project` incomplete"
+		"de": "Feld \"Projekt\" unvollständig",
+		"en": "Field \"Project\" incomplete"
 	},
 	"globalMessage.expenseNotFoundException.message": {
 		"de": "Der Spesenantrag inklusive der Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
