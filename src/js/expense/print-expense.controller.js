@@ -27,18 +27,17 @@ function($scope, $stateParams, $window, THIS_HOST, spinnerService, expenseRestSe
 			var base64 = base64BinaryConverterService.toBase64FromJson(response.data);
 			var blob = base64BinaryConverterService.toBinary(base64);
 
-			var newWin = window.open(blob.url, '_blank');
-			if(!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
-				globalMessagesService.showErrorMd('reimbursement.globalMessage.warning',
-					'reimbursement.globalMessage.popupBlockerDiscovered');
-			}
-
 			if (window.navigator.msSaveOrOpenBlob) {
 				window.navigator.msSaveOrOpenBlob(blob, blob.name);
 			}
 			else {
-				window.open(blob.url, '_blank');
+				var newWin = window.open(blob.url, '_blank');
+				if(!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
+					globalMessagesService.showErrorMd('reimbursement.globalMessage.warning',
+						'reimbursement.globalMessage.popupBlockerDiscovered');
+				}
 			}
+
 		})['finally'](function() {
 			spinnerService.hide('spinnerPrintExpense');
 		});
