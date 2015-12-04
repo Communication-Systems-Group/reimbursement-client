@@ -1,6 +1,6 @@
-app.controller('SignExpenseFormController', ['$scope', '$uibModalInstance', 'signExpenseFactory', 'expenseRestService', 'globalMessagesService', 'expenseUid', 'HOST',
+app.controller('SignExpenseFormController', ['$scope', '$uibModalInstance', 'signExpenseService', 'expenseRestService', 'globalMessagesService', 'expenseUid', 'HOST',
 
-function($scope, $uibModalInstance, signExpenseFactory, expenseRestService, globalMessagesService, expenseUid, HOST) {
+function($scope, $uibModalInstance, signExpenseService, expenseRestService, globalMessagesService, expenseUid, HOST) {
 	"use strict";
 
 	$scope.expenseUid = expenseUid;
@@ -38,9 +38,9 @@ function($scope, $uibModalInstance, signExpenseFactory, expenseRestService, glob
 					});
 				})['finally'](function() {
 					expenseRestService.getExpensePdf($scope.expenseUid).then(function(response) {
-						signExpenseFactory.construct(response.data.content, $scope.privateKey, function(signature) {
+						signExpenseService.construct(response.data.content, $scope.privateKey, function(signature) {
 							if(signature) {
-								signExpenseFactory.verify(response.data.content, signature, function() {
+								signExpenseService.verify(response.data.content, signature, function() {
 									globalMessagesService.showInfo('reimbursement.expense.signForm.success',
 										'reimbursement.expense.signForm.documentSignedSuccessfully').then(function() {
 										$scope.privateKey = '';
