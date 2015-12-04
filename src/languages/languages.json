@@ -979,6 +979,10 @@
 		"de": "Unregistrierter Benutzer",
 		"en": "Unregistered User"
 	},
+	"user.role.HEAD_OF_INSTITUTE": {
+		"de": "Institutsleiter",
+		"en": "Head of Institute"
+	},
 	"welcome.mainTitle": {
 		"de": "SPESENVERWALTUNG",
 		"en": "REIMBURSEMENT"
