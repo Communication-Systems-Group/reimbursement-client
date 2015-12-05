@@ -18,6 +18,9 @@ function ($rootScope, USER) {
 				}
 				else {
 					$scope.isWelcomePage = false;
+
+					// Scroll to top to see login input.
+					jQuery(window).scrollTop(0);
 				}
 			});
 
