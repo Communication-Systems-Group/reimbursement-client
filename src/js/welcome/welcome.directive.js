@@ -1,6 +1,6 @@
-app.directive('welcome', ['$rootScope', '$timeout', 'USER',
+app.directive('welcome', ['$rootScope', 'USER',
 
-function ($rootScope, $timeout, USER) {
+function ($rootScope, USER) {
 	"use strict";
 
 	return {
@@ -21,14 +21,32 @@ function ($rootScope, $timeout, USER) {
 				}
 			});
 
-			$scope.scrollDown = function () {
-				$timeout(function() {
+			(function scrollingToBottom() {
+				var jQueryWindow = jQuery(window);
+				var jQueryDiagram = jQuery('.diagram');
+				var jQueryGoDownButton = jQuery('.goDown');
+				var jQueryGoDownButtonVisible = true;
+
+				jQueryGoDownButton.click(function() {
 					jQuery("html, body").animate({
-						scrollTop: jQuery('.diagram').offset().top
+						scrollTop: jQueryDiagram.offset().top
 					}, 700);
 				});
-				$scope.hideScrollButton = true;
-			};
+
+				jQueryWindow.scroll(function() {
+					var belowLimit = jQueryWindow.scrollTop() > 200;
+
+					if(!jQueryGoDownButtonVisible && !belowLimit) {
+						jQueryGoDownButtonVisible = true;
+						jQueryGoDownButton.fadeIn(400);
+					}
+					else if(jQueryGoDownButtonVisible && belowLimit) {
+						jQueryGoDownButtonVisible = false;
+						jQueryGoDownButton.fadeOut(400);
+					}
+				});
+
+			})();
 		}
 	};
 
