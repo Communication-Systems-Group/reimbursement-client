@@ -1002,5 +1002,21 @@
 	"welcome.diagramTitle": {
 		"de": "Der Spesenablauf",
 		"en": "The Reimbursement Process"
+	},
+	"welcome.person.user": {
+		"de": "Mitarbeiter",
+		"en": "Employee"
+	},
+	"welcome.person.reviewer": {
+		"de": "Vorgesetzter",
+		"en": "Supervisor"
+	},
+	"welcome.person.financeIfi": {
+		"de": "Finanzabteilung IfI",
+		"en": "Finance Dept. IfI"
+	},
+	"welcome.person.financeUzh": {
+		"de": "Finanzabteilung UZH",
+		"en": "Finance Dept. UZH"
 	}
 }
