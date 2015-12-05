@@ -811,6 +811,18 @@
 		"de": "Bitte warten ...",
 		"en": "Please wait ..."
 	},
+	"login.passwordForgotten.message": {
+		"de": "Haben Sie Ihr LDAP-Passwort verwendet und trotzdem keinen Zugriff auf die Plattform? Leider können wir Ihr Passwort an dieser Stelle nicht zurücksetzen. Sobald Sie Ihr LDAP-Passwort geändert haben, haben Sie mit dem neuen Passwort Zugriff auf die Spesen-Plattform. Danke für Ihr Verständnis.",
+		"en": "Did you use your LDAP password and nonetheless it does not work? Unfortunately we are not able to reset your password here. As soon as you have changed your LDAP password, you will have access to the reimbursement plattform with the newly created password. Thank you for your understanding."
+	},
+	"login.passwordForgotten.title": {
+		"de": "Passwort vergessen?",
+		"en": "Password Forgotten?"
+	},
+	"login.passwordForgotten.linkText": {
+		"de": "Passwort vergessen?",
+		"en": "Password Forgotten?"
+	},
 	"login.passwordLabel": {
 		"de": "Passwort",
 		"en": "Password"

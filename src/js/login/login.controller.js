@@ -10,6 +10,11 @@ app.controller('LoginController', ['$scope', '$state', '$translate', 'USER', 'sp
 
 		$scope.isIE = (window.navigator.msSaveOrOpenBlob) ? true : false;
 
+		$scope.passwordForgotten = function() {
+			globalMessagesService.showInfoMd('reimbursement.login.passwordForgotten.title',
+			'reimbursement.login.passwordForgotten.message');
+		};
+
 		$scope.submit = function () {
 			spinnerService.show('spinnerLogin');
 

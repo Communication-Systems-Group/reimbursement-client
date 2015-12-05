@@ -234,6 +234,10 @@ i.capsLockIcon{
 		}
 	}
 }
+#login .passwordForgotten {
+	margin-top: 8px;
+	color: $default-color-dark-cyan;
+}
 @keyframes heightAnimation {
 	0% {
 		max-height: 70px;
