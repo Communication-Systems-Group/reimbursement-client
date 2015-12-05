@@ -4,15 +4,10 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	position: absolute;
-	z-index: 30;
-	transition: 0.5s all ease;
-	background: url('welcome_uzh.jpg') no-repeat;
-	background-position: 50% 8%;
-	background-attachment: fixed;
-	background-size: cover;
 	opacity: 0;
 	visibility: hidden;
+	transition: 0.5s all ease;
+	z-index: 30;
 
 	&.active {
 		opacity: 1;
@@ -22,36 +17,96 @@
 			box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 		}
 	}
-
 	.banner {
-		text-align: center;
+		height: 100%;
 		width: 100%;
-		position: absolute;
-		top: 28%;
+		background: url('welcome_uzh.jpg') no-repeat;
+		background-position: 50% 8%;
+		background-attachment: fixed;
+		background-size: cover;
+		box-shadow: 0 0 15px rgba(0,0,0,0.3);
 
-		.mainTitle {
-			color: white;
-			font-size: 70px;
-			font-weight: 700;
-			text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+		.bannerContent {
+			text-align: center;
+			width: 100%;
+			position: absolute;
+			top: 33%;
+
+			.mainTitle {
+				color: white;
+				font-size: 70px;
+				font-weight: 700;
+				text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+			}
+			.subTitle {
+				color: white;
+				font-size: 40px;
+				font-weight: 300;
+				margin-top: -5px;
+				text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+			}
+			hr {
+				display: block;
+				border: 0;
+				height: 3px;
+				width: 180px;
+				background: rgba(255,255,255,0.8);
+				margin: 2% auto 2.7%;
+			}
+			.btn-lg+.btn-lg {
+				margin-left: 20px;
+			}
 		}
-		.subTitle {
-			color: white;
-			font-size: 40px;
-			font-weight: 300;
-			margin-top: -5px;
-			text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+	}
+	.diagram {
+		.diagramTitle {
+			font-size: 50px;
+			text-align: center;
+			margin-top: 8%;
+			margin-bottom: 1%;
+			font-weight: 100;
 		}
-		hr {
-			display: block;
-			border: 0;
-			height: 3px;
-			width: 180px;
-			background: rgba(255,255,255,0.8);
-			margin: 2% auto 2.7%;
-		}
-		.btn-lg+.btn-lg {
-			margin-left: 20px;
+		.diagramImage {
+			background: url('diagram.svg') no-repeat;
+			background-position: center center;
+			background-size: cover;
+			height: 250px;
+			position: relative;
+			margin-bottom: 8%;
+
+			ul.numbers {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+
+				li {
+					position: absolute;
+					top: 40.83%;
+					font-weight: bold;
+					padding: 0;
+					margin: 0;
+					font-size: 12px;
+					border: 2px solid;
+					border-radius: 100%;
+					width: 20px;
+					height: 20px;
+					text-align: center;
+					margin-left: -6px;
+
+					&.blue {
+						color: #15C;
+						border-color: #15C;
+					}
+					&.red {
+						color: #C00;
+						border-color: #C00;
+					}
+					&.green {
+						color: #38761D;
+						border-color: #38761D;
+					}
+				}
+			}
 		}
 	}
 }

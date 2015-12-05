@@ -1,25 +1,43 @@
 <div id="welcome" ng-class="{'active': isWelcomePage}">
 
 	<div class="banner">
-		<div class="mainTitle">
-			{{ 'reimbursement.welcome.mainTitle' | translate }}
+		<div class="bannerContent">
+			<div class="mainTitle">
+				{{ 'reimbursement.welcome.mainTitle' | translate }}
+			</div>
+			<div class="subTitle">
+				{{ 'reimbursement.welcome.subTitle' | translate }}
+			</div>
+			<hr>
+			<a href="/help" target="_blank" class="btn btn-default btn-lg">
+				<i class="fa fa-info-circle"></i>
+				{{ 'reimbursement.welcome.help' | translate }}
+			</a>
+			<a href ui-sref="dashboard" class="btn btn-default btn-lg" ng-if="!USER.loggedIn">
+				<i class="fa fa-sign-in"></i>
+				{{ 'reimbursement.welcome.signIn' | translate }}
+			</a>
+			<a href ui-sref="dashboard" class="btn btn-default btn-lg" ng-if="USER.loggedIn">
+				<i class="fa fa-tachometer"></i>
+				{{ 'reimbursement.welcome.dashboard' | translate }}
+			</a>
 		</div>
-		<div class="subTitle">
-			{{ 'reimbursement.welcome.subTitle' | translate }}
+	</div>
+	<div class="diagram">
+		<div class="container">
+			<div class="diagramTitle">{{ 'reimbursement.welcome.diagramTitle' | translate }}</div>
+			<div class="diagramImage">
+				<ul class="numbers">
+					<li class="blue" style="left: 10.85%;">1</li>
+					<li class="blue" style="left: 22.91%;">2</li>
+					<li class="blue" style="left: 37.7%;">3</li>
+					<li class="red" style="left: 49.8%;">4</li>
+					<li class="red" style="left: 61.97%;">5</li>
+					<li class="red" style="left: 76.84%;">6</li>
+					<li class="green" style="left: 89%;">7</li>
+				</ul>
+			</div>
 		</div>
-		<hr>
-		<a href="/help" target="_blank" class="btn btn-default btn-lg">
-			<i class="fa fa-info-circle"></i>
-			{{ 'reimbursement.welcome.help' | translate }}
-		</a>
-		<a href ui-sref="dashboard" class="btn btn-default btn-lg" ng-if="!USER.loggedIn">
-			<i class="fa fa-sign-in"></i>
-			{{ 'reimbursement.welcome.signIn' | translate }}
-		</a>
-		<a href ui-sref="dashboard" class="btn btn-default btn-lg" ng-if="USER.loggedIn">
-			<i class="fa fa-tachometer"></i>
-			{{ 'reimbursement.welcome.dashboard' | translate }}
-		</a>
 	</div>
 
 </div>

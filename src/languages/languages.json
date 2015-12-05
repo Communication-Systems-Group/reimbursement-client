@@ -998,5 +998,9 @@
 	"welcome.dashboard": {
 		"de": "Zum Dashboard",
 		"en": "Start at the Dashboard"
+	},
+	"welcome.diagramTitle": {
+		"de": "Der Spesenablauf",
+		"en": "The Reimbursement Process"
 	}
 }
