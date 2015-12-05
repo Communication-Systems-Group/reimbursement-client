@@ -307,9 +307,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			params: { expense: null }
 
 		}).state('welcome', {
-			url: "/welcome",
-			templateUrl: "welcome/welcome.tpl.html",
-			controller: "WelcomeController"
+			// the welcome directive listens to this state
+			url: "/welcome"
 		});
 		$urlRouterProvider.otherwise('/welcome');
 

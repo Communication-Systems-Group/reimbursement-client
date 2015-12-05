@@ -34,6 +34,9 @@ textarea {
 
 .navbar.navbar-inverse {
 	border-radius: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 100;
 }
 
 .col-centered {
@@ -98,6 +101,7 @@ h1.page-header small > .fa {
 		width: 100%;
 		padding-right: 30px;
 		padding-left: 0;
+		padding-top: 60px;
 
 		&.ng-enter,
 		&.ng-enter-active {
@@ -209,6 +213,11 @@ i.capsLockIcon{
 }
 
 .global-alert {
+	position: relative;
+	top: 70px;
+	z-index: 50;
+	overflow: hidden;
+
 	&.ng-hide-add {
 		animation: 0.5s heightAnimation ease;
 	}
@@ -216,7 +225,7 @@ i.capsLockIcon{
 		animation: 0.5s heightAnimationReverse ease;
 	}
 	.alert {
-		margin-bottom: 0;
+		margin-bottom: 15px;
 
 		a {
 			color: inherit;
@@ -226,7 +235,7 @@ i.capsLockIcon{
 }
 @keyframes heightAnimation {
 	0% {
-		max-height: 60px;
+		max-height: 70px;
 	}
 	100% {
 		max-height: 0;
@@ -237,6 +246,6 @@ i.capsLockIcon{
 		max-height: 0;
 	}
 	100% {
-		max-height: 60px;
+		max-height: 70px;
 	}
 }

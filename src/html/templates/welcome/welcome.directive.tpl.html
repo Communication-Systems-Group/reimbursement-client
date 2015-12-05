@@ -1,0 +1,25 @@
+<div id="welcome" ng-class="{'active': isWelcomePage}">
+
+	<div class="banner">
+		<div class="mainTitle">
+			{{ 'reimbursement.welcome.mainTitle' | translate }}
+		</div>
+		<div class="subTitle">
+			{{ 'reimbursement.welcome.subTitle' | translate }}
+		</div>
+		<hr>
+		<a href="/help" target="_blank" class="btn btn-default btn-lg">
+			<i class="fa fa-info-circle"></i>
+			{{ 'reimbursement.welcome.help' | translate }}
+		</a>
+		<a href ui-sref="dashboard" class="btn btn-default btn-lg" ng-if="!USER.loggedIn">
+			<i class="fa fa-sign-in"></i>
+			{{ 'reimbursement.welcome.signIn' | translate }}
+		</a>
+		<a href ui-sref="dashboard" class="btn btn-default btn-lg" ng-if="USER.loggedIn">
+			<i class="fa fa-tachometer"></i>
+			{{ 'reimbursement.welcome.dashboard' | translate }}
+		</a>
+	</div>
+
+</div>

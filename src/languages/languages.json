@@ -728,7 +728,7 @@
 		"en": "No expenses found"
 	},
 	"globalMessage.invalidCsrfTokenException.message": {
-		"de": "Leider ist Ihre Sitzung abgelaufen. Sie werden zum Login weitergeleitet.\n Bitte geben Sie nach dem Login Ihre Daten erneut ein.",
+		"de": "Leider ist Ihre Sitzung abgelaufen. Sie werden zur Anmeldung weitergeleitet.\n Bitte geben Sie danach Ihre Daten erneut ein.",
 		"en": "Your session has expired. You are redirected to the login page.\n Please reenter your data after the login."
 	},
 	"globalMessage.invalidCsrfTokenException.title": {
@@ -740,7 +740,7 @@
 		"en": "The entered password or username was incorrect. Please try again."
 	},
 	"globalMessage.loginError.title": {
-		"de": "Login fehlgeschlagen",
+		"de": "Anmeldung fehlgeschlagen",
 		"en": "Login failed"
 	},
 	"globalMessage.notAnImage.message": {
@@ -816,7 +816,7 @@
 		"en": "Password"
 	},
 	"login.title": {
-		"de": "Login",
+		"de": "Anmelden",
 		"en": "Login"
 	},
 	"login.usernameLabel": {
@@ -978,5 +978,25 @@
 	"user.role.USER": {
 		"de": "Unregistrierter Benutzer",
 		"en": "Unregistered User"
+	},
+	"welcome.mainTitle": {
+		"de": "SPESENVERWALTUNG",
+		"en": "REIMBURSEMENT"
+	},
+	"welcome.subTitle": {
+		"de": "AM INSTITUT FÜR INFORMATIK",
+		"en": "AT THE DEPARTMENT OF INFORMATICS"
+	},
+	"welcome.help": {
+		"de": "Zur Hilfe",
+		"en": "Help Page"
+	},
+	"welcome.signIn": {
+		"de": "Anmelden",
+		"en": "Login"
+	},
+	"welcome.dashboard": {
+		"de": "Zum Dashboard",
+		"en": "Start at the Dashboard"
 	}
 }
