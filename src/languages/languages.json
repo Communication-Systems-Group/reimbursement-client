@@ -473,7 +473,7 @@
 	},
 	"expense.state.ASSIGNED_TO_MANAGER": {
 		"de": "An Vorgesetzten zugewiesen",
-		"en": "Assigned to manager"
+		"en": "Assigned to supervisor"
 	},
 	"expense.state.DRAFT": {
 		"de": "Entwurf",
@@ -501,7 +501,7 @@
 	},
 	"expense.state.TO_SIGN_BY_MANAGER": {
 		"de": "Signieren durch Vorgesetzten",
-		"en": "To be signed by manager"
+		"en": "To be signed by supervisor"
 	},
 	"expense.state.TO_SIGN_BY_USER": {
 		"de": "Signieren durch Mitarbeiter",
@@ -509,15 +509,15 @@
 	},
 	"expense.submitInfoMessage": {
 		"de": "Sind Sie sicher, dass alle Belege erfasst wurden und die Spesen an den Vorgesetzten zugewiesen werden sollen?",
-		"en": "Are you sure that all receipts were uploaded and that you want to send these expenses to your manager?"
+		"en": "Are you sure that all receipts were uploaded and that you want to send these expenses to your supervisor?"
 	},
 	"expense.submitInfoTitle": {
-		"de": "Definitiv abschicken",
-		"en": "Submit permanently"
+		"de": "Definitiv Abschicken",
+		"en": "Confirm Submit"
 	},
 	"expense.submitToManagerButton": {
 		"de": "An Vorgesetzten zuweisen",
-		"en": "Submit to manager"
+		"en": "Submit to Supervisor"
 	},
 	"expense.warning.formNotComplete.message": {
 		"de": "Bitte füllen Sie alle Felder vollständig aus.",
@@ -541,7 +541,7 @@
 	},
 	"expenseItem.calculatedAmount": {
 		"de": "berechneter Betrag",
-		"en": "amount calculated"
+		"en": "Calculated Amount"
 	},
 	"expenseItem.closeWarningEditMessage": {
 		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
