@@ -1,6 +1,6 @@
-app.directive('welcome', ['$rootScope', 'USER',
+app.directive('welcome', ['$rootScope', '$timeout', 'USER',
 
-function ($rootScope, USER) {
+function ($rootScope, $timeout, USER) {
 	"use strict";
 
 	return {
@@ -21,6 +21,14 @@ function ($rootScope, USER) {
 				}
 			});
 
+			$scope.scrollDown = function () {
+				$timeout(function() {
+					jQuery("html, body").animate({
+						scrollTop: jQuery('.diagram').offset().top
+					}, 700);
+				});
+				$scope.hideScrollButton = true;
+			};
 		}
 	};
 
