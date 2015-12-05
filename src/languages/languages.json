@@ -817,11 +817,11 @@
 	},
 	"login.passwordForgotten.title": {
 		"de": "Passwort vergessen?",
-		"en": "Password Forgotten?"
+		"en": "Forgot your Password?"
 	},
 	"login.passwordForgotten.linkText": {
 		"de": "Passwort vergessen?",
-		"en": "Password Forgotten?"
+		"en": "Forgot your Password?"
 	},
 	"login.passwordLabel": {
 		"de": "Passwort",
