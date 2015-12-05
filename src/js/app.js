@@ -58,6 +58,12 @@
 
 					return deferred.promise;
 				}
+			],
+			PRELOAD_WELCOME_IMAGE: ['$http',
+				function ($http) {
+					var thisHost = window.location.protocol + '//' + window.location.host;
+					return $http.get(thisHost + '/styles/welcome_uzh.jpg');
+				}
 			]
 		}
 	});
