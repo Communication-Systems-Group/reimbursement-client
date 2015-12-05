@@ -1,6 +1,6 @@
-app.directive('welcome', ['$rootScope', 'USER',
+app.directive('welcome', ['$rootScope', '$timeout', 'USER',
 
-function ($rootScope, USER) {
+function ($rootScope, $timeout, USER) {
 	"use strict";
 
 	return {
@@ -14,13 +14,17 @@ function ($rootScope, USER) {
 
 			$rootScope.$on('$stateChangeStart', function (event, toState) {
 				if(toState.name === 'welcome') {
+					jQuery('#welcome').show();
 					$scope.isWelcomePage = true;
 				}
 				else {
 					$scope.isWelcomePage = false;
 
-					// Scroll to top to see login input.
-					jQuery(window).scrollTop(0);
+					// scrollbar of #welcome is visible everywhere
+					// therefore hide element after css fadeout
+					$timeout(function() {
+						jQuery('#welcome').hide();
+					}, 500);
 				}
 			});
 
