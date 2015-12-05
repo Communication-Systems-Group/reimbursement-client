@@ -218,14 +218,12 @@
 }
 
 @keyframes goDownBump {
-	0% {
+	0%,
+	40%,
+	100% {
 		transform: scale(1);
 	}
 	20% {
 		transform: scale(1.5);
-	}
-	40%,
-	100% {
-		transform: scale(1);
 	}
 }
