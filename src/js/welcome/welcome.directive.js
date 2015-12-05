@@ -14,8 +14,8 @@ function ($rootScope, $timeout, USER) {
 
 			$rootScope.$on('$stateChangeStart', function (event, toState) {
 				if(toState.name === 'welcome') {
-					jQuery('#welcome').show();
 					$scope.isWelcomePage = true;
+					$scope.hideWelcome = false;
 				}
 				else {
 					$scope.isWelcomePage = false;
@@ -23,7 +23,7 @@ function ($rootScope, $timeout, USER) {
 					// scrollbar of #welcome is visible everywhere
 					// therefore hide element after css fadeout
 					$timeout(function() {
-						jQuery('#welcome').hide();
+						$scope.hideWelcome = true;
 					}, 500);
 				}
 			});

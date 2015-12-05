@@ -11,7 +11,7 @@ function(pdfsign) {
 			return pdfsign.sign(base64Pdf, privateKey);
 		}
 		else {
-			console.log("signing library is missing");
+			window.console.log("signing library is missing");
 			return base64Pdf;
 		}
 	}
