@@ -73,13 +73,63 @@
 			}
 		}
 	}
+
 	.diagram {
+
+		$indicator-blue: #15C;
+		$indicator-red: #C00;
+		$indicator-green: #38761D;
+
+		@mixin indicator {
+			font-weight: bold;
+			font-size: 12px;
+			border: 0.17em solid;
+			border-radius: 100%;
+			width: 1.7em;
+			height: 1.7em;
+			text-align: center;
+		}
+		@mixin indicator-color($color) {
+			color: $color;
+			border-color: $color;
+		}
+
+		ul, li {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+
 		.diagramTitle {
-			font-size: 50px;
+			font-size: 70px;
 			text-align: center;
 			margin-top: 8%;
 			margin-bottom: 1%;
 			font-weight: 100;
+			white-space: nowrap;
+		}
+		.colorExplanation {
+			text-align: center;
+			font-size: 24px;
+			margin-bottom: 3.5%;
+			white-space: nowrap;
+
+			span {
+				font-size: 80%;
+				margin-right: 10px;
+				margin-left: 10px;
+				font-weight: 700;
+
+				&.blue {
+					color: $indicator-blue;
+				}
+				&.red {
+					color: $indicator-red;
+				}
+				&.green {
+					color: $indicator-green;
+				}
+			}
 		}
 		.diagramImage {
 			background: url('diagram.svg') no-repeat;
@@ -88,46 +138,29 @@
 			height: 250px;
 			min-width: 720px;
 			position: relative;
-			margin-bottom: 10%;
+			margin-bottom: 2%;
 
 			ul.numbers {
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-
 				li {
+					@include indicator;
 					position: absolute;
-					top: 40.83%;
-					font-weight: bold;
+					top: 39.5%;
 					padding: 0;
 					margin: 0;
-					font-size: 12px;
-					border: 2px solid;
-					border-radius: 100%;
-					width: 20px;
-					height: 20px;
-					text-align: center;
-					margin-left: -6px;
+					margin-left: -8px;
 
 					&.blue {
-						color: #15C;
-						border-color: #15C;
+						@include indicator-color($indicator-blue);
 					}
 					&.red {
-						color: #C00;
-						border-color: #C00;
+						@include indicator-color($indicator-red);
 					}
 					&.green {
-						color: #38761D;
-						border-color: #38761D;
+						@include indicator-color($indicator-green);
 					}
 				}
 			}
 			ul.persons {
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-
 				li {
 					position: absolute;
 					text-align: center;
@@ -141,6 +174,43 @@
 						font-size: 15px;
 						white-space: nowrap;
 					}
+				}
+			}
+		}
+		ul.diagramExplanation {
+			margin-top: 6%;
+			margin-bottom: 8%;
+
+			li {
+				padding: 5px 25px;
+				white-space: nowrap;
+				min-height: 60px;
+
+				.indicator {
+					@include indicator;
+					display: inline-block;
+					vertical-align: middle;
+					margin-right: 7px;
+					font-size: 17px;
+
+					& + span {
+						display: inline-block;
+						vertical-align: middle;
+						white-space: normal;
+						font-style: italic;
+						font-size: 15px;
+						line-height: 1.3;
+						padding-right: 15px
+					}
+				}
+				&.blue .indicator {
+					@include indicator-color($indicator-blue);
+				}
+				&.red .indicator {
+					@include indicator-color($indicator-red);
+				}
+				&.green .indicator {
+					@include indicator-color($indicator-green);
 				}
 			}
 		}

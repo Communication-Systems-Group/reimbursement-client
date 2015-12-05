@@ -1007,6 +1007,18 @@
 		"de": "Der Spesenablauf",
 		"en": "The Reimbursement Process"
 	},
+	"welcome.diagramSubTitle.editing": {
+		"de": "BEARBEITEN",
+		"en": "EDITING"
+	},
+	"welcome.diagramSubTitle.signing": {
+		"de": "SIGNIEREN",
+		"en": "SIGNING"
+	},
+	"welcome.diagramSubTitle.submitting": {
+		"de": "EINREICHEN",
+		"en": "SUBMITTING"
+	},
 	"welcome.person.user": {
 		"de": "Mitarbeiter",
 		"en": "Employee"
@@ -1022,5 +1034,33 @@
 	"welcome.person.financeUzh": {
 		"de": "Finanzabteilung UZH",
 		"en": "Finance Dept. UZH"
+	},
+	"welcome.diagram.step1": {
+		"de": "Der Mitarbeiter erfasst die Spesen.",
+		"en": "The employee submits his expenses"
+	},
+	"welcome.diagram.step2": {
+		"de": "Die Spesen werden vom Vorgesetzen überprüft.",
+		"en": "The expenses are reviewed by the supervisor."
+	},
+	"welcome.diagram.step3": {
+		"de": "Die Spesen werden von der Finanzabt. IfI überprüft.",
+		"en": "The expenses are reviewd by the Finance Dept. IfI."
+	},
+	"welcome.diagram.step4": {
+		"de": "Der Mitarbeitende unterschreibt die Spesen online.",
+		"en": "The employee signs the expenses online."
+	},
+	"welcome.diagram.step5": {
+		"de": "Der Vorgesetzte unterschreibt die Spesen online.",
+		"en": "The supervisor signs the expenses online."
+	},
+	"welcome.diagram.step6": {
+		"de": "Die Finanzabt. IfI unterschreibt die Spesen online.",
+		"en": "The Finance Dept. IfI signs the expenses online."
+	},
+	"welcome.diagram.step7": {
+		"de": "Der Mitarbeiter druckt seine Spesen und reicht sie ein.",
+		"en": "The employee print his expenses und submits it physically."
 	}
 }

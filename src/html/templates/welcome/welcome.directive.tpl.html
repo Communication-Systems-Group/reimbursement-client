@@ -27,6 +27,15 @@
 	<div class="diagram">
 		<div class="container">
 			<div class="diagramTitle">{{ 'reimbursement.welcome.diagramTitle' | translate }}</div>
+			<div class="colorExplanation row">
+				<div>
+					<span class="blue">{{ 'reimbursement.welcome.diagramSubTitle.editing' | translate }}</span>
+					&rarr;
+					<span class="red">{{ 'reimbursement.welcome.diagramSubTitle.signing' | translate }}</span>
+					&rarr;
+					<span class="green">{{ 'reimbursement.welcome.diagramSubTitle.submitting' | translate }}</span>
+				</div>
+			</div>
 			<div class="diagramImage">
 				<ul class="numbers">
 					<li class="blue" style="left: 10.85%;">1</li>
@@ -48,9 +57,15 @@
 					<li style="left: 95.4%">{{ 'reimbursement.welcome.person.financeUzh' | translate }}</li>
 				</ul>
 			</div>
-			<div class="diagramExplanation">
-
-			</div>
+			<ul class="diagramExplanation row">
+				<li class="blue col-md-4 col-sm-6"><span class="indicator">1</span> <span>{{ 'reimbursement.welcome.diagram.step1' | translate }}</span></li>
+				<li class="blue col-md-4 col-sm-6"><span class="indicator">2</span> <span>{{ 'reimbursement.welcome.diagram.step2' | translate }}</span></li>
+				<li class="blue col-md-4 col-sm-6"><span class="indicator">3</span> <span>{{ 'reimbursement.welcome.diagram.step3' | translate }}</span></li>
+				<li class="red col-md-4 col-sm-6"><span class="indicator">4</span> <span>{{ 'reimbursement.welcome.diagram.step4' | translate }}</span></li>
+				<li class="red col-md-4 col-sm-6"><span class="indicator">5</span> <span>{{ 'reimbursement.welcome.diagram.step5' | translate }}</span></li>
+				<li class="red col-md-4 col-sm-6"><span class="indicator">6</span> <span>{{ 'reimbursement.welcome.diagram.step6' | translate }}</span></li>
+				<li class="green col-md-4 col-sm-6"><span class="indicator">7</span> <span>{{ 'reimbursement.welcome.diagram.step7' | translate }}</span></li>
+			</ul>
 		</div>
 	</div>
 
