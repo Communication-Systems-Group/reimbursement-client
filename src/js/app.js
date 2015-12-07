@@ -309,7 +309,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 		}).state('welcome', {
 			// the welcome directive listens to this state
 			url: "/welcome"
+
+		}).state('user-guide', {
+			templateUrl: "welcome/user-guide.tpl.html",
+			url: "/user-guide"
 		});
+
 		$urlRouterProvider.otherwise('/welcome');
 
 		$locationProvider.hashPrefix("!");

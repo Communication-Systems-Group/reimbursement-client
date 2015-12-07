@@ -995,6 +995,18 @@
 		"de": "Institutsleiter",
 		"en": "Head of Institute"
 	},
+	"userGuide.description": {
+		"de": "Das Handbuch bietet hilfreiche Informationen zur korrekten Anwendung des Spesenverwaltungs-Tool der Universität Zürich. Es klärt unter Anderem den initialen Registrierungsprozess sowie den Prozess zur Erstellung und Verwaltung einer Spese.",
+		"en": "The user-guide provides you with helpful information on the reimbursement-tool functionalities (i.e. configuration of the user account during registration). Further it explains the process to create and edit expenses."
+	},
+	"userGuide.downloadPdf": {
+		"de": "Handbuch runterladen",
+		"en": "Download user-guide"
+	},
+	"userGuide.title": {
+		"de": "Handbuch",
+		"en": "User-guide"
+	},
 	"welcome.mainTitle": {
 		"de": "SPESENVERWALTUNG",
 		"en": "REIMBURSEMENT"
