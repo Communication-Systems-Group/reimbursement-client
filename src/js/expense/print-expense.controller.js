@@ -44,7 +44,7 @@ function($scope, $stateParams, $window, THIS_HOST, spinnerService, expenseRestSe
 				globalMessagesService.confirmInfoMd('reimbursement.globalMessage.expense.info.archiveExpenseTitle',
 					'reimbursement.globalMessage.expense.info.archiveExpenseMessage').then(function() {
 						expenseRestService.archiveExpense($scope.expense.uid);
-				});
+					});
 			}
 		});
 	}
