@@ -429,7 +429,7 @@
 	},
 	"expense.signForm.digital": {
 		"de": "Digitale Signatur\n(Zertifikat)",
-		"en": "Digital signature\n(Zertifikat)"
+		"en": "Digital signature\n(Certificate)"
 	},
 	"expense.signForm.documentSignedSuccessfully": {
 		"de": "Das Dokument wurde erfolgreich signiert.",
