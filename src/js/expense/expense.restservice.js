@@ -138,6 +138,13 @@ function($http, HOST) {
 		});
 	}
 
+	function archiveExpense(uid) {
+		return $http({
+			method: 'PUT',
+			url: HOST + '/api/expenses/archive/' + uid
+		});
+	}
+
 	return {
 		postCreateExpense: postCreateExpense,
 		getExpense: getExpense,
@@ -156,7 +163,8 @@ function($http, HOST) {
 		deleteExpense: deleteExpense,
 		getMyExpenses: getMyExpenses,
 		getReviewExpenses: getReviewExpenses,
-		getUserByUid: getUserByUid
+		getUserByUid: getUserByUid,
+		archiveExpense: archiveExpense
 	};
 
 }]);

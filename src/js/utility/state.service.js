@@ -53,10 +53,10 @@ function($q, USER) {
 					USER.uid === expenseUsers.financeAdminUid
 			};
 
-			if ( typeof USER.uid === "undefined" || USER.uid === null) {
+			if (typeof USER.uid === "undefined" || USER.uid === null) {
 				return templates.noAccess;
 			}
-			if ( typeof expenseUsers.userUid === "undefined" || expenseUsers.userUid === null) {
+			if (typeof expenseUsers.userUid === "undefined" || expenseUsers.userUid === null) {
 				return templates.noAccess;
 			}
 
@@ -83,7 +83,9 @@ function($q, USER) {
 
 					return templates.signExpense;
 				}
-				else if (expenseState === 'SIGNED' || expenseState === 'PRINTED') {
+				else if (expenseState === 'SIGNED' ||
+							expenseState === 'PRINTED' ||
+							expenseState === 'ARCHIVED') {
 
 					return templates.printExpense;
 				}
@@ -125,30 +127,37 @@ function($q, USER) {
 
 					return templates.viewExpense;
 				}
-				else if (expenseState === 'TO_BE_ASSIGNED') {
+				else if (expenseState === 'TO_BE_ASSIGNED' ||
+							expenseState === 'PRINTED' ||
+							expenseState === 'ARCHIVED') {
+
 					return templates.assignToMe;
 				}
 				else if (expenseState === 'ASSIGNED_TO_FINANCE_ADMIN') {
+
 					return templates.reviewExpense;
 				}
 				else if (expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
+
 					return templates.signExpense;
-				}
-				else if (expenseState === 'PRINTED') {
-					return templates.assignToMe;
 				}
 				else {
 					return templates.noAccess;
 				}
 			}
 			else if (!belonging.isFinanceAdminOfExpense && USER.hasRole('FINANCE_ADMIN')) {
+				// In the case PRINTED and ARCHIVED the expense has been rejected by the
+				// university, the finance admin has to add a reject comment and therefore the
+				// expense is rather assigned to the finance admin than reset to the user
 				if (expenseState === 'TO_BE_ASSIGNED' ||
-					expenseState === 'PRINTED') {
+					expenseState === 'PRINTED' ||
+					expenseState === 'ARCHIVED') {
 
 					return templates.assignToMe;
 				}
-				else if (expenseState === 'PRINTED' ||
-					expenseState === 'ASSIGNED_TO_MANAGER' ||
+				// In these cases the expense is stuck in the process
+				// therefore the expense has to be reset to the user
+				else if (expenseState === 'ASSIGNED_TO_MANAGER' ||
 					expenseState === 'ASSIGNED_TO_FINANCE_ADMIN' ||
 					expenseState === 'TO_SIGN_BY_MANAGER' ||
 					expenseState === 'TO_SIGN_BY_FINANCE_ADMIN') {
@@ -225,7 +234,8 @@ function($q, USER) {
 				"TO_SIGN_BY_MANAGER",
 				"TO_SIGN_BY_FINANCE_ADMIN",
 				"SIGNED",
-				"PRINTED"
+				"PRINTED",
+				"ARCHIVED"
 			];
 		}
 	};

@@ -92,7 +92,7 @@
 		"en": "Please enter your search criteria to find matching expenses."
 	},
 	"administration.search.preselectedExpense": {
-		"de": "(Alle Stati)",
+		"de": "(Alle Status)",
 		"en": "(All States)"
 	},
 	"administration.search.preselectedRole": {
@@ -467,6 +467,10 @@
 		"de": "Spesen signiert",
 		"en": "Expenses signed"
 	},
+	"expense.state.ARCHIVED": {
+		"de": "Archiviert",
+		"en": "Archived"
+	},
 	"expense.state.ASSIGNED_TO_FINANCE_ADMIN": {
 		"de": "Zugewiesen an Finanzverwaltung",
 		"en": "Assigned to finance admin"
@@ -674,6 +678,14 @@
 	"globalMessage.accountCurrentlyDeactivated.settings": {
 		"de": "Einstellungen",
 		"en": "settings"
+	},
+	"globalMessage.expense.info.archiveExpenseTitle": {
+		"de": "Spesen Archivieren",
+		"en": "Archive Expenses"
+	},
+	"globalMessage.expense.info.archiveExpenseMessage": {
+		"de": "Wollen Sie diese Spesen nun archivieren? Falls Sie dies noch nicht möchten, werden Sie automatisch nach 2 Monaten archiviert.",
+		"en": "Do you want to archive these expenses? If not, they will be archived automatically after 2 months."
 	},
 	"globalMessage.expense.confirmAssignMessage": {
 		"de": "Möchten Sie sich diese Spesen zuweisen?",

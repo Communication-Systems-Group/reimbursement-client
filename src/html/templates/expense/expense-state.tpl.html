@@ -1,3 +1,3 @@
-<span class="label" ng-class="{'label-danger': isRejected, 'label-success': isSuccess, 'label-info': !isSuccess && !isRejected}">
+<span class="label" ng-class="{'label-danger': isRejected, 'label-success': isSuccess, 'label-info': !isSuccess && !isRejected && !isArchived, 'label-default':isArchived}">
 	<span>{{ 'reimbursement.expense.state.' + expenseState | translate }}</span>
 </span>

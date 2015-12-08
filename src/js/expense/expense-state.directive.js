@@ -16,6 +16,7 @@ app.directive('expenseState',
 					$scope.expenseState = state;
 					$scope.isSuccess = state === "PRINTED" || state === "SIGNED";
 					$scope.isRejected = state === "REJECTED";
+					$scope.isArchived = state === "ARCHIVED";
 				}
 				pushState();
 
