@@ -1,7 +1,22 @@
-app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administrationRestService', 'globalMessagesService',
+app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administrationRestService', 'globalMessagesService', '$translate',
 
-	function ($scope, $uibModal, administrationRestService, globalMessagesService) {
+	function ($scope, $uibModal, administrationRestService, globalMessagesService, $translate) {
 		"use strict";
+
+		var language = $translate.use();
+		$scope.orderColumnName = 'name';
+		$scope.orderColumn = $scope.orderColumnName + '.' + language;
+		$scope.orderReverse = false;
+		$scope.orderIcon = [];
+
+		function setOrderIcon() {
+			$scope.orderIcon = {
+				'accountNumber': 'fa-sort',
+				'name': 'fa-sort'
+			};
+			$scope.orderIcon[$scope.orderColumnName] = $scope.orderReverse ? 'fa-sort-asc' : 'fa-sort-desc';
+		}
+		setOrderIcon();
 
 		function loadData() {
 			administrationRestService.getCostCategories().then(function (response) {
@@ -18,6 +33,22 @@ app.controller('ViewCostCategoryController', [ '$scope', '$uibModal', 'administr
 		}
 
 		loadData();
+
+		$scope.sortBy = function(newOrderColumnName) {
+			if ($scope.orderColumnName === newOrderColumnName) {
+				$scope.orderReverse = !$scope.orderReverse;
+			}
+			$scope.orderColumnName = newOrderColumnName;
+
+			if($scope.orderColumnName === 'name') {
+				$scope.orderColumn = $scope.orderColumnName + '.' + language;
+			}
+			else {
+				$scope.orderColumn = $scope.orderColumnName;
+			}
+
+			setOrderIcon();
+		};
 
 		$scope.addCostCategory = function () {
 			var modalInstance = $uibModal.open({

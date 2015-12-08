@@ -20,15 +20,15 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>{{ 'reimbursement.costCategory.accountNumber' | translate }}</th>
-						<th>{{ 'reimbursement.costCategory.name' | translate }}</th>
+						<th ng-click="sortBy('accountNumber')">{{ 'reimbursement.costCategory.accountNumber' | translate }} <i class="fa {{ orderIcon.accountNumber }}"></i></th>
+						<th ng-click="sortBy('name')">{{ 'reimbursement.costCategory.name' | translate }} <i class="fa {{ orderIcon.name }}"></i></th>
 						<th>{{ 'reimbursement.costCategory.description' | translate }}</th>
 						<th>{{ 'reimbursement.dashboard.table.status' | translate }}</th>
 						<th>{{ 'reimbursement.general.action' | translate }}</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="c in costCategories">
+					<tr ng-repeat="c in costCategories | orderBy:orderColumn:orderReverse">
 						<td>{{c.accountNumber}}</td>
 						<td>{{c.name | costCategoryLanguage}}</td>
 						<td>{{c.description | costCategoryLanguage | limitWordwise: 50 }}</td>

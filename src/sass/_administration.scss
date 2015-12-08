@@ -123,4 +123,15 @@
 			}
 		}
 	}
+
+	table th[ng-click] {
+		.fa-sort {
+			margin-left: 0.5em;
+			color: #ccc;
+		}
+		.fa-sort-asc,
+		.fa-sort-desc {
+			margin-left: 0.5em;
+		}
+	}
 }
