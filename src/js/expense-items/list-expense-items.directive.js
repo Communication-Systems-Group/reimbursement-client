@@ -1,6 +1,6 @@
-app.directive('listExpenseItems', ['$uibModal', '$filter', '$timeout', '$state', 'spinnerService', 'globalMessagesService', 'expenseRestService', 'expenseItemsRestService',
+app.directive('listExpenseItems', ['$uibModal', '$filter', '$timeout', '$state', 'spinnerService', 'globalMessagesService', 'expenseRestService', 'expenseItemsRestService', 'costCategorySortService',
 
-function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesService, expenseRestService, expenseItemsRestService) {
+function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesService, expenseRestService, expenseItemsRestService, costCategorySortService) {
 	"use strict";
 
 	return {
@@ -78,7 +78,7 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 							$scope.addExpenseItemButtonDisabled = true;
 
 							expenseItemsRestService.getCostCategories().then(function(response) {
-								var preSelectedCategoryUid = response.data[0].uid;
+								var preSelectedCategoryUid = costCategorySortService.sort(response.data)[0].uid;
 
 								expenseItemsRestService.postExpenseItem($scope.expenseUid, {
 									date: $filter('date')(new Date(), 'yyyy-MM-dd'),

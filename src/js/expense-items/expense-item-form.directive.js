@@ -1,6 +1,6 @@
-app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', '$uibModal', 'USER', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService',
+app.directive('expenseItemForm', ['moment', '$filter', '$timeout', '$translate', '$uibModal', 'USER', 'spinnerService', 'globalMessagesService', 'expenseItemsRestService', 'costCategorySortService',
 
-function(moment, $filter, $timeout, $translate, $uibModal, USER, spinnerService, globalMessagesService, expenseItemsRestService) {
+function(moment, $filter, $timeout, $translate, $uibModal, USER, spinnerService, globalMessagesService, expenseItemsRestService, costCategorySortService) {
 	"use strict";
 
 	return {
@@ -31,7 +31,7 @@ function(moment, $filter, $timeout, $translate, $uibModal, USER, spinnerService,
 				spinnerService.show('spinnerExpenseItemForm');
 
 				expenseItemsRestService.getCostCategories().then(function(response) {
-					$scope.costCategories = response.data;
+					$scope.costCategories = costCategorySortService.sort(response.data);
 
 					expenseItemsRestService.getSupportedCurrencies().then(function(response) {
 						$scope.currencies = response.data;
