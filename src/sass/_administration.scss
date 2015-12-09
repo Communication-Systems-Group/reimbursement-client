@@ -124,14 +124,17 @@
 		}
 	}
 
-	table th[ng-click] {
-		.fa-sort {
-			margin-left: 0.5em;
-			color: #ccc;
-		}
+	th.order {
+		white-space: nowrap;
+		cursor: pointer;
+
+		.fa-sort,
 		.fa-sort-asc,
 		.fa-sort-desc {
 			margin-left: 0.5em;
+		}
+		.fa-sort {
+			color: #ccc;
 		}
 	}
 }

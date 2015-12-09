@@ -20,8 +20,8 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th ng-click="sortBy('accountNumber')">{{ 'reimbursement.costCategory.accountNumber' | translate }} <i class="fa {{ orderIcon.accountNumber }}"></i></th>
-						<th ng-click="sortBy('name')">{{ 'reimbursement.costCategory.name' | translate }} <i class="fa {{ orderIcon.name }}"></i></th>
+						<th class="order" ng-click="sortBy('accountNumber')">{{ 'reimbursement.costCategory.accountNumber' | translate }} <i class="fa {{ orderIcon.accountNumber }}"></i></th>
+						<th class="order" ng-click="sortBy('name')">{{ 'reimbursement.costCategory.name' | translate }} <i class="fa {{ orderIcon.name }}"></i></th>
 						<th>{{ 'reimbursement.costCategory.description' | translate }}</th>
 						<th>{{ 'reimbursement.dashboard.table.status' | translate }}</th>
 						<th>{{ 'reimbursement.general.action' | translate }}</th>
