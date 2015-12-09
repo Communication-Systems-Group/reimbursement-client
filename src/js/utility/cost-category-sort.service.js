@@ -3,28 +3,23 @@ app.factory('costCategorySortService', ['$translate',
 function($translate) {
 	"use strict";
 
-	var uniqueSeparator = "-;-;-;|#_|_#|;-;-;-";
 	var currentLanguage = $translate.use();
 
 	return {
 		sort: function(costCategories) {
-			var tempArray = [];
-			for(var m = 0; m < costCategories.length; m++) {
-				tempArray.push(costCategories[m].name[currentLanguage] + uniqueSeparator + costCategories[m].uid);
-			}
-			tempArray = tempArray.sort();
+			return costCategories.sort(function(a, b) {
+				var leftValue = a.name[currentLanguage];
+				var rightValue = b.name[currentLanguage];
 
-			var newCostCategories = [];
-			for(var i = 0; i < tempArray.length; i++) {
-				var uid = tempArray[i].split(uniqueSeparator)[1];
-				for(var j = 0; j < costCategories.length; j++) {
-					if(costCategories[j].uid === uid) {
-						newCostCategories.push(costCategories[j]);
-						break;
-					}
+				if(leftValue < rightValue) {
+					return -1;
 				}
-			}
-			return newCostCategories;
+				else if(leftValue > rightValue) {
+					return 1;
+				}
+
+				return 0;
+			});
 		}
 	};
 }]);
