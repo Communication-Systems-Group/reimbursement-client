@@ -688,7 +688,7 @@
 		"en": "Are you sure, you want to reset these expenses to the applicant of the expenses?"
 	},
 	"globalMessage.expense.resetMessage": {
-		"de": "Diese Spesen wurden auf Ihr Wunsch hin zurückgesetzt da sie im Prozess hängen geblieben sind.",
+		"de": "Diese Spesen wurden auf Ihren Wunsch hin zurückgesetzt da diese im Prozess hängen geblieben sind.",
 		"en": "These expenses had been reset on your request because they were stuck in the process."
 	},
 	"globalMessage.expense.projectTextMissing.message": {
