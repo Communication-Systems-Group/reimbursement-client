@@ -9,7 +9,7 @@ function($scope, $stateParams, $window, THIS_HOST, spinnerService, expenseRestSe
 	$scope.showPdf = function() {
 		spinnerService.show('spinnerPrintExpense');
 
-		if ($scope.expense.hasDigitalSignature === true || $scope.expense.state === 'PRINTED') {
+		if ($scope.expense.hasDigitalSignature === true || $scope.expense.state === 'PRINTED' || $scope.expense.state === 'ARCHIVED') {
 			getExpensePdf();
 		}
 		else {
