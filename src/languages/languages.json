@@ -444,7 +444,7 @@
 		"en": "Sign Document"
 	},
 	"expense.signInfoMessage": {
-		"de": "Die Spesen wurde erfolgreich signiert.",
+		"de": "Die Spesen wurden erfolgreich signiert.",
 		"en": "The Expenses have been signed succesfully."
 	},
 	"expense.signInfoTitle": {
