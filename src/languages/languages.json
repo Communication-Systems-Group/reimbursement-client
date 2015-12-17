@@ -59,22 +59,6 @@
 		"de": "Totalbetrag in CHF",
 		"en": "Total Amount in CHF"
 	},
-	"administration.graphs.firstQuarter": {
-		"de": "Erstes Quartal",
-		"en": "First Quarter"
-	},
-	"administration.graphs.secondQuarter": {
-		"de": "Zweites Quartal",
-		"en": "Second Quarter"
-	},
-	"administration.graphs.thirdQuarter": {
-		"de": "Drittes Quartal",
-		"en": "Third Quarter"
-	},
-	"administration.graphs.fourthQuarter": {
-		"de": "Viertes Quartal",
-		"en": "Fourth Quarter"
-	},
 	"administration.title": {
 		"de": "Administration",
 		"en": "Administration"

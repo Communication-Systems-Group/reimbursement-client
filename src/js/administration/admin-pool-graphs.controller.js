@@ -92,21 +92,28 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 	}
 
 	function generateGraphLineSumCurrentYear() {
+		var data = $scope.data.monthlyTotalAmounts;
+		var keys = [];
+		var values = [];
+		for(var key in data) {
+			if(data.hasOwnProperty(key)) {
+				keys.push(key);
+				values.push(data[key]);
+			}
+		}
+
 		return c3.generate({
 			bindto: "#graph-line-sum-current-year",
 			data: {
 				type: 'area',
-				columns: [[allTranslations['reimbursement.administration.graphs.totalAmount'], $scope.data.totalAmountFirstQuarter, $scope.data.totalAmountSecondQuarter, $scope.data.totalAmountThirdQuarter, $scope.data.totalAmountFourthQuarter]]
+				columns: [
+					[allTranslations['reimbursement.administration.graphs.totalAmount']].concat(values)
+				]
 			},
 			axis: {
 				x: {
 					type: 'category',
-					categories: [
-						allTranslations['reimbursement.administration.graphs.firstQuarter'],
-						allTranslations['reimbursement.administration.graphs.secondQuarter'],
-						allTranslations['reimbursement.administration.graphs.thirdQuarter'],
-						allTranslations['reimbursement.administration.graphs.fourthQuarter']
-					]
+					categories: keys
 				}
 			}
 		});
@@ -126,11 +133,7 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 			'reimbursement.expense.state.TO_SIGN_BY_FINANCE_ADMIN',
 			'reimbursement.expense.state.SIGNED',
 			'reimbursement.expense.state.PRINTED',
-			'reimbursement.administration.graphs.totalAmount',
-			'reimbursement.administration.graphs.firstQuarter',
-			'reimbursement.administration.graphs.secondQuarter',
-			'reimbursement.administration.graphs.thirdQuarter',
-			'reimbursement.administration.graphs.fourthQuarter']).then(function(translations) {
+			'reimbursement.administration.graphs.totalAmount']).then(function(translations) {
 
 				allTranslations = translations;
 				$scope.dataReady = true;
