@@ -312,6 +312,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 
 		}).state('user-guide', {
 			templateUrl: "welcome/user-guide.tpl.html",
+			controller: "UserGuideController",
 			url: "/user-guide"
 		});
 

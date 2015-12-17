@@ -227,3 +227,20 @@
 		transform: scale(1.5);
 	}
 }
+
+#user-guide {
+  line-height: 1.5em;
+  font-size: 1.1em;
+	img {
+		max-width: 800px;
+		border: 1px solid;
+	}
+
+	.aeti-12 {
+		font-style: italic;
+	}
+
+	.aebx-12 {
+		font-weight: bold;
+	}
+}
