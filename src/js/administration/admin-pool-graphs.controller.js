@@ -19,7 +19,6 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 			}
 			$timeout(function() {
 				charts.chart1 = generateGraphAreaStepCurrentStateDistribution();
-				charts.chart1.resize({ height: 450 });
 			});
 		}
 	});
@@ -30,7 +29,6 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 			}
 			$timeout(function() {
 				charts.chart2 = generateGraphGaugeAcceptedDeclined();
-				charts.chart2.resize({ height: 350 });
 			});
 		}
 	});
@@ -41,7 +39,6 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 			}
 			$timeout(function() {
 				charts.chart3 = generateGraphLineSumCurrentYear();
-				charts.chart3.resize({ height: 450 });
 			});
 		}
 	});

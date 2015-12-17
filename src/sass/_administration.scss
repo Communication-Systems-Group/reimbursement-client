@@ -1,5 +1,5 @@
 .carousel {
-	height: 570px;
+	height: 420px;
 	margin-top: 70px;
 
 	.carousel-control {
@@ -86,6 +86,14 @@
 #graph-line-sum-current-year {
 	width: 75%;
 	margin: 0 auto;
+}
+
+.c3-legend-item {
+	margin-top: 15px;
+}
+
+#graph-gauge-accepted-declined {
+	margin-top: 50px;
 }
 
 #admin-pool-graphs .item {
