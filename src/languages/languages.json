@@ -44,12 +44,12 @@
 		"en": "Admin Pool Graphs"
 	},
 	"administration.graphs.stateGraphText": {
-		"de": "Verteilung der Spesen (ohne Status «Ausgedruckt»)",
-		"en": "Current Expense Distribution (without state «printed»)"
+		"de": "Verteilung der Spesen (ohne Status «Archiviert»)",
+		"en": "Current Expense Distribution (without state «archived»)"
 	},
 	"administration.graphs.percentageGraphText": {
-		"de": "Ausgedruckte Spesen in Prozent (Daten der letzten 12 Monate)",
-		"en": "Percentage of Printed Expenses (Data from the last 12 Months)"
+		"de": "Archivierte Spesen in Prozent (Daten der letzten 12 Monate)",
+		"en": "Percentage of Archived Expenses (Data from the last 12 Months)"
 	},
 	"administration.graphs.totalAmountGraphText": {
 		"de": "Totalbetrag in CHF (Daten der letzten 12 Monate)",

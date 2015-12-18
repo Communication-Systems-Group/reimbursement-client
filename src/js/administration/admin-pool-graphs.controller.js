@@ -51,7 +51,7 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 			data: {
 				type: 'area-step',
 				columns: [
-					['Expenses in this state', $scope.data.draft, $scope.data.assignedToManager, $scope.data.toBeAssigned, $scope.data.assignedToFinanceAdmin, $scope.data.toSignByUser, $scope.data.toSignByManager, $scope.data.toSignByFinanceAdmin, $scope.data.signed]
+					['Expenses in this state', $scope.data.draft, $scope.data.assignedToManager, $scope.data.toBeAssigned, $scope.data.assignedToFinanceAdmin, $scope.data.toSignByUser, $scope.data.toSignByManager, $scope.data.toSignByFinanceAdmin, $scope.data.signed, $scope.data.printed]
 				]
 			},
 			axis: {
@@ -65,7 +65,8 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 						allTranslations['reimbursement.expense.state.TO_SIGN_BY_USER'],
 						allTranslations['reimbursement.expense.state.TO_SIGN_BY_MANAGER'],
 						allTranslations['reimbursement.expense.state.TO_SIGN_BY_FINANCE_ADMIN'],
-						allTranslations['reimbursement.expense.state.SIGNED']
+						allTranslations['reimbursement.expense.state.SIGNED'],
+						allTranslations['reimbursement.expense.state.PRINTED']
 					]
 				}
 			}
@@ -77,7 +78,7 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 			bindto: "#graph-gauge-accepted-declined",
 			data: {
 				type: "gauge",
-				columns: [[allTranslations['reimbursement.expense.state.PRINTED'], $scope.data.percentagePrinted]]
+				columns: [[allTranslations['reimbursement.expense.state.ARCHIVED'], $scope.data.percentageArchived]]
 			},
 			color: {
 				pattern: ['#ff0000', '#f97600', '#f6c600', '#60b044'],
@@ -130,6 +131,7 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 			'reimbursement.expense.state.TO_SIGN_BY_FINANCE_ADMIN',
 			'reimbursement.expense.state.SIGNED',
 			'reimbursement.expense.state.PRINTED',
+			'reimbursement.expense.state.ARCHIVED',
 			'reimbursement.administration.graphs.totalAmount']).then(function(translations) {
 
 				allTranslations = translations;
