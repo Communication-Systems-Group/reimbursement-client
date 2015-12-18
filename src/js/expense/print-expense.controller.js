@@ -42,9 +42,11 @@ function($scope, $stateParams, $window, THIS_HOST, spinnerService, expenseRestSe
 			spinnerService.hide('spinnerPrintExpense');
 			if($scope.expense.state === 'PRINTED') {
 				globalMessagesService.confirmInfoMd('reimbursement.globalMessage.expense.info.archiveExpenseTitle',
-					'reimbursement.globalMessage.expense.info.archiveExpenseMessage').then(function() {
-						expenseRestService.archiveExpense($scope.expense.uid);
+				'reimbursement.globalMessage.expense.info.archiveExpenseMessage').then(function() {
+					expenseRestService.archiveExpense($scope.expense.uid).then(function() {
+						$scope.expense.state = 'ARCHIVED';
 					});
+				});
 			}
 		});
 	}
