@@ -54,6 +54,9 @@ function($scope, $timeout, $translate, globalMessagesService, administrationRest
 					['Expenses in this state', $scope.data.draft, $scope.data.assignedToManager, $scope.data.toBeAssigned, $scope.data.assignedToFinanceAdmin, $scope.data.toSignByUser, $scope.data.toSignByManager, $scope.data.toSignByFinanceAdmin, $scope.data.signed, $scope.data.printed]
 				]
 			},
+			legend: {
+				show: false
+			},
 			axis: {
 				x: {
 					type: 'category',
