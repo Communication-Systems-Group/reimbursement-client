@@ -84,8 +84,8 @@ function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseSer
 
 	function showSuccessInfo() {
 		spinnerService.hide('signSpinner');
-		globalMessagesService.showInfo('reimbursement.expense.signInfoTitle',
-		'reimbursement.expense.signInfoMessage').then($uibModalInstance.close);
+		globalMessagesService.showInfo('reimbursement.globalMessage.expense.signInfoTitle',
+		'reimbursement.globalMessage.expense.signInfoMessage').then($uibModalInstance.close);
 	}
 
 }]);

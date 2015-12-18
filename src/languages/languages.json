@@ -40,7 +40,7 @@
 		"en": "You need to have at least one category activated. Please activate another cost category before deactivating this one."
 	},
 	"administration.graphs.title": {
-		"de": "Admin-Pool Graphen",
+		"de": "Admin Pool Graphen",
 		"en": "Admin Pool Graphs"
 	},
 	"administration.graphs.stateGraphText": {
@@ -123,10 +123,6 @@
 		"de": "ODER",
 		"en": "OR"
 	},
-	"captureAttachment.deleteAttachment.message": {
-		"de": "Sind Sie sicher, dass Sie den hochgeladenen Beleg unwiderruflich löschen möchten?",
-		"en": "Are you sure that you want to delete the uploaded receipt irrevocably?"
-	},
 	"captureAttachment.deleteAttachment": {
 		"de": "Beleg löschen",
 		"en": "Delete Receipt"
@@ -150,14 +146,6 @@
 	"captureAttachment.qr.info": {
 		"de": "Öffnen Sie den folgenden Link oder scannen Sie den QR Code mit Ihrem Smartphone (oder Tablet) ein. Sie gelangen danach auf eine Seite in Ihrem Browser, in welchem Sie den Anhang anfügen können.",
 		"en": "Open the following link or scan the QR code with your smartphone (or tablet). A page where you can upload your attachment using the touch screen is opened in your smartphone's browser."
-	},
-	"captureAttachment.qr.notYetCaptured.message": {
-		"de": "Der Beleg wurde auf dem Smartphone noch nicht hochgeladen. Laden Sie bitte den Beleg mit obenstehendem QR-Code auf Ihrem Smartphone hoch.",
-		"en": "The receipt was not yet uploaded on the smartphone. Please upload the receipt on your smartphone."
-	},
-	"captureAttachment.qr.notYetCaptured.title": {
-		"de": "Noch nicht erfasst",
-		"en": "Not yet uploaded"
 	},
 	"captureAttachment.qr.title": {
 		"de": "Anhang mit Smartphone erfassen",
@@ -235,10 +223,6 @@
 		"de": "Übernehmen",
 		"en": "Apply"
 	},
-	"costCategory.closeWarningEditMessage": {
-		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an dieser Kostenstelle verworfen. Fortfahren?",
-		"en": "If you close this window, you dismiss all changes made in the current cost category. Continue?"
-	},
 	"costCategory.createTitle": {
 		"de": "Neue Kostenstelle hinzufügen",
 		"en": "Add new Cost Category"
@@ -279,7 +263,7 @@
 		"de": "Meine Spesen",
 		"en": "My Expenses"
 	},
-	"dashboard.myReviewExpenseItems": {
+	"dashboard.myReviewExpenses": {
 		"de": "Spesen überprüfen",
 		"en": "Expenses for Review"
 	},
@@ -359,14 +343,6 @@
 		"de": "Geben Sie eine Begründung mit mindestens zehn Zeichen ein.",
 		"en": "Enter an explanation with at least 10 characters."
 	},
-	"expense.info.accountingTextMissingMessage": {
-		"de": "Die Buchhaltungsbeschreibung (SAP) muss mindestens fünf Zeichen umfassen und darf keine doppelten Leerschläge enthalzen.\n Geben Sie bitte eine korrekte Beschreibung ein.",
-		"en": "The accounting description(SAP) requires to be at least 5 characters long and does not allow for double spaces.\n Please enter a correct description."
-	},
-	"expense.info.accountingTextMissingTitle": {
-		"de": "Beschreibung unvollständig",
-		"en": "Description incomplete"
-	},
 	"expense.noExpenseItems": {
 		"de": "Keine Belege vorhanden",
 		"en": "No Receipts Available"
@@ -415,10 +391,6 @@
 		"de": "Digitale Signatur\n(Zertifikat)",
 		"en": "Digital signature\n(Certificate)"
 	},
-	"expense.signForm.documentSignedSuccessfully": {
-		"de": "Das Dokument wurde erfolgreich signiert.",
-		"en": "The document has been signed successfully."
-	},
 	"expense.signForm.electronical": {
 		"de": "Elektronische Signatur\n(Bildsignatur)",
 		"en": "Electronical signature\n(Image signature)"
@@ -442,14 +414,6 @@
 	"expense.signForm.title": {
 		"de": "Dokument signieren",
 		"en": "Sign Document"
-	},
-	"expense.signInfoMessage": {
-		"de": "Die Spesen wurden erfolgreich signiert.",
-		"en": "The Expenses have been signed succesfully."
-	},
-	"expense.signInfoTitle": {
-		"de": "Spesen signiert",
-		"en": "Expenses signed"
 	},
 	"expense.state.ARCHIVED": {
 		"de": "Archiviert",
@@ -495,25 +459,9 @@
 		"de": "Signieren durch Mitarbeiter",
 		"en": "To be signed by user"
 	},
-	"expense.submitInfoMessage": {
-		"de": "Sind Sie sicher, dass alle Belege erfasst wurden und die Spesen an den Vorgesetzten zugewiesen werden sollen?",
-		"en": "Are you sure that all receipts were uploaded and that you want to send these expenses to your supervisor?"
-	},
-	"expense.submitInfoTitle": {
-		"de": "Definitiv Abschicken",
-		"en": "Confirm Submit"
-	},
 	"expense.submitToManagerButton": {
 		"de": "An Vorgesetzten zuweisen",
 		"en": "Submit to Supervisor"
-	},
-	"expense.warning.formNotComplete.message": {
-		"de": "Bitte füllen Sie alle Felder vollständig aus.",
-		"en": "Please complete all input fields."
-	},
-	"expense.warning.formNotComplete.title": {
-		"de": "Unvollständig",
-		"en": "Incomplete"
 	},
 	"expense.validate": {
 		"de": "Validieren",
@@ -531,22 +479,6 @@
 		"de": "berechneter Betrag",
 		"en": "Calculated Amount"
 	},
-	"expenseItem.closeWarningEditMessage": {
-		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
-		"en": "If you close this window, you dismiss all changes for the current receipt. Continue?"
-	},
-	"expenseItem.closeWarningEditTitle": {
-		"de": "Achtung",
-		"en": "Attention"
-	},
-	"expenseItem.closeWarningMessage": {
-		"de": "Wenn Sie dieses Fenster schliessen, wird der Beleg verworfen. Fortfahren?",
-		"en": "If you close this window, you dismiss the current receipt. Continue?"
-	},
-	"expenseItem.closeWarningTitle": {
-		"de": "Achtung",
-		"en": "Attention"
-	},
 	"expenseItem.costCategory": {
 		"de": "Kostenstelle",
 		"en": "Cost Category"
@@ -554,14 +486,6 @@
 	"expenseItem.date": {
 		"de": "Belegsdatum",
 		"en": "Receipt Date"
-	},
-	"expenseItem.deleteConfirmMessage": {
-		"de": "Möchten Sie diesen Beleg wirklich unwiderruflich löschen?",
-		"en": "Are you sure that you want to delete this receipt permanently?"
-	},
-	"expenseItem.deleteConfirmTitle": {
-		"de": "Element löschen",
-		"en": "Delete Element"
 	},
 	"expenseItem.editAccountingSaveButton": {
 		"de": "Speichern",
@@ -604,10 +528,6 @@
 		"en": "Edit receipt"
 	},
 	"expenseItem.titleNotEditable": {
-		"de": "Eingereichte Belege",
-		"en": "Receipts"
-	},
-	"expenseItem.titleReview": {
 		"de": "Eingereichte Belege",
 		"en": "Receipts"
 	},
@@ -663,6 +583,30 @@
 		"de": "Einstellungen",
 		"en": "settings"
 	},
+	"globalMessage.captureAttachment.deleteAttachmentMessage": {
+		"de": "Sind Sie sicher, dass Sie den hochgeladenen Beleg unwiderruflich löschen möchten?",
+		"en": "Are you sure that you want to delete the uploaded receipt irrevocably?"
+	},
+	"globalMessage.captureAttachment.qr.notYetCapturedMessage": {
+		"de": "Der Beleg wurde auf dem Smartphone noch nicht hochgeladen. Laden Sie bitte den Beleg mit obenstehendem QR-Code auf Ihrem Smartphone hoch.",
+		"en": "The receipt was not yet uploaded on the smartphone. Please upload the receipt on your smartphone."
+	},
+	"globalMessage.captureAttachment.qr.notYetCapturedTitle": {
+		"de": "Noch nicht erfasst",
+		"en": "Not yet uploaded"
+	},
+	"globalMessage.costCategory.closeWarningEditMessage": {
+		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an dieser Kostenstelle verworfen. Fortfahren?",
+		"en": "If you close this window, you dismiss all changes made in the current cost category. Continue?"
+	},
+	"globalMessage.expense.info.accountingTextMissingMessage": {
+		"de": "Die Buchhaltungsbeschreibung (SAP) muss mindestens fünf Zeichen umfassen und darf keine doppelten Leerschläge enthalten.\n Geben Sie bitte eine korrekte Beschreibung ein.",
+		"en": "The accounting description(SAP) requires to be at least 5 characters long and does not allow for double spaces.\n Please enter a correct description."
+	},
+	"globalMessage.expense.info.accountingTextMissingTitle": {
+		"de": "Beschreibung unvollständig",
+		"en": "Description incomplete"
+	},
 	"globalMessage.expense.info.archiveExpenseTitle": {
 		"de": "Spesen archivieren",
 		"en": "Archive Expenses"
@@ -691,67 +635,119 @@
 		"de": "Diese Spesen wurden auf Ihren Wunsch hin zurückgesetzt da diese im Prozess hängen geblieben sind.",
 		"en": "These expenses had been reset on your request because they were stuck in the process."
 	},
-	"globalMessage.expense.projectTextMissing.message": {
+	"globalMessage.expense.signInfoMessage": {
+		"de": "Die Spesen wurden erfolgreich signiert.",
+		"en": "The expenses have been signed succesfully."
+	},
+	"globalMessage.expense.signInfoTitle": {
+		"de": "Spesen signiert",
+		"en": "Expenses signed"
+	},
+	"globalMessage.expense.submitInfoMessage": {
+		"de": "Sind Sie sicher, dass alle Belege erfasst wurden und die Spesen an den Vorgesetzten zugewiesen werden sollen?",
+		"en": "Are you sure that all receipts were uploaded and that you want to send these expenses to your supervisor?"
+	},
+	"globalMessage.expense.submitInfoTitle": {
+		"de": "Definitiv Abschicken",
+		"en": "Confirm Submit"
+	},
+	"globalMessage.expense.projectTextMissingMessage": {
 		"de": "In mindestens einem der erstellten Belege wurde das Projektfeld noch nicht ausgefüllt. Solange nicht in allen Belegen das Projekt angegeben wurde können diese Spesen nicht angenommen werden. Dieses Feld muss vom Vorgesetzten ausgefüllt werden.",
 		"en": "In at least one of the created receipts the project field is still empty. The expense cannot be accepted without having this field filled out. At the latest, the reviewer needs to fill out this field."
 	},
-	"globalMessage.expense.projectTextMissing.title": {
+	"globalMessage.expense.projectTextMissingTitle": {
 		"de": "Feld \"Projekt\" unvollständig",
 		"en": "Field \"Project\" incomplete"
 	},
-	"globalMessage.expenseNotFoundException.message": {
-		"de": "Der Spesenantrag inklusive der Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
-		"en": "The expense form including its receipts could not be found. Please make sure that the address is correct. You will be redirected."
+	"globalMessage.expense.warning.formNotCompleteMessage": {
+		"de": "Bitte füllen Sie alle Felder vollständig aus.",
+		"en": "Please complete all input fields."
 	},
-	"globalMessage.expenseItem.maxAmountReached.message": {
+	"globalMessage.expense.warning.formNotCompleteTitle": {
+		"de": "Unvollständig",
+		"en": "Incomplete"
+	},
+	"globalMessage.expenseItem.closeWarningEditMessage": {
+		"de": "Wenn Sie dieses Fenster schliessen, werden alle Änderungen an diesem Beleg verworfen. Fortfahren?",
+		"en": "If you close this window, you dismiss all changes for the current receipt. Continue?"
+	},
+	"globalMessage.expenseItem.closeWarningMessage": {
+		"de": "Wenn Sie dieses Fenster schliessen, wird der Beleg verworfen. Fortfahren?",
+		"en": "If you close this window, you dismiss the current receipt. Continue?"
+	},
+	"globalMessage.expenseItem.closeWarningTitle": {
+		"de": "Achtung",
+		"en": "Attention"
+	},
+	"globalMessage.expenseItem.deleteConfirmMessage": {
+		"de": "Möchten Sie diesen Beleg wirklich unwiderruflich löschen?",
+		"en": "Are you sure that you want to delete this receipt permanently?"
+	},
+	"globalMessage.expenseItem.deleteConfirmTitle": {
+		"de": "Element löschen",
+		"en": "Delete Element"
+	},
+	"globalMessage.expenseItem.maxAmountReachedMessage": {
 		"de": "Sie können pro Spesenblatt maximal 15 Spesenbelege erstellen. Falls Sie weitere Spesenbelege erstellen wollen erfassen Sie bitte ein zusätzliches Spesenblatt.",
 		"en": "You cannot add more than 15 receipts for each expense application. If you want to add more receipts please create a new expense application."
 	},
-	"globalMessage.expenseItem.maxAmountReached.title": {
+	"globalMessage.expenseItem.maxAmountReachedTitle": {
 		"de": "Max. Anzahl Spesenbelege erreicht",
 		"en": "Max. amount of expense-items reached"
 	},
-	"globalMessage.expenseNotFoundException.title": {
+	"globalMessage.expenseNotFoundExceptionMessage": {
+		"de": "Der Spesenantrag inklusive der Spesenbelege wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie keine Fehler in der Adresseingabe gemacht haben. Sie werden hiermit weitergeleitet.",
+		"en": "The expense form including its receipts could not be found. Please make sure that the address is correct. You will be redirected."
+	},
+	"globalMessage.expenseNotFoundExceptionTitle": {
 		"de": "Keine Spesen gefunden",
 		"en": "No expenses found"
 	},
-	"globalMessage.guest.noExpenseFound.message": {
+	"globalMessage.guest.noExpenseFoundMessage": {
 		"de": "Es wurde keine Spesen unter diesem Link gefunden. Der Link wird nach einer bestimmten Zeitdauer ungültig. Falls es sich um ein älteres Spesendokument handelt, ist es nun nicht mehr abrufbar. Ansonsten vergewissern Sie sich, dass Sie die Adresse korrekt eingegeben haben.",
 		"en": "No expense form was found related to this link. The link becomes invalid after a certain period of time. If the expense form requested for is old, most likely the link became invalid. Otherwise, please make sure that you enter the link correctly."
 	},
-	"globalMessage.guest.noExpenseFound.title": {
+	"globalMessage.guest.noExpenseFoundTitle": {
 		"de": "Keine Spesen gefunden",
 		"en": "No expenses found"
 	},
-	"globalMessage.invalidCsrfTokenException.message": {
+	"globalMessage.invalidCsrfTokenExceptionMessage": {
 		"de": "Leider ist Ihre Sitzung abgelaufen. Sie werden zur Anmeldung weitergeleitet.\n Bitte geben Sie danach Ihre Daten erneut ein.",
 		"en": "Your session has expired. You are redirected to the login page.\n Please reenter your data after the login."
 	},
-	"globalMessage.invalidCsrfTokenException.title": {
+	"globalMessage.invalidCsrfTokenExceptionTitle": {
 		"de": "Sitzung abgelaufen",
 		"en": "Session has expired"
 	},
-	"globalMessage.loginError.badCredentialsException": {
+	"globalMessage.login.ErrorMessage": {
 		"de": "Das eingegebene Passwort oder der Benutzername sind falsch. Bitte versuchen Sie es erneut.",
 		"en": "The entered password or username was incorrect. Please try again."
 	},
-	"globalMessage.loginError.title": {
+	"globalMessage.login.ErrorTitle": {
 		"de": "Anmeldung fehlgeschlagen",
 		"en": "Login failed"
 	},
-	"globalMessage.notAnImage.message": {
+	"globalMessage.login.passwordForgottenMessage": {
+		"de": "Haben Sie Ihr LDAP-Passwort verwendet und trotzdem keinen Zugriff auf die Plattform? Leider können wir Ihr Passwort an dieser Stelle nicht zurücksetzen. Sobald Sie Ihr LDAP-Passwort geändert haben, haben Sie mit dem neuen Passwort Zugriff auf die Spesen-Plattform. Danke für Ihr Verständnis.",
+		"en": "Did you use your LDAP password and nonetheless it does not work? Unfortunately we are not able to reset your password here. As soon as you have changed your LDAP password, you will have access to the reimbursement plattform with the newly created password. Thank you for your understanding."
+	},
+	"globalMessage.login.passwordForgottenTitle": {
+		"de": "Passwort vergessen?",
+		"en": "Forgot your Password?"
+	},
+	"globalMessage.notAnImageMessage": {
 		"de": "Die von Ihnen hochgeladene Datei wurde nicht als gültiges Bild erkannt. Bitte versuchen Sie es erneut und laden Sie eine gültige Bilddatei.",
 		"en": "The file uploaded was not recognized as an image. Please try again and upload a correct image file."
 	},
-	"globalMessage.notAnImage.title": {
+	"globalMessage.notAnImageTitle": {
 		"de": "Unbekannter Dateityp",
 		"en": "Not an Image"
 	},
-	"globalMessage.notAuthenticatedRequired.message": {
+	"globalMessage.notAuthenticatedRequiredMessage": {
 		"de": "Sie versuchen eine Seite aufzurufen, die nur aufrufbar ist, wenn Sie nicht eingeloggt sind. Sie wurden zum Dashboard weitergeleitet.",
 		"en": "You are trying to access a page, which is only accessible, if you are not logged in. You were redirected to the dashboard."
 	},
-	"globalMessage.notAuthenticatedRequired.title": {
+	"globalMessage.notAuthenticatedRequiredTitle": {
 		"de": "Eingeloggt ...",
 		"en": "Logged in ..."
 	},
@@ -763,27 +759,43 @@
 		"de": "Bitte deaktivieren Sie alle Pop-Up Blocker für diese Webseite.",
 		"en": "Please deactivate all Pop-Up Blockers for this website."
 	},
-	"globalMessage.serviceException.message": {
+	"globalMessage.registration.leavePageWarningMessage": {
+		"de": "Sind Sie sicher, dass Sie die Registrierung abbrechen und die Seite verlassen möchten?",
+		"en": "Are you sure that you want to abort the registration and leave this page?"
+	},
+	"globalMessage.registration.leavePageWarningTitle": {
+		"de": "Seite verlassen?",
+		"en": "Leaving page?"
+	},
+	"globalMessage.serviceExceptionMessage": {
 		"de": "Ein allgemeiner Fehler ist beim Übertragen des Aufrufs aufgetreten. Bitte versuchen Sie es später erneut.",
 		"en": "A general error occured while transfering the data. Please try again later."
 	},
-	"globalMessage.serviceException.title": {
+	"globalMessage.serviceExceptionTitle": {
 		"de": "Allgemeiner Fehler",
 		"en": "General error"
 	},
-	"globalMessage.signatureQrNoImage.message": {
+	"globalMessage.settings.signature.submitWarningMessage": {
+		"de": "Möchten Sie eine neue Signatur erfassen und die bisherig erfasste Unterschrift überschreiben?",
+		"en": "Do you want to add a new signature and discard the current one?"
+	},
+	"globalMessage.settings.signature.submitWarningTitle": {
+		"de": "Unterschrift bearbeiten",
+		"en": "Change Signature"
+	},
+	"globalMessage.signatureQrNoImageMessage": {
 		"de": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Smartphone eingegeben und abgeschickt haben. Versuchen Sie bitte erneut, die Signatur von Ihrem Smartphone abzuschicken.",
 		"en": "Make sure that you have entered the signature on your smartphone and confirm it. Please try again to submit the signature on your smartphone."
 	},
-	"globalMessage.signatureQrNoImage.title": {
+	"globalMessage.signatureQrNoImageTitle": {
 		"de": "Fehler aufgetreten",
 		"en": "Error occured"
 	},
-	"globalMessage.uploadOrValidationError.message": {
+	"globalMessage.uploadOrValidationErrorMessage": {
 		"de": "Es ist ein Fehler aufgetreten. Stellen Sie sicher, dass Sie nur eine Datei mit einem der erlaubten Dateiformate hochladen.",
 		"en": "An error occured. Please make sure that you only upload a file with one of the file extensions allowed."
 	},
-	"globalMessage.uploadOrValidationError.title": {
+	"globalMessage.uploadOrValidationErrorTitle": {
 		"de": "Fehler",
 		"en": "Error"
 	},
@@ -806,18 +818,6 @@
 	"loading.label": {
 		"de": "Bitte warten ...",
 		"en": "Please wait ..."
-	},
-	"login.passwordForgotten.message": {
-		"de": "Haben Sie Ihr LDAP-Passwort verwendet und trotzdem keinen Zugriff auf die Plattform? Leider können wir Ihr Passwort an dieser Stelle nicht zurücksetzen. Sobald Sie Ihr LDAP-Passwort geändert haben, haben Sie mit dem neuen Passwort Zugriff auf die Spesen-Plattform. Danke für Ihr Verständnis.",
-		"en": "Did you use your LDAP password and nonetheless it does not work? Unfortunately we are not able to reset your password here. As soon as you have changed your LDAP password, you will have access to the reimbursement plattform with the newly created password. Thank you for your understanding."
-	},
-	"login.passwordForgotten.title": {
-		"de": "Passwort vergessen?",
-		"en": "Forgot your Password?"
-	},
-	"login.passwordForgotten.linkText": {
-		"de": "Passwort vergessen?",
-		"en": "Forgot your Password?"
 	},
 	"login.passwordLabel": {
 		"de": "Passwort",
@@ -846,14 +846,6 @@
 	"page.title": {
 		"de": "Spesenverwaltung am IfI",
 		"en": "Reimbursements at IfI"
-	},
-	"registration.leavePageWarning.message": {
-		"de": "Sind Sie sicher, dass Sie die Registrierung abbrechen und die Seite verlassen möchten?",
-		"en": "Are you sure that you want to abort the registration and leave this page?"
-	},
-	"registration.leavePageWarning.title": {
-		"de": "Seite verlassen?",
-		"en": "Leaving page?"
 	},
 	"registration.step1Message": {
 		"de": "Sie haben sich erfolgreich zum ersten Mal eingeloggt. Sie werden nun durch einen Registrierungsprozess mit drei Schritten geführt. Bitte geben Sie die folgenden Informationen vollständig ein. Danach werden Sie aufgefordert, Ihre Unterschrift über ein Gerät mit einem Touchscreen oder über eine Datei zu laden.",
@@ -898,14 +890,6 @@
 	"settings.signature": {
 		"de": "Unterschrift",
 		"en": "Signature"
-	},
-	"settings.signature.submitWarningMessage": {
-		"de": "Möchten Sie eine neue Signatur erfassen und die bisherig erfasste Unterschrift überschreiben?",
-		"en": "Do you want to add a new signature and discard the current one?"
-	},
-	"settings.signature.submitWarningTitle": {
-		"de": "Unterschrift bearbeiten",
-		"en": "Change Signature"
 	},
 	"settings.signaturePanel": {
 		"de": "Unterschrift bearbeiten",

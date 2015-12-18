@@ -12,8 +12,8 @@ function($scope, $uibModalInstance, globalMessagesService, spinnerService, expen
 	$scope.submit = submitForm;
 
 	function dismissWithConfirmation() {
-		globalMessagesService.confirmWarning("reimbursement.expenseItem.closeWarningTitle",
-		"reimbursement.expenseItem.closeWarningMessage").then(function() {
+		globalMessagesService.confirmWarning("reimbursement.globalMessage.expenseItem.closeWarningTitle",
+		"reimbursement.globalMessage.expenseItem.closeWarningMessage").then(function() {
 
 			expenseItemsRestService.deleteExpenseItem(expenseItem.uid).then()['finally'](function() {
 				$uibModalInstance.dismiss();
@@ -38,8 +38,8 @@ function($scope, $uibModalInstance, globalMessagesService, spinnerService, expen
 			});
 		}
 		else {
-			globalMessagesService.showInfo("reimbursement.expense.warning.formNotComplete.title",
-			"reimbursement.expense.warning.formNotComplete.message");
+			globalMessagesService.showInfo("reimbursement.globalMessage.expense.warning.formNotCompleteTitle",
+			"reimbursement.globalMessage.expense.warning.formNotCompleteMessage");
 		}
 	}
 

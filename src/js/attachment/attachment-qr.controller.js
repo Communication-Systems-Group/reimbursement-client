@@ -14,8 +14,8 @@ function($scope, $uibModalInstance, THIS_HOST, attachmentRestService, spinnerSer
 
 		}, function(response) {
 			response.errorHandled = true;
-			globalMessagesService.showWarning("reimbursement.captureAttachment.qr.notYetCaptured.title",
-				"reimbursement.captureAttachment.qr.notYetCaptured.message");
+			globalMessagesService.showWarning("reimbursement.globalMessage.captureAttachment.qr.notYetCapturedTitle",
+				"reimbursement.globalMessage.captureAttachment.qr.notYetCapturedMessage");
 
 		})['finally'](function() {
 			spinnerService.hide('spinnerAttachmentQR');

@@ -14,8 +14,8 @@ function($scope, $uibModalInstance, THIS_HOST, signatureRestService, spinnerServ
 			$uibModalInstance.close(image);
 		}, function(response) {
 			response.errorHandled = true;
-			globalMessagesService.showError("reimbursement.globalMessage.signatureQrNoImage.title",
-				"reimbursement.globalMessage.signatureQrNoImage.message");
+			globalMessagesService.showError("reimbursement.globalMessage.signatureQrNoImageTitle",
+				"reimbursement.globalMessage.signatureQrNoImageMessage");
 
 		})['finally'](function() {
 			spinnerService.hide('spinnerSignatureQR');

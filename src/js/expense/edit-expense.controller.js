@@ -43,8 +43,8 @@ function($scope, $state, $stateParams, $timeout, $uibModal, spinnerService, glob
 	$scope.submitToManager = function() {
 		if(!$scope.submitButtonDisabled) {
 
-			globalMessagesService.confirmInfoMd('reimbursement.expense.submitInfoTitle',
-			'reimbursement.expense.submitInfoMessage').then(function() {
+			globalMessagesService.confirmInfoMd('reimbursement.globalMessage.expense.submitInfoTitle',
+			'reimbursement.globalMessage.expense.submitInfoMessage').then(function() {
 
 				spinnerService.show('spinnerCreateExpense');
 				expenseRestService.assignToManager($scope.expense.uid).then(function() {

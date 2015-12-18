@@ -9,8 +9,8 @@ function($scope, $uibModalInstance, spinnerService, globalMessagesService, expen
 
 	$scope.saveAccountingText = function() {
 		if($scope.formSAP.$invalid || !$scope.formSAP.$dirty) {
-			globalMessagesService.showInfoMd('reimbursement.expense.info.accountingTextMissingTitle',
-				'reimbursement.expense.info.accountingTextMissingMessage');
+			globalMessagesService.showInfoMd('reimbursement.globalMessage.expense.info.accountingTextMissingTitle',
+				'reimbursement.globalMessage.expense.info.accountingTextMissingMessage');
 		}
 		else {
 			spinnerService.show('spinnerEditExpenseSap');

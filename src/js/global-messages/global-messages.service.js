@@ -164,8 +164,8 @@ app.factory("globalMessagesService", ['$uibModal', '$translate', '$q',
 			confirmInfoMd: confirmInfoMd,
 			hideMessages: hideMessages,
 			showGeneralError: function () {
-				return showError("reimbursement.globalMessage.serviceException.title",
-					"reimbursement.globalMessage.serviceException.message");
+				return showError("reimbursement.globalMessage.serviceExceptionTitle",
+					"reimbursement.globalMessage.serviceExceptionMessage");
 			}
 
 		};

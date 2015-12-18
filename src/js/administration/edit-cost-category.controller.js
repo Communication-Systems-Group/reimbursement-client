@@ -13,8 +13,8 @@ app.controller('EditCostCategoryController', [ '$scope', '$uibModalInstance', 'g
 
 		function validation(form) {
 			if (!form.accountNumber.$valid || !form.nameDe.$valid || !form.nameEn.$valid || !form.descriptionDe.$valid || !form.descriptionEn.$valid) {
-				globalMessagesService.showInfo("reimbursement.expense.warning.formNotComplete.title",
-					"reimbursement.expense.warning.formNotComplete.message");
+				globalMessagesService.showInfo("reimbursement.globalMessage.expense.warning.formNotCompleteTitle",
+					"reimbursement.globalMessage.expense.warning.formNotCompleteMessage");
 
 				return false;
 			}
@@ -25,7 +25,7 @@ app.controller('EditCostCategoryController', [ '$scope', '$uibModalInstance', 'g
 
 		$scope.dismissWithConfirmation = function () {
 			globalMessagesService.confirmWarning("reimbursement.expenseItem.closeWarningEditTitle",
-			"reimbursement.costCategory.closeWarningEditMessage").then($uibModalInstance.dismiss);
+			"reimbursement.globalMessage.costCategory.closeWarningEditMessage").then($uibModalInstance.dismiss);
 		};
 
 		$scope.save = function (form) {

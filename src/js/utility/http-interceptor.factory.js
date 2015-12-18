@@ -37,8 +37,8 @@ function ($q, $timeout, $injector) {
 							$injector.get('loginRestService').getUser();
 
 							var globalMessagesService = $injector.get('globalMessagesService');
-							globalMessagesService.showInfoMd("reimbursement.globalMessage.invalidCsrfTokenException.title",
-								"reimbursement.globalMessage.invalidCsrfTokenException.message");
+							globalMessagesService.showInfoMd("reimbursement.globalMessage.invalidCsrfTokenExceptionTitle",
+								"reimbursement.globalMessage.invalidCsrfTokenExceptionMessage");
 						}
 					});
 				});

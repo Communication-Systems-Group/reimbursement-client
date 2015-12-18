@@ -29,8 +29,8 @@ function($state, $stateParams, $timeout, stateService, globalMessagesService, sp
 		}, function(response) {
 			response.errorHandled = true;
 
-			globalMessagesService.showErrorMd("reimbursement.globalMessage.expenseNotFoundException.title",
-			"reimbursement.globalMessage.expenseNotFoundException.message").then()['finally'](function() {
+			globalMessagesService.showErrorMd("reimbursement.globalMessage.expenseNotFoundExceptionTitle",
+			"reimbursement.globalMessage.expenseNotFoundExceptionMessage").then()['finally'](function() {
 
 				$state.go('dashboard');
 			});

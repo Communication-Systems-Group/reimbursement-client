@@ -72,8 +72,8 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 	};
 	$scope.onAttachmentUploadError = function() {
 		spinnerService.hide('spinnerAttachmentImage');
-		globalMessagesService.showError("reimbursement.globalMessage.uploadOrValidationError.title",
-			"reimbursement.globalMessage.uploadOrValidationError.message");
+		globalMessagesService.showError("reimbursement.globalMessage.uploadOrValidationErrorTitle",
+			"reimbursement.globalMessage.uploadOrValidationErrorMessage");
 		$scope.flow.image.cancel();
 	};
 	$scope.onAttachmentUploadSuccess = function() {
@@ -83,8 +83,8 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 
 		// file was not accepted by the validator
 		if(typeof fileWrapper === "undefined" || typeof fileWrapper.file === "undefined") {
-			globalMessagesService.showWarning("reimbursement.globalMessage.notAnImage.title",
-			"reimbursement.globalMessage.notAnImage.message");
+			globalMessagesService.showWarning("reimbursement.globalMessage.notAnImageTitle",
+			"reimbursement.globalMessage.notAnImageMessage");
 		}
 		else {
 			showAttachmentLinkOrUploadForm();
@@ -92,7 +92,7 @@ function($scope, $uibModal, spinnerService, attachmentRestService, base64BinaryC
 	};
 	$scope.deleteAttachment = function() {
 		globalMessagesService.confirmWarning("reimbursement.captureAttachment.deleteAttachment",
-		"reimbursement.captureAttachment.deleteAttachment.message").then(function() {
+		"reimbursement.globalMessage.captureAttachment.deleteAttachmentMessage").then(function() {
 
 			spinnerService.show("spinnerAttachmentImage");
 			attachmentRestService.deleteAttachment($scope.expenseItemUid).then(	function() {

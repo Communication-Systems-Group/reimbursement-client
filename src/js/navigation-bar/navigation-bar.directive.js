@@ -28,8 +28,8 @@ function(USER, $state, $translate, globalMessagesService) {
 
 			$scope.goToWelcomePage = function() {
 				if(isOnRegistrationPage()) {
-					globalMessagesService.confirmWarningMd("reimbursement.registration.leavePageWarning.title",
-					"reimbursement.registration.leavePageWarning.message").then(function() {
+					globalMessagesService.confirmWarningMd("reimbursement.globalMessage.registration.leavePageWarningTitle",
+					"reimbursement.globalMessage.registration.leavePageWarningMessage").then(function() {
 
 						$state.go('welcome');
 					});

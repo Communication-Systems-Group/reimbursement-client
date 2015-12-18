@@ -59,8 +59,8 @@ function($state, $uibModal, Modernizr, spinnerService, signatureRestService, bas
 				spinnerService.hide('spinnerSignatureTouch');
 
 				if(type === 'image') {
-					globalMessagesService.showError("reimbursement.globalMessage.uploadOrValidationError.title",
-						"reimbursement.globalMessage.uploadOrValidationError.message");
+					globalMessagesService.showError("reimbursement.globalMessage.uploadOrValidationErrorTitle",
+						"reimbursement.globalMessage.uploadOrValidationErrorMessage");
 					$scope.flow.image.cancel();
 				}
 				else {
@@ -74,7 +74,7 @@ function($state, $uibModal, Modernizr, spinnerService, signatureRestService, bas
 
 				// file was not accepted by the validator
 				if(typeof fileWrapper === "undefined" || typeof fileWrapper.file === "undefined") {
-					globalMessagesService.showWarning("reimbursement.globalMessage.notAnImage.title", "reimbursement.globalMessage.notAnImage.message");
+					globalMessagesService.showWarning("reimbursement.globalMessage.notAnImageTitle", "reimbursement.globalMessage.notAnImageMessage");
 					spinnerService.hide("spinnerSignatureImage");
 				}
 				else {

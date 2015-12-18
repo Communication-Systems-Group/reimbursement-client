@@ -95,8 +95,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			return {
 				redirectCheck: ['$q', 'USER', 'globalMessagesService', function ($q, USER, globalMessagesService) {
 					if (USER.loggedIn) {
-						globalMessagesService.showError("reimbursement.globalMessage.notAuthenticatedRequired.title",
-							"reimbursement.globalMessage.notAuthenticatedRequired.message");
+						globalMessagesService.showError("reimbursement.globalMessage.notAuthenticatedRequiredTitle",
+							"reimbursement.globalMessage.notAuthenticatedRequiredMessage");
 
 						return $q.reject({ state: 'dashboard' });
 					}

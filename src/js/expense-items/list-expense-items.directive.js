@@ -65,8 +65,8 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 					};
 
 					$scope.deleteExpenseItem = function(expenseItemUid) {
-						globalMessagesService.confirmWarning("reimbursement.expenseItem.deleteConfirmTitle",
-						"reimbursement.expenseItem.deleteConfirmMessage").then(function() {
+						globalMessagesService.confirmWarning("reimbursement.globalMessage.expenseItem.deleteConfirmTitle",
+						"reimbursement.globalMessage.expenseItem.deleteConfirmMessage").then(function() {
 
 							expenseItemsRestService.deleteExpenseItem(expenseItemUid).then(updateTable);
 						});
@@ -105,8 +105,8 @@ function($uibModal, $filter, $timeout, $state, spinnerService, globalMessagesSer
 							});
 						}
 						else {
-							globalMessagesService.showInfoMd("reimbursement.globalMessage.expenseItem.maxAmountReached.title",
-							"reimbursement.globalMessage.expenseItem.maxAmountReached.message");
+							globalMessagesService.showInfoMd("reimbursement.globalMessage.expenseItem.maxAmountReachedTitle",
+							"reimbursement.globalMessage.expenseItem.maxAmountReachedMessage");
 						}
 					};
 				}

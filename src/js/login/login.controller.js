@@ -11,8 +11,8 @@ app.controller('LoginController', ['$scope', '$state', '$translate', 'USER', 'sp
 		$scope.isIE = (window.navigator.msSaveOrOpenBlob) ? true : false;
 
 		$scope.passwordForgotten = function() {
-			globalMessagesService.showInfoMd('reimbursement.login.passwordForgotten.title',
-			'reimbursement.login.passwordForgotten.message');
+			globalMessagesService.showInfoMd('reimbursement.globalMessage.login.passwordForgottenTitle',
+			'reimbursement.globalMessage.login.passwordForgottenMessage');
 		};
 
 		$scope.submit = function () {
@@ -35,10 +35,11 @@ app.controller('LoginController', ['$scope', '$state', '$translate', 'USER', 'sp
 				response.errorHandled = true;
 				response.csrfErrorHandled = true;
 
-				var errorTitle = "reimbursement.globalMessage.loginError.title";
+				var errorTitle = "reimbursement.globalMessage.login.ErrorTitle";
+				var errorMessage = "reimbursement.globalMessage.login.ErrorMessage";
 
 				if(response.status === 401) {
-					globalMessagesService.showWarningMd(errorTitle, "reimbursement.globalMessage.loginError.badCredentialsException");
+					globalMessagesService.showWarningMd(errorTitle, errorMessage);
 					spinnerService.hide('spinnerLogin');
 				}
 				else if(response.status === 403) {
@@ -58,7 +59,7 @@ app.controller('LoginController', ['$scope', '$state', '$translate', 'USER', 'sp
 							// 403 is now not an option anymore. the csrf token should be up to date,
 							// therefore the only acceptable status is 200 or 401.
 							if(response.status === 401) {
-								globalMessagesService.showWarningMd(errorTitle, "reimbursement.globalMessage.loginError.badCredentialsException");
+								globalMessagesService.showWarningMd(errorTitle, errorMessage);
 								spinnerService.hide('spinnerLogin');
 							}
 							else {
