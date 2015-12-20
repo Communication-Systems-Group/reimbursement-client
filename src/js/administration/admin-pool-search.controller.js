@@ -1,6 +1,6 @@
-app.controller('AdminPoolSearchController', ['$scope', '$timeout', 'moment', 'spinnerService', 'administrationRestService', 'globalMessagesService', '$filter',
+app.controller('AdminPoolSearchController', ['$scope', '$timeout', '$filter', 'moment', 'spinnerService', 'administrationRestService', 'globalMessagesService', 'costCategorySortService',
 
-function($scope, $timeout, moment, spinnerService, administrationRestService, globalMessagesService, $filter) {
+function($scope, $timeout, $filter, moment, spinnerService, administrationRestService, globalMessagesService, costCategorySortService) {
 	'use strict';
 
 	$scope.roles = [];
@@ -28,7 +28,7 @@ function($scope, $timeout, moment, spinnerService, administrationRestService, gl
 	});
 
 	administrationRestService.getCostCategories().then(function (response) {
-		$scope.costCategories = response.data;
+		$scope.costCategories = costCategorySortService.sort(response.data);
 	});
 
 	administrationRestService.getExpenseStates().then(function(response) {
