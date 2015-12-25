@@ -22,7 +22,8 @@ function($q, PDFSIGN, base64BinaryConverterService) {
 			deferred.resolve(blob);
 		}
 		catch(error) {
-			console.error(error);
+			// TODO add error handling
+			window.console.error(error);
 			deferred.reject();
 		}
 		return deferred.promise;
