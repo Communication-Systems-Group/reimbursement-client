@@ -68,7 +68,7 @@ var app = angular.module('reimbursement', ['reimbursement.templates', 'ngAnimate
 app.constant("Modernizr", window.Modernizr);
 app.constant("moment", window.moment);
 app.constant("c3", window.c3);
-app.constant("pdfsign", window.pdfsign);
+app.constant("PDFSIGN", window.PDFSIGN);
 app.constant("HOST", window.location.protocol + "//" + window.location.host.split(":")[0]);
 app.constant("THIS_HOST", window.location.protocol + "//" + window.location.host + "/#!");
 app.constant("MAX_UPLOAD_SIZE", "100000000"); // maximum chunk size of documents that will be uploaded

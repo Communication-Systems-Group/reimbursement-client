@@ -1,19 +1,15 @@
-app.factory('digitallySignExpenseService', ['pdfsign',
+app.factory('digitallySignExpenseService', ['PDFSIGN',
 
-function(pdfsign) {
+function(PDFSIGN) {
 	"use strict";
 
-	function sign(base64Pdf, privateKey) {
-		// TODO remove check and make a direct call to the currently missing library "pdfsign"
-		// if calculation takes too long, return a promise
+	function sign(base64Pdf, privateKey, optionalPassword) {
 
-		if(typeof pdfsign !== 'undefined' && typeof pdfsign.sign !== 'undefined') {
-			return pdfsign.sign(base64Pdf, privateKey);
-		}
-		else {
-			window.console.log("signing library is missing");
-			return base64Pdf;
-		}
+		// TODO add PDFSIGN library
+		window.console.log(PDFSIGN, privateKey, optionalPassword);
+
+		window.console.log("signing library is missing");
+		return base64Pdf;
 	}
 
 	return {
