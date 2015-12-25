@@ -116,14 +116,7 @@
 		transition: max-height 0.3s ease;
 
 		&.active {
-			max-height: 300px;
-		}
-
-		textarea {
-			font-family: $font-family-monospace;
-			font-size: 12px;
-			width: 94%;
-			margin: 10px auto 15px;
+			max-height: 140px;
 		}
 	}
 }

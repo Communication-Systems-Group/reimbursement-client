@@ -396,8 +396,12 @@
 		"en": "Electronical signature\n(Image signature)"
 	},
 	"expense.signForm.privateKey": {
-		"de": "Privater Schlüssel:",
-		"en": "Private key:"
+		"de": "Privater Schlüssel",
+		"en": "Private key"
+	},
+	"expense.signForm.passwordCertificate": {
+		"de": "Zertifikatspasswort",
+		"en": "Certificate password"
 	},
 	"expense.signForm.text": {
 		"de": "Wählen Sie die gewünschte Signaturmethode.",

@@ -42,6 +42,17 @@ function() {
 			else {
 				return base64String;
 			}
+		},
+		toUint8ArrayFromBase64: function(base64) {
+			var binaryData = window.atob(base64.split(',')[1]);
+			var binaryLength = binaryData.length;
+			var arrayBuffer = new window.ArrayBuffer(binaryLength);
+			var uint8Array = new window.Uint8Array(arrayBuffer);
+
+			for(var i = 0; i < binaryLength; i++) {
+				uint8Array[i] = binaryData.charCodeAt(i);
+			}
+			return uint8Array;
 		}
 
 	};

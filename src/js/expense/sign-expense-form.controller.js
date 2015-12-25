@@ -58,13 +58,16 @@ function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseSer
 
 	function signDigitally() {
 		expenseRestService.getExpensePdf($scope.expense.uid).then(function(response) {
-			var base64 = base64BinaryConverterService.toBase64FromJson(response.data);
-			var signedBase64 = digitallySignExpenseService.signPdf(base64, $scope.privateKey);
-			var signedBlob = base64BinaryConverterService.toBinary(signedBase64);
+			var base64Pdf = base64BinaryConverterService.toBase64FromJson(response.data);
 
-			$timeout(function() {
-				$scope.flow.signDigitally.addFile(signedBlob);
-				$scope.flow.signDigitally.upload();
+			digitallySignExpenseService.signPdf(base64Pdf, $scope.fileread.certificate, $scope.certificatePassword).then(function(signedBlobPdf) {
+				$timeout(function() {
+					$scope.flow.signDigitally.addFile(signedBlobPdf);
+					$scope.flow.signDigitally.upload();
+				});
+			}, function() {
+				// TODO add error handling
+				$scope.signDigitallyError();
 			});
 		});
 	}

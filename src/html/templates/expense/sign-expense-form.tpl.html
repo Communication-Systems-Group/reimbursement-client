@@ -35,9 +35,23 @@
 
 				<div class="certificateInput" ng-class="{active: method === 'digital'}">
 					<hr>
-					<div class="form-group">
-						<h4>{{ 'reimbursement.expense.signForm.privateKey' | translate }}</h4>
-						<textarea class="form-control input-validation" name="privateKey" ng-model="privateKey" rows="10" pattern="{{'expense.sign.privateKey' | regexValidation }}" required></textarea>
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label for="certificateFile" class="col-sm-5 control-label">
+								{{ 'reimbursement.expense.signForm.privateKey' | translate }}
+							</label>
+							<div class="col-sm-6">
+								<input id="certificateFile" type="file" fileread="certificate" class="form-control-static">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="certificatePassword" class="col-sm-5 control-label">
+								{{ 'reimbursement.expense.signForm.passwordCertificate' | translate }}
+							</label>
+							<div class="col-sm-6">
+								<input id="certificatePassword" type="password" class="form-control" ng-model="certificatePassword">
+							</div>
+						</div>
 					</div>
 					<div flow-init="{ target: signDigitallyPath, testChunks: false, singleFile: true, simultaneousUploads: 1 }"
 					flow-name="flow.signDigitally" flow-file-success="signDigitallySuccess()" flow-file-error="signDigitallyError()"></div>
