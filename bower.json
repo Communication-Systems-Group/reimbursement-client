@@ -20,7 +20,7 @@
 		"moment": "^2.10.6",
 		"ng-flow": "^2.6.1",
 		"ng-caps-lock": "^1.0.2",
-		"pdfsign.js": "^1.0.2",
+		"pdfsign.js": "1.0.2",
 		"signature_pad": "^1.5.2"
 	},
 	"resolutions": {
