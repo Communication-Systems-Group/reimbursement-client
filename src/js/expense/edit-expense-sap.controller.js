@@ -23,4 +23,5 @@ function($scope, $uibModalInstance, spinnerService, globalMessagesService, expen
 		}
 	};
 
+	$scope.nextStep = $scope.saveAccountingText;
 }]);
