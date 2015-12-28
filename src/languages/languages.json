@@ -639,13 +639,21 @@
 		"de": "Diese Spesen wurden auf Ihren Wunsch hin zurückgesetzt da diese im Prozess hängen geblieben sind.",
 		"en": "These expenses had been reset on your request because they were stuck in the process."
 	},
-	"globalMessage.expense.signInfoMessage": {
+	"globalMessage.expense.signSuccessMessage": {
 		"de": "Die Spesen wurden erfolgreich signiert.",
 		"en": "The expenses have been signed succesfully."
 	},
-	"globalMessage.expense.signInfoTitle": {
+	"globalMessage.expense.signSuccessTitle": {
 		"de": "Spesen signiert",
 		"en": "Expenses signed"
+	},
+	"globalMessage.expense.signPwFailMessage": {
+		"de": "Das eingegebene Passwort stimmt nicht mit dem Passwort des Zertifikates überein. Bitte versuchen Sie es erneut.",
+		"en": "The provided password does not match the password registered for the certificate. Please try again."
+	},
+	"globalMessage.expense.signPwFailTitle": {
+		"de": "Passwort inkorrekt",
+		"en": "Password incorrect"
 	},
 	"globalMessage.expense.submitInfoMessage": {
 		"de": "Sind Sie sicher, dass alle Belege erfasst wurden und die Spesen an den Vorgesetzten zugewiesen werden sollen?",

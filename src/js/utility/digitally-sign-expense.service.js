@@ -10,21 +10,13 @@ function($q, PDFSIGN, base64BinaryConverterService) {
 		var uint8Certificate = new window.Uint8Array(arrayBufferCertificate);
 
 		try {
-			var signedPdfArray = [PDFSIGN.signpdf(uint8Pdf, uint8Certificate, password)];
-
-			var type = base64Pdf.split(',')[0].split(':')[1].split(";base64")[0];
-			var fileEnding = type.split('/')[1];
-
-			var blob = new window.Blob(signedPdfArray, { type: type });
-			blob.lastModifiedDate = new Date();
-			blob.name = new Date().toUTCString() + "." + fileEnding;
-
+			var signedPdfArray = PDFSIGN.signpdf(uint8Pdf, uint8Certificate, password);
+			var typeAndFileEnding = base64BinaryConverterService.getTypeAndFileEndingFromBase64(base64Pdf);
+			var blob = base64BinaryConverterService.toBlobFromUint8Array(signedPdfArray, typeAndFileEnding);
 			deferred.resolve(blob);
 		}
 		catch(error) {
-			// TODO add error handling
-			window.console.error(error);
-			deferred.reject();
+			deferred.reject(error);
 		}
 		return deferred.promise;
 	}

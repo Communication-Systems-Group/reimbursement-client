@@ -65,20 +65,29 @@ function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseSer
 					$scope.flow.signDigitally.addFile(signedBlobPdf);
 					$scope.flow.signDigitally.upload();
 				});
-			}, function() {
-				// TODO add error handling
-				$scope.signDigitallyError();
+			}, function(reason) {
+				window.console.log("reason:" + reason);
+				$scope.signDigitallyError(reason);
 			});
 		});
 	}
+
 	$scope.signDigitallySuccess = function() {
 		showSuccessInfo();
 	};
-	$scope.signDigitallyError = function() {
+
+	$scope.signDigitallyError = function(error) {
 		spinnerService.hide('signSpinner');
-		globalMessagesService.showGeneralError().then()['finally'](function() {
-			window.location.reload();
-		});
+		if (error.message && error.message.toLowerCase().indexOf("invalid password") > -1) {
+			globalMessagesService.showWarning('reimbursement.globalMessage.expense.signPwFailTitle',
+			'reimbursement.globalMessage.expense.signPwFailMessage');
+		}
+		else {
+			globalMessagesService.showGeneralError().then()['finally'](function() {
+				window.location.reload();
+			});
+		}
+
 	};
 
 	function signElectronically() {
@@ -87,8 +96,8 @@ function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseSer
 
 	function showSuccessInfo() {
 		spinnerService.hide('signSpinner');
-		globalMessagesService.showInfo('reimbursement.globalMessage.expense.signInfoTitle',
-		'reimbursement.globalMessage.expense.signInfoMessage').then($uibModalInstance.close);
+		globalMessagesService.showInfo('reimbursement.globalMessage.expense.signSuccessTitle',
+		'reimbursement.globalMessage.expense.signSuccessMessage').then($uibModalInstance.close);
 	}
 
 }]);
