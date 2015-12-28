@@ -8,7 +8,8 @@ function() {
 		templateUrl: 'expense/expense-sap-form.tpl.html',
 		scope: {
 			accountingText: '=',
-			formSAP: '='
+			formSAP: '=',
+			nextStep: '='
 		}
 	};
 
