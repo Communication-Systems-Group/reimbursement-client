@@ -66,15 +66,12 @@ function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseSer
 					$scope.flow.signDigitally.upload();
 				});
 			}, function(reason) {
-				window.console.log("reason:" + reason);
 				$scope.signDigitallyError(reason);
 			});
+		}, function(restGetFailure) {
+			window.console.log(restGetFailure);
 		});
 	}
-
-	$scope.signDigitallySuccess = function() {
-		showSuccessInfo();
-	};
 
 	$scope.signDigitallyError = function(error) {
 		spinnerService.hide('signSpinner');
@@ -83,11 +80,20 @@ function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseSer
 			'reimbursement.globalMessage.expense.signPwFailMessage');
 		}
 		else {
-			globalMessagesService.showGeneralError().then()['finally'](function() {
-				window.location.reload();
-			});
+			globalMessagesService.showWarning('reimbursement.globalMessage.expense.signFailTitle',
+			'reimbursement.globalMessage.expense.signFailMessage');
 		}
+	};
 
+	$scope.flowUploadSuccess = function() {
+		showSuccessInfo();
+	};
+
+	$scope.flowUploadError = function() {
+		spinnerService.hide('signSpinner');
+		globalMessagesService.showGeneralError().then()['finally'](function() {
+			window.location.reload();
+		});
 	};
 
 	function signElectronically() {
@@ -99,5 +105,4 @@ function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseSer
 		globalMessagesService.showInfo('reimbursement.globalMessage.expense.signSuccessTitle',
 		'reimbursement.globalMessage.expense.signSuccessMessage').then($uibModalInstance.close);
 	}
-
 }]);
