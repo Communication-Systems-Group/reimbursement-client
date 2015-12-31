@@ -75,8 +75,6 @@ function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseSer
 			}, function(reason) {
 				$scope.signDigitallyError(reason);
 			});
-		}, function(restGetFailure) {
-			window.console.log(restGetFailure);
 		});
 	}
 
