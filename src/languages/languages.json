@@ -604,8 +604,8 @@
 		"en": "If you close this window, you dismiss all changes made in the current cost category. Continue?"
 	},
 	"globalMessage.expense.info.accountingTextMissingMessage": {
-		"de": "Die Buchhaltungsbeschreibung (SAP) muss mindestens fünf Zeichen umfassen und darf keine doppelten Leerschläge enthalten.\n Geben Sie bitte eine korrekte Beschreibung ein.",
-		"en": "The accounting description(SAP) requires to be at least 5 characters long and does not allow for double spaces.\n Please enter a correct description."
+		"de": "Die Buchhaltungsbeschreibung (SAP) muss mindestens fünf Zeichen umfassen und darf keine doppelten Leerschläge enthalten.\nGeben Sie bitte eine korrekte Beschreibung ein.",
+		"en": "The accounting description(SAP) requires to be at least 5 characters long and does not allow for double spaces.\nPlease enter a correct description."
 	},
 	"globalMessage.expense.info.accountingTextMissingTitle": {
 		"de": "Beschreibung unvollständig",
@@ -648,8 +648,8 @@
 		"en": "Expenses signed"
 	},
 	"globalMessage.expense.signFailMessage": {
-		"de": "Die Spesen konnten nicht signiert werden. Bitte überprüfen Sie ihr Zertifikat und die Gültigkeit des erhaltenen PDFs.",
-		"en": "The expenses has not been signed. Please check your certificate and the validity of the received PDF document."
+		"de": "Die Spesen konnten nicht signiert werden. Bitte überprüfen Sie ihr Zertifikat und versuchen Sie es erneut.",
+		"en": "The expenses has not been signed. Please check your certificate and try again."
 	},
 	"globalMessage.expense.signFailTitle": {
 		"de": "Spesen Signierung fehgeschlagen",

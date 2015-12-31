@@ -9,7 +9,7 @@
 		<spinner id="signSpinner" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 
 		<div class="modal-body">
-			<form name="signatureMethod" class="text-center">
+			<form name="signatureMethod" class="css-form text-center" novalidate>
 
 				<div class="row">
 					<div class="col-md-12">
@@ -41,7 +41,7 @@
 								{{ 'reimbursement.expense.signForm.privateKey' | translate }}
 							</label>
 							<div class="col-sm-6">
-								<input id="certificateFile" type="file" fileread="certificate" class="form-control-static">
+								<input id="certificateFile" type="file" name = "privateKey" fileread="certificate" class="form-control-static" required >
 							</div>
 						</div>
 						<div class="form-group">
@@ -49,7 +49,7 @@
 								{{ 'reimbursement.expense.signForm.passwordCertificate' | translate }}
 							</label>
 							<div class="col-sm-6">
-								<input id="certificatePassword" type="password" class="form-control" ng-model="certificatePassword">
+								<input id="certificatePassword" name = "certificatePassword" type="password" class="form-control" ng-model="certificatePassword" required >
 							</div>
 						</div>
 					</div>
@@ -64,7 +64,7 @@
 				<i class="fa fa-times-circle"></i>
 				{{ 'reimbursement.general.cancel' | translate }}
 			</button>
-			<button class="btn btn-primary" ng-click="sign()" ng-disabled="method === null || (method === 'digital' && signatureMethod.privateKey.$invalid)">
+			<button class="btn btn-primary" ng-click="sign()" ng-disabled="method === null || (method === 'digital' && !fileread.certificate) ||(method === 'digital' && signatureMethod.certificatePassword.$invalid)">
 				<i class="fa fa-pencil-square-o"></i>
 				{{ 'reimbursement.expense.sign' | translate }}
 			</button>

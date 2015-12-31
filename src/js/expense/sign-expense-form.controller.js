@@ -34,24 +34,31 @@ function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseSer
 	};
 
 	$scope.sign = function() {
-		spinnerService.show('signSpinner');
-		// first time
-		if($scope.methodChangeable) {
-			if($scope.method === 'digital') {
-				expenseRestService.setSignMethodToDigital($scope.expense.uid).then(function() {
-					expenseRestService.generatePdf($scope.expense.uid, linkToGuestView).then(signDigitally);
-				});
-			}
-			else {
-				expenseRestService.setSignMethodToElectronical($scope.expense.uid).then(signElectronically);
-			}
+		// only used to prevent GUI hacking - the button should be disabled
+		if(($scope.method === 'digital' && !$scope.signatureMethod.certificatePassword.$valid) || ($scope.method === 'digital' && !$scope.fileread.certificate)) {
+			globalMessagesService.showInfoMd('reimbursement.globalMessage.expense.warning.formNotCompleteMessage',
+				'reimbursement.globalMessage.expense.warning.formNotCompleteTitle');
 		}
 		else {
-			if($scope.method === 'digital') {
-				signDigitally();
+			spinnerService.show('signSpinner');
+			// first time
+			if($scope.methodChangeable) {
+				if($scope.method === 'digital') {
+					expenseRestService.setSignMethodToDigital($scope.expense.uid).then(function() {
+						expenseRestService.generatePdf($scope.expense.uid, linkToGuestView).then(signDigitally);
+					});
+				}
+				else {
+					expenseRestService.setSignMethodToElectronical($scope.expense.uid).then(signElectronically);
+				}
 			}
 			else {
-				signElectronically();
+				if($scope.method === 'digital') {
+					signDigitally();
+				}
+				else {
+					signElectronically();
+				}
 			}
 		}
 	};
