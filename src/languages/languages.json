@@ -649,10 +649,10 @@
 	},
 	"globalMessage.expense.signFailMessage": {
 		"de": "Die Spesen konnten nicht signiert werden. Bitte überprüfen Sie ihr Zertifikat und versuchen Sie es erneut.",
-		"en": "The expenses has not been signed. Please check your certificate and try again."
+		"en": "The expenses have not been signed. Please check your certificate and try again."
 	},
 	"globalMessage.expense.signFailTitle": {
-		"de": "Spesen Signierung fehgeschlagen",
+		"de": "Spesen Signierung fehlgeschlagen",
 		"en": "Expenses signing failed"
 	},
 	"globalMessage.expense.signPwFailMessage": {
