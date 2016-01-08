@@ -803,6 +803,14 @@
 		"de": "Unterschrift bearbeiten",
 		"en": "Change Signature"
 	},
+	"globalMessage.settings.isActive.UserMustBeActiveMessage": {
+		"de": "Dieser Benutzer kann aufgrund seiner Rolle im Prozess nicht deaktiviert werden.",
+		"en": "This user has due to it's role in the process to be active at any time."
+	},
+	"globalMessage.settings.isActive.UserMustBeActiveTitle": {
+		"de": "Benutzer muss aktiv sein",
+		"en": "User must be active"
+	},
 	"globalMessage.signatureQrNoImageMessage": {
 		"de": "Stellen Sie sicher, dass Sie die Signatur auf Ihrem Smartphone eingegeben und abgeschickt haben. Versuchen Sie bitte erneut, die Signatur von Ihrem Smartphone abzuschicken.",
 		"en": "Make sure that you have entered the signature on your smartphone and confirm it. Please try again to submit the signature on your smartphone."

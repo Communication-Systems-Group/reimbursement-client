@@ -1,6 +1,6 @@
-app.directive('settingsForm', ['$timeout', '$translate', '$uibModal', 'settingsRestService', 'USER',
+app.directive('settingsForm', ['$timeout', '$translate', '$uibModal', 'settingsRestService', 'globalMessagesService', 'USER',
 
-function($timeout, $translate, $uibModal, settingsRestService, USER) {
+function($timeout, $translate, $uibModal, settingsRestService, globalMessagesService, USER) {
 	'use strict';
 
 	return {
@@ -113,8 +113,16 @@ function($timeout, $translate, $uibModal, settingsRestService, USER) {
 					$scope.isLoading = true;
 
 					settingsRestService.putIsActive($scope.form.isActive).then(function() {
-						USER.isActive = $scope.form.isActive;
-					})['finally'](function() {
+							USER.isActive = $scope.form.isActive;
+						}, function(reason) {
+							if(reason.data.type === "UserMustAlwaysBeActiveException") {
+								reason.errorHandled = true;
+								globalMessagesService.showErrorMd('reimbursement.globalMessage.settings.isActive.UserMustBeActiveTitle',
+								'reimbursement.globalMessage.settings.isActive.UserMustBeActiveMessage');
+								$scope.form.isActive = true;
+								USER.isActive = $scope.form.isActive;
+							}
+						})['finally'](function() {
 						$timeout(function() {
 							$scope.isActiveLoading = false;
 							$scope.isLoading = false;
