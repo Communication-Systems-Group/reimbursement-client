@@ -586,6 +586,12 @@
 	"globalMessage.accountCurrentlyDeactivated.settings": {
 		"de": "Einstellungen",
 		"en": "settings"
+	},"globalMessage.accountHasNoManagerTitle": {
+		"de": "Kein Vorgesetzter",
+		"en": "No manager assigned"
+	},"globalMessage.accountHasNoManagerMessage": {
+		"de": "Ihrem Benutzer ist zur Zeit kein Vorgesetzter zugewiesen. Bitte wenden Sie sich an das Support-Team. Vielen Dank!",
+		"en": "There is currently no manager assigned to your user. Please contact the support staff. Thank you!"
 	},
 	"globalMessage.captureAttachment.deleteAttachmentMessage": {
 		"de": "Sind Sie sicher, dass Sie den hochgeladenen Beleg unwiderruflich löschen möchten?",

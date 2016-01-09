@@ -1,6 +1,6 @@
-app.controller('DashboardController', ['$scope', '$state', '$uibModal', 'USER', 'expenseRestService', 'stateService',
+app.controller('DashboardController', ['$scope', '$state', '$uibModal', 'USER', 'expenseRestService', 'stateService', 'globalMessagesService',
 
-function($scope, $state, $uibModal, USER, expenseRestService, stateService) {
+function($scope, $state, $uibModal, USER, expenseRestService, stateService, globalMessagesService) {
 	'use strict';
 
 	$scope.user = USER;
@@ -29,16 +29,22 @@ function($scope, $state, $uibModal, USER, expenseRestService, stateService) {
 	}
 
 	$scope.addExpense = function() {
-		var modalInstance = $uibModal.open({
-			templateUrl: 'expense/create-expense-sap.tpl.html',
-			controller: 'CreateExpenseSapController'
-		});
-
-		modalInstance.result.then(function(data) {
-			$state.go('expense', {
-				uid: data.uid
+		if(!USER.manager) {
+			globalMessagesService.showErrorMd('reimbursement.globalMessage.accountHasNoManagerTitle',
+			'reimbursement.globalMessage.accountHasNoManagerMessage');
+		}
+		else {
+			var modalInstance = $uibModal.open({
+				templateUrl: 'expense/create-expense-sap.tpl.html',
+				controller: 'CreateExpenseSapController'
 			});
-		});
+
+			modalInstance.result.then(function(data) {
+				$state.go('expense', {
+					uid: data.uid
+				});
+			});
+		}
 	};
 
 	$scope.stateOrdering = function(expense) {

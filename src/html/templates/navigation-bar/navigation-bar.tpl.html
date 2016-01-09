@@ -108,4 +108,10 @@
 			<a href ui-sref="settings">{{ 'reimbursement.globalMessage.accountCurrentlyDeactivated.settings' | translate }}</a>.
 		</div>
 	</div>
+	<div class="container global-alert" ng-show="USER.loggedIn && !USER.manager">
+		<div class="alert alert-danger">
+			<i class="fa fa-warning"></i>
+			{{ 'reimbursement.globalMessage.accountHasNoManagerMessage' | translate }}
+		</div>
+	</div>
 </div>
