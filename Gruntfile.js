@@ -321,9 +321,18 @@ module.exports = function (grunt) {
 
 		// upload the built war file
 		http_upload: {
-			deploy: {
+			prod: {
 				options: {
 					url: 'http://<%=deploy.username%>:<%=deploy.password%>@192.41.136.228/manager/text/deploy?path=&update=true',
+					method: 'PUT',
+					rejectUnauthorized: true
+				},
+				src: 'dist/reimbursement-frontend.war',
+				dest: 'reimbursement-frontend'
+			},
+			int: {
+				options: {
+					url: 'http://<%=deploy.username%>:<%=deploy.password%>@192.41.136.227/manager/text/deploy?path=&update=true',
 					method: 'PUT',
 					rejectUnauthorized: true
 				},
@@ -417,11 +426,18 @@ module.exports = function (grunt) {
 		'watch:prod'
 	]);
 
-	// deploys the application to the tomcat
-	grunt.registerTask('deploy', [
+	// deploys the application to the production tomcat server
+	grunt.registerTask('deploy-prod', [
 		'prod',
 		'war',
-		'http_upload'
+		'http_upload:prod'
+	]);
+	
+	// deploys the application to the integration tomcat server
+	grunt.registerTask('deploy-int', [
+		'prod',
+		'war',
+		'http_upload:int'
 	]);
 
 };
