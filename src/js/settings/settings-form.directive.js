@@ -108,20 +108,18 @@ function($timeout, $translate, $uibModal, settingsRestService, globalMessagesSer
 			};
 
 			$scope.saveIsActive = function() {
-				if($scope.form.isActive !== "") {
+				if(USER.hasRole("DEPARTMENT_MANAGER") || USER.hasRole("HEAD_OF_INSTITUTE")) {
+					$scope.form.isActive = true;
+					USER.isActive = $scope.form.isActive;
+					globalMessagesService.showErrorMd('reimbursement.globalMessage.settings.isActive.UserMustBeActiveTitle',
+					'reimbursement.globalMessage.settings.isActive.UserMustBeActiveMessage');
+				}
+				else if($scope.form.isActive !== "") {
 					$scope.isActiveLoading = true;
 					$scope.isLoading = true;
 
 					settingsRestService.putIsActive($scope.form.isActive).then(function() {
 							USER.isActive = $scope.form.isActive;
-						}, function(reason) {
-							if(reason.data.type === "UserMustAlwaysBeActiveException") {
-								reason.errorHandled = true;
-								globalMessagesService.showErrorMd('reimbursement.globalMessage.settings.isActive.UserMustBeActiveTitle',
-								'reimbursement.globalMessage.settings.isActive.UserMustBeActiveMessage');
-								$scope.form.isActive = true;
-								USER.isActive = $scope.form.isActive;
-							}
 						})['finally'](function() {
 						$timeout(function() {
 							$scope.isActiveLoading = false;
