@@ -158,6 +158,7 @@ function(moment, $filter, $timeout, $translate, $uibModal, USER, spinnerService,
 						viewMode: 'months',
 						allowInputToggle: true,
 						maxDate: moment(),
+						minDate: moment('01/01/2000'),
 						calendarWeeks: true
 					}).on('dp.hide', function() {
 						$scope.form.date = jQuery('.datepicker').find('input').first().val();
