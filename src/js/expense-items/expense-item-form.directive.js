@@ -15,7 +15,6 @@ function(moment, $filter, $timeout, $translate, $uibModal, USER, spinnerService,
 		},
 		link: function($scope) {
 
-			$scope.isDateInvalid = false;
 			$scope.form = $scope.form || {};
 			$scope.USER = USER;
 			$scope.projectFieldRequired = ($scope.USER.hasRole('PROF') || $scope.USER.hasRole('DEPARTMENT_MANAGER') || $scope.USER.hasRole('FINANCE_ADMIN')) ? true : false;
@@ -116,22 +115,14 @@ function(moment, $filter, $timeout, $translate, $uibModal, USER, spinnerService,
 						if(exchangeRateDate !== $filter('getISODate')($scope.form.date)) {
 							var date = $filter('getISODate')($scope.form.date);
 
-							var re = new RegExp($filter('regexValidation')('expense.date'));
-							if(re.exec(date)) {
-								$scope.isDateInvalid = false;
-
-								expenseItemsRestService.getExchangeRates(date).then(function(response) {
-									exchangeRates = response.data;
-									exchangeRateDate = $scope.form.date;
-									calculate();
-								}, function(response) {
-									response.errorHandled = true;
-									$scope.calculatedAmount = invalidDate;
-								});
-							}
-							else {
-								$scope.isDateInvalid = true;
-							}
+							expenseItemsRestService.getExchangeRates(date).then(function(response) {
+								exchangeRates = response.data;
+								exchangeRateDate = $scope.form.date;
+								calculate();
+							}, function(response) {
+								response.errorHandled = true;
+								$scope.calculatedAmount = invalidDate;
+							});
 						}
 						else {
 							calculate();
@@ -143,7 +134,7 @@ function(moment, $filter, $timeout, $translate, $uibModal, USER, spinnerService,
 				};
 
 				$scope.validate = function() {
-					if(typeof $scope.form.date === "undefined" || $scope.form.date === null || !moment($scope.form.date, 'dd.MM.yyyy').isValid() || $scope.isDateInvalid) {
+					if(typeof $scope.form.date === "undefined" || $scope.form.date === null || !moment($scope.form.date, 'dd.MM.yyyy').isValid()) {
 						return false;
 					}
 					if(typeof $scope.form.costCategoryUid === "undefined" || $scope.form.costCategoryUid === null || $scope.form.costCategoryUid === "") {

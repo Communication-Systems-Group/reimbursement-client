@@ -211,10 +211,6 @@ i.capsLockIcon{
 		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(233, 102, 102, 0.6);
 		border-color: $default-color-input-validation-invalid;
 	}
-	&.date-error {
-		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(233, 102, 102, 0.6);
-		border-color: $default-color-input-validation-invalid;
-	}
 }
 
 .global-alert {

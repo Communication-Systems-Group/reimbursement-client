@@ -5,8 +5,8 @@
 				{{ 'reimbursement.expenseItem.date' | translate }}
 			</label>
 			<div class="col-sm-8">
-				<div class="input-group date datepicker error " ng-if="editable">
-					<input type="text" id="expenseitem-date" ng-model="form.date" class="input-validation form-control" ng-class="{'date-error': isDateInvalid}" ng-change="calculateAmount()">
+				<div class="input-group date datepicker" ng-if="editable">
+					<input type="text" id="expenseitem-date" ng-model="form.date" class="input-validation form-control" ng-change="calculateAmount()">
 					<span class="input-group-addon">
 						<span class="fa fa-calendar"></span>
 					</span>
