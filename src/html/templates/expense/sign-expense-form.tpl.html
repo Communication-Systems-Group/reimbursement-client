@@ -53,7 +53,7 @@
 							</div>
 						</div>
 					</div>
-					<div flow-init="{ target: signDigitallyPath, testChunks: false, singleFile: true, simultaneousUploads: 1 }"
+					<div flow-init="{ target: signDigitallyPath, testChunks: false, singleFile: true, simultaneousUploads: 1 , chunkSize: maxUploadSize}"
 					flow-name="flow.signDigitally" flow-file-success="flowUploadSuccess()" flow-file-error="flowUploadError()"></div>
 				</div>
 

@@ -1,10 +1,11 @@
-app.controller('SignExpenseFormController', ['$scope', '$uibModalInstance', '$timeout', 'THIS_HOST', 'digitallySignExpenseService', 'spinnerService', 'expenseRestService', 'globalMessagesService', 'base64BinaryConverterService', 'expense',
+app.controller('SignExpenseFormController', ['$scope', '$uibModalInstance', '$timeout', 'THIS_HOST', 'MAX_UPLOAD_SIZE', 'digitallySignExpenseService', 'spinnerService', 'expenseRestService', 'globalMessagesService', 'base64BinaryConverterService', 'expense',
 
-function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseService, spinnerService, expenseRestService, globalMessagesService, base64BinaryConverterService, expense) {
+function($scope, $uibModalInstance, $timeout, THIS_HOST, MAX_UPLOAD_SIZE, digitallySignExpenseService, spinnerService, expenseRestService, globalMessagesService, base64BinaryConverterService, expense) {
 	"use strict";
 
 	var linkToGuestView = THIS_HOST + "/expense/guest/";
 
+	$scope.maxUploadSize = MAX_UPLOAD_SIZE;
 	$scope.expense = expense;
 	$scope.privateKey = '';
 	$scope.dismiss = $uibModalInstance.dismiss;
@@ -69,6 +70,12 @@ function($scope, $uibModalInstance, $timeout, THIS_HOST, digitallySignExpenseSer
 
 			digitallySignExpenseService.signPdf(base64Pdf, $scope.fileread.certificate, $scope.certificatePassword).then(function(signedBlobPdf) {
 				$timeout(function() {
+					window.console.log(base64Pdf.length);
+					base64BinaryConverterService.toBase64(signedBlobPdf, function(result) {
+							window.console.log(result.length);
+						}
+					);
+
 					$scope.flow.signDigitally.addFile(signedBlobPdf);
 					$scope.flow.signDigitally.upload();
 				});
