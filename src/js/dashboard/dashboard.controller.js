@@ -1,6 +1,6 @@
-app.controller('DashboardController', ['$scope', '$state', '$uibModal', 'USER', 'expenseRestService', 'stateService', 'globalMessagesService',
+app.controller('DashboardController', ['$scope', '$state', '$uibModal', 'USER', 'expenseRestService', 'stateService', 'globalMessagesService', 'spinnerService',
 
-function($scope, $state, $uibModal, USER, expenseRestService, stateService, globalMessagesService) {
+function($scope, $state, $uibModal, USER, expenseRestService, stateService, globalMessagesService, spinnerService) {
 	'use strict';
 
 	$scope.user = USER;
@@ -13,8 +13,11 @@ function($scope, $state, $uibModal, USER, expenseRestService, stateService, glob
 	}
 
 	$scope.updateMyExpenses = function() {
+		spinnerService.show("spinnerDashboard");
 		expenseRestService.getMyExpenses().then(function(response) {
 			$scope.myExpenses = response.data;
+		})['finally'](function() {
+			spinnerService.hide("spinnerDashboard");
 		});
 	};
 	$scope.updateMyExpenses();
