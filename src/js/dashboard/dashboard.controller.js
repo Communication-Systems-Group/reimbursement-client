@@ -13,18 +13,25 @@ function($scope, $state, $uibModal, USER, expenseRestService, stateService, glob
 	}
 
 	$scope.updateMyExpenses = function() {
-		spinnerService.show("spinnerDashboard");
+		angular.element(document).ready(function () {
+			spinnerService.show("spinnerMyExpensesSection");
+		});
 		expenseRestService.getMyExpenses().then(function(response) {
 			$scope.myExpenses = response.data;
 		})['finally'](function() {
-			spinnerService.hide("spinnerDashboard");
+			spinnerService.hide("spinnerMyExpensesSection");
 		});
 	};
 	$scope.updateMyExpenses();
 
 	$scope.updateReviewExpenses = function() {
+		angular.element(document).ready(function () {
+			spinnerService.show("spinnerReviewSection");
+		});
 		expenseRestService.getReviewExpenses().then(function(response) {
 			$scope.myReviewExpenses = response.data;
+		})['finally'](function() {
+			spinnerService.hide("spinnerReviewSection");
 		});
 	};
 	if ($scope.showReviewSection) {

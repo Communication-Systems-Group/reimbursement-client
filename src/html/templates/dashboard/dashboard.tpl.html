@@ -1,5 +1,4 @@
 <div id="dashboard">
-	<spinner id="spinnerDashboard" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 	<h1 class="page-header">
 		<i class="fa fa-dashboard"></i>
 		{{ 'reimbursement.dashboard.title' | translate }}
@@ -11,6 +10,7 @@
 	</h2>
 
 	<table class="table table-striped">
+		<spinner id="spinnerMyExpensesSection" class = "bounded-spinner" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 		<thead>
 			<tr>
 				<th>{{ 'reimbursement.expense.accountingTitle' | translate }}</th>
@@ -45,7 +45,6 @@
 			</tr>
 		</tbody>
 	</table>
-
 	<div class="text-right">
 		<button type="button" class="btn btn-primary" ng-click="addExpense()">
 			<i class="fa fa-plus-circle"></i>
@@ -60,6 +59,7 @@
 		</h2>
 
 		<table class="table table-striped">
+			<spinner id="spinnerReviewSection" class = "bounded-spinner" label="{{ 'reimbursement.loading.label' | translate }}"></spinner>
 			<thead>
 				<tr>
 					<th>{{ 'reimbursement.dashboard.table.expenseAuthor' | translate }}</th>
