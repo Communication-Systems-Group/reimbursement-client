@@ -13,7 +13,7 @@
 		<form id="signatureCaptureImage" ng-show="showUploadImage">
 			<spinner id="spinnerSignatureImage" label="{{ 'reimbursement.captureSignature.spinnerUploading' | translate }}"></spinner>
 
-			<div flow-init="{target: postSignaturePath, testChunks: false, singleFile: true, simultaneousUploads: 1}"
+			<div flow-init="{target: postSignaturePath, testChunks: false, singleFile: true, simultaneousUploads: 1, chunkSize: maxUploadSize}"
 				flow-name="flow.image" flow-files-submitted="$flow.upload()"
 				flow-upload-started="showSpinner('spinnerSignatureImage')" flow-file-success="getImageAndGoToNextPage()"
 				flow-file-error="showUploadError('image')">
@@ -53,7 +53,7 @@
 					<i class="fa fa-arrow-circle-left"></i>
 				</div>
 				<signature-pad submit="submitTouch" full="false" parents="['#signatureCaptureTouch','#signatureCaptureImage']"></signature-pad>
-				<div flow-init="{target: postSignaturePath, testChunks: false, singleFile: true, simultaneousUploads: 1}"
+				<div flow-init="{target: postSignaturePath, testChunks: false, singleFile: true, simultaneousUploads: 1, chunkSize: maxUploadSize}"
 					flow-name="flow.touch" flow-upload-started="showSpinner('spinnerSignatureTouch')"
 					flow-file-success="getImageAndGoToNextPage()" flow-file-error="showUploadError('touch')">
 				</div>

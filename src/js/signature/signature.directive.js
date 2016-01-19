@@ -1,6 +1,6 @@
-app.directive('signature', ['$state', '$uibModal', 'Modernizr', 'spinnerService', 'signatureRestService', 'base64BinaryConverterService', 'globalMessagesService',
+app.directive('signature', ['$state', '$uibModal', 'Modernizr', 'spinnerService', 'signatureRestService', 'base64BinaryConverterService', 'globalMessagesService', 'MAX_UPLOAD_SIZE',
 
-function($state, $uibModal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService, globalMessagesService) {
+function($state, $uibModal, Modernizr, spinnerService, signatureRestService, base64BinaryConverterService, globalMessagesService, MAX_UPLOAD_SIZE) {
 	"use strict";
 
 	return {
@@ -17,6 +17,7 @@ function($state, $uibModal, Modernizr, spinnerService, signatureRestService, bas
 			$scope.showTouchInput = true;
 			$scope.forceSignaturePad = false;
 			$scope.flow = {};
+			$scope.maxUploadSize = MAX_UPLOAD_SIZE;
 
 			$scope.selectTouchTab = function() {
 				$scope.showUploadImage = false;
