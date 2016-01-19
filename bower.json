@@ -12,7 +12,7 @@
 		"eonasdan-bootstrap-datetimepicker": "^4.17.37",
 		"c3": "^0.4.10",
 		"d3": "^3.5.6",
-		"flow.js": "^2.9.0",
+		"flow.js": "2.9.0",
 		"font-awesome": "^4.5.0",
 		"jcrop": "^0.9.13",
 		"jquery": "^2.1.4",
