@@ -1,11 +1,13 @@
-app.controller('DashboardController', ['$scope', '$state', '$uibModal', 'USER', 'expenseRestService', 'stateService', 'globalMessagesService', 'spinnerService',
+app.controller('DashboardController', ['$scope', '$state', '$uibModal', 'USER', 'expenseRestService', 'stateService', 'globalMessagesService',
 
-function($scope, $state, $uibModal, USER, expenseRestService, stateService, globalMessagesService, spinnerService) {
+function($scope, $state, $uibModal, USER, expenseRestService, stateService, globalMessagesService) {
 	'use strict';
 
 	$scope.user = USER;
 	$scope.myExpenses = [];
 	$scope.myReviewExpenses = [];
+	$scope.showingMyExpenseSpinner = true;
+	$scope.showingReviewsSpinner = true;
 
 	$scope.showReviewSection = false;
 	if (USER.hasRole('FINANCE_ADMIN') || USER.hasRole('PROF') || USER.hasRole('DEPARTMENT_MANAGER') || USER.hasRole('HEAD_OF_INSTITUTE')) {
@@ -13,25 +15,22 @@ function($scope, $state, $uibModal, USER, expenseRestService, stateService, glob
 	}
 
 	$scope.updateMyExpenses = function() {
-		angular.element(document).ready(function () {
-			spinnerService.show("spinnerMyExpensesSection");
-		});
+		$scope.showingMyExpenseSpinner = true;
 		expenseRestService.getMyExpenses().then(function(response) {
 			$scope.myExpenses = response.data;
 		})['finally'](function() {
-			spinnerService.hide("spinnerMyExpensesSection");
+			$scope.showingMyExpenseSpinner = false;
 		});
 	};
 	$scope.updateMyExpenses();
 
 	$scope.updateReviewExpenses = function() {
-		angular.element(document).ready(function () {
-			spinnerService.show("spinnerReviewSection");
-		});
+		window.console.log("blub");
+		$scope.showingReviewsSpinner = true;
 		expenseRestService.getReviewExpenses().then(function(response) {
 			$scope.myReviewExpenses = response.data;
 		})['finally'](function() {
-			spinnerService.hide("spinnerReviewSection");
+			$scope.showingReviewsSpinner = false;
 		});
 	};
 	if ($scope.showReviewSection) {
