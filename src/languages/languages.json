@@ -622,8 +622,8 @@
 		"en": "Archive Expenses"
 	},
 	"globalMessage.expense.info.archiveExpenseMessage": {
-		"de": "Wollen Sie diese Spesen nun archivieren? Falls Sie dies noch nicht möchten, werden Sie automatisch nach 2 Monaten archiviert.",
-		"en": "Do you want to archive these expenses? If not, they will be archived automatically after 2 months."
+		"de": "Wollen Sie diese Spesen nun archivieren? Falls Sie dies noch nicht möchten, werden Sie automatisch nach 6 Monaten archiviert.",
+		"en": "Do you want to archive these expenses? If not, they will be archived automatically after 6 months."
 	},
 	"globalMessage.expense.confirmAssignMessage": {
 		"de": "Möchten Sie sich diese Spesen zuweisen?",
