@@ -310,10 +310,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$loca
 			// the welcome directive listens to this state
 			url: "/welcome"
 
-		}).state('user-guide', {
-			templateUrl: "welcome/user-guide.tpl.html",
-			controller: "UserGuideController",
-			url: "/user-guide"
 		});
 
 		$urlRouterProvider.otherwise('/welcome');
