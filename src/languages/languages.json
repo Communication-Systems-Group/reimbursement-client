@@ -360,8 +360,8 @@
 		"en": "Reject"
 	},
 	"expense.rejectComment": {
-		"de": "Dein Spesenantrag wurde von der zuständigen Person abgelehnt. Folgende Nachricht wurde dabei hinterlassen:",
-		"en": "Your expenses had been rejected by the responsible person. The following message had been added:"
+		"de": "Dieser Spesenantrag wurde von der zuständigen Person abgelehnt. Folgende Nachricht wurde dabei hinterlassen:",
+		"en": "This expenses had been rejected by the responsible person. The following message had been added:"
 	},
 	"expense.rejectReason": {
 		"de": "Begründung",
