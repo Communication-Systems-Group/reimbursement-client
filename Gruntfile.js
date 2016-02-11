@@ -306,7 +306,7 @@ module.exports = function (grunt) {
 			target: {
 				options: {
 					war_dist_folder: 'dist',
-					war_name: 'reimbursement-frontend',
+					war_name: 'ROOT',
 					webxml_welcome: 'index.html',
 					webxml_display_name: 'Reimbursement Front-End'
 				},
@@ -327,7 +327,7 @@ module.exports = function (grunt) {
 					method: 'PUT',
 					rejectUnauthorized: true
 				},
-				src: 'dist/reimbursement-frontend.war',
+				src: 'dist/ROOT.war',
 				dest: 'reimbursement-frontend'
 			},
 			int: {
@@ -336,7 +336,7 @@ module.exports = function (grunt) {
 					method: 'PUT',
 					rejectUnauthorized: true
 				},
-				src: 'dist/reimbursement-frontend.war',
+				src: 'dist/ROOT.war',
 				dest: 'reimbursement-frontend'
 			}
 		},
@@ -439,5 +439,12 @@ module.exports = function (grunt) {
 		'war',
 		'http_upload:int'
 	]);
+	
+	//produce war file
+	grunt.registerTask('deploy-local', [
+		'default',
+		'war'
+	]);
+
 
 };
