@@ -40,4 +40,4 @@ deploy.json
 
 # IDE's
 .idea
-/nbproject/private/
+/nbproject
